@@ -36,11 +36,11 @@ All URIs are relative to *https://api.meetcampfire.com*
 |[**coaApiJournalEntryRetrieve**](#coaapijournalentryretrieve) | **GET** /coa/api/journal_entry/{id} | Retrieve Journal Entry|
 |[**coaApiJournalEntryUpdate**](#coaapijournalentryupdate) | **PUT** /coa/api/journal_entry/{id} | Update Journal Entry|
 |[**coaApiTagBulkSearchCreate**](#coaapitagbulksearchcreate) | **POST** /coa/api/tag/bulk-search | Bulk Search Custom Dimensions by Name|
-|[**coaApiTransactionBillPaymentsCreate**](#coaapitransactionbillpaymentscreate) | **POST** /coa/api/transaction/{transaction_id}/bill_payments | |
-|[**coaApiTransactionCreditMemoPaymentsCreate**](#coaapitransactioncreditmemopaymentscreate) | **POST** /coa/api/transaction/{transaction_id}/credit_memo_payments | |
-|[**coaApiTransactionDebitMemoPaymentsCreate**](#coaapitransactiondebitmemopaymentscreate) | **POST** /coa/api/transaction/{transaction_id}/debit_memo_payments | |
-|[**coaApiTransactionDestroy**](#coaapitransactiondestroy) | **DELETE** /coa/api/transaction/{id} | |
-|[**coaApiTransactionInvoicePaymentsCreate**](#coaapitransactioninvoicepaymentscreate) | **POST** /coa/api/transaction/{transaction_id}/invoice_payments | |
+|[**coaApiTransactionBillPaymentsCreate**](#coaapitransactionbillpaymentscreate) | **POST** /coa/api/transaction/{transaction_id}/bill_payments | Apply Bill Payments to Transaction|
+|[**coaApiTransactionCreditMemoPaymentsCreate**](#coaapitransactioncreditmemopaymentscreate) | **POST** /coa/api/transaction/{transaction_id}/credit_memo_payments | Apply Credit Memo Payments to Transaction|
+|[**coaApiTransactionDebitMemoPaymentsCreate**](#coaapitransactiondebitmemopaymentscreate) | **POST** /coa/api/transaction/{transaction_id}/debit_memo_payments | Apply Debit Memo Payments to Transaction|
+|[**coaApiTransactionDestroy**](#coaapitransactiondestroy) | **DELETE** /coa/api/transaction/{id} | Delete Chart Transaction|
+|[**coaApiTransactionInvoicePaymentsCreate**](#coaapitransactioninvoicepaymentscreate) | **POST** /coa/api/transaction/{transaction_id}/invoice_payments | Apply Invoice Payments to Transaction|
 |[**coaApiTransactionPartialUpdate**](#coaapitransactionpartialupdate) | **PATCH** /coa/api/transaction/{id} | Partial Update Chart Transaction|
 |[**coaApiTransactionRetrieve**](#coaapitransactionretrieve) | **GET** /coa/api/transaction | List Chart Transactions|
 |[**coaApiTransactionRetrieve2**](#coaapitransactionretrieve2) | **GET** /coa/api/transaction/{id} | Retrieve Chart Transaction|
@@ -1811,6 +1811,7 @@ const { status, data } = await apiInstance.coaApiTagBulkSearchCreate(
 # **coaApiTransactionBillPaymentsCreate**
 > coaApiTransactionBillPaymentsCreate()
 
+Apply bill payments to a bank transaction, linking the transaction to one or more bills.
 
 ### Example
 
@@ -1861,6 +1862,7 @@ void (empty response body)
 # **coaApiTransactionCreditMemoPaymentsCreate**
 > coaApiTransactionCreditMemoPaymentsCreate()
 
+Apply credit memo payments to a bank transaction.
 
 ### Example
 
@@ -1911,6 +1913,7 @@ void (empty response body)
 # **coaApiTransactionDebitMemoPaymentsCreate**
 > coaApiTransactionDebitMemoPaymentsCreate()
 
+Apply debit memo payments to a bank transaction.
 
 ### Example
 
@@ -1961,6 +1964,7 @@ void (empty response body)
 # **coaApiTransactionDestroy**
 > coaApiTransactionDestroy()
 
+Delete a chart transaction. Cannot delete transactions in closed accounting periods.
 
 ### Example
 
@@ -2011,6 +2015,7 @@ void (empty response body)
 # **coaApiTransactionInvoicePaymentsCreate**
 > coaApiTransactionInvoicePaymentsCreate()
 
+Apply invoice payments to a bank transaction, linking the transaction to one or more invoices.
 
 ### Example
 

@@ -18,37 +18,37 @@ All URIs are relative to *https://api.meetcampfire.com*
 |[**coaApiFixedAssetAutomationRetrieve**](#coaapifixedassetautomationretrieve) | **GET** /coa/api/fixed-asset-automation/{id}/ | |
 |[**coaApiFixedAssetAutomationRunCreate**](#coaapifixedassetautomationruncreate) | **POST** /coa/api/fixed-asset-automation/run | |
 |[**coaApiFixedAssetAutomationUpdate**](#coaapifixedassetautomationupdate) | **PUT** /coa/api/fixed-asset-automation/{id}/ | |
-|[**coaApiTransactionBulkUpdateCreate**](#coaapitransactionbulkupdatecreate) | **POST** /coa/api/transaction/bulk-update | |
-|[**coaApiTransactionMatchProcessCreate**](#coaapitransactionmatchprocesscreate) | **POST** /coa/api/transaction-match-process | |
-|[**coaApiTransactionMatchesCountRetrieve**](#coaapitransactionmatchescountretrieve) | **GET** /coa/api/transaction-matches-count | |
-|[**coaApiTransactionMatchesDestroy**](#coaapitransactionmatchesdestroy) | **DELETE** /coa/api/transaction-matches/{id} | |
-|[**coaApiTransactionMatchesList**](#coaapitransactionmatcheslist) | **GET** /coa/api/transaction-matches | |
-|[**coaApiTransactionMatchesPartialUpdate**](#coaapitransactionmatchespartialupdate) | **PATCH** /coa/api/transaction-matches/{id} | |
-|[**coaApiTransactionMatchesRejectCreate**](#coaapitransactionmatchesrejectcreate) | **POST** /coa/api/transaction-matches/{id}/reject | |
-|[**coaApiTransactionMatchesRetrieve**](#coaapitransactionmatchesretrieve) | **GET** /coa/api/transaction-matches/{id} | |
+|[**coaApiTransactionBulkUpdateCreate**](#coaapitransactionbulkupdatecreate) | **POST** /coa/api/transaction/bulk-update | Bulk Update Chart Transactions|
+|[**coaApiTransactionMatchProcessCreate**](#coaapitransactionmatchprocesscreate) | **POST** /coa/api/transaction-match-process | Process Transaction Matches|
+|[**coaApiTransactionMatchesCountRetrieve**](#coaapitransactionmatchescountretrieve) | **GET** /coa/api/transaction-matches-count | Get Transaction Matches Count|
+|[**coaApiTransactionMatchesDestroy**](#coaapitransactionmatchesdestroy) | **DELETE** /coa/api/transaction-matches/{id} | Delete Transaction Match|
+|[**coaApiTransactionMatchesList**](#coaapitransactionmatcheslist) | **GET** /coa/api/transaction-matches | List Transaction Matches|
+|[**coaApiTransactionMatchesPartialUpdate**](#coaapitransactionmatchespartialupdate) | **PATCH** /coa/api/transaction-matches/{id} | Partial Update Transaction Match|
+|[**coaApiTransactionMatchesRejectCreate**](#coaapitransactionmatchesrejectcreate) | **POST** /coa/api/transaction-matches/{id}/reject | Reject Transaction Match|
+|[**coaApiTransactionMatchesRetrieve**](#coaapitransactionmatchesretrieve) | **GET** /coa/api/transaction-matches/{id} | Retrieve Transaction Match|
 |[**coaApiTransactionMatchesStatusCreate**](#coaapitransactionmatchesstatuscreate) | **POST** /coa/api/transaction-matches/{id}/status | |
-|[**coaApiTransactionMatchesStatusUpdate**](#coaapitransactionmatchesstatusupdate) | **PUT** /coa/api/transaction-matches/{id}/status | |
-|[**coaApiTransactionMatchesUpdate**](#coaapitransactionmatchesupdate) | **PUT** /coa/api/transaction-matches/{id} | |
+|[**coaApiTransactionMatchesStatusUpdate**](#coaapitransactionmatchesstatusupdate) | **PUT** /coa/api/transaction-matches/{id}/status | Update Transaction Match Status|
+|[**coaApiTransactionMatchesUpdate**](#coaapitransactionmatchesupdate) | **PUT** /coa/api/transaction-matches/{id} | Update Transaction Match|
 |[**coaApiTransactionMergeCreate**](#coaapitransactionmergecreate) | **POST** /coa/api/transaction/merge | Merge Chart Transactions|
 |[**coaApiTransactionMergeRetrieve**](#coaapitransactionmergeretrieve) | **GET** /coa/api/transaction/merge | Preview Chart Transaction Merge|
-|[**coaApiV1BillAmortizationCreate**](#coaapiv1billamortizationcreate) | **POST** /coa/api/v1/bill/amortization | |
-|[**coaApiV1BillAmortizationCreate2**](#coaapiv1billamortizationcreate2) | **POST** /coa/api/v1/bill/{bill_id}/amortization | |
-|[**coaApiV1BillAmortizationDestroy**](#coaapiv1billamortizationdestroy) | **DELETE** /coa/api/v1/bill/amortization | |
-|[**coaApiV1BillAmortizationDestroy2**](#coaapiv1billamortizationdestroy2) | **DELETE** /coa/api/v1/bill/{bill_id}/amortization | |
-|[**coaApiV1BillAmortizationGenerateScheduleRetrieve**](#coaapiv1billamortizationgeneratescheduleretrieve) | **GET** /coa/api/v1/bill/amortization/generate-schedule | |
-|[**coaApiV1BillAmortizationGenerateScheduleUpdate**](#coaapiv1billamortizationgeneratescheduleupdate) | **PUT** /coa/api/v1/bill/amortization/generate-schedule | |
-|[**coaApiV1BillAmortizationRetrieve**](#coaapiv1billamortizationretrieve) | **GET** /coa/api/v1/bill/amortization | |
-|[**coaApiV1BillAmortizationRetrieve2**](#coaapiv1billamortizationretrieve2) | **GET** /coa/api/v1/bill/{bill_id}/amortization | |
-|[**coaApiV1CreditMemoPdfRetrieve**](#coaapiv1creditmemopdfretrieve) | **GET** /coa/api/v1/credit-memo/{id}/pdf/ | |
+|[**coaApiV1BillAmortizationCreate**](#coaapiv1billamortizationcreate) | **POST** /coa/api/v1/bill/amortization | Create Bill Amortization (Global)|
+|[**coaApiV1BillAmortizationCreate2**](#coaapiv1billamortizationcreate2) | **POST** /coa/api/v1/bill/{bill_id}/amortization | Create Bill Amortization|
+|[**coaApiV1BillAmortizationDestroy**](#coaapiv1billamortizationdestroy) | **DELETE** /coa/api/v1/bill/amortization | Delete Bill Amortization (Global)|
+|[**coaApiV1BillAmortizationDestroy2**](#coaapiv1billamortizationdestroy2) | **DELETE** /coa/api/v1/bill/{bill_id}/amortization | Delete Bill Amortization|
+|[**coaApiV1BillAmortizationGenerateScheduleRetrieve**](#coaapiv1billamortizationgeneratescheduleretrieve) | **GET** /coa/api/v1/bill/amortization/generate-schedule | Preview Amortization Schedule|
+|[**coaApiV1BillAmortizationGenerateScheduleUpdate**](#coaapiv1billamortizationgeneratescheduleupdate) | **PUT** /coa/api/v1/bill/amortization/generate-schedule | Generate Amortization Schedule|
+|[**coaApiV1BillAmortizationRetrieve**](#coaapiv1billamortizationretrieve) | **GET** /coa/api/v1/bill/amortization | Get Bill Amortization (Global)|
+|[**coaApiV1BillAmortizationRetrieve2**](#coaapiv1billamortizationretrieve2) | **GET** /coa/api/v1/bill/{bill_id}/amortization | Get Bill Amortization|
+|[**coaApiV1CreditMemoPdfRetrieve**](#coaapiv1creditmemopdfretrieve) | **GET** /coa/api/v1/credit-memo/{id}/pdf/ | Get Credit Memo PDF|
 |[**coaApiV1CreditMemoSendUpdate**](#coaapiv1creditmemosendupdate) | **PUT** /coa/api/v1/credit-memo/{id}/send/ | |
 |[**coaApiV1InvoiceStatementClientPdfRetrieve**](#coaapiv1invoicestatementclientpdfretrieve) | **GET** /coa/api/v1/invoice/statement/client/{client_id}/pdf/ | |
-|[**coaApiVendorCustomField1Create**](#coaapivendorcustomfield1create) | **POST** /coa/api/vendor_custom_field_1/ | |
-|[**coaApiVendorCustomField1Destroy**](#coaapivendorcustomfield1destroy) | **DELETE** /coa/api/vendor_custom_field_1/{id}/ | |
-|[**coaApiVendorCustomField1List**](#coaapivendorcustomfield1list) | **GET** /coa/api/vendor_custom_field_1/ | |
-|[**coaApiVendorCustomField1PartialUpdate**](#coaapivendorcustomfield1partialupdate) | **PATCH** /coa/api/vendor_custom_field_1/{id}/ | |
-|[**coaApiVendorCustomField1Retrieve**](#coaapivendorcustomfield1retrieve) | **GET** /coa/api/vendor_custom_field_1/{id}/ | |
-|[**coaApiVendorCustomField1Update**](#coaapivendorcustomfield1update) | **PUT** /coa/api/vendor_custom_field_1/{id}/ | |
-|[**coaApiVendorSummaryList**](#coaapivendorsummarylist) | **GET** /coa/api/vendor/summary | |
+|[**coaApiVendorCustomField1Create**](#coaapivendorcustomfield1create) | **POST** /coa/api/vendor_custom_field_1/ | Create Vendor Custom Field|
+|[**coaApiVendorCustomField1Destroy**](#coaapivendorcustomfield1destroy) | **DELETE** /coa/api/vendor_custom_field_1/{id}/ | Delete Vendor Custom Field|
+|[**coaApiVendorCustomField1List**](#coaapivendorcustomfield1list) | **GET** /coa/api/vendor_custom_field_1/ | List Vendor Custom Fields|
+|[**coaApiVendorCustomField1PartialUpdate**](#coaapivendorcustomfield1partialupdate) | **PATCH** /coa/api/vendor_custom_field_1/{id}/ | Partial Update Vendor Custom Field|
+|[**coaApiVendorCustomField1Retrieve**](#coaapivendorcustomfield1retrieve) | **GET** /coa/api/vendor_custom_field_1/{id}/ | Retrieve Vendor Custom Field|
+|[**coaApiVendorCustomField1Update**](#coaapivendorcustomfield1update) | **PUT** /coa/api/vendor_custom_field_1/{id}/ | Update Vendor Custom Field|
+|[**coaApiVendorSummaryList**](#coaapivendorsummarylist) | **GET** /coa/api/vendor/summary | List Vendor Summaries|
 
 # **coaApiEntityAttachmentCreate**
 > coaApiEntityAttachmentCreate()
@@ -778,6 +778,7 @@ const { status, data } = await apiInstance.coaApiFixedAssetAutomationUpdate(
 # **coaApiTransactionBulkUpdateCreate**
 > coaApiTransactionBulkUpdateCreate()
 
+Update multiple chart transactions in a single request.
 
 ### Example
 
@@ -821,6 +822,7 @@ void (empty response body)
 # **coaApiTransactionMatchProcessCreate**
 > coaApiTransactionMatchProcessCreate()
 
+Trigger the transaction matching process for bank reconciliation.
 
 ### Example
 
@@ -864,6 +866,7 @@ void (empty response body)
 # **coaApiTransactionMatchesCountRetrieve**
 > coaApiTransactionMatchesCountRetrieve()
 
+Retrieve the count of pending transaction matches.
 
 ### Example
 
@@ -907,6 +910,7 @@ void (empty response body)
 # **coaApiTransactionMatchesDestroy**
 > coaApiTransactionMatchesDestroy()
 
+Delete a transaction match record.
 
 ### Example
 
@@ -957,6 +961,7 @@ void (empty response body)
 # **coaApiTransactionMatchesList**
 > PaginatedTransactionMatchList coaApiTransactionMatchesList()
 
+Retrieve a list of transaction matches for bank reconciliation review.
 
 ### Example
 
@@ -1010,6 +1015,7 @@ const { status, data } = await apiInstance.coaApiTransactionMatchesList(
 # **coaApiTransactionMatchesPartialUpdate**
 > TransactionMatch coaApiTransactionMatchesPartialUpdate()
 
+Partially update a transaction match record.
 
 ### Example
 
@@ -1064,6 +1070,7 @@ const { status, data } = await apiInstance.coaApiTransactionMatchesPartialUpdate
 # **coaApiTransactionMatchesRejectCreate**
 > coaApiTransactionMatchesRejectCreate()
 
+Reject a proposed transaction match.
 
 ### Example
 
@@ -1114,6 +1121,7 @@ void (empty response body)
 # **coaApiTransactionMatchesRetrieve**
 > TransactionMatch coaApiTransactionMatchesRetrieve()
 
+Retrieve a specific transaction match by ID.
 
 ### Example
 
@@ -1215,6 +1223,7 @@ void (empty response body)
 # **coaApiTransactionMatchesStatusUpdate**
 > coaApiTransactionMatchesStatusUpdate()
 
+Update the status of a transaction match (accept or reject).
 
 ### Example
 
@@ -1265,6 +1274,7 @@ void (empty response body)
 # **coaApiTransactionMatchesUpdate**
 > TransactionMatch coaApiTransactionMatchesUpdate(transactionMatch)
 
+Update a transaction match record.
 
 ### Example
 
@@ -1417,6 +1427,7 @@ This endpoint does not have any parameters.
 # **coaApiV1BillAmortizationCreate**
 > coaApiV1BillAmortizationCreate()
 
+Create a bill amortization schedule.
 
 ### Example
 
@@ -1460,6 +1471,7 @@ void (empty response body)
 # **coaApiV1BillAmortizationCreate2**
 > coaApiV1BillAmortizationCreate2()
 
+Create an amortization schedule for a specific bill.
 
 ### Example
 
@@ -1510,6 +1522,7 @@ void (empty response body)
 # **coaApiV1BillAmortizationDestroy**
 > coaApiV1BillAmortizationDestroy()
 
+Delete a bill amortization schedule.
 
 ### Example
 
@@ -1553,6 +1566,7 @@ void (empty response body)
 # **coaApiV1BillAmortizationDestroy2**
 > coaApiV1BillAmortizationDestroy2()
 
+Delete the amortization schedule for a specific bill.
 
 ### Example
 
@@ -1603,6 +1617,7 @@ void (empty response body)
 # **coaApiV1BillAmortizationGenerateScheduleRetrieve**
 > coaApiV1BillAmortizationGenerateScheduleRetrieve()
 
+Generate a preview of the amortization schedule without persisting it.
 
 ### Example
 
@@ -1646,6 +1661,7 @@ void (empty response body)
 # **coaApiV1BillAmortizationGenerateScheduleUpdate**
 > coaApiV1BillAmortizationGenerateScheduleUpdate()
 
+Generate and persist an amortization schedule for a bill.
 
 ### Example
 
@@ -1689,6 +1705,7 @@ void (empty response body)
 # **coaApiV1BillAmortizationRetrieve**
 > coaApiV1BillAmortizationRetrieve()
 
+Retrieve bill amortization data across all bills.
 
 ### Example
 
@@ -1732,6 +1749,7 @@ void (empty response body)
 # **coaApiV1BillAmortizationRetrieve2**
 > coaApiV1BillAmortizationRetrieve2()
 
+Retrieve the amortization schedule for a specific bill.
 
 ### Example
 
@@ -1782,6 +1800,7 @@ void (empty response body)
 # **coaApiV1CreditMemoPdfRetrieve**
 > coaApiV1CreditMemoPdfRetrieve()
 
+Generate and download a PDF of the credit memo.
 
 ### Example
 
@@ -1934,6 +1953,7 @@ void (empty response body)
 # **coaApiVendorCustomField1Create**
 > VendorCustomField1 coaApiVendorCustomField1Create()
 
+Create a new vendor custom field value.
 
 ### Example
 
@@ -1985,6 +2005,7 @@ const { status, data } = await apiInstance.coaApiVendorCustomField1Create(
 # **coaApiVendorCustomField1Destroy**
 > coaApiVendorCustomField1Destroy()
 
+Delete a vendor custom field value.
 
 ### Example
 
@@ -2035,6 +2056,7 @@ void (empty response body)
 # **coaApiVendorCustomField1List**
 > Array<VendorCustomField1> coaApiVendorCustomField1List()
 
+Retrieve a list of vendor custom field values.
 
 ### Example
 
@@ -2078,6 +2100,7 @@ This endpoint does not have any parameters.
 # **coaApiVendorCustomField1PartialUpdate**
 > VendorCustomField1 coaApiVendorCustomField1PartialUpdate()
 
+Partially update a vendor custom field value.
 
 ### Example
 
@@ -2132,6 +2155,7 @@ const { status, data } = await apiInstance.coaApiVendorCustomField1PartialUpdate
 # **coaApiVendorCustomField1Retrieve**
 > VendorCustomField1 coaApiVendorCustomField1Retrieve()
 
+Retrieve a specific vendor custom field value by ID.
 
 ### Example
 
@@ -2182,6 +2206,7 @@ const { status, data } = await apiInstance.coaApiVendorCustomField1Retrieve(
 # **coaApiVendorCustomField1Update**
 > VendorCustomField1 coaApiVendorCustomField1Update()
 
+Update a vendor custom field value.
 
 ### Example
 
@@ -2236,6 +2261,7 @@ const { status, data } = await apiInstance.coaApiVendorCustomField1Update(
 # **coaApiVendorSummaryList**
 > PaginatedVendorSummaryList coaApiVendorSummaryList()
 
+Retrieve summary information for all vendors including spend totals and payment status.
 
 ### Example
 

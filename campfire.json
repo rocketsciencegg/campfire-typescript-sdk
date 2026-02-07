@@ -9324,7 +9324,9 @@
           "200": {
             "description": "No response body"
           }
-        }
+        },
+        "summary": "Process Transaction Matches",
+        "description": "Trigger the transaction matching process for bank reconciliation."
       }
     },
     "/coa/api/transaction-matches": {
@@ -9369,7 +9371,9 @@
             },
             "description": "Successful response"
           }
-        }
+        },
+        "summary": "List Transaction Matches",
+        "description": "Retrieve a list of transaction matches for bank reconciliation review."
       }
     },
     "/coa/api/transaction-matches-count": {
@@ -9387,7 +9391,9 @@
           "200": {
             "description": "No response body"
           }
-        }
+        },
+        "summary": "Get Transaction Matches Count",
+        "description": "Retrieve the count of pending transaction matches."
       }
     },
     "/coa/api/transaction-matches/{id}": {
@@ -9422,7 +9428,9 @@
             },
             "description": "Successful response"
           }
-        }
+        },
+        "summary": "Retrieve Transaction Match",
+        "description": "Retrieve a specific transaction match by ID."
       },
       "put": {
         "operationId": "coa_api_transaction_matches_update",
@@ -9475,7 +9483,9 @@
             },
             "description": "Successful response"
           }
-        }
+        },
+        "summary": "Update Transaction Match",
+        "description": "Update a transaction match record."
       },
       "patch": {
         "operationId": "coa_api_transaction_matches_partial_update",
@@ -9527,7 +9537,9 @@
             },
             "description": "Successful response"
           }
-        }
+        },
+        "summary": "Partial Update Transaction Match",
+        "description": "Partially update a transaction match record."
       },
       "delete": {
         "operationId": "coa_api_transaction_matches_destroy",
@@ -9553,7 +9565,9 @@
           "204": {
             "description": "No response body"
           }
-        }
+        },
+        "summary": "Delete Transaction Match",
+        "description": "Delete a transaction match record."
       }
     },
     "/coa/api/transaction-matches/{id}/reject": {
@@ -9581,7 +9595,9 @@
           "200": {
             "description": "No response body"
           }
-        }
+        },
+        "summary": "Reject Transaction Match",
+        "description": "Reject a proposed transaction match."
       }
     },
     "/coa/api/transaction-matches/{id}/status": {
@@ -9636,7 +9652,9 @@
           "200": {
             "description": "No response body"
           }
-        }
+        },
+        "summary": "Update Transaction Match Status",
+        "description": "Update the status of a transaction match (accept or reject)."
       }
     },
     "/coa/api/transaction/{id}": {
@@ -9805,7 +9823,9 @@
           "204": {
             "description": "No response body"
           }
-        }
+        },
+        "summary": "Delete Chart Transaction",
+        "description": "Delete a chart transaction. Cannot delete transactions in closed accounting periods."
       }
     },
     "/coa/api/transaction/{transaction_id}/bill_payments": {
@@ -9833,7 +9853,9 @@
           "201": {
             "description": "No response body"
           }
-        }
+        },
+        "summary": "Apply Bill Payments to Transaction",
+        "description": "Apply bill payments to a bank transaction, linking the transaction to one or more bills."
       }
     },
     "/coa/api/transaction/{transaction_id}/credit_memo_payments": {
@@ -9861,7 +9883,9 @@
           "201": {
             "description": "No response body"
           }
-        }
+        },
+        "summary": "Apply Credit Memo Payments to Transaction",
+        "description": "Apply credit memo payments to a bank transaction."
       }
     },
     "/coa/api/transaction/{transaction_id}/debit_memo_payments": {
@@ -9889,7 +9913,9 @@
           "201": {
             "description": "No response body"
           }
-        }
+        },
+        "summary": "Apply Debit Memo Payments to Transaction",
+        "description": "Apply debit memo payments to a bank transaction."
       }
     },
     "/coa/api/transaction/{transaction_id}/invoice_payments": {
@@ -9917,7 +9943,9 @@
           "201": {
             "description": "No response body"
           }
-        }
+        },
+        "summary": "Apply Invoice Payments to Transaction",
+        "description": "Apply invoice payments to a bank transaction, linking the transaction to one or more invoices."
       }
     },
     "/coa/api/transaction/bulk-update": {
@@ -9935,7 +9963,9 @@
           "200": {
             "description": "No response body"
           }
-        }
+        },
+        "summary": "Bulk Update Chart Transactions",
+        "description": "Update multiple chart transactions in a single request."
       }
     },
     "/coa/api/transaction/merge": {
@@ -10237,7 +10267,9 @@
           "200": {
             "description": "No response body"
           }
-        }
+        },
+        "summary": "Get Bill Amortization",
+        "description": "Retrieve the amortization schedule for a specific bill."
       },
       "post": {
         "operationId": "coa_api_v1_bill_amortization_create_2",
@@ -10263,7 +10295,9 @@
           "200": {
             "description": "No response body"
           }
-        }
+        },
+        "summary": "Create Bill Amortization",
+        "description": "Create an amortization schedule for a specific bill."
       },
       "delete": {
         "operationId": "coa_api_v1_bill_amortization_destroy_2",
@@ -10289,7 +10323,9 @@
           "204": {
             "description": "No response body"
           }
-        }
+        },
+        "summary": "Delete Bill Amortization",
+        "description": "Delete the amortization schedule for a specific bill."
       }
     },
     "/coa/api/v1/bill/{bill_id}/empty-transaction-default-department-tags": {
@@ -11293,7 +11329,9 @@
           "200": {
             "description": "No response body"
           }
-        }
+        },
+        "summary": "Get Bill Amortization (Global)",
+        "description": "Retrieve bill amortization data across all bills."
       },
       "post": {
         "operationId": "coa_api_v1_bill_amortization_create",
@@ -11309,7 +11347,9 @@
           "200": {
             "description": "No response body"
           }
-        }
+        },
+        "summary": "Create Bill Amortization (Global)",
+        "description": "Create a bill amortization schedule."
       },
       "delete": {
         "operationId": "coa_api_v1_bill_amortization_destroy",
@@ -11325,7 +11365,9 @@
           "204": {
             "description": "No response body"
           }
-        }
+        },
+        "summary": "Delete Bill Amortization (Global)",
+        "description": "Delete a bill amortization schedule."
       }
     },
     "/coa/api/v1/bill/amortization/generate-schedule": {
@@ -11343,7 +11385,9 @@
           "200": {
             "description": "No response body"
           }
-        }
+        },
+        "summary": "Preview Amortization Schedule",
+        "description": "Generate a preview of the amortization schedule without persisting it."
       },
       "put": {
         "operationId": "coa_api_v1_bill_amortization_generate_schedule_update",
@@ -11359,7 +11403,9 @@
           "200": {
             "description": "No response body"
           }
-        }
+        },
+        "summary": "Generate Amortization Schedule",
+        "description": "Generate and persist an amortization schedule for a bill."
       }
     },
     "/coa/api/v1/bill/bulk-search": {
@@ -12439,7 +12485,9 @@
           "200": {
             "description": "No response body"
           }
-        }
+        },
+        "summary": "Get Credit Memo PDF",
+        "description": "Generate and download a PDF of the credit memo."
       }
     },
     "/coa/api/v1/credit-memo/{id}/send/": {
@@ -15777,7 +15825,9 @@
             },
             "description": "Successful response"
           }
-        }
+        },
+        "summary": "List Vendor Summaries",
+        "description": "Retrieve summary information for all vendors including spend totals and payment status."
       }
     },
     "/coa/api/vendor_custom_field_1/": {
@@ -15805,7 +15855,9 @@
             },
             "description": "Successful response"
           }
-        }
+        },
+        "summary": "List Vendor Custom Fields",
+        "description": "Retrieve a list of vendor custom field values."
       },
       "post": {
         "operationId": "coa_api_vendor_custom_field_1_create",
@@ -15847,7 +15899,9 @@
             },
             "description": "Created"
           }
-        }
+        },
+        "summary": "Create Vendor Custom Field",
+        "description": "Create a new vendor custom field value."
       }
     },
     "/coa/api/vendor_custom_field_1/{id}/": {
@@ -15882,7 +15936,9 @@
             },
             "description": "Successful response"
           }
-        }
+        },
+        "summary": "Retrieve Vendor Custom Field",
+        "description": "Retrieve a specific vendor custom field value by ID."
       },
       "put": {
         "operationId": "coa_api_vendor_custom_field_1_update",
@@ -15934,7 +15990,9 @@
             },
             "description": "Successful response"
           }
-        }
+        },
+        "summary": "Update Vendor Custom Field",
+        "description": "Update a vendor custom field value."
       },
       "patch": {
         "operationId": "coa_api_vendor_custom_field_1_partial_update",
@@ -15986,7 +16044,9 @@
             },
             "description": "Successful response"
           }
-        }
+        },
+        "summary": "Partial Update Vendor Custom Field",
+        "description": "Partially update a vendor custom field value."
       },
       "delete": {
         "operationId": "coa_api_vendor_custom_field_1_destroy",
@@ -16012,7 +16072,9 @@
           "204": {
             "description": "No response body"
           }
-        }
+        },
+        "summary": "Delete Vendor Custom Field",
+        "description": "Delete a vendor custom field value."
       }
     },
     "/integrations/api/v1/webhook": {
@@ -19851,12 +19913,12 @@
             "nullable": true
           },
           "terms": {
+            "nullable": true,
             "allOf": [
               {
                 "$ref": "#/components/schemas/TermsEnum"
               }
-            ],
-            "nullable": true
+            ]
           },
           "bill_number": {
             "type": "string",
@@ -19893,12 +19955,12 @@
             "nullable": true
           },
           "payment_status": {
+            "nullable": true,
             "allOf": [
               {
                 "$ref": "#/components/schemas/AccountingBillPaymentStatusEnum"
               }
-            ],
-            "nullable": true
+            ]
           },
           "currency": {
             "type": "string",
@@ -19924,12 +19986,12 @@
             "readOnly": true
           },
           "tax_behavior": {
+            "nullable": true,
             "allOf": [
               {
                 "$ref": "#/components/schemas/TaxBehaviorEnum"
               }
-            ],
-            "nullable": true
+            ]
           },
           "bill_type": {
             "$ref": "#/components/schemas/BillTypeEnum"
@@ -20365,12 +20427,12 @@
             "nullable": true
           },
           "application_status": {
+            "nullable": true,
             "allOf": [
               {
                 "$ref": "#/components/schemas/ApplicationStatusEnum"
               }
-            ],
-            "nullable": true
+            ]
           },
           "currency": {
             "type": "string",
@@ -20763,12 +20825,12 @@
             "maxLength": 120
           },
           "application_status": {
+            "nullable": true,
             "allOf": [
               {
                 "$ref": "#/components/schemas/ApplicationStatusEnum"
               }
-            ],
-            "nullable": true
+            ]
           },
           "currency": {
             "type": "string",
@@ -21253,12 +21315,12 @@
             "maxLength": 255
           },
           "terms": {
+            "nullable": true,
             "allOf": [
               {
                 "$ref": "#/components/schemas/TermsEnum"
               }
-            ],
-            "nullable": true
+            ]
           },
           "ref_number": {
             "type": "string",
@@ -21319,12 +21381,12 @@
             "nullable": true
           },
           "payment_status": {
+            "nullable": true,
             "allOf": [
               {
                 "$ref": "#/components/schemas/PaymentStatusF21Enum"
               }
-            ],
-            "nullable": true
+            ]
           },
           "anrok_transaction_id": {
             "type": "string",
@@ -21881,12 +21943,12 @@
             "maxLength": 255
           },
           "terms": {
+            "nullable": true,
             "allOf": [
               {
                 "$ref": "#/components/schemas/TermsEnum"
               }
-            ],
-            "nullable": true
+            ]
           },
           "ref_number": {
             "type": "string",
@@ -21947,12 +22009,12 @@
             "nullable": true
           },
           "payment_status": {
+            "nullable": true,
             "allOf": [
               {
                 "$ref": "#/components/schemas/PaymentStatusF21Enum"
               }
-            ],
-            "nullable": true
+            ]
           },
           "anrok_transaction_id": {
             "type": "string",
@@ -22219,21 +22281,22 @@
             "nullable": true
           },
           "source": {
+            "nullable": true,
             "allOf": [
               {
                 "$ref": "#/components/schemas/AccountingInvoicePaymentSourceEnum"
               }
-            ],
-            "nullable": true
+            ]
           },
           "payment_type": {
+            "readOnly": true,
+            "nullable": true,
+            "description": "Type of payment: credit memo application, bank transaction, or manual transaction\n\n* `CREDIT_MEMO` - Credit Memo\n* `BANK_TRANSACTION` - Bank Transaction\n* `MANUAL_TRANSACTION` - Manual Transaction",
             "allOf": [
               {
                 "$ref": "#/components/schemas/PaymentTypeEnum"
               }
-            ],
-            "description": "Type of payment: credit memo application, bank transaction, or manual transaction\n\n* `CREDIT_MEMO` - Credit Memo\n* `BANK_TRANSACTION` - Bank Transaction\n* `MANUAL_TRANSACTION` - Manual Transaction",
-            "nullable": true
+            ]
           },
           "last_modified_at": {
             "type": "string",
@@ -22570,12 +22633,12 @@
             "maxLength": 250
           },
           "type": {
+            "nullable": true,
             "allOf": [
               {
                 "$ref": "#/components/schemas/BankAccountTypeEnum"
               }
-            ],
-            "nullable": true
+            ]
           },
           "available_balance": {
             "type": "number",
@@ -22864,11 +22927,6 @@
         ],
         "type": "string",
         "description": "* `monthly` - Monthly\n* `quarterly` - Quarterly\n* `biannual` - Bi Annualy\n* `annual` - Annual"
-      },
-      "BlankEnum": {
-        "enum": [
-          ""
-        ]
       },
       "BreakdownTypeEnum": {
         "enum": [
@@ -25161,12 +25219,14 @@
             "nullable": true
           },
           "vendor_type": {
+            "nullable": true,
+            "default": "vendor",
+            "title": "Payee Type",
             "allOf": [
               {
                 "$ref": "#/components/schemas/VendorType391Enum"
               }
-            ],
-            "nullable": true
+            ]
           },
           "name": {
             "type": "string",
@@ -25329,12 +25389,12 @@
             "maxLength": 250
           },
           "source": {
+            "nullable": true,
             "allOf": [
               {
                 "$ref": "#/components/schemas/Source170Enum"
               }
-            ],
-            "nullable": true
+            ]
           },
           "invoice_message": {
             "type": "string",
@@ -25359,12 +25419,12 @@
             "maxLength": 250
           },
           "terms": {
+            "nullable": true,
             "allOf": [
               {
                 "$ref": "#/components/schemas/TermsEnum"
               }
-            ],
-            "nullable": true
+            ]
           },
           "lineage_array": {
             "type": "array",
@@ -28058,11 +28118,6 @@
           "amount"
         ]
       },
-      "NullEnum": {
-        "enum": [
-          null
-        ]
-      },
       "PaginatedAccountingCreditMemoList": {
         "type": "object",
         "required": [
@@ -29232,12 +29287,12 @@
             "nullable": true
           },
           "terms": {
+            "nullable": true,
             "allOf": [
               {
                 "$ref": "#/components/schemas/TermsEnum"
               }
-            ],
-            "nullable": true
+            ]
           },
           "bill_number": {
             "type": "string",
@@ -29274,12 +29329,12 @@
             "nullable": true
           },
           "payment_status": {
+            "nullable": true,
             "allOf": [
               {
                 "$ref": "#/components/schemas/AccountingBillPaymentStatusEnum"
               }
-            ],
-            "nullable": true
+            ]
           },
           "currency": {
             "type": "string",
@@ -29305,12 +29360,12 @@
             "readOnly": true
           },
           "tax_behavior": {
+            "nullable": true,
             "allOf": [
               {
                 "$ref": "#/components/schemas/TaxBehaviorEnum"
               }
-            ],
-            "nullable": true
+            ]
           },
           "bill_type": {
             "$ref": "#/components/schemas/BillTypeEnum"
@@ -29478,12 +29533,12 @@
             "nullable": true
           },
           "application_status": {
+            "nullable": true,
             "allOf": [
               {
                 "$ref": "#/components/schemas/ApplicationStatusEnum"
               }
-            ],
-            "nullable": true
+            ]
           },
           "currency": {
             "type": "string",
@@ -29692,12 +29747,12 @@
             "maxLength": 120
           },
           "application_status": {
+            "nullable": true,
             "allOf": [
               {
                 "$ref": "#/components/schemas/ApplicationStatusEnum"
               }
-            ],
-            "nullable": true
+            ]
           },
           "currency": {
             "type": "string",
@@ -30009,12 +30064,12 @@
             "maxLength": 255
           },
           "terms": {
+            "nullable": true,
             "allOf": [
               {
                 "$ref": "#/components/schemas/TermsEnum"
               }
-            ],
-            "nullable": true
+            ]
           },
           "ref_number": {
             "type": "string",
@@ -30075,12 +30130,12 @@
             "nullable": true
           },
           "payment_status": {
+            "nullable": true,
             "allOf": [
               {
                 "$ref": "#/components/schemas/PaymentStatusF21Enum"
               }
-            ],
-            "nullable": true
+            ]
           },
           "anrok_transaction_id": {
             "type": "string",
@@ -30338,12 +30393,12 @@
             "maxLength": 250
           },
           "type": {
+            "nullable": true,
             "allOf": [
               {
                 "$ref": "#/components/schemas/BankAccountTypeEnum"
               }
-            ],
-            "nullable": true
+            ]
           },
           "available_balance": {
             "type": "number",
@@ -32176,12 +32231,14 @@
             "nullable": true
           },
           "vendor_type": {
+            "nullable": true,
+            "default": "vendor",
+            "title": "Payee Type",
             "allOf": [
               {
                 "$ref": "#/components/schemas/VendorType391Enum"
               }
-            ],
-            "nullable": true
+            ]
           },
           "name": {
             "type": "string",
@@ -32344,12 +32401,12 @@
             "maxLength": 250
           },
           "source": {
+            "nullable": true,
             "allOf": [
               {
                 "$ref": "#/components/schemas/Source170Enum"
               }
-            ],
-            "nullable": true
+            ]
           },
           "invoice_message": {
             "type": "string",
@@ -32374,12 +32431,12 @@
             "maxLength": 250
           },
           "terms": {
+            "nullable": true,
             "allOf": [
               {
                 "$ref": "#/components/schemas/TermsEnum"
               }
-            ],
-            "nullable": true
+            ]
           },
           "lineage_array": {
             "type": "array",
@@ -34743,12 +34800,14 @@
             "nullable": true
           },
           "vendor_type": {
+            "nullable": true,
+            "default": "vendor",
+            "title": "Payee Type",
             "allOf": [
               {
                 "$ref": "#/components/schemas/VendorType391Enum"
               }
-            ],
-            "nullable": true
+            ]
           },
           "name": {
             "type": "string",
@@ -34911,12 +34970,12 @@
             "maxLength": 250
           },
           "source": {
+            "nullable": true,
             "allOf": [
               {
                 "$ref": "#/components/schemas/Source170Enum"
               }
-            ],
-            "nullable": true
+            ]
           },
           "invoice_message": {
             "type": "string",
@@ -34941,12 +35000,12 @@
             "maxLength": 250
           },
           "terms": {
+            "nullable": true,
             "allOf": [
               {
                 "$ref": "#/components/schemas/TermsEnum"
               }
-            ],
-            "nullable": true
+            ]
           },
           "lineage_array": {
             "type": "array",
@@ -36659,12 +36718,14 @@
             "nullable": true
           },
           "vendor_type": {
+            "nullable": true,
+            "default": "vendor",
+            "title": "Payee Type",
             "allOf": [
               {
                 "$ref": "#/components/schemas/VendorType391Enum"
               }
-            ],
-            "nullable": true
+            ]
           },
           "name": {
             "type": "string",
@@ -36827,12 +36888,12 @@
             "maxLength": 250
           },
           "source": {
+            "nullable": true,
             "allOf": [
               {
                 "$ref": "#/components/schemas/Source170Enum"
               }
-            ],
-            "nullable": true
+            ]
           },
           "invoice_message": {
             "type": "string",
@@ -36857,12 +36918,12 @@
             "maxLength": 250
           },
           "terms": {
+            "nullable": true,
             "allOf": [
               {
                 "$ref": "#/components/schemas/TermsEnum"
               }
-            ],
-            "nullable": true
+            ]
           },
           "lineage_array": {
             "type": "array",
