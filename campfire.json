@@ -19833,7 +19833,9 @@
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "amount_due": {
             "type": "number",
@@ -19845,7 +19847,9 @@
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "item_date": {
             "type": "string",
@@ -19971,14 +19975,18 @@
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "exchange_rate_book": {
             "type": "number",
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "created_at": {
             "type": "string",
@@ -20120,7 +20128,9 @@
             "format": "double",
             "maximum": 1000000,
             "minimum": -1000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "description": {
             "type": "string",
@@ -20130,13 +20140,17 @@
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "tax": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "tax_description": {
             "type": "string",
@@ -20229,7 +20243,9 @@
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "payment_date": {
             "type": "string",
@@ -20443,14 +20459,18 @@
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "exchange_rate_book": {
             "type": "number",
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "created_at": {
             "type": "string",
@@ -20473,14 +20493,18 @@
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "description": "Sum of all line item amounts"
+            "description": "Sum of all line item amounts",
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "amount_used": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "description": "Sum of all non-voided payment amounts"
+            "description": "Sum of all non-voided payment amounts",
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "customer": {
             "type": "integer",
@@ -20583,7 +20607,9 @@
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "created_at": {
             "type": "string",
@@ -20647,7 +20673,9 @@
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "payment_date": {
             "type": "string",
@@ -20841,14 +20869,18 @@
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "exchange_rate_book": {
             "type": "number",
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "created_at": {
             "type": "string",
@@ -20860,14 +20892,18 @@
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "description": "Sum of all line item amounts"
+            "description": "Sum of all line item amounts",
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "amount_used": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "description": "Sum of all non-voided payment amounts"
+            "description": "Sum of all non-voided payment amounts",
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "customer": {
             "type": "integer",
@@ -20956,7 +20992,9 @@
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "created_at": {
             "type": "string",
@@ -21015,7 +21053,9 @@
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "payment_date": {
             "type": "string",
@@ -21148,14 +21188,18 @@
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "amount_paid": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "amount_due": {
             "type": "number",
@@ -21205,7 +21249,9 @@
             "format": "double",
             "maximum": 1000000,
             "minimum": -1000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "payment_term_name": {
             "type": "string",
@@ -21412,14 +21458,18 @@
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "exchange_rate_book": {
             "type": "number",
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "last_sent_at": {
             "type": "string",
@@ -21446,7 +21496,9 @@
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
             "nullable": true,
-            "description": "Discount amount for the invoice"
+            "description": "Discount amount for the invoice",
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "payment_term_applied_discount": {
             "type": "number",
@@ -21454,7 +21506,9 @@
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
             "nullable": true,
-            "description": "Discount amount applied based on payment term early payment discount"
+            "description": "Discount amount applied based on payment term early payment discount",
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "use_stripe_auto_bill": {
             "type": "boolean",
@@ -21652,13 +21706,17 @@
             "type": "number",
             "format": "double",
             "maximum": 10000000000000000,
-            "minimum": -10000000000000000
+            "minimum": -10000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "rate": {
             "type": "number",
             "format": "double",
             "maximum": 10000000000000,
-            "minimum": -10000000000000
+            "minimum": -10000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "currency": {
             "type": "string",
@@ -21668,13 +21726,17 @@
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "tax": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "tax_description": {
             "type": "string",
@@ -21692,21 +21754,27 @@
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "description": "Discount amount in currency"
+            "description": "Discount amount in currency",
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "discount_percentage": {
             "type": "number",
             "format": "double",
             "maximum": 1000,
             "minimum": -1000,
-            "description": "Discount percentage (0-100)"
+            "description": "Discount percentage (0-100)",
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "discount_amount": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "description": "Discount amount calculated from percentage"
+            "description": "Discount amount calculated from percentage",
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "created_at": {
             "type": "string",
@@ -21805,14 +21873,18 @@
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "amount_paid": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "amount_due": {
             "type": "number",
@@ -21855,7 +21927,9 @@
             "format": "double",
             "maximum": 1000000,
             "minimum": -1000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "payment_term_name": {
             "type": "string",
@@ -22040,14 +22114,18 @@
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "exchange_rate_book": {
             "type": "number",
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "last_sent_at": {
             "type": "string",
@@ -22074,7 +22152,9 @@
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
             "nullable": true,
-            "description": "Discount amount for the invoice"
+            "description": "Discount amount for the invoice",
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "payment_term_applied_discount": {
             "type": "number",
@@ -22082,7 +22162,9 @@
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
             "nullable": true,
-            "description": "Discount amount applied based on payment term early payment discount"
+            "description": "Discount amount applied based on payment term early payment discount",
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "use_stripe_auto_bill": {
             "type": "boolean",
@@ -22263,7 +22345,9 @@
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "payment_date": {
             "type": "string",
@@ -22382,7 +22466,9 @@
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "posted": {
             "type": "boolean"
@@ -22645,14 +22731,18 @@
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "current_balance": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "institution_id": {
             "type": "string",
@@ -22821,14 +22911,18 @@
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "amount_native": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "posted_at": {
             "type": "string",
@@ -23088,7 +23182,9 @@
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "created_at": {
             "type": "string",
@@ -23488,31 +23584,41 @@
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "applied_payments": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "applied_credits": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "term_discounts": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "remaining_due": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           }
         },
         "required": [
@@ -23551,14 +23657,18 @@
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "balance_ytd": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "name_and_number": {
             "type": "string",
@@ -24327,21 +24437,27 @@
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "amount_native": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "amount_book": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "amortization_schedule": {
             "type": "array",
@@ -24391,42 +24507,54 @@
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "credit_amount": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "debit_amount_book": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "credit_amount_book": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "debit_amount_native": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "credit_amount_native": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "currency": {
             "type": "string",
@@ -24437,14 +24565,18 @@
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "exchange_rate_book": {
             "type": "number",
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "posted_at": {
             "type": "string",
@@ -24476,7 +24608,9 @@
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
             "readOnly": true,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "created_at": {
             "type": "string",
@@ -24644,49 +24778,63 @@
             "format": "double",
             "maximum": 10000000000000,
             "minimum": -10000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "total_mrr": {
             "type": "number",
             "format": "double",
             "maximum": 10000000000000,
             "minimum": -10000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "total_billed": {
             "type": "number",
             "format": "double",
             "maximum": 10000000000000,
             "minimum": -10000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "total_unbilled": {
             "type": "number",
             "format": "double",
             "maximum": 10000000000000,
             "minimum": -10000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "total_paid": {
             "type": "number",
             "format": "double",
             "maximum": 10000000000000,
             "minimum": -10000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "total_outstanding": {
             "type": "number",
             "format": "double",
             "maximum": 10000000000000,
             "minimum": -10000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "total_deferred_revenue": {
             "type": "number",
             "format": "double",
             "maximum": 10000000000000,
             "minimum": -10000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "currency": {
             "type": "string",
@@ -24777,7 +24925,9 @@
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "contract_start_date": {
             "type": "string",
@@ -24789,14 +24939,18 @@
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "exchange_rate_book": {
             "type": "number",
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "crm_link": {
             "type": "string",
@@ -24840,7 +24994,9 @@
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
             "nullable": true,
-            "description": "Minimum monthly commitment amount (allowance threshold)"
+            "description": "Minimum monthly commitment amount (allowance threshold)",
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "minimum_monthly_commitment_quantity": {
             "type": "number",
@@ -24848,7 +25004,9 @@
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
             "nullable": true,
-            "description": "Minimum monthly commitment quantity (allowance threshold in units)"
+            "description": "Minimum monthly commitment quantity (allowance threshold in units)",
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "purchase_order_number": {
             "type": "string",
@@ -25021,7 +25179,9 @@
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "created_at": {
             "type": "string",
@@ -25139,70 +25299,90 @@
             "format": "double",
             "maximum": 10000000000000,
             "minimum": -10000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "total_deferred_revenue": {
             "type": "number",
             "format": "double",
             "maximum": 10000000000000,
             "minimum": -10000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "total_mrr": {
             "type": "number",
             "format": "double",
             "maximum": 10000000000000,
             "minimum": -10000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "total_billed": {
             "type": "number",
             "format": "double",
             "maximum": 10000000000000,
             "minimum": -10000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "total_unbilled": {
             "type": "number",
             "format": "double",
             "maximum": 10000000000000,
             "minimum": -10000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "total_paid": {
             "type": "number",
             "format": "double",
             "maximum": 10000000000000,
             "minimum": -10000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "total_outstanding": {
             "type": "number",
             "format": "double",
             "maximum": 10000000000000,
             "minimum": -10000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "total_credit_memos": {
             "type": "number",
             "format": "double",
             "maximum": 10000000000000,
             "minimum": -10000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "credit_memo_applied": {
             "type": "number",
             "format": "double",
             "maximum": 10000000000000,
             "minimum": -10000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "credit_memo_available": {
             "type": "number",
             "format": "double",
             "maximum": 10000000000000,
             "minimum": -10000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "currency": {
             "type": "string",
@@ -25558,7 +25738,9 @@
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "description": {
             "type": "string",
@@ -25649,7 +25831,9 @@
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
             "readOnly": true,
-            "description": "Total amount to be allocated across products"
+            "description": "Total amount to be allocated across products",
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "currency": {
             "type": "string",
@@ -25708,7 +25892,9 @@
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "description": "Dollar amount allocated to this product"
+            "description": "Dollar amount allocated to this product",
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "percentage": {
             "type": "string",
@@ -25722,7 +25908,9 @@
             "minimum": -1000,
             "readOnly": true,
             "nullable": true,
-            "description": "Original percentage from source ProductBundle for auditing"
+            "description": "Original percentage from source ProductBundle for auditing",
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           }
         },
         "required": [
@@ -25755,7 +25943,9 @@
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "description": "Dollar amount allocated to this product"
+            "description": "Dollar amount allocated to this product",
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "percentage": {
             "type": "string",
@@ -25767,7 +25957,9 @@
             "maximum": 1000,
             "minimum": -1000,
             "nullable": true,
-            "description": "Original percentage from source ProductBundle for auditing"
+            "description": "Original percentage from source ProductBundle for auditing",
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           }
         },
         "required": [
@@ -25791,7 +25983,9 @@
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "description": "New dollar amount for this product allocation"
+            "description": "New dollar amount for this product allocation",
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           }
         },
         "required": [
@@ -25822,7 +26016,9 @@
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "description": "Total amount to be allocated across products"
+            "description": "Total amount to be allocated across products",
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "currency": {
             "type": "string",
@@ -25925,7 +26121,9 @@
             "format": "double",
             "maximum": 100000000,
             "minimum": -100000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "last_modified_at": {
             "type": "string",
@@ -25937,14 +26135,18 @@
             "format": "double",
             "maximum": 10000000000000,
             "minimum": -10000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "quantity": {
             "type": "number",
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "is_contract_amendment": {
             "type": "boolean"
@@ -25964,7 +26166,9 @@
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "notes": {
             "type": "string",
@@ -26218,7 +26422,9 @@
             "type": "number",
             "format": "double",
             "maximum": 1000,
-            "minimum": -1000
+            "minimum": -1000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "created_at": {
             "type": "string",
@@ -26263,7 +26469,9 @@
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "posted_at": {
             "type": "string",
@@ -26481,7 +26689,9 @@
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "payment_date": {
             "type": "string",
@@ -26753,13 +26963,17 @@
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "salvage_value": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "purchase_date": {
             "type": "string",
@@ -26782,14 +26996,18 @@
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "exchange_rate_book": {
             "type": "number",
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "customer": {
             "type": "integer",
@@ -26875,7 +27093,9 @@
             "format": "double",
             "maximum": 10000000000000,
             "minimum": -10000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "rule_needs_review": {
             "type": "boolean",
@@ -26909,13 +27129,17 @@
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "proposed_salvage_value": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "proposed_purchase_date": {
             "type": "string",
@@ -27012,7 +27236,9 @@
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "description": "Minimum transaction amount in book currency (materiality threshold)"
+            "description": "Minimum transaction amount in book currency (materiality threshold)",
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "asset_class": {
             "type": "integer",
@@ -27169,7 +27395,9 @@
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "created_at": {
             "type": "string",
@@ -27222,13 +27450,17 @@
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "proceeds_amount": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "created_at": {
             "type": "string",
@@ -27285,7 +27517,9 @@
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
             "nullable": true,
-            "description": "Optional transaction amount"
+            "description": "Optional transaction amount",
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           }
         },
         "required": [
@@ -27299,7 +27533,9 @@
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "payment_term_discount_note": {
             "type": "string",
@@ -27586,14 +27822,18 @@
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "exchange_rate_book": {
             "type": "number",
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "use_average_rate": {
             "type": "boolean",
@@ -27784,14 +28024,18 @@
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "exchange_rate_book": {
             "type": "number",
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "use_average_rate": {
             "type": "boolean",
@@ -27886,7 +28130,9 @@
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "payment_date": {
             "type": "string",
@@ -27918,7 +28164,9 @@
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "payment_date": {
             "type": "string",
@@ -27983,7 +28231,9 @@
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "posted_at": {
             "type": "string",
@@ -28006,7 +28256,9 @@
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "posted_at": {
             "type": "string",
@@ -28032,7 +28284,9 @@
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "payment_date": {
             "type": "string",
@@ -28061,14 +28315,18 @@
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "amount_in_bill_currency": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           }
         },
         "required": [
@@ -28104,14 +28362,18 @@
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "amount_payable": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           }
         },
         "required": [
@@ -29207,7 +29469,9 @@
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "amount_due": {
             "type": "number",
@@ -29219,7 +29483,9 @@
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "item_date": {
             "type": "string",
@@ -29345,14 +29611,18 @@
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "exchange_rate_book": {
             "type": "number",
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "created_at": {
             "type": "string",
@@ -29549,14 +29819,18 @@
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "exchange_rate_book": {
             "type": "number",
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "created_at": {
             "type": "string",
@@ -29579,14 +29853,18 @@
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "description": "Sum of all line item amounts"
+            "description": "Sum of all line item amounts",
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "amount_used": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "description": "Sum of all non-voided payment amounts"
+            "description": "Sum of all non-voided payment amounts",
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "customer": {
             "type": "integer",
@@ -29763,14 +30041,18 @@
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "exchange_rate_book": {
             "type": "number",
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "created_at": {
             "type": "string",
@@ -29782,14 +30064,18 @@
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "description": "Sum of all line item amounts"
+            "description": "Sum of all line item amounts",
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "amount_used": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "description": "Sum of all non-voided payment amounts"
+            "description": "Sum of all non-voided payment amounts",
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "customer": {
             "type": "integer",
@@ -29897,14 +30183,18 @@
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "amount_paid": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "amount_due": {
             "type": "number",
@@ -29954,7 +30244,9 @@
             "format": "double",
             "maximum": 1000000,
             "minimum": -1000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "payment_term_name": {
             "type": "string",
@@ -30161,14 +30453,18 @@
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "exchange_rate_book": {
             "type": "number",
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "last_sent_at": {
             "type": "string",
@@ -30195,7 +30491,9 @@
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
             "nullable": true,
-            "description": "Discount amount for the invoice"
+            "description": "Discount amount for the invoice",
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "payment_term_applied_discount": {
             "type": "number",
@@ -30203,7 +30501,9 @@
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
             "nullable": true,
-            "description": "Discount amount applied based on payment term early payment discount"
+            "description": "Discount amount applied based on payment term early payment discount",
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "use_stripe_auto_bill": {
             "type": "boolean",
@@ -30405,14 +30705,18 @@
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "current_balance": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "institution_id": {
             "type": "string",
@@ -30549,14 +30853,18 @@
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "amount_native": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "posted_at": {
             "type": "string",
@@ -30757,7 +31065,9 @@
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "created_at": {
             "type": "string",
@@ -30816,14 +31126,18 @@
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "balance_ytd": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "name_and_number": {
             "type": "string",
@@ -31518,21 +31832,27 @@
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "amount_native": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "amount_book": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "amortization_schedule": {
             "type": "array",
@@ -31582,42 +31902,54 @@
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "credit_amount": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "debit_amount_book": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "credit_amount_book": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "debit_amount_native": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "credit_amount_native": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "currency": {
             "type": "string",
@@ -31628,14 +31960,18 @@
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "exchange_rate_book": {
             "type": "number",
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "posted_at": {
             "type": "string",
@@ -31667,7 +32003,9 @@
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
             "readOnly": true,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "created_at": {
             "type": "string",
@@ -31758,49 +32096,63 @@
             "format": "double",
             "maximum": 10000000000000,
             "minimum": -10000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "total_mrr": {
             "type": "number",
             "format": "double",
             "maximum": 10000000000000,
             "minimum": -10000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "total_billed": {
             "type": "number",
             "format": "double",
             "maximum": 10000000000000,
             "minimum": -10000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "total_unbilled": {
             "type": "number",
             "format": "double",
             "maximum": 10000000000000,
             "minimum": -10000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "total_paid": {
             "type": "number",
             "format": "double",
             "maximum": 10000000000000,
             "minimum": -10000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "total_outstanding": {
             "type": "number",
             "format": "double",
             "maximum": 10000000000000,
             "minimum": -10000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "total_deferred_revenue": {
             "type": "number",
             "format": "double",
             "maximum": 10000000000000,
             "minimum": -10000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "currency": {
             "type": "string",
@@ -31891,7 +32243,9 @@
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "contract_start_date": {
             "type": "string",
@@ -31903,14 +32257,18 @@
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "exchange_rate_book": {
             "type": "number",
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "crm_link": {
             "type": "string",
@@ -31954,7 +32312,9 @@
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
             "nullable": true,
-            "description": "Minimum monthly commitment amount (allowance threshold)"
+            "description": "Minimum monthly commitment amount (allowance threshold)",
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "minimum_monthly_commitment_quantity": {
             "type": "number",
@@ -31962,7 +32322,9 @@
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
             "nullable": true,
-            "description": "Minimum monthly commitment quantity (allowance threshold in units)"
+            "description": "Minimum monthly commitment quantity (allowance threshold in units)",
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "purchase_order_number": {
             "type": "string",
@@ -32151,70 +32513,90 @@
             "format": "double",
             "maximum": 10000000000000,
             "minimum": -10000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "total_deferred_revenue": {
             "type": "number",
             "format": "double",
             "maximum": 10000000000000,
             "minimum": -10000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "total_mrr": {
             "type": "number",
             "format": "double",
             "maximum": 10000000000000,
             "minimum": -10000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "total_billed": {
             "type": "number",
             "format": "double",
             "maximum": 10000000000000,
             "minimum": -10000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "total_unbilled": {
             "type": "number",
             "format": "double",
             "maximum": 10000000000000,
             "minimum": -10000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "total_paid": {
             "type": "number",
             "format": "double",
             "maximum": 10000000000000,
             "minimum": -10000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "total_outstanding": {
             "type": "number",
             "format": "double",
             "maximum": 10000000000000,
             "minimum": -10000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "total_credit_memos": {
             "type": "number",
             "format": "double",
             "maximum": 10000000000000,
             "minimum": -10000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "credit_memo_applied": {
             "type": "number",
             "format": "double",
             "maximum": 10000000000000,
             "minimum": -10000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "credit_memo_available": {
             "type": "number",
             "format": "double",
             "maximum": 10000000000000,
             "minimum": -10000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "currency": {
             "type": "string",
@@ -32523,7 +32905,9 @@
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "description": {
             "type": "string",
@@ -32629,7 +33013,9 @@
             "format": "double",
             "maximum": 100000000,
             "minimum": -100000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "last_modified_at": {
             "type": "string",
@@ -32641,14 +33027,18 @@
             "format": "double",
             "maximum": 10000000000000,
             "minimum": -10000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "quantity": {
             "type": "number",
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "is_contract_amendment": {
             "type": "boolean"
@@ -32668,7 +33058,9 @@
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "notes": {
             "type": "string",
@@ -33238,13 +33630,17 @@
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "salvage_value": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "purchase_date": {
             "type": "string",
@@ -33267,14 +33663,18 @@
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "exchange_rate_book": {
             "type": "number",
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "customer": {
             "type": "integer",
@@ -33330,7 +33730,9 @@
             "format": "double",
             "maximum": 10000000000000,
             "minimum": -10000000000000,
-            "readOnly": true
+            "readOnly": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "rule_needs_review": {
             "type": "boolean",
@@ -33364,13 +33766,17 @@
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "proposed_salvage_value": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "proposed_purchase_date": {
             "type": "string",
@@ -33448,7 +33854,9 @@
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "description": "Minimum transaction amount in book currency (materiality threshold)"
+            "description": "Minimum transaction amount in book currency (materiality threshold)",
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "asset_class": {
             "type": "integer",
@@ -33766,14 +34174,18 @@
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "exchange_rate_book": {
             "type": "number",
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "use_average_rate": {
             "type": "boolean",
@@ -33919,14 +34331,18 @@
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "cost": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "exclude_from_mrr": {
             "type": "boolean"
@@ -34136,34 +34552,44 @@
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "ending_balance": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "total_credit_amount": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "total_debit_amount": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "adjustments": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "created_at": {
             "type": "string",
@@ -34399,35 +34825,45 @@
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "exchange_rate_book": {
             "type": "number",
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "recognized": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "amount": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "quantity": {
             "type": "number",
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "rate": {
             "type": "number",
@@ -34439,42 +34875,54 @@
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "refunds": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "processing_fees": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "platform_fees": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "transfers": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "tax": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "balance_adjustment": {
             "type": "number",
@@ -34482,14 +34930,18 @@
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
             "nullable": true,
-            "description": "Invoice starting balance or other balance adjustments (e.g., previous balance applied to this transaction)"
+            "description": "Invoice starting balance or other balance adjustments (e.g., previous balance applied to this transaction)",
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "mrr": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "renewall": {
             "type": "boolean"
@@ -35216,14 +35668,18 @@
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "cost": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "exclude_from_mrr": {
             "type": "boolean"
@@ -35492,34 +35948,44 @@
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "ending_balance": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "total_credit_amount": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "total_debit_amount": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "adjustments": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "created_at": {
             "type": "string",
@@ -35674,14 +36140,18 @@
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "withdrawal": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "description": {
             "type": "string",
@@ -35982,35 +36452,45 @@
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "exchange_rate_book": {
             "type": "number",
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "recognized": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "amount": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "quantity": {
             "type": "number",
             "format": "double",
             "maximum": 100000000000000,
             "minimum": -100000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "rate": {
             "type": "number",
@@ -36022,42 +36502,54 @@
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "refunds": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "processing_fees": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "platform_fees": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "transfers": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "tax": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "balance_adjustment": {
             "type": "number",
@@ -36065,14 +36557,18 @@
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
             "nullable": true,
-            "description": "Invoice starting balance or other balance adjustments (e.g., previous balance applied to this transaction)"
+            "description": "Invoice starting balance or other balance adjustments (e.g., previous balance applied to this transaction)",
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "mrr": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "nullable": true
+            "nullable": true,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "renewall": {
             "type": "boolean"
@@ -36381,7 +36877,9 @@
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
-            "minimum": -1000000000000000000
+            "minimum": -1000000000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "posted_at": {
             "type": "string",
@@ -36552,13 +37050,17 @@
             "type": "number",
             "format": "double",
             "maximum": 10000000000000,
-            "minimum": -10000000000000
+            "minimum": -10000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "credits": {
             "type": "number",
             "format": "double",
             "maximum": 10000000000000,
-            "minimum": -10000000000000
+            "minimum": -10000000000000,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           }
         },
         "required": [
@@ -37097,56 +37599,72 @@
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "default": 0.0
+            "default": 0.0,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "total_paid": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "default": 0.0
+            "default": 0.0,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "total_unpaid": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "default": 0.0
+            "default": 0.0,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "total_credits": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "default": 0.0
+            "default": 0.0,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "credit_used": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "default": 0.0
+            "default": 0.0,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "credit_available": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "default": 0.0
+            "default": 0.0,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "transaction_debits": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "default": 0.0
+            "default": 0.0,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           },
           "transaction_credits": {
             "type": "number",
             "format": "double",
             "maximum": 1000000000000000000,
             "minimum": -1000000000000000000,
-            "default": 0.0
+            "default": 0.0,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
           }
         },
         "required": [
