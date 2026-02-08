@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Auto-generated TypeScript SDK for the [Campfire API](https://api.meetcampfire.com) (accounting, AP/AR, revenue recognition, and financial reporting). Generated from an OpenAPI spec (`campfire.json`) using OpenAPI Generator v7.19.0 with the `typescript-axios` template. Uses Axios as the HTTP client.
+Auto-generated TypeScript SDK for the [Campfire API](https://api.meetcampfire.com) (accounting, AP/AR, revenue recognition, and financial reporting). Generated from an OpenAPI spec (`campfire.json`) using OpenAPI Generator v7.19.0 with the `typescript-axios` template. Uses Axios as the HTTP client. API docs at https://docs.campfire.ai/api-reference.
 
 ## Build Commands
 
@@ -25,15 +25,29 @@ All TypeScript source files in the root directory are **auto-generated** from th
 
 | File | Purpose |
 |------|---------|
-| `api.ts` | `DefaultApi` class with all API methods (the main SDK surface) |
+| `api.ts` | 12 API classes organized by category (see below), plus all model types |
 | `configuration.ts` | `Configuration` class for auth setup (API key) |
 | `base.ts` | `BaseAPI` base class, `RequiredError`, server config |
 | `common.ts` | Internal utilities (auth, serialization, request helpers) |
 | `index.ts` | Re-exports from `api.ts` and `configuration.ts` |
 
+**API classes in `api.ts`:**
+- `CashManagementApi` — bank accounts and bank transactions
+- `AccountsPayableApi` — bills, debit memos, bill payments
+- `AccountsReceivableApi` — invoices, credit memos, invoice payments
+- `CoreAccountingApi` — journal entries, budgets, fixed assets, vendor contacts
+- `CompanyObjectsApi` — chart of accounts, departments, vendors, tags, cost allocations
+- `RevenueRecognitionApi` — contracts, subscriptions, milestones, products
+- `FinancialStatementsApi` — balance sheet, income statement, cash flow, trial balance, general ledger
+- `BankReconciliationApi` — reconciliation reports and transaction matching
+- `SettingsApi` — entities, currencies, files, chart account settings
+- `IntegrationsApi` — webhooks
+- `CustomFieldsApi` — custom field definitions
+- `CoaApi` — fixed asset automation, bill amortization, transaction merging
+
 **Key files that are NOT auto-generated:**
 - `justfile` — build/generation orchestration
-- `campfire.json` — OpenAPI spec (source of truth for the SDK)
+- `campfire.json` — OpenAPI spec (source of truth for the SDK, downloaded from `https://api.meetcampfire.com/api/schema?format=json` with fixes applied)
 - `.openapi-generator-ignore` — controls which files the generator preserves
 - `.github/` — CI/CD workflows and Dependabot config
 - `LICENSE` — MIT license
@@ -43,18 +57,26 @@ All TypeScript source files in the root directory are **auto-generated** from th
 Authentication uses API key via `Configuration.apiKey` with the `Token` prefix. The key is sent in the `Authorization` header.
 
 ```typescript
-import { DefaultApi, Configuration } from 'campfire-typescript-sdk';
+import { CashManagementApi, CoreAccountingApi, Configuration } from 'campfire-typescript-sdk';
 
 const config = new Configuration({ apiKey: `Token ${process.env.CAMPFIRE_API_KEY}` });
-const api = new DefaultApi(config);
 
-const accounts = await api.listAccounts({ limit: 50 });
+const cashMgmt = new CashManagementApi(config);
+const accounts = await cashMgmt.listAccounts({ limit: 50 });
+
+const accounting = new CoreAccountingApi(config);
+const entries = await accounting.coaApiJournalEntryList({ limit: 20 });
 ```
 
 All methods follow the pattern: `api.methodName(params?, axiosOptions?)` returning `Promise<AxiosResponse<T>>`.
 
 ## Key Conventions
 
-- Entity IDs are numbers
-- API categories: Cash Management (accounts, bank transactions), Core Accounting (chart of accounts, journal entries, entities, departments, tags, general ledger), Accounts Payable (bills, vendors, credit/debit memos), Accounts Receivable (invoices), Revenue Recognition (contracts, subscriptions, milestones, products), Financial Statements (balance sheet, income statement, cash flow, trial balance), Bank Reconciliation, Integrations (webhooks), Custom Fields, Fixed Assets
+- Entity IDs are numbers, dates are ISO 8601 `YYYY-MM-DD`
+- Most list endpoints support `include_deleted=true` for soft-deleted records (returns ONLY deleted records with minimal data)
+- Bulk search endpoints (POST) accept exact-match arrays optimized for performance; some support upsert
+- Double-entry bookkeeping: journal entry endpoints validate that total debits equal total credits
+- Multi-currency: bills, invoices, credit/debit memos, and journal entries support exchange rate handling
+- Void/reopen workflow: bills, invoices, credit memos, debit memos all support void (creates reversing JE) and reopen
+- Closed book periods: journal entries cannot be created/updated/deleted before closed book dates
 - See `docs/` for the full method reference
