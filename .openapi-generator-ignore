@@ -3,6 +3,7 @@ README.md
 CLAUDE.md
 LICENSE
 justfile
+campfire.json
 .github/**
 package.json
 tsconfig.json

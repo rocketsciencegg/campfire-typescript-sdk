@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **createdAt** | **string** |  | [readonly] [default to undefined]
 **voidedDate** | **string** |  | [optional] [default to undefined]
 **source** | [**AccountingInvoicePaymentSourceEnum**](AccountingInvoicePaymentSourceEnum.md) |  | [optional] [default to undefined]
-**paymentType** | [**PaymentTypeEnum**](PaymentTypeEnum.md) | Type of payment: credit memo application, bank transaction, or manual transaction  * &#x60;CREDIT_MEMO&#x60; - Credit Memo * &#x60;BANK_TRANSACTION&#x60; - Bank Transaction * &#x60;MANUAL_TRANSACTION&#x60; - Manual Transaction | [default to undefined]
+**paymentType** | [**PaymentTypeEnum**](PaymentTypeEnum.md) | Type of payment: credit memo application, bank transaction, or manual transaction  * &#x60;CREDIT_MEMO&#x60; - Credit Memo * &#x60;BANK_TRANSACTION&#x60; - Bank Transaction * &#x60;MANUAL_TRANSACTION&#x60; - Manual Transaction | [readonly] [default to undefined]
 **lastModifiedAt** | **string** |  | [readonly] [default to undefined]
 **customer** | **number** |  | [readonly] [default to undefined]
 **invoice** | **number** |  | [default to undefined]

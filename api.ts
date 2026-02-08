@@ -939,14 +939,6 @@ export const BillingFrequencyEnum = {
 export type BillingFrequencyEnum = typeof BillingFrequencyEnum[keyof typeof BillingFrequencyEnum];
 
 
-
-export const BlankEnum = {
-    Empty: ''
-} as const;
-
-export type BlankEnum = typeof BlankEnum[keyof typeof BlankEnum];
-
-
 /**
  * * `standard` - Standard (Account-based) * `department_row` - Department (Row)
  */
@@ -2337,13 +2329,6 @@ export interface ModelFile {
     'is_deleted': boolean;
     'deleted_at': string | null;
 }
-
-export const NullEnum = {
-} as const;
-
-export type NullEnum = typeof NullEnum[keyof typeof NullEnum];
-
-
 export interface PaginatedAccountingCreditMemoList {
     'count': number;
     'next'?: string | null;
@@ -12628,7 +12613,8 @@ export const CoaApiAxiosParamCreator = function (configuration?: Configuration) 
             };
         },
         /**
-         * 
+         * Update multiple chart transactions in a single request.
+         * @summary Bulk Update Chart Transactions
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -12659,7 +12645,8 @@ export const CoaApiAxiosParamCreator = function (configuration?: Configuration) 
             };
         },
         /**
-         * 
+         * Trigger the transaction matching process for bank reconciliation.
+         * @summary Process Transaction Matches
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -12690,7 +12677,8 @@ export const CoaApiAxiosParamCreator = function (configuration?: Configuration) 
             };
         },
         /**
-         * 
+         * Retrieve the count of pending transaction matches.
+         * @summary Get Transaction Matches Count
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -12721,7 +12709,8 @@ export const CoaApiAxiosParamCreator = function (configuration?: Configuration) 
             };
         },
         /**
-         * 
+         * Delete a transaction match record.
+         * @summary Delete Transaction Match
          * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -12756,7 +12745,8 @@ export const CoaApiAxiosParamCreator = function (configuration?: Configuration) 
             };
         },
         /**
-         * 
+         * Retrieve a list of transaction matches for bank reconciliation review.
+         * @summary List Transaction Matches
          * @param {number} [limit] Number of results to return per page.
          * @param {number} [offset] The initial index from which to return the results.
          * @param {*} [options] Override http request option.
@@ -12798,7 +12788,8 @@ export const CoaApiAxiosParamCreator = function (configuration?: Configuration) 
             };
         },
         /**
-         * 
+         * Partially update a transaction match record.
+         * @summary Partial Update Transaction Match
          * @param {number} id 
          * @param {PatchedTransactionMatch} [patchedTransactionMatch] 
          * @param {*} [options] Override http request option.
@@ -12837,7 +12828,8 @@ export const CoaApiAxiosParamCreator = function (configuration?: Configuration) 
             };
         },
         /**
-         * 
+         * Reject a proposed transaction match.
+         * @summary Reject Transaction Match
          * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -12872,7 +12864,8 @@ export const CoaApiAxiosParamCreator = function (configuration?: Configuration) 
             };
         },
         /**
-         * 
+         * Retrieve a specific transaction match by ID.
+         * @summary Retrieve Transaction Match
          * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -12943,7 +12936,8 @@ export const CoaApiAxiosParamCreator = function (configuration?: Configuration) 
             };
         },
         /**
-         * 
+         * Update the status of a transaction match (accept or reject).
+         * @summary Update Transaction Match Status
          * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -12978,7 +12972,8 @@ export const CoaApiAxiosParamCreator = function (configuration?: Configuration) 
             };
         },
         /**
-         * 
+         * Update a transaction match record.
+         * @summary Update Transaction Match
          * @param {number} id 
          * @param {TransactionMatch} transactionMatch 
          * @param {*} [options] Override http request option.
@@ -13088,7 +13083,8 @@ export const CoaApiAxiosParamCreator = function (configuration?: Configuration) 
             };
         },
         /**
-         * 
+         * Create a bill amortization schedule.
+         * @summary Create Bill Amortization (Global)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -13119,7 +13115,8 @@ export const CoaApiAxiosParamCreator = function (configuration?: Configuration) 
             };
         },
         /**
-         * 
+         * Create an amortization schedule for a specific bill.
+         * @summary Create Bill Amortization
          * @param {number} billId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -13154,7 +13151,8 @@ export const CoaApiAxiosParamCreator = function (configuration?: Configuration) 
             };
         },
         /**
-         * 
+         * Delete a bill amortization schedule.
+         * @summary Delete Bill Amortization (Global)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -13185,7 +13183,8 @@ export const CoaApiAxiosParamCreator = function (configuration?: Configuration) 
             };
         },
         /**
-         * 
+         * Delete the amortization schedule for a specific bill.
+         * @summary Delete Bill Amortization
          * @param {number} billId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -13220,7 +13219,8 @@ export const CoaApiAxiosParamCreator = function (configuration?: Configuration) 
             };
         },
         /**
-         * 
+         * Generate a preview of the amortization schedule without persisting it.
+         * @summary Preview Amortization Schedule
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -13251,7 +13251,8 @@ export const CoaApiAxiosParamCreator = function (configuration?: Configuration) 
             };
         },
         /**
-         * 
+         * Generate and persist an amortization schedule for a bill.
+         * @summary Generate Amortization Schedule
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -13282,7 +13283,8 @@ export const CoaApiAxiosParamCreator = function (configuration?: Configuration) 
             };
         },
         /**
-         * 
+         * Retrieve bill amortization data across all bills.
+         * @summary Get Bill Amortization (Global)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -13313,7 +13315,8 @@ export const CoaApiAxiosParamCreator = function (configuration?: Configuration) 
             };
         },
         /**
-         * 
+         * Retrieve the amortization schedule for a specific bill.
+         * @summary Get Bill Amortization
          * @param {number} billId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -13348,7 +13351,8 @@ export const CoaApiAxiosParamCreator = function (configuration?: Configuration) 
             };
         },
         /**
-         * 
+         * Generate and download a PDF of the credit memo.
+         * @summary Get Credit Memo PDF
          * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -13453,7 +13457,8 @@ export const CoaApiAxiosParamCreator = function (configuration?: Configuration) 
             };
         },
         /**
-         * 
+         * Create a new vendor custom field value.
+         * @summary Create Vendor Custom Field
          * @param {VendorCustomField1} [vendorCustomField1] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -13488,7 +13493,8 @@ export const CoaApiAxiosParamCreator = function (configuration?: Configuration) 
             };
         },
         /**
-         * 
+         * Delete a vendor custom field value.
+         * @summary Delete Vendor Custom Field
          * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -13523,7 +13529,8 @@ export const CoaApiAxiosParamCreator = function (configuration?: Configuration) 
             };
         },
         /**
-         * 
+         * Retrieve a list of vendor custom field values.
+         * @summary List Vendor Custom Fields
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -13555,7 +13562,8 @@ export const CoaApiAxiosParamCreator = function (configuration?: Configuration) 
             };
         },
         /**
-         * 
+         * Partially update a vendor custom field value.
+         * @summary Partial Update Vendor Custom Field
          * @param {number} id 
          * @param {PatchedVendorCustomField1} [patchedVendorCustomField1] 
          * @param {*} [options] Override http request option.
@@ -13594,7 +13602,8 @@ export const CoaApiAxiosParamCreator = function (configuration?: Configuration) 
             };
         },
         /**
-         * 
+         * Retrieve a specific vendor custom field value by ID.
+         * @summary Retrieve Vendor Custom Field
          * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -13630,7 +13639,8 @@ export const CoaApiAxiosParamCreator = function (configuration?: Configuration) 
             };
         },
         /**
-         * 
+         * Update a vendor custom field value.
+         * @summary Update Vendor Custom Field
          * @param {number} id 
          * @param {VendorCustomField1} [vendorCustomField1] 
          * @param {*} [options] Override http request option.
@@ -13669,7 +13679,8 @@ export const CoaApiAxiosParamCreator = function (configuration?: Configuration) 
             };
         },
         /**
-         * 
+         * Retrieve summary information for all vendors including spend totals and payment status.
+         * @summary List Vendor Summaries
          * @param {number} [limit] Number of results to return per page.
          * @param {number} [offset] The initial index from which to return the results.
          * @param {*} [options] Override http request option.
@@ -13895,7 +13906,8 @@ export const CoaApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * 
+         * Update multiple chart transactions in a single request.
+         * @summary Bulk Update Chart Transactions
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -13906,7 +13918,8 @@ export const CoaApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * 
+         * Trigger the transaction matching process for bank reconciliation.
+         * @summary Process Transaction Matches
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -13917,7 +13930,8 @@ export const CoaApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * 
+         * Retrieve the count of pending transaction matches.
+         * @summary Get Transaction Matches Count
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -13928,7 +13942,8 @@ export const CoaApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * 
+         * Delete a transaction match record.
+         * @summary Delete Transaction Match
          * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -13940,7 +13955,8 @@ export const CoaApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * 
+         * Retrieve a list of transaction matches for bank reconciliation review.
+         * @summary List Transaction Matches
          * @param {number} [limit] Number of results to return per page.
          * @param {number} [offset] The initial index from which to return the results.
          * @param {*} [options] Override http request option.
@@ -13953,7 +13969,8 @@ export const CoaApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * 
+         * Partially update a transaction match record.
+         * @summary Partial Update Transaction Match
          * @param {number} id 
          * @param {PatchedTransactionMatch} [patchedTransactionMatch] 
          * @param {*} [options] Override http request option.
@@ -13966,7 +13983,8 @@ export const CoaApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * 
+         * Reject a proposed transaction match.
+         * @summary Reject Transaction Match
          * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -13978,7 +13996,8 @@ export const CoaApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * 
+         * Retrieve a specific transaction match by ID.
+         * @summary Retrieve Transaction Match
          * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -14002,7 +14021,8 @@ export const CoaApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * 
+         * Update the status of a transaction match (accept or reject).
+         * @summary Update Transaction Match Status
          * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -14014,7 +14034,8 @@ export const CoaApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * 
+         * Update a transaction match record.
+         * @summary Update Transaction Match
          * @param {number} id 
          * @param {TransactionMatch} transactionMatch 
          * @param {*} [options] Override http request option.
@@ -14052,7 +14073,8 @@ export const CoaApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * 
+         * Create a bill amortization schedule.
+         * @summary Create Bill Amortization (Global)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -14063,7 +14085,8 @@ export const CoaApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * 
+         * Create an amortization schedule for a specific bill.
+         * @summary Create Bill Amortization
          * @param {number} billId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -14075,7 +14098,8 @@ export const CoaApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * 
+         * Delete a bill amortization schedule.
+         * @summary Delete Bill Amortization (Global)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -14086,7 +14110,8 @@ export const CoaApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * 
+         * Delete the amortization schedule for a specific bill.
+         * @summary Delete Bill Amortization
          * @param {number} billId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -14098,7 +14123,8 @@ export const CoaApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * 
+         * Generate a preview of the amortization schedule without persisting it.
+         * @summary Preview Amortization Schedule
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -14109,7 +14135,8 @@ export const CoaApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * 
+         * Generate and persist an amortization schedule for a bill.
+         * @summary Generate Amortization Schedule
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -14120,7 +14147,8 @@ export const CoaApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * 
+         * Retrieve bill amortization data across all bills.
+         * @summary Get Bill Amortization (Global)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -14131,7 +14159,8 @@ export const CoaApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * 
+         * Retrieve the amortization schedule for a specific bill.
+         * @summary Get Bill Amortization
          * @param {number} billId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -14143,7 +14172,8 @@ export const CoaApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * 
+         * Generate and download a PDF of the credit memo.
+         * @summary Get Credit Memo PDF
          * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -14179,7 +14209,8 @@ export const CoaApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * 
+         * Create a new vendor custom field value.
+         * @summary Create Vendor Custom Field
          * @param {VendorCustomField1} [vendorCustomField1] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -14191,7 +14222,8 @@ export const CoaApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * 
+         * Delete a vendor custom field value.
+         * @summary Delete Vendor Custom Field
          * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -14203,7 +14235,8 @@ export const CoaApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * 
+         * Retrieve a list of vendor custom field values.
+         * @summary List Vendor Custom Fields
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -14214,7 +14247,8 @@ export const CoaApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * 
+         * Partially update a vendor custom field value.
+         * @summary Partial Update Vendor Custom Field
          * @param {number} id 
          * @param {PatchedVendorCustomField1} [patchedVendorCustomField1] 
          * @param {*} [options] Override http request option.
@@ -14227,7 +14261,8 @@ export const CoaApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * 
+         * Retrieve a specific vendor custom field value by ID.
+         * @summary Retrieve Vendor Custom Field
          * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -14239,7 +14274,8 @@ export const CoaApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * 
+         * Update a vendor custom field value.
+         * @summary Update Vendor Custom Field
          * @param {number} id 
          * @param {VendorCustomField1} [vendorCustomField1] 
          * @param {*} [options] Override http request option.
@@ -14252,7 +14288,8 @@ export const CoaApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * 
+         * Retrieve summary information for all vendors including spend totals and payment status.
+         * @summary List Vendor Summaries
          * @param {number} [limit] Number of results to return per page.
          * @param {number} [offset] The initial index from which to return the results.
          * @param {*} [options] Override http request option.
@@ -14398,7 +14435,8 @@ export const CoaApiFactory = function (configuration?: Configuration, basePath?:
             return localVarFp.coaApiFixedAssetAutomationUpdate(requestParameters.id, requestParameters.fixedAssetAutomationRule, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
+         * Update multiple chart transactions in a single request.
+         * @summary Bulk Update Chart Transactions
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -14406,7 +14444,8 @@ export const CoaApiFactory = function (configuration?: Configuration, basePath?:
             return localVarFp.coaApiTransactionBulkUpdateCreate(options).then((request) => request(axios, basePath));
         },
         /**
-         * 
+         * Trigger the transaction matching process for bank reconciliation.
+         * @summary Process Transaction Matches
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -14414,7 +14453,8 @@ export const CoaApiFactory = function (configuration?: Configuration, basePath?:
             return localVarFp.coaApiTransactionMatchProcessCreate(options).then((request) => request(axios, basePath));
         },
         /**
-         * 
+         * Retrieve the count of pending transaction matches.
+         * @summary Get Transaction Matches Count
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -14422,7 +14462,8 @@ export const CoaApiFactory = function (configuration?: Configuration, basePath?:
             return localVarFp.coaApiTransactionMatchesCountRetrieve(options).then((request) => request(axios, basePath));
         },
         /**
-         * 
+         * Delete a transaction match record.
+         * @summary Delete Transaction Match
          * @param {CoaApiCoaApiTransactionMatchesDestroyRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -14431,7 +14472,8 @@ export const CoaApiFactory = function (configuration?: Configuration, basePath?:
             return localVarFp.coaApiTransactionMatchesDestroy(requestParameters.id, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
+         * Retrieve a list of transaction matches for bank reconciliation review.
+         * @summary List Transaction Matches
          * @param {CoaApiCoaApiTransactionMatchesListRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -14440,7 +14482,8 @@ export const CoaApiFactory = function (configuration?: Configuration, basePath?:
             return localVarFp.coaApiTransactionMatchesList(requestParameters.limit, requestParameters.offset, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
+         * Partially update a transaction match record.
+         * @summary Partial Update Transaction Match
          * @param {CoaApiCoaApiTransactionMatchesPartialUpdateRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -14449,7 +14492,8 @@ export const CoaApiFactory = function (configuration?: Configuration, basePath?:
             return localVarFp.coaApiTransactionMatchesPartialUpdate(requestParameters.id, requestParameters.patchedTransactionMatch, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
+         * Reject a proposed transaction match.
+         * @summary Reject Transaction Match
          * @param {CoaApiCoaApiTransactionMatchesRejectCreateRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -14458,7 +14502,8 @@ export const CoaApiFactory = function (configuration?: Configuration, basePath?:
             return localVarFp.coaApiTransactionMatchesRejectCreate(requestParameters.id, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
+         * Retrieve a specific transaction match by ID.
+         * @summary Retrieve Transaction Match
          * @param {CoaApiCoaApiTransactionMatchesRetrieveRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -14476,7 +14521,8 @@ export const CoaApiFactory = function (configuration?: Configuration, basePath?:
             return localVarFp.coaApiTransactionMatchesStatusCreate(requestParameters.id, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
+         * Update the status of a transaction match (accept or reject).
+         * @summary Update Transaction Match Status
          * @param {CoaApiCoaApiTransactionMatchesStatusUpdateRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -14485,7 +14531,8 @@ export const CoaApiFactory = function (configuration?: Configuration, basePath?:
             return localVarFp.coaApiTransactionMatchesStatusUpdate(requestParameters.id, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
+         * Update a transaction match record.
+         * @summary Update Transaction Match
          * @param {CoaApiCoaApiTransactionMatchesUpdateRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -14513,7 +14560,8 @@ export const CoaApiFactory = function (configuration?: Configuration, basePath?:
             return localVarFp.coaApiTransactionMergeRetrieve(options).then((request) => request(axios, basePath));
         },
         /**
-         * 
+         * Create a bill amortization schedule.
+         * @summary Create Bill Amortization (Global)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -14521,7 +14569,8 @@ export const CoaApiFactory = function (configuration?: Configuration, basePath?:
             return localVarFp.coaApiV1BillAmortizationCreate(options).then((request) => request(axios, basePath));
         },
         /**
-         * 
+         * Create an amortization schedule for a specific bill.
+         * @summary Create Bill Amortization
          * @param {CoaApiCoaApiV1BillAmortizationCreate2Request} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -14530,7 +14579,8 @@ export const CoaApiFactory = function (configuration?: Configuration, basePath?:
             return localVarFp.coaApiV1BillAmortizationCreate2(requestParameters.billId, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
+         * Delete a bill amortization schedule.
+         * @summary Delete Bill Amortization (Global)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -14538,7 +14588,8 @@ export const CoaApiFactory = function (configuration?: Configuration, basePath?:
             return localVarFp.coaApiV1BillAmortizationDestroy(options).then((request) => request(axios, basePath));
         },
         /**
-         * 
+         * Delete the amortization schedule for a specific bill.
+         * @summary Delete Bill Amortization
          * @param {CoaApiCoaApiV1BillAmortizationDestroy2Request} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -14547,7 +14598,8 @@ export const CoaApiFactory = function (configuration?: Configuration, basePath?:
             return localVarFp.coaApiV1BillAmortizationDestroy2(requestParameters.billId, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
+         * Generate a preview of the amortization schedule without persisting it.
+         * @summary Preview Amortization Schedule
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -14555,7 +14607,8 @@ export const CoaApiFactory = function (configuration?: Configuration, basePath?:
             return localVarFp.coaApiV1BillAmortizationGenerateScheduleRetrieve(options).then((request) => request(axios, basePath));
         },
         /**
-         * 
+         * Generate and persist an amortization schedule for a bill.
+         * @summary Generate Amortization Schedule
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -14563,7 +14616,8 @@ export const CoaApiFactory = function (configuration?: Configuration, basePath?:
             return localVarFp.coaApiV1BillAmortizationGenerateScheduleUpdate(options).then((request) => request(axios, basePath));
         },
         /**
-         * 
+         * Retrieve bill amortization data across all bills.
+         * @summary Get Bill Amortization (Global)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -14571,7 +14625,8 @@ export const CoaApiFactory = function (configuration?: Configuration, basePath?:
             return localVarFp.coaApiV1BillAmortizationRetrieve(options).then((request) => request(axios, basePath));
         },
         /**
-         * 
+         * Retrieve the amortization schedule for a specific bill.
+         * @summary Get Bill Amortization
          * @param {CoaApiCoaApiV1BillAmortizationRetrieve2Request} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -14580,7 +14635,8 @@ export const CoaApiFactory = function (configuration?: Configuration, basePath?:
             return localVarFp.coaApiV1BillAmortizationRetrieve2(requestParameters.billId, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
+         * Generate and download a PDF of the credit memo.
+         * @summary Get Credit Memo PDF
          * @param {CoaApiCoaApiV1CreditMemoPdfRetrieveRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -14607,7 +14663,8 @@ export const CoaApiFactory = function (configuration?: Configuration, basePath?:
             return localVarFp.coaApiV1InvoiceStatementClientPdfRetrieve(requestParameters.clientId, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
+         * Create a new vendor custom field value.
+         * @summary Create Vendor Custom Field
          * @param {CoaApiCoaApiVendorCustomField1CreateRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -14616,7 +14673,8 @@ export const CoaApiFactory = function (configuration?: Configuration, basePath?:
             return localVarFp.coaApiVendorCustomField1Create(requestParameters.vendorCustomField1, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
+         * Delete a vendor custom field value.
+         * @summary Delete Vendor Custom Field
          * @param {CoaApiCoaApiVendorCustomField1DestroyRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -14625,7 +14683,8 @@ export const CoaApiFactory = function (configuration?: Configuration, basePath?:
             return localVarFp.coaApiVendorCustomField1Destroy(requestParameters.id, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
+         * Retrieve a list of vendor custom field values.
+         * @summary List Vendor Custom Fields
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -14633,7 +14692,8 @@ export const CoaApiFactory = function (configuration?: Configuration, basePath?:
             return localVarFp.coaApiVendorCustomField1List(options).then((request) => request(axios, basePath));
         },
         /**
-         * 
+         * Partially update a vendor custom field value.
+         * @summary Partial Update Vendor Custom Field
          * @param {CoaApiCoaApiVendorCustomField1PartialUpdateRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -14642,7 +14702,8 @@ export const CoaApiFactory = function (configuration?: Configuration, basePath?:
             return localVarFp.coaApiVendorCustomField1PartialUpdate(requestParameters.id, requestParameters.patchedVendorCustomField1, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
+         * Retrieve a specific vendor custom field value by ID.
+         * @summary Retrieve Vendor Custom Field
          * @param {CoaApiCoaApiVendorCustomField1RetrieveRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -14651,7 +14712,8 @@ export const CoaApiFactory = function (configuration?: Configuration, basePath?:
             return localVarFp.coaApiVendorCustomField1Retrieve(requestParameters.id, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
+         * Update a vendor custom field value.
+         * @summary Update Vendor Custom Field
          * @param {CoaApiCoaApiVendorCustomField1UpdateRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -14660,7 +14722,8 @@ export const CoaApiFactory = function (configuration?: Configuration, basePath?:
             return localVarFp.coaApiVendorCustomField1Update(requestParameters.id, requestParameters.vendorCustomField1, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
+         * Retrieve summary information for all vendors including spend totals and payment status.
+         * @summary List Vendor Summaries
          * @param {CoaApiCoaApiVendorSummaryListRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -15101,7 +15164,8 @@ export class CoaApi extends BaseAPI {
     }
 
     /**
-     * 
+     * Update multiple chart transactions in a single request.
+     * @summary Bulk Update Chart Transactions
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -15110,7 +15174,8 @@ export class CoaApi extends BaseAPI {
     }
 
     /**
-     * 
+     * Trigger the transaction matching process for bank reconciliation.
+     * @summary Process Transaction Matches
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -15119,7 +15184,8 @@ export class CoaApi extends BaseAPI {
     }
 
     /**
-     * 
+     * Retrieve the count of pending transaction matches.
+     * @summary Get Transaction Matches Count
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -15128,7 +15194,8 @@ export class CoaApi extends BaseAPI {
     }
 
     /**
-     * 
+     * Delete a transaction match record.
+     * @summary Delete Transaction Match
      * @param {CoaApiCoaApiTransactionMatchesDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -15138,7 +15205,8 @@ export class CoaApi extends BaseAPI {
     }
 
     /**
-     * 
+     * Retrieve a list of transaction matches for bank reconciliation review.
+     * @summary List Transaction Matches
      * @param {CoaApiCoaApiTransactionMatchesListRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -15148,7 +15216,8 @@ export class CoaApi extends BaseAPI {
     }
 
     /**
-     * 
+     * Partially update a transaction match record.
+     * @summary Partial Update Transaction Match
      * @param {CoaApiCoaApiTransactionMatchesPartialUpdateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -15158,7 +15227,8 @@ export class CoaApi extends BaseAPI {
     }
 
     /**
-     * 
+     * Reject a proposed transaction match.
+     * @summary Reject Transaction Match
      * @param {CoaApiCoaApiTransactionMatchesRejectCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -15168,7 +15238,8 @@ export class CoaApi extends BaseAPI {
     }
 
     /**
-     * 
+     * Retrieve a specific transaction match by ID.
+     * @summary Retrieve Transaction Match
      * @param {CoaApiCoaApiTransactionMatchesRetrieveRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -15188,7 +15259,8 @@ export class CoaApi extends BaseAPI {
     }
 
     /**
-     * 
+     * Update the status of a transaction match (accept or reject).
+     * @summary Update Transaction Match Status
      * @param {CoaApiCoaApiTransactionMatchesStatusUpdateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -15198,7 +15270,8 @@ export class CoaApi extends BaseAPI {
     }
 
     /**
-     * 
+     * Update a transaction match record.
+     * @summary Update Transaction Match
      * @param {CoaApiCoaApiTransactionMatchesUpdateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -15229,7 +15302,8 @@ export class CoaApi extends BaseAPI {
     }
 
     /**
-     * 
+     * Create a bill amortization schedule.
+     * @summary Create Bill Amortization (Global)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -15238,7 +15312,8 @@ export class CoaApi extends BaseAPI {
     }
 
     /**
-     * 
+     * Create an amortization schedule for a specific bill.
+     * @summary Create Bill Amortization
      * @param {CoaApiCoaApiV1BillAmortizationCreate2Request} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -15248,7 +15323,8 @@ export class CoaApi extends BaseAPI {
     }
 
     /**
-     * 
+     * Delete a bill amortization schedule.
+     * @summary Delete Bill Amortization (Global)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -15257,7 +15333,8 @@ export class CoaApi extends BaseAPI {
     }
 
     /**
-     * 
+     * Delete the amortization schedule for a specific bill.
+     * @summary Delete Bill Amortization
      * @param {CoaApiCoaApiV1BillAmortizationDestroy2Request} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -15267,7 +15344,8 @@ export class CoaApi extends BaseAPI {
     }
 
     /**
-     * 
+     * Generate a preview of the amortization schedule without persisting it.
+     * @summary Preview Amortization Schedule
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -15276,7 +15354,8 @@ export class CoaApi extends BaseAPI {
     }
 
     /**
-     * 
+     * Generate and persist an amortization schedule for a bill.
+     * @summary Generate Amortization Schedule
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -15285,7 +15364,8 @@ export class CoaApi extends BaseAPI {
     }
 
     /**
-     * 
+     * Retrieve bill amortization data across all bills.
+     * @summary Get Bill Amortization (Global)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -15294,7 +15374,8 @@ export class CoaApi extends BaseAPI {
     }
 
     /**
-     * 
+     * Retrieve the amortization schedule for a specific bill.
+     * @summary Get Bill Amortization
      * @param {CoaApiCoaApiV1BillAmortizationRetrieve2Request} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -15304,7 +15385,8 @@ export class CoaApi extends BaseAPI {
     }
 
     /**
-     * 
+     * Generate and download a PDF of the credit memo.
+     * @summary Get Credit Memo PDF
      * @param {CoaApiCoaApiV1CreditMemoPdfRetrieveRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -15334,7 +15416,8 @@ export class CoaApi extends BaseAPI {
     }
 
     /**
-     * 
+     * Create a new vendor custom field value.
+     * @summary Create Vendor Custom Field
      * @param {CoaApiCoaApiVendorCustomField1CreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -15344,7 +15427,8 @@ export class CoaApi extends BaseAPI {
     }
 
     /**
-     * 
+     * Delete a vendor custom field value.
+     * @summary Delete Vendor Custom Field
      * @param {CoaApiCoaApiVendorCustomField1DestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -15354,7 +15438,8 @@ export class CoaApi extends BaseAPI {
     }
 
     /**
-     * 
+     * Retrieve a list of vendor custom field values.
+     * @summary List Vendor Custom Fields
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -15363,7 +15448,8 @@ export class CoaApi extends BaseAPI {
     }
 
     /**
-     * 
+     * Partially update a vendor custom field value.
+     * @summary Partial Update Vendor Custom Field
      * @param {CoaApiCoaApiVendorCustomField1PartialUpdateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -15373,7 +15459,8 @@ export class CoaApi extends BaseAPI {
     }
 
     /**
-     * 
+     * Retrieve a specific vendor custom field value by ID.
+     * @summary Retrieve Vendor Custom Field
      * @param {CoaApiCoaApiVendorCustomField1RetrieveRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -15383,7 +15470,8 @@ export class CoaApi extends BaseAPI {
     }
 
     /**
-     * 
+     * Update a vendor custom field value.
+     * @summary Update Vendor Custom Field
      * @param {CoaApiCoaApiVendorCustomField1UpdateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -15393,7 +15481,8 @@ export class CoaApi extends BaseAPI {
     }
 
     /**
-     * 
+     * Retrieve summary information for all vendors including spend totals and payment status.
+     * @summary List Vendor Summaries
      * @param {CoaApiCoaApiVendorSummaryListRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -21653,7 +21742,8 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
-         * 
+         * Apply bill payments to a bank transaction, linking the transaction to one or more bills.
+         * @summary Apply Bill Payments to Transaction
          * @param {number} transactionId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -21688,7 +21778,8 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
-         * 
+         * Apply credit memo payments to a bank transaction.
+         * @summary Apply Credit Memo Payments to Transaction
          * @param {number} transactionId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -21723,7 +21814,8 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
-         * 
+         * Apply debit memo payments to a bank transaction.
+         * @summary Apply Debit Memo Payments to Transaction
          * @param {number} transactionId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -21758,7 +21850,8 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
-         * 
+         * Delete a chart transaction. Cannot delete transactions in closed accounting periods.
+         * @summary Delete Chart Transaction
          * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -21793,7 +21886,8 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
-         * 
+         * Apply invoice payments to a bank transaction, linking the transaction to one or more invoices.
+         * @summary Apply Invoice Payments to Transaction
          * @param {number} transactionId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -22569,7 +22663,8 @@ export const CoreAccountingApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * 
+         * Apply bill payments to a bank transaction, linking the transaction to one or more bills.
+         * @summary Apply Bill Payments to Transaction
          * @param {number} transactionId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -22581,7 +22676,8 @@ export const CoreAccountingApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * 
+         * Apply credit memo payments to a bank transaction.
+         * @summary Apply Credit Memo Payments to Transaction
          * @param {number} transactionId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -22593,7 +22689,8 @@ export const CoreAccountingApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * 
+         * Apply debit memo payments to a bank transaction.
+         * @summary Apply Debit Memo Payments to Transaction
          * @param {number} transactionId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -22605,7 +22702,8 @@ export const CoreAccountingApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * 
+         * Delete a chart transaction. Cannot delete transactions in closed accounting periods.
+         * @summary Delete Chart Transaction
          * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -22617,7 +22715,8 @@ export const CoreAccountingApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * 
+         * Apply invoice payments to a bank transaction, linking the transaction to one or more invoices.
+         * @summary Apply Invoice Payments to Transaction
          * @param {number} transactionId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -23053,7 +23152,8 @@ export const CoreAccountingApiFactory = function (configuration?: Configuration,
             return localVarFp.coaApiTagBulkSearchCreate(requestParameters.bulkTagSearch, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
+         * Apply bill payments to a bank transaction, linking the transaction to one or more bills.
+         * @summary Apply Bill Payments to Transaction
          * @param {CoreAccountingApiCoaApiTransactionBillPaymentsCreateRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -23062,7 +23162,8 @@ export const CoreAccountingApiFactory = function (configuration?: Configuration,
             return localVarFp.coaApiTransactionBillPaymentsCreate(requestParameters.transactionId, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
+         * Apply credit memo payments to a bank transaction.
+         * @summary Apply Credit Memo Payments to Transaction
          * @param {CoreAccountingApiCoaApiTransactionCreditMemoPaymentsCreateRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -23071,7 +23172,8 @@ export const CoreAccountingApiFactory = function (configuration?: Configuration,
             return localVarFp.coaApiTransactionCreditMemoPaymentsCreate(requestParameters.transactionId, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
+         * Apply debit memo payments to a bank transaction.
+         * @summary Apply Debit Memo Payments to Transaction
          * @param {CoreAccountingApiCoaApiTransactionDebitMemoPaymentsCreateRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -23080,7 +23182,8 @@ export const CoreAccountingApiFactory = function (configuration?: Configuration,
             return localVarFp.coaApiTransactionDebitMemoPaymentsCreate(requestParameters.transactionId, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
+         * Delete a chart transaction. Cannot delete transactions in closed accounting periods.
+         * @summary Delete Chart Transaction
          * @param {CoreAccountingApiCoaApiTransactionDestroyRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -23089,7 +23192,8 @@ export const CoreAccountingApiFactory = function (configuration?: Configuration,
             return localVarFp.coaApiTransactionDestroy(requestParameters.id, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
+         * Apply invoice payments to a bank transaction, linking the transaction to one or more invoices.
+         * @summary Apply Invoice Payments to Transaction
          * @param {CoreAccountingApiCoaApiTransactionInvoicePaymentsCreateRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -24010,7 +24114,8 @@ export class CoreAccountingApi extends BaseAPI {
     }
 
     /**
-     * 
+     * Apply bill payments to a bank transaction, linking the transaction to one or more bills.
+     * @summary Apply Bill Payments to Transaction
      * @param {CoreAccountingApiCoaApiTransactionBillPaymentsCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -24020,7 +24125,8 @@ export class CoreAccountingApi extends BaseAPI {
     }
 
     /**
-     * 
+     * Apply credit memo payments to a bank transaction.
+     * @summary Apply Credit Memo Payments to Transaction
      * @param {CoreAccountingApiCoaApiTransactionCreditMemoPaymentsCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -24030,7 +24136,8 @@ export class CoreAccountingApi extends BaseAPI {
     }
 
     /**
-     * 
+     * Apply debit memo payments to a bank transaction.
+     * @summary Apply Debit Memo Payments to Transaction
      * @param {CoreAccountingApiCoaApiTransactionDebitMemoPaymentsCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -24040,7 +24147,8 @@ export class CoreAccountingApi extends BaseAPI {
     }
 
     /**
-     * 
+     * Delete a chart transaction. Cannot delete transactions in closed accounting periods.
+     * @summary Delete Chart Transaction
      * @param {CoreAccountingApiCoaApiTransactionDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -24050,7 +24158,8 @@ export class CoreAccountingApi extends BaseAPI {
     }
 
     /**
-     * 
+     * Apply invoice payments to a bank transaction, linking the transaction to one or more invoices.
+     * @summary Apply Invoice Payments to Transaction
      * @param {CoreAccountingApiCoaApiTransactionInvoicePaymentsCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
