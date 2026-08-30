@@ -6,6 +6,10 @@ TypeScript SDK for the [Campfire API](https://api.meetcampfire.com) (accounting,
 
 ## Installation
 
+Requires Node.js **>= 22.13.0** — the oldest non-EOL Node this package supports, enforced by
+`engines` in `package.json`. That is a compatibility floor for consumers; the SDK itself is built
+and released on the exact Node version pinned in `.node-version`.
+
 ```bash
 npm install github:rocketsciencegg/campfire-typescript-sdk
 ```
