@@ -12,8 +12,12 @@ Name | Type | Description | Notes
 **entityName** | **string** |  | [readonly] [default to undefined]
 **entityCurrency** | **string** |  | [readonly] [default to undefined]
 **clientName** | **string** |  | [readonly] [default to undefined]
+**clientCampfireId** | **string** |  | [readonly] [default to undefined]
 **clientEmail** | **string** |  | [readonly] [default to undefined]
 **contractName** | **string** |  | [readonly] [default to undefined]
+**revenueContract** | **number** | Revenue contract to link this credit memo to at creation. | [optional] [default to undefined]
+**revenueContractName** | **string** |  | [readonly] [default to undefined]
+**revenueContractNumber** | **string** |  | [readonly] [default to undefined]
 **creditAccountNumber** | **string** |  | [readonly] [default to undefined]
 **creditAccountName** | **string** | Combines account number and name in the format \&quot;number - name\&quot; | [readonly] [default to undefined]
 **attachments** | **Array&lt;any&gt;** |  | [readonly] [default to undefined]
@@ -24,8 +28,10 @@ Name | Type | Description | Notes
 **lastModifiedAt** | **string** |  | [readonly] [default to undefined]
 **isDeleted** | **boolean** |  | [readonly] [default to false]
 **deletedAt** | **string** |  | [readonly] [default to undefined]
+**chatUuid** | **string** |  | [optional] [default to undefined]
 **searchVector** | **string** |  | [readonly] [default to undefined]
 **searchText** | **string** |  | [readonly] [default to undefined]
+**creditMemoType** | [**CreditMemoTypeEnum**](CreditMemoTypeEnum.md) |  | [optional] [default to undefined]
 **refNumber** | **string** |  | [optional] [default to undefined]
 **creditMemoDate** | **string** |  | [default to undefined]
 **appliedDate** | **string** |  | [optional] [default to undefined]
@@ -36,9 +42,14 @@ Name | Type | Description | Notes
 **exchangeRateBook** | **number** |  | [optional] [default to undefined]
 **createdAt** | **string** |  | [readonly] [default to undefined]
 **lastSentAt** | **string** |  | [optional] [default to undefined]
-**anrokTransactionId** | **string** | ID of the negation transaction in Anrok for this credit memo | [optional] [default to undefined]
+**anrokTransactionId** | **string** | ID of the negation transaction in Anrok for this credit memo | [readonly] [default to undefined]
+**excludeFromTaxConnection** | **boolean** | When true, no tax is calculated through, and no transaction is created in, the entity\&#39;s tax connection for this credit memo. Set at creation; cannot be changed. | [optional] [default to undefined]
+**integrationId** | **string** |  | [optional] [default to undefined]
+**integrationContext** | **any** |  | [optional] [default to undefined]
+**vatNumber** | **string** |  | [optional] [default to undefined]
 **totalAmount** | **number** | Sum of all line item amounts | [optional] [default to undefined]
 **amountUsed** | **number** | Sum of all non-voided payment amounts | [optional] [default to undefined]
+**chatId** | **number** |  | [optional] [default to undefined]
 **customer** | **number** |  | [readonly] [default to undefined]
 **entity** | **number** |  | [default to undefined]
 **client** | **number** |  | [optional] [default to undefined]
@@ -47,6 +58,8 @@ Name | Type | Description | Notes
 **contract** | **number** |  | [optional] [default to undefined]
 **voidedJournalEntry** | **number** |  | [optional] [default to undefined]
 **anrokConnection** | **number** |  | [optional] [default to undefined]
+**avalaraConnection** | **number** |  | [optional] [default to undefined]
+**sphereConnection** | **number** |  | [optional] [default to undefined]
 
 ## Example
 
@@ -61,8 +74,12 @@ const instance: AccountingCreditMemo = {
     entityName,
     entityCurrency,
     clientName,
+    clientCampfireId,
     clientEmail,
     contractName,
+    revenueContract,
+    revenueContractName,
+    revenueContractNumber,
     creditAccountNumber,
     creditAccountName,
     attachments,
@@ -73,8 +90,10 @@ const instance: AccountingCreditMemo = {
     lastModifiedAt,
     isDeleted,
     deletedAt,
+    chatUuid,
     searchVector,
     searchText,
+    creditMemoType,
     refNumber,
     creditMemoDate,
     appliedDate,
@@ -86,8 +105,13 @@ const instance: AccountingCreditMemo = {
     createdAt,
     lastSentAt,
     anrokTransactionId,
+    excludeFromTaxConnection,
+    integrationId,
+    integrationContext,
+    vatNumber,
     totalAmount,
     amountUsed,
+    chatId,
     customer,
     entity,
     client,
@@ -96,6 +120,8 @@ const instance: AccountingCreditMemo = {
     contract,
     voidedJournalEntry,
     anrokConnection,
+    avalaraConnection,
+    sphereConnection,
 };
 ```
 

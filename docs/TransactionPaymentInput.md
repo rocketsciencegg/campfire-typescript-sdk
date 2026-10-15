@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **transactionId** | **number** |  | [default to undefined]
 **amount** | **number** |  | [default to undefined]
 **postedAt** | **string** | Payment date for term discount calculation | [default to undefined]
+**withholdingAmount** | **number** |  | [optional] [default to undefined]
 
 ## Example
 
@@ -18,6 +19,7 @@ const instance: TransactionPaymentInput = {
     transactionId,
     amount,
     postedAt,
+    withholdingAmount,
 };
 ```
 

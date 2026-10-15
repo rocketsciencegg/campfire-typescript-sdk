@@ -8,14 +8,19 @@ Name | Type | Description | Notes
 **id** | **number** |  | [optional] [readonly] [default to undefined]
 **lines** | [**Array&lt;CostAllocationLine&gt;**](CostAllocationLine.md) |  | [optional] [default to undefined]
 **lineCount** | **number** |  | [optional] [readonly] [default to undefined]
+**isDefinitionLocked** | **boolean** | True once a dynamic allocation has posted a split; static allocations stay editable. | [optional] [readonly] [default to undefined]
 **isDeleted** | **boolean** |  | [optional] [readonly] [default to false]
 **deletedAt** | **string** |  | [optional] [readonly] [default to undefined]
 **name** | **string** |  | [optional] [default to undefined]
 **number** | **string** |  | [optional] [default to undefined]
+**isDynamic** | **boolean** |  | [optional] [default to undefined]
+**membershipMode** | [**MembershipModeEnum**](MembershipModeEnum.md) |  | [optional] [default to undefined]
 **createdAt** | **string** |  | [optional] [readonly] [default to undefined]
 **lastModifiedAt** | **string** |  | [optional] [readonly] [default to undefined]
 **customer** | **number** |  | [optional] [readonly] [default to undefined]
 **account** | **number** |  | [optional] [default to undefined]
+**basis** | **number** |  | [optional] [default to undefined]
+**destinationAccount** | **number** |  | [optional] [default to undefined]
 
 ## Example
 
@@ -26,14 +31,19 @@ const instance: PatchedCostAllocation = {
     id,
     lines,
     lineCount,
+    isDefinitionLocked,
     isDeleted,
     deletedAt,
     name,
     number,
+    isDynamic,
+    membershipMode,
     createdAt,
     lastModifiedAt,
     customer,
     account,
+    basis,
+    destinationAccount,
 };
 ```
 

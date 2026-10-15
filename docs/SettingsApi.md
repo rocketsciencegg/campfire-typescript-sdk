@@ -14,9 +14,11 @@ All URIs are relative to *https://api.meetcampfire.com*
 |[**caApiUserCurrencyDestroy**](#caapiusercurrencydestroy) | **DELETE** /ca/api/user_currency/{id} | Delete Customer Currencies|
 |[**caApiUserCurrencyList**](#caapiusercurrencylist) | **GET** /ca/api/user_currency | List Customer Currencies|
 |[**caApiUserCurrencyPartialUpdate**](#caapiusercurrencypartialupdate) | **PATCH** /ca/api/user_currency/{id} | Partial Update Customer Currencies|
+|[**caApiUserCurrencyRateRetrieve**](#caapiusercurrencyrateretrieve) | **GET** /ca/api/user_currency/rate | Get Currency Exchange Rate|
 |[**caApiUserCurrencyRetrieve**](#caapiusercurrencyretrieve) | **GET** /ca/api/user_currency/{id} | Retrieve Customer Currencies|
 |[**caApiUserCurrencyUpdate**](#caapiusercurrencyupdate) | **PUT** /ca/api/user_currency/{id} | Update Customer Currencies|
 |[**caApiUserCurrencyWithRateRetrieve**](#caapiusercurrencywithrateretrieve) | **GET** /ca/api/user_currency/with_rate | Get Currencies Exchange Rates for Currency|
+|[**coaApiEntityAttachmentCreate**](#coaapientityattachmentcreate) | **POST** /coa/api/entity/{entity_id}/attachment | Upload Entity Invoice Email Attachment|
 |[**coaApiEntityCreate**](#coaapientitycreate) | **POST** /coa/api/entity | Create Chart Entity|
 |[**coaApiEntityDestroy**](#coaapientitydestroy) | **DELETE** /coa/api/entity/{id} | Delete Chart Entity|
 |[**coaApiEntityForIntercompanyList**](#coaapientityforintercompanylist) | **GET** /coa/api/entity/for-intercompany | List All Entities for Intercompany JE|
@@ -25,6 +27,7 @@ All URIs are relative to *https://api.meetcampfire.com*
 |[**coaApiEntityPartialUpdate**](#coaapientitypartialupdate) | **PATCH** /coa/api/entity/{id} | Partial Update Chart Entity|
 |[**coaApiEntityRetrieve**](#coaapientityretrieve) | **GET** /coa/api/entity/{id} | Retrieve Chart Entity|
 |[**coaApiEntityUpdate**](#coaapientityupdate) | **PUT** /coa/api/entity/{id} | Update Chart Entity|
+|[**getFileTempDownloadUrl**](#getfiletempdownloadurl) | **GET** /ca/api/file/{id}/temp-download-url | Get File Temporary Download URL|
 |[**settingsPartialUpdateChartAccountSettings**](#settingspartialupdatechartaccountsettings) | **PATCH** /coa/api/chart-account-settings | Partially Update Chart Account Settings|
 |[**settingsRetrieveChartAccountSettings**](#settingsretrievechartaccountsettings) | **GET** /coa/api/chart-account-settings | Retrieve Chart Account Settings|
 |[**settingsUpdateChartAccountSettings**](#settingsupdatechartaccountsettings) | **PUT** /coa/api/chart-account-settings | Update Chart Account Settings|
@@ -64,7 +67,7 @@ void (empty response body)
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -127,7 +130,7 @@ const { status, data } = await apiInstance.caApiFileList(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -138,7 +141,7 @@ const { status, data } = await apiInstance.caApiFileList(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -181,7 +184,7 @@ const { status, data } = await apiInstance.caApiFilePartialUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -192,7 +195,7 @@ const { status, data } = await apiInstance.caApiFilePartialUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -231,7 +234,7 @@ const { status, data } = await apiInstance.caApiFileRetrieve(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -242,7 +245,7 @@ const { status, data } = await apiInstance.caApiFileRetrieve(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -285,7 +288,7 @@ const { status, data } = await apiInstance.caApiFileUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -296,14 +299,14 @@ const { status, data } = await apiInstance.caApiFileUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **caApiFileUploadCreate**
 > caApiFileUploadCreate()
 
-         Upload a file directly to Campfire. This is the primary way to upload files.          **Supported Models:**         bill, chat, close_task, closecheckitem, contract, credit_memo, customer, debit_memo, draft_queue, fixed_asset, intercompany_journal, invoice, journal_entry, journalentry, reconciliation, reconciliation_report          **Supported Content Types:**         application/msword, application/pdf, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/vnd.openxmlformats-officedocument.presentationml.presentation, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.openxmlformats-officedocument.wordprocessingml.document, image/gif, image/jpeg, image/jpg, image/png, image/webp, text/csv, text/plain          **Maximum File Size:** 100MB          **Example:**         ```bash         curl -X POST \"https://api.meetcampfire.com/ca/api/file/upload?model=bill&object_id=12345\" \\           -H \"Authorization: Token YOUR_TOKEN\" \\           -F \"file=@receipt.pdf\"         ```          **Query Parameters:**         - `model` (required): Model type (e.g., \"bill\", \"invoice\", \"contract\")         - `object_id` (optional): ID of the object to attach the file to          **Request Body:**         - `file` (required): The file to upload (multipart/form-data)         
+         Upload a file directly to Campfire. This is the primary way to upload files.          **Supported Models:**         bill, chat, close_task, closecheckitem, contract, credit_memo, customer, debit_memo, draft_queue, fixed_asset, forecast, intercompany_journal, invoice, journal_entry, journalentry, lease_v2, migration_record, policy, reconciliation, reconciliation_report, revenue_contract          **Supported Content Types:**         application/msword, application/pdf, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/vnd.openxmlformats-officedocument.presentationml.presentation, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.openxmlformats-officedocument.wordprocessingml.document, image/gif, image/jpeg, image/jpg, image/png, image/webp, text/csv, text/markdown, text/plain, text/x-markdown          **Maximum File Size:** 100MB          **Example:**         ```bash         curl -X POST \"https://api.meetcampfire.com/ca/api/file/upload?model=bill&object_id=12345\" \\           -H \"Authorization: Token YOUR_TOKEN\" \\           -F \"file=@receipt.pdf\"         ```          **Query Parameters:**         - `model` (required): Model type (e.g., \"bill\", \"invoice\", \"contract\")         - `object_id` (optional): ID of the object to attach the file to          **Request Body:**         - `file` (required): The file to upload (multipart/form-data)         
 
 ### Example
 
@@ -329,7 +332,7 @@ void (empty response body)
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -345,7 +348,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **caApiUserCurrencyCreate**
-> CustomerCurrency caApiUserCurrencyCreate()
+> CustomerCurrency caApiUserCurrencyCreate(customerCurrency)
 
 Complete mixin for history filtering with pagination support. Returns either active OR deleted records based on include_deleted parameter.
 
@@ -361,7 +364,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new SettingsApi(configuration);
 
-let customerCurrency: CustomerCurrency; // (optional)
+let customerCurrency: CustomerCurrency; //
 
 const { status, data } = await apiInstance.caApiUserCurrencyCreate(
     customerCurrency
@@ -381,7 +384,7 @@ const { status, data } = await apiInstance.caApiUserCurrencyCreate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -431,7 +434,7 @@ void (empty response body)
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -494,7 +497,7 @@ const { status, data } = await apiInstance.caApiUserCurrencyList(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -505,7 +508,7 @@ const { status, data } = await apiInstance.caApiUserCurrencyList(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -548,7 +551,7 @@ const { status, data } = await apiInstance.caApiUserCurrencyPartialUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -559,7 +562,50 @@ const { status, data } = await apiInstance.caApiUserCurrencyPartialUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **caApiUserCurrencyRateRetrieve**
+> caApiUserCurrencyRateRetrieve()
+
+
+### Example
+
+```typescript
+import {
+    SettingsApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new SettingsApi(configuration);
+
+const { status, data } = await apiInstance.caApiUserCurrencyRateRetrieve();
+```
+
+### Parameters
+This endpoint does not have any parameters.
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | No response body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -598,7 +644,7 @@ const { status, data } = await apiInstance.caApiUserCurrencyRetrieve(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -609,12 +655,12 @@ const { status, data } = await apiInstance.caApiUserCurrencyRetrieve(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **caApiUserCurrencyUpdate**
-> CustomerCurrency caApiUserCurrencyUpdate()
+> CustomerCurrency caApiUserCurrencyUpdate(customerCurrency)
 
 
 ### Example
@@ -630,7 +676,7 @@ const configuration = new Configuration();
 const apiInstance = new SettingsApi(configuration);
 
 let id: number; // (default to undefined)
-let customerCurrency: CustomerCurrency; // (optional)
+let customerCurrency: CustomerCurrency; //
 
 const { status, data } = await apiInstance.caApiUserCurrencyUpdate(
     id,
@@ -652,7 +698,7 @@ const { status, data } = await apiInstance.caApiUserCurrencyUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -663,7 +709,7 @@ const { status, data } = await apiInstance.caApiUserCurrencyUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -695,7 +741,58 @@ void (empty response body)
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | No response body |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **coaApiEntityAttachmentCreate**
+> coaApiEntityAttachmentCreate()
+
+Upload invoice email attachment with proper permissions
+
+### Example
+
+```typescript
+import {
+    SettingsApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new SettingsApi(configuration);
+
+let entityId: number; // (default to undefined)
+
+const { status, data } = await apiInstance.coaApiEntityAttachmentCreate(
+    entityId
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **entityId** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 
@@ -711,7 +808,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **coaApiEntityCreate**
-> ChartEntity coaApiEntityCreate()
+> ChartEntity coaApiEntityCreate(chartEntity)
 
 Complete mixin for history filtering with pagination support. Returns either active OR deleted records based on include_deleted parameter.
 
@@ -727,7 +824,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new SettingsApi(configuration);
 
-let chartEntity: ChartEntity; // (optional)
+let chartEntity: ChartEntity; //
 
 const { status, data } = await apiInstance.coaApiEntityCreate(
     chartEntity
@@ -747,7 +844,7 @@ const { status, data } = await apiInstance.coaApiEntityCreate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -797,7 +894,7 @@ void (empty response body)
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -841,7 +938,7 @@ This endpoint does not have any parameters.
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -852,7 +949,7 @@ This endpoint does not have any parameters.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -872,9 +969,11 @@ import {
 const configuration = new Configuration();
 const apiInstance = new SettingsApi(configuration);
 
+let excludeAdjusting: boolean; //Exclude adjusting entities (those with a primary_entity set) from results. Defaults to false for backwards compatibility. (optional) (default to false)
 let includeInactive: boolean; //Include inactive entities in results (optional) (default to true)
 
 const { status, data } = await apiInstance.coaApiEntityList(
+    excludeAdjusting,
     includeInactive
 );
 ```
@@ -883,6 +982,7 @@ const { status, data } = await apiInstance.coaApiEntityList(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
+| **excludeAdjusting** | [**boolean**] | Exclude adjusting entities (those with a primary_entity set) from results. Defaults to false for backwards compatibility. | (optional) defaults to false|
 | **includeInactive** | [**boolean**] | Include inactive entities in results | (optional) defaults to true|
 
 
@@ -892,7 +992,7 @@ const { status, data } = await apiInstance.coaApiEntityList(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -903,7 +1003,7 @@ const { status, data } = await apiInstance.coaApiEntityList(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -942,7 +1042,7 @@ void (empty response body)
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -996,7 +1096,7 @@ const { status, data } = await apiInstance.coaApiEntityPartialUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1007,7 +1107,7 @@ const { status, data } = await apiInstance.coaApiEntityPartialUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1046,7 +1146,7 @@ const { status, data } = await apiInstance.coaApiEntityRetrieve(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1057,12 +1157,12 @@ const { status, data } = await apiInstance.coaApiEntityRetrieve(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **coaApiEntityUpdate**
-> ChartEntity coaApiEntityUpdate()
+> ChartEntity coaApiEntityUpdate(chartEntity)
 
 
 ### Example
@@ -1078,7 +1178,7 @@ const configuration = new Configuration();
 const apiInstance = new SettingsApi(configuration);
 
 let id: number; // (default to undefined)
-let chartEntity: ChartEntity; // (optional)
+let chartEntity: ChartEntity; //
 
 const { status, data } = await apiInstance.coaApiEntityUpdate(
     id,
@@ -1100,7 +1200,7 @@ const { status, data } = await apiInstance.coaApiEntityUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1111,7 +1211,58 @@ const { status, data } = await apiInstance.coaApiEntityUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getFileTempDownloadUrl**
+> getFileTempDownloadUrl()
+
+Return a short-lived presigned S3 URL for downloading a file.  Pass ``?disposition=inline`` to render preview-safe types (PDF, images) in the browser instead of forcing a download.  :param request: The incoming DRF request (must be authenticated). :return: JSON response with ``url`` key or an error.
+
+### Example
+
+```typescript
+import {
+    SettingsApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new SettingsApi(configuration);
+
+let id: number; // (default to undefined)
+
+const { status, data } = await apiInstance.getFileTempDownloadUrl(
+    id
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | No response body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1152,7 +1303,7 @@ const { status, data } = await apiInstance.settingsPartialUpdateChartAccountSett
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1163,7 +1314,7 @@ const { status, data } = await apiInstance.settingsPartialUpdateChartAccountSett
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1196,7 +1347,7 @@ This endpoint does not have any parameters.
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1207,12 +1358,12 @@ This endpoint does not have any parameters.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **settingsUpdateChartAccountSettings**
-> ChartAccountSettings settingsUpdateChartAccountSettings()
+> ChartAccountSettings settingsUpdateChartAccountSettings(chartAccountSettings)
 
 These are the defaults chart accounts to be used across the platform. Each input is the id to an existing chart account.
 
@@ -1228,7 +1379,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new SettingsApi(configuration);
 
-let chartAccountSettings: ChartAccountSettings; // (optional)
+let chartAccountSettings: ChartAccountSettings; //
 
 const { status, data } = await apiInstance.settingsUpdateChartAccountSettings(
     chartAccountSettings
@@ -1248,7 +1399,7 @@ const { status, data } = await apiInstance.settingsUpdateChartAccountSettings(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1259,7 +1410,7 @@ const { status, data } = await apiInstance.settingsUpdateChartAccountSettings(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

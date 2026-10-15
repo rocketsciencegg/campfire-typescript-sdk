@@ -11,7 +11,9 @@ Name | Type | Description | Notes
 **entityName** | **string** |  | [readonly] [default to undefined]
 **entityCurrency** | **string** |  | [readonly] [default to undefined]
 **clientName** | **string** |  | [readonly] [default to undefined]
+**clientCampfireId** | **string** |  | [readonly] [default to undefined]
 **contractName** | **string** |  | [readonly] [default to undefined]
+**contractStatus** | **string** |  | [readonly] [default to undefined]
 **productName** | **string** |  | [readonly] [default to undefined]
 **productBundleName** | **string** |  | [readonly] [default to undefined]
 **productIsTaxable** | **boolean** |  | [readonly] [default to undefined]
@@ -19,13 +21,19 @@ Name | Type | Description | Notes
 **clientIdentifier** | **string** |  | [readonly] [default to undefined]
 **productIdentifier** | **string** |  | [readonly] [default to undefined]
 **grossAmount** | **string** |  | [readonly] [default to undefined]
+**countsTowardMrr** | **boolean** |  | [readonly] [default to undefined]
 **invoiceNumber** | **string** |  | [readonly] [default to undefined]
 **invoiceDate** | **string** |  | [readonly] [default to undefined]
 **invoicePaymentStatus** | **string** |  | [readonly] [default to undefined]
 **invoiceVoidedDate** | **string** |  | [readonly] [default to undefined]
+**creditMemoNumber** | **string** |  | [readonly] [default to undefined]
+**creditMemoDate** | **string** |  | [readonly] [default to undefined]
+**creditMemoVoidedDate** | **string** |  | [readonly] [default to undefined]
+**creditMemoApplicationStatus** | **string** |  | [readonly] [default to undefined]
 **revenueType** | **string** |  | [readonly] [default to undefined]
 **journalEntryOrder** | **string** |  | [readonly] [default to undefined]
 **contractSubscriptionNotes** | **string** |  | [readonly] [default to undefined]
+**subscriptionDiscount** | **number** |  | [readonly] [default to undefined]
 **departmentName** | **string** |  | [readonly] [default to undefined]
 **parentDepartmentName** | **string** |  | [readonly] [default to undefined]
 **parentDepartment** | **number** |  | [readonly] [default to undefined]
@@ -37,6 +45,8 @@ Name | Type | Description | Notes
 **source** | **string** |  | [optional] [default to undefined]
 **description** | **string** |  | [optional] [default to undefined]
 **externalId** | **string** |  | [optional] [default to undefined]
+**producer** | **string** | Lane that owns this row\&#39;s money and date fields. NULL for every pre-loader producer. | [readonly] [default to undefined]
+**warehouseRowKey** | **string** | Identity of the warehouse row this transaction projects, as &lt;connection_id&gt;:&lt;row_key&gt;. Distinct from external_id, which holds the bare Stripe object id that other lanes resolve back to Stripe by prefix. NULL for every producer except the Stripe top-down loader. | [readonly] [default to undefined]
 **clientExternalId** | **string** |  | [optional] [default to undefined]
 **contractExternalId** | **string** |  | [optional] [default to undefined]
 **contractSubscriptionExternalId** | **string** |  | [optional] [default to undefined]
@@ -44,6 +54,8 @@ Name | Type | Description | Notes
 **accountingPeriod** | **string** |  | [optional] [default to undefined]
 **transactionDate** | **string** |  | [optional] [default to undefined]
 **transactionEndDate** | **string** |  | [optional] [default to undefined]
+**scheduledInvoiceDate** | **string** |  | [optional] [default to undefined]
+**billedAmount** | **number** | Amount to invoice for this period when it differs from the recognized amount, as it does once catch-up moves revenue between periods. Null means invoice the recognized amount. | [optional] [default to undefined]
 **currency** | **string** |  | [optional] [default to undefined]
 **exchangeRate** | **number** |  | [optional] [default to undefined]
 **exchangeRateBook** | **number** |  | [optional] [default to undefined]
@@ -60,6 +72,8 @@ Name | Type | Description | Notes
 **balanceAdjustment** | **number** | Invoice starting balance or other balance adjustments (e.g., previous balance applied to this transaction) | [optional] [default to undefined]
 **mrr** | **number** |  | [optional] [default to undefined]
 **renewall** | **boolean** |  | [optional] [default to undefined]
+**tagIds** | **Array&lt;number&gt;** |  | [optional] [default to undefined]
+**tagGroupIds** | **Array&lt;number&gt;** |  | [optional] [default to undefined]
 **isMigrationInvoiced** | **boolean** | Marked as invoiced during migration. Does not create GL entries or AR. | [optional] [default to undefined]
 **createdAt** | **string** |  | [readonly] [default to undefined]
 **customer** | **number** |  | [readonly] [default to undefined]
@@ -71,12 +85,16 @@ Name | Type | Description | Notes
 **contractUsage** | **number** |  | [optional] [default to undefined]
 **contractMilestone** | **number** |  | [optional] [default to undefined]
 **nonContractUsage** | **number** |  | [optional] [default to undefined]
+**prepaidCommit** | **number** |  | [optional] [default to undefined]
+**fundingRevenueTransaction** | **number** | Immutable prepaid funding installment allocated to this recognition-only row. | [readonly] [default to undefined]
+**reversesRevenueTransaction** | **number** | Scheduled row this negative row cancels when a contract is terminated. | [optional] [default to undefined]
 **product** | **number** |  | [optional] [default to undefined]
 **productBundle** | **number** |  | [optional] [default to undefined]
 **contractProductBundle** | **number** | Reference to contract-specific editable product bundle allocation | [optional] [default to undefined]
 **contractBundle** | **number** |  | [optional] [default to undefined]
 **journalEntry** | **number** |  | [optional] [default to undefined]
 **invoice** | **number** |  | [optional] [default to undefined]
+**creditMemo** | **number** |  | [optional] [default to undefined]
 **department** | **number** |  | [optional] [default to undefined]
 **usageTier** | **number** |  | [optional] [default to undefined]
 
@@ -92,7 +110,9 @@ const instance: RevenueTransaction = {
     entityName,
     entityCurrency,
     clientName,
+    clientCampfireId,
     contractName,
+    contractStatus,
     productName,
     productBundleName,
     productIsTaxable,
@@ -100,13 +120,19 @@ const instance: RevenueTransaction = {
     clientIdentifier,
     productIdentifier,
     grossAmount,
+    countsTowardMrr,
     invoiceNumber,
     invoiceDate,
     invoicePaymentStatus,
     invoiceVoidedDate,
+    creditMemoNumber,
+    creditMemoDate,
+    creditMemoVoidedDate,
+    creditMemoApplicationStatus,
     revenueType,
     journalEntryOrder,
     contractSubscriptionNotes,
+    subscriptionDiscount,
     departmentName,
     parentDepartmentName,
     parentDepartment,
@@ -118,6 +144,8 @@ const instance: RevenueTransaction = {
     source,
     description,
     externalId,
+    producer,
+    warehouseRowKey,
     clientExternalId,
     contractExternalId,
     contractSubscriptionExternalId,
@@ -125,6 +153,8 @@ const instance: RevenueTransaction = {
     accountingPeriod,
     transactionDate,
     transactionEndDate,
+    scheduledInvoiceDate,
+    billedAmount,
     currency,
     exchangeRate,
     exchangeRateBook,
@@ -141,6 +171,8 @@ const instance: RevenueTransaction = {
     balanceAdjustment,
     mrr,
     renewall,
+    tagIds,
+    tagGroupIds,
     isMigrationInvoiced,
     createdAt,
     customer,
@@ -152,12 +184,16 @@ const instance: RevenueTransaction = {
     contractUsage,
     contractMilestone,
     nonContractUsage,
+    prepaidCommit,
+    fundingRevenueTransaction,
+    reversesRevenueTransaction,
     product,
     productBundle,
     contractProductBundle,
     contractBundle,
     journalEntry,
     invoice,
+    creditMemo,
     department,
     usageTier,
 };

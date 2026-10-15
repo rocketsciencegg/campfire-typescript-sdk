@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **productName** | **string** |  | [readonly] [default to undefined]
 **productIdStr** | **string** |  | [readonly] [default to undefined]
 **percentageAllocation** | **number** |  | [default to undefined]
+**componentType** | [**ComponentTypeEnum**](ComponentTypeEnum.md) | Component type for this line in a mixed-type bundle. NULL &#x3D; legacy single-type bundle (type inherited from the referencing ContractSubscription/Milestone/Usage).  * &#x60;SUBSCRIPTION&#x60; - Subscription * &#x60;MILESTONE&#x60; - Milestone * &#x60;USAGE&#x60; - Usage | [optional] [default to undefined]
 
 ## Example
 
@@ -22,6 +23,7 @@ const instance: ProductBundleLine = {
     productName,
     productIdStr,
     percentageAllocation,
+    componentType,
 };
 ```
 

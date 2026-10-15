@@ -4,8 +4,10 @@ All URIs are relative to *https://api.meetcampfire.com*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
+|[**abandonBillDraft**](#abandonbilldraft) | **POST** /coa/api/v1/bill-draft/{id}/abandon | Abandon Bill Draft|
+|[**billDraftInboxCount**](#billdraftinboxcount) | **GET** /coa/api/v1/bill-draft/inbox-count | Bills Inbox open-item count|
+|[**bulkSyncBillsToRamp**](#bulksyncbillstoramp) | **POST** /coa/api/v1/bill/bulk-sync-to-ramp/ | Bulk Sync Bills to Ramp|
 |[**coaApiV1BillBulkSearchCreate**](#coaapiv1billbulksearchcreate) | **POST** /coa/api/v1/bill/bulk-search | Bulk Search Bills by Number|
-|[**coaApiV1BillBulkSyncToRampCreate**](#coaapiv1billbulksynctorampcreate) | **POST** /coa/api/v1/bill/bulk-sync-to-ramp/ | |
 |[**coaApiV1BillCreate**](#coaapiv1billcreate) | **POST** /coa/api/v1/bill/ | Create Accounting Bill|
 |[**coaApiV1BillDestroy**](#coaapiv1billdestroy) | **DELETE** /coa/api/v1/bill/{id}/ | Delete Accounting Bill|
 |[**coaApiV1BillEmptyTransactionDefaultDepartmentTagsRetrieve**](#coaapiv1billemptytransactiondefaultdepartmenttagsretrieve) | **GET** /coa/api/v1/bill/{bill_id}/empty-transaction-default-department-tags | Get Default Department and Tags for Empty Transaction|
@@ -13,9 +15,11 @@ All URIs are relative to *https://api.meetcampfire.com*
 |[**coaApiV1BillPayCreate**](#coaapiv1billpaycreate) | **POST** /coa/api/v1/bill/{bill_id}/pay/ | Mark Bill as Paid|
 |[**coaApiV1BillPaymentVoidCreate**](#coaapiv1billpaymentvoidcreate) | **POST** /coa/api/v1/bill/{bill_id}/payment/{payment_id}/void/ | Void Bill Payment|
 |[**coaApiV1BillPaymentVoidDestroy**](#coaapiv1billpaymentvoiddestroy) | **DELETE** /coa/api/v1/bill/{bill_id}/payment/{payment_id}/void/ | Delete Bill Payment|
+|[**coaApiV1BillPaymentsList**](#coaapiv1billpaymentslist) | **GET** /coa/api/v1/bill-payments | List Bill Payments|
 |[**coaApiV1BillReopenCreate**](#coaapiv1billreopencreate) | **POST** /coa/api/v1/bill/{bill_id}/reopen/ | Reopen Voided Bill|
 |[**coaApiV1BillRetrieve**](#coaapiv1billretrieve) | **GET** /coa/api/v1/bill/ | List Accounting Bills|
 |[**coaApiV1BillRetrieve2**](#coaapiv1billretrieve2) | **GET** /coa/api/v1/bill/{id}/ | Retrieve Accounting Bill|
+|[**coaApiV1BillStatsRetrieve**](#coaapiv1billstatsretrieve) | **GET** /coa/api/v1/bill/stats | Bill Stat Card Aggregates|
 |[**coaApiV1BillSyncToRampCreate**](#coaapiv1billsynctorampcreate) | **POST** /coa/api/v1/bill/{bill_id}/sync-to-ramp/ | Sync Bill to Ramp|
 |[**coaApiV1BillUpdate**](#coaapiv1billupdate) | **PUT** /coa/api/v1/bill/{id}/ | Update Accounting Bill|
 |[**coaApiV1BillVoidCreate**](#coaapiv1billvoidcreate) | **POST** /coa/api/v1/bill/{bill_id}/void/ | Void Bill|
@@ -26,10 +30,161 @@ All URIs are relative to *https://api.meetcampfire.com*
 |[**coaApiV1DebitMemoMarkUsedCreate**](#coaapiv1debitmemomarkusedcreate) | **POST** /coa/api/v1/debit-memo/{debit_memo_id}/mark-used | Mark Debit Memo as Used|
 |[**coaApiV1DebitMemoNextDebitMemoNumberRetrieve**](#coaapiv1debitmemonextdebitmemonumberretrieve) | **GET** /coa/api/v1/debit-memo/next-debit-memo-number | Get Next Debit Memo Number|
 |[**coaApiV1DebitMemoPartialUpdate**](#coaapiv1debitmemopartialupdate) | **PATCH** /coa/api/v1/debit-memo/{id} | Partial Update Debit Memo|
+|[**coaApiV1DebitMemoPaymentVoidCreate**](#coaapiv1debitmemopaymentvoidcreate) | **POST** /coa/api/v1/debit-memo/{debit_memo_id}/payment/{payment_id}/void | Void Debit Memo Used Payment|
+|[**coaApiV1DebitMemoPaymentVoidDestroy**](#coaapiv1debitmemopaymentvoiddestroy) | **DELETE** /coa/api/v1/debit-memo/{debit_memo_id}/payment/{payment_id}/void | Delete Debit Memo Used Payment|
 |[**coaApiV1DebitMemoReopenCreate**](#coaapiv1debitmemoreopencreate) | **POST** /coa/api/v1/debit-memo/{debit_memo_id}/reopen/ | Reopen Voided Debit Memo|
 |[**coaApiV1DebitMemoRetrieve**](#coaapiv1debitmemoretrieve) | **GET** /coa/api/v1/debit-memo/{id} | Retrieve Debit Memo|
 |[**coaApiV1DebitMemoUpdate**](#coaapiv1debitmemoupdate) | **PUT** /coa/api/v1/debit-memo/{id} | Update Debit Memo|
 |[**coaApiV1DebitMemoVoidCreate**](#coaapiv1debitmemovoidcreate) | **POST** /coa/api/v1/debit-memo/{debit_memo_id}/void/ | Void Debit Memo|
+|[**createBillDraft**](#createbilldraft) | **POST** /coa/api/v1/bill-draft | Create Bill Draft|
+|[**discardBillDraft**](#discardbilldraft) | **POST** /coa/api/v1/bill-draft/{id}/discard | Discard Bill Draft|
+|[**generateBillAmortizationSchedule**](#generatebillamortizationschedule) | **GET** /coa/api/v1/bill/amortization/generate-schedule | Generate Bill Amortization Schedule|
+|[**getBillDraft**](#getbilldraft) | **GET** /coa/api/v1/bill-draft/{id} | Retrieve Bill Draft|
+|[**listBillDrafts**](#listbilldrafts) | **GET** /coa/api/v1/bill-draft | List Bill Drafts|
+|[**partialUpdateBillDraft**](#partialupdatebilldraft) | **PATCH** /coa/api/v1/bill-draft/{id} | Partial Update Bill Draft|
+|[**promoteBillDraft**](#promotebilldraft) | **POST** /coa/api/v1/bill-draft/{id}/promote | Promote Bill Draft|
+|[**saveBillAmortizationSchedule**](#savebillamortizationschedule) | **PUT** /coa/api/v1/bill/amortization/generate-schedule | Save Bill Amortization Schedule|
+|[**updateBillDraft**](#updatebilldraft) | **PUT** /coa/api/v1/bill-draft/{id} | Update Bill Draft|
+
+# **abandonBillDraft**
+> abandonBillDraft()
+
+POST /bill-draft/<pk>/abandon — hard-delete an unfinished UI upload draft.
+
+### Example
+
+```typescript
+import {
+    AccountsPayableApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new AccountsPayableApi(configuration);
+
+let id: number; // (default to undefined)
+
+const { status, data } = await apiInstance.abandonBillDraft(
+    id
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | No response body |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **billDraftInboxCount**
+> billDraftInboxCount()
+
+GET /bill-draft/inbox-count — count of open inbox drafts for the nav badge.
+
+### Example
+
+```typescript
+import {
+    AccountsPayableApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new AccountsPayableApi(configuration);
+
+const { status, data } = await apiInstance.billDraftInboxCount();
+```
+
+### Parameters
+This endpoint does not have any parameters.
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | No response body |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **bulkSyncBillsToRamp**
+> bulkSyncBillsToRamp()
+
+Sync multiple bills without a source to Ramp using the enabled Ramp connection
+
+### Example
+
+```typescript
+import {
+    AccountsPayableApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new AccountsPayableApi(configuration);
+
+const { status, data } = await apiInstance.bulkSyncBillsToRamp();
+```
+
+### Parameters
+This endpoint does not have any parameters.
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | No response body |  -  |
+|**400** | No response body |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **coaApiV1BillBulkSearchCreate**
 > { [key: string]: any; } coaApiV1BillBulkSearchCreate(bulkBillSearch)
@@ -68,7 +223,7 @@ const { status, data } = await apiInstance.coaApiV1BillBulkSearchCreate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -79,56 +234,12 @@ const { status, data } = await apiInstance.coaApiV1BillBulkSearchCreate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **coaApiV1BillBulkSyncToRampCreate**
-> coaApiV1BillBulkSyncToRampCreate()
-
-Sync multiple bills to Ramp
-
-### Example
-
-```typescript
-import {
-    AccountsPayableApi,
-    Configuration
-} from 'campfire-typescript-sdk';
-
-const configuration = new Configuration();
-const apiInstance = new AccountsPayableApi(configuration);
-
-const { status, data } = await apiInstance.coaApiV1BillBulkSyncToRampCreate();
-```
-
-### Parameters
-This endpoint does not have any parameters.
-
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[knoxApiToken](../README.md#knoxApiToken)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-|**200** | No response body |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **coaApiV1BillCreate**
-> coaApiV1BillCreate()
+> AccountingBill coaApiV1BillCreate(accountingBill)
 
          Creates a new accounting bill with line items and automatic journal entry generation.          This endpoint allows for complex bill creation with:         - Multiple line items with different accounts, departments, and vendor assignments         - Automatic accounts payable journal entry creation         - Tax calculations and tax account handling         - Exchange rate support for multi-currency transactions         - Custom field support for additional bill metadata          Requirements:         - All referenced accounts must exist and be active         - Vendor must exist         - Entity must exist         - Line items must have valid amounts and descriptions         - Currency must be valid for the entity         - Accounting date must be before closed book date         
 
@@ -137,37 +248,45 @@ void (empty response body)
 ```typescript
 import {
     AccountsPayableApi,
-    Configuration
+    Configuration,
+    AccountingBill
 } from 'campfire-typescript-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new AccountsPayableApi(configuration);
 
-const { status, data } = await apiInstance.coaApiV1BillCreate();
+let accountingBill: AccountingBill; //
+
+const { status, data } = await apiInstance.coaApiV1BillCreate(
+    accountingBill
+);
 ```
 
 ### Parameters
-This endpoint does not have any parameters.
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **accountingBill** | **AccountingBill**|  | |
 
 
 ### Return type
 
-void (empty response body)
+**AccountingBill**
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**201** | No response body |  -  |
+|**201** | Created |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -207,7 +326,7 @@ void (empty response body)
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -258,7 +377,7 @@ const { status, data } = await apiInstance.coaApiV1BillEmptyTransactionDefaultDe
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -269,8 +388,8 @@ const { status, data } = await apiInstance.coaApiV1BillEmptyTransactionDefaultDe
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
-|**404** | Not found |  -  |
+|**200** | OK |  -  |
+|**404** | Bill not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -314,7 +433,7 @@ const { status, data } = await apiInstance.coaApiV1BillPartialUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -325,7 +444,7 @@ const { status, data } = await apiInstance.coaApiV1BillPartialUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -369,7 +488,7 @@ const { status, data } = await apiInstance.coaApiV1BillPayCreate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -380,7 +499,7 @@ const { status, data } = await apiInstance.coaApiV1BillPayCreate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -427,7 +546,7 @@ const { status, data } = await apiInstance.coaApiV1BillPaymentVoidCreate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -438,7 +557,7 @@ const { status, data } = await apiInstance.coaApiV1BillPaymentVoidCreate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -481,7 +600,7 @@ void (empty response body)
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -493,6 +612,75 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**204** | No response body |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **coaApiV1BillPaymentsList**
+> PaginatedBillPaymentSyncList coaApiV1BillPaymentsList()
+
+         Retrieve a paginated list of bill payments (payments applied against accounts         payable bills), designed for syncing payment data into external systems.          Results are ordered by (last_modified_at, id) ascending, so pages are stable and         a sync can resume from where it left off.          **Full sync (cursor pagination):**         - Pass an empty cursor parameter (cursor=) on the first request         - Follow the \'next\' URL from each response until it is null          **Incremental sync (time-based):**         - Store the highest last_modified_at value you have processed         - On the next run, pass it as last_modified_at__gte to fetch only new and updated payments          **Voids:**         - Voided payments are included by default with voided_date set, so integrators can           detect payments that were reversed after a previous sync         - Filter with voided=true or voided=false to fetch only one kind         
+
+### Example
+
+```typescript
+import {
+    AccountsPayableApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new AccountsPayableApi(configuration);
+
+let cursor: string; //Opts into cursor pagination. Pass an empty value (cursor=) on the first request, then follow the \'next\' URL from each response until it is null. The cursor value is opaque - do not parse or construct it. Cursor pagination is recommended for full syncs as it avoids the performance penalty of deep offsets on large result sets. (optional) (default to undefined)
+let lastModifiedAtGte: string; //Filter for payments modified on or after this timestamp. Format: ISO 8601 (e.g., \'2024-01-01T00:00:00Z\' or \'2024-01-01\'). Use this for incremental syncs: store the highest last_modified_at you have processed and pass it on the next sync run. (optional) (default to undefined)
+let lastModifiedAtLte: string; //Filter for payments modified on or before this timestamp. Format: ISO 8601 (e.g., \'2024-12-31T23:59:59Z\' or \'2024-12-31\'). Date-only values are inclusive of the entire day. (optional) (default to undefined)
+let limit: number; //Maximum number of records to return per page. Default 100, maximum 10000. Use with offset to paginate (optional) (default to 100)
+let offset: number; //Number of records to skip before collecting the result page. Use with limit to paginate (optional) (default to 0)
+let skipCount: boolean; //When \'true\', skips the total COUNT query and returns a lower-bound \'count\' instead. Recommended for large syncs where the exact total is not needed. (optional) (default to false)
+let voided: boolean; //Filter by void status. When \'true\', returns only voided payments (voided_date is set). When \'false\', returns only active payments. When omitted, returns both so integrators can detect and propagate voids. (optional) (default to undefined)
+
+const { status, data } = await apiInstance.coaApiV1BillPaymentsList(
+    cursor,
+    lastModifiedAtGte,
+    lastModifiedAtLte,
+    limit,
+    offset,
+    skipCount,
+    voided
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **cursor** | [**string**] | Opts into cursor pagination. Pass an empty value (cursor&#x3D;) on the first request, then follow the \&#39;next\&#39; URL from each response until it is null. The cursor value is opaque - do not parse or construct it. Cursor pagination is recommended for full syncs as it avoids the performance penalty of deep offsets on large result sets. | (optional) defaults to undefined|
+| **lastModifiedAtGte** | [**string**] | Filter for payments modified on or after this timestamp. Format: ISO 8601 (e.g., \&#39;2024-01-01T00:00:00Z\&#39; or \&#39;2024-01-01\&#39;). Use this for incremental syncs: store the highest last_modified_at you have processed and pass it on the next sync run. | (optional) defaults to undefined|
+| **lastModifiedAtLte** | [**string**] | Filter for payments modified on or before this timestamp. Format: ISO 8601 (e.g., \&#39;2024-12-31T23:59:59Z\&#39; or \&#39;2024-12-31\&#39;). Date-only values are inclusive of the entire day. | (optional) defaults to undefined|
+| **limit** | [**number**] | Maximum number of records to return per page. Default 100, maximum 10000. Use with offset to paginate | (optional) defaults to 100|
+| **offset** | [**number**] | Number of records to skip before collecting the result page. Use with limit to paginate | (optional) defaults to 0|
+| **skipCount** | [**boolean**] | When \&#39;true\&#39;, skips the total COUNT query and returns a lower-bound \&#39;count\&#39; instead. Recommended for large syncs where the exact total is not needed. | (optional) defaults to false|
+| **voided** | [**boolean**] | Filter by void status. When \&#39;true\&#39;, returns only voided payments (voided_date is set). When \&#39;false\&#39;, returns only active payments. When omitted, returns both so integrators can detect and propagate voids. | (optional) defaults to undefined|
+
+
+### Return type
+
+**PaginatedBillPaymentSyncList**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -532,7 +720,7 @@ const { status, data } = await apiInstance.coaApiV1BillReopenCreate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -543,7 +731,7 @@ const { status, data } = await apiInstance.coaApiV1BillReopenCreate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -575,7 +763,7 @@ let offset: number; //The initial index from which to return the results (option
 let q: string; //Search query - searches by mailing address, bill number, message on bill, or vendor name (optional) (default to undefined)
 let sort: string; //Sort order. Use field name for ascending, -field for descending. Special fields: vendor_name, total_amount, amount_paid, amount_due, payment. Default: -bill_date (optional) (default to '-bill_date')
 let startDate: string; //Filter bills with bill_date on or after this date (YYYY-MM-DD) (optional) (default to undefined)
-let status: '1_30' | '31_60' | '61_90' | '91_120' | 'current' | 'open' | 'over_120' | 'paid' | 'partially_paid' | 'past_due' | 'payment_not_found' | 'payment_pending' | 'unpaid' | 'voided'; //Filter by payment status (optional) (default to undefined)
+let status: '1_30' | '31_60' | '61_90' | '91_120' | 'current' | 'needs_approval' | 'open' | 'over_120' | 'paid' | 'partially_paid' | 'past_due' | 'payment_not_found' | 'payment_pending' | 'unpaid' | 'voided'; //Filter by payment or approval status (optional) (default to undefined)
 let vendor: number; //Filter by vendor ID. Can be specified multiple times for multiple vendors (optional) (default to undefined)
 
 const { status, data } = await apiInstance.coaApiV1BillRetrieve(
@@ -612,7 +800,7 @@ const { status, data } = await apiInstance.coaApiV1BillRetrieve(
 | **q** | [**string**] | Search query - searches by mailing address, bill number, message on bill, or vendor name | (optional) defaults to undefined|
 | **sort** | [**string**] | Sort order. Use field name for ascending, -field for descending. Special fields: vendor_name, total_amount, amount_paid, amount_due, payment. Default: -bill_date | (optional) defaults to '-bill_date'|
 | **startDate** | [**string**] | Filter bills with bill_date on or after this date (YYYY-MM-DD) | (optional) defaults to undefined|
-| **status** | [**&#39;1_30&#39; | &#39;31_60&#39; | &#39;61_90&#39; | &#39;91_120&#39; | &#39;current&#39; | &#39;open&#39; | &#39;over_120&#39; | &#39;paid&#39; | &#39;partially_paid&#39; | &#39;past_due&#39; | &#39;payment_not_found&#39; | &#39;payment_pending&#39; | &#39;unpaid&#39; | &#39;voided&#39;**]**Array<&#39;1_30&#39; &#124; &#39;31_60&#39; &#124; &#39;61_90&#39; &#124; &#39;91_120&#39; &#124; &#39;current&#39; &#124; &#39;open&#39; &#124; &#39;over_120&#39; &#124; &#39;paid&#39; &#124; &#39;partially_paid&#39; &#124; &#39;past_due&#39; &#124; &#39;payment_not_found&#39; &#124; &#39;payment_pending&#39; &#124; &#39;unpaid&#39; &#124; &#39;voided&#39;>** | Filter by payment status | (optional) defaults to undefined|
+| **status** | [**&#39;1_30&#39; | &#39;31_60&#39; | &#39;61_90&#39; | &#39;91_120&#39; | &#39;current&#39; | &#39;needs_approval&#39; | &#39;open&#39; | &#39;over_120&#39; | &#39;paid&#39; | &#39;partially_paid&#39; | &#39;past_due&#39; | &#39;payment_not_found&#39; | &#39;payment_pending&#39; | &#39;unpaid&#39; | &#39;voided&#39;**]**Array<&#39;1_30&#39; &#124; &#39;31_60&#39; &#124; &#39;61_90&#39; &#124; &#39;91_120&#39; &#124; &#39;current&#39; &#124; &#39;needs_approval&#39; &#124; &#39;open&#39; &#124; &#39;over_120&#39; &#124; &#39;paid&#39; &#124; &#39;partially_paid&#39; &#124; &#39;past_due&#39; &#124; &#39;payment_not_found&#39; &#124; &#39;payment_pending&#39; &#124; &#39;unpaid&#39; &#124; &#39;voided&#39;>** | Filter by payment or approval status | (optional) defaults to undefined|
 | **vendor** | [**number**] | Filter by vendor ID. Can be specified multiple times for multiple vendors | (optional) defaults to undefined|
 
 
@@ -622,7 +810,7 @@ void (empty response body)
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -673,7 +861,7 @@ const { status, data } = await apiInstance.coaApiV1BillRetrieve2(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -684,7 +872,51 @@ const { status, data } = await apiInstance.coaApiV1BillRetrieve2(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **coaApiV1BillStatsRetrieve**
+> { [key: string]: any; } coaApiV1BillStatsRetrieve()
+
+Customer-scoped counts and outstanding amounts for the Bills page Needs Approval / Awaiting Payment / Overdue stat cards.
+
+### Example
+
+```typescript
+import {
+    AccountsPayableApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new AccountsPayableApi(configuration);
+
+const { status, data } = await apiInstance.coaApiV1BillStatsRetrieve();
+```
+
+### Parameters
+This endpoint does not have any parameters.
+
+
+### Return type
+
+**{ [key: string]: any; }**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -724,7 +956,7 @@ void (empty response body)
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -781,7 +1013,7 @@ const { status, data } = await apiInstance.coaApiV1BillUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -792,7 +1024,7 @@ const { status, data } = await apiInstance.coaApiV1BillUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -836,7 +1068,7 @@ const { status, data } = await apiInstance.coaApiV1BillVoidCreate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -847,7 +1079,7 @@ const { status, data } = await apiInstance.coaApiV1BillVoidCreate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -888,7 +1120,7 @@ const { status, data } = await apiInstance.coaApiV1DebitMemoBulkSearchCreate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -899,7 +1131,7 @@ const { status, data } = await apiInstance.coaApiV1DebitMemoBulkSearchCreate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -940,7 +1172,7 @@ const { status, data } = await apiInstance.coaApiV1DebitMemoCreate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -990,7 +1222,7 @@ void (empty response body)
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1044,7 +1276,7 @@ const { status, data } = await apiInstance.coaApiV1DebitMemoList(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1055,14 +1287,14 @@ const { status, data } = await apiInstance.coaApiV1DebitMemoList(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **coaApiV1DebitMemoMarkUsedCreate**
-> any coaApiV1DebitMemoMarkUsedCreate(markDebitMemoUsed)
+> object coaApiV1DebitMemoMarkUsedCreate(markDebitMemoUsed)
 
-Mark a debit memo as used by linking to an existing transaction.          The transaction\'s debit amount will be recategorized to A/P to clear the debit memo.         The debit memo\'s status will be updated to \"used\" or \"partially_used\" based on         the amount applied vs the total amount.
+Mark a debit memo as used by linking to an existing credit-side transaction.          The transaction\'s credit amount will be recategorized to A/P to clear the debit memo.         The debit memo\'s status will be updated to \"used\" or \"partially_used\" based on         the amount applied vs the total amount.
 
 ### Example
 
@@ -1095,11 +1327,11 @@ const { status, data } = await apiInstance.coaApiV1DebitMemoMarkUsedCreate(
 
 ### Return type
 
-**any**
+**object**
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1110,7 +1342,7 @@ const { status, data } = await apiInstance.coaApiV1DebitMemoMarkUsedCreate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | Debit memo marked as used successfully |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1142,7 +1374,7 @@ void (empty response body)
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1197,7 +1429,7 @@ const { status, data } = await apiInstance.coaApiV1DebitMemoPartialUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1208,7 +1440,119 @@ const { status, data } = await apiInstance.coaApiV1DebitMemoPartialUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **coaApiV1DebitMemoPaymentVoidCreate**
+> AccountingDebitMemoPayment coaApiV1DebitMemoPaymentVoidCreate()
+
+Void a debit memo \'mark used\' payment by creating a reversing journal entry.          This creates a reversing JE that credits the A/P account and debits Uncategorized,         then marks the payment as voided.
+
+### Example
+
+```typescript
+import {
+    AccountsPayableApi,
+    Configuration,
+    VoidPayment
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new AccountsPayableApi(configuration);
+
+let debitMemoId: number; //ID of the debit memo (default to undefined)
+let paymentId: number; //ID of the payment to void (default to undefined)
+let voidPayment: VoidPayment; // (optional)
+
+const { status, data } = await apiInstance.coaApiV1DebitMemoPaymentVoidCreate(
+    debitMemoId,
+    paymentId,
+    voidPayment
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **voidPayment** | **VoidPayment**|  | |
+| **debitMemoId** | [**number**] | ID of the debit memo | defaults to undefined|
+| **paymentId** | [**number**] | ID of the payment to void | defaults to undefined|
+
+
+### Return type
+
+**AccountingDebitMemoPayment**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **coaApiV1DebitMemoPaymentVoidDestroy**
+> coaApiV1DebitMemoPaymentVoidDestroy()
+
+Remove a debit memo \'mark used\' payment application.          This recategorizes the transaction back to Uncategorized and deletes the payment record.
+
+### Example
+
+```typescript
+import {
+    AccountsPayableApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new AccountsPayableApi(configuration);
+
+let debitMemoId: number; //ID of the debit memo (default to undefined)
+let paymentId: number; //ID of the payment to delete (default to undefined)
+
+const { status, data } = await apiInstance.coaApiV1DebitMemoPaymentVoidDestroy(
+    debitMemoId,
+    paymentId
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **debitMemoId** | [**number**] | ID of the debit memo | defaults to undefined|
+| **paymentId** | [**number**] | ID of the payment to delete | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**204** | No response body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1248,7 +1592,7 @@ const { status, data } = await apiInstance.coaApiV1DebitMemoReopenCreate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1259,7 +1603,7 @@ const { status, data } = await apiInstance.coaApiV1DebitMemoReopenCreate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1299,7 +1643,7 @@ const { status, data } = await apiInstance.coaApiV1DebitMemoRetrieve(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1310,7 +1654,7 @@ const { status, data } = await apiInstance.coaApiV1DebitMemoRetrieve(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1354,7 +1698,7 @@ const { status, data } = await apiInstance.coaApiV1DebitMemoUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1365,7 +1709,7 @@ const { status, data } = await apiInstance.coaApiV1DebitMemoUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1409,7 +1753,7 @@ const { status, data } = await apiInstance.coaApiV1DebitMemoVoidCreate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1420,7 +1764,462 @@ const { status, data } = await apiInstance.coaApiV1DebitMemoVoidCreate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **createBillDraft**
+> BillDraftCreate createBillDraft(billDraftCreate)
+
+GET list (customer-scoped, AG Grid server-side: paginate / sort / filter) + POST UI upload.
+
+### Example
+
+```typescript
+import {
+    AccountsPayableApi,
+    Configuration,
+    BillDraftCreate
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new AccountsPayableApi(configuration);
+
+let billDraftCreate: BillDraftCreate; //
+
+const { status, data } = await apiInstance.createBillDraft(
+    billDraftCreate
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **billDraftCreate** | **BillDraftCreate**|  | |
+
+
+### Return type
+
+**BillDraftCreate**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**201** | Created |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **discardBillDraft**
+> discardBillDraft()
+
+POST /bill-draft/<pk>/discard — terminal state with a required reason.
+
+### Example
+
+```typescript
+import {
+    AccountsPayableApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new AccountsPayableApi(configuration);
+
+let id: number; // (default to undefined)
+
+const { status, data } = await apiInstance.discardBillDraft(
+    id
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | No response body |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **generateBillAmortizationSchedule**
+> generateBillAmortizationSchedule()
+
+
+### Example
+
+```typescript
+import {
+    AccountsPayableApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new AccountsPayableApi(configuration);
+
+const { status, data } = await apiInstance.generateBillAmortizationSchedule();
+```
+
+### Parameters
+This endpoint does not have any parameters.
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | No response body |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getBillDraft**
+> BillDraftDetail getBillDraft()
+
+GET detail + PATCH update on a single BillDraft.
+
+### Example
+
+```typescript
+import {
+    AccountsPayableApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new AccountsPayableApi(configuration);
+
+let id: number; // (default to undefined)
+
+const { status, data } = await apiInstance.getBillDraft(
+    id
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+**BillDraftDetail**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **listBillDrafts**
+> PaginatedBillDraftReadList listBillDrafts()
+
+GET list (customer-scoped, AG Grid server-side: paginate / sort / filter) + POST UI upload.
+
+### Example
+
+```typescript
+import {
+    AccountsPayableApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new AccountsPayableApi(configuration);
+
+let limit: number; //Number of results to return per page. (optional) (default to undefined)
+let offset: number; //The initial index from which to return the results. (optional) (default to undefined)
+
+const { status, data } = await apiInstance.listBillDrafts(
+    limit,
+    offset
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **limit** | [**number**] | Number of results to return per page. | (optional) defaults to undefined|
+| **offset** | [**number**] | The initial index from which to return the results. | (optional) defaults to undefined|
+
+
+### Return type
+
+**PaginatedBillDraftReadList**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **partialUpdateBillDraft**
+> BillDraftWrite partialUpdateBillDraft()
+
+GET detail + PATCH update on a single BillDraft.
+
+### Example
+
+```typescript
+import {
+    AccountsPayableApi,
+    Configuration,
+    PatchedBillDraftWrite
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new AccountsPayableApi(configuration);
+
+let id: number; // (default to undefined)
+let patchedBillDraftWrite: PatchedBillDraftWrite; // (optional)
+
+const { status, data } = await apiInstance.partialUpdateBillDraft(
+    id,
+    patchedBillDraftWrite
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **patchedBillDraftWrite** | **PatchedBillDraftWrite**|  | |
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+**BillDraftWrite**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **promoteBillDraft**
+> promoteBillDraft()
+
+POST /bill-draft/<pk>/promote — routes through the promote service.
+
+### Example
+
+```typescript
+import {
+    AccountsPayableApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new AccountsPayableApi(configuration);
+
+let id: number; // (default to undefined)
+
+const { status, data } = await apiInstance.promoteBillDraft(
+    id
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | No response body |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **saveBillAmortizationSchedule**
+> saveBillAmortizationSchedule()
+
+
+### Example
+
+```typescript
+import {
+    AccountsPayableApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new AccountsPayableApi(configuration);
+
+const { status, data } = await apiInstance.saveBillAmortizationSchedule();
+```
+
+### Parameters
+This endpoint does not have any parameters.
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | No response body |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateBillDraft**
+> BillDraftWrite updateBillDraft()
+
+GET detail + PATCH update on a single BillDraft.
+
+### Example
+
+```typescript
+import {
+    AccountsPayableApi,
+    Configuration,
+    BillDraftWrite
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new AccountsPayableApi(configuration);
+
+let id: number; // (default to undefined)
+let billDraftWrite: BillDraftWrite; // (optional)
+
+const { status, data } = await apiInstance.updateBillDraft(
+    id,
+    billDraftWrite
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **billDraftWrite** | **BillDraftWrite**|  | |
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+**BillDraftWrite**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -8,7 +8,8 @@ Name | Type | Description | Notes
 **id** | **number** |  | [readonly] [default to undefined]
 **entityName** | **string** |  | [readonly] [default to undefined]
 **entityCurrency** | **string** |  | [readonly] [default to undefined]
-**usefulLife** | **number** |  | [readonly] [default to undefined]
+**usefulLife** | **string** |  | [readonly] [default to undefined]
+**assetClassUsefulLife** | **number** |  | [readonly] [default to undefined]
 **assetClassName** | **string** |  | [readonly] [default to undefined]
 **assetAccount** | **string** |  | [readonly] [default to undefined]
 **assetAccountName** | **string** |  | [readonly] [default to undefined]
@@ -19,28 +20,40 @@ Name | Type | Description | Notes
 **purchaseJournalEntryOrder** | **string** |  | [readonly] [default to undefined]
 **purchaseTransactionId** | **string** |  | [readonly] [default to undefined]
 **vendorName** | **string** |  | [readonly] [default to undefined]
+**vendorCampfireId** | **string** |  | [readonly] [default to undefined]
 **departmentName** | **string** |  | [readonly] [default to undefined]
-**tags** | [**Array&lt;TransactionTag&gt;**](TransactionTag.md) |  | [readonly] [default to undefined]
+**tags** | **Array&lt;{ [key: string]: any; }&gt;** |  | [readonly] [default to undefined]
 **attachments** | **Array&lt;any&gt;** |  | [readonly] [default to undefined]
 **depreciations** | [**Array&lt;FixedAssetDepreciation&gt;**](FixedAssetDepreciation.md) |  | [optional] [default to undefined]
-**depreciationEndDate** | **string** |  | [readonly] [default to undefined]
+**depreciationStartDate** | **string** |  | [optional] [default to undefined]
+**depreciationEndDate** | **string** |  | [optional] [default to undefined]
 **disposals** | [**Array&lt;FixedAssetDisposal&gt;**](FixedAssetDisposal.md) |  | [readonly] [default to undefined]
+**transfers** | [**Array&lt;FixedAssetTransfer&gt;**](FixedAssetTransfer.md) |  | [readonly] [default to undefined]
+**impairments** | [**Array&lt;FixedAssetImpairment&gt;**](FixedAssetImpairment.md) |  | [readonly] [default to undefined]
 **netBookValue** | **string** |  | [readonly] [default to undefined]
+**impairmentCap** | **string** |  | [readonly] [default to undefined]
 **depreciatedUntil** | **string** |  | [optional] [default to undefined]
 **lastModifiedAt** | **string** |  | [readonly] [default to undefined]
 **isDeleted** | **boolean** |  | [readonly] [default to false]
 **deletedAt** | **string** |  | [readonly] [default to undefined]
+**chatUuid** | **string** |  | [optional] [default to undefined]
 **name** | **string** |  | [default to undefined]
 **description** | **string** |  | [optional] [default to undefined]
 **currency** | **string** |  | [optional] [default to undefined]
 **initialValue** | **number** |  | [optional] [default to undefined]
 **salvageValue** | **number** |  | [optional] [default to undefined]
 **purchaseDate** | **string** |  | [default to undefined]
-**depreciationStartDate** | **string** |  | [default to undefined]
 **createdAt** | **string** |  | [readonly] [default to undefined]
 **status** | [**FixedAssetStatusEnum**](FixedAssetStatusEnum.md) |  | [optional] [default to undefined]
+**tagIds** | **Array&lt;number&gt;** |  | [optional] [default to undefined]
+**tagGroupIds** | **Array&lt;number&gt;** |  | [optional] [default to undefined]
 **exchangeRate** | **number** |  | [optional] [default to undefined]
 **exchangeRateBook** | **number** |  | [optional] [default to undefined]
+**isNonDepreciable** | **boolean** |  | [optional] [default to undefined]
+**pauseDate** | **string** |  | [readonly] [default to undefined]
+**pauseReason** | **string** |  | [readonly] [default to undefined]
+**lastResumeDate** | **string** |  | [readonly] [default to undefined]
+**chatId** | **number** |  | [optional] [default to undefined]
 **customer** | **number** |  | [readonly] [default to undefined]
 **entity** | **number** |  | [optional] [default to undefined]
 **assetClass** | **number** |  | [optional] [default to undefined]
@@ -48,6 +61,7 @@ Name | Type | Description | Notes
 **purchaseTransaction** | **number** |  | [optional] [default to undefined]
 **vendor** | **number** |  | [optional] [default to undefined]
 **department** | **number** |  | [optional] [default to undefined]
+**purchaseTransactions** | **Array&lt;number&gt;** |  | [optional] [default to undefined]
 
 ## Example
 
@@ -59,6 +73,7 @@ const instance: FixedAsset = {
     entityName,
     entityCurrency,
     usefulLife,
+    assetClassUsefulLife,
     assetClassName,
     assetAccount,
     assetAccountName,
@@ -69,28 +84,40 @@ const instance: FixedAsset = {
     purchaseJournalEntryOrder,
     purchaseTransactionId,
     vendorName,
+    vendorCampfireId,
     departmentName,
     tags,
     attachments,
     depreciations,
+    depreciationStartDate,
     depreciationEndDate,
     disposals,
+    transfers,
+    impairments,
     netBookValue,
+    impairmentCap,
     depreciatedUntil,
     lastModifiedAt,
     isDeleted,
     deletedAt,
+    chatUuid,
     name,
     description,
     currency,
     initialValue,
     salvageValue,
     purchaseDate,
-    depreciationStartDate,
     createdAt,
     status,
+    tagIds,
+    tagGroupIds,
     exchangeRate,
     exchangeRateBook,
+    isNonDepreciable,
+    pauseDate,
+    pauseReason,
+    lastResumeDate,
+    chatId,
     customer,
     entity,
     assetClass,
@@ -98,6 +125,7 @@ const instance: FixedAsset = {
     purchaseTransaction,
     vendor,
     department,
+    purchaseTransactions,
 };
 ```
 

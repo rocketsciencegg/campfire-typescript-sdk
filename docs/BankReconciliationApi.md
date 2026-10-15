@@ -4,6 +4,7 @@ All URIs are relative to *https://api.meetcampfire.com*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
+|[**coaApiV2ReconciliationBulkMatchTransactionsCreate**](#coaapiv2reconciliationbulkmatchtransactionscreate) | **POST** /coa/api/v2/reconciliation/{id}/bulk-match-transactions | Bulk Match GL Transactions to Statement Transactions|
 |[**coaApiV2ReconciliationCreate**](#coaapiv2reconciliationcreate) | **POST** /coa/api/v2/reconciliation | Create Bank Reconciliation Report|
 |[**coaApiV2ReconciliationDestroy**](#coaapiv2reconciliationdestroy) | **DELETE** /coa/api/v2/reconciliation/{id} | Delete Bank Reconciliation Report|
 |[**coaApiV2ReconciliationList**](#coaapiv2reconciliationlist) | **GET** /coa/api/v2/reconciliation | List Bank Reconciliation Reports|
@@ -12,6 +13,64 @@ All URIs are relative to *https://api.meetcampfire.com*
 |[**coaApiV2ReconciliationSourceTransactionsList**](#coaapiv2reconciliationsourcetransactionslist) | **GET** /coa/api/v2/reconciliation/{id}/source-transactions | List GL Transactions for Reconciliation|
 |[**coaApiV2ReconciliationTransactionsConfirmCreate**](#coaapiv2reconciliationtransactionsconfirmcreate) | **POST** /coa/api/v2/reconciliation/{id}/transactions/confirm | Confirm Selection of Transactions to Reconcile|
 |[**coaApiV2ReconciliationUpdate**](#coaapiv2reconciliationupdate) | **PUT** /coa/api/v2/reconciliation/{id} | Update Bank Reconciliation Report|
+|[**parseBankStatementPage**](#parsebankstatementpage) | **POST** /coa/api/v2/reconciliation/parse-statement-page | Parse Bank Statement Page|
+
+# **coaApiV2ReconciliationBulkMatchTransactionsCreate**
+> coaApiV2ReconciliationBulkMatchTransactionsCreate(bulkMatchTransactionRequest)
+
+Match multiple GL transactions to statement transactions in a single request. Pairs are validated atomically — all succeed or none are created.
+
+### Example
+
+```typescript
+import {
+    BankReconciliationApi,
+    Configuration,
+    BulkMatchTransactionRequest
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new BankReconciliationApi(configuration);
+
+let id: number; // (default to undefined)
+let bulkMatchTransactionRequest: BulkMatchTransactionRequest; //
+
+const { status, data } = await apiInstance.coaApiV2ReconciliationBulkMatchTransactionsCreate(
+    id,
+    bulkMatchTransactionRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **bulkMatchTransactionRequest** | **BulkMatchTransactionRequest**|  | |
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**201** | All pairs matched successfully |  -  |
+|**400** | Validation error (duplicates, already reconciled, non-draft report) |  -  |
+|**404** | Report, GL transaction, or statement transaction not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **coaApiV2ReconciliationCreate**
 > ReconciliationReportV2 coaApiV2ReconciliationCreate(reconciliationReportV2)
@@ -50,7 +109,7 @@ const { status, data } = await apiInstance.coaApiV2ReconciliationCreate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -101,7 +160,7 @@ void (empty response body)
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -117,7 +176,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **coaApiV2ReconciliationList**
-> PaginatedReconciliationReportV2List coaApiV2ReconciliationList()
+> PaginatedReconciliationReportV2ListList coaApiV2ReconciliationList()
 
 Retrieve a paginated list of bank reconciliation reports. Supports filtering by start_date, end_date, entity, account, and search query (q). Default sort is by statement_ending_date descending.
 
@@ -169,11 +228,11 @@ const { status, data } = await apiInstance.coaApiV2ReconciliationList(
 
 ### Return type
 
-**PaginatedReconciliationReportV2List**
+**PaginatedReconciliationReportV2ListList**
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -184,7 +243,7 @@ const { status, data } = await apiInstance.coaApiV2ReconciliationList(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -228,7 +287,7 @@ const { status, data } = await apiInstance.coaApiV2ReconciliationPartialUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -239,7 +298,7 @@ const { status, data } = await apiInstance.coaApiV2ReconciliationPartialUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -279,7 +338,7 @@ const { status, data } = await apiInstance.coaApiV2ReconciliationRetrieve(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -290,12 +349,12 @@ const { status, data } = await apiInstance.coaApiV2ReconciliationRetrieve(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **coaApiV2ReconciliationSourceTransactionsList**
-> PaginatedReconciliationReportV2SourceTransactionList coaApiV2ReconciliationSourceTransactionsList()
+> PaginatedReconciliationReportV2SourceTransactionListList coaApiV2ReconciliationSourceTransactionsList()
 
 List source (GL) transactions available for reconciliation. Supports filtering by date range, bank, vendor, department, tag, currency, and reconciliation status.
 
@@ -317,6 +376,7 @@ let department: number; //Filter by department ID (optional) (default to undefin
 let endDate: string; //Filter by maximum posted date (YYYY-MM-DD) (optional) (default to undefined)
 let group: number; //Filter by tag group ID (optional) (default to undefined)
 let limit: number; //Number of results to return per page. (optional) (default to undefined)
+let matched: string; //Set to \'true\' to show only transactions with an explicit statement match, or \'false\' to show transactions without an explicit statement match (optional) (default to undefined)
 let offset: number; //The initial index from which to return the results. (optional) (default to undefined)
 let q: string; //Search term for bank description, journal memo, journal order, or amount (optional) (default to undefined)
 let reconciledOnly: string; //Set to \'true\' to show only reconciled transactions for this report (optional) (default to undefined)
@@ -334,6 +394,7 @@ const { status, data } = await apiInstance.coaApiV2ReconciliationSourceTransacti
     endDate,
     group,
     limit,
+    matched,
     offset,
     q,
     reconciledOnly,
@@ -356,6 +417,7 @@ const { status, data } = await apiInstance.coaApiV2ReconciliationSourceTransacti
 | **endDate** | [**string**] | Filter by maximum posted date (YYYY-MM-DD) | (optional) defaults to undefined|
 | **group** | [**number**] | Filter by tag group ID | (optional) defaults to undefined|
 | **limit** | [**number**] | Number of results to return per page. | (optional) defaults to undefined|
+| **matched** | [**string**] | Set to \&#39;true\&#39; to show only transactions with an explicit statement match, or \&#39;false\&#39; to show transactions without an explicit statement match | (optional) defaults to undefined|
 | **offset** | [**number**] | The initial index from which to return the results. | (optional) defaults to undefined|
 | **q** | [**string**] | Search term for bank description, journal memo, journal order, or amount | (optional) defaults to undefined|
 | **reconciledOnly** | [**string**] | Set to \&#39;true\&#39; to show only reconciled transactions for this report | (optional) defaults to undefined|
@@ -368,11 +430,11 @@ const { status, data } = await apiInstance.coaApiV2ReconciliationSourceTransacti
 
 ### Return type
 
-**PaginatedReconciliationReportV2SourceTransactionList**
+**PaginatedReconciliationReportV2SourceTransactionListList**
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -383,7 +445,7 @@ const { status, data } = await apiInstance.coaApiV2ReconciliationSourceTransacti
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -427,7 +489,7 @@ void (empty response body)
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -439,7 +501,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**204** | No response body |  -  |
-|**404** | Not found |  -  |
+|**404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -483,7 +545,7 @@ const { status, data } = await apiInstance.coaApiV2ReconciliationUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -494,7 +556,51 @@ const { status, data } = await apiInstance.coaApiV2ReconciliationUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **parseBankStatementPage**
+> parseBankStatementPage()
+
+Parse a bank statement PDF.  Accepts:     ``file_id`` (required) -- ID of the uploaded PDF ``File``.     ``pages`` (optional, int) -- How many pages to include in the first parse batch.         Defaults to ``BATCH_PAGE_SIZE``. Use a small value (e.g. 2) for         a fast initial response with just balances and dates.  Only the first batch is parsed in this request. Parsed output is cached under ``file_id`` and the effective first-batch page count (``pages`` or default ``BATCH_PAGE_SIZE``) so different ``pages`` values do not share one cache entry.
+
+### Example
+
+```typescript
+import {
+    BankReconciliationApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new BankReconciliationApi(configuration);
+
+const { status, data } = await apiInstance.parseBankStatementPage();
+```
+
+### Parameters
+This endpoint does not have any parameters.
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | No response body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **entityName** | **string** |  | [optional] [readonly] [default to undefined]
 **entityCurrency** | **string** |  | [optional] [readonly] [default to undefined]
 **vendorName** | **string** |  | [optional] [readonly] [default to undefined]
+**vendorCampfireId** | **string** |  | [optional] [readonly] [default to undefined]
 **debitAccountNumber** | **string** |  | [optional] [readonly] [default to undefined]
 **debitAccountName** | **string** | Combines account number and name in the format \&quot;number - name\&quot; | [optional] [readonly] [default to undefined]
 **attachments** | **Array&lt;any&gt;** |  | [optional] [readonly] [default to undefined]
@@ -22,6 +23,8 @@ Name | Type | Description | Notes
 **lastModifiedAt** | **string** |  | [optional] [readonly] [default to undefined]
 **isDeleted** | **boolean** |  | [optional] [readonly] [default to false]
 **deletedAt** | **string** |  | [optional] [readonly] [default to undefined]
+**chatUuid** | **string** |  | [optional] [default to undefined]
+**amortizations** | **Array&lt;{ [key: string]: any; }&gt;** |  | [optional] [readonly] [default to undefined]
 **searchVector** | **string** |  | [optional] [readonly] [default to undefined]
 **searchText** | **string** |  | [optional] [readonly] [default to undefined]
 **refNumber** | **string** |  | [optional] [default to undefined]
@@ -37,6 +40,8 @@ Name | Type | Description | Notes
 **createdAt** | **string** |  | [optional] [readonly] [default to undefined]
 **totalAmount** | **number** | Sum of all line item amounts | [optional] [default to undefined]
 **amountUsed** | **number** | Sum of all non-voided payment amounts | [optional] [default to undefined]
+**chatId** | **number** |  | [optional] [default to undefined]
+**taxBehavior** | [**TaxBehaviorEnum**](TaxBehaviorEnum.md) |  | [optional] [default to undefined]
 **customer** | **number** |  | [optional] [readonly] [default to undefined]
 **entity** | **number** |  | [optional] [default to undefined]
 **vendor** | **number** |  | [optional] [default to undefined]
@@ -57,6 +62,7 @@ const instance: PatchedAccountingDebitMemo = {
     entityName,
     entityCurrency,
     vendorName,
+    vendorCampfireId,
     debitAccountNumber,
     debitAccountName,
     attachments,
@@ -67,6 +73,8 @@ const instance: PatchedAccountingDebitMemo = {
     lastModifiedAt,
     isDeleted,
     deletedAt,
+    chatUuid,
+    amortizations,
     searchVector,
     searchText,
     refNumber,
@@ -82,6 +90,8 @@ const instance: PatchedAccountingDebitMemo = {
     createdAt,
     totalAmount,
     amountUsed,
+    chatId,
+    taxBehavior,
     customer,
     entity,
     vendor,

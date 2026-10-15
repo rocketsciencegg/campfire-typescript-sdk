@@ -10,6 +10,9 @@ Name | Type | Description | Notes
 **number** | **string** |  | [default to undefined]
 **accountType** | **string** |  | [optional] [default to undefined]
 **balances** | [**TrialBalanceAccountBalance**](TrialBalanceAccountBalance.md) |  | [optional] [default to undefined]
+**beginningBalances** | [**TrialBalanceAccountBalance**](TrialBalanceAccountBalance.md) |  | [optional] [default to undefined]
+**activity** | [**TrialBalanceAccountBalance**](TrialBalanceAccountBalance.md) |  | [optional] [default to undefined]
+**endingBalances** | [**TrialBalanceAccountBalance**](TrialBalanceAccountBalance.md) |  | [optional] [default to undefined]
 **departments** | **{ [key: string]: any; }** |  | [optional] [default to undefined]
 **department** | **string** |  | [optional] [default to undefined]
 **entities** | **{ [key: string]: any; }** |  | [optional] [default to undefined]
@@ -26,6 +29,9 @@ const instance: TrialBalanceAccount = {
     number,
     accountType,
     balances,
+    beginningBalances,
+    activity,
+    endingBalances,
     departments,
     department,
     entities,

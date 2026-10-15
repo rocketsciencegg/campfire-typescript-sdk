@@ -13,6 +13,9 @@ Name | Type | Description | Notes
 **topic** | **string** |  | [default to undefined]
 **http** | **any** |  | [readonly] [default to undefined]
 **webhook** | **number** |  | [readonly] [default to undefined]
+**subscription** | **string** |  | [readonly] [default to undefined]
+**app** | **string** |  | [readonly] [default to undefined]
+**customer** | **number** |  | [readonly] [default to undefined]
 
 ## Example
 
@@ -28,6 +31,9 @@ const instance: WebhookEvent = {
     topic,
     http,
     webhook,
+    subscription,
+    app,
+    customer,
 };
 ```
 

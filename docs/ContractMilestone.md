@@ -7,7 +7,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **number** |  | [readonly] [default to undefined]
 **customer** | **number** |  | [readonly] [default to undefined]
-**contract** | **number** |  | [default to undefined]
+**contract** | **number** |  | [optional] [default to undefined]
+**billingCadence** | [**BillingCadence450Enum**](BillingCadence450Enum.md) |  | [optional] [default to undefined]
+**billingTiming** | [**BillingTimingEnum**](BillingTimingEnum.md) |  | [optional] [default to undefined]
+**firstInvoiceDate** | **string** |  | [optional] [default to undefined]
+**billingPaymentTerm** | **number** |  | [optional] [default to undefined]
 **product** | **number** |  | [optional] [default to undefined]
 **productBundle** | **string** |  | [readonly] [default to undefined]
 **contractProductBundle** | [**ContractProductBundleRead**](ContractProductBundleRead.md) |  | [readonly] [default to undefined]
@@ -16,10 +20,12 @@ Name | Type | Description | Notes
 **milestoneName** | **string** |  | [default to undefined]
 **milestoneDate** | **string** |  | [default to undefined]
 **amount** | **number** |  | [default to undefined]
+**quantity** | **number** |  | [optional] [default to undefined]
+**rate** | **number** |  | [optional] [default to undefined]
 **description** | **string** |  | [optional] [default to undefined]
 **department** | **number** |  | [optional] [default to undefined]
 **departmentName** | **string** |  | [readonly] [default to undefined]
-**tags** | [**Array&lt;TransactionTag&gt;**](TransactionTag.md) |  | [readonly] [default to undefined]
+**tags** | **Array&lt;{ [key: string]: any; }&gt;** |  | [readonly] [default to undefined]
 **revenueTransactionId** | **number** |  | [readonly] [default to undefined]
 **createdAt** | **string** |  | [readonly] [default to undefined]
 **lastModifiedAt** | **string** |  | [readonly] [default to undefined]
@@ -35,6 +41,10 @@ const instance: ContractMilestone = {
     id,
     customer,
     contract,
+    billingCadence,
+    billingTiming,
+    firstInvoiceDate,
+    billingPaymentTerm,
     product,
     productBundle,
     contractProductBundle,
@@ -43,6 +53,8 @@ const instance: ContractMilestone = {
     milestoneName,
     milestoneDate,
     amount,
+    quantity,
+    rate,
     description,
     department,
     departmentName,

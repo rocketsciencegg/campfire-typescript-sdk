@@ -20,8 +20,10 @@ Name | Type | Description | Notes
 **deletedAt** | **string** |  | [readonly] [default to undefined]
 **searchVector** | **string** |  | [readonly] [default to undefined]
 **searchText** | **string** |  | [readonly] [default to undefined]
+**campfireId** | **string** |  | [readonly] [default to undefined]
 **vendorType** | [**VendorType391Enum**](VendorType391Enum.md) |  | [optional] [default to undefined]
 **name** | **string** |  | [default to undefined]
+**displayName** | **string** |  | [readonly] [default to undefined]
 **dba** | **string** |  | [optional] [default to undefined]
 **companyName** | **string** |  | [optional] [default to undefined]
 **website** | **string** |  | [optional] [default to undefined]
@@ -47,19 +49,30 @@ Name | Type | Description | Notes
 **notes** | **string** |  | [optional] [default to undefined]
 **businessIdSsn** | **string** |  | [optional] [default to undefined]
 **is1099** | **boolean** |  | [optional] [default to undefined]
+**isReseller** | **boolean** |  | [optional] [default to undefined]
 **vatNumber** | **string** |  | [optional] [default to undefined]
+**businessType** | **string** | Business type classification (e.g., Korean NTS 업태) | [optional] [default to undefined]
+**businessCategory** | **string** | Business category classification (e.g., Korean NTS 종목) | [optional] [default to undefined]
 **entityUseCode** | **string** | Avalara entity/use code for tax exemptions (e.g., A - Federal Government, B - State/Local Govt) | [optional] [default to undefined]
+**withholdingTaxId** | **string** | Vendor\&#39;s tax-authority ID for withholding (PAN for India, TZ for Israel). Dedicated field since these have format/checksum rules distinct from business_id_ssn. | [optional] [default to undefined]
+**itaDeductionTypeCode** | **string** | Israel tax compliance: ITA nature-of-payment deduction type code for Form 856. | [optional] [default to undefined]
+**itaVendorEntityCode** | [**ItaVendorEntityCodeEnum**](ItaVendorEntityCodeEnum.md) | Israel tax compliance: vendor residency classification for Form 856.  * &#x60;0&#x60; - Israeli company * &#x60;2&#x60; - PA resident * &#x60;3&#x60; - Foreign individual * &#x60;5&#x60; - Foreign company | [optional] [default to undefined]
+**itaVendorEntityType** | [**ItaVendorEntityTypeEnum**](ItaVendorEntityTypeEnum.md) | Israel tax compliance: vendor legal-form classification for Form 856.  * &#x60;1&#x60; - Individual * &#x60;2&#x60; - Company * &#x60;3&#x60; - Osek | [optional] [default to undefined]
 **stripeCustomerId** | **string** |  | [optional] [default to undefined]
 **useStripeAutoBill** | **boolean** |  | [optional] [default to undefined]
 **billVendorId** | **string** |  | [optional] [default to undefined]
 **externalId** | **string** |  | [optional] [default to undefined]
-**source** | [**Source170Enum**](Source170Enum.md) |  | [optional] [default to undefined]
+**source** | [**Source3b3Enum**](Source3b3Enum.md) |  | [optional] [default to undefined]
 **invoiceMessage** | **string** |  | [optional] [default to undefined]
 **abbreviation** | **string** |  | [optional] [default to undefined]
 **createdAt** | **string** |  | [readonly] [default to undefined]
 **status** | [**Status372Enum**](Status372Enum.md) |  | [optional] [default to undefined]
 **anrokCustomerId** | **string** |  | [optional] [default to undefined]
+**avalaraCustomerId** | **string** |  | [optional] [default to undefined]
+**netsuiteCustomerId** | **string** |  | [readonly] [default to undefined]
 **terms** | [**TermsEnum**](TermsEnum.md) |  | [optional] [default to undefined]
+**invoiceLabels** | **any** |  | [optional] [default to undefined]
+**invoiceLanguage** | **string** |  | [optional] [default to undefined]
 **lineageArray** | **Array&lt;string&gt;** | Pre-computed lineage array from root to this vendor | [optional] [default to undefined]
 **customer** | **number** |  | [readonly] [default to undefined]
 **parent** | **number** |  | [optional] [default to undefined]
@@ -89,8 +102,10 @@ const instance: Vendor = {
     deletedAt,
     searchVector,
     searchText,
+    campfireId,
     vendorType,
     name,
+    displayName,
     dba,
     companyName,
     website,
@@ -116,8 +131,15 @@ const instance: Vendor = {
     notes,
     businessIdSsn,
     is1099,
+    isReseller,
     vatNumber,
+    businessType,
+    businessCategory,
     entityUseCode,
+    withholdingTaxId,
+    itaDeductionTypeCode,
+    itaVendorEntityCode,
+    itaVendorEntityType,
     stripeCustomerId,
     useStripeAutoBill,
     billVendorId,
@@ -128,7 +150,11 @@ const instance: Vendor = {
     createdAt,
     status,
     anrokCustomerId,
+    avalaraCustomerId,
+    netsuiteCustomerId,
     terms,
+    invoiceLabels,
+    invoiceLanguage,
     lineageArray,
     customer,
     parent,

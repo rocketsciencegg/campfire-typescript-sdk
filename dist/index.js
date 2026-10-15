@@ -3,7 +3,7 @@
 /* eslint-disable */
 /**
  * Campfire Developer APIs
- * ## Introduction Campfire\'s developer APIs offer granular access to Campfire\'s core accounting, revenue recognition, and financial data features.  These APIs are designed to be used by developers to build custom integrations, automate workflows, and perform any other programmatic operations.
+ * ## Introduction Campfire\'s developer APIs offer granular access to Campfire\'s core accounting, revenue recognition, and financial data features.  These APIs are designed to be used by developers to build custom integrations, automate workflows, and perform any other programmatic operations.  ## Rate limits API users can make up to **5 requests per second**. This limit is shared across all endpoints for the same API user. Requests that exceed the limit receive a `429 Too Many Requests` response. Wait for the number of seconds specified in the `Retry-After` response header before retrying.
  *
  * The version of the OpenAPI document: 1.0.0
  *

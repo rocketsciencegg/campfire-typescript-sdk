@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **number** |  | [readonly] [default to undefined]
 **paymentJournalEntryOrder** | **string** |  | [readonly] [default to undefined]
+**voidedJournalEntryOrder** | **string** |  | [readonly] [default to undefined]
 **bill** | **string** |  | [readonly] [default to undefined]
 **currency** | **string** |  | [optional] [default to undefined]
 **amount** | **number** |  | [optional] [default to undefined]
@@ -28,6 +29,7 @@ import { AccountingDebitMemoPayment } from 'campfire-typescript-sdk';
 const instance: AccountingDebitMemoPayment = {
     id,
     paymentJournalEntryOrder,
+    voidedJournalEntryOrder,
     bill,
     currency,
     amount,

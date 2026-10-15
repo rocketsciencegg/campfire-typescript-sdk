@@ -30,12 +30,19 @@ Name | Type | Description | Notes
 **includeInRevaluations** | **boolean** |  | [optional] [default to undefined]
 **_protected** | **boolean** |  | [optional] [default to undefined]
 **skipSubledgerValidation** | **boolean** | Allow manual journal entries to post to this AR/AP account, bypassing subledger validation | [optional] [default to undefined]
+**externalId** | **string** |  | [readonly] [default to undefined]
+**source** | **string** |  | [readonly] [default to undefined]
 **createdAt** | **string** |  | [readonly] [default to undefined]
 **lastRecomputeBalanceAt** | **string** |  | [optional] [default to undefined]
 **lockRecomputeBalanceKey** | **string** |  | [optional] [default to undefined]
+**currentBalance** | **number** |  | [optional] [default to undefined]
+**currentBalanceBook** | **number** |  | [optional] [default to undefined]
+**lineageArray** | **Array&lt;string&gt;** | Pre-computed lineage array from root to this account | [optional] [default to undefined]
 **customer** | **number** |  | [readonly] [default to undefined]
 **parent** | **number** |  | [optional] [default to undefined]
 **parentBankAccount** | **number** |  | [optional] [default to undefined]
+**defaultDepartment** | **number** |  | [optional] [default to undefined]
+**defaultTags** | **Array&lt;number&gt;** |  | [optional] [default to undefined]
 
 ## Example
 
@@ -68,12 +75,19 @@ const instance: ChartAccount = {
     includeInRevaluations,
     _protected,
     skipSubledgerValidation,
+    externalId,
+    source,
     createdAt,
     lastRecomputeBalanceAt,
     lockRecomputeBalanceKey,
+    currentBalance,
+    currentBalanceBook,
+    lineageArray,
     customer,
     parent,
     parentBankAccount,
+    defaultDepartment,
+    defaultTags,
 };
 ```
 

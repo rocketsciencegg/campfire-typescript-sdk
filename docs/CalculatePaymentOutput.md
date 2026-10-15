@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **totalDue** | **number** |  | [default to undefined]
 **appliedPayments** | **number** |  | [default to undefined]
 **appliedCredits** | **number** |  | [default to undefined]
+**appliedWithholding** | **number** |  | [default to undefined]
 **termDiscounts** | **number** |  | [default to undefined]
 **remainingDue** | **number** |  | [default to undefined]
 
@@ -20,6 +21,7 @@ const instance: CalculatePaymentOutput = {
     totalDue,
     appliedPayments,
     appliedCredits,
+    appliedWithholding,
     termDiscounts,
     remainingDue,
 };

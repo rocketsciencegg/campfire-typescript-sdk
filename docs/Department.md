@@ -10,9 +10,13 @@ Name | Type | Description | Notes
 **tags** | [**Array&lt;TransactionTag&gt;**](TransactionTag.md) |  | [readonly] [default to undefined]
 **lastModifiedAt** | **string** |  | [readonly] [default to undefined]
 **active** | **boolean** |  | [optional] [default to true]
-**code** | **string** |  | [optional] [default to undefined]
+**code** | **string** |  | [default to undefined]
 **name** | **string** |  | [default to undefined]
 **displayName** | **string** |  | [optional] [default to undefined]
+**externalId** | **string** |  | [readonly] [default to undefined]
+**source** | **string** |  | [readonly] [default to undefined]
+**tagIds** | **Array&lt;number&gt;** |  | [optional] [default to undefined]
+**tagGroupIds** | **Array&lt;number&gt;** |  | [optional] [default to undefined]
 **createdAt** | **string** |  | [readonly] [default to undefined]
 **customer** | **number** |  | [readonly] [default to undefined]
 **parent** | **number** |  | [optional] [default to undefined]
@@ -31,6 +35,10 @@ const instance: Department = {
     code,
     name,
     displayName,
+    externalId,
+    source,
+    tagIds,
+    tagGroupIds,
     createdAt,
     customer,
     parent,

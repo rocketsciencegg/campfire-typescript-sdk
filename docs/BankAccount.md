@@ -30,8 +30,17 @@ Name | Type | Description | Notes
 **source** | **string** |  | [optional] [default to undefined]
 **abaRoutingNumber** | **string** | ABA routing number (9 digits) for US bank accounts | [optional] [default to undefined]
 **swiftBic** | **string** | SWIFT BIC code (8 or 11 characters) for international accounts | [optional] [default to undefined]
+**checkPrintEnabled** | **boolean** |  | [optional] [default to undefined]
+**checkStockLayout** | [**CheckStockLayoutEnum**](CheckStockLayoutEnum.md) |  | [optional] [default to undefined]
+**checkOffsetXMm** | **number** |  | [optional] [default to undefined]
+**checkOffsetYMm** | **number** |  | [optional] [default to undefined]
+**checkPrintPayeeAddress** | **boolean** |  | [optional] [default to undefined]
+**checkPrintCompanyBlock** | **boolean** |  | [optional] [default to undefined]
+**checkStockPrenumbered** | **boolean** |  | [optional] [default to undefined]
 **createdAt** | **string** |  | [readonly] [default to undefined]
 **lastModifiedAt** | **string** |  | [readonly] [default to undefined]
+**tagIds** | **Array&lt;number&gt;** |  | [optional] [default to undefined]
+**tagGroupIds** | **Array&lt;number&gt;** |  | [optional] [default to undefined]
 **customer** | **number** |  | [readonly] [default to undefined]
 **entity** | **number** |  | [default to undefined]
 **chartOfAccountsAccount** | **number** |  | [optional] [default to undefined]
@@ -69,8 +78,17 @@ const instance: BankAccount = {
     source,
     abaRoutingNumber,
     swiftBic,
+    checkPrintEnabled,
+    checkStockLayout,
+    checkOffsetXMm,
+    checkOffsetYMm,
+    checkPrintPayeeAddress,
+    checkPrintCompanyBlock,
+    checkStockPrenumbered,
     createdAt,
     lastModifiedAt,
+    tagIds,
+    tagGroupIds,
     customer,
     entity,
     chartOfAccountsAccount,

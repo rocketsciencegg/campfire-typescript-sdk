@@ -8,6 +8,7 @@ All URIs are relative to *https://api.meetcampfire.com*
 |[**caApiAccountPartialUpdate**](#caapiaccountpartialupdate) | **PATCH** /ca/api/account/{id} | Partial Update Bank Account|
 |[**caApiAccountRetrieve**](#caapiaccountretrieve) | **GET** /ca/api/account/{id} | Retrieve Bank Account|
 |[**caApiAccountUpdate**](#caapiaccountupdate) | **PUT** /ca/api/account/{id} | Update Bank Account|
+|[**caApiBankFeedCreate**](#caapibankfeedcreate) | **POST** /ca/api/bank-feed/{account_id} | Post Bank Feed|
 |[**caApiTransactionDestroy**](#caapitransactiondestroy) | **DELETE** /ca/api/transaction/{id} | Delete Bank Transaction|
 |[**caApiTransactionPartialUpdate**](#caapitransactionpartialupdate) | **PATCH** /ca/api/transaction/{id} | Partial Update Bank Transaction|
 |[**caApiTransactionRetrieve**](#caapitransactionretrieve) | **GET** /ca/api/transaction/{id} | Retrieve Bank Transaction|
@@ -55,7 +56,7 @@ void (empty response body)
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -109,7 +110,7 @@ const { status, data } = await apiInstance.caApiAccountPartialUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -120,7 +121,7 @@ const { status, data } = await apiInstance.caApiAccountPartialUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -159,7 +160,7 @@ const { status, data } = await apiInstance.caApiAccountRetrieve(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -170,7 +171,7 @@ const { status, data } = await apiInstance.caApiAccountRetrieve(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -213,7 +214,7 @@ const { status, data } = await apiInstance.caApiAccountUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -224,7 +225,62 @@ const { status, data } = await apiInstance.caApiAccountUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **caApiBankFeedCreate**
+> CaApiBankFeedCreate201Response caApiBankFeedCreate(bankFeed)
+
+Ingest bank feed data for a specific bank account. Creates bank transactions, updates account balances, and triggers auto-categorization. Each transaction also posts a journal entry unless the customer has \'skip journal on bank sync\' enabled, in which case only the bank transaction is recorded.
+
+### Example
+
+```typescript
+import {
+    CashManagementApi,
+    Configuration,
+    BankFeed
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new CashManagementApi(configuration);
+
+let accountId: number; // (default to undefined)
+let bankFeed: BankFeed; //
+
+const { status, data } = await apiInstance.caApiBankFeedCreate(
+    accountId,
+    bankFeed
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **bankFeed** | **BankFeed**|  | |
+| **accountId** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+**CaApiBankFeedCreate201Response**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**201** | Created |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -263,7 +319,7 @@ void (empty response body)
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -317,7 +373,7 @@ const { status, data } = await apiInstance.caApiTransactionPartialUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -328,7 +384,7 @@ const { status, data } = await apiInstance.caApiTransactionPartialUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -367,7 +423,7 @@ const { status, data } = await apiInstance.caApiTransactionRetrieve(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -378,7 +434,7 @@ const { status, data } = await apiInstance.caApiTransactionRetrieve(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -421,7 +477,7 @@ const { status, data } = await apiInstance.caApiTransactionUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -432,7 +488,7 @@ const { status, data } = await apiInstance.caApiTransactionUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -473,7 +529,7 @@ const { status, data } = await apiInstance.createAccount(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -525,7 +581,7 @@ const { status, data } = await apiInstance.createBankTransaction(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -591,7 +647,7 @@ const { status, data } = await apiInstance.listAccounts(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -602,7 +658,7 @@ const { status, data } = await apiInstance.listAccounts(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -622,11 +678,13 @@ import {
 const configuration = new Configuration();
 const apiInstance = new CashManagementApi(configuration);
 
+let excludeDrafts: boolean; //If true, hide bank transactions that have a pending cash-application DraftQueue attached (match drafts or categorize drafts). Default false. (optional) (default to undefined)
 let includeDeleted: boolean; //When set to \'true\', returns ONLY deleted records instead of active records. Deleted records contain minimal data: \'id\', \'is_deleted=true\', \'deleted_at\' timestamp, and \'last_modified_at\'. When \'false\' or omitted, returns ONLY active records. This provides clean separation between active and deleted data. (optional) (default to false)
 let limit: number; //Number of results to return per page. (optional) (default to undefined)
 let offset: number; //The initial index from which to return the results. (optional) (default to undefined)
 
 const { status, data } = await apiInstance.listBankTransactions(
+    excludeDrafts,
     includeDeleted,
     limit,
     offset
@@ -637,6 +695,7 @@ const { status, data } = await apiInstance.listBankTransactions(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
+| **excludeDrafts** | [**boolean**] | If true, hide bank transactions that have a pending cash-application DraftQueue attached (match drafts or categorize drafts). Default false. | (optional) defaults to undefined|
 | **includeDeleted** | [**boolean**] | When set to \&#39;true\&#39;, returns ONLY deleted records instead of active records. Deleted records contain minimal data: \&#39;id\&#39;, \&#39;is_deleted&#x3D;true\&#39;, \&#39;deleted_at\&#39; timestamp, and \&#39;last_modified_at\&#39;. When \&#39;false\&#39; or omitted, returns ONLY active records. This provides clean separation between active and deleted data. | (optional) defaults to false|
 | **limit** | [**number**] | Number of results to return per page. | (optional) defaults to undefined|
 | **offset** | [**number**] | The initial index from which to return the results. | (optional) defaults to undefined|
@@ -648,7 +707,7 @@ const { status, data } = await apiInstance.listBankTransactions(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -659,7 +718,7 @@ const { status, data } = await apiInstance.listBankTransactions(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

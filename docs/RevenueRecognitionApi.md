@@ -8,16 +8,32 @@ All URIs are relative to *https://api.meetcampfire.com*
 |[**createContractBundle**](#createcontractbundle) | **POST** /rr/api/v1/contracts/{contract_id}/bundles | Create Contract Bundle|
 |[**createContractMilestone**](#createcontractmilestone) | **POST** /rr/api/v1/contracts/{contract_id}/milestones | Create Contract Milestone|
 |[**createContractSubscription**](#createcontractsubscription) | **POST** /rr/api/v1/contracts/{contract_id}/subscriptions | Create Contract Subscription|
+|[**createPrepaidCommit**](#createprepaidcommit) | **POST** /rr/api/v1/contracts/{contract_id}/prepaid-commits | Create Prepaid Commit|
+|[**createPrepaidCommitConsumption**](#createprepaidcommitconsumption) | **POST** /rr/api/v1/contracts/{contract_id}/prepaid-commits/{commit_id}/consumption | Create Prepaid Commit Consumption|
 |[**createProduct**](#createproduct) | **POST** /rr/api/v1/product | Create Contract Product|
 |[**createProductBundle**](#createproductbundle) | **POST** /rr/api/v1/product-bundles | Create Product Bundle|
 |[**createRevenueTransaction**](#createrevenuetransaction) | **POST** /rr/api/v1/transactions | Create Revenue Transaction|
+|[**deletePrepaidCommit**](#deleteprepaidcommit) | **DELETE** /rr/api/v1/contracts/{contract_id}/prepaid-commits/{id} | Delete Prepaid Commit|
+|[**deletePrepaidCommitConsumption**](#deleteprepaidcommitconsumption) | **DELETE** /rr/api/v1/contracts/{contract_id}/prepaid-commits/{commit_id}/consumption/{id} | Delete Prepaid Commit Consumption|
+|[**getPrepaidCommit**](#getprepaidcommit) | **GET** /rr/api/v1/contracts/{contract_id}/prepaid-commits/{id} | Retrieve Prepaid Commit|
+|[**getPrepaidCommitSummary**](#getprepaidcommitsummary) | **GET** /rr/api/v1/contracts/{contract_id}/prepaid-commit-summary | Get Prepaid Commit Summary|
+|[**getPrepaidCommitUsageEventDistinctValues**](#getprepaidcommitusageeventdistinctvalues) | **GET** /rr/api/v1/contracts/{contract_id}/prepaid-commits/{commit_id}/usage-events/distinct-values | Get Prepaid Commit Usage Event Distinct Values|
+|[**getPrepaidCommitUsageEventsTemplate**](#getprepaidcommitusageeventstemplate) | **GET** /rr/api/v1/contracts/{contract_id}/prepaid-commits/{commit_id}/usage-events/template | Get Prepaid Commit Usage Events Template|
 |[**listContractBundles**](#listcontractbundles) | **GET** /rr/api/v1/contracts/{contract_id}/bundles | List Contract Bundles|
 |[**listContractMilestones**](#listcontractmilestones) | **GET** /rr/api/v1/contracts/{contract_id}/milestones | List Contract Milestones|
 |[**listContractSubscriptions**](#listcontractsubscriptions) | **GET** /rr/api/v1/contracts/{contract_id}/subscriptions | List Contract Subscriptions|
 |[**listContracts**](#listcontracts) | **GET** /rr/api/v1/contracts | List Contracts|
+|[**listPrepaidCommitConsumption**](#listprepaidcommitconsumption) | **GET** /rr/api/v1/contracts/{contract_id}/prepaid-commits/{commit_id}/consumption | List Prepaid Commit Consumption|
+|[**listPrepaidCommitUsageEvents**](#listprepaidcommitusageevents) | **GET** /rr/api/v1/contracts/{contract_id}/prepaid-commits/{commit_id}/usage-events | List Prepaid Commit Usage Events|
+|[**listPrepaidCommits**](#listprepaidcommits) | **GET** /rr/api/v1/contracts/{contract_id}/prepaid-commits | List Prepaid Commits|
 |[**listProductBundles**](#listproductbundles) | **GET** /rr/api/v1/product-bundles | List Product Bundles|
 |[**listProducts**](#listproducts) | **GET** /rr/api/v1/product | List Contract Products|
 |[**listRevenueTransactions**](#listrevenuetransactions) | **GET** /rr/api/v1/transactions | List Revenue Transactions|
+|[**modifySubscriptionSchedule**](#modifysubscriptionschedule) | **POST** /rr/api/v1/modify-subscription-schedule | Modify Subscription Schedule|
+|[**parseContract**](#parsecontract) | **POST** /rr/api/v1/contracts/parse | Parse Contract|
+|[**partialUpdatePrepaidCommit**](#partialupdateprepaidcommit) | **PATCH** /rr/api/v1/contracts/{contract_id}/prepaid-commits/{id} | Partial Update Prepaid Commit|
+|[**processPrepaidCommitAdjustments**](#processprepaidcommitadjustments) | **POST** /rr/api/v1/contracts/{contract_id}/prepaid-commits/{commit_id}/process-adjustments | Process Prepaid Commit Adjustments|
+|[**reverseContractSubscriptionFully**](#reversecontractsubscriptionfully) | **POST** /rr/api/v1/contracts/{contract_id}/subscriptions/{id}/full-reversal | Fully reverse a usage-relative subscription|
 |[**rrApiV1ContractsBulkSearchCreate**](#rrapiv1contractsbulksearchcreate) | **POST** /rr/api/v1/contracts/bulk-search | Bulk Search Contracts|
 |[**rrApiV1ContractsBundlesDestroy**](#rrapiv1contractsbundlesdestroy) | **DELETE** /rr/api/v1/contracts/{contract_id}/bundles/{id} | Delete Contract Bundle|
 |[**rrApiV1ContractsBundlesPartialUpdate**](#rrapiv1contractsbundlespartialupdate) | **PATCH** /rr/api/v1/contracts/{contract_id}/bundles/{id} | Partial Update Contract Bundle|
@@ -32,6 +48,7 @@ All URIs are relative to *https://api.meetcampfire.com*
 |[**rrApiV1ContractsMilestonesPartialUpdate**](#rrapiv1contractsmilestonespartialupdate) | **PATCH** /rr/api/v1/contracts/{contract_id}/milestones/{id} | Partial Update Contract Milestone|
 |[**rrApiV1ContractsMilestonesRetrieve**](#rrapiv1contractsmilestonesretrieve) | **GET** /rr/api/v1/contracts/{contract_id}/milestones/{id} | Retrieve Contract Milestone|
 |[**rrApiV1ContractsMilestonesUpdate**](#rrapiv1contractsmilestonesupdate) | **PUT** /rr/api/v1/contracts/{contract_id}/milestones/{id} | Update Contract Milestone|
+|[**rrApiV1ContractsMinimumCommitPreviewRetrieve**](#rrapiv1contractsminimumcommitpreviewretrieve) | **GET** /rr/api/v1/contracts/{id}/minimum-commit-preview | Preview Contract Minimum Commit|
 |[**rrApiV1ContractsPartialUpdate**](#rrapiv1contractspartialupdate) | **PATCH** /rr/api/v1/contracts/{id} | Partial Update Contract|
 |[**rrApiV1ContractsRetrieve**](#rrapiv1contractsretrieve) | **GET** /rr/api/v1/contracts/{id} | Retrieve Contract|
 |[**rrApiV1ContractsSubscriptionsAllocationsPartialUpdate**](#rrapiv1contractssubscriptionsallocationspartialupdate) | **PATCH** /rr/api/v1/contracts/{contract_id}/subscriptions/{subscription_id}/allocations | Partial Update Bundle Allocations|
@@ -42,6 +59,9 @@ All URIs are relative to *https://api.meetcampfire.com*
 |[**rrApiV1ContractsSubscriptionsRetrieve**](#rrapiv1contractssubscriptionsretrieve) | **GET** /rr/api/v1/contracts/{contract_id}/subscriptions/{id} | Retrieve Contract Subscription|
 |[**rrApiV1ContractsSubscriptionsUpdate**](#rrapiv1contractssubscriptionsupdate) | **PUT** /rr/api/v1/contracts/{contract_id}/subscriptions/{id} | Update Contract Subscription|
 |[**rrApiV1ContractsTerminateCreate**](#rrapiv1contractsterminatecreate) | **POST** /rr/api/v1/contracts/{id}/terminate | Terminate Contract|
+|[**rrApiV1ContractsTerminationSettlementPreviewRetrieve**](#rrapiv1contractsterminationsettlementpreviewretrieve) | **GET** /rr/api/v1/contracts/{id}/termination-settlement-preview | Preview Contract Termination Settlement|
+|[**rrApiV1ContractsTierPriceOverridesCreate**](#rrapiv1contractstierpriceoverridescreate) | **POST** /rr/api/v1/contracts/{contract_id}/tier-price-overrides | Create Contract Tier Price Override|
+|[**rrApiV1ContractsTierPriceOverridesList**](#rrapiv1contractstierpriceoverrideslist) | **GET** /rr/api/v1/contracts/{contract_id}/tier-price-overrides | List Contract Tier Price Overrides|
 |[**rrApiV1ContractsUpdate**](#rrapiv1contractsupdate) | **PUT** /rr/api/v1/contracts/{id} | Update Contract|
 |[**rrApiV1ContractsUsageAllocationsPartialUpdate**](#rrapiv1contractsusageallocationspartialupdate) | **PATCH** /rr/api/v1/contracts/{contract_id}/usage/{usage_id}/allocations | Partial Update Bundle Allocations|
 |[**rrApiV1ContractsUsageAllocationsRetrieve**](#rrapiv1contractsusageallocationsretrieve) | **GET** /rr/api/v1/contracts/{contract_id}/usage/{usage_id}/allocations | Get Bundle Allocations|
@@ -57,11 +77,13 @@ All URIs are relative to *https://api.meetcampfire.com*
 |[**rrApiV1CustomersPartialUpdate**](#rrapiv1customerspartialupdate) | **PATCH** /rr/api/v1/customers/{id} | Partial Update Contract Customer|
 |[**rrApiV1CustomersRetrieve**](#rrapiv1customersretrieve) | **GET** /rr/api/v1/customers/{id} | Retrieve Contract Customer|
 |[**rrApiV1CustomersUpdate**](#rrapiv1customersupdate) | **PUT** /rr/api/v1/customers/{id} | Update Contract Customer|
+|[**rrApiV1ProductBulkSearchCreate**](#rrapiv1productbulksearchcreate) | **POST** /rr/api/v1/product/bulk-search | Bulk Search Products|
 |[**rrApiV1ProductBundlesDestroy**](#rrapiv1productbundlesdestroy) | **DELETE** /rr/api/v1/product-bundles/{id} | Delete Product Bundle|
 |[**rrApiV1ProductBundlesPartialUpdate**](#rrapiv1productbundlespartialupdate) | **PATCH** /rr/api/v1/product-bundles/{id} | Partial Update Product Bundle|
 |[**rrApiV1ProductBundlesRetrieve**](#rrapiv1productbundlesretrieve) | **GET** /rr/api/v1/product-bundles/{id} | Retrieve Product Bundle|
 |[**rrApiV1ProductBundlesUpdate**](#rrapiv1productbundlesupdate) | **PUT** /rr/api/v1/product-bundles/{id} | Update Product Bundle|
-|[**rrApiV1ProductDestroy**](#rrapiv1productdestroy) | **DELETE** /rr/api/v1/product/{id} | Delete Product|
+|[**rrApiV1ProductDeleteCreate**](#rrapiv1productdeletecreate) | **POST** /rr/api/v1/product/{id}/delete | Delete Product|
+|[**rrApiV1ProductDestroy**](#rrapiv1productdestroy) | **DELETE** /rr/api/v1/product/{id} | Delete Product (deprecated)|
 |[**rrApiV1ProductPartialUpdate**](#rrapiv1productpartialupdate) | **PATCH** /rr/api/v1/product/{id} | Partial Update Product|
 |[**rrApiV1ProductRetrieve**](#rrapiv1productretrieve) | **GET** /rr/api/v1/product/{id} | Retrieve Product|
 |[**rrApiV1ProductUpdate**](#rrapiv1productupdate) | **PUT** /rr/api/v1/product/{id} | Update Product|
@@ -69,11 +91,14 @@ All URIs are relative to *https://api.meetcampfire.com*
 |[**rrApiV1TransactionsPartialUpdate**](#rrapiv1transactionspartialupdate) | **PATCH** /rr/api/v1/transactions/{id} | Partial Update Revenue Transaction|
 |[**rrApiV1TransactionsRetrieve**](#rrapiv1transactionsretrieve) | **GET** /rr/api/v1/transactions/{id} | Retrieve Revenue Transaction|
 |[**rrApiV1TransactionsUpdate**](#rrapiv1transactionsupdate) | **PUT** /rr/api/v1/transactions/{id} | Update Revenue Transaction|
+|[**updatePrepaidCommit**](#updateprepaidcommit) | **PUT** /rr/api/v1/contracts/{contract_id}/prepaid-commits/{id} | Update Prepaid Commit|
+|[**updatePrepaidCommitConsumption**](#updateprepaidcommitconsumption) | **PUT** /rr/api/v1/contracts/{contract_id}/prepaid-commits/{commit_id}/consumption/{id} | Update Prepaid Commit Consumption|
+|[**uploadPrepaidCommitUsageEvents**](#uploadprepaidcommitusageevents) | **POST** /rr/api/v1/contracts/{contract_id}/prepaid-commits/{commit_id}/usage-events/upload | Upload Prepaid Commit Usage Events|
 
 # **createContract**
-> Contract createContract()
+> Contract createContract(contract)
 
-Create a new contract
+     Create a new contract.      Evergreen vs standard:     - Standard contract: set is_evergreen=false and provide a fixed contract_end_date.     - Evergreen contract: set is_evergreen=true and leave contract_end_date as null.       The system manages a rolling effective_end_date, exposes working_end_date for downstream usage,       and returns evergreen_locked_date for immutable historical boundary rules.      Additional evergreen constraints:     - is_evergreen and auto_renew cannot both be true.     - billing_frequency is required for evergreen behavior.     - default_payment_term is not implemented yet for standard contracts. It can currently be set only for Evergreen       contracts and is applied to their automatically generated invoices. Other contract invoice flows retain their       existing payment-term selection behavior; support may be extended to additional contract types in the future.     - When default_payment_term is omitted or null, automatically generated Evergreen invoices retain the existing       Net 30 fallback.     - skip_evergreen_invoice_generation is creation-time only and cannot be changed on existing contracts.     - skip_evergreen_invoice_generation=true skips only Campfire\'s auto-generated evergreen invoices.       Revenue transactions still generate.     
 
 ### Example
 
@@ -87,7 +112,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new RevenueRecognitionApi(configuration);
 
-let contract: Contract; // (optional)
+let contract: Contract; //
 
 const { status, data } = await apiInstance.createContract(
     contract
@@ -107,7 +132,7 @@ const { status, data } = await apiInstance.createContract(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -125,7 +150,7 @@ const { status, data } = await apiInstance.createContract(
 # **createContractBundle**
 > ContractBundle createContractBundle(contractBundle)
 
-Create a new contract bundle
+     Create a new contract bundle.      Evergreen vs standard:     - Standard contracts require a fixed bundle end_date.     - Evergreen contracts allow end_date to be null (open-ended) or set to a billing-period end date.       Evergreen bundle start/end dates must align with billing period boundaries.      Evergreen-specific option:     - rebalance_journal_entries_indefinitely=true keeps invoice-journal rebalancing in sync as the evergreen       contract extends.     
 
 ### Example
 
@@ -162,7 +187,7 @@ const { status, data } = await apiInstance.createContractBundle(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -217,7 +242,7 @@ const { status, data } = await apiInstance.createContractMilestone(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -235,7 +260,7 @@ const { status, data } = await apiInstance.createContractMilestone(
 # **createContractSubscription**
 > ContractSubscription createContractSubscription(contractSubscription)
 
-Create a new contract subscription
+     Create a new contract subscription.      Evergreen vs standard:     - Standard contract subscriptions generally provide explicit lines and fixed start/end dates.     - Evergreen contract subscriptions can provide period_amount to auto-generate lines. Their dates must align       to billing period boundaries and must not exceed the contract\'s current working_end_date.      Notes:     - Usage and milestone subscription flows are not supported for evergreen contracts.     - For evergreen contracts, period_amount is the source-of-truth amount per billing period.     - renewal_behavior:       - FOLLOW_CONTRACT: subscription follows evergreen contract extension windows.       - FIXED_END: subscription keeps its own fixed end_date and does not extend automatically.     
 
 ### Example
 
@@ -272,7 +297,118 @@ const { status, data } = await apiInstance.createContractSubscription(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**201** | Created |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **createPrepaidCommit**
+> ContractPrepaidCommit createPrepaidCommit(contractPrepaidCommit)
+
+
+### Example
+
+```typescript
+import {
+    RevenueRecognitionApi,
+    Configuration,
+    ContractPrepaidCommit
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new RevenueRecognitionApi(configuration);
+
+let contractId: number; // (default to undefined)
+let contractPrepaidCommit: ContractPrepaidCommit; //
+
+const { status, data } = await apiInstance.createPrepaidCommit(
+    contractId,
+    contractPrepaidCommit
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **contractPrepaidCommit** | **ContractPrepaidCommit**|  | |
+| **contractId** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+**ContractPrepaidCommit**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**201** | Created |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **createPrepaidCommitConsumption**
+> RecordConsumptionInput createPrepaidCommitConsumption(recordConsumptionInput)
+
+
+### Example
+
+```typescript
+import {
+    RevenueRecognitionApi,
+    Configuration,
+    RecordConsumptionInput
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new RevenueRecognitionApi(configuration);
+
+let commitId: number; // (default to undefined)
+let contractId: number; // (default to undefined)
+let recordConsumptionInput: RecordConsumptionInput; //
+
+const { status, data } = await apiInstance.createPrepaidCommitConsumption(
+    commitId,
+    contractId,
+    recordConsumptionInput
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **recordConsumptionInput** | **RecordConsumptionInput**|  | |
+| **commitId** | [**number**] |  | defaults to undefined|
+| **contractId** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+**RecordConsumptionInput**
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 
@@ -288,7 +424,7 @@ const { status, data } = await apiInstance.createContractSubscription(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **createProduct**
-> Product createProduct()
+> Product createProduct(product)
 
 Create a new product
 
@@ -304,7 +440,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new RevenueRecognitionApi(configuration);
 
-let product: Product; // (optional)
+let product: Product; //
 
 const { status, data } = await apiInstance.createProduct(
     product
@@ -324,7 +460,7 @@ const { status, data } = await apiInstance.createProduct(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -376,7 +512,7 @@ const { status, data } = await apiInstance.createProductBundle(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -392,7 +528,7 @@ const { status, data } = await apiInstance.createProductBundle(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **createRevenueTransaction**
-> RevenueTransaction createRevenueTransaction()
+> RevenueTransaction createRevenueTransaction(revenueTransaction)
 
 Create a new revenue transaction
 
@@ -408,7 +544,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new RevenueRecognitionApi(configuration);
 
-let revenueTransaction: RevenueTransaction; // (optional)
+let revenueTransaction: RevenueTransaction; //
 
 const { status, data } = await apiInstance.createRevenueTransaction(
     revenueTransaction
@@ -428,7 +564,7 @@ const { status, data } = await apiInstance.createRevenueTransaction(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -440,6 +576,326 @@ const { status, data } = await apiInstance.createRevenueTransaction(
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**201** | Created |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **deletePrepaidCommit**
+> deletePrepaidCommit()
+
+
+### Example
+
+```typescript
+import {
+    RevenueRecognitionApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new RevenueRecognitionApi(configuration);
+
+let contractId: number; // (default to undefined)
+let id: number; // (default to undefined)
+
+const { status, data } = await apiInstance.deletePrepaidCommit(
+    contractId,
+    id
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **contractId** | [**number**] |  | defaults to undefined|
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**204** | No response body |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **deletePrepaidCommitConsumption**
+> deletePrepaidCommitConsumption()
+
+
+### Example
+
+```typescript
+import {
+    RevenueRecognitionApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new RevenueRecognitionApi(configuration);
+
+let commitId: number; // (default to undefined)
+let contractId: number; // (default to undefined)
+let id: number; // (default to undefined)
+
+const { status, data } = await apiInstance.deletePrepaidCommitConsumption(
+    commitId,
+    contractId,
+    id
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **commitId** | [**number**] |  | defaults to undefined|
+| **contractId** | [**number**] |  | defaults to undefined|
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**204** | No response body |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getPrepaidCommit**
+> ContractPrepaidCommit getPrepaidCommit()
+
+
+### Example
+
+```typescript
+import {
+    RevenueRecognitionApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new RevenueRecognitionApi(configuration);
+
+let contractId: number; // (default to undefined)
+let id: number; // (default to undefined)
+
+const { status, data } = await apiInstance.getPrepaidCommit(
+    contractId,
+    id
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **contractId** | [**number**] |  | defaults to undefined|
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+**ContractPrepaidCommit**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getPrepaidCommitSummary**
+> getPrepaidCommitSummary()
+
+
+### Example
+
+```typescript
+import {
+    RevenueRecognitionApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new RevenueRecognitionApi(configuration);
+
+let contractId: number; // (default to undefined)
+
+const { status, data } = await apiInstance.getPrepaidCommitSummary(
+    contractId
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **contractId** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | No response body |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getPrepaidCommitUsageEventDistinctValues**
+> getPrepaidCommitUsageEventDistinctValues()
+
+Return distinct values for a given JSONB data field, for filter dropdowns.
+
+### Example
+
+```typescript
+import {
+    RevenueRecognitionApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new RevenueRecognitionApi(configuration);
+
+let commitId: number; // (default to undefined)
+let contractId: number; // (default to undefined)
+
+const { status, data } = await apiInstance.getPrepaidCommitUsageEventDistinctValues(
+    commitId,
+    contractId
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **commitId** | [**number**] |  | defaults to undefined|
+| **contractId** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | No response body |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getPrepaidCommitUsageEventsTemplate**
+> getPrepaidCommitUsageEventsTemplate()
+
+Download a CSV template (commit-scoped).
+
+### Example
+
+```typescript
+import {
+    RevenueRecognitionApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new RevenueRecognitionApi(configuration);
+
+let commitId: number; // (default to undefined)
+let contractId: number; // (default to undefined)
+
+const { status, data } = await apiInstance.getPrepaidCommitUsageEventsTemplate(
+    commitId,
+    contractId
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **commitId** | [**number**] |  | defaults to undefined|
+| **contractId** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | No response body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -488,7 +944,7 @@ const { status, data } = await apiInstance.listContractBundles(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -499,7 +955,7 @@ const { status, data } = await apiInstance.listContractBundles(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -554,7 +1010,7 @@ const { status, data } = await apiInstance.listContractMilestones(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -565,7 +1021,7 @@ const { status, data } = await apiInstance.listContractMilestones(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -614,7 +1070,7 @@ const { status, data } = await apiInstance.listContractSubscriptions(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -625,7 +1081,7 @@ const { status, data } = await apiInstance.listContractSubscriptions(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -677,7 +1133,7 @@ const { status, data } = await apiInstance.listContracts(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -688,7 +1144,181 @@ const { status, data } = await apiInstance.listContracts(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **listPrepaidCommitConsumption**
+> PaginatedContractPrepaidCommitConsumptionList listPrepaidCommitConsumption()
+
+
+### Example
+
+```typescript
+import {
+    RevenueRecognitionApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new RevenueRecognitionApi(configuration);
+
+let commitId: number; // (default to undefined)
+let contractId: number; // (default to undefined)
+let limit: number; //Number of results to return per page. (optional) (default to undefined)
+let offset: number; //The initial index from which to return the results. (optional) (default to undefined)
+
+const { status, data } = await apiInstance.listPrepaidCommitConsumption(
+    commitId,
+    contractId,
+    limit,
+    offset
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **commitId** | [**number**] |  | defaults to undefined|
+| **contractId** | [**number**] |  | defaults to undefined|
+| **limit** | [**number**] | Number of results to return per page. | (optional) defaults to undefined|
+| **offset** | [**number**] | The initial index from which to return the results. | (optional) defaults to undefined|
+
+
+### Return type
+
+**PaginatedContractPrepaidCommitConsumptionList**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **listPrepaidCommitUsageEvents**
+> PaginatedPrepaidUsageEventList listPrepaidCommitUsageEvents()
+
+
+### Example
+
+```typescript
+import {
+    RevenueRecognitionApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new RevenueRecognitionApi(configuration);
+
+let commitId: number; // (default to undefined)
+let contractId: number; // (default to undefined)
+let limit: number; //Number of results to return per page. (optional) (default to undefined)
+let offset: number; //The initial index from which to return the results. (optional) (default to undefined)
+
+const { status, data } = await apiInstance.listPrepaidCommitUsageEvents(
+    commitId,
+    contractId,
+    limit,
+    offset
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **commitId** | [**number**] |  | defaults to undefined|
+| **contractId** | [**number**] |  | defaults to undefined|
+| **limit** | [**number**] | Number of results to return per page. | (optional) defaults to undefined|
+| **offset** | [**number**] | The initial index from which to return the results. | (optional) defaults to undefined|
+
+
+### Return type
+
+**PaginatedPrepaidUsageEventList**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **listPrepaidCommits**
+> PaginatedContractPrepaidCommitList listPrepaidCommits()
+
+
+### Example
+
+```typescript
+import {
+    RevenueRecognitionApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new RevenueRecognitionApi(configuration);
+
+let contractId: number; // (default to undefined)
+let limit: number; //Number of results to return per page. (optional) (default to undefined)
+let offset: number; //The initial index from which to return the results. (optional) (default to undefined)
+
+const { status, data } = await apiInstance.listPrepaidCommits(
+    contractId,
+    limit,
+    offset
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **contractId** | [**number**] |  | defaults to undefined|
+| **limit** | [**number**] | Number of results to return per page. | (optional) defaults to undefined|
+| **offset** | [**number**] | The initial index from which to return the results. | (optional) defaults to undefined|
+
+
+### Return type
+
+**PaginatedContractPrepaidCommitList**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -740,7 +1370,7 @@ const { status, data } = await apiInstance.listProductBundles(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -751,7 +1381,7 @@ const { status, data } = await apiInstance.listProductBundles(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -803,7 +1433,7 @@ const { status, data } = await apiInstance.listProducts(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -814,7 +1444,7 @@ const { status, data } = await apiInstance.listProducts(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -866,7 +1496,7 @@ const { status, data } = await apiInstance.listRevenueTransactions(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -877,7 +1507,277 @@ const { status, data } = await apiInstance.listRevenueTransactions(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **modifySubscriptionSchedule**
+> Array<ContractSubscriptionLine> modifySubscriptionSchedule(generageSubscriptionSchedule)
+
+Generate a modified subscription schedule by comparing a new schedule against an existing subscription. Returns the delta between the original and modified schedules, with support for catch-up accounting and contract end date modifications.
+
+### Example
+
+```typescript
+import {
+    RevenueRecognitionApi,
+    Configuration,
+    GenerageSubscriptionSchedule
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new RevenueRecognitionApi(configuration);
+
+let generageSubscriptionSchedule: GenerageSubscriptionSchedule; //
+
+const { status, data } = await apiInstance.modifySubscriptionSchedule(
+    generageSubscriptionSchedule
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **generageSubscriptionSchedule** | **GenerageSubscriptionSchedule**|  | |
+
+
+### Return type
+
+**Array<ContractSubscriptionLine>**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **parseContract**
+> parseContract()
+
+Parse contract details from uploaded PDF files using AI.
+
+### Example
+
+```typescript
+import {
+    RevenueRecognitionApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new RevenueRecognitionApi(configuration);
+
+const { status, data } = await apiInstance.parseContract();
+```
+
+### Parameters
+This endpoint does not have any parameters.
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | No response body |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **partialUpdatePrepaidCommit**
+> ContractPrepaidCommit partialUpdatePrepaidCommit()
+
+
+### Example
+
+```typescript
+import {
+    RevenueRecognitionApi,
+    Configuration,
+    PatchedContractPrepaidCommit
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new RevenueRecognitionApi(configuration);
+
+let contractId: number; // (default to undefined)
+let id: number; // (default to undefined)
+let patchedContractPrepaidCommit: PatchedContractPrepaidCommit; // (optional)
+
+const { status, data } = await apiInstance.partialUpdatePrepaidCommit(
+    contractId,
+    id,
+    patchedContractPrepaidCommit
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **patchedContractPrepaidCommit** | **PatchedContractPrepaidCommit**|  | |
+| **contractId** | [**number**] |  | defaults to undefined|
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+**ContractPrepaidCommit**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **processPrepaidCommitAdjustments**
+> processPrepaidCommitAdjustments()
+
+Process adjustment events for a prepaid commit and create credit memos.
+
+### Example
+
+```typescript
+import {
+    RevenueRecognitionApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new RevenueRecognitionApi(configuration);
+
+let commitId: number; // (default to undefined)
+let contractId: number; // (default to undefined)
+
+const { status, data } = await apiInstance.processPrepaidCommitAdjustments(
+    commitId,
+    contractId
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **commitId** | [**number**] |  | defaults to undefined|
+| **contractId** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | No response body |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **reverseContractSubscriptionFully**
+> ContractSubscriptionFullReversalResponse reverseContractSubscriptionFully(contractSubscriptionFullReversal)
+
+Wraps ``CreateModelMixin.create`` (or any method named ``create``) with ``Idempotency-Key`` handling.  Place this mixin **before** the view\'s other base classes so its ``create`` overrides the inherited one::      class JournalEntryListCreate(         IdempotentCreateMixin,         HistoryFilteringMixin,         ListCreateAPIView,     ):         ...
+
+### Example
+
+```typescript
+import {
+    RevenueRecognitionApi,
+    Configuration,
+    ContractSubscriptionFullReversal
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new RevenueRecognitionApi(configuration);
+
+let contractId: number; // (default to undefined)
+let id: number; // (default to undefined)
+let contractSubscriptionFullReversal: ContractSubscriptionFullReversal; //
+
+const { status, data } = await apiInstance.reverseContractSubscriptionFully(
+    contractId,
+    id,
+    contractSubscriptionFullReversal
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **contractSubscriptionFullReversal** | **ContractSubscriptionFullReversal**|  | |
+| **contractId** | [**number**] |  | defaults to undefined|
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+**ContractSubscriptionFullReversalResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | Existing reversal replayed. |  -  |
+|**201** | Created |  -  |
+|**202** | Reversal submitted for approval; no accounting changes posted. |  -  |
+|**400** | The subscription or funding cannot be reversed safely. |  -  |
+|**403** | Missing contract or credit-memo permission. |  -  |
+|**409** | Usage processing is in progress; retry after it completes. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -918,7 +1818,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsBulkSearchCreate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -929,7 +1829,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsBulkSearchCreate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -971,7 +1871,7 @@ void (empty response body)
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1028,7 +1928,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsBundlesPartialUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1039,7 +1939,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsBundlesPartialUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1081,7 +1981,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsBundlesRetrieve(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1092,7 +1992,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsBundlesRetrieve(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1138,7 +2038,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsBundlesUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1149,7 +2049,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsBundlesUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1188,7 +2088,7 @@ void (empty response body)
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1238,7 +2138,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsDuplicateCreate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1249,7 +2149,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsDuplicateCreate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1296,7 +2196,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsMilestonesAllocations
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1307,7 +2207,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsMilestonesAllocations
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1350,7 +2250,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsMilestonesAllocations
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1361,7 +2261,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsMilestonesAllocations
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1408,7 +2308,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsMilestonesAllocations
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1419,7 +2319,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsMilestonesAllocations
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1461,7 +2361,7 @@ void (empty response body)
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1518,7 +2418,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsMilestonesPartialUpda
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1529,7 +2429,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsMilestonesPartialUpda
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1571,7 +2471,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsMilestonesRetrieve(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1582,7 +2482,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsMilestonesRetrieve(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1628,7 +2528,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsMilestonesUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1639,7 +2539,58 @@ const { status, data } = await apiInstance.rrApiV1ContractsMilestonesUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rrApiV1ContractsMinimumCommitPreviewRetrieve**
+> rrApiV1ContractsMinimumCommitPreviewRetrieve()
+
+Projected monthly minimum commitment true-up for a contract.  Read-only. Returns the shortfall the month-end batch *would* post if it ran right now. Lets the contract detail screen show a live floor preview without triggering writes from the UI.
+
+### Example
+
+```typescript
+import {
+    RevenueRecognitionApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new RevenueRecognitionApi(configuration);
+
+let id: number; // (default to undefined)
+
+const { status, data } = await apiInstance.rrApiV1ContractsMinimumCommitPreviewRetrieve(
+    id
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | No response body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1682,7 +2633,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsPartialUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1693,7 +2644,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsPartialUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1732,7 +2683,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsRetrieve(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1743,7 +2694,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsRetrieve(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1790,7 +2741,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsSubscriptionsAllocati
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1801,7 +2752,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsSubscriptionsAllocati
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1844,7 +2795,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsSubscriptionsAllocati
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1855,7 +2806,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsSubscriptionsAllocati
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1902,7 +2853,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsSubscriptionsAllocati
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1913,7 +2864,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsSubscriptionsAllocati
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1955,7 +2906,7 @@ void (empty response body)
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -2012,7 +2963,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsSubscriptionsPartialU
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -2023,7 +2974,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsSubscriptionsPartialU
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2065,7 +3016,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsSubscriptionsRetrieve
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -2076,7 +3027,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsSubscriptionsRetrieve
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2122,7 +3073,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsSubscriptionsUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -2133,7 +3084,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsSubscriptionsUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2177,7 +3128,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsTerminateCreate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -2188,12 +3139,178 @@ const { status, data } = await apiInstance.rrApiV1ContractsTerminateCreate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rrApiV1ContractsTerminationSettlementPreviewRetrieve**
+> TerminationSettlementPreviewResponse rrApiV1ContractsTerminationSettlementPreviewRetrieve()
+
+
+### Example
+
+```typescript
+import {
+    RevenueRecognitionApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new RevenueRecognitionApi(configuration);
+
+let id: number; // (default to undefined)
+let terminationDate: string; // (default to undefined)
+let creditUnusedRevenue: boolean; // (optional) (default to true)
+
+const { status, data } = await apiInstance.rrApiV1ContractsTerminationSettlementPreviewRetrieve(
+    id,
+    terminationDate,
+    creditUnusedRevenue
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **id** | [**number**] |  | defaults to undefined|
+| **terminationDate** | [**string**] |  | defaults to undefined|
+| **creditUnusedRevenue** | [**boolean**] |  | (optional) defaults to true|
+
+
+### Return type
+
+**TerminationSettlementPreviewResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rrApiV1ContractsTierPriceOverridesCreate**
+> TierPriceOverride rrApiV1ContractsTierPriceOverridesCreate(tierPriceOverride)
+
+
+### Example
+
+```typescript
+import {
+    RevenueRecognitionApi,
+    Configuration,
+    TierPriceOverride
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new RevenueRecognitionApi(configuration);
+
+let contractId: number; // (default to undefined)
+let tierPriceOverride: TierPriceOverride; //
+
+const { status, data } = await apiInstance.rrApiV1ContractsTierPriceOverridesCreate(
+    contractId,
+    tierPriceOverride
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **tierPriceOverride** | **TierPriceOverride**|  | |
+| **contractId** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+**TierPriceOverride**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**201** | Created |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rrApiV1ContractsTierPriceOverridesList**
+> PaginatedTierPriceOverrideList rrApiV1ContractsTierPriceOverridesList()
+
+
+### Example
+
+```typescript
+import {
+    RevenueRecognitionApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new RevenueRecognitionApi(configuration);
+
+let contractId: number; // (default to undefined)
+let limit: number; //Number of results to return per page. (optional) (default to undefined)
+let offset: number; //The initial index from which to return the results. (optional) (default to undefined)
+
+const { status, data } = await apiInstance.rrApiV1ContractsTierPriceOverridesList(
+    contractId,
+    limit,
+    offset
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **contractId** | [**number**] |  | defaults to undefined|
+| **limit** | [**number**] | Number of results to return per page. | (optional) defaults to undefined|
+| **offset** | [**number**] | The initial index from which to return the results. | (optional) defaults to undefined|
+
+
+### Return type
+
+**PaginatedTierPriceOverrideList**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **rrApiV1ContractsUpdate**
-> Contract rrApiV1ContractsUpdate()
+> Contract rrApiV1ContractsUpdate(contract)
 
 
 ### Example
@@ -2209,7 +3326,7 @@ const configuration = new Configuration();
 const apiInstance = new RevenueRecognitionApi(configuration);
 
 let id: number; // (default to undefined)
-let contract: Contract; // (optional)
+let contract: Contract; //
 
 const { status, data } = await apiInstance.rrApiV1ContractsUpdate(
     id,
@@ -2231,7 +3348,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -2242,7 +3359,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2289,7 +3406,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsUsageAllocationsParti
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -2300,7 +3417,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsUsageAllocationsParti
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2343,7 +3460,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsUsageAllocationsRetri
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -2354,7 +3471,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsUsageAllocationsRetri
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2401,7 +3518,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsUsageAllocationsUpdat
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -2412,7 +3529,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsUsageAllocationsUpdat
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2456,7 +3573,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsUsageCreate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -2510,7 +3627,7 @@ void (empty response body)
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -2567,7 +3684,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsUsageList(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -2578,7 +3695,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsUsageList(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2625,7 +3742,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsUsagePartialUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -2636,7 +3753,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsUsagePartialUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2679,7 +3796,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsUsageRetrieve(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -2690,7 +3807,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsUsageRetrieve(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2737,7 +3854,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsUsageUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -2748,7 +3865,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsUsageUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2787,7 +3904,7 @@ void (empty response body)
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -2850,7 +3967,7 @@ const { status, data } = await apiInstance.rrApiV1CustomersList(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -2861,7 +3978,7 @@ const { status, data } = await apiInstance.rrApiV1CustomersList(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2904,7 +4021,7 @@ const { status, data } = await apiInstance.rrApiV1CustomersPartialUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -2915,7 +4032,7 @@ const { status, data } = await apiInstance.rrApiV1CustomersPartialUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2954,7 +4071,7 @@ const { status, data } = await apiInstance.rrApiV1CustomersRetrieve(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -2965,7 +4082,7 @@ const { status, data } = await apiInstance.rrApiV1CustomersRetrieve(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3008,7 +4125,7 @@ const { status, data } = await apiInstance.rrApiV1CustomersUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -3019,7 +4136,59 @@ const { status, data } = await apiInstance.rrApiV1CustomersUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rrApiV1ProductBulkSearchCreate**
+> BulkProductSearchResponse rrApiV1ProductBulkSearchCreate(bulkProductSearch)
+
+Resolve many product cells in a single request. Each term is matched against product_id, display_name, product_uuid, id, then product_name, in that order. A term matching more than one product is returned in the ambiguous list instead of being resolved.
+
+### Example
+
+```typescript
+import {
+    RevenueRecognitionApi,
+    Configuration,
+    BulkProductSearch
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new RevenueRecognitionApi(configuration);
+
+let bulkProductSearch: BulkProductSearch; //
+
+const { status, data } = await apiInstance.rrApiV1ProductBulkSearchCreate(
+    bulkProductSearch
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **bulkProductSearch** | **BulkProductSearch**|  | |
+
+
+### Return type
+
+**BulkProductSearchResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3058,7 +4227,7 @@ void (empty response body)
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -3112,7 +4281,7 @@ const { status, data } = await apiInstance.rrApiV1ProductBundlesPartialUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -3123,7 +4292,7 @@ const { status, data } = await apiInstance.rrApiV1ProductBundlesPartialUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3162,7 +4331,7 @@ const { status, data } = await apiInstance.rrApiV1ProductBundlesRetrieve(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -3173,7 +4342,7 @@ const { status, data } = await apiInstance.rrApiV1ProductBundlesRetrieve(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3216,7 +4385,7 @@ const { status, data } = await apiInstance.rrApiV1ProductBundlesUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -3227,13 +4396,70 @@ const { status, data } = await apiInstance.rrApiV1ProductBundlesUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rrApiV1ProductDeleteCreate**
+> rrApiV1ProductDeleteCreate()
+
+Delete a product.
+
+### Example
+
+```typescript
+import {
+    RevenueRecognitionApi,
+    Configuration,
+    DeleteRequest
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new RevenueRecognitionApi(configuration);
+
+let id: number; // (default to undefined)
+let deleteRequest: DeleteRequest; // (optional)
+
+const { status, data } = await apiInstance.rrApiV1ProductDeleteCreate(
+    id,
+    deleteRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **deleteRequest** | **DeleteRequest**|  | |
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**204** | Deleted. |  -  |
+|**202** | Sent for approval; the record is deleted once a reviewer approves. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **rrApiV1ProductDestroy**
 > rrApiV1ProductDestroy()
 
+Deprecated: use `POST /rr/api/v1/product/{id}/delete`, which also takes an optional reason for the audit log.
 
 ### Example
 
@@ -3266,7 +4492,7 @@ void (empty response body)
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -3277,7 +4503,8 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**204** | No response body |  -  |
+|**204** | Deleted. |  -  |
+|**202** | Sent for approval; the record is deleted once a reviewer approves. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3320,7 +4547,7 @@ const { status, data } = await apiInstance.rrApiV1ProductPartialUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -3331,7 +4558,7 @@ const { status, data } = await apiInstance.rrApiV1ProductPartialUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3370,7 +4597,7 @@ const { status, data } = await apiInstance.rrApiV1ProductRetrieve(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -3381,12 +4608,12 @@ const { status, data } = await apiInstance.rrApiV1ProductRetrieve(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **rrApiV1ProductUpdate**
-> Product rrApiV1ProductUpdate()
+> Product rrApiV1ProductUpdate(product)
 
 
 ### Example
@@ -3402,7 +4629,7 @@ const configuration = new Configuration();
 const apiInstance = new RevenueRecognitionApi(configuration);
 
 let id: number; // (default to undefined)
-let product: Product; // (optional)
+let product: Product; //
 
 const { status, data } = await apiInstance.rrApiV1ProductUpdate(
     id,
@@ -3424,7 +4651,7 @@ const { status, data } = await apiInstance.rrApiV1ProductUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -3435,7 +4662,7 @@ const { status, data } = await apiInstance.rrApiV1ProductUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3474,7 +4701,7 @@ void (empty response body)
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -3528,7 +4755,7 @@ const { status, data } = await apiInstance.rrApiV1TransactionsPartialUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -3539,7 +4766,7 @@ const { status, data } = await apiInstance.rrApiV1TransactionsPartialUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3578,7 +4805,7 @@ const { status, data } = await apiInstance.rrApiV1TransactionsRetrieve(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -3589,12 +4816,12 @@ const { status, data } = await apiInstance.rrApiV1TransactionsRetrieve(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **rrApiV1TransactionsUpdate**
-> RevenueTransaction rrApiV1TransactionsUpdate()
+> RevenueTransaction rrApiV1TransactionsUpdate(revenueTransaction)
 
 
 ### Example
@@ -3610,7 +4837,7 @@ const configuration = new Configuration();
 const apiInstance = new RevenueRecognitionApi(configuration);
 
 let id: number; // (default to undefined)
-let revenueTransaction: RevenueTransaction; // (optional)
+let revenueTransaction: RevenueTransaction; //
 
 const { status, data } = await apiInstance.rrApiV1TransactionsUpdate(
     id,
@@ -3632,7 +4859,7 @@ const { status, data } = await apiInstance.rrApiV1TransactionsUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -3643,7 +4870,174 @@ const { status, data } = await apiInstance.rrApiV1TransactionsUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updatePrepaidCommit**
+> ContractPrepaidCommit updatePrepaidCommit(contractPrepaidCommit)
+
+
+### Example
+
+```typescript
+import {
+    RevenueRecognitionApi,
+    Configuration,
+    ContractPrepaidCommit
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new RevenueRecognitionApi(configuration);
+
+let contractId: number; // (default to undefined)
+let id: number; // (default to undefined)
+let contractPrepaidCommit: ContractPrepaidCommit; //
+
+const { status, data } = await apiInstance.updatePrepaidCommit(
+    contractId,
+    id,
+    contractPrepaidCommit
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **contractPrepaidCommit** | **ContractPrepaidCommit**|  | |
+| **contractId** | [**number**] |  | defaults to undefined|
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+**ContractPrepaidCommit**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updatePrepaidCommitConsumption**
+> updatePrepaidCommitConsumption()
+
+
+### Example
+
+```typescript
+import {
+    RevenueRecognitionApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new RevenueRecognitionApi(configuration);
+
+let commitId: number; // (default to undefined)
+let contractId: number; // (default to undefined)
+let id: number; // (default to undefined)
+
+const { status, data } = await apiInstance.updatePrepaidCommitConsumption(
+    commitId,
+    contractId,
+    id
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **commitId** | [**number**] |  | defaults to undefined|
+| **contractId** | [**number**] |  | defaults to undefined|
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | No response body |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **uploadPrepaidCommitUsageEvents**
+> uploadPrepaidCommitUsageEvents()
+
+Upload a CSV of usage events for a specific prepaid commit (commit-scoped).
+
+### Example
+
+```typescript
+import {
+    RevenueRecognitionApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new RevenueRecognitionApi(configuration);
+
+let commitId: number; // (default to undefined)
+let contractId: number; // (default to undefined)
+
+const { status, data } = await apiInstance.uploadPrepaidCommitUsageEvents(
+    commitId,
+    contractId
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **commitId** | [**number**] |  | defaults to undefined|
+| **contractId** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | No response body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

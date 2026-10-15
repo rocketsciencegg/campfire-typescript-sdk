@@ -1,10 +1,12 @@
 # FixedAssetStatusEnum
 
-* `ACTIVE` - Active * `DEPRECIATED` - Depreciated * `DISPOSED` - Disposed
+* `ACTIVE` - Active * `PAUSED` - Paused * `DEPRECIATED` - Depreciated * `DISPOSED` - Disposed
 
 ## Enum
 
 * `Active` (value: `'ACTIVE'`)
+
+* `Paused` (value: `'PAUSED'`)
 
 * `Depreciated` (value: `'DEPRECIATED'`)
 

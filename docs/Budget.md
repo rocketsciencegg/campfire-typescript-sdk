@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **priorStartDate** | **string** |  | [readonly] [default to undefined]
 **priorEndDate** | **string** |  | [readonly] [default to undefined]
 **departmentName** | **string** |  | [readonly] [default to undefined]
-**tags** | [**Array&lt;TransactionTag&gt;**](TransactionTag.md) |  | [readonly] [default to undefined]
+**tags** | **Array&lt;{ [key: string]: any; }&gt;** |  | [readonly] [default to undefined]
 **isDeleted** | **boolean** |  | [readonly] [default to false]
 **deletedAt** | **string** |  | [readonly] [default to undefined]
 **name** | **string** |  | [default to undefined]
@@ -20,6 +20,8 @@ Name | Type | Description | Notes
 **endDate** | **string** |  | [optional] [default to undefined]
 **periods** | **number** |  | [optional] [default to undefined]
 **breakdownType** | [**BreakdownTypeEnum**](BreakdownTypeEnum.md) |  | [optional] [default to undefined]
+**tagIds** | **Array&lt;number&gt;** |  | [optional] [default to undefined]
+**tagGroupIds** | **Array&lt;number&gt;** |  | [optional] [default to undefined]
 **currency** | **string** |  | [optional] [default to undefined]
 **createdAt** | **string** |  | [readonly] [default to undefined]
 **lastModifiedAt** | **string** |  | [readonly] [default to undefined]
@@ -48,6 +50,8 @@ const instance: Budget = {
     endDate,
     periods,
     breakdownType,
+    tagIds,
+    tagGroupIds,
     currency,
     createdAt,
     lastModifiedAt,

@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **amount** | **number** | Dollar amount allocated to this product | [default to undefined]
 **percentage** | **string** | Calculated percentage based on amount / total | [readonly] [default to undefined]
 **originalPercentage** | **number** | Original percentage from source ProductBundle for auditing | [readonly] [default to undefined]
+**componentType** | [**ComponentTypeEnum**](ComponentTypeEnum.md) | Snapshotted from ProductBundleLine.component_type at snapshot time. NULL &#x3D; legacy single-type bundle.  * &#x60;SUBSCRIPTION&#x60; - Subscription * &#x60;MILESTONE&#x60; - Milestone * &#x60;USAGE&#x60; - Usage | [readonly] [default to undefined]
 
 ## Example
 
@@ -27,6 +28,7 @@ const instance: ContractProductBundleLine = {
     amount,
     percentage,
     originalPercentage,
+    componentType,
 };
 ```
 

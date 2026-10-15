@@ -16,13 +16,14 @@ Name | Type | Description | Notes
 **transactionDescription** | **string** |  | [optional] [readonly] [default to undefined]
 **transactionDate** | **string** |  | [optional] [readonly] [default to undefined]
 **transactionAmount** | **string** |  | [optional] [readonly] [default to undefined]
+**assetCurrency** | **string** |  | [optional] [readonly] [default to undefined]
 **proposedName** | **string** |  | [optional] [default to undefined]
 **proposedAssetClass** | **number** |  | [optional] [default to undefined]
 **proposedInitialValue** | **number** |  | [optional] [default to undefined]
 **proposedSalvageValue** | **number** |  | [optional] [default to undefined]
 **proposedPurchaseDate** | **string** |  | [optional] [default to undefined]
 **proposedDepreciationStartDate** | **string** |  | [optional] [default to undefined]
-**proposedEntity** | **number** |  | [optional] [default to undefined]
+**proposedEntity** | **number** |  | [optional] [readonly] [default to undefined]
 **proposedDepartment** | **number** |  | [optional] [default to undefined]
 **proposedVendor** | **number** |  | [optional] [default to undefined]
 **createdAsset** | **number** | The asset created when this match was accepted | [optional] [readonly] [default to undefined]
@@ -44,6 +45,7 @@ const instance: PatchedFixedAssetAutomationMatch = {
     transactionDescription,
     transactionDate,
     transactionAmount,
+    assetCurrency,
     proposedName,
     proposedAssetClass,
     proposedInitialValue,

@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **accountNumber** | **string** |  | [optional] [default to undefined]
 **hierarchy** | **Array&lt;string&gt;** |  | [optional] [default to undefined]
 **transactionActivity** | [**CaApiGetCashFlowRetrieve200ResponseCashFlowInnerTransactionActivity**](CaApiGetCashFlowRetrieve200ResponseCashFlowInnerTransactionActivity.md) |  | [optional] [default to undefined]
+**total** | **number** |  | [optional] [default to undefined]
 
 ## Example
 
@@ -22,6 +23,7 @@ const instance: CaApiGetCashFlowRetrieve200ResponseCashFlowInner = {
     accountNumber,
     hierarchy,
     transactionActivity,
+    total,
 };
 ```
 
