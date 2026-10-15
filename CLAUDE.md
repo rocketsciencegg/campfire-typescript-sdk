@@ -11,7 +11,9 @@ Auto-generated TypeScript SDK for the [Campfire API](https://api.meetcampfire.co
 ```bash
 npm install            # Install dependencies (also runs build via prepare hook)
 npm run build          # Compile TypeScript to dist/
+just refresh           # Download Campfire's spec, apply scripts/fix_spec.py, write campfire.patch, regenerate + compile
 just build             # Full regeneration: generate SDK from campfire.json OpenAPI spec + compile
+just lint-spec         # Speakeasy lint of campfire.json
 just compile           # Compile TypeScript only (no regeneration)
 just install           # Install system dependencies (openjdk via Homebrew)
 just clean             # Remove dist/ directory
@@ -25,7 +27,7 @@ All TypeScript source files in the root directory are **auto-generated** from th
 
 | File | Purpose |
 |------|---------|
-| `api.ts` | 12 API classes organized by category (see below), plus all model types |
+| `api.ts` | 11 API classes organized by category (see below), plus all model types |
 | `configuration.ts` | `Configuration` class for auth setup (API key) |
 | `base.ts` | `BaseAPI` base class, `RequiredError`, server config |
 | `common.ts` | Internal utilities (auth, serialization, request helpers) |
@@ -43,11 +45,15 @@ All TypeScript source files in the root directory are **auto-generated** from th
 - `SettingsApi` — entities, currencies, files, chart account settings
 - `IntegrationsApi` — webhooks
 - `CustomFieldsApi` — custom field definitions
-- `CoaApi` — fixed asset automation, bill amortization, transaction merging
 
 **Key files that are NOT auto-generated:**
 - `justfile` — build/generation orchestration
-- `campfire.json` — OpenAPI spec (source of truth for the SDK, downloaded from `https://api.meetcampfire.com/api/schema?format=json` with fixes applied)
+- `campfire.upstream.json` — Campfire's published spec, untouched (`just fetch-spec`, from `https://api.meetcampfire.com/api/schema/?format=json`)
+- `campfire.json` — the spec the SDK is generated from: `campfire.upstream.json` after `scripts/fix_spec.py`. Never hand-edit it; add a named step to the script, so the next refresh keeps the fix
+- `campfire.patch` — `diff -u campfire.upstream.json campfire.json`, written by `just spec-diff`. This is what we send Campfire
+- `scripts/fix_spec.py` — every fix we apply to Campfire's spec, each with its reason and a count of what it touched. A step that touches nothing after a refresh is a fix Campfire adopted; delete it
+
+Speakeasy lint (`just lint-spec`) gives 0 errors. The warnings left are expected: boolean `exclusiveMinimum`/`exclusiveMaximum` (valid OAS 3.0.3; Speakeasy wants the 3.1 form), optional request bodies whose schema has no required field, and free-form error objects Speakeasy does not support.
 - `.openapi-generator-ignore` — controls which files the generator preserves
 - `.github/` — CI/CD workflows and Dependabot config
 - `LICENSE` — MIT license

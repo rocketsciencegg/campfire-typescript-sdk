@@ -12,6 +12,8 @@ All URIs are relative to *https://api.meetcampfire.com*
 |[**coaApiV1CreditMemoMarkUsedCreate**](#coaapiv1creditmemomarkusedcreate) | **POST** /coa/api/v1/credit-memo/{credit_memo_id}/mark-used | Mark Credit Memo as Used|
 |[**coaApiV1CreditMemoNextCreditMemoNumberRetrieve**](#coaapiv1creditmemonextcreditmemonumberretrieve) | **GET** /coa/api/v1/credit-memo/next-credit-memo-number | Get Next Credit Memo Number|
 |[**coaApiV1CreditMemoPartialUpdate**](#coaapiv1creditmemopartialupdate) | **PATCH** /coa/api/v1/credit-memo/{id} | Partial Update Credit Memo|
+|[**coaApiV1CreditMemoPaymentVoidCreate**](#coaapiv1creditmemopaymentvoidcreate) | **POST** /coa/api/v1/credit-memo/{credit_memo_id}/payment/{payment_id}/void | Void Credit Memo Used Payment|
+|[**coaApiV1CreditMemoPaymentVoidDestroy**](#coaapiv1creditmemopaymentvoiddestroy) | **DELETE** /coa/api/v1/credit-memo/{credit_memo_id}/payment/{payment_id}/void | Delete Credit Memo Used Payment|
 |[**coaApiV1CreditMemoReopenCreate**](#coaapiv1creditmemoreopencreate) | **POST** /coa/api/v1/credit-memo/{credit_memo_id}/reopen/ | Reopen Voided Credit Memo|
 |[**coaApiV1CreditMemoRetrieve**](#coaapiv1creditmemoretrieve) | **GET** /coa/api/v1/credit-memo/{id} | Retrieve Credit Memo|
 |[**coaApiV1CreditMemoUpdate**](#coaapiv1creditmemoupdate) | **PUT** /coa/api/v1/credit-memo/{id} | Update Credit Memo|
@@ -27,16 +29,25 @@ All URIs are relative to *https://api.meetcampfire.com*
 |[**coaApiV1InvoicePayCreate**](#coaapiv1invoicepaycreate) | **POST** /coa/api/v1/invoice/{invoice_id}/pay/ | Mark Invoice as Paid|
 |[**coaApiV1InvoicePaymentVoidCreate**](#coaapiv1invoicepaymentvoidcreate) | **POST** /coa/api/v1/invoice/{invoice_id}/payment/{payment_id}/void/ | Void Invoice Payment|
 |[**coaApiV1InvoicePaymentVoidDestroy**](#coaapiv1invoicepaymentvoiddestroy) | **DELETE** /coa/api/v1/invoice/{invoice_id}/payment/{payment_id}/void/ | Delete Invoice Payment|
+|[**coaApiV1InvoicePaymentsList**](#coaapiv1invoicepaymentslist) | **GET** /coa/api/v1/invoice-payments | List Invoice Payments|
 |[**coaApiV1InvoiceReopenCreate**](#coaapiv1invoicereopencreate) | **POST** /coa/api/v1/invoice/{invoice_id}/reopen/ | Reopen Voided Invoice|
+|[**coaApiV1InvoiceReportDataRetrieve**](#coaapiv1invoicereportdataretrieve) | **GET** /coa/api/v1/invoice/report/{id}/data | Execute invoice report|
+|[**coaApiV1InvoiceReportPreviewRetrieve**](#coaapiv1invoicereportpreviewretrieve) | **GET** /coa/api/v1/invoice/report/preview | Preview invoice report|
 |[**coaApiV1InvoiceRetrieve**](#coaapiv1invoiceretrieve) | **GET** /coa/api/v1/invoice/{id}/ | Retrieve Invoice|
+|[**coaApiV1InvoiceStatsRetrieve**](#coaapiv1invoicestatsretrieve) | **GET** /coa/api/v1/invoice/stats | Invoice Stat Card Aggregates|
 |[**coaApiV1InvoiceUpdate**](#coaapiv1invoiceupdate) | **PUT** /coa/api/v1/invoice/{id}/ | Update Invoice|
 |[**coaApiV1InvoiceVoidCreate**](#coaapiv1invoicevoidcreate) | **POST** /coa/api/v1/invoice/{invoice_id}/void/ | Void Invoice|
 |[**createProduct**](#createproduct) | **POST** /rr/api/v1/product | Create Contract Product|
+|[**getClientInvoiceStatementPdf**](#getclientinvoicestatementpdf) | **GET** /coa/api/v1/invoice/statement/client/{client_id}/pdf/ | Get Client Invoice Statement PDF|
+|[**getCreditMemoPdf**](#getcreditmemopdf) | **GET** /coa/api/v1/credit-memo/{id}/pdf/ | Get Credit Memo PDF|
 |[**listProducts**](#listproducts) | **GET** /rr/api/v1/product | List Contract Products|
-|[**rrApiV1ProductDestroy**](#rrapiv1productdestroy) | **DELETE** /rr/api/v1/product/{id} | Delete Product|
+|[**rrApiV1ProductBulkSearchCreate**](#rrapiv1productbulksearchcreate) | **POST** /rr/api/v1/product/bulk-search | Bulk Search Products|
+|[**rrApiV1ProductDeleteCreate**](#rrapiv1productdeletecreate) | **POST** /rr/api/v1/product/{id}/delete | Delete Product|
+|[**rrApiV1ProductDestroy**](#rrapiv1productdestroy) | **DELETE** /rr/api/v1/product/{id} | Delete Product (deprecated)|
 |[**rrApiV1ProductPartialUpdate**](#rrapiv1productpartialupdate) | **PATCH** /rr/api/v1/product/{id} | Partial Update Product|
 |[**rrApiV1ProductRetrieve**](#rrapiv1productretrieve) | **GET** /rr/api/v1/product/{id} | Retrieve Product|
 |[**rrApiV1ProductUpdate**](#rrapiv1productupdate) | **PUT** /rr/api/v1/product/{id} | Update Product|
+|[**sendCreditMemo**](#sendcreditmemo) | **PUT** /coa/api/v1/credit-memo/{id}/send/ | Send Credit Memo|
 
 # **bulkCreateInvoices**
 > Array<AccountingInvoice> bulkCreateInvoices(bulkCreateInvoices)
@@ -75,7 +86,7 @@ const { status, data } = await apiInstance.bulkCreateInvoices(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -128,7 +139,7 @@ const { status, data } = await apiInstance.coaApiV1CreditMemoBulkSearchCreate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -139,7 +150,7 @@ const { status, data } = await apiInstance.coaApiV1CreditMemoBulkSearchCreate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -180,7 +191,7 @@ const { status, data } = await apiInstance.coaApiV1CreditMemoCreate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -231,7 +242,7 @@ void (empty response body)
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -269,7 +280,7 @@ let entity: Array<number>; //Filter by entity IDs (can specify multiple) (option
 let limit: number; //Number of results to return per page (optional) (default to undefined)
 let offset: number; //Number of results to skip for pagination (optional) (default to undefined)
 let q: string; //Search credit memo numbers, messages, and client names (optional) (default to undefined)
-let sort: '-amount_used' | '-client_name' | '-credit_memo_date' | '-total_amount' | 'amount_used' | 'client_name' | 'credit_memo_date' | 'total_amount'; //Sort results by field (prefix with - for descending) (optional) (default to undefined)
+let sort: '-amount_used' | '-client_name' | '-credit_memo_date' | '-credit_memo_number' | '-total_amount' | 'amount_used' | 'client_name' | 'credit_memo_date' | 'credit_memo_number' | 'total_amount'; //Sort results by field (prefix with - for descending) (optional) (default to undefined)
 let startDate: string; //Filter credit memos created on or after this date (YYYY-MM-DD format) (optional) (default to undefined)
 let status: 'open' | 'partially_used' | 'used' | 'voided'; //Filter by application status (optional) (default to undefined)
 
@@ -298,7 +309,7 @@ const { status, data } = await apiInstance.coaApiV1CreditMemoList(
 | **limit** | [**number**] | Number of results to return per page | (optional) defaults to undefined|
 | **offset** | [**number**] | Number of results to skip for pagination | (optional) defaults to undefined|
 | **q** | [**string**] | Search credit memo numbers, messages, and client names | (optional) defaults to undefined|
-| **sort** | [**&#39;-amount_used&#39; | &#39;-client_name&#39; | &#39;-credit_memo_date&#39; | &#39;-total_amount&#39; | &#39;amount_used&#39; | &#39;client_name&#39; | &#39;credit_memo_date&#39; | &#39;total_amount&#39;**]**Array<&#39;-amount_used&#39; &#124; &#39;-client_name&#39; &#124; &#39;-credit_memo_date&#39; &#124; &#39;-total_amount&#39; &#124; &#39;amount_used&#39; &#124; &#39;client_name&#39; &#124; &#39;credit_memo_date&#39; &#124; &#39;total_amount&#39;>** | Sort results by field (prefix with - for descending) | (optional) defaults to undefined|
+| **sort** | [**&#39;-amount_used&#39; | &#39;-client_name&#39; | &#39;-credit_memo_date&#39; | &#39;-credit_memo_number&#39; | &#39;-total_amount&#39; | &#39;amount_used&#39; | &#39;client_name&#39; | &#39;credit_memo_date&#39; | &#39;credit_memo_number&#39; | &#39;total_amount&#39;**]**Array<&#39;-amount_used&#39; &#124; &#39;-client_name&#39; &#124; &#39;-credit_memo_date&#39; &#124; &#39;-credit_memo_number&#39; &#124; &#39;-total_amount&#39; &#124; &#39;amount_used&#39; &#124; &#39;client_name&#39; &#124; &#39;credit_memo_date&#39; &#124; &#39;credit_memo_number&#39; &#124; &#39;total_amount&#39;>** | Sort results by field (prefix with - for descending) | (optional) defaults to undefined|
 | **startDate** | [**string**] | Filter credit memos created on or after this date (YYYY-MM-DD format) | (optional) defaults to undefined|
 | **status** | [**&#39;open&#39; | &#39;partially_used&#39; | &#39;used&#39; | &#39;voided&#39;**]**Array<&#39;open&#39; &#124; &#39;partially_used&#39; &#124; &#39;used&#39; &#124; &#39;voided&#39;>** | Filter by application status | (optional) defaults to undefined|
 
@@ -309,7 +320,7 @@ const { status, data } = await apiInstance.coaApiV1CreditMemoList(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -320,12 +331,12 @@ const { status, data } = await apiInstance.coaApiV1CreditMemoList(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **coaApiV1CreditMemoMarkUsedCreate**
-> any coaApiV1CreditMemoMarkUsedCreate(markCreditMemoUsed)
+> object coaApiV1CreditMemoMarkUsedCreate(markCreditMemoUsed)
 
 Mark a credit memo as used by linking to an existing transaction.          The transaction\'s debit amount will be recategorized to A/R to clear the credit memo.         The credit memo\'s status will be updated to \"used\" or \"partially_used\" based on         the amount applied vs the total amount.
 
@@ -360,11 +371,11 @@ const { status, data } = await apiInstance.coaApiV1CreditMemoMarkUsedCreate(
 
 ### Return type
 
-**any**
+**object**
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -375,7 +386,7 @@ const { status, data } = await apiInstance.coaApiV1CreditMemoMarkUsedCreate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | Credit memo marked as used successfully |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -407,7 +418,7 @@ void (empty response body)
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -462,7 +473,7 @@ const { status, data } = await apiInstance.coaApiV1CreditMemoPartialUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -473,7 +484,119 @@ const { status, data } = await apiInstance.coaApiV1CreditMemoPartialUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **coaApiV1CreditMemoPaymentVoidCreate**
+> AccountingCreditMemoPayment coaApiV1CreditMemoPaymentVoidCreate()
+
+Void a credit memo \'mark used\' payment by creating a reversing journal entry.          This creates a reversing JE that credits the A/R account and debits Uncategorized,         then marks the payment as voided.
+
+### Example
+
+```typescript
+import {
+    AccountsReceivableApi,
+    Configuration,
+    VoidPayment
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new AccountsReceivableApi(configuration);
+
+let creditMemoId: number; //ID of the credit memo (default to undefined)
+let paymentId: number; //ID of the payment to void (default to undefined)
+let voidPayment: VoidPayment; // (optional)
+
+const { status, data } = await apiInstance.coaApiV1CreditMemoPaymentVoidCreate(
+    creditMemoId,
+    paymentId,
+    voidPayment
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **voidPayment** | **VoidPayment**|  | |
+| **creditMemoId** | [**number**] | ID of the credit memo | defaults to undefined|
+| **paymentId** | [**number**] | ID of the payment to void | defaults to undefined|
+
+
+### Return type
+
+**AccountingCreditMemoPayment**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **coaApiV1CreditMemoPaymentVoidDestroy**
+> coaApiV1CreditMemoPaymentVoidDestroy()
+
+Remove a credit memo \'mark used\' payment application.          This recategorizes the transaction back to Uncategorized and deletes the payment record.
+
+### Example
+
+```typescript
+import {
+    AccountsReceivableApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new AccountsReceivableApi(configuration);
+
+let creditMemoId: number; //ID of the credit memo (default to undefined)
+let paymentId: number; //ID of the payment to delete (default to undefined)
+
+const { status, data } = await apiInstance.coaApiV1CreditMemoPaymentVoidDestroy(
+    creditMemoId,
+    paymentId
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **creditMemoId** | [**number**] | ID of the credit memo | defaults to undefined|
+| **paymentId** | [**number**] | ID of the payment to delete | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**204** | No response body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -513,7 +636,7 @@ const { status, data } = await apiInstance.coaApiV1CreditMemoReopenCreate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -524,7 +647,8 @@ const { status, data } = await apiInstance.coaApiV1CreditMemoReopenCreate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
+|**409** | Conflict |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -564,7 +688,7 @@ const { status, data } = await apiInstance.coaApiV1CreditMemoRetrieve(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -575,7 +699,7 @@ const { status, data } = await apiInstance.coaApiV1CreditMemoRetrieve(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -619,7 +743,7 @@ const { status, data } = await apiInstance.coaApiV1CreditMemoUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -630,7 +754,7 @@ const { status, data } = await apiInstance.coaApiV1CreditMemoUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -674,7 +798,7 @@ const { status, data } = await apiInstance.coaApiV1CreditMemoVoidCreate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -685,7 +809,8 @@ const { status, data } = await apiInstance.coaApiV1CreditMemoVoidCreate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
+|**409** | Conflict |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -726,7 +851,7 @@ const { status, data } = await apiInstance.coaApiV1InvoiceBulkApplyPaymentCreate
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -737,7 +862,7 @@ const { status, data } = await apiInstance.coaApiV1InvoiceBulkApplyPaymentCreate
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -778,7 +903,7 @@ const { status, data } = await apiInstance.coaApiV1InvoiceBulkSearchCreate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -789,7 +914,7 @@ const { status, data } = await apiInstance.coaApiV1InvoiceBulkSearchCreate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -833,7 +958,7 @@ const { status, data } = await apiInstance.coaApiV1InvoiceCalculatePaymentCreate
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -844,9 +969,9 @@ const { status, data } = await apiInstance.coaApiV1InvoiceCalculatePaymentCreate
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
-|**400** | Bad request |  -  |
-|**404** | Not found |  -  |
+|**200** | OK |  -  |
+|**400** | Bad Request |  -  |
+|**404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -887,7 +1012,7 @@ const { status, data } = await apiInstance.coaApiV1InvoiceCreate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -942,7 +1067,7 @@ const { status, data } = await apiInstance.coaApiV1InvoiceDefaultPaymentCreate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -953,9 +1078,9 @@ const { status, data } = await apiInstance.coaApiV1InvoiceDefaultPaymentCreate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
-|**400** | Bad request |  -  |
-|**404** | Not found |  -  |
+|**200** | OK |  -  |
+|**400** | Bad Request |  -  |
+|**404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -995,7 +1120,7 @@ void (empty response body)
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1034,13 +1159,18 @@ let endDate: string; //Filter invoices with invoice_date on or before this date 
 let entity: number; //Filter by entity ID. Can be specified multiple times (optional) (default to undefined)
 let invoiceNumber: string; //Filter by exact invoice number (optional) (default to undefined)
 let limit: number; //Number of results to return per page. (optional) (default to undefined)
+let lineTagGroupId: number; //Filter invoices with at least one line item assigned a tag from this tag group ID (optional) (default to undefined)
+let lineTagId: number; //Filter invoices with at least one line item assigned this tag ID (optional) (default to undefined)
 let offset: number; //The initial index from which to return the results. (optional) (default to undefined)
+let paidDateFrom: string; //Filter invoices with paid_date on or after this date (YYYY-MM-DD) (optional) (default to undefined)
+let paidDateTo: string; //Filter invoices with paid_date on or before this date (YYYY-MM-DD) (optional) (default to undefined)
+let parentClient: number; //Filter by parent client (Vendor) ID. Returns invoices for the specified client and all of its descendants via vendor lineage. (optional) (default to undefined)
 let q: string; //Search query - searches shipping address, invoice number, message, or client name (optional) (default to undefined)
 let refNumber: string; //Filter by exact ref number (optional) (default to undefined)
 let sentStatus: 'not_sent' | 'sent'; //Filter by sent status (optional) (default to undefined)
 let sort: string; //Sort order. Use field name for ascending, -field for descending. Special fields: client_name, amount_due. Default: -invoice_date (optional) (default to '-invoice_date')
 let startDate: string; //Filter invoices with invoice_date on or after this date (YYYY-MM-DD) (optional) (default to undefined)
-let status: '1_30' | '31_60' | '61_90' | '91_120' | 'current' | 'over_120' | 'paid' | 'partially_paid' | 'past_due' | 'sent' | 'uncollectible' | 'unpaid' | 'voided'; //Filter by payment status (optional) (default to undefined)
+let status: '1_30' | '31_60' | '61_90' | '91_120' | 'current' | 'open' | 'over_120' | 'paid' | 'partially_paid' | 'past_due' | 'scheduled' | 'sent' | 'uncollectible' | 'unpaid' | 'voided'; //Filter by payment status (optional) (default to undefined)
 
 const { status, data } = await apiInstance.coaApiV1InvoiceList(
     client,
@@ -1051,7 +1181,12 @@ const { status, data } = await apiInstance.coaApiV1InvoiceList(
     entity,
     invoiceNumber,
     limit,
+    lineTagGroupId,
+    lineTagId,
     offset,
+    paidDateFrom,
+    paidDateTo,
+    parentClient,
     q,
     refNumber,
     sentStatus,
@@ -1073,13 +1208,18 @@ const { status, data } = await apiInstance.coaApiV1InvoiceList(
 | **entity** | [**number**] | Filter by entity ID. Can be specified multiple times | (optional) defaults to undefined|
 | **invoiceNumber** | [**string**] | Filter by exact invoice number | (optional) defaults to undefined|
 | **limit** | [**number**] | Number of results to return per page. | (optional) defaults to undefined|
+| **lineTagGroupId** | [**number**] | Filter invoices with at least one line item assigned a tag from this tag group ID | (optional) defaults to undefined|
+| **lineTagId** | [**number**] | Filter invoices with at least one line item assigned this tag ID | (optional) defaults to undefined|
 | **offset** | [**number**] | The initial index from which to return the results. | (optional) defaults to undefined|
+| **paidDateFrom** | [**string**] | Filter invoices with paid_date on or after this date (YYYY-MM-DD) | (optional) defaults to undefined|
+| **paidDateTo** | [**string**] | Filter invoices with paid_date on or before this date (YYYY-MM-DD) | (optional) defaults to undefined|
+| **parentClient** | [**number**] | Filter by parent client (Vendor) ID. Returns invoices for the specified client and all of its descendants via vendor lineage. | (optional) defaults to undefined|
 | **q** | [**string**] | Search query - searches shipping address, invoice number, message, or client name | (optional) defaults to undefined|
 | **refNumber** | [**string**] | Filter by exact ref number | (optional) defaults to undefined|
 | **sentStatus** | [**&#39;not_sent&#39; | &#39;sent&#39;**]**Array<&#39;not_sent&#39; &#124; &#39;sent&#39;>** | Filter by sent status | (optional) defaults to undefined|
 | **sort** | [**string**] | Sort order. Use field name for ascending, -field for descending. Special fields: client_name, amount_due. Default: -invoice_date | (optional) defaults to '-invoice_date'|
 | **startDate** | [**string**] | Filter invoices with invoice_date on or after this date (YYYY-MM-DD) | (optional) defaults to undefined|
-| **status** | [**&#39;1_30&#39; | &#39;31_60&#39; | &#39;61_90&#39; | &#39;91_120&#39; | &#39;current&#39; | &#39;over_120&#39; | &#39;paid&#39; | &#39;partially_paid&#39; | &#39;past_due&#39; | &#39;sent&#39; | &#39;uncollectible&#39; | &#39;unpaid&#39; | &#39;voided&#39;**]**Array<&#39;1_30&#39; &#124; &#39;31_60&#39; &#124; &#39;61_90&#39; &#124; &#39;91_120&#39; &#124; &#39;current&#39; &#124; &#39;over_120&#39; &#124; &#39;paid&#39; &#124; &#39;partially_paid&#39; &#124; &#39;past_due&#39; &#124; &#39;sent&#39; &#124; &#39;uncollectible&#39; &#124; &#39;unpaid&#39; &#124; &#39;voided&#39;>** | Filter by payment status | (optional) defaults to undefined|
+| **status** | [**&#39;1_30&#39; | &#39;31_60&#39; | &#39;61_90&#39; | &#39;91_120&#39; | &#39;current&#39; | &#39;open&#39; | &#39;over_120&#39; | &#39;paid&#39; | &#39;partially_paid&#39; | &#39;past_due&#39; | &#39;scheduled&#39; | &#39;sent&#39; | &#39;uncollectible&#39; | &#39;unpaid&#39; | &#39;voided&#39;**]**Array<&#39;1_30&#39; &#124; &#39;31_60&#39; &#124; &#39;61_90&#39; &#124; &#39;91_120&#39; &#124; &#39;current&#39; &#124; &#39;open&#39; &#124; &#39;over_120&#39; &#124; &#39;paid&#39; &#124; &#39;partially_paid&#39; &#124; &#39;past_due&#39; &#124; &#39;scheduled&#39; &#124; &#39;sent&#39; &#124; &#39;uncollectible&#39; &#124; &#39;unpaid&#39; &#124; &#39;voided&#39;>** | Filter by payment status | (optional) defaults to undefined|
 
 
 ### Return type
@@ -1088,7 +1228,7 @@ const { status, data } = await apiInstance.coaApiV1InvoiceList(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1099,7 +1239,7 @@ const { status, data } = await apiInstance.coaApiV1InvoiceList(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1143,7 +1283,7 @@ const { status, data } = await apiInstance.coaApiV1InvoicePartialUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1154,12 +1294,12 @@ const { status, data } = await apiInstance.coaApiV1InvoicePartialUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **coaApiV1InvoicePayCreate**
-> AccountingInvoice coaApiV1InvoicePayCreate()
+> MarkInvoicePaidResponse coaApiV1InvoicePayCreate()
 
 Mark an invoice as paid, allowing partial payments.          This endpoint supports multiple payment methods:         - Apply existing transactions as payments         - Apply credit memos to reduce the invoice balance         - Create manual payments without a transaction          The request body should contain at least one of:         - transactions: List of transaction payments to apply         - credit_memos: List of credit memos to apply         - empty_transactions: List of manual payments without transactions
 
@@ -1194,11 +1334,11 @@ const { status, data } = await apiInstance.coaApiV1InvoicePayCreate(
 
 ### Return type
 
-**AccountingInvoice**
+**MarkInvoicePaidResponse**
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1209,7 +1349,7 @@ const { status, data } = await apiInstance.coaApiV1InvoicePayCreate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1256,7 +1396,7 @@ const { status, data } = await apiInstance.coaApiV1InvoicePaymentVoidCreate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1267,7 +1407,7 @@ const { status, data } = await apiInstance.coaApiV1InvoicePaymentVoidCreate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1310,7 +1450,7 @@ void (empty response body)
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1322,6 +1462,81 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**204** | No response body |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **coaApiV1InvoicePaymentsList**
+> PaginatedInvoicePaymentSyncList coaApiV1InvoicePaymentsList()
+
+         Retrieve a paginated list of invoice payments (payments applied against accounts         receivable invoices), designed for syncing payment data into external systems.          Results are ordered by (last_modified_at, id) ascending, so pages are stable and         a sync can resume from where it left off.          **Full sync (cursor pagination):**         - Pass an empty cursor parameter (cursor=) on the first request         - Follow the \'next\' URL from each response until it is null          **Incremental sync (time-based):**         - Store the highest last_modified_at value you have processed         - On the next run, pass it as last_modified_at__gte to fetch only new and updated payments          **Voids:**         - Voided payments are included by default with voided_date set, so integrators can           detect payments that were reversed after a previous sync         - Filter with voided=true or voided=false to fetch only one kind         
+
+### Example
+
+```typescript
+import {
+    AccountsReceivableApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new AccountsReceivableApi(configuration);
+
+let cursor: string; //Opts into cursor pagination. Pass an empty value (cursor=) on the first request, then follow the \'next\' URL from each response until it is null. The cursor value is opaque - do not parse or construct it. Cursor pagination is recommended for full syncs as it avoids the performance penalty of deep offsets on large result sets. (optional) (default to undefined)
+let externalId: string; //Filter for the payment carrying this upstream external_id. Use it to reconcile a payment you created via the invoice pay endpoint back to your source-system record. An empty value is ignored and returns all payments. (optional) (default to undefined)
+let invoiceId: number; //Filter for payments applied to this invoice id. (optional) (default to undefined)
+let lastModifiedAtGte: string; //Filter for payments modified on or after this timestamp. Format: ISO 8601 (e.g., \'2024-01-01T00:00:00Z\' or \'2024-01-01\'). Use this for incremental syncs: store the highest last_modified_at you have processed and pass it on the next sync run. (optional) (default to undefined)
+let lastModifiedAtLte: string; //Filter for payments modified on or before this timestamp. Format: ISO 8601 (e.g., \'2024-12-31T23:59:59Z\' or \'2024-12-31\'). Date-only values are inclusive of the entire day. (optional) (default to undefined)
+let limit: number; //Maximum number of records to return per page. Default 100, maximum 10000. Use with offset to paginate (optional) (default to 100)
+let offset: number; //Number of records to skip before collecting the result page. Use with limit to paginate (optional) (default to 0)
+let skipCount: boolean; //When \'true\', skips the total COUNT query and returns a lower-bound \'count\' instead. Recommended for large syncs where the exact total is not needed. (optional) (default to false)
+let voided: boolean; //Filter by void status. When \'true\', returns only voided payments (voided_date is set). When \'false\', returns only active payments. When omitted, returns both so integrators can detect and propagate voids. (optional) (default to undefined)
+
+const { status, data } = await apiInstance.coaApiV1InvoicePaymentsList(
+    cursor,
+    externalId,
+    invoiceId,
+    lastModifiedAtGte,
+    lastModifiedAtLte,
+    limit,
+    offset,
+    skipCount,
+    voided
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **cursor** | [**string**] | Opts into cursor pagination. Pass an empty value (cursor&#x3D;) on the first request, then follow the \&#39;next\&#39; URL from each response until it is null. The cursor value is opaque - do not parse or construct it. Cursor pagination is recommended for full syncs as it avoids the performance penalty of deep offsets on large result sets. | (optional) defaults to undefined|
+| **externalId** | [**string**] | Filter for the payment carrying this upstream external_id. Use it to reconcile a payment you created via the invoice pay endpoint back to your source-system record. An empty value is ignored and returns all payments. | (optional) defaults to undefined|
+| **invoiceId** | [**number**] | Filter for payments applied to this invoice id. | (optional) defaults to undefined|
+| **lastModifiedAtGte** | [**string**] | Filter for payments modified on or after this timestamp. Format: ISO 8601 (e.g., \&#39;2024-01-01T00:00:00Z\&#39; or \&#39;2024-01-01\&#39;). Use this for incremental syncs: store the highest last_modified_at you have processed and pass it on the next sync run. | (optional) defaults to undefined|
+| **lastModifiedAtLte** | [**string**] | Filter for payments modified on or before this timestamp. Format: ISO 8601 (e.g., \&#39;2024-12-31T23:59:59Z\&#39; or \&#39;2024-12-31\&#39;). Date-only values are inclusive of the entire day. | (optional) defaults to undefined|
+| **limit** | [**number**] | Maximum number of records to return per page. Default 100, maximum 10000. Use with offset to paginate | (optional) defaults to 100|
+| **offset** | [**number**] | Number of records to skip before collecting the result page. Use with limit to paginate | (optional) defaults to 0|
+| **skipCount** | [**boolean**] | When \&#39;true\&#39;, skips the total COUNT query and returns a lower-bound \&#39;count\&#39; instead. Recommended for large syncs where the exact total is not needed. | (optional) defaults to false|
+| **voided** | [**boolean**] | Filter by void status. When \&#39;true\&#39;, returns only voided payments (voided_date is set). When \&#39;false\&#39;, returns only active payments. When omitted, returns both so integrators can detect and propagate voids. | (optional) defaults to undefined|
+
+
+### Return type
+
+**PaginatedInvoicePaymentSyncList**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1361,7 +1576,7 @@ const { status, data } = await apiInstance.coaApiV1InvoiceReopenCreate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1372,7 +1587,214 @@ const { status, data } = await apiInstance.coaApiV1InvoiceReopenCreate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **coaApiV1InvoiceReportDataRetrieve**
+> InvoiceReportResponse coaApiV1InvoiceReportDataRetrieve()
+
+Execute saved invoice report and return DataTable-compatible response.  :param request: HTTP request with query params :param pk: Custom report ID :return: Paginated, sparse-formatted response
+
+### Example
+
+```typescript
+import {
+    AccountsReceivableApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new AccountsReceivableApi(configuration);
+
+let id: number; // (default to undefined)
+let aggregationFields: string; //Aggregates: sum:amount, sum:amount_paid, sum:amount_due, etc. (optional) (default to undefined)
+let clientId: string; //Filter by client ID(s) (optional) (default to undefined)
+let contractId: string; //Filter by contract ID(s) (optional) (default to undefined)
+let currency: string; //Filter by currency code (optional) (default to undefined)
+let departmentId: string; //Filter by department ID(s) (optional) (default to undefined)
+let endDate: string; //End date (YYYY-MM-DD) (optional) (default to undefined)
+let entityId: string; //Entity ID(s), comma-separated (optional) (default to undefined)
+let groupFields: string; //Row dimensions: client_id, invoice_id, invoice_date_month, product_id, etc. (optional) (default to undefined)
+let groupKeys: string; //Drilldown parent keys (optional) (default to undefined)
+let includeTotals: boolean; //Include grand totals row (optional) (default to undefined)
+let limit: number; //Page size (max 10000) (optional) (default to undefined)
+let mode: string; //paginated | full | csv (optional) (default to undefined)
+let offset: number; //Pagination offset (optional) (default to undefined)
+let paymentStatus: string; //Filter by status: draft,open,sent,partial,paid,uncollectible (optional) (default to undefined)
+let pivotFields: string; //Column dimensions: product_id, client_id, etc. (optional) (default to undefined)
+let productId: string; //Filter by product ID(s) (optional) (default to undefined)
+let shouldPivot: boolean; //Enable pivot columns (optional) (default to undefined)
+let startDate: string; //Start date (YYYY-MM-DD) (optional) (default to undefined)
+
+const { status, data } = await apiInstance.coaApiV1InvoiceReportDataRetrieve(
+    id,
+    aggregationFields,
+    clientId,
+    contractId,
+    currency,
+    departmentId,
+    endDate,
+    entityId,
+    groupFields,
+    groupKeys,
+    includeTotals,
+    limit,
+    mode,
+    offset,
+    paymentStatus,
+    pivotFields,
+    productId,
+    shouldPivot,
+    startDate
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **id** | [**number**] |  | defaults to undefined|
+| **aggregationFields** | [**string**] | Aggregates: sum:amount, sum:amount_paid, sum:amount_due, etc. | (optional) defaults to undefined|
+| **clientId** | [**string**] | Filter by client ID(s) | (optional) defaults to undefined|
+| **contractId** | [**string**] | Filter by contract ID(s) | (optional) defaults to undefined|
+| **currency** | [**string**] | Filter by currency code | (optional) defaults to undefined|
+| **departmentId** | [**string**] | Filter by department ID(s) | (optional) defaults to undefined|
+| **endDate** | [**string**] | End date (YYYY-MM-DD) | (optional) defaults to undefined|
+| **entityId** | [**string**] | Entity ID(s), comma-separated | (optional) defaults to undefined|
+| **groupFields** | [**string**] | Row dimensions: client_id, invoice_id, invoice_date_month, product_id, etc. | (optional) defaults to undefined|
+| **groupKeys** | [**string**] | Drilldown parent keys | (optional) defaults to undefined|
+| **includeTotals** | [**boolean**] | Include grand totals row | (optional) defaults to undefined|
+| **limit** | [**number**] | Page size (max 10000) | (optional) defaults to undefined|
+| **mode** | [**string**] | paginated | full | csv | (optional) defaults to undefined|
+| **offset** | [**number**] | Pagination offset | (optional) defaults to undefined|
+| **paymentStatus** | [**string**] | Filter by status: draft,open,sent,partial,paid,uncollectible | (optional) defaults to undefined|
+| **pivotFields** | [**string**] | Column dimensions: product_id, client_id, etc. | (optional) defaults to undefined|
+| **productId** | [**string**] | Filter by product ID(s) | (optional) defaults to undefined|
+| **shouldPivot** | [**boolean**] | Enable pivot columns | (optional) defaults to undefined|
+| **startDate** | [**string**] | Start date (YYYY-MM-DD) | (optional) defaults to undefined|
+
+
+### Return type
+
+**InvoiceReportResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **coaApiV1InvoiceReportPreviewRetrieve**
+> InvoiceReportResponse coaApiV1InvoiceReportPreviewRetrieve()
+
+Execute invoice report preview from query params.  :param request: HTTP request with report configuration :return: Paginated response or CSV stream
+
+### Example
+
+```typescript
+import {
+    AccountsReceivableApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new AccountsReceivableApi(configuration);
+
+let aggregationFields: string; //Aggregates: sum:amount, sum:amount_paid, sum:amount_due, etc. (optional) (default to undefined)
+let clientId: string; //Filter by client ID(s) (optional) (default to undefined)
+let contractId: string; //Filter by contract ID(s) (optional) (default to undefined)
+let currency: string; //Filter by currency code (optional) (default to undefined)
+let departmentId: string; //Filter by department ID(s) (optional) (default to undefined)
+let endDate: string; //End date (YYYY-MM-DD) (optional) (default to undefined)
+let entityId: string; //Entity ID(s), comma-separated (optional) (default to undefined)
+let groupFields: string; //Row dimensions: client_id, invoice_id, invoice_date_month, product_id, etc. (optional) (default to undefined)
+let groupKeys: string; //Drilldown parent keys (optional) (default to undefined)
+let includeTotals: boolean; //Include grand totals row (optional) (default to undefined)
+let limit: number; //Page size (max 10000) (optional) (default to undefined)
+let mode: string; //paginated | full | csv (optional) (default to undefined)
+let offset: number; //Pagination offset (optional) (default to undefined)
+let paymentStatus: string; //Filter by status: draft,open,sent,partial,paid,uncollectible (optional) (default to undefined)
+let pivotFields: string; //Column dimensions: product_id, client_id, etc. (optional) (default to undefined)
+let productId: string; //Filter by product ID(s) (optional) (default to undefined)
+let shouldPivot: boolean; //Enable pivot columns (optional) (default to undefined)
+let startDate: string; //Start date (YYYY-MM-DD) (optional) (default to undefined)
+
+const { status, data } = await apiInstance.coaApiV1InvoiceReportPreviewRetrieve(
+    aggregationFields,
+    clientId,
+    contractId,
+    currency,
+    departmentId,
+    endDate,
+    entityId,
+    groupFields,
+    groupKeys,
+    includeTotals,
+    limit,
+    mode,
+    offset,
+    paymentStatus,
+    pivotFields,
+    productId,
+    shouldPivot,
+    startDate
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **aggregationFields** | [**string**] | Aggregates: sum:amount, sum:amount_paid, sum:amount_due, etc. | (optional) defaults to undefined|
+| **clientId** | [**string**] | Filter by client ID(s) | (optional) defaults to undefined|
+| **contractId** | [**string**] | Filter by contract ID(s) | (optional) defaults to undefined|
+| **currency** | [**string**] | Filter by currency code | (optional) defaults to undefined|
+| **departmentId** | [**string**] | Filter by department ID(s) | (optional) defaults to undefined|
+| **endDate** | [**string**] | End date (YYYY-MM-DD) | (optional) defaults to undefined|
+| **entityId** | [**string**] | Entity ID(s), comma-separated | (optional) defaults to undefined|
+| **groupFields** | [**string**] | Row dimensions: client_id, invoice_id, invoice_date_month, product_id, etc. | (optional) defaults to undefined|
+| **groupKeys** | [**string**] | Drilldown parent keys | (optional) defaults to undefined|
+| **includeTotals** | [**boolean**] | Include grand totals row | (optional) defaults to undefined|
+| **limit** | [**number**] | Page size (max 10000) | (optional) defaults to undefined|
+| **mode** | [**string**] | paginated | full | csv | (optional) defaults to undefined|
+| **offset** | [**number**] | Pagination offset | (optional) defaults to undefined|
+| **paymentStatus** | [**string**] | Filter by status: draft,open,sent,partial,paid,uncollectible | (optional) defaults to undefined|
+| **pivotFields** | [**string**] | Column dimensions: product_id, client_id, etc. | (optional) defaults to undefined|
+| **productId** | [**string**] | Filter by product ID(s) | (optional) defaults to undefined|
+| **shouldPivot** | [**boolean**] | Enable pivot columns | (optional) defaults to undefined|
+| **startDate** | [**string**] | Start date (YYYY-MM-DD) | (optional) defaults to undefined|
+
+
+### Return type
+
+**InvoiceReportResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1412,7 +1834,7 @@ const { status, data } = await apiInstance.coaApiV1InvoiceRetrieve(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1423,7 +1845,51 @@ const { status, data } = await apiInstance.coaApiV1InvoiceRetrieve(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **coaApiV1InvoiceStatsRetrieve**
+> { [key: string]: any; } coaApiV1InvoiceStatsRetrieve()
+
+Customer-scoped counts and outstanding amounts for the Invoices page Open / Sent / Overdue stat cards.
+
+### Example
+
+```typescript
+import {
+    AccountsReceivableApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new AccountsReceivableApi(configuration);
+
+const { status, data } = await apiInstance.coaApiV1InvoiceStatsRetrieve();
+```
+
+### Parameters
+This endpoint does not have any parameters.
+
+
+### Return type
+
+**{ [key: string]: any; }**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1467,7 +1933,7 @@ const { status, data } = await apiInstance.coaApiV1InvoiceUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1478,7 +1944,7 @@ const { status, data } = await apiInstance.coaApiV1InvoiceUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1522,7 +1988,7 @@ const { status, data } = await apiInstance.coaApiV1InvoiceVoidCreate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1533,12 +1999,12 @@ const { status, data } = await apiInstance.coaApiV1InvoiceVoidCreate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **createProduct**
-> Product createProduct()
+> Product createProduct(product)
 
 Create a new product
 
@@ -1554,7 +2020,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new AccountsReceivableApi(configuration);
 
-let product: Product; // (optional)
+let product: Product; //
 
 const { status, data } = await apiInstance.createProduct(
     product
@@ -1574,7 +2040,7 @@ const { status, data } = await apiInstance.createProduct(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1586,6 +2052,107 @@ const { status, data } = await apiInstance.createProduct(
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**201** | Created |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getClientInvoiceStatementPdf**
+> getClientInvoiceStatementPdf()
+
+Generate a customer statement PDF for a specific client.  This creates a professional, customer-facing statement showing: - All outstanding invoices as of the specified date - Running balance - Total balance due - Payment advice slip
+
+### Example
+
+```typescript
+import {
+    AccountsReceivableApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new AccountsReceivableApi(configuration);
+
+let clientId: number; // (default to undefined)
+
+const { status, data } = await apiInstance.getClientInvoiceStatementPdf(
+    clientId
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **clientId** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | No response body |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getCreditMemoPdf**
+> getCreditMemoPdf()
+
+
+### Example
+
+```typescript
+import {
+    AccountsReceivableApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new AccountsReceivableApi(configuration);
+
+let id: number; // (default to undefined)
+
+const { status, data } = await apiInstance.getCreditMemoPdf(
+    id
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | No response body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1637,7 +2204,7 @@ const { status, data } = await apiInstance.listProducts(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1648,13 +2215,122 @@ const { status, data } = await apiInstance.listProducts(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rrApiV1ProductBulkSearchCreate**
+> BulkProductSearchResponse rrApiV1ProductBulkSearchCreate(bulkProductSearch)
+
+Resolve many product cells in a single request. Each term is matched against product_id, display_name, product_uuid, id, then product_name, in that order. A term matching more than one product is returned in the ambiguous list instead of being resolved.
+
+### Example
+
+```typescript
+import {
+    AccountsReceivableApi,
+    Configuration,
+    BulkProductSearch
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new AccountsReceivableApi(configuration);
+
+let bulkProductSearch: BulkProductSearch; //
+
+const { status, data } = await apiInstance.rrApiV1ProductBulkSearchCreate(
+    bulkProductSearch
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **bulkProductSearch** | **BulkProductSearch**|  | |
+
+
+### Return type
+
+**BulkProductSearchResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rrApiV1ProductDeleteCreate**
+> rrApiV1ProductDeleteCreate()
+
+Delete a product.
+
+### Example
+
+```typescript
+import {
+    AccountsReceivableApi,
+    Configuration,
+    DeleteRequest
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new AccountsReceivableApi(configuration);
+
+let id: number; // (default to undefined)
+let deleteRequest: DeleteRequest; // (optional)
+
+const { status, data } = await apiInstance.rrApiV1ProductDeleteCreate(
+    id,
+    deleteRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **deleteRequest** | **DeleteRequest**|  | |
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**204** | Deleted. |  -  |
+|**202** | Sent for approval; the record is deleted once a reviewer approves. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **rrApiV1ProductDestroy**
 > rrApiV1ProductDestroy()
 
+Deprecated: use `POST /rr/api/v1/product/{id}/delete`, which also takes an optional reason for the audit log.
 
 ### Example
 
@@ -1687,7 +2363,7 @@ void (empty response body)
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1698,7 +2374,8 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**204** | No response body |  -  |
+|**204** | Deleted. |  -  |
+|**202** | Sent for approval; the record is deleted once a reviewer approves. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1741,7 +2418,7 @@ const { status, data } = await apiInstance.rrApiV1ProductPartialUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1752,7 +2429,7 @@ const { status, data } = await apiInstance.rrApiV1ProductPartialUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1791,7 +2468,7 @@ const { status, data } = await apiInstance.rrApiV1ProductRetrieve(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1802,12 +2479,12 @@ const { status, data } = await apiInstance.rrApiV1ProductRetrieve(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **rrApiV1ProductUpdate**
-> Product rrApiV1ProductUpdate()
+> Product rrApiV1ProductUpdate(product)
 
 
 ### Example
@@ -1823,7 +2500,7 @@ const configuration = new Configuration();
 const apiInstance = new AccountsReceivableApi(configuration);
 
 let id: number; // (default to undefined)
-let product: Product; // (optional)
+let product: Product; //
 
 const { status, data } = await apiInstance.rrApiV1ProductUpdate(
     id,
@@ -1845,7 +2522,7 @@ const { status, data } = await apiInstance.rrApiV1ProductUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1856,7 +2533,58 @@ const { status, data } = await apiInstance.rrApiV1ProductUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **sendCreditMemo**
+> sendCreditMemo()
+
+Send a single credit memo via email.
+
+### Example
+
+```typescript
+import {
+    AccountsReceivableApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new AccountsReceivableApi(configuration);
+
+let id: number; // (default to undefined)
+
+const { status, data } = await apiInstance.sendCreditMemo(
+    id
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | No response body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

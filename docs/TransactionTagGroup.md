@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **id** | **number** |  | [readonly] [default to undefined]
 **slug** | **string** |  | [readonly] [default to undefined]
 **name** | **string** |  | [default to undefined]
+**isSystem** | **boolean** |  | [readonly] [default to undefined]
+**systemType** | [**SystemTypeEnum**](SystemTypeEnum.md) |  | [readonly] [default to undefined]
 **createdAt** | **string** |  | [readonly] [default to undefined]
 **lastModifiedAt** | **string** |  | [readonly] [default to undefined]
 **customer** | **number** |  | [readonly] [default to undefined]
@@ -21,6 +23,8 @@ const instance: TransactionTagGroup = {
     id,
     slug,
     name,
+    isSystem,
+    systemType,
     createdAt,
     lastModifiedAt,
     customer,

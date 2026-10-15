@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **trialBalance** | [**TrialBalanceData**](TrialBalanceData.md) |  | [default to undefined]
 **startDate** | **string** |  | [default to undefined]
 **endDate** | **string** |  | [default to undefined]
+**incomeStatementStart** | **string** |  | [default to undefined]
 **breakdown** | **{ [key: string]: any; }** |  | [optional] [default to undefined]
 
 ## Example
@@ -19,6 +20,7 @@ const instance: TrialBalanceResponse = {
     trialBalance,
     startDate,
     endDate,
+    incomeStatementStart,
     breakdown,
 };
 ```

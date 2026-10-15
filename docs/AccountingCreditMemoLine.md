@@ -10,15 +10,23 @@ Name | Type | Description | Notes
 **accountNumber** | **string** |  | [readonly] [default to undefined]
 **accountName** | **string** | Combines account number and name in the format \&quot;number - name\&quot; | [readonly] [default to undefined]
 **productName** | **string** |  | [readonly] [default to undefined]
+**anrokItemId** | **string** |  | [readonly] [default to undefined]
 **departmentName** | **string** |  | [readonly] [default to undefined]
-**tags** | [**Array&lt;TransactionTag&gt;**](TransactionTag.md) |  | [readonly] [default to undefined]
+**tags** | **Array&lt;{ [key: string]: any; }&gt;** |  | [readonly] [default to undefined]
+**taxRateName** | **string** |  | [readonly] [default to undefined]
+**taxRateValue** | **number** |  | [readonly] [default to undefined]
 **description** | **string** |  | [optional] [default to undefined]
 **amount** | **number** |  | [optional] [default to undefined]
+**tax** | **number** |  | [optional] [default to undefined]
+**taxDescription** | **string** |  | [optional] [default to undefined]
+**tagIds** | **Array&lt;number&gt;** |  | [optional] [default to undefined]
+**tagGroupIds** | **Array&lt;number&gt;** |  | [optional] [default to undefined]
 **createdAt** | **string** |  | [readonly] [default to undefined]
 **lastModifiedAt** | **string** |  | [readonly] [default to undefined]
 **customer** | **number** |  | [readonly] [default to undefined]
 **product** | **number** |  | [optional] [default to undefined]
 **account** | **number** |  | [default to undefined]
+**taxRate** | **number** |  | [optional] [default to undefined]
 **department** | **number** |  | [optional] [default to undefined]
 
 ## Example
@@ -32,15 +40,23 @@ const instance: AccountingCreditMemoLine = {
     accountNumber,
     accountName,
     productName,
+    anrokItemId,
     departmentName,
     tags,
+    taxRateName,
+    taxRateValue,
     description,
     amount,
+    tax,
+    taxDescription,
+    tagIds,
+    tagGroupIds,
     createdAt,
     lastModifiedAt,
     customer,
     product,
     account,
+    taxRate,
     department,
 };
 ```

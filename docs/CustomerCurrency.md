@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **isDeleted** | **boolean** |  | [readonly] [default to false]
 **deletedAt** | **string** |  | [readonly] [default to undefined]
 **currency** | **string** |  | [optional] [default to 'USD']
+**isCustom** | **boolean** | Campfire-provisioned placeholder code with no provider rates. Rates must be uploaded. | [readonly] [default to undefined]
 **createdAt** | **string** |  | [readonly] [default to undefined]
 **customer** | **number** |  | [readonly] [default to undefined]
 
@@ -26,6 +27,7 @@ const instance: CustomerCurrency = {
     isDeleted,
     deletedAt,
     currency,
+    isCustom,
     createdAt,
     customer,
 };

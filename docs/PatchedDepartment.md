@@ -13,6 +13,10 @@ Name | Type | Description | Notes
 **code** | **string** |  | [optional] [default to undefined]
 **name** | **string** |  | [optional] [default to undefined]
 **displayName** | **string** |  | [optional] [default to undefined]
+**externalId** | **string** |  | [optional] [readonly] [default to undefined]
+**source** | **string** |  | [optional] [readonly] [default to undefined]
+**tagIds** | **Array&lt;number&gt;** |  | [optional] [default to undefined]
+**tagGroupIds** | **Array&lt;number&gt;** |  | [optional] [default to undefined]
 **createdAt** | **string** |  | [optional] [readonly] [default to undefined]
 **customer** | **number** |  | [optional] [readonly] [default to undefined]
 **parent** | **number** |  | [optional] [default to undefined]
@@ -31,6 +35,10 @@ const instance: PatchedDepartment = {
     code,
     name,
     displayName,
+    externalId,
+    source,
+    tagIds,
+    tagGroupIds,
     createdAt,
     customer,
     parent,

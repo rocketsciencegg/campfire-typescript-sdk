@@ -15,19 +15,25 @@ All URIs are relative to *https://api.meetcampfire.com*
 |[**coaApiAccountCreate**](#coaapiaccountcreate) | **POST** /coa/api/account | Create Chart Account|
 |[**coaApiAccountDestroy**](#coaapiaccountdestroy) | **DELETE** /coa/api/account/{id} | Delete Chart Account|
 |[**coaApiAccountIncomeStatementCreate**](#coaapiaccountincomestatementcreate) | **POST** /coa/api/account/income-statement | Create Chart Account|
-|[**coaApiAccountIncomeStatementList**](#coaapiaccountincomestatementlist) | **GET** /coa/api/account/income-statement | |
-|[**coaApiAccountList**](#coaapiaccountlist) | **GET** /coa/api/account | |
+|[**coaApiAccountIncomeStatementList**](#coaapiaccountincomestatementlist) | **GET** /coa/api/account/income-statement | List Chart of Accounts|
+|[**coaApiAccountList**](#coaapiaccountlist) | **GET** /coa/api/account | List Chart of Accounts|
 |[**coaApiAccountPartialUpdate**](#coaapiaccountpartialupdate) | **PATCH** /coa/api/account/{id} | Partial Update Chart Account|
 |[**coaApiAccountRetrieve**](#coaapiaccountretrieve) | **GET** /coa/api/account/{id} | Retrieve Chart Account|
 |[**coaApiAccountUpdate**](#coaapiaccountupdate) | **PUT** /coa/api/account/{id} | Update Chart Account|
+|[**coaApiCostAllocationsCatchUpCreate**](#coaapicostallocationscatchupcreate) | **POST** /coa/api/cost-allocations/{id}/catch-up | Catch Up Closed Period Allocation|
 |[**coaApiCostAllocationsCreate**](#coaapicostallocationscreate) | **POST** /coa/api/cost-allocations | Create Cost Allocation|
 |[**coaApiCostAllocationsDestroy**](#coaapicostallocationsdestroy) | **DELETE** /coa/api/cost-allocations/{id} | Delete Cost Allocation|
 |[**coaApiCostAllocationsList**](#coaapicostallocationslist) | **GET** /coa/api/cost-allocations | List Cost Allocation|
 |[**coaApiCostAllocationsPartialUpdate**](#coaapicostallocationspartialupdate) | **PATCH** /coa/api/cost-allocations/{id} | Partial Update Cost Allocation|
+|[**coaApiCostAllocationsPreviewRetrieve**](#coaapicostallocationspreviewretrieve) | **GET** /coa/api/cost-allocations/{id}/preview | Preview Cost Allocation Split|
 |[**coaApiCostAllocationsRetrieve**](#coaapicostallocationsretrieve) | **GET** /coa/api/cost-allocations/{id} | Get Cost Allocation|
+|[**coaApiCostAllocationsSyncCreate**](#coaapicostallocationssynccreate) | **POST** /coa/api/cost-allocations/{id}/sync | Recalculate Cost Allocation|
+|[**coaApiCostAllocationsSyncRunsList**](#coaapicostallocationssyncrunslist) | **GET** /coa/api/cost-allocations/{id}/sync-runs | List Allocation Sync Runs|
+|[**coaApiCostAllocationsSyncRunsRetrieve**](#coaapicostallocationssyncrunsretrieve) | **GET** /coa/api/cost-allocations/{id}/sync-runs/{run_pk} | Retrieve Allocation Sync Run|
 |[**coaApiCostAllocationsUpdate**](#coaapicostallocationsupdate) | **PUT** /coa/api/cost-allocations/{id} | Update Cost Allocation|
 |[**coaApiDepartmentCreate**](#coaapidepartmentcreate) | **POST** /coa/api/department | Create Department|
-|[**coaApiDepartmentDestroy**](#coaapidepartmentdestroy) | **DELETE** /coa/api/department/{id} | Delete Department|
+|[**coaApiDepartmentDeleteCreate**](#coaapidepartmentdeletecreate) | **POST** /coa/api/department/{id}/delete | Delete Department|
+|[**coaApiDepartmentDestroy**](#coaapidepartmentdestroy) | **DELETE** /coa/api/department/{id} | Delete Department (deprecated)|
 |[**coaApiDepartmentList**](#coaapidepartmentlist) | **GET** /coa/api/department | List Departments|
 |[**coaApiDepartmentPartialUpdate**](#coaapidepartmentpartialupdate) | **PATCH** /coa/api/department/{id} | Partial Update Department|
 |[**coaApiDepartmentRetrieve**](#coaapidepartmentretrieve) | **GET** /coa/api/department/{id} | Retrieve Department|
@@ -39,7 +45,8 @@ All URIs are relative to *https://api.meetcampfire.com*
 |[**coaApiFixedAssetClassRetrieve**](#coaapifixedassetclassretrieve) | **GET** /coa/api/fixed-asset-class/{id} | Retrieve Fixed Asset Class|
 |[**coaApiFixedAssetClassUpdate**](#coaapifixedassetclassupdate) | **PUT** /coa/api/fixed-asset-class/{id} | Update Fixed Asset Class|
 |[**coaApiTagCreate**](#coaapitagcreate) | **POST** /coa/api/tag | Create Custom Dimension|
-|[**coaApiTagDestroy**](#coaapitagdestroy) | **DELETE** /coa/api/tag/{id} | Delete Custom Dimension|
+|[**coaApiTagDeleteCreate**](#coaapitagdeletecreate) | **POST** /coa/api/tag/{id}/delete | Delete Custom Dimension|
+|[**coaApiTagDestroy**](#coaapitagdestroy) | **DELETE** /coa/api/tag/{id} | Delete Custom Dimension (deprecated)|
 |[**coaApiTagGroupCreate**](#coaapitaggroupcreate) | **POST** /coa/api/tag-group | Create Custom Dimension Group|
 |[**coaApiTagGroupDestroy**](#coaapitaggroupdestroy) | **DELETE** /coa/api/tag-group/{id} | Delete Custom Dimension Group|
 |[**coaApiTagGroupList**](#coaapitaggrouplist) | **GET** /coa/api/tag-group | List Custom Dimension Groups|
@@ -50,12 +57,25 @@ All URIs are relative to *https://api.meetcampfire.com*
 |[**coaApiTagPartialUpdate**](#coaapitagpartialupdate) | **PATCH** /coa/api/tag/{id} | Partial Update Custom Dimension|
 |[**coaApiTagRetrieve**](#coaapitagretrieve) | **GET** /coa/api/tag/{id} | Retrieve Custom Dimension|
 |[**coaApiTagUpdate**](#coaapitagupdate) | **PUT** /coa/api/tag/{id} | Update Custom Dimension|
+|[**coaApiVendorContactTitleCreate**](#coaapivendorcontacttitlecreate) | **POST** /coa/api/vendor-contact-title | Create Vendor Contact Title|
+|[**coaApiVendorContactTitleDestroy**](#coaapivendorcontacttitledestroy) | **DELETE** /coa/api/vendor-contact-title/{id} | Delete Vendor Contact Title|
+|[**coaApiVendorContactTitleList**](#coaapivendorcontacttitlelist) | **GET** /coa/api/vendor-contact-title | List Vendor Contact Titles|
+|[**coaApiVendorContactTitlePartialUpdate**](#coaapivendorcontacttitlepartialupdate) | **PATCH** /coa/api/vendor-contact-title/{id} | Partial Update Vendor Contact Title|
+|[**coaApiVendorContactTitleRetrieve**](#coaapivendorcontacttitleretrieve) | **GET** /coa/api/vendor-contact-title/{id} | Retrieve Vendor Contact Title|
+|[**coaApiVendorContactTitleUpdate**](#coaapivendorcontacttitleupdate) | **PUT** /coa/api/vendor-contact-title/{id} | Update Vendor Contact Title|
 |[**coaApiVendorCreate**](#coaapivendorcreate) | **POST** /coa/api/vendor | Create Vendor|
 |[**coaApiVendorDestroy**](#coaapivendordestroy) | **DELETE** /coa/api/vendor/{id} | Delete Vendor|
 |[**coaApiVendorList**](#coaapivendorlist) | **GET** /coa/api/vendor | List Vendors|
 |[**coaApiVendorPartialUpdate**](#coaapivendorpartialupdate) | **PATCH** /coa/api/vendor/{id} | Partial Update Vendor|
 |[**coaApiVendorRetrieve**](#coaapivendorretrieve) | **GET** /coa/api/vendor/{id} | Retrieve Vendor|
 |[**coaApiVendorUpdate**](#coaapivendorupdate) | **PUT** /coa/api/vendor/{id} | Update Vendor|
+|[**createVendorCustomField**](#createvendorcustomfield) | **POST** /coa/api/vendor_custom_field_1/ | Create Vendor Custom Field|
+|[**deleteVendorCustomField**](#deletevendorcustomfield) | **DELETE** /coa/api/vendor_custom_field_1/{id}/ | Delete Vendor Custom Field|
+|[**getVendorCustomField**](#getvendorcustomfield) | **GET** /coa/api/vendor_custom_field_1/{id}/ | Retrieve Vendor Custom Field|
+|[**listVendorCustomFields**](#listvendorcustomfields) | **GET** /coa/api/vendor_custom_field_1/ | List Vendor Custom Fields|
+|[**listVendorSummaries**](#listvendorsummaries) | **GET** /coa/api/vendor/summary | List Vendor Summaries|
+|[**partialUpdateVendorCustomField**](#partialupdatevendorcustomfield) | **PATCH** /coa/api/vendor_custom_field_1/{id}/ | Partial Update Vendor Custom Field|
+|[**updateVendorCustomField**](#updatevendorcustomfield) | **PUT** /coa/api/vendor_custom_field_1/{id}/ | Update Vendor Custom Field|
 
 # **caApiV1CustomFieldsCreate**
 > CustomField caApiV1CustomFieldsCreate(customField)
@@ -94,7 +114,7 @@ const { status, data } = await apiInstance.caApiV1CustomFieldsCreate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -144,7 +164,7 @@ void (empty response body)
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -216,7 +236,7 @@ const { status, data } = await apiInstance.caApiV1CustomFieldsList(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -227,7 +247,7 @@ const { status, data } = await apiInstance.caApiV1CustomFieldsList(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -270,7 +290,7 @@ const { status, data } = await apiInstance.caApiV1CustomFieldsPartialUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -281,7 +301,7 @@ const { status, data } = await apiInstance.caApiV1CustomFieldsPartialUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -320,7 +340,7 @@ const { status, data } = await apiInstance.caApiV1CustomFieldsRetrieve(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -331,7 +351,7 @@ const { status, data } = await apiInstance.caApiV1CustomFieldsRetrieve(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -374,7 +394,7 @@ const { status, data } = await apiInstance.caApiV1CustomFieldsUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -385,14 +405,14 @@ const { status, data } = await apiInstance.caApiV1CustomFieldsUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **coaApiAccountBalanceSheetCreate**
 > ChartAccount coaApiAccountBalanceSheetCreate(chartAccount)
 
-List balance sheet accounts. Reuses AccountListCreate with account_type filter.
+Lists the chart of accounts (GL accounts). Each account includes metadata about its parent account and its full lineage (the ordered chain of ancestor accounts), so parent/child account relationships can be reconstructed from the response.
 
 ### Example
 
@@ -426,7 +446,7 @@ const { status, data } = await apiInstance.coaApiAccountBalanceSheetCreate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -498,7 +518,7 @@ const { status, data } = await apiInstance.coaApiAccountBalanceSheetList(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -509,14 +529,14 @@ const { status, data } = await apiInstance.coaApiAccountBalanceSheetList(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **coaApiAccountCreate**
 > ChartAccount coaApiAccountCreate(chartAccount)
 
-Complete mixin for history filtering with pagination support. Returns either active OR deleted records based on include_deleted parameter.
+Lists the chart of accounts (GL accounts). Each account includes metadata about its parent account and its full lineage (the ordered chain of ancestor accounts), so parent/child account relationships can be reconstructed from the response.
 
 ### Example
 
@@ -550,7 +570,7 @@ const { status, data } = await apiInstance.coaApiAccountCreate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -600,7 +620,7 @@ void (empty response body)
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -618,7 +638,7 @@ void (empty response body)
 # **coaApiAccountIncomeStatementCreate**
 > ChartAccount coaApiAccountIncomeStatementCreate(chartAccount)
 
-List income statement accounts. Reuses AccountListCreate with account_type filter.
+Lists the chart of accounts (GL accounts). Each account includes metadata about its parent account and its full lineage (the ordered chain of ancestor accounts), so parent/child account relationships can be reconstructed from the response.
 
 ### Example
 
@@ -652,7 +672,7 @@ const { status, data } = await apiInstance.coaApiAccountIncomeStatementCreate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -670,7 +690,7 @@ const { status, data } = await apiInstance.coaApiAccountIncomeStatementCreate(
 # **coaApiAccountIncomeStatementList**
 > PaginatedChartAccountList coaApiAccountIncomeStatementList()
 
-List income statement accounts. Reuses AccountListCreate with account_type filter.
+Lists the chart of accounts (GL accounts). Each account includes metadata about its parent account and its full lineage (the ordered chain of ancestor accounts), so parent/child account relationships can be reconstructed from the response.
 
 ### Example
 
@@ -706,7 +726,7 @@ const { status, data } = await apiInstance.coaApiAccountIncomeStatementList(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -717,14 +737,14 @@ const { status, data } = await apiInstance.coaApiAccountIncomeStatementList(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **coaApiAccountList**
 > PaginatedChartAccountList coaApiAccountList()
 
-Complete mixin for history filtering with pagination support. Returns either active OR deleted records based on include_deleted parameter.
+Lists the chart of accounts (GL accounts). Each account includes metadata about its parent account and its full lineage (the ordered chain of ancestor accounts), so parent/child account relationships can be reconstructed from the response.
 
 ### Example
 
@@ -760,7 +780,7 @@ const { status, data } = await apiInstance.coaApiAccountList(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -771,7 +791,7 @@ const { status, data } = await apiInstance.coaApiAccountList(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -814,7 +834,7 @@ const { status, data } = await apiInstance.coaApiAccountPartialUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -825,7 +845,7 @@ const { status, data } = await apiInstance.coaApiAccountPartialUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -864,7 +884,7 @@ const { status, data } = await apiInstance.coaApiAccountRetrieve(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -875,7 +895,7 @@ const { status, data } = await apiInstance.coaApiAccountRetrieve(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -918,7 +938,7 @@ const { status, data } = await apiInstance.coaApiAccountUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -929,7 +949,62 @@ const { status, data } = await apiInstance.coaApiAccountUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **coaApiCostAllocationsCatchUpCreate**
+> CostAllocationCatchUp coaApiCostAllocationsCatchUpCreate(costAllocationCatchUp)
+
+Post a closed entity-period\'s remaining allocation delta into the next open period.
+
+### Example
+
+```typescript
+import {
+    CompanyObjectsApi,
+    Configuration,
+    CostAllocationCatchUp
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new CompanyObjectsApi(configuration);
+
+let id: number; // (default to undefined)
+let costAllocationCatchUp: CostAllocationCatchUp; //
+
+const { status, data } = await apiInstance.coaApiCostAllocationsCatchUpCreate(
+    id,
+    costAllocationCatchUp
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **costAllocationCatchUp** | **CostAllocationCatchUp**|  | |
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+**CostAllocationCatchUp**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -970,7 +1045,7 @@ const { status, data } = await apiInstance.coaApiCostAllocationsCreate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1020,7 +1095,7 @@ void (empty response body)
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1083,7 +1158,7 @@ const { status, data } = await apiInstance.coaApiCostAllocationsList(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1094,7 +1169,7 @@ const { status, data } = await apiInstance.coaApiCostAllocationsList(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1137,7 +1212,7 @@ const { status, data } = await apiInstance.coaApiCostAllocationsPartialUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1148,7 +1223,67 @@ const { status, data } = await apiInstance.coaApiCostAllocationsPartialUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **coaApiCostAllocationsPreviewRetrieve**
+> CostAllocationPreviewQuery coaApiCostAllocationsPreviewRetrieve()
+
+Fan-out lines the posting path would produce for an amount, period, and entity. Writes nothing.
+
+### Example
+
+```typescript
+import {
+    CompanyObjectsApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new CompanyObjectsApi(configuration);
+
+let amount: number; // (default to undefined)
+let id: number; // (default to undefined)
+let period: string; // (default to undefined)
+let entity: number; // (optional) (default to undefined)
+
+const { status, data } = await apiInstance.coaApiCostAllocationsPreviewRetrieve(
+    amount,
+    id,
+    period,
+    entity
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **amount** | [**number**] |  | defaults to undefined|
+| **id** | [**number**] |  | defaults to undefined|
+| **period** | [**string**] |  | defaults to undefined|
+| **entity** | [**number**] |  | (optional) defaults to undefined|
+
+
+### Return type
+
+**CostAllocationPreviewQuery**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1187,7 +1322,7 @@ const { status, data } = await apiInstance.coaApiCostAllocationsRetrieve(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1198,7 +1333,171 @@ const { status, data } = await apiInstance.coaApiCostAllocationsRetrieve(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **coaApiCostAllocationsSyncCreate**
+> CostAllocationSync coaApiCostAllocationsSyncCreate(costAllocationSync)
+
+Queue sync runs for an allocation\'s open entity-periods in the requested period, optionally for one entity.
+
+### Example
+
+```typescript
+import {
+    CompanyObjectsApi,
+    Configuration,
+    CostAllocationSync
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new CompanyObjectsApi(configuration);
+
+let id: number; // (default to undefined)
+let costAllocationSync: CostAllocationSync; //
+
+const { status, data } = await apiInstance.coaApiCostAllocationsSyncCreate(
+    id,
+    costAllocationSync
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **costAllocationSync** | **CostAllocationSync**|  | |
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+**CostAllocationSync**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **coaApiCostAllocationsSyncRunsList**
+> PaginatedAllocationSyncRunList coaApiCostAllocationsSyncRunsList()
+
+
+### Example
+
+```typescript
+import {
+    CompanyObjectsApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new CompanyObjectsApi(configuration);
+
+let id: number; // (default to undefined)
+let limit: number; //Number of results to return per page. (optional) (default to undefined)
+let offset: number; //The initial index from which to return the results. (optional) (default to undefined)
+
+const { status, data } = await apiInstance.coaApiCostAllocationsSyncRunsList(
+    id,
+    limit,
+    offset
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **id** | [**number**] |  | defaults to undefined|
+| **limit** | [**number**] | Number of results to return per page. | (optional) defaults to undefined|
+| **offset** | [**number**] | The initial index from which to return the results. | (optional) defaults to undefined|
+
+
+### Return type
+
+**PaginatedAllocationSyncRunList**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **coaApiCostAllocationsSyncRunsRetrieve**
+> AllocationSyncRun coaApiCostAllocationsSyncRunsRetrieve()
+
+
+### Example
+
+```typescript
+import {
+    CompanyObjectsApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new CompanyObjectsApi(configuration);
+
+let id: number; // (default to undefined)
+let runPk: number; // (default to undefined)
+
+const { status, data } = await apiInstance.coaApiCostAllocationsSyncRunsRetrieve(
+    id,
+    runPk
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **id** | [**number**] |  | defaults to undefined|
+| **runPk** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+**AllocationSyncRun**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1241,7 +1540,7 @@ const { status, data } = await apiInstance.coaApiCostAllocationsUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1252,7 +1551,7 @@ const { status, data } = await apiInstance.coaApiCostAllocationsUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1293,7 +1592,7 @@ const { status, data } = await apiInstance.coaApiDepartmentCreate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1308,10 +1607,69 @@ const { status, data } = await apiInstance.coaApiDepartmentCreate(
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **coaApiDepartmentDeleteCreate**
+> coaApiDepartmentDeleteCreate()
+
+Delete a department and optionally reassign all related records to another department
+
+### Example
+
+```typescript
+import {
+    CompanyObjectsApi,
+    Configuration,
+    DeleteRequest
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new CompanyObjectsApi(configuration);
+
+let id: number; // (default to undefined)
+let newDepartment: number; //ID of the department to reassign all related records to before deletion (optional) (default to undefined)
+let deleteRequest: DeleteRequest; // (optional)
+
+const { status, data } = await apiInstance.coaApiDepartmentDeleteCreate(
+    id,
+    newDepartment,
+    deleteRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **deleteRequest** | **DeleteRequest**|  | |
+| **id** | [**number**] |  | defaults to undefined|
+| **newDepartment** | [**number**] | ID of the department to reassign all related records to before deletion | (optional) defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**204** | Deleted. |  -  |
+|**202** | Sent for approval; the record is deleted once a reviewer approves. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **coaApiDepartmentDestroy**
 > coaApiDepartmentDestroy()
 
-Delete a department and optionally reassign all related records to another department
+Deprecated: use `POST /coa/api/department/{id}/delete`, which also takes an optional reason for the audit log.  Delete a department and optionally reassign all related records to another department
 
 ### Example
 
@@ -1347,7 +1705,7 @@ void (empty response body)
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1358,14 +1716,15 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**204** | No response body |  -  |
+|**204** | Deleted. |  -  |
+|**202** | Sent for approval; the record is deleted once a reviewer approves. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **coaApiDepartmentList**
 > PaginatedDepartmentList coaApiDepartmentList()
 
-         Retrieve a list of departments with optional filtering and sorting.          Supports including soft-deleted records for audit and recovery purposes.         When include_deleted=true, returns ONLY deleted records instead of active records.         Deleted records contain minimal data: \'id\', \'is_deleted=true\', \'deleted_at\' timestamp,         and \'last_modified_at\'. When \'false\' or omitted, returns ONLY active records.         This provides clean separation between active and deleted data.         
+         Retrieve a list of departments with optional filtering and sorting.          Each department includes metadata about its parent department (`parent`, `parent_name`),         so parent/child department relationships can be reconstructed from the response.          Supports including soft-deleted records for audit and recovery purposes.         When include_deleted=true, returns ONLY deleted records instead of active records.         Deleted records contain minimal data: \'id\', \'is_deleted=true\', \'deleted_at\' timestamp,         and \'last_modified_at\'. When \'false\' or omitted, returns ONLY active records.         This provides clean separation between active and deleted data.         
 
 ### Example
 
@@ -1419,7 +1778,7 @@ const { status, data } = await apiInstance.coaApiDepartmentList(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1430,7 +1789,7 @@ const { status, data } = await apiInstance.coaApiDepartmentList(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1473,7 +1832,7 @@ const { status, data } = await apiInstance.coaApiDepartmentPartialUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1484,7 +1843,7 @@ const { status, data } = await apiInstance.coaApiDepartmentPartialUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1523,7 +1882,7 @@ const { status, data } = await apiInstance.coaApiDepartmentRetrieve(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1534,7 +1893,7 @@ const { status, data } = await apiInstance.coaApiDepartmentRetrieve(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1577,7 +1936,7 @@ const { status, data } = await apiInstance.coaApiDepartmentUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1588,7 +1947,7 @@ const { status, data } = await apiInstance.coaApiDepartmentUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1629,7 +1988,7 @@ const { status, data } = await apiInstance.coaApiFixedAssetClassCreate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1679,7 +2038,7 @@ void (empty response body)
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1742,7 +2101,7 @@ const { status, data } = await apiInstance.coaApiFixedAssetClassList(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1753,7 +2112,7 @@ const { status, data } = await apiInstance.coaApiFixedAssetClassList(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1796,7 +2155,7 @@ const { status, data } = await apiInstance.coaApiFixedAssetClassPartialUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1807,7 +2166,7 @@ const { status, data } = await apiInstance.coaApiFixedAssetClassPartialUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1846,7 +2205,7 @@ const { status, data } = await apiInstance.coaApiFixedAssetClassRetrieve(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1857,7 +2216,7 @@ const { status, data } = await apiInstance.coaApiFixedAssetClassRetrieve(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1900,7 +2259,7 @@ const { status, data } = await apiInstance.coaApiFixedAssetClassUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1911,7 +2270,7 @@ const { status, data } = await apiInstance.coaApiFixedAssetClassUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1952,7 +2311,7 @@ const { status, data } = await apiInstance.coaApiTagCreate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1967,10 +2326,69 @@ const { status, data } = await apiInstance.coaApiTagCreate(
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **coaApiTagDeleteCreate**
+> coaApiTagDeleteCreate()
+
+Delete a transaction tag and optionally merge it with another tag
+
+### Example
+
+```typescript
+import {
+    CompanyObjectsApi,
+    Configuration,
+    DeleteRequest
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new CompanyObjectsApi(configuration);
+
+let id: number; // (default to undefined)
+let newTag: number; //ID of the tag to merge with before deletion (optional) (default to undefined)
+let deleteRequest: DeleteRequest; // (optional)
+
+const { status, data } = await apiInstance.coaApiTagDeleteCreate(
+    id,
+    newTag,
+    deleteRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **deleteRequest** | **DeleteRequest**|  | |
+| **id** | [**number**] |  | defaults to undefined|
+| **newTag** | [**number**] | ID of the tag to merge with before deletion | (optional) defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**204** | Deleted. |  -  |
+|**202** | Sent for approval; the record is deleted once a reviewer approves. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **coaApiTagDestroy**
 > coaApiTagDestroy()
 
-Delete a transaction tag and optionally merge it with another tag
+Deprecated: use `POST /coa/api/tag/{id}/delete`, which also takes an optional reason for the audit log.  Delete a transaction tag and optionally merge it with another tag
 
 ### Example
 
@@ -2006,7 +2424,7 @@ void (empty response body)
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -2017,7 +2435,8 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**204** | No response body |  -  |
+|**204** | Deleted. |  -  |
+|**202** | Sent for approval; the record is deleted once a reviewer approves. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2058,7 +2477,7 @@ const { status, data } = await apiInstance.coaApiTagGroupCreate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -2108,7 +2527,7 @@ void (empty response body)
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -2174,7 +2593,7 @@ const { status, data } = await apiInstance.coaApiTagGroupList(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -2185,7 +2604,7 @@ const { status, data } = await apiInstance.coaApiTagGroupList(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2228,7 +2647,7 @@ const { status, data } = await apiInstance.coaApiTagGroupPartialUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -2239,7 +2658,7 @@ const { status, data } = await apiInstance.coaApiTagGroupPartialUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2278,7 +2697,7 @@ const { status, data } = await apiInstance.coaApiTagGroupRetrieve(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -2289,7 +2708,7 @@ const { status, data } = await apiInstance.coaApiTagGroupRetrieve(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2332,7 +2751,7 @@ const { status, data } = await apiInstance.coaApiTagGroupUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -2343,7 +2762,7 @@ const { status, data } = await apiInstance.coaApiTagGroupUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2372,6 +2791,7 @@ let lastModifiedAtLte: string; //Filter for records modified on or before this t
 let limit: number; //Number of results to return per page. (optional) (default to undefined)
 let noGroup: boolean; //If true, only return tags without a group (optional) (default to undefined)
 let offset: number; //The initial index from which to return the results. (optional) (default to undefined)
+let parent: number; //Filter by parent tag ID (optional) (default to undefined)
 let q: string; //Search query - searches by tag name or group name (optional) (default to undefined)
 let sort: string; //Sort order. Use field name for ascending, -field for descending. Special field: group_name. Default: name (optional) (default to 'name')
 
@@ -2385,6 +2805,7 @@ const { status, data } = await apiInstance.coaApiTagList(
     limit,
     noGroup,
     offset,
+    parent,
     q,
     sort
 );
@@ -2403,6 +2824,7 @@ const { status, data } = await apiInstance.coaApiTagList(
 | **limit** | [**number**] | Number of results to return per page. | (optional) defaults to undefined|
 | **noGroup** | [**boolean**] | If true, only return tags without a group | (optional) defaults to undefined|
 | **offset** | [**number**] | The initial index from which to return the results. | (optional) defaults to undefined|
+| **parent** | [**number**] | Filter by parent tag ID | (optional) defaults to undefined|
 | **q** | [**string**] | Search query - searches by tag name or group name | (optional) defaults to undefined|
 | **sort** | [**string**] | Sort order. Use field name for ascending, -field for descending. Special field: group_name. Default: name | (optional) defaults to 'name'|
 
@@ -2413,7 +2835,7 @@ const { status, data } = await apiInstance.coaApiTagList(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -2424,7 +2846,7 @@ const { status, data } = await apiInstance.coaApiTagList(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2467,7 +2889,7 @@ const { status, data } = await apiInstance.coaApiTagPartialUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -2478,7 +2900,7 @@ const { status, data } = await apiInstance.coaApiTagPartialUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2517,7 +2939,7 @@ const { status, data } = await apiInstance.coaApiTagRetrieve(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -2528,7 +2950,7 @@ const { status, data } = await apiInstance.coaApiTagRetrieve(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2571,7 +2993,7 @@ const { status, data } = await apiInstance.coaApiTagUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -2582,7 +3004,333 @@ const { status, data } = await apiInstance.coaApiTagUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **coaApiVendorContactTitleCreate**
+> VendorContactTitle coaApiVendorContactTitleCreate(vendorContactTitle)
+
+Mixin to provide consistent last_modified_at filtering and sorting functionality for List APIs with comprehensive timestamp computation.
+
+### Example
+
+```typescript
+import {
+    CompanyObjectsApi,
+    Configuration,
+    VendorContactTitle
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new CompanyObjectsApi(configuration);
+
+let vendorContactTitle: VendorContactTitle; //
+
+const { status, data } = await apiInstance.coaApiVendorContactTitleCreate(
+    vendorContactTitle
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **vendorContactTitle** | **VendorContactTitle**|  | |
+
+
+### Return type
+
+**VendorContactTitle**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**201** | Created |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **coaApiVendorContactTitleDestroy**
+> coaApiVendorContactTitleDestroy()
+
+
+### Example
+
+```typescript
+import {
+    CompanyObjectsApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new CompanyObjectsApi(configuration);
+
+let id: number; // (default to undefined)
+
+const { status, data } = await apiInstance.coaApiVendorContactTitleDestroy(
+    id
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**204** | No response body |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **coaApiVendorContactTitleList**
+> PaginatedVendorContactTitleList coaApiVendorContactTitleList()
+
+         Retrieve a list of vendor contact titles with optional filtering and sorting.          Supports timestamp-based filtering for synchronization and audit purposes.         
+
+### Example
+
+```typescript
+import {
+    CompanyObjectsApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new CompanyObjectsApi(configuration);
+
+let lastModifiedAtGte: string; //Filter for records modified on or after this timestamp. Format: ISO 8601 (e.g., \'2024-01-01T00:00:00Z\' or \'2024-01-01\'). Works with both active records and deleted records (filters by deletion time for deleted records). (optional) (default to undefined)
+let lastModifiedAtLte: string; //Filter for records modified on or before this timestamp. Format: ISO 8601 (e.g., \'2024-12-31T23:59:59Z\' or \'2024-12-31\'). Works with both active records and deleted records (filters by deletion time for deleted records). (optional) (default to undefined)
+let limit: number; //Number of results to return per page. (optional) (default to undefined)
+let offset: number; //The initial index from which to return the results. (optional) (default to undefined)
+let q: string; //Search query - searches by title name (optional) (default to undefined)
+let sort: string; //Sort order. Use field name for ascending, -field for descending. Default: name (optional) (default to 'name')
+
+const { status, data } = await apiInstance.coaApiVendorContactTitleList(
+    lastModifiedAtGte,
+    lastModifiedAtLte,
+    limit,
+    offset,
+    q,
+    sort
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **lastModifiedAtGte** | [**string**] | Filter for records modified on or after this timestamp. Format: ISO 8601 (e.g., \&#39;2024-01-01T00:00:00Z\&#39; or \&#39;2024-01-01\&#39;). Works with both active records and deleted records (filters by deletion time for deleted records). | (optional) defaults to undefined|
+| **lastModifiedAtLte** | [**string**] | Filter for records modified on or before this timestamp. Format: ISO 8601 (e.g., \&#39;2024-12-31T23:59:59Z\&#39; or \&#39;2024-12-31\&#39;). Works with both active records and deleted records (filters by deletion time for deleted records). | (optional) defaults to undefined|
+| **limit** | [**number**] | Number of results to return per page. | (optional) defaults to undefined|
+| **offset** | [**number**] | The initial index from which to return the results. | (optional) defaults to undefined|
+| **q** | [**string**] | Search query - searches by title name | (optional) defaults to undefined|
+| **sort** | [**string**] | Sort order. Use field name for ascending, -field for descending. Default: name | (optional) defaults to 'name'|
+
+
+### Return type
+
+**PaginatedVendorContactTitleList**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **coaApiVendorContactTitlePartialUpdate**
+> VendorContactTitle coaApiVendorContactTitlePartialUpdate()
+
+
+### Example
+
+```typescript
+import {
+    CompanyObjectsApi,
+    Configuration,
+    PatchedVendorContactTitle
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new CompanyObjectsApi(configuration);
+
+let id: number; // (default to undefined)
+let patchedVendorContactTitle: PatchedVendorContactTitle; // (optional)
+
+const { status, data } = await apiInstance.coaApiVendorContactTitlePartialUpdate(
+    id,
+    patchedVendorContactTitle
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **patchedVendorContactTitle** | **PatchedVendorContactTitle**|  | |
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+**VendorContactTitle**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **coaApiVendorContactTitleRetrieve**
+> VendorContactTitle coaApiVendorContactTitleRetrieve()
+
+
+### Example
+
+```typescript
+import {
+    CompanyObjectsApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new CompanyObjectsApi(configuration);
+
+let id: number; // (default to undefined)
+
+const { status, data } = await apiInstance.coaApiVendorContactTitleRetrieve(
+    id
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+**VendorContactTitle**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **coaApiVendorContactTitleUpdate**
+> VendorContactTitle coaApiVendorContactTitleUpdate(vendorContactTitle)
+
+
+### Example
+
+```typescript
+import {
+    CompanyObjectsApi,
+    Configuration,
+    VendorContactTitle
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new CompanyObjectsApi(configuration);
+
+let id: number; // (default to undefined)
+let vendorContactTitle: VendorContactTitle; //
+
+const { status, data } = await apiInstance.coaApiVendorContactTitleUpdate(
+    id,
+    vendorContactTitle
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **vendorContactTitle** | **VendorContactTitle**|  | |
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+**VendorContactTitle**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2623,7 +3371,7 @@ const { status, data } = await apiInstance.coaApiVendorCreate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -2641,7 +3389,7 @@ const { status, data } = await apiInstance.coaApiVendorCreate(
 # **coaApiVendorDestroy**
 > coaApiVendorDestroy()
 
-Delete a vendor and optionally reassign all related records to another vendor
+Delete a vendor and optionally reassign all related records to another vendor. Returns 202 Accepted as deletion is processed asynchronously.
 
 ### Example
 
@@ -2655,7 +3403,7 @@ const configuration = new Configuration();
 const apiInstance = new CompanyObjectsApi(configuration);
 
 let id: number; // (default to undefined)
-let newVendor: number; //ID of the vendor to reassign all related records to before deletion (optional) (default to undefined)
+let newVendor: string; //Identifier of the vendor to reassign all related records to before deletion. Accepts a Campfire ID (e.g. VEN-0000001) or the legacy internal integer id. (optional) (default to undefined)
 
 const { status, data } = await apiInstance.coaApiVendorDestroy(
     id,
@@ -2668,7 +3416,7 @@ const { status, data } = await apiInstance.coaApiVendorDestroy(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **id** | [**number**] |  | defaults to undefined|
-| **newVendor** | [**number**] | ID of the vendor to reassign all related records to before deletion | (optional) defaults to undefined|
+| **newVendor** | [**string**] | Identifier of the vendor to reassign all related records to before deletion. Accepts a Campfire ID (e.g. VEN-0000001) or the legacy internal integer id. | (optional) defaults to undefined|
 
 
 ### Return type
@@ -2677,7 +3425,7 @@ void (empty response body)
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -2695,7 +3443,7 @@ void (empty response body)
 # **coaApiVendorList**
 > PaginatedVendorList coaApiVendorList()
 
-         Retrieve a list of vendors/customers with optional filtering and sorting.          Supports retrieving deleted records for audit purposes. When include_deleted=true,         returns ONLY deleted records with minimal data (id, is_deleted, deleted_at, last_modified_at).         When false or omitted, returns ONLY active records.         
+         Retrieve a list of vendors/customers with optional filtering and sorting.          Each vendor includes metadata about its parent vendor (`parent`, `parent_name`) and its         full `lineage` (the ordered chain of ancestor vendors), so parent/child vendor         relationships can be reconstructed from the response.          Supports retrieving deleted records for audit purposes. When include_deleted=true,         returns ONLY deleted records with minimal data (id, is_deleted, deleted_at, last_modified_at).         When false or omitted, returns ONLY active records.         
 
 ### Example
 
@@ -2717,6 +3465,7 @@ let limit: number; //Number of results to return per page. (optional) (default t
 let offset: number; //The initial index from which to return the results. (optional) (default to undefined)
 let q: string; //Search query - searches by name, DBA, email, or company name. If numeric, also searches by ID (optional) (default to undefined)
 let sort: string; //Sort order. Use field name for ascending, -field for descending. Supports multiple fields separated by comma. Default: name (optional) (default to 'name')
+let stripeCustomerId: string; //Filter by Stripe customer ID (exact match, e.g. cus_ABC123) (optional) (default to undefined)
 let vendorType: 'customer' | 'vendor'; //Filter by vendor type. Can be specified multiple times for multiple types (optional) (default to undefined)
 
 const { status, data } = await apiInstance.coaApiVendorList(
@@ -2729,6 +3478,7 @@ const { status, data } = await apiInstance.coaApiVendorList(
     offset,
     q,
     sort,
+    stripeCustomerId,
     vendorType
 );
 ```
@@ -2746,6 +3496,7 @@ const { status, data } = await apiInstance.coaApiVendorList(
 | **offset** | [**number**] | The initial index from which to return the results. | (optional) defaults to undefined|
 | **q** | [**string**] | Search query - searches by name, DBA, email, or company name. If numeric, also searches by ID | (optional) defaults to undefined|
 | **sort** | [**string**] | Sort order. Use field name for ascending, -field for descending. Supports multiple fields separated by comma. Default: name | (optional) defaults to 'name'|
+| **stripeCustomerId** | [**string**] | Filter by Stripe customer ID (exact match, e.g. cus_ABC123) | (optional) defaults to undefined|
 | **vendorType** | [**&#39;customer&#39; | &#39;vendor&#39;**]**Array<&#39;customer&#39; &#124; &#39;vendor&#39;>** | Filter by vendor type. Can be specified multiple times for multiple types | (optional) defaults to undefined|
 
 
@@ -2755,7 +3506,7 @@ const { status, data } = await apiInstance.coaApiVendorList(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -2766,7 +3517,7 @@ const { status, data } = await apiInstance.coaApiVendorList(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2809,7 +3560,7 @@ const { status, data } = await apiInstance.coaApiVendorPartialUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -2820,7 +3571,7 @@ const { status, data } = await apiInstance.coaApiVendorPartialUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2859,7 +3610,7 @@ const { status, data } = await apiInstance.coaApiVendorRetrieve(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -2870,7 +3621,7 @@ const { status, data } = await apiInstance.coaApiVendorRetrieve(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2913,7 +3664,7 @@ const { status, data } = await apiInstance.coaApiVendorUpdate(
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -2924,7 +3675,362 @@ const { status, data } = await apiInstance.coaApiVendorUpdate(
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | Successful response |  -  |
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **createVendorCustomField**
+> VendorCustomField1 createVendorCustomField(vendorCustomField1)
+
+
+### Example
+
+```typescript
+import {
+    CompanyObjectsApi,
+    Configuration,
+    VendorCustomField1
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new CompanyObjectsApi(configuration);
+
+let vendorCustomField1: VendorCustomField1; //
+
+const { status, data } = await apiInstance.createVendorCustomField(
+    vendorCustomField1
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **vendorCustomField1** | **VendorCustomField1**|  | |
+
+
+### Return type
+
+**VendorCustomField1**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**201** | Created |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **deleteVendorCustomField**
+> deleteVendorCustomField()
+
+
+### Example
+
+```typescript
+import {
+    CompanyObjectsApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new CompanyObjectsApi(configuration);
+
+let id: number; // (default to undefined)
+
+const { status, data } = await apiInstance.deleteVendorCustomField(
+    id
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**204** | No response body |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getVendorCustomField**
+> VendorCustomField1 getVendorCustomField()
+
+
+### Example
+
+```typescript
+import {
+    CompanyObjectsApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new CompanyObjectsApi(configuration);
+
+let id: number; // (default to undefined)
+
+const { status, data } = await apiInstance.getVendorCustomField(
+    id
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+**VendorCustomField1**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **listVendorCustomFields**
+> Array<VendorCustomField1> listVendorCustomFields()
+
+
+### Example
+
+```typescript
+import {
+    CompanyObjectsApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new CompanyObjectsApi(configuration);
+
+const { status, data } = await apiInstance.listVendorCustomFields();
+```
+
+### Parameters
+This endpoint does not have any parameters.
+
+
+### Return type
+
+**Array<VendorCustomField1>**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **listVendorSummaries**
+> PaginatedVendorSummaryList listVendorSummaries()
+
+
+### Example
+
+```typescript
+import {
+    CompanyObjectsApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new CompanyObjectsApi(configuration);
+
+let limit: number; //Number of results to return per page. (optional) (default to undefined)
+let offset: number; //The initial index from which to return the results. (optional) (default to undefined)
+
+const { status, data } = await apiInstance.listVendorSummaries(
+    limit,
+    offset
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **limit** | [**number**] | Number of results to return per page. | (optional) defaults to undefined|
+| **offset** | [**number**] | The initial index from which to return the results. | (optional) defaults to undefined|
+
+
+### Return type
+
+**PaginatedVendorSummaryList**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **partialUpdateVendorCustomField**
+> VendorCustomField1 partialUpdateVendorCustomField()
+
+
+### Example
+
+```typescript
+import {
+    CompanyObjectsApi,
+    Configuration,
+    PatchedVendorCustomField1
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new CompanyObjectsApi(configuration);
+
+let id: number; // (default to undefined)
+let patchedVendorCustomField1: PatchedVendorCustomField1; // (optional)
+
+const { status, data } = await apiInstance.partialUpdateVendorCustomField(
+    id,
+    patchedVendorCustomField1
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **patchedVendorCustomField1** | **PatchedVendorCustomField1**|  | |
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+**VendorCustomField1**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateVendorCustomField**
+> VendorCustomField1 updateVendorCustomField(vendorCustomField1)
+
+
+### Example
+
+```typescript
+import {
+    CompanyObjectsApi,
+    Configuration,
+    VendorCustomField1
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new CompanyObjectsApi(configuration);
+
+let id: number; // (default to undefined)
+let vendorCustomField1: VendorCustomField1; //
+
+const { status, data } = await apiInstance.updateVendorCustomField(
+    id,
+    vendorCustomField1
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **vendorCustomField1** | **VendorCustomField1**|  | |
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+**VendorCustomField1**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

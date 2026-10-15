@@ -7,8 +7,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **number** |  | [readonly] [default to undefined]
 **isDeleted** | **boolean** |  | [readonly] [default to false]
+**bankAccountHasGlAccount** | **boolean** |  | [readonly] [default to undefined]
 **deletedAt** | **string** |  | [readonly] [default to undefined]
 **accountName** | **string** |  | [readonly] [default to undefined]
+**entityName** | **string** |  | [readonly] [default to undefined]
 **dateMonth** | **string** |  | [readonly] [default to undefined]
 **dateYear** | **string** |  | [readonly] [default to undefined]
 **journal** | **number** |  | [readonly] [default to undefined]
@@ -46,8 +48,10 @@ import { BankTransaction } from 'campfire-typescript-sdk';
 const instance: BankTransaction = {
     id,
     isDeleted,
+    bankAccountHasGlAccount,
     deletedAt,
     accountName,
+    entityName,
     dateMonth,
     dateYear,
     journal,

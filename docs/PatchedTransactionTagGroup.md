@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **id** | **number** |  | [optional] [readonly] [default to undefined]
 **slug** | **string** |  | [optional] [readonly] [default to undefined]
 **name** | **string** |  | [optional] [default to undefined]
+**isSystem** | **boolean** |  | [optional] [readonly] [default to undefined]
+**systemType** | [**SystemTypeEnum**](SystemTypeEnum.md) |  | [optional] [readonly] [default to undefined]
 **createdAt** | **string** |  | [optional] [readonly] [default to undefined]
 **lastModifiedAt** | **string** |  | [optional] [readonly] [default to undefined]
 **customer** | **number** |  | [optional] [readonly] [default to undefined]
@@ -21,6 +23,8 @@ const instance: PatchedTransactionTagGroup = {
     id,
     slug,
     name,
+    isSystem,
+    systemType,
     createdAt,
     lastModifiedAt,
     customer,

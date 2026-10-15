@@ -5,13 +5,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **number** |  | [readonly] [default to undefined]
+**id** | **number** |  | [optional] [default to undefined]
 **name** | **string** |  | [optional] [default to undefined]
 **firstName** | **string** |  | [optional] [default to undefined]
 **lastName** | **string** |  | [optional] [default to undefined]
 **email** | **string** |  | [optional] [default to undefined]
 **phoneNumber** | **string** |  | [optional] [default to undefined]
 **mobileNumber** | **string** |  | [optional] [default to undefined]
+**title** | **number** |  | [optional] [default to undefined]
+**titleName** | **string** |  | [readonly] [default to undefined]
 **lastModifiedAt** | **string** |  | [readonly] [default to undefined]
 **isDeleted** | **boolean** |  | [readonly] [default to false]
 **deletedAt** | **string** |  | [readonly] [default to undefined]
@@ -29,6 +31,8 @@ const instance: VendorContact = {
     email,
     phoneNumber,
     mobileNumber,
+    title,
+    titleName,
     lastModifiedAt,
     isDeleted,
     deletedAt,

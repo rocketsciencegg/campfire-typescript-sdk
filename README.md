@@ -38,7 +38,7 @@ All API calls require an API key passed via `Configuration.apiKey` with the `Tok
 
 ## API Classes
 
-The SDK is organized into 12 API classes by category:
+The SDK is organized into 11 API classes by category:
 
 | Class | Description |
 |-------|-------------|
@@ -53,7 +53,6 @@ The SDK is organized into 12 API classes by category:
 | `SettingsApi` | Entities, currencies, files, chart account settings |
 | `IntegrationsApi` | Webhooks |
 | `CustomFieldsApi` | Custom field definitions |
-| `CoaApi` | Fixed asset automation, bill amortization, transaction merging |
 
 All methods follow the pattern `api.methodName(params?, axiosOptions?)` returning `Promise<AxiosResponse<T>>`.
 
@@ -66,10 +65,14 @@ See the [generated docs](docs/) for all available methods and models, or the [Ca
 Generated from `campfire.json` using [OpenAPI Generator](https://openapi-generator.tech/) v7.19.0 (`typescript-axios`).
 
 ```bash
-just install   # System deps (Java)
-just build     # Regenerate + compile
-just compile   # TypeScript only
+just install     # System deps (Java)
+just refresh     # Download Campfire's spec, apply our fixes, regenerate + compile
+just build       # Regenerate + compile from campfire.json
+just lint-spec   # Lint campfire.json with Speakeasy
+just compile     # TypeScript only
 ```
+
+`campfire.upstream.json` is Campfire's published spec exactly as downloaded. `campfire.json` is that spec after `scripts/fix_spec.py`, which fixes validation problems (empty response descriptions, undefined tags, nullable enums) and fills a few missing summaries. Each fix in the script says why it exists, and `campfire.patch` (`just spec-diff`) is the full set of changes, as a patch Campfire can apply to their own copy.
 
 ## Generated Files
 

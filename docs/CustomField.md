@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **isRequired** | **boolean** |  | [optional] [default to undefined]
 **displayOrder** | **number** |  | [optional] [default to undefined]
 **isActive** | **boolean** |  | [optional] [default to undefined]
+**includeOnInvoice** | **boolean** |  | [optional] [default to undefined]
 **createdAt** | **string** |  | [readonly] [default to undefined]
 **updatedAt** | **string** |  | [readonly] [default to undefined]
 **lastModifiedAt** | **string** |  | [readonly] [default to undefined]
@@ -37,6 +38,7 @@ const instance: CustomField = {
     isRequired,
     displayOrder,
     isActive,
+    includeOnInvoice,
     createdAt,
     updatedAt,
     lastModifiedAt,

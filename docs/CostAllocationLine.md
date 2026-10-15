@@ -9,8 +9,10 @@ Name | Type | Description | Notes
 **allocation** | **number** |  | [optional] [default to undefined]
 **accountName** | **string** | Combines account number and name in the format \&quot;number - name\&quot; | [readonly] [default to undefined]
 **departmentName** | **string** |  | [readonly] [default to undefined]
-**tags** | [**Array&lt;TransactionTag&gt;**](TransactionTag.md) |  | [readonly] [default to undefined]
+**tags** | **Array&lt;{ [key: string]: any; }&gt;** |  | [readonly] [default to undefined]
 **percentage** | **number** |  | [optional] [default to undefined]
+**tagIds** | **Array&lt;number&gt;** |  | [optional] [default to undefined]
+**tagGroupIds** | **Array&lt;number&gt;** |  | [optional] [default to undefined]
 **createdAt** | **string** |  | [readonly] [default to undefined]
 **lastModifiedAt** | **string** |  | [readonly] [default to undefined]
 **customer** | **number** |  | [readonly] [default to undefined]
@@ -29,6 +31,8 @@ const instance: CostAllocationLine = {
     departmentName,
     tags,
     percentage,
+    tagIds,
+    tagGroupIds,
     createdAt,
     lastModifiedAt,
     customer,

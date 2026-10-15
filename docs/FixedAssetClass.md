@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **accumulatedDepreciationAccountName** | **string** |  | [readonly] [default to undefined]
 **depreciationExpenseAccountName** | **string** |  | [readonly] [default to undefined]
 **name** | **string** |  | [default to undefined]
-**usefulLife** | **number** |  | [default to undefined]
+**usefulLife** | **number** |  | [optional] [default to undefined]
 **createdAt** | **string** |  | [readonly] [default to undefined]
 **lastModifiedAt** | **string** |  | [readonly] [default to undefined]
 **customer** | **number** |  | [readonly] [default to undefined]

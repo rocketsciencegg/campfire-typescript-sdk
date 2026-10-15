@@ -8,9 +8,11 @@ Name | Type | Description | Notes
 **id** | **number** |  | [readonly] [default to undefined]
 **journalEntryOrder** | **string** |  | [readonly] [default to undefined]
 **transactionId** | **string** |  | [optional] [default to undefined]
+**disposalPercentage** | **number** |  | [default to undefined]
 **disposalDate** | **string** |  | [default to undefined]
-**disposalPercentage** | **number** |  | [optional] [default to undefined]
 **proceedsAmount** | **number** |  | [optional] [default to undefined]
+**costRemoved** | **number** |  | [readonly] [default to undefined]
+**accumRemoved** | **number** |  | [readonly] [default to undefined]
 **createdAt** | **string** |  | [readonly] [default to undefined]
 **lastModifiedAt** | **string** |  | [readonly] [default to undefined]
 **customer** | **number** |  | [readonly] [default to undefined]
@@ -26,9 +28,11 @@ const instance: FixedAssetDisposal = {
     id,
     journalEntryOrder,
     transactionId,
-    disposalDate,
     disposalPercentage,
+    disposalDate,
     proceedsAmount,
+    costRemoved,
+    accumRemoved,
     createdAt,
     lastModifiedAt,
     customer,

@@ -1,6 +1,6 @@
 # AccountSubtypeEnum
 
-* `BANK` - Bank * `ACCOUNTS_RECEIVABLE` - Accounts Receivable * `OTHER_CURRENT_ASSET` - Other Current Asset * `FIXED_ASSET` - Fixed Asset * `OTHER_ASSET` - Other Asset * `ACCOUNTS_PAYABLE` - Accounts Payable * `UNAPPLIED_CREDITS` - Unapplied Credits * `CREDIT_CARD` - Credit Card * `ACCRUED_REVENUE` - Accrued Revenue * `DEFERRED_REVENUE` - Deferred Revenue * `OTHER_CURRENT_LIABILITY` - Other Current Liability * `LONG_TERM_LIABILITY` - Long Term Liability * `UNBILLED_RECEIVABLE` - Unbilled Receivable * `EQUITY` - Equity * `RETAINED_EARNINGS` - Retained Earnings * `INCOME` - Income * `COST_OF_GOODS_SOLD` - Cost of Goods Sold * `EXPENSE` - Expense * `DEFERRED_EXPENSE` - Deferred Expense * `OTHER_INCOME` - Other Income * `OTHER_EXPENSE` - Other Expense * `REALIZED_GAIN_LOSS` - Realized Gain Loss * `UNREALIZED_GAIN_LOSS` - Unrealized Gain Loss * `PREPAID` - Prepaid * `COST_ALLOCATION` - Cost Allocation * `UNCATEGORIZED` - Uncategorized
+* `BANK` - Bank * `ACCOUNTS_RECEIVABLE` - Accounts Receivable * `OTHER_CURRENT_ASSET` - Other Current Asset * `SALES_TAX_RECEIVABLE` - Sales Tax Receivable * `FIXED_ASSET` - Fixed Asset * `OTHER_ASSET` - Other Asset * `ACCOUNTS_PAYABLE` - Accounts Payable * `UNAPPLIED_CREDITS` - Unapplied Credits * `CREDIT_CARD` - Credit Card * `ACCRUED_REVENUE` - Accrued Revenue * `DEFERRED_REVENUE` - Deferred Revenue * `OTHER_CURRENT_LIABILITY` - Other Current Liability * `SALES_TAX_PAYABLE` - Sales Tax Payable * `LONG_TERM_LIABILITY` - Long Term Liability * `UNBILLED_RECEIVABLE` - Unbilled Receivable * `EQUITY` - Equity * `RETAINED_EARNINGS` - Retained Earnings * `INCOME` - Income * `COST_OF_GOODS_SOLD` - Cost of Goods Sold * `EXPENSE` - Expense * `DEFERRED_EXPENSE` - Deferred Expense * `OTHER_INCOME` - Other Income * `OTHER_EXPENSE` - Other Expense * `REALIZED_GAIN_LOSS` - Realized Gain Loss * `UNREALIZED_GAIN_LOSS` - Unrealized Gain Loss * `PREPAID` - Prepaid * `COST_ALLOCATION` - Cost Allocation * `UNCATEGORIZED` - Uncategorized
 
 ## Enum
 
@@ -9,6 +9,8 @@
 * `AccountsReceivable` (value: `'ACCOUNTS_RECEIVABLE'`)
 
 * `OtherCurrentAsset` (value: `'OTHER_CURRENT_ASSET'`)
+
+* `SalesTaxReceivable` (value: `'SALES_TAX_RECEIVABLE'`)
 
 * `FixedAsset` (value: `'FIXED_ASSET'`)
 
@@ -25,6 +27,8 @@
 * `DeferredRevenue` (value: `'DEFERRED_REVENUE'`)
 
 * `OtherCurrentLiability` (value: `'OTHER_CURRENT_LIABILITY'`)
+
+* `SalesTaxPayable` (value: `'SALES_TAX_PAYABLE'`)
 
 * `LongTermLiability` (value: `'LONG_TERM_LIABILITY'`)
 

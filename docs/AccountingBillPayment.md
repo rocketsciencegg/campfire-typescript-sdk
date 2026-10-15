@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **paymentTransactionBankDescription** | **string** |  | [readonly] [default to undefined]
 **paymentJournalEntryOrder** | **string** |  | [readonly] [default to undefined]
 **voidedJournalEntryOrder** | **string** |  | [readonly] [default to undefined]
+**withheldAmount** | **number** | Tax withheld on this payment (AP): sum of the payment\&#39;s withholding credit legs.  Reads the &#x60;&#x60;bill_withheld_by_payment&#x60;&#x60; map that &#x60;&#x60;AccountingBillSerializer&#x60;&#x60; populated from prefetched records, so no per-payment query runs. A 0% payment maps to zero, which is distinct from a payment that recorded no withholding at all. | [readonly] [default to undefined]
+**appliedDebitMemo** | **{ [key: string]: any; }** | The debit memo this payment applied, when the payment is a memo application (its journal entry carries a debit memo payment row).  Uses .all() so the detail view\&#39;s prefetch chain serves it from cache. | [readonly] [default to undefined]
 **currency** | **string** |  | [optional] [default to undefined]
 **amount** | **number** |  | [optional] [default to undefined]
 **paymentDate** | **string** |  | [optional] [default to undefined]
@@ -21,6 +23,7 @@ Name | Type | Description | Notes
 **bill** | **number** |  | [default to undefined]
 **paymentJournalEntry** | **number** |  | [default to undefined]
 **paymentTransaction** | **number** |  | [optional] [default to undefined]
+**checkPayment** | **number** |  | [optional] [default to undefined]
 **voidedJournalEntry** | **number** |  | [optional] [default to undefined]
 
 ## Example
@@ -33,6 +36,8 @@ const instance: AccountingBillPayment = {
     paymentTransactionBankDescription,
     paymentJournalEntryOrder,
     voidedJournalEntryOrder,
+    withheldAmount,
+    appliedDebitMemo,
     currency,
     amount,
     paymentDate,
@@ -45,6 +50,7 @@ const instance: AccountingBillPayment = {
     bill,
     paymentJournalEntry,
     paymentTransaction,
+    checkPayment,
     voidedJournalEntry,
 };
 ```

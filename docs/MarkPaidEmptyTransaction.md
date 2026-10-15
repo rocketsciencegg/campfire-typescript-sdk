@@ -12,9 +12,13 @@ Name | Type | Description | Notes
 **departmentId** | **number** |  | [optional] [default to undefined]
 **tagIds** | **Array&lt;number&gt;** |  | [optional] [default to undefined]
 **memo** | **string** |  | [optional] [default to undefined]
+**externalId** | **string** |  | [optional] [default to undefined]
 **currency** | **string** |  | [optional] [default to undefined]
 **amountInInvoiceCurrency** | **number** |  | [optional] [default to undefined]
 **amountInBillCurrency** | **number** |  | [optional] [default to undefined]
+**withholdingAmount** | **number** |  | [optional] [default to undefined]
+**withholdingTaxRateId** | **number** |  | [optional] [default to undefined]
+**counterpartyEntity** | **number** |  | [optional] [default to undefined]
 
 ## Example
 
@@ -29,9 +33,13 @@ const instance: MarkPaidEmptyTransaction = {
     departmentId,
     tagIds,
     memo,
+    externalId,
     currency,
     amountInInvoiceCurrency,
     amountInBillCurrency,
+    withholdingAmount,
+    withholdingTaxRateId,
+    counterpartyEntity,
 };
 ```
 

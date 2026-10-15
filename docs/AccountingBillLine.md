@@ -5,13 +5,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **number** |  | [readonly] [default to undefined]
+**id** | **number** |  | [optional] [default to undefined]
 **bill** | **number** |  | [optional] [default to undefined]
 **accountNumber** | **string** |  | [readonly] [default to undefined]
 **accountName** | **string** | Combines account number and name in the format \&quot;number - name\&quot; | [readonly] [default to undefined]
 **departmentName** | **string** |  | [readonly] [default to undefined]
+**departmentCode** | **string** |  | [readonly] [default to undefined]
 **billCustomerName** | **string** |  | [readonly] [default to undefined]
-**tags** | [**Array&lt;TransactionTag&gt;**](TransactionTag.md) |  | [readonly] [default to undefined]
+**tags** | **Array&lt;{ [key: string]: any; }&gt;** |  | [readonly] [default to undefined]
 **amortizationSchedule** | [**Array&lt;AmortizationSchedule&gt;**](AmortizationSchedule.md) |  | [readonly] [default to undefined]
 **taxRateName** | **string** |  | [readonly] [default to undefined]
 **taxRateValue** | **number** |  | [readonly] [default to undefined]
@@ -19,6 +20,8 @@ Name | Type | Description | Notes
 **amount** | **number** |  | [optional] [default to undefined]
 **tax** | **number** |  | [optional] [default to undefined]
 **taxDescription** | **string** |  | [optional] [default to undefined]
+**tagIds** | **Array&lt;number&gt;** |  | [readonly] [default to undefined]
+**tagGroupIds** | **Array&lt;number&gt;** |  | [readonly] [default to undefined]
 **source** | **string** |  | [optional] [default to undefined]
 **sourceId** | **string** |  | [optional] [default to undefined]
 **currency** | **string** |  | [optional] [default to undefined]
@@ -41,6 +44,7 @@ const instance: AccountingBillLine = {
     accountNumber,
     accountName,
     departmentName,
+    departmentCode,
     billCustomerName,
     tags,
     amortizationSchedule,
@@ -50,6 +54,8 @@ const instance: AccountingBillLine = {
     amount,
     tax,
     taxDescription,
+    tagIds,
+    tagGroupIds,
     source,
     sourceId,
     currency,

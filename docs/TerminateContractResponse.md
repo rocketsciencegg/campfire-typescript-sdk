@@ -10,6 +10,10 @@ Name | Type | Description | Notes
 **contractDraftId** | **number** | Draft queue ID if contract termination was drafted instead of executed. | [optional] [default to undefined]
 **voidedInvoiceIds** | **Array&lt;number&gt;** | List of invoice IDs that were voided directly. | [optional] [default to undefined]
 **draftedInvoiceIds** | **Array&lt;number&gt;** | List of invoice IDs that were drafted for voiding (user lacks void permission). | [optional] [default to undefined]
+**creditMemoId** | **number** | ID of the credit memo created for deferred revenue when remaining revenue was reversed. | [optional] [default to undefined]
+**successorCreditMemoId** | **number** | ID of the successor contract\&#39;s credit memo when a negative successor adjustment was credited. | [optional] [default to undefined]
+**reversalTransactionCount** | **number** | Number of negative revenue transactions written to cancel the remaining schedule. | [optional] [default to 0]
+**reversalTransactionIds** | **Array&lt;number&gt;** | Revenue transaction IDs written to cancel the remaining subscription and prepaid balances. | [optional] [default to undefined]
 
 ## Example
 
@@ -21,6 +25,10 @@ const instance: TerminateContractResponse = {
     contractDraftId,
     voidedInvoiceIds,
     draftedInvoiceIds,
+    creditMemoId,
+    successorCreditMemoId,
+    reversalTransactionCount,
+    reversalTransactionIds,
 };
 ```
 

@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **number** |  | [optional] [readonly] [default to undefined]
 **groupName** | **string** |  | [optional] [readonly] [default to undefined]
+**isSystem** | **boolean** |  | [optional] [readonly] [default to false]
 **parentName** | **string** |  | [optional] [readonly] [default to undefined]
 **parent** | **number** |  | [optional] [default to undefined]
 **isDeleted** | **boolean** |  | [optional] [readonly] [default to false]
@@ -26,6 +27,7 @@ import { PatchedTransactionTag } from 'campfire-typescript-sdk';
 const instance: PatchedTransactionTag = {
     id,
     groupName,
+    isSystem,
     parentName,
     parent,
     isDeleted,

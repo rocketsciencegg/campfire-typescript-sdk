@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **number** |  | [readonly] [default to undefined]
 **groupName** | **string** |  | [readonly] [default to undefined]
+**isSystem** | **boolean** |  | [readonly] [default to false]
 **parentName** | **string** |  | [readonly] [default to undefined]
 **parent** | **number** |  | [optional] [default to undefined]
 **isDeleted** | **boolean** |  | [readonly] [default to false]
@@ -26,6 +27,7 @@ import { TransactionTag } from 'campfire-typescript-sdk';
 const instance: TransactionTag = {
     id,
     groupName,
+    isSystem,
     parentName,
     parent,
     isDeleted,

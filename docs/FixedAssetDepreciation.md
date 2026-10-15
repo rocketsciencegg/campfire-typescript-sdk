@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **number** |  | [readonly] [default to undefined]
+**id** | **number** |  | [optional] [default to undefined]
 **fixedAsset** | **number** |  | [optional] [default to undefined]
 **journalEntryOrder** | **string** |  | [readonly] [default to undefined]
 **depreciatedUntil** | **string** |  | [optional] [default to undefined]

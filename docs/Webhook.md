@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **createdAt** | **string** |  | [readonly] [default to undefined]
 **lastModifiedAt** | **string** |  | [readonly] [default to undefined]
 **customer** | **number** |  | [readonly] [default to undefined]
+**app** | **string** |  | [readonly] [default to undefined]
 
 ## Example
 
@@ -30,6 +31,7 @@ const instance: Webhook = {
     createdAt,
     lastModifiedAt,
     customer,
+    app,
 };
 ```
 

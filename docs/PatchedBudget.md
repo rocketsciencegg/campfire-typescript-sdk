@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **priorStartDate** | **string** |  | [optional] [readonly] [default to undefined]
 **priorEndDate** | **string** |  | [optional] [readonly] [default to undefined]
 **departmentName** | **string** |  | [optional] [readonly] [default to undefined]
-**tags** | [**Array&lt;TransactionTag&gt;**](TransactionTag.md) |  | [optional] [readonly] [default to undefined]
+**tags** | **Array&lt;{ [key: string]: any; }&gt;** |  | [optional] [readonly] [default to undefined]
 **isDeleted** | **boolean** |  | [optional] [readonly] [default to false]
 **deletedAt** | **string** |  | [optional] [readonly] [default to undefined]
 **name** | **string** |  | [optional] [default to undefined]
@@ -20,6 +20,8 @@ Name | Type | Description | Notes
 **endDate** | **string** |  | [optional] [default to undefined]
 **periods** | **number** |  | [optional] [default to undefined]
 **breakdownType** | [**BreakdownTypeEnum**](BreakdownTypeEnum.md) |  | [optional] [default to undefined]
+**tagIds** | **Array&lt;number&gt;** |  | [optional] [default to undefined]
+**tagGroupIds** | **Array&lt;number&gt;** |  | [optional] [default to undefined]
 **currency** | **string** |  | [optional] [default to undefined]
 **createdAt** | **string** |  | [optional] [readonly] [default to undefined]
 **lastModifiedAt** | **string** |  | [optional] [readonly] [default to undefined]
@@ -48,6 +50,8 @@ const instance: PatchedBudget = {
     endDate,
     periods,
     breakdownType,
+    tagIds,
+    tagGroupIds,
     currency,
     createdAt,
     lastModifiedAt,

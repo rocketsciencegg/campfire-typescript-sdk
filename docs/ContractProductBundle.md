@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **sourceBundleName** | **string** |  | [readonly] [default to undefined]
 **totalAmount** | **number** | Total amount to be allocated across products | [readonly] [default to undefined]
 **currency** | **string** |  | [readonly] [default to undefined]
+**licenseTermStartDate** | **string** | Date the license/service term begins. For SF-ingested mixed bundles, drives the linked subscription start_date and milestone milestone_date. Snapshotted at ingest time for audit. | [optional] [default to undefined]
 **lines** | [**Array&lt;ContractProductBundleLine&gt;**](ContractProductBundleLine.md) |  | [default to undefined]
 **createdAt** | **string** |  | [readonly] [default to undefined]
 **lastModifiedAt** | **string** |  | [readonly] [default to undefined]
@@ -26,6 +27,7 @@ const instance: ContractProductBundle = {
     sourceBundleName,
     totalAmount,
     currency,
+    licenseTermStartDate,
     lines,
     createdAt,
     lastModifiedAt,

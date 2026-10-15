@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **amount** | **number** |  | [default to undefined]
 **paymentDate** | **string** | Payment date for term discount calculation | [default to undefined]
+**withholdingAmount** | **number** |  | [optional] [default to undefined]
 
 ## Example
 
@@ -16,6 +17,7 @@ import { EmptyTransactionInput } from 'campfire-typescript-sdk';
 const instance: EmptyTransactionInput = {
     amount,
     paymentDate,
+    withholdingAmount,
 };
 ```
 

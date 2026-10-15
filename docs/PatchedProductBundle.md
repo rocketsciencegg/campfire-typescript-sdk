@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **id** | **number** |  | [optional] [readonly] [default to undefined]
 **bundleName** | **string** |  | [optional] [default to undefined]
 **bundleDescription** | **string** |  | [optional] [default to undefined]
-**stripeProductId** | **string** |  | [optional] [readonly] [default to undefined]
+**stripeProductId** | **string** |  | [optional] [default to undefined]
 **anrokItemId** | **string** |  | [optional] [readonly] [default to undefined]
 **lines** | [**Array&lt;ProductBundleLine&gt;**](ProductBundleLine.md) |  | [optional] [default to undefined]
 **createdAt** | **string** |  | [optional] [readonly] [default to undefined]

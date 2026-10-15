@@ -11,6 +11,11 @@ Name | Type | Description | Notes
 **accountId** | **number** |  | [optional] [default to undefined]
 **amount** | **number** |  | [default to undefined]
 **amountPayable** | **number** |  | [optional] [default to undefined]
+**creditAccountId** | **number** |  | [optional] [default to undefined]
+**writeoffAccountId** | **number** |  | [optional] [default to undefined]
+**withholdingAmount** | **number** |  | [optional] [default to undefined]
+**withholdingTaxRateId** | **number** |  | [optional] [default to undefined]
+**counterpartyEntity** | **number** |  | [optional] [default to undefined]
 
 ## Example
 
@@ -24,6 +29,11 @@ const instance: MarkPaidTransaction = {
     accountId,
     amount,
     amountPayable,
+    creditAccountId,
+    writeoffAccountId,
+    withholdingAmount,
+    withholdingTaxRateId,
+    counterpartyEntity,
 };
 ```
 

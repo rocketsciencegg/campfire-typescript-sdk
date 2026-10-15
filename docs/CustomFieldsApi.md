@@ -43,7 +43,7 @@ void (empty response body)
 
 ### Authorization
 
-[knoxApiToken](../README.md#knoxApiToken)
+No authorization required
 
 ### HTTP request headers
 

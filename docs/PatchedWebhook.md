@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **createdAt** | **string** |  | [optional] [readonly] [default to undefined]
 **lastModifiedAt** | **string** |  | [optional] [readonly] [default to undefined]
 **customer** | **number** |  | [optional] [readonly] [default to undefined]
+**app** | **string** |  | [optional] [readonly] [default to undefined]
 
 ## Example
 
@@ -30,6 +31,7 @@ const instance: PatchedWebhook = {
     createdAt,
     lastModifiedAt,
     customer,
+    app,
 };
 ```
 

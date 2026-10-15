@@ -8,6 +8,10 @@ Name | Type | Description | Notes
 **id** | **number** |  | [optional] [readonly] [default to undefined]
 **customer** | **number** |  | [optional] [readonly] [default to undefined]
 **contract** | **number** |  | [optional] [default to undefined]
+**billingCadence** | [**BillingCadence450Enum**](BillingCadence450Enum.md) |  | [optional] [default to undefined]
+**billingTiming** | [**BillingTimingEnum**](BillingTimingEnum.md) |  | [optional] [default to undefined]
+**firstInvoiceDate** | **string** |  | [optional] [default to undefined]
+**billingPaymentTerm** | **number** |  | [optional] [default to undefined]
 **product** | **number** |  | [optional] [default to undefined]
 **productBundle** | **string** |  | [optional] [readonly] [default to undefined]
 **contractProductBundle** | [**ContractProductBundleRead**](ContractProductBundleRead.md) |  | [optional] [readonly] [default to undefined]
@@ -16,10 +20,12 @@ Name | Type | Description | Notes
 **milestoneName** | **string** |  | [optional] [default to undefined]
 **milestoneDate** | **string** |  | [optional] [default to undefined]
 **amount** | **number** |  | [optional] [default to undefined]
+**quantity** | **number** |  | [optional] [default to undefined]
+**rate** | **number** |  | [optional] [default to undefined]
 **description** | **string** |  | [optional] [default to undefined]
 **department** | **number** |  | [optional] [default to undefined]
 **departmentName** | **string** |  | [optional] [readonly] [default to undefined]
-**tags** | [**Array&lt;TransactionTag&gt;**](TransactionTag.md) |  | [optional] [readonly] [default to undefined]
+**tags** | **Array&lt;{ [key: string]: any; }&gt;** |  | [optional] [readonly] [default to undefined]
 **revenueTransactionId** | **number** |  | [optional] [readonly] [default to undefined]
 **createdAt** | **string** |  | [optional] [readonly] [default to undefined]
 **lastModifiedAt** | **string** |  | [optional] [readonly] [default to undefined]
@@ -35,6 +41,10 @@ const instance: PatchedContractMilestone = {
     id,
     customer,
     contract,
+    billingCadence,
+    billingTiming,
+    firstInvoiceDate,
+    billingPaymentTerm,
     product,
     productBundle,
     contractProductBundle,
@@ -43,6 +53,8 @@ const instance: PatchedContractMilestone = {
     milestoneName,
     milestoneDate,
     amount,
+    quantity,
+    rate,
     description,
     department,
     departmentName,

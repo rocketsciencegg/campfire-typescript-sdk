@@ -8,14 +8,19 @@ Name | Type | Description | Notes
 **id** | **number** |  | [readonly] [default to undefined]
 **lines** | [**Array&lt;CostAllocationLine&gt;**](CostAllocationLine.md) |  | [default to undefined]
 **lineCount** | **number** |  | [readonly] [default to undefined]
+**isDefinitionLocked** | **boolean** | True once a dynamic allocation has posted a split; static allocations stay editable. | [readonly] [default to undefined]
 **isDeleted** | **boolean** |  | [readonly] [default to false]
 **deletedAt** | **string** |  | [readonly] [default to undefined]
 **name** | **string** |  | [default to undefined]
 **number** | **string** |  | [optional] [default to undefined]
+**isDynamic** | **boolean** |  | [optional] [default to undefined]
+**membershipMode** | [**MembershipModeEnum**](MembershipModeEnum.md) |  | [optional] [default to undefined]
 **createdAt** | **string** |  | [readonly] [default to undefined]
 **lastModifiedAt** | **string** |  | [readonly] [default to undefined]
 **customer** | **number** |  | [readonly] [default to undefined]
 **account** | **number** |  | [optional] [default to undefined]
+**basis** | **number** |  | [optional] [default to undefined]
+**destinationAccount** | **number** |  | [optional] [default to undefined]
 
 ## Example
 
@@ -26,14 +31,19 @@ const instance: CostAllocation = {
     id,
     lines,
     lineCount,
+    isDefinitionLocked,
     isDeleted,
     deletedAt,
     name,
     number,
+    isDynamic,
+    membershipMode,
     createdAt,
     lastModifiedAt,
     customer,
     account,
+    basis,
+    destinationAccount,
 };
 ```
 

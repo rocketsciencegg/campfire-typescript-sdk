@@ -1,0 +1,4336 @@
+--- campfire.upstream.json
++++ campfire.json
+@@ -76,7 +76,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -116,7 +116,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -147,7 +147,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -196,7 +196,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -244,7 +244,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -402,7 +402,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -503,7 +503,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -821,7 +821,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -852,7 +852,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -1105,7 +1105,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -1172,7 +1172,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -1203,7 +1203,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -1252,7 +1252,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -1300,7 +1300,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -1512,7 +1512,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 },
+                 "x-mint": {
+@@ -1686,7 +1686,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 },
+                 "x-mint": {
+@@ -1800,7 +1800,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -2022,7 +2022,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 },
+                 "x-mint": {
+@@ -2166,7 +2166,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -2292,7 +2292,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -2351,7 +2351,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -2391,7 +2391,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -2422,7 +2422,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -2471,7 +2471,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -2519,7 +2519,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -2608,7 +2608,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -2636,7 +2636,8 @@
+                                 "$ref": "#/components/schemas/CustomerCurrency"
+                             }
+                         }
+-                    }
++                    },
++                    "required": true
+                 },
+                 "responses": {
+                     "201": {
+@@ -2647,7 +2648,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -2678,7 +2679,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -2715,7 +2716,8 @@
+                                 "$ref": "#/components/schemas/CustomerCurrency"
+                             }
+                         }
+-                    }
++                    },
++                    "required": true
+                 },
+                 "responses": {
+                     "200": {
+@@ -2726,7 +2728,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -2774,7 +2776,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -2915,7 +2917,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -2955,7 +2957,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -2986,7 +2988,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -3035,7 +3037,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -3083,7 +3085,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -3180,7 +3182,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -3220,7 +3222,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -3251,7 +3253,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -3300,7 +3302,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -3348,7 +3350,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -3468,7 +3470,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -3508,7 +3510,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -3550,7 +3552,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -3590,7 +3592,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -3690,7 +3692,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 },
+                 "x-mint": {
+@@ -3737,7 +3739,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -3797,7 +3799,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -3835,7 +3837,8 @@
+                                 "$ref": "#/components/schemas/BudgetAccount"
+                             }
+                         }
+-                    }
++                    },
++                    "required": true
+                 },
+                 "responses": {
+                     "201": {
+@@ -3846,7 +3849,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -3885,7 +3888,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -3930,7 +3933,8 @@
+                                 "$ref": "#/components/schemas/BudgetAccount"
+                             }
+                         }
+-                    }
++                    },
++                    "required": true
+                 },
+                 "responses": {
+                     "200": {
+@@ -3941,7 +3945,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -3997,7 +4001,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -4058,7 +4062,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -4107,7 +4111,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -4155,7 +4159,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -4199,7 +4203,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -4227,7 +4231,8 @@
+                                 "$ref": "#/components/schemas/ChartAccountSettings"
+                             }
+                         }
+-                    }
++                    },
++                    "required": true
+                 },
+                 "responses": {
+                     "200": {
+@@ -4238,7 +4243,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -4277,7 +4282,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -4344,7 +4349,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -4384,7 +4389,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -4415,7 +4420,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -4464,7 +4469,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -4512,7 +4517,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -4586,7 +4591,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -4649,7 +4654,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -4701,7 +4706,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -4750,7 +4755,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -4789,7 +4794,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -4882,7 +4887,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 },
+                 "x-mint": {
+@@ -4929,7 +4934,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -4960,7 +4965,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -5009,7 +5014,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -5057,7 +5062,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -5193,7 +5198,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -5238,7 +5243,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 },
+                 "x-mint": {
+@@ -5273,7 +5278,8 @@
+                                 "$ref": "#/components/schemas/ChartEntity"
+                             }
+                         }
+-                    }
++                    },
++                    "required": true
+                 },
+                 "responses": {
+                     "201": {
+@@ -5284,7 +5290,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -5305,7 +5311,7 @@
+                     }
+                 ],
+                 "tags": [
+-                    "coa"
++                    "Settings"
+                 ],
+                 "responses": {
+                     "200": {
+@@ -5340,7 +5346,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -5377,7 +5383,8 @@
+                                 "$ref": "#/components/schemas/ChartEntity"
+                             }
+                         }
+-                    }
++                    },
++                    "required": true
+                 },
+                 "responses": {
+                     "200": {
+@@ -5388,7 +5395,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -5436,7 +5443,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -5507,7 +5514,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -5574,7 +5581,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -5614,7 +5621,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -5674,7 +5681,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -5714,7 +5721,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -5746,7 +5753,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -5796,7 +5803,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -5845,7 +5852,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -5877,7 +5884,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -5927,7 +5934,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -5976,7 +5983,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -6008,7 +6015,7 @@
+         "/coa/api/fixed-asset-automation/{id}/delete": {
+             "post": {
+                 "operationId": "coa_api_fixed_asset_automation_delete_create",
+-                "description": "The type of the None singleton.",
++                "description": "Delete a fixed asset automation. Replaces the deprecated DELETE /coa/api/fixed-asset-automation/{id}/.",
+                 "parameters": [
+                     {
+                         "in": "path",
+@@ -6020,7 +6027,7 @@
+                     }
+                 ],
+                 "tags": [
+-                    "coa"
++                    "Core Accounting"
+                 ],
+                 "requestBody": {
+                     "content": {
+@@ -6048,7 +6055,8 @@
+                     "202": {
+                         "description": "Sent for approval; the record is deleted once a reviewer approves."
+                     }
+-                }
++                },
++                "summary": "Delete Fixed Asset Automation"
+             }
+         },
+         "/coa/api/fixed-asset-automation/accounts": {
+@@ -6127,7 +6135,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -6209,7 +6217,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -6249,7 +6257,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -6280,7 +6288,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -6329,7 +6337,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -6377,7 +6385,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -6430,7 +6438,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -6479,7 +6487,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -6527,7 +6535,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -6586,7 +6594,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -6760,7 +6768,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -7151,7 +7159,8 @@
+                                 "$ref": "#/components/schemas/IntercompanyJournalEntry"
+                             }
+                         }
+-                    }
++                    },
++                    "required": true
+                 },
+                 "responses": {
+                     "201": {
+@@ -7443,7 +7452,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -7756,7 +7765,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -8151,7 +8160,8 @@
+                                 "$ref": "#/components/schemas/IntercompanyJournalEntry"
+                             }
+                         }
+-                    }
++                    },
++                    "required": true
+                 },
+                 "responses": {
+                     "200": {
+@@ -8438,7 +8448,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -8487,7 +8497,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -8596,7 +8606,8 @@
+                                 }
+                             }
+                         }
+-                    }
++                    },
++                    "required": true
+                 },
+                 "responses": {
+                     "200": {
+@@ -8861,7 +8872,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -9115,7 +9126,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -9311,7 +9322,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -9525,7 +9536,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -9574,7 +9585,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -9603,21 +9614,21 @@
+                         "content": {
+                             "application/json": {
+                                 "schema": {
+-                                    "description": "Books are closed for this date"
++                                    "type": "object"
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Books are closed for this date"
+                     },
+                     "409": {
+                         "content": {
+                             "application/json": {
+                                 "schema": {
+-                                    "description": "Journal entry is associated with other objects"
++                                    "type": "object"
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Journal entry is associated with other objects"
+                     }
+                 }
+             }
+@@ -9742,7 +9753,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 },
+                 "x-mint": {
+@@ -9789,7 +9800,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -9864,7 +9875,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -9904,7 +9915,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -9935,7 +9946,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -9984,7 +9995,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -10032,7 +10043,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -10085,7 +10096,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -10134,7 +10145,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -10182,7 +10193,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -10318,7 +10329,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -11115,7 +11126,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 },
+                 "x-mint": {
+@@ -11212,7 +11223,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -11257,7 +11268,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -11306,7 +11317,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -11354,7 +11365,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -11596,7 +11607,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -11645,7 +11656,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -11693,7 +11704,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -11847,17 +11858,17 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     },
+                     "400": {
+                         "content": {
+                             "application/json": {
+                                 "schema": {
+-                                    "description": "Validation error - invalid transaction count, same journal, mismatched amounts, or mismatched entities"
++                                    "type": "object"
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Validation error - invalid transaction count, same journal, mismatched amounts, or mismatched entities"
+                     }
+                 }
+             },
+@@ -11895,7 +11906,8 @@
+                                 ]
+                             }
+                         }
+-                    }
++                    },
++                    "required": true
+                 },
+                 "responses": {
+                     "200": {
+@@ -11906,17 +11918,17 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     },
+                     "400": {
+                         "content": {
+                             "application/json": {
+                                 "schema": {
+-                                    "description": "Validation error - invalid transaction count, draft queue not found, same journal, mismatched amounts, or mismatched entities"
++                                    "type": "object"
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Validation error - invalid transaction count, draft queue not found, same journal, mismatched amounts, or mismatched entities"
+                     }
+                 }
+             }
+@@ -11951,7 +11963,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -12348,7 +12360,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -12390,7 +12402,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -12430,7 +12442,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -12462,7 +12474,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -12511,7 +12523,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -12560,7 +12572,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -12733,7 +12745,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -12802,17 +12814,17 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     },
+                     "404": {
+                         "content": {
+                             "application/json": {
+                                 "schema": {
+-                                    "description": "Bill not found"
++                                    "type": "object"
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Bill not found"
+                     }
+                 }
+             }
+@@ -12889,7 +12901,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -12950,7 +12962,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -13016,7 +13028,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -13100,7 +13112,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -13254,7 +13266,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -13596,7 +13608,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -13646,7 +13658,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -13740,7 +13752,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -13782,7 +13794,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -13990,7 +14002,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -14130,7 +14142,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -14179,11 +14191,11 @@
+                         "content": {
+                             "application/json": {
+                                 "schema": {
+-                                    "description": "Credit memo marked as used successfully"
++                                    "type": "object"
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Credit memo marked as used successfully"
+                     }
+                 }
+             }
+@@ -14244,7 +14256,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -14310,7 +14322,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     },
+                     "409": {
+                         "content": {
+@@ -14320,7 +14332,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Conflict"
+                     }
+                 }
+             }
+@@ -14373,7 +14385,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     },
+                     "409": {
+                         "content": {
+@@ -14383,7 +14395,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Conflict"
+                     }
+                 }
+             }
+@@ -14506,7 +14518,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -14683,7 +14695,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -14814,7 +14826,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -14930,7 +14942,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -15061,7 +15073,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -15198,7 +15210,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -15247,11 +15259,11 @@
+                         "content": {
+                             "application/json": {
+                                 "schema": {
+-                                    "description": "Debit memo marked as used successfully"
++                                    "type": "object"
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Debit memo marked as used successfully"
+                     }
+                 }
+             }
+@@ -15312,7 +15324,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -15378,7 +15390,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -15431,7 +15443,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -15550,7 +15562,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -15636,7 +15648,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -15693,7 +15705,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -15759,7 +15771,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -15986,7 +15998,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -16171,7 +16183,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -16270,7 +16282,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -16322,7 +16334,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     },
+                     "400": {
+                         "content": {
+@@ -16334,7 +16346,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Bad Request"
+                     },
+                     "404": {
+                         "content": {
+@@ -16346,7 +16358,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Not Found"
+                     }
+                 }
+             }
+@@ -16399,7 +16411,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     },
+                     "400": {
+                         "content": {
+@@ -16411,7 +16423,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Bad Request"
+                     },
+                     "404": {
+                         "content": {
+@@ -16423,7 +16435,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Not Found"
+                     }
+                 }
+             }
+@@ -16501,7 +16513,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -16562,7 +16574,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -16628,7 +16640,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -16680,7 +16692,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -16825,7 +16837,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -16875,7 +16887,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -16924,7 +16936,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -16990,7 +17002,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -17109,7 +17121,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     },
+                     "400": {
+                         "description": "No response body"
+@@ -17156,7 +17168,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -17366,7 +17378,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -17534,7 +17546,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -17583,7 +17595,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -17673,7 +17685,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -17713,7 +17725,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -17745,7 +17757,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -17795,7 +17807,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -17844,7 +17856,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -18072,7 +18084,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -18141,7 +18153,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Not Found"
+                     }
+                 }
+             }
+@@ -18279,7 +18291,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 },
+                 "x-mint": {
+@@ -18326,7 +18338,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -18401,7 +18413,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -18441,7 +18453,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -18472,7 +18484,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -18521,7 +18533,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -18569,7 +18581,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -18623,7 +18635,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -18661,7 +18673,8 @@
+                                 "$ref": "#/components/schemas/VendorContact"
+                             }
+                         }
+-                    }
++                    },
++                    "required": true
+                 },
+                 "responses": {
+                     "200": {
+@@ -18672,7 +18685,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -18721,7 +18734,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -18775,7 +18788,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -18824,7 +18837,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -18872,7 +18885,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -18953,7 +18966,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -18991,7 +19004,8 @@
+                                 "$ref": "#/components/schemas/VendorContact"
+                             }
+                         }
+-                    }
++                    },
++                    "required": true
+                 },
+                 "responses": {
+                     "201": {
+@@ -19002,7 +19016,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -19044,7 +19058,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -19085,7 +19099,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -19109,7 +19123,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -19136,7 +19150,8 @@
+                                 "$ref": "#/components/schemas/VendorCustomField1"
+                             }
+                         }
+-                    }
++                    },
++                    "required": true
+                 },
+                 "responses": {
+                     "201": {
+@@ -19147,7 +19162,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -19178,7 +19193,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -19215,7 +19230,8 @@
+                                 "$ref": "#/components/schemas/VendorCustomField1"
+                             }
+                         }
+-                    }
++                    },
++                    "required": true
+                 },
+                 "responses": {
+                     "200": {
+@@ -19226,7 +19242,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -19274,7 +19290,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -19320,7 +19336,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -19359,7 +19375,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -19390,7 +19406,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -19439,7 +19455,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -19487,7 +19503,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -19543,7 +19559,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -19610,7 +19626,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 },
+                 "x-mint": {
+@@ -19697,7 +19713,8 @@
+                                 "$ref": "#/components/schemas/Contract"
+                             }
+                         }
+-                    }
++                    },
++                    "required": true
+                 },
+                 "responses": {
+                     "201": {
+@@ -19708,7 +19725,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -19768,7 +19785,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -19860,7 +19877,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -19899,7 +19916,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -19956,7 +19973,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -20012,7 +20029,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -20117,7 +20134,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -20167,7 +20184,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -20207,7 +20224,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -20265,7 +20282,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -20322,7 +20339,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -20361,7 +20378,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -20418,7 +20435,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -20474,7 +20491,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -20577,7 +20594,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -20626,7 +20643,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -20683,7 +20700,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -20740,7 +20757,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -20908,7 +20925,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -21046,7 +21063,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -21103,7 +21120,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -21159,7 +21176,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -21249,7 +21266,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -21342,7 +21359,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -21381,7 +21398,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -21438,7 +21455,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -21494,7 +21511,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -21594,7 +21611,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     },
+                     "202": {
+                         "content": {
+@@ -21678,7 +21695,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -21736,7 +21753,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -21793,7 +21810,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -21842,7 +21859,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -21891,7 +21908,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -21941,7 +21958,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -21991,7 +22008,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -22031,7 +22048,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -22089,7 +22106,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -22146,7 +22163,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -22217,7 +22234,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -22275,7 +22292,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -22332,7 +22349,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -22363,7 +22380,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -22400,7 +22417,8 @@
+                                 "$ref": "#/components/schemas/Contract"
+                             }
+                         }
+-                    }
++                    },
++                    "required": true
+                 },
+                 "responses": {
+                     "200": {
+@@ -22411,7 +22429,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -22459,7 +22477,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -22512,7 +22530,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -22538,7 +22556,8 @@
+                     "200": {
+                         "description": "No response body"
+                     }
+-                }
++                },
++                "summary": "Preview Contract Minimum Commit"
+             }
+         },
+         "/rr/api/v1/contracts/{id}/terminate": {
+@@ -22588,7 +22607,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -22636,7 +22655,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -22681,7 +22700,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -22763,7 +22782,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -22794,7 +22813,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -22843,7 +22862,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -22891,7 +22910,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -22958,7 +22977,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -23026,7 +23045,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -23055,7 +23074,8 @@
+                                 "$ref": "#/components/schemas/Product"
+                             }
+                         }
+-                    }
++                    },
++                    "required": true
+                 },
+                 "responses": {
+                     "201": {
+@@ -23066,7 +23086,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -23133,7 +23153,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -23173,7 +23193,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -23204,7 +23224,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -23253,7 +23273,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -23301,7 +23321,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -23355,7 +23375,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -23393,7 +23413,8 @@
+                                 "$ref": "#/components/schemas/Product"
+                             }
+                         }
+-                    }
++                    },
++                    "required": true
+                 },
+                 "responses": {
+                     "200": {
+@@ -23404,7 +23425,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -23453,7 +23474,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -23490,7 +23511,7 @@
+         "/rr/api/v1/product/{id}/delete": {
+             "post": {
+                 "operationId": "rr_api_v1_product_delete_create",
+-                "description": "The type of the None singleton.",
++                "description": "Delete a product.",
+                 "summary": "Delete Product",
+                 "parameters": [
+                     {
+@@ -23573,7 +23594,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             }
+@@ -23640,7 +23661,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -23668,7 +23689,8 @@
+                                 "$ref": "#/components/schemas/RevenueTransaction"
+                             }
+                         }
+-                    }
++                    },
++                    "required": true
+                 },
+                 "responses": {
+                     "201": {
+@@ -23679,7 +23701,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "Created"
+                     }
+                 }
+             }
+@@ -23710,7 +23732,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -23747,7 +23769,8 @@
+                                 "$ref": "#/components/schemas/RevenueTransaction"
+                             }
+                         }
+-                    }
++                    },
++                    "required": true
+                 },
+                 "responses": {
+                     "200": {
+@@ -23758,7 +23781,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -23806,7 +23829,7 @@
+                                 }
+                             }
+                         },
+-                        "description": ""
++                        "description": "OK"
+                     }
+                 }
+             },
+@@ -24084,15 +24107,9 @@
+                     },
+                     "terms": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/TermsEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -24126,15 +24143,9 @@
+                     "ita_bill_type": {
+                         "nullable": true,
+                         "description": "Israel tax compliance: bill classification type\n\n* `other` - Other\n* `equipment` - Equipment",
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/ItaBillTypeEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -24156,15 +24167,9 @@
+                     },
+                     "payment_status": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/AccountingBillPaymentStatusEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -24220,15 +24225,9 @@
+                     },
+                     "tax_behavior": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/TaxBehaviorEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -24759,15 +24758,9 @@
+                     },
+                     "application_status": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/ApplicationStatusEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -25292,15 +25285,9 @@
+                     },
+                     "application_status": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/ApplicationStatusEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -25357,15 +25344,9 @@
+                     },
+                     "tax_behavior": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/TaxBehaviorEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -26000,15 +25981,9 @@
+                     },
+                     "terms": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/TermsEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -26078,15 +26053,9 @@
+                     },
+                     "payment_status": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/PaymentStatusCdcEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -26512,15 +26481,9 @@
+                     "charge_type": {
+                         "nullable": true,
+                         "description": "Billing charge classification for generated invoice lines; null when unclassified.\n\n* `prepaid_commit` - Prepaid commitment\n* `overage` - Overage",
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/ChargeTypeEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -26917,15 +26880,9 @@
+                     },
+                     "terms": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/TermsEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -26995,15 +26952,9 @@
+                     },
+                     "payment_status": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/PaymentStatusCdcEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -27336,15 +27287,9 @@
+                     },
+                     "source": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/Source47fEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -27352,12 +27297,9 @@
+                         "readOnly": true,
+                         "nullable": true,
+                         "description": "Type of payment: credit memo application, bank transaction, or manual transaction\n\n* `CREDIT_MEMO` - Credit Memo\n* `BANK_TRANSACTION` - Bank Transaction\n* `MANUAL_TRANSACTION` - Manual Transaction",
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/PaymentTypeEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -27485,12 +27427,9 @@
+                     "skip_reason": {
+                         "readOnly": true,
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/SkipReasonEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -27884,15 +27823,9 @@
+                     },
+                     "type": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/BankAccountTypeEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -28735,11 +28668,6 @@
+                 "type": "string",
+                 "description": "* `advance` - In advance\n* `arrears` - In arrears"
+             },
+-            "BlankEnum": {
+-                "enum": [
+-                    ""
+-                ]
+-            },
+             "BreakdownTypeEnum": {
+                 "enum": [
+                     "standard",
+@@ -29336,12 +29264,9 @@
+                     },
+                     "vendor_type": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/BulkVendorVendorTypeEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -30390,15 +30315,9 @@
+                     "ita_payer_status": {
+                         "nullable": true,
+                         "description": "Israel tax compliance: payer status classification for Form 856.\n\n* `1` - Company\n* `2` - Individual\n* `3` - Partner\n* `4` - Non-profit\n* `5` - Agency",
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/ItaPayerStatusEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     }
+@@ -31927,15 +31846,9 @@
+                         "nullable": true,
+                         "default": "vendor",
+                         "title": "Payee Type",
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/VendorType391Enum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -32116,30 +32029,18 @@
+                     "ita_vendor_entity_code": {
+                         "nullable": true,
+                         "description": "Israel tax compliance: vendor residency classification for Form 856.\n\n* `0` - Israeli company\n* `2` - PA resident\n* `3` - Foreign individual\n* `5` - Foreign company",
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/ItaVendorEntityCodeEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+                     "ita_vendor_entity_type": {
+                         "nullable": true,
+                         "description": "Israel tax compliance: vendor legal-form classification for Form 856.\n\n* `1` - Individual\n* `2` - Company\n* `3` - Osek",
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/ItaVendorEntityTypeEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -32164,15 +32065,9 @@
+                     },
+                     "source": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/Source3b3Enum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -32210,15 +32105,9 @@
+                     },
+                     "terms": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/TermsEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -32330,29 +32219,17 @@
+                     },
+                     "billing_cadence": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/BillingCadence450Enum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+                     "billing_timing": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/BillingTimingEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -32501,29 +32378,17 @@
+                     },
+                     "billing_cadence": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/BillingCadence450Enum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+                     "billing_timing": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/BillingTimingEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -32990,12 +32855,9 @@
+                         "readOnly": true,
+                         "nullable": true,
+                         "description": "Snapshotted from ProductBundleLine.component_type at snapshot time. NULL = legacy single-type bundle.\n\n* `SUBSCRIPTION` - Subscription\n* `MILESTONE` - Milestone\n* `USAGE` - Usage",
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/ComponentTypeEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     }
+@@ -33269,29 +33131,17 @@
+                     },
+                     "billing_cadence": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/BillingCadence450Enum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+                     "billing_timing": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/BillingTimingEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -33573,29 +33423,17 @@
+                     },
+                     "billing_cadence": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/BillingCadence450Enum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+                     "billing_timing": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/BillingTimingEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -34316,15 +34154,9 @@
+                     },
+                     "data_subtype": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/DataSubtypeEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -35873,12 +35705,9 @@
+                     "proration_method": {
+                         "nullable": true,
+                         "description": "Proration method. When provided, takes precedence over use_daily_accounting (DAILY↔True, STANDARD/THIRTY_DAY↔False).\n\n* `standard` - Standard (actual month length)\n* `thirty_day` - Fixed 30-day month\n* `daily` - Daily",
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/ProrationMethodEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -35910,23 +35739,17 @@
+                     },
+                     "billing_cadence": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/GenerageSubscriptionScheduleBillingCadenceEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+                     "billing_timing": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/BillingTimingEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -35947,12 +35770,9 @@
+                     "revenue_recognition_type": {
+                         "nullable": true,
+                         "description": "Recognition type of the subscription being previewed. RATABLE keeps the monthly recognition schedule and stamps each row with its billing date. Omitted means the preview mirrors the billing installments.\n\n* `RATABLE` - Ratable\n* `RELATIVE_TO_PREPAID_COMMIT` - Relative to prepaid commit",
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/RevenueRecognitionTypeEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     }
+@@ -36532,24 +36352,18 @@
+                         "readOnly": true,
+                         "nullable": true,
+                         "description": "Type of payment: credit memo application, bank transaction, or manual transaction\n\n* `CREDIT_MEMO` - Credit Memo\n* `BANK_TRANSACTION` - Bank Transaction\n* `MANUAL_TRANSACTION` - Manual Transaction",
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/PaymentTypeEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+                     "source": {
+                         "readOnly": true,
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/Source47fEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -37970,23 +37784,17 @@
+                     },
+                     "billing_cadence": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/BillingCadence450Enum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+                     "billing_timing": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/BillingTimingEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -38099,11 +37907,6 @@
+                     "name",
+                     "start_date",
+                     "total_value"
+-                ]
+-            },
+-            "NullEnum": {
+-                "enum": [
+-                    null
+                 ]
+             },
+             "OverageInvoiceCadenceEnum": {
+@@ -39670,15 +39473,9 @@
+                     },
+                     "terms": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/TermsEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -39712,15 +39509,9 @@
+                     "ita_bill_type": {
+                         "nullable": true,
+                         "description": "Israel tax compliance: bill classification type\n\n* `other` - Other\n* `equipment` - Equipment",
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/ItaBillTypeEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -39742,15 +39533,9 @@
+                     },
+                     "payment_status": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/AccountingBillPaymentStatusEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -39806,15 +39591,9 @@
+                     },
+                     "tax_behavior": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/TaxBehaviorEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -40018,15 +39797,9 @@
+                     },
+                     "application_status": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/ApplicationStatusEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -40296,15 +40069,9 @@
+                     },
+                     "application_status": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/ApplicationStatusEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -40361,15 +40128,9 @@
+                     },
+                     "tax_behavior": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/TaxBehaviorEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -40759,15 +40520,9 @@
+                     },
+                     "terms": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/TermsEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -40837,15 +40592,9 @@
+                     },
+                     "payment_status": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/PaymentStatusCdcEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -41158,15 +40907,9 @@
+                     },
+                     "type": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/BankAccountTypeEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -42485,15 +42228,9 @@
+                     "ita_payer_status": {
+                         "nullable": true,
+                         "description": "Israel tax compliance: payer status classification for Form 856.\n\n* `1` - Company\n* `2` - Individual\n* `3` - Partner\n* `4` - Non-profit\n* `5` - Agency",
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/ItaPayerStatusEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     }
+@@ -43752,15 +43489,9 @@
+                         "nullable": true,
+                         "default": "vendor",
+                         "title": "Payee Type",
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/VendorType391Enum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -43941,30 +43672,18 @@
+                     "ita_vendor_entity_code": {
+                         "nullable": true,
+                         "description": "Israel tax compliance: vendor residency classification for Form 856.\n\n* `0` - Israeli company\n* `2` - PA resident\n* `3` - Foreign individual\n* `5` - Foreign company",
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/ItaVendorEntityCodeEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+                     "ita_vendor_entity_type": {
+                         "nullable": true,
+                         "description": "Israel tax compliance: vendor legal-form classification for Form 856.\n\n* `1` - Individual\n* `2` - Company\n* `3` - Osek",
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/ItaVendorEntityTypeEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -43989,15 +43708,9 @@
+                     },
+                     "source": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/Source3b3Enum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -44035,15 +43748,9 @@
+                     },
+                     "terms": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/TermsEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -44106,29 +43813,17 @@
+                     },
+                     "billing_cadence": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/BillingCadence450Enum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+                     "billing_timing": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/BillingTimingEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -44259,29 +43954,17 @@
+                     },
+                     "billing_cadence": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/BillingCadence450Enum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+                     "billing_timing": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/BillingTimingEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -44585,29 +44268,17 @@
+                     },
+                     "billing_cadence": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/BillingCadence450Enum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+                     "billing_timing": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/BillingTimingEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -47335,15 +47006,9 @@
+                     "applied_payment_kind": {
+                         "nullable": true,
+                         "description": "Kind of payment created when this match was applied.\n\n* `AIP` - Invoice payment\n* `ABP` - Bill payment",
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/AppliedPaymentKindEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -47483,12 +47148,9 @@
+                     "system_type": {
+                         "readOnly": true,
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/SystemTypeEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -47593,15 +47255,9 @@
+                         "nullable": true,
+                         "default": "vendor",
+                         "title": "Payee Type",
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/VendorType391Enum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -47782,30 +47438,18 @@
+                     "ita_vendor_entity_code": {
+                         "nullable": true,
+                         "description": "Israel tax compliance: vendor residency classification for Form 856.\n\n* `0` - Israeli company\n* `2` - PA resident\n* `3` - Foreign individual\n* `5` - Foreign company",
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/ItaVendorEntityCodeEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+                     "ita_vendor_entity_type": {
+                         "nullable": true,
+                         "description": "Israel tax compliance: vendor legal-form classification for Form 856.\n\n* `1` - Individual\n* `2` - Company\n* `3` - Osek",
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/ItaVendorEntityTypeEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -47830,15 +47474,9 @@
+                     },
+                     "source": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/Source3b3Enum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -47876,15 +47514,9 @@
+                     },
+                     "terms": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/TermsEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -48574,15 +48206,9 @@
+                     "component_type": {
+                         "nullable": true,
+                         "description": "Component type for this line in a mixed-type bundle. NULL = legacy single-type bundle (type inherited from the referencing ContractSubscription/Milestone/Usage).\n\n* `SUBSCRIPTION` - Subscription\n* `MILESTONE` - Milestone\n* `USAGE` - Usage",
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/ComponentTypeEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     }
+@@ -50319,12 +49945,9 @@
+                     "successor_target_kind": {
+                         "nullable": true,
+                         "description": "Successor target kind for the signed recognition-basis adjustment.\n\n* `prepaid_commit` - prepaid_commit",
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/SuccessorTargetKindEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -50947,15 +50570,9 @@
+                     "applied_payment_kind": {
+                         "nullable": true,
+                         "description": "Kind of payment created when this match was applied.\n\n* `AIP` - Invoice payment\n* `ABP` - Bill payment",
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/AppliedPaymentKindEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -51164,12 +50781,9 @@
+                     "system_type": {
+                         "readOnly": true,
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/SystemTypeEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -51454,15 +51068,9 @@
+                         "nullable": true,
+                         "default": "vendor",
+                         "title": "Payee Type",
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/VendorType391Enum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -51643,30 +51251,18 @@
+                     "ita_vendor_entity_code": {
+                         "nullable": true,
+                         "description": "Israel tax compliance: vendor residency classification for Form 856.\n\n* `0` - Israeli company\n* `2` - PA resident\n* `3` - Foreign individual\n* `5` - Foreign company",
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/ItaVendorEntityCodeEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+                     "ita_vendor_entity_type": {
+                         "nullable": true,
+                         "description": "Israel tax compliance: vendor legal-form classification for Form 856.\n\n* `1` - Individual\n* `2` - Company\n* `3` - Osek",
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/ItaVendorEntityTypeEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -51691,15 +51287,9 @@
+                     },
+                     "source": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/Source3b3Enum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -51737,15 +51327,9 @@
+                     },
+                     "terms": {
+                         "nullable": true,
+-                        "oneOf": [
++                        "allOf": [
+                             {
+                                 "$ref": "#/components/schemas/TermsEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/BlankEnum"
+-                            },
+-                            {
+-                                "$ref": "#/components/schemas/NullEnum"
+                             }
+                         ]
+                     },
+@@ -52374,6 +51958,22 @@
+         {
+             "name": "Settings",
+             "description": "Operations related to system and accounting settings configuration."
++        },
++        {
++            "name": "Company Objects",
++            "description": "Operations related to company entities and organizational objects."
++        },
++        {
++            "name": "Custom Fields",
++            "description": "Operations related to custom field definitions and management."
++        },
++        {
++            "name": "Bank Reconciliation",
++            "description": "Operations related to bank reconciliation and transaction matching."
++        },
++        {
++            "name": "Integrations",
++            "description": "Operations related to third-party integrations and webhooks."
+         }
+     ]
+ }
+\ No newline at end of file
