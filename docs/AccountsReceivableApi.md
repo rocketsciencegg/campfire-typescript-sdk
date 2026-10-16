@@ -14,32 +14,32 @@ All URIs are relative to *https://api.meetcampfire.com*
 |[**coaApiV1CreditMemoPartialUpdate**](#coaapiv1creditmemopartialupdate) | **PATCH** /coa/api/v1/credit-memo/{id} | Partial Update Credit Memo|
 |[**coaApiV1CreditMemoPaymentVoidCreate**](#coaapiv1creditmemopaymentvoidcreate) | **POST** /coa/api/v1/credit-memo/{credit_memo_id}/payment/{payment_id}/void | Void Credit Memo Used Payment|
 |[**coaApiV1CreditMemoPaymentVoidDestroy**](#coaapiv1creditmemopaymentvoiddestroy) | **DELETE** /coa/api/v1/credit-memo/{credit_memo_id}/payment/{payment_id}/void | Delete Credit Memo Used Payment|
-|[**coaApiV1CreditMemoReopenCreate**](#coaapiv1creditmemoreopencreate) | **POST** /coa/api/v1/credit-memo/{credit_memo_id}/reopen/ | Reopen Voided Credit Memo|
+|[**coaApiV1CreditMemoReopenCreate**](#coaapiv1creditmemoreopencreate) | **POST** /coa/api/v1/credit-memo/{credit_memo_id}/reopen | Reopen Voided Credit Memo|
 |[**coaApiV1CreditMemoRetrieve**](#coaapiv1creditmemoretrieve) | **GET** /coa/api/v1/credit-memo/{id} | Retrieve Credit Memo|
 |[**coaApiV1CreditMemoUpdate**](#coaapiv1creditmemoupdate) | **PUT** /coa/api/v1/credit-memo/{id} | Update Credit Memo|
-|[**coaApiV1CreditMemoVoidCreate**](#coaapiv1creditmemovoidcreate) | **POST** /coa/api/v1/credit-memo/{credit_memo_id}/void/ | Void Credit Memo|
+|[**coaApiV1CreditMemoVoidCreate**](#coaapiv1creditmemovoidcreate) | **POST** /coa/api/v1/credit-memo/{credit_memo_id}/void | Void Credit Memo|
 |[**coaApiV1InvoiceBulkApplyPaymentCreate**](#coaapiv1invoicebulkapplypaymentcreate) | **POST** /coa/api/v1/invoice/bulk-apply-payment | Bulk Apply Transaction Payment to Selected Invoices|
 |[**coaApiV1InvoiceBulkSearchCreate**](#coaapiv1invoicebulksearchcreate) | **POST** /coa/api/v1/invoice/bulk-search | Bulk Search Invoices by Number|
 |[**coaApiV1InvoiceCalculatePaymentCreate**](#coaapiv1invoicecalculatepaymentcreate) | **POST** /coa/api/v1/invoice/{invoice_id}/calculate-payment | Calculate Invoice Payment|
-|[**coaApiV1InvoiceCreate**](#coaapiv1invoicecreate) | **POST** /coa/api/v1/invoice/ | Create Invoice|
+|[**coaApiV1InvoiceCreate**](#coaapiv1invoicecreate) | **POST** /coa/api/v1/invoice | Create Invoice|
 |[**coaApiV1InvoiceDefaultPaymentCreate**](#coaapiv1invoicedefaultpaymentcreate) | **POST** /coa/api/v1/invoice/{invoice_id}/default-payment | Get Default Payment Amount|
-|[**coaApiV1InvoiceDestroy**](#coaapiv1invoicedestroy) | **DELETE** /coa/api/v1/invoice/{id}/ | Delete Invoice|
-|[**coaApiV1InvoiceList**](#coaapiv1invoicelist) | **GET** /coa/api/v1/invoice/ | List Invoices|
-|[**coaApiV1InvoicePartialUpdate**](#coaapiv1invoicepartialupdate) | **PATCH** /coa/api/v1/invoice/{id}/ | Partial Update Invoice|
-|[**coaApiV1InvoicePayCreate**](#coaapiv1invoicepaycreate) | **POST** /coa/api/v1/invoice/{invoice_id}/pay/ | Mark Invoice as Paid|
-|[**coaApiV1InvoicePaymentVoidCreate**](#coaapiv1invoicepaymentvoidcreate) | **POST** /coa/api/v1/invoice/{invoice_id}/payment/{payment_id}/void/ | Void Invoice Payment|
-|[**coaApiV1InvoicePaymentVoidDestroy**](#coaapiv1invoicepaymentvoiddestroy) | **DELETE** /coa/api/v1/invoice/{invoice_id}/payment/{payment_id}/void/ | Delete Invoice Payment|
+|[**coaApiV1InvoiceDestroy**](#coaapiv1invoicedestroy) | **DELETE** /coa/api/v1/invoice/{id} | Delete Invoice|
+|[**coaApiV1InvoiceList**](#coaapiv1invoicelist) | **GET** /coa/api/v1/invoice | List Invoices|
+|[**coaApiV1InvoicePartialUpdate**](#coaapiv1invoicepartialupdate) | **PATCH** /coa/api/v1/invoice/{id} | Partial Update Invoice|
+|[**coaApiV1InvoicePayCreate**](#coaapiv1invoicepaycreate) | **POST** /coa/api/v1/invoice/{invoice_id}/pay | Mark Invoice as Paid|
+|[**coaApiV1InvoicePaymentVoidCreate**](#coaapiv1invoicepaymentvoidcreate) | **POST** /coa/api/v1/invoice/{invoice_id}/payment/{payment_id}/void | Void Invoice Payment|
+|[**coaApiV1InvoicePaymentVoidDestroy**](#coaapiv1invoicepaymentvoiddestroy) | **DELETE** /coa/api/v1/invoice/{invoice_id}/payment/{payment_id}/void | Delete Invoice Payment|
 |[**coaApiV1InvoicePaymentsList**](#coaapiv1invoicepaymentslist) | **GET** /coa/api/v1/invoice-payments | List Invoice Payments|
-|[**coaApiV1InvoiceReopenCreate**](#coaapiv1invoicereopencreate) | **POST** /coa/api/v1/invoice/{invoice_id}/reopen/ | Reopen Voided Invoice|
+|[**coaApiV1InvoiceReopenCreate**](#coaapiv1invoicereopencreate) | **POST** /coa/api/v1/invoice/{invoice_id}/reopen | Reopen Voided Invoice|
 |[**coaApiV1InvoiceReportDataRetrieve**](#coaapiv1invoicereportdataretrieve) | **GET** /coa/api/v1/invoice/report/{id}/data | Execute invoice report|
 |[**coaApiV1InvoiceReportPreviewRetrieve**](#coaapiv1invoicereportpreviewretrieve) | **GET** /coa/api/v1/invoice/report/preview | Preview invoice report|
-|[**coaApiV1InvoiceRetrieve**](#coaapiv1invoiceretrieve) | **GET** /coa/api/v1/invoice/{id}/ | Retrieve Invoice|
+|[**coaApiV1InvoiceRetrieve**](#coaapiv1invoiceretrieve) | **GET** /coa/api/v1/invoice/{id} | Retrieve Invoice|
 |[**coaApiV1InvoiceStatsRetrieve**](#coaapiv1invoicestatsretrieve) | **GET** /coa/api/v1/invoice/stats | Invoice Stat Card Aggregates|
-|[**coaApiV1InvoiceUpdate**](#coaapiv1invoiceupdate) | **PUT** /coa/api/v1/invoice/{id}/ | Update Invoice|
-|[**coaApiV1InvoiceVoidCreate**](#coaapiv1invoicevoidcreate) | **POST** /coa/api/v1/invoice/{invoice_id}/void/ | Void Invoice|
+|[**coaApiV1InvoiceUpdate**](#coaapiv1invoiceupdate) | **PUT** /coa/api/v1/invoice/{id} | Update Invoice|
+|[**coaApiV1InvoiceVoidCreate**](#coaapiv1invoicevoidcreate) | **POST** /coa/api/v1/invoice/{invoice_id}/void | Void Invoice|
 |[**createProduct**](#createproduct) | **POST** /rr/api/v1/product | Create Contract Product|
-|[**getClientInvoiceStatementPdf**](#getclientinvoicestatementpdf) | **GET** /coa/api/v1/invoice/statement/client/{client_id}/pdf/ | Get Client Invoice Statement PDF|
-|[**getCreditMemoPdf**](#getcreditmemopdf) | **GET** /coa/api/v1/credit-memo/{id}/pdf/ | Get Credit Memo PDF|
+|[**getClientInvoiceStatementPdf**](#getclientinvoicestatementpdf) | **GET** /coa/api/v1/invoice/statement/client/{client_id}/pdf | Get Client Invoice Statement PDF|
+|[**getCreditMemoPdf**](#getcreditmemopdf) | **GET** /coa/api/v1/credit-memo/{id}/pdf | Get Credit Memo PDF|
 |[**listProducts**](#listproducts) | **GET** /rr/api/v1/product | List Contract Products|
 |[**rrApiV1ProductBulkSearchCreate**](#rrapiv1productbulksearchcreate) | **POST** /rr/api/v1/product/bulk-search | Bulk Search Products|
 |[**rrApiV1ProductDeleteCreate**](#rrapiv1productdeletecreate) | **POST** /rr/api/v1/product/{id}/delete | Delete Product|
@@ -47,7 +47,7 @@ All URIs are relative to *https://api.meetcampfire.com*
 |[**rrApiV1ProductPartialUpdate**](#rrapiv1productpartialupdate) | **PATCH** /rr/api/v1/product/{id} | Partial Update Product|
 |[**rrApiV1ProductRetrieve**](#rrapiv1productretrieve) | **GET** /rr/api/v1/product/{id} | Retrieve Product|
 |[**rrApiV1ProductUpdate**](#rrapiv1productupdate) | **PUT** /rr/api/v1/product/{id} | Update Product|
-|[**sendCreditMemo**](#sendcreditmemo) | **PUT** /coa/api/v1/credit-memo/{id}/send/ | Send Credit Memo|
+|[**sendCreditMemo**](#sendcreditmemo) | **PUT** /coa/api/v1/credit-memo/{id}/send | Send Credit Memo|
 
 # **bulkCreateInvoices**
 > Array<AccountingInvoice> bulkCreateInvoices(bulkCreateInvoices)

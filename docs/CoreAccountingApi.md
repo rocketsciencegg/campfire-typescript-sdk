@@ -51,29 +51,29 @@ All URIs are relative to *https://api.meetcampfire.com*
 |[**coaApiVendorContactUpdate**](#coaapivendorcontactupdate) | **PUT** /coa/api/vendor-contact/{id} | Update Vendor Contact|
 |[**coaApiVendorContactsCreate**](#coaapivendorcontactscreate) | **POST** /coa/api/vendor/{id}/contacts | Create Vendor Contact|
 |[**coaApiVendorContactsList**](#coaapivendorcontactslist) | **GET** /coa/api/vendor/{id}/contacts | List Vendor Contacts|
-|[**createFixedAssetAutomation**](#createfixedassetautomation) | **POST** /coa/api/fixed-asset-automation/ | Create Fixed Asset Automation|
+|[**createFixedAssetAutomation**](#createfixedassetautomation) | **POST** /coa/api/fixed-asset-automation | Create Fixed Asset Automation|
 |[**createTransactionBillPayments**](#createtransactionbillpayments) | **POST** /coa/api/transaction/{transaction_id}/bill_payments | Create Bill Payments for Transaction|
 |[**createTransactionCreditMemoPayments**](#createtransactioncreditmemopayments) | **POST** /coa/api/transaction/{transaction_id}/credit_memo_payments | Create Credit Memo Payments for Transaction|
 |[**createTransactionDebitMemoPayments**](#createtransactiondebitmemopayments) | **POST** /coa/api/transaction/{transaction_id}/debit_memo_payments | Create Debit Memo Payments for Transaction|
 |[**createTransactionInvoicePayments**](#createtransactioninvoicepayments) | **POST** /coa/api/transaction/{transaction_id}/invoice_payments | Create Invoice Payments for Transaction|
 |[**deleteChartTransaction**](#deletecharttransaction) | **DELETE** /coa/api/transaction/{id} | Delete Chart Transaction|
-|[**deleteFixedAssetAutomation**](#deletefixedassetautomation) | **DELETE** /coa/api/fixed-asset-automation/{id}/ | Delete Fixed Asset Automation (deprecated)|
+|[**deleteFixedAssetAutomation**](#deletefixedassetautomation) | **DELETE** /coa/api/fixed-asset-automation/{id} | Delete Fixed Asset Automation (deprecated)|
 |[**deleteTransactionMatch**](#deletetransactionmatch) | **DELETE** /coa/api/transaction-matches/{id} | Delete Transaction Match|
 |[**discoverTransactionMatchCandidates**](#discovertransactionmatchcandidates) | **GET** /coa/api/transaction-matches/candidates | Discover bill or invoice match candidates for a bank transaction|
 |[**getChartTransactionTotals**](#getcharttransactiontotals) | **GET** /coa/api/transaction/totals | Get Chart Transaction Totals|
-|[**getFixedAssetAutomation**](#getfixedassetautomation) | **GET** /coa/api/fixed-asset-automation/{id}/ | Retrieve Fixed Asset Automation|
-|[**getFixedAssetAutomationMatch**](#getfixedassetautomationmatch) | **GET** /coa/api/fixed-asset-automation-match/{id}/ | Retrieve Fixed Asset Automation Match|
+|[**getFixedAssetAutomation**](#getfixedassetautomation) | **GET** /coa/api/fixed-asset-automation/{id} | Retrieve Fixed Asset Automation|
+|[**getFixedAssetAutomationMatch**](#getfixedassetautomationmatch) | **GET** /coa/api/fixed-asset-automation-match/{id} | Retrieve Fixed Asset Automation Match|
 |[**getTransactionMatch**](#gettransactionmatch) | **GET** /coa/api/transaction-matches/{id} | Retrieve Transaction Match|
 |[**getTransactionMatchesCount**](#gettransactionmatchescount) | **GET** /coa/api/transaction-matches-count | Get Transaction Matches Count|
 |[**listFixedAssetAutomationAccounts**](#listfixedassetautomationaccounts) | **GET** /coa/api/fixed-asset-automation/accounts | List Fixed Asset Automation Accounts|
 |[**listFixedAssetAutomationAssetClasses**](#listfixedassetautomationassetclasses) | **GET** /coa/api/fixed-asset-automation/asset-classes | List Fixed Asset Automation Asset Classes|
 |[**listFixedAssetAutomationMatches**](#listfixedassetautomationmatches) | **GET** /coa/api/fixed-asset-automation/matches | List Fixed Asset Automation Matches|
-|[**listFixedAssetAutomations**](#listfixedassetautomations) | **GET** /coa/api/fixed-asset-automation/ | List Fixed Asset Automations|
+|[**listFixedAssetAutomations**](#listfixedassetautomations) | **GET** /coa/api/fixed-asset-automation | List Fixed Asset Automations|
 |[**listFixedAssetReconciliationUnmatchedGl**](#listfixedassetreconciliationunmatchedgl) | **GET** /coa/api/fixed-asset/reconciliation/unmatched-gl | List Unmatched GL Transactions for Fixed Asset Reconciliation|
 |[**listTransactionMatches**](#listtransactionmatches) | **GET** /coa/api/transaction-matches | List Transaction Matches|
 |[**mergeChartTransactions**](#mergecharttransactions) | **POST** /coa/api/transaction/merge | Merge Chart Transactions|
-|[**partialUpdateFixedAssetAutomation**](#partialupdatefixedassetautomation) | **PATCH** /coa/api/fixed-asset-automation/{id}/ | Partial Update Fixed Asset Automation|
-|[**partialUpdateFixedAssetAutomationMatch**](#partialupdatefixedassetautomationmatch) | **PATCH** /coa/api/fixed-asset-automation-match/{id}/ | Partial Update Fixed Asset Automation Match|
+|[**partialUpdateFixedAssetAutomation**](#partialupdatefixedassetautomation) | **PATCH** /coa/api/fixed-asset-automation/{id} | Partial Update Fixed Asset Automation|
+|[**partialUpdateFixedAssetAutomationMatch**](#partialupdatefixedassetautomationmatch) | **PATCH** /coa/api/fixed-asset-automation-match/{id} | Partial Update Fixed Asset Automation Match|
 |[**partialUpdateTransactionMatch**](#partialupdatetransactionmatch) | **PATCH** /coa/api/transaction-matches/{id} | Partial Update Transaction Match|
 |[**previewChartTransactionMerge**](#previewcharttransactionmerge) | **GET** /coa/api/transaction/merge | Preview Chart Transaction Merge|
 |[**processTransactionMatch**](#processtransactionmatch) | **POST** /coa/api/transaction-match-process | Process Transaction Match|
@@ -83,8 +83,8 @@ All URIs are relative to *https://api.meetcampfire.com*
 |[**rejectTransactionMatch**](#rejecttransactionmatch) | **POST** /coa/api/transaction-matches/{id}/reject | Reject Transaction Match|
 |[**runFixedAssetAutomation**](#runfixedassetautomation) | **POST** /coa/api/fixed-asset-automation/run | Run Fixed Asset Automation|
 |[**setTransactionMatchStatus**](#settransactionmatchstatus) | **POST** /coa/api/transaction-matches/{id}/status | Set Transaction Match Status|
-|[**updateFixedAssetAutomation**](#updatefixedassetautomation) | **PUT** /coa/api/fixed-asset-automation/{id}/ | Update Fixed Asset Automation|
-|[**updateFixedAssetAutomationMatch**](#updatefixedassetautomationmatch) | **PUT** /coa/api/fixed-asset-automation-match/{id}/ | Update Fixed Asset Automation Match|
+|[**updateFixedAssetAutomation**](#updatefixedassetautomation) | **PUT** /coa/api/fixed-asset-automation/{id} | Update Fixed Asset Automation|
+|[**updateFixedAssetAutomationMatch**](#updatefixedassetautomationmatch) | **PUT** /coa/api/fixed-asset-automation-match/{id} | Update Fixed Asset Automation Match|
 |[**updateTransactionMatch**](#updatetransactionmatch) | **PUT** /coa/api/transaction-matches/{id} | Update Transaction Match|
 |[**updateTransactionMatchStatus**](#updatetransactionmatchstatus) | **PUT** /coa/api/transaction-matches/{id}/status | Update Transaction Match Status|
 
@@ -2001,7 +2001,7 @@ No authorization required
 # **coaApiTransactionList**
 > PaginatedChartTransactionList coaApiTransactionList()
 
-Lists general-ledger transactions (`ChartTransaction` records) - Campfire\'s GL transaction log, and the recommended endpoint for retrieving GL transaction data.  Each transaction carries account, department, vendor, entity, journal/date metadata, and tags (where applicable). Product metadata is not stored directly on a transaction; it is reached through relations with other Campfire objects.  **Date range:** filter with `start_date` and `end_date` (both `YYYY-MM-DD`, inclusive); the bounds match on transaction date (the journal entry date, which `posted_at` mirrors).  **Pagination:** results are paginated via `limit` (default 100, max 10000) and `offset`. To retrieve more than 10000 records, page through with `offset`, or use cursor pagination by passing an empty `cursor=` parameter and following the `next` link.  **Key response fields:** - `amount` - amount in consolidated currency (the root entity\'s currency). - `amount_book` - amount in the currency of the entity the transaction belongs to. - `amount_native` - amount in the currency the transaction was originally created in. Example: for a transaction made in GBP where the entity uses EUR and the root entity uses USD, `amount_native` is GBP, `amount_book` is EUR, and `amount` is USD. - `posted_at` - the transaction date; determines which period the transaction falls in. `date_year` and `date_month` are derived from it. - `vendor` / `vendor_name` - the linked Campfire `Vendor` object\'s ID and name. - `merchant_name` - a free-text field stored directly on the transaction; not linked to any Campfire object. - `account` - the Campfire `ChartAccount` (GL account) the transaction is posted to. - `entity` - the Campfire `ChartEntity` ID. - `tags` - the transaction\'s tags; each tag\'s `group`/`group_name` identify the tag group (dimension) it belongs to. List a customer\'s tag groups via `/coa/api/tag-group` and tags via `/coa/api/tag`.  **Dynamic tag-group columns:** in addition to `tags`, each row carries flattened per-dimension columns `tag_group_<id>` (tag ID) and `tag_group_<id>_name` (tag name), one pair per tag group defined by the customer, plus `tag_group_none` / `tag_group_none_name` for ungrouped tags. Journal-level custom fields are merged in as `custom_field_<name>` keys. These columns are customer-specific, so they cannot appear in this static schema - discover tag groups via `/coa/api/tag-group` and custom fields via `/ca/api/v1/custom-fields`.
+Lists general-ledger transactions (`ChartTransaction` records) - Campfire\'s GL transaction log, and the recommended endpoint for retrieving GL transaction data.  Each transaction carries account, department, vendor, entity, journal/date metadata, and tags (where applicable). Product metadata is not stored directly on a transaction; it is reached through relations with other Campfire objects.  **Date range:** filter with `start_date` and `end_date` (both `YYYY-MM-DD`, inclusive); `date_from` and `date_to` are aliases, and `start_date`/`end_date` win when both are sent. The bounds match on transaction date (the journal entry date, which `posted_at` mirrors).  **Pagination:** results are paginated via `limit` (default 100, max 10000) and `offset`. To retrieve more than 10000 records, page through with `offset`, or use cursor pagination by passing an empty `cursor=` parameter and following the `next` link.  **Key response fields:** - `amount` - amount in consolidated currency (the root entity\'s currency). - `amount_book` - amount in the currency of the entity the transaction belongs to. - `amount_native` - amount in the currency the transaction was originally created in. Example: for a transaction made in GBP where the entity uses EUR and the root entity uses USD, `amount_native` is GBP, `amount_book` is EUR, and `amount` is USD. - `posted_at` - the transaction date; determines which period the transaction falls in. `date_year` and `date_month` are derived from it. - `vendor` / `vendor_name` - the linked Campfire `Vendor` object\'s ID and name. - `merchant_name` - a free-text field stored directly on the transaction; not linked to any Campfire object. - `account` - the Campfire `ChartAccount` (GL account) the transaction is posted to. - `entity` - the Campfire `ChartEntity` ID. - `tags` - the transaction\'s tags; each tag\'s `group`/`group_name` identify the tag group (dimension) it belongs to. List a customer\'s tag groups via `/coa/api/tag-group` and tags via `/coa/api/tag`.  **Dynamic tag-group columns:** in addition to `tags`, each row carries flattened per-dimension columns `tag_group_<id>` (tag ID) and `tag_group_<id>_name` (tag name), one pair per tag group defined by the customer, plus `tag_group_none` / `tag_group_none_name` for ungrouped tags. Journal-level custom fields are merged in as `custom_field_<name>` keys. These columns are customer-specific, so they cannot appear in this static schema - discover tag groups via `/coa/api/tag-group` and custom fields via `/ca/api/v1/custom-fields`.
 
 ### Example
 
@@ -2033,6 +2033,8 @@ let creditAmountGte: number; // (optional) (default to undefined)
 let creditAmountLte: number; // (optional) (default to undefined)
 let creditAmountNull: boolean; // (optional) (default to false)
 let currency: string; // (optional) (default to undefined)
+let dateFrom: string; //Alias of `start_date`; `start_date` wins when both are sent (optional) (default to undefined)
+let dateTo: string; //Alias of `end_date`; `end_date` wins when both are sent (optional) (default to undefined)
 let debitAmountEqual: number; // (optional) (default to undefined)
 let debitAmountGte: number; // (optional) (default to undefined)
 let debitAmountLte: number; // (optional) (default to undefined)
@@ -2063,6 +2065,7 @@ let includeDeleted: boolean; //When set to \'true\', returns ONLY deleted record
 let includeMatches: boolean; //If true, include match metadata (has_matches, primary_action_type) in serialized rows (optional) (default to false)
 let isNotReconciled: boolean; // (optional) (default to false)
 let isReconciled: boolean; // (optional) (default to false)
+let journal: number; //Only transactions on these journal entry ids (repeat the param for several) (optional) (default to undefined)
 let journalType: string; // (optional) (default to undefined)
 let journalTypeNin: string; // (optional) (default to undefined)
 let lastModifiedAtGte: string; //Filter for records modified on or after this timestamp. Format: ISO 8601 (e.g., \'2024-01-01T00:00:00Z\' or \'2024-01-01\'). Works with both active records and deleted records (filters by deletion time for deleted records). (optional) (default to undefined)
@@ -2113,6 +2116,8 @@ const { status, data } = await apiInstance.coaApiTransactionList(
     creditAmountLte,
     creditAmountNull,
     currency,
+    dateFrom,
+    dateTo,
     debitAmountEqual,
     debitAmountGte,
     debitAmountLte,
@@ -2143,6 +2148,7 @@ const { status, data } = await apiInstance.coaApiTransactionList(
     includeMatches,
     isNotReconciled,
     isReconciled,
+    journal,
     journalType,
     journalTypeNin,
     lastModifiedAtGte,
@@ -2198,6 +2204,8 @@ const { status, data } = await apiInstance.coaApiTransactionList(
 | **creditAmountLte** | [**number**] |  | (optional) defaults to undefined|
 | **creditAmountNull** | [**boolean**] |  | (optional) defaults to false|
 | **currency** | [**string**] |  | (optional) defaults to undefined|
+| **dateFrom** | [**string**] | Alias of &#x60;start_date&#x60;; &#x60;start_date&#x60; wins when both are sent | (optional) defaults to undefined|
+| **dateTo** | [**string**] | Alias of &#x60;end_date&#x60;; &#x60;end_date&#x60; wins when both are sent | (optional) defaults to undefined|
 | **debitAmountEqual** | [**number**] |  | (optional) defaults to undefined|
 | **debitAmountGte** | [**number**] |  | (optional) defaults to undefined|
 | **debitAmountLte** | [**number**] |  | (optional) defaults to undefined|
@@ -2228,6 +2236,7 @@ const { status, data } = await apiInstance.coaApiTransactionList(
 | **includeMatches** | [**boolean**] | If true, include match metadata (has_matches, primary_action_type) in serialized rows | (optional) defaults to false|
 | **isNotReconciled** | [**boolean**] |  | (optional) defaults to false|
 | **isReconciled** | [**boolean**] |  | (optional) defaults to false|
+| **journal** | [**number**] | Only transactions on these journal entry ids (repeat the param for several) | (optional) defaults to undefined|
 | **journalType** | [**string**] |  | (optional) defaults to undefined|
 | **journalTypeNin** | [**string**] |  | (optional) defaults to undefined|
 | **lastModifiedAtGte** | [**string**] | Filter for records modified on or after this timestamp. Format: ISO 8601 (e.g., \&#39;2024-01-01T00:00:00Z\&#39; or \&#39;2024-01-01\&#39;). Works with both active records and deleted records (filters by deletion time for deleted records). | (optional) defaults to undefined|

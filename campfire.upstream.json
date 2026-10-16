@@ -1355,7 +1355,7 @@
         "/ca/api/file/upload": {
             "post": {
                 "operationId": "ca_api_file_upload_create",
-                "description": "\n        Upload a file directly to Campfire. This is the primary way to upload files.\n\n        **Supported Models:**\n        bill, chat, close_task, closecheckitem, contract, credit_memo, customer, debit_memo, draft_queue, fixed_asset, forecast, intercompany_journal, invoice, journal_entry, journalentry, lease_v2, migration_record, policy, reconciliation, reconciliation_report, revenue_contract\n\n        **Supported Content Types:**\n        application/msword, application/pdf, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/vnd.openxmlformats-officedocument.presentationml.presentation, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.openxmlformats-officedocument.wordprocessingml.document, image/gif, image/jpeg, image/jpg, image/png, image/webp, text/csv, text/markdown, text/plain, text/x-markdown\n\n        **Maximum File Size:** 100MB\n\n        **Example:**\n        ```bash\n        curl -X POST \"https://api.meetcampfire.com/ca/api/file/upload?model=bill&object_id=12345\" \\\n          -H \"Authorization: Token YOUR_TOKEN\" \\\n          -F \"file=@receipt.pdf\"\n        ```\n\n        **Query Parameters:**\n        - `model` (required): Model type (e.g., \"bill\", \"invoice\", \"contract\")\n        - `object_id` (optional): ID of the object to attach the file to\n\n        **Request Body:**\n        - `file` (required): The file to upload (multipart/form-data)\n        ",
+                "description": "\n        Upload a file directly to Campfire. This is the primary way to upload files.\n\n        **Supported Models:**\n        bill, chat, close_task, closecheckitem, contract, credit_memo, customer, debit_memo, draft_queue, fixed_asset, forecast, intercompany_journal, invoice, journal_entry, journalentry, lease_v2, migration_record, policy, reconciliation, reconciliation_report, revenue_contract\n\n        **Supported Content Types:**\n        application/msword, application/pdf, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/vnd.openxmlformats-officedocument.presentationml.presentation, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.openxmlformats-officedocument.wordprocessingml.document, image/gif, image/jpeg, image/jpg, image/png, image/webp, text/csv, text/markdown, text/plain, text/x-markdown\n\n        **Maximum File Size:** 100MB\n\n        **Example:**\n        ```bash\n        curl -X POST \"https://api.meetcampfire.com/ca/api/file/upload?model=bill&object_id=12345\" \\\n          -H \"Authorization: Token YOUR_TOKEN\" \\\n          -F \"file=@receipt.pdf\"\n        ```\n\n        **OAuth Apps:** attaching a file changes the record, so an app token needs the write scope for\n        that record type (e.g. `journal_entries:write` for `model=journal_entry`), and the person who\n        connected the app must hold the same permission. Apps pass `model` alone, never `app`.\n\n        **Query Parameters:**\n        - `model` (required): Model type (e.g., \"bill\", \"invoice\", \"contract\")\n        - `object_id` (optional): ID of the object to attach the file to\n\n        **Request Body:**\n        - `file` (required): The file to upload (multipart/form-data)\n        ",
                 "summary": "Upload File",
                 "tags": [
                     "Settings"
@@ -5619,7 +5619,7 @@
                 }
             }
         },
-        "/coa/api/fixed-asset-automation/": {
+        "/coa/api/fixed-asset-automation": {
             "get": {
                 "operationId": "list_fixed_asset_automations",
                 "description": "List all automation rules or create a new one.\nGET /api/fixed-asset-automation/\nPOST /api/fixed-asset-automation/",
@@ -5719,7 +5719,7 @@
                 }
             }
         },
-        "/coa/api/fixed-asset-automation-match/{id}/": {
+        "/coa/api/fixed-asset-automation-match/{id}": {
             "get": {
                 "operationId": "get_fixed_asset_automation_match",
                 "description": "Retrieve or update an automation match (for editing proposed values before acceptance).\nGET/PATCH /api/fixed-asset-automation-match/<id>/",
@@ -5850,7 +5850,7 @@
                 }
             }
         },
-        "/coa/api/fixed-asset-automation/{id}/": {
+        "/coa/api/fixed-asset-automation/{id}": {
             "get": {
                 "operationId": "get_fixed_asset_automation",
                 "description": "Retrieve, update, or delete an automation rule.\nGET/PUT/PATCH/DELETE /api/fixed-asset-automation/<id>/",
@@ -10326,7 +10326,7 @@
         "/coa/api/transaction": {
             "get": {
                 "operationId": "coa_api_transaction_list",
-                "description": "Lists general-ledger transactions (`ChartTransaction` records) - Campfire's GL transaction log, and the recommended endpoint for retrieving GL transaction data.\n\nEach transaction carries account, department, vendor, entity, journal/date metadata, and tags (where applicable). Product metadata is not stored directly on a transaction; it is reached through relations with other Campfire objects.\n\n**Date range:** filter with `start_date` and `end_date` (both `YYYY-MM-DD`, inclusive); the bounds match on transaction date (the journal entry date, which `posted_at` mirrors).\n\n**Pagination:** results are paginated via `limit` (default 100, max 10000) and `offset`. To retrieve more than 10000 records, page through with `offset`, or use cursor pagination by passing an empty `cursor=` parameter and following the `next` link.\n\n**Key response fields:**\n- `amount` - amount in consolidated currency (the root entity's currency).\n- `amount_book` - amount in the currency of the entity the transaction belongs to.\n- `amount_native` - amount in the currency the transaction was originally created in. Example: for a transaction made in GBP where the entity uses EUR and the root entity uses USD, `amount_native` is GBP, `amount_book` is EUR, and `amount` is USD.\n- `posted_at` - the transaction date; determines which period the transaction falls in. `date_year` and `date_month` are derived from it.\n- `vendor` / `vendor_name` - the linked Campfire `Vendor` object's ID and name.\n- `merchant_name` - a free-text field stored directly on the transaction; not linked to any Campfire object.\n- `account` - the Campfire `ChartAccount` (GL account) the transaction is posted to.\n- `entity` - the Campfire `ChartEntity` ID.\n- `tags` - the transaction's tags; each tag's `group`/`group_name` identify the tag group (dimension) it belongs to. List a customer's tag groups via `/coa/api/tag-group` and tags via `/coa/api/tag`.\n\n**Dynamic tag-group columns:** in addition to `tags`, each row carries flattened per-dimension columns `tag_group_<id>` (tag ID) and `tag_group_<id>_name` (tag name), one pair per tag group defined by the customer, plus `tag_group_none` / `tag_group_none_name` for ungrouped tags. Journal-level custom fields are merged in as `custom_field_<name>` keys. These columns are customer-specific, so they cannot appear in this static schema - discover tag groups via `/coa/api/tag-group` and custom fields via `/ca/api/v1/custom-fields`.",
+                "description": "Lists general-ledger transactions (`ChartTransaction` records) - Campfire's GL transaction log, and the recommended endpoint for retrieving GL transaction data.\n\nEach transaction carries account, department, vendor, entity, journal/date metadata, and tags (where applicable). Product metadata is not stored directly on a transaction; it is reached through relations with other Campfire objects.\n\n**Date range:** filter with `start_date` and `end_date` (both `YYYY-MM-DD`, inclusive); `date_from` and `date_to` are aliases, and `start_date`/`end_date` win when both are sent. The bounds match on transaction date (the journal entry date, which `posted_at` mirrors).\n\n**Pagination:** results are paginated via `limit` (default 100, max 10000) and `offset`. To retrieve more than 10000 records, page through with `offset`, or use cursor pagination by passing an empty `cursor=` parameter and following the `next` link.\n\n**Key response fields:**\n- `amount` - amount in consolidated currency (the root entity's currency).\n- `amount_book` - amount in the currency of the entity the transaction belongs to.\n- `amount_native` - amount in the currency the transaction was originally created in. Example: for a transaction made in GBP where the entity uses EUR and the root entity uses USD, `amount_native` is GBP, `amount_book` is EUR, and `amount` is USD.\n- `posted_at` - the transaction date; determines which period the transaction falls in. `date_year` and `date_month` are derived from it.\n- `vendor` / `vendor_name` - the linked Campfire `Vendor` object's ID and name.\n- `merchant_name` - a free-text field stored directly on the transaction; not linked to any Campfire object.\n- `account` - the Campfire `ChartAccount` (GL account) the transaction is posted to.\n- `entity` - the Campfire `ChartEntity` ID.\n- `tags` - the transaction's tags; each tag's `group`/`group_name` identify the tag group (dimension) it belongs to. List a customer's tag groups via `/coa/api/tag-group` and tags via `/coa/api/tag`.\n\n**Dynamic tag-group columns:** in addition to `tags`, each row carries flattened per-dimension columns `tag_group_<id>` (tag ID) and `tag_group_<id>_name` (tag name), one pair per tag group defined by the customer, plus `tag_group_none` / `tag_group_none_name` for ungrouped tags. Journal-level custom fields are merged in as `custom_field_<name>` keys. These columns are customer-specific, so they cannot appear in this static schema - discover tag groups via `/coa/api/tag-group` and custom fields via `/ca/api/v1/custom-fields`.",
                 "summary": "List Chart Transactions",
                 "parameters": [
                     {
@@ -10492,6 +10492,24 @@
                         },
                         "explode": true,
                         "style": "form"
+                    },
+                    {
+                        "in": "query",
+                        "name": "date_from",
+                        "schema": {
+                            "type": "string",
+                            "format": "date"
+                        },
+                        "description": "Alias of `start_date`; `start_date` wins when both are sent"
+                    },
+                    {
+                        "in": "query",
+                        "name": "date_to",
+                        "schema": {
+                            "type": "string",
+                            "format": "date"
+                        },
+                        "description": "Alias of `end_date`; `end_date` wins when both are sent"
                     },
                     {
                         "in": "query",
@@ -10740,6 +10758,16 @@
                             "type": "boolean",
                             "default": false
                         }
+                    },
+                    {
+                        "in": "query",
+                        "name": "journal",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "description": "Only transactions on these journal entry ids (repeat the param for several)",
+                        "explode": true,
+                        "style": "form"
                     },
                     {
                         "in": "query",
@@ -11956,7 +11984,7 @@
                 }
             }
         },
-        "/coa/api/v1/bill/": {
+        "/coa/api/v1/bill": {
             "get": {
                 "operationId": "coa_api_v1_bill_retrieve",
                 "description": "\n        Retrieve a paginated list of accounting bills with comprehensive filtering, search, and sorting capabilities.\n\n        This endpoint provides complete access to your bills data with:\n        - Advanced filtering by date ranges, payment status, vendors, entities, and currency\n        - Full-text search across bill numbers, vendor names, addresses, and bill messages\n        - Flexible sorting by any field including calculated fields (totals, amounts due, etc.)\n        - Comprehensive pagination with customizable page sizes\n        - Aging calculations and payment status categorization\n        - Automatic calculation of totals, amounts paid, and amounts due\n\n        **Deleted Records Support:**\n        - When include_deleted=true: Returns ONLY deleted bills with minimal data (id, is_deleted, deleted_at, last_modified_at)\n        - When include_deleted=false or omitted: Returns ONLY active bills with full data\n        - Timestamp filtering (last_modified_at__gte/lte) works with both active and deleted records\n        ",
@@ -12817,7 +12845,7 @@
                 }
             }
         },
-        "/coa/api/v1/bill/{bill_id}/pay/": {
+        "/coa/api/v1/bill/{bill_id}/pay": {
             "post": {
                 "operationId": "coa_api_v1_bill_pay_create",
                 "description": "Mark a bill as paid, allowing partial payments.\n\n        This endpoint supports multiple payment methods:\n        - Apply existing transactions as payments\n        - Apply debit memos to reduce the bill balance\n        - Create manual payments without a transaction\n\n        The request body should contain at least one of:\n        - transactions: List of transaction payments to apply\n        - debit_memos: List of debit memos to apply\n        - empty_transactions: List of manual payments without transactions",
@@ -12894,7 +12922,7 @@
                 }
             }
         },
-        "/coa/api/v1/bill/{bill_id}/payment/{payment_id}/void/": {
+        "/coa/api/v1/bill/{bill_id}/payment/{payment_id}/void": {
             "post": {
                 "operationId": "coa_api_v1_bill_payment_void_create",
                 "description": "Void an existing bill payment.\n\n        This creates a reversing journal entry to void the payment and updates the bill status.\n\n        Optionally accepts a void_date in the request body to specify when the payment should be voided.\n        If not provided, defaults to today's date.",
@@ -12988,7 +13016,7 @@
                 }
             }
         },
-        "/coa/api/v1/bill/{bill_id}/reopen/": {
+        "/coa/api/v1/bill/{bill_id}/reopen": {
             "post": {
                 "operationId": "coa_api_v1_bill_reopen_create",
                 "description": "Reopen a voided bill.\n\n        This removes the void date and void journal entry, and sets the bill status back to open.\n        The voiding journal entry will be deleted to reverse the void operation.",
@@ -13021,7 +13049,7 @@
                 }
             }
         },
-        "/coa/api/v1/bill/{bill_id}/sync-to-ramp/": {
+        "/coa/api/v1/bill/{bill_id}/sync-to-ramp": {
             "post": {
                 "operationId": "coa_api_v1_bill_sync_to_ramp_create",
                 "description": "Sync a bill without a source to Ramp using the enabled Ramp connection",
@@ -13052,7 +13080,7 @@
                 }
             }
         },
-        "/coa/api/v1/bill/{bill_id}/void/": {
+        "/coa/api/v1/bill/{bill_id}/void": {
             "post": {
                 "operationId": "coa_api_v1_bill_void_create",
                 "description": "Void an existing bill.\n\n        This creates a reversing journal entry to void the bill by reversing all debit and credit amounts.\n        The bill status will be updated to reflect the void.",
@@ -13105,7 +13133,7 @@
                 }
             }
         },
-        "/coa/api/v1/bill/{id}/": {
+        "/coa/api/v1/bill/{id}": {
             "get": {
                 "operationId": "coa_api_v1_bill_retrieve_2",
                 "description": "\n        Retrieve a single accounting bill by ID with complete detail including all line items, payments, and related data.\n\n        This endpoint returns comprehensive bill information including:\n        - Full bill details with vendor, entity, and customer information\n        - All line items with account details, departments, tags, and amortization schedules\n        - Complete payment history with journal entry references\n        - Calculated fields including total amounts, amounts paid, amounts due, and payment status\n        - Journal entry references for accounting integration\n        - Exchange rate information for multi-currency bills\n        ",
@@ -13115,8 +13143,7 @@
                         "in": "path",
                         "name": "id",
                         "schema": {
-                            "type": "string",
-                            "pattern": "^\\d+$"
+                            "type": "integer"
                         },
                         "required": true
                     }
@@ -13267,8 +13294,7 @@
                         "in": "path",
                         "name": "id",
                         "schema": {
-                            "type": "string",
-                            "pattern": "^\\d+$"
+                            "type": "integer"
                         },
                         "required": true
                     }
@@ -13609,8 +13635,7 @@
                         "in": "path",
                         "name": "id",
                         "schema": {
-                            "type": "string",
-                            "pattern": "^\\d+$"
+                            "type": "integer"
                         },
                         "required": true
                     }
@@ -13659,8 +13684,7 @@
                         "in": "path",
                         "name": "id",
                         "schema": {
-                            "type": "string",
-                            "pattern": "^\\d+$"
+                            "type": "integer"
                         },
                         "required": true
                     }
@@ -13745,7 +13769,7 @@
                 }
             }
         },
-        "/coa/api/v1/bill/bulk-sync-to-ramp/": {
+        "/coa/api/v1/bill/bulk-sync-to-ramp": {
             "post": {
                 "operationId": "bulk_sync_bills_to_ramp",
                 "description": "Sync multiple bills without a source to Ramp using the enabled Ramp connection",
@@ -14282,7 +14306,7 @@
                 }
             }
         },
-        "/coa/api/v1/credit-memo/{credit_memo_id}/reopen/": {
+        "/coa/api/v1/credit-memo/{credit_memo_id}/reopen": {
             "post": {
                 "operationId": "coa_api_v1_credit_memo_reopen_create",
                 "description": "Reopen a voided credit memo.\n\n        This removes the void date and void journal entry, and sets the credit memo status back to open.\n        The voiding journal entry will be deleted to reverse the void operation.",
@@ -14325,7 +14349,7 @@
                 }
             }
         },
-        "/coa/api/v1/credit-memo/{credit_memo_id}/void/": {
+        "/coa/api/v1/credit-memo/{credit_memo_id}/void": {
             "post": {
                 "operationId": "coa_api_v1_credit_memo_void_create",
                 "description": "Void an existing credit memo.\n\n        This creates a reversing journal entry to void the credit memo by reversing all debit and credit amounts.\n        The credit memo status will be updated to reflect the void.",
@@ -14842,7 +14866,7 @@
                 }
             }
         },
-        "/coa/api/v1/credit-memo/{id}/pdf/": {
+        "/coa/api/v1/credit-memo/{id}/pdf": {
             "get": {
                 "operationId": "get_credit_memo_pdf",
                 "summary": "Get Credit Memo PDF",
@@ -14866,7 +14890,7 @@
                 }
             }
         },
-        "/coa/api/v1/credit-memo/{id}/send/": {
+        "/coa/api/v1/credit-memo/{id}/send": {
             "put": {
                 "operationId": "send_credit_memo",
                 "description": "Send a single credit memo via email.",
@@ -15350,7 +15374,7 @@
                 }
             }
         },
-        "/coa/api/v1/debit-memo/{debit_memo_id}/reopen/": {
+        "/coa/api/v1/debit-memo/{debit_memo_id}/reopen": {
             "post": {
                 "operationId": "coa_api_v1_debit_memo_reopen_create",
                 "description": "Reopen a voided debit memo.\n\n        This removes the void date and void journal entry, and sets the debit memo status back to open.\n        The voiding journal entry will be deleted to reverse the void operation.",
@@ -15383,7 +15407,7 @@
                 }
             }
         },
-        "/coa/api/v1/debit-memo/{debit_memo_id}/void/": {
+        "/coa/api/v1/debit-memo/{debit_memo_id}/void": {
             "post": {
                 "operationId": "coa_api_v1_debit_memo_void_create",
                 "description": "Void an existing debit memo.\n\n        This creates a reversing journal entry to void the debit memo by reversing all debit and credit amounts.\n        The debit memo status will be updated to reflect the void.",
@@ -15778,7 +15802,7 @@
                 }
             }
         },
-        "/coa/api/v1/invoice/": {
+        "/coa/api/v1/invoice": {
             "get": {
                 "operationId": "coa_api_v1_invoice_list",
                 "description": "\n        Retrieve a paginated list of invoices with comprehensive filtering, sorting, and download capabilities.\n\n        This endpoint provides powerful invoice listing with:\n        - Advanced filtering by date ranges, status, clients, and entities\n        - Full-text search across multiple fields\n        - Flexible sorting options including custom calculated fields\n        - Async CSV export functionality via email\n        - Optimized queries with prefetched relationships\n\n        **Filtering Options:**\n        - Date-based filtering (invoice_date, due_date ranges)\n        - Status-based filtering (payment status, sent status, aging buckets)\n        - Entity and client-based filtering (supports multiple selections)\n        - Contract and currency filtering\n        - Full-text search across invoice numbers, addresses, messages, and client names\n\n        **Sorting Capabilities:**\n        - Standard field sorting (invoice_date, total_amount, due_date, etc.)\n        - Custom calculated field sorting (amount_due, client_name, contract_name)\n        - Ascending/descending order with null handling\n\n        **Performance Features:**\n        - Efficient database queries with proper indexing\n        - Prefetched related objects (lines, payments, clients, entities)\n        - Pagination support for large datasets\n        - Optimized for high-volume invoice management\n\n        **Export Functionality:**\n        - Async CSV generation and email delivery\n        - Filtered export based on current query parameters\n        - Background processing to handle large datasets\n        ",
@@ -16428,7 +16452,7 @@
                 }
             }
         },
-        "/coa/api/v1/invoice/{invoice_id}/pay/": {
+        "/coa/api/v1/invoice/{invoice_id}/pay": {
             "post": {
                 "operationId": "coa_api_v1_invoice_pay_create",
                 "description": "Mark an invoice as paid, allowing partial payments.\n\n        This endpoint supports multiple payment methods:\n        - Apply existing transactions as payments\n        - Apply credit memos to reduce the invoice balance\n        - Create manual payments without a transaction\n\n        The request body should contain at least one of:\n        - transactions: List of transaction payments to apply\n        - credit_memos: List of credit memos to apply\n        - empty_transactions: List of manual payments without transactions",
@@ -16506,7 +16530,7 @@
                 }
             }
         },
-        "/coa/api/v1/invoice/{invoice_id}/payment/{payment_id}/void/": {
+        "/coa/api/v1/invoice/{invoice_id}/payment/{payment_id}/void": {
             "post": {
                 "operationId": "coa_api_v1_invoice_payment_void_create",
                 "description": "Void an existing invoice payment.\n\n        This creates a reversing journal entry to void the payment and updates the invoice status.\n        For Stripe payments, this will also process a refund through Stripe.\n\n        Optionally accepts a void_date in the request body to specify when the payment should be voided.\n        If not provided, defaults to today's date.",
@@ -16600,7 +16624,7 @@
                 }
             }
         },
-        "/coa/api/v1/invoice/{invoice_id}/reopen/": {
+        "/coa/api/v1/invoice/{invoice_id}/reopen": {
             "post": {
                 "operationId": "coa_api_v1_invoice_reopen_create",
                 "description": "Reopen a voided invoice.\n\n        This removes the void date and void journal entry, and sets the invoice status back to open.\n        The voiding journal entry will be deleted to reverse the void operation.",
@@ -16633,7 +16657,7 @@
                 }
             }
         },
-        "/coa/api/v1/invoice/{invoice_id}/void/": {
+        "/coa/api/v1/invoice/{invoice_id}/void": {
             "post": {
                 "operationId": "coa_api_v1_invoice_void_create",
                 "description": "Void an existing invoice.\n\n        This creates a reversing journal entry to void the invoice by reversing all debit and credit amounts.\n        The invoice status will be updated to reflect the void.",
@@ -16685,7 +16709,7 @@
                 }
             }
         },
-        "/coa/api/v1/invoice/{id}/": {
+        "/coa/api/v1/invoice/{id}": {
             "get": {
                 "operationId": "coa_api_v1_invoice_retrieve",
                 "description": "\n        Retrieves a single accounting invoice with complete details including line items, payments, and accounting relationships.\n\n        This endpoint provides comprehensive invoice information with:\n        - Complete invoice metadata (dates, amounts, status, terms)\n        - All associated line items with product details and tax information\n        - Payment history with journal entry references and transaction details\n        ",
@@ -17539,7 +17563,7 @@
                 }
             }
         },
-        "/coa/api/v1/invoice/statement/client/{client_id}/pdf/": {
+        "/coa/api/v1/invoice/statement/client/{client_id}/pdf": {
             "get": {
                 "operationId": "get_client_invoice_statement_pdf",
                 "description": "Generate a customer statement PDF for a specific client.\n\nThis creates a professional, customer-facing statement showing:\n- All outstanding invoices as of the specified date\n- Running balance\n- Total balance due\n- Payment advice slip",
@@ -19090,7 +19114,7 @@
                 }
             }
         },
-        "/coa/api/vendor_custom_field_1/": {
+        "/coa/api/vendor_custom_field_1": {
             "get": {
                 "operationId": "list_vendor_custom_fields",
                 "summary": "List Vendor Custom Fields",
@@ -19152,7 +19176,7 @@
                 }
             }
         },
-        "/coa/api/vendor_custom_field_1/{id}/": {
+        "/coa/api/vendor_custom_field_1/{id}": {
             "get": {
                 "operationId": "get_vendor_custom_field",
                 "summary": "Retrieve Vendor Custom Field",
@@ -32617,6 +32641,24 @@
                         "nullable": true,
                         "description": "List price per unit. Prepaid usage = rate * (1 - discount%). Overage = rate (no discount)."
                     },
+                    "quantity": {
+                        "type": "string",
+                        "format": "decimal",
+                        "pattern": "^-?\\d{0,15}(?:\\.\\d{0,9})?$",
+                        "nullable": true
+                    },
+                    "unit": {
+                        "type": "string",
+                        "maxLength": 50
+                    },
+                    "drawdown_basis": {
+                        "$ref": "#/components/schemas/DrawdownBasisEnum"
+                    },
+                    "contract_usage_term": {
+                        "type": "string",
+                        "format": "uuid",
+                        "nullable": true
+                    },
                     "start_date": {
                         "type": "string",
                         "format": "date"
@@ -34664,6 +34706,14 @@
                     "source",
                     "tags"
                 ]
+            },
+            "DrawdownBasisEnum": {
+                "enum": [
+                    "monetary",
+                    "quantity"
+                ],
+                "type": "string",
+                "description": "* `monetary` - Monetary amount\n* `quantity` - Quantity"
             },
             "EmptyTransactionInput": {
                 "type": "object",
@@ -38054,6 +38104,19 @@
                         "exclusiveMaximum": true,
                         "exclusiveMinimum": true,
                         "nullable": true
+                    },
+                    "quantity": {
+                        "type": "number",
+                        "format": "double",
+                        "maximum": 1000000000000000,
+                        "minimum": 0.0,
+                        "exclusiveMaximum": true,
+                        "nullable": true
+                    },
+                    "unit": {
+                        "type": "string",
+                        "default": "",
+                        "maxLength": 50
                     },
                     "start_date": {
                         "type": "string",
@@ -44375,6 +44438,24 @@
                         "nullable": true,
                         "description": "List price per unit. Prepaid usage = rate * (1 - discount%). Overage = rate (no discount)."
                     },
+                    "quantity": {
+                        "type": "string",
+                        "format": "decimal",
+                        "pattern": "^-?\\d{0,15}(?:\\.\\d{0,9})?$",
+                        "nullable": true
+                    },
+                    "unit": {
+                        "type": "string",
+                        "maxLength": 50
+                    },
+                    "drawdown_basis": {
+                        "$ref": "#/components/schemas/DrawdownBasisEnum"
+                    },
+                    "contract_usage_term": {
+                        "type": "string",
+                        "format": "uuid",
+                        "nullable": true
+                    },
                     "start_date": {
                         "type": "string",
                         "format": "date"
@@ -46309,6 +46390,10 @@
                         "exclusiveMaximum": true,
                         "exclusiveMinimum": true,
                         "nullable": true
+                    },
+                    "usage_price_unit": {
+                        "type": "string",
+                        "maxLength": 50
                     },
                     "cost": {
                         "type": "number",
@@ -48351,6 +48436,10 @@
                         "exclusiveMaximum": true,
                         "exclusiveMinimum": true,
                         "nullable": true
+                    },
+                    "usage_price_unit": {
+                        "type": "string",
+                        "maxLength": 50
                     },
                     "cost": {
                         "type": "number",

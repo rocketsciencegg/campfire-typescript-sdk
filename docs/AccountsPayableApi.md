@@ -6,23 +6,23 @@ All URIs are relative to *https://api.meetcampfire.com*
 |------------- | ------------- | -------------|
 |[**abandonBillDraft**](#abandonbilldraft) | **POST** /coa/api/v1/bill-draft/{id}/abandon | Abandon Bill Draft|
 |[**billDraftInboxCount**](#billdraftinboxcount) | **GET** /coa/api/v1/bill-draft/inbox-count | Bills Inbox open-item count|
-|[**bulkSyncBillsToRamp**](#bulksyncbillstoramp) | **POST** /coa/api/v1/bill/bulk-sync-to-ramp/ | Bulk Sync Bills to Ramp|
+|[**bulkSyncBillsToRamp**](#bulksyncbillstoramp) | **POST** /coa/api/v1/bill/bulk-sync-to-ramp | Bulk Sync Bills to Ramp|
 |[**coaApiV1BillBulkSearchCreate**](#coaapiv1billbulksearchcreate) | **POST** /coa/api/v1/bill/bulk-search | Bulk Search Bills by Number|
-|[**coaApiV1BillCreate**](#coaapiv1billcreate) | **POST** /coa/api/v1/bill/ | Create Accounting Bill|
-|[**coaApiV1BillDestroy**](#coaapiv1billdestroy) | **DELETE** /coa/api/v1/bill/{id}/ | Delete Accounting Bill|
+|[**coaApiV1BillCreate**](#coaapiv1billcreate) | **POST** /coa/api/v1/bill | Create Accounting Bill|
+|[**coaApiV1BillDestroy**](#coaapiv1billdestroy) | **DELETE** /coa/api/v1/bill/{id} | Delete Accounting Bill|
 |[**coaApiV1BillEmptyTransactionDefaultDepartmentTagsRetrieve**](#coaapiv1billemptytransactiondefaultdepartmenttagsretrieve) | **GET** /coa/api/v1/bill/{bill_id}/empty-transaction-default-department-tags | Get Default Department and Tags for Empty Transaction|
-|[**coaApiV1BillPartialUpdate**](#coaapiv1billpartialupdate) | **PATCH** /coa/api/v1/bill/{id}/ | Partial Update Accounting Bill|
-|[**coaApiV1BillPayCreate**](#coaapiv1billpaycreate) | **POST** /coa/api/v1/bill/{bill_id}/pay/ | Mark Bill as Paid|
-|[**coaApiV1BillPaymentVoidCreate**](#coaapiv1billpaymentvoidcreate) | **POST** /coa/api/v1/bill/{bill_id}/payment/{payment_id}/void/ | Void Bill Payment|
-|[**coaApiV1BillPaymentVoidDestroy**](#coaapiv1billpaymentvoiddestroy) | **DELETE** /coa/api/v1/bill/{bill_id}/payment/{payment_id}/void/ | Delete Bill Payment|
+|[**coaApiV1BillPartialUpdate**](#coaapiv1billpartialupdate) | **PATCH** /coa/api/v1/bill/{id} | Partial Update Accounting Bill|
+|[**coaApiV1BillPayCreate**](#coaapiv1billpaycreate) | **POST** /coa/api/v1/bill/{bill_id}/pay | Mark Bill as Paid|
+|[**coaApiV1BillPaymentVoidCreate**](#coaapiv1billpaymentvoidcreate) | **POST** /coa/api/v1/bill/{bill_id}/payment/{payment_id}/void | Void Bill Payment|
+|[**coaApiV1BillPaymentVoidDestroy**](#coaapiv1billpaymentvoiddestroy) | **DELETE** /coa/api/v1/bill/{bill_id}/payment/{payment_id}/void | Delete Bill Payment|
 |[**coaApiV1BillPaymentsList**](#coaapiv1billpaymentslist) | **GET** /coa/api/v1/bill-payments | List Bill Payments|
-|[**coaApiV1BillReopenCreate**](#coaapiv1billreopencreate) | **POST** /coa/api/v1/bill/{bill_id}/reopen/ | Reopen Voided Bill|
-|[**coaApiV1BillRetrieve**](#coaapiv1billretrieve) | **GET** /coa/api/v1/bill/ | List Accounting Bills|
-|[**coaApiV1BillRetrieve2**](#coaapiv1billretrieve2) | **GET** /coa/api/v1/bill/{id}/ | Retrieve Accounting Bill|
+|[**coaApiV1BillReopenCreate**](#coaapiv1billreopencreate) | **POST** /coa/api/v1/bill/{bill_id}/reopen | Reopen Voided Bill|
+|[**coaApiV1BillRetrieve**](#coaapiv1billretrieve) | **GET** /coa/api/v1/bill | List Accounting Bills|
+|[**coaApiV1BillRetrieve2**](#coaapiv1billretrieve2) | **GET** /coa/api/v1/bill/{id} | Retrieve Accounting Bill|
 |[**coaApiV1BillStatsRetrieve**](#coaapiv1billstatsretrieve) | **GET** /coa/api/v1/bill/stats | Bill Stat Card Aggregates|
-|[**coaApiV1BillSyncToRampCreate**](#coaapiv1billsynctorampcreate) | **POST** /coa/api/v1/bill/{bill_id}/sync-to-ramp/ | Sync Bill to Ramp|
-|[**coaApiV1BillUpdate**](#coaapiv1billupdate) | **PUT** /coa/api/v1/bill/{id}/ | Update Accounting Bill|
-|[**coaApiV1BillVoidCreate**](#coaapiv1billvoidcreate) | **POST** /coa/api/v1/bill/{bill_id}/void/ | Void Bill|
+|[**coaApiV1BillSyncToRampCreate**](#coaapiv1billsynctorampcreate) | **POST** /coa/api/v1/bill/{bill_id}/sync-to-ramp | Sync Bill to Ramp|
+|[**coaApiV1BillUpdate**](#coaapiv1billupdate) | **PUT** /coa/api/v1/bill/{id} | Update Accounting Bill|
+|[**coaApiV1BillVoidCreate**](#coaapiv1billvoidcreate) | **POST** /coa/api/v1/bill/{bill_id}/void | Void Bill|
 |[**coaApiV1DebitMemoBulkSearchCreate**](#coaapiv1debitmemobulksearchcreate) | **POST** /coa/api/v1/debit-memo/bulk-search | Bulk Search Debit Memos by Number|
 |[**coaApiV1DebitMemoCreate**](#coaapiv1debitmemocreate) | **POST** /coa/api/v1/debit-memo | Create Debit Memo|
 |[**coaApiV1DebitMemoDestroy**](#coaapiv1debitmemodestroy) | **DELETE** /coa/api/v1/debit-memo/{id} | Delete Debit Memo|
@@ -32,10 +32,10 @@ All URIs are relative to *https://api.meetcampfire.com*
 |[**coaApiV1DebitMemoPartialUpdate**](#coaapiv1debitmemopartialupdate) | **PATCH** /coa/api/v1/debit-memo/{id} | Partial Update Debit Memo|
 |[**coaApiV1DebitMemoPaymentVoidCreate**](#coaapiv1debitmemopaymentvoidcreate) | **POST** /coa/api/v1/debit-memo/{debit_memo_id}/payment/{payment_id}/void | Void Debit Memo Used Payment|
 |[**coaApiV1DebitMemoPaymentVoidDestroy**](#coaapiv1debitmemopaymentvoiddestroy) | **DELETE** /coa/api/v1/debit-memo/{debit_memo_id}/payment/{payment_id}/void | Delete Debit Memo Used Payment|
-|[**coaApiV1DebitMemoReopenCreate**](#coaapiv1debitmemoreopencreate) | **POST** /coa/api/v1/debit-memo/{debit_memo_id}/reopen/ | Reopen Voided Debit Memo|
+|[**coaApiV1DebitMemoReopenCreate**](#coaapiv1debitmemoreopencreate) | **POST** /coa/api/v1/debit-memo/{debit_memo_id}/reopen | Reopen Voided Debit Memo|
 |[**coaApiV1DebitMemoRetrieve**](#coaapiv1debitmemoretrieve) | **GET** /coa/api/v1/debit-memo/{id} | Retrieve Debit Memo|
 |[**coaApiV1DebitMemoUpdate**](#coaapiv1debitmemoupdate) | **PUT** /coa/api/v1/debit-memo/{id} | Update Debit Memo|
-|[**coaApiV1DebitMemoVoidCreate**](#coaapiv1debitmemovoidcreate) | **POST** /coa/api/v1/debit-memo/{debit_memo_id}/void/ | Void Debit Memo|
+|[**coaApiV1DebitMemoVoidCreate**](#coaapiv1debitmemovoidcreate) | **POST** /coa/api/v1/debit-memo/{debit_memo_id}/void | Void Debit Memo|
 |[**createBillDraft**](#createbilldraft) | **POST** /coa/api/v1/bill-draft | Create Bill Draft|
 |[**discardBillDraft**](#discardbilldraft) | **POST** /coa/api/v1/bill-draft/{id}/discard | Discard Bill Draft|
 |[**generateBillAmortizationSchedule**](#generatebillamortizationschedule) | **GET** /coa/api/v1/bill/amortization/generate-schedule | Generate Bill Amortization Schedule|
@@ -306,7 +306,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new AccountsPayableApi(configuration);
 
-let id: string; // (default to undefined)
+let id: number; // (default to undefined)
 
 const { status, data } = await apiInstance.coaApiV1BillDestroy(
     id
@@ -317,7 +317,7 @@ const { status, data } = await apiInstance.coaApiV1BillDestroy(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **id** | [**string**] |  | defaults to undefined|
+| **id** | [**number**] |  | defaults to undefined|
 
 
 ### Return type
@@ -410,7 +410,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new AccountsPayableApi(configuration);
 
-let id: string; // (default to undefined)
+let id: number; // (default to undefined)
 let patchedAccountingBill: PatchedAccountingBill; // (optional)
 
 const { status, data } = await apiInstance.coaApiV1BillPartialUpdate(
@@ -424,7 +424,7 @@ const { status, data } = await apiInstance.coaApiV1BillPartialUpdate(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **patchedAccountingBill** | **PatchedAccountingBill**|  | |
-| **id** | [**string**] |  | defaults to undefined|
+| **id** | [**number**] |  | defaults to undefined|
 
 
 ### Return type
@@ -841,7 +841,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new AccountsPayableApi(configuration);
 
-let id: string; // (default to undefined)
+let id: number; // (default to undefined)
 
 const { status, data } = await apiInstance.coaApiV1BillRetrieve2(
     id
@@ -852,7 +852,7 @@ const { status, data } = await apiInstance.coaApiV1BillRetrieve2(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **id** | [**string**] |  | defaults to undefined|
+| **id** | [**number**] |  | defaults to undefined|
 
 
 ### Return type
@@ -990,7 +990,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new AccountsPayableApi(configuration);
 
-let id: string; // (default to undefined)
+let id: number; // (default to undefined)
 let accountingBill: AccountingBill; //
 
 const { status, data } = await apiInstance.coaApiV1BillUpdate(
@@ -1004,7 +1004,7 @@ const { status, data } = await apiInstance.coaApiV1BillUpdate(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **accountingBill** | **AccountingBill**|  | |
-| **id** | [**string**] |  | defaults to undefined|
+| **id** | [**number**] |  | defaults to undefined|
 
 
 ### Return type

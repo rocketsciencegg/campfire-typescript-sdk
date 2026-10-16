@@ -16,9 +16,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RevenueRecognitionTypeEnum = exports.RenewalBehaviorEnum = exports.ReconciliationReportV2SourceReconciliationTransactionStatusEnum = exports.ProrationMethodEnum = exports.PricingModelEnum = exports.PaymentTypeEnum = exports.PaymentStatusCdcEnum = exports.OverageInvoiceCadenceEnum = exports.MonthlyBillingPeriodAlignmentEnum = exports.ModeEnum = exports.MembershipModeEnum = exports.Kind5e2Enum = exports.ItaVendorEntityTypeEnum = exports.ItaVendorEntityCodeEnum = exports.ItaPayerStatusEnum = exports.ItaBillTypeEnum = exports.InvoiceReportResponseEngineUsedEnum = exports.InvoiceCalculationEnum = exports.InvoiceBasisEnum = exports.GenerageSubscriptionScheduleBillingCadenceEnum = exports.FixedAssetStatusEnum = exports.FieldTypeEnum = exports.EvergreenDateBoundaryModeEnum = exports.DataTypeEnum = exports.DataSubtypeEnum = exports.CustomReportDataTableResponseEngineUsedEnum = exports.CreditMemoTypeEnum = exports.ContractStatusEnum = exports.ContractPrepaidCommitStatusEnum = exports.ComponentTypeEnum = exports.CheckStockLayoutEnum = exports.ChargeTypeEnum = exports.BundledUsageRevenueRecognitionTypeEnum = exports.BulkVendorVendorTypeEnum = exports.BreakdownTypeEnum = exports.BillingTimingEnum = exports.BillingFrequencyEnum = exports.BillingCadence450Enum = exports.BillTypeEnum = exports.BillDraftCreateSourceEnum = exports.BankAccountTypeEnum = exports.AsyncTaskStatusEnum = exports.AppliedPaymentKindEnum = exports.ApplicationStatusEnum = exports.AllocationSyncRunStatusEnum = exports.AccountingInvoiceJournalEntryTypeEnum = exports.AccountingBillPaymentStatusEnum = exports.AccountTypeEnum = exports.AccountSubtypeEnum = exports.AccountCashflowClassificationEnum = void 0;
-exports.CoreAccountingApi = exports.CoreAccountingApiFactory = exports.CoreAccountingApiFp = exports.CoreAccountingApiAxiosParamCreator = exports.CoaApiVendorListVendorTypeEnum = exports.CompanyObjectsApi = exports.CompanyObjectsApiFactory = exports.CompanyObjectsApiFp = exports.CompanyObjectsApiAxiosParamCreator = exports.CashManagementApi = exports.CashManagementApiFactory = exports.CashManagementApiFp = exports.CashManagementApiAxiosParamCreator = exports.BankReconciliationApi = exports.BankReconciliationApiFactory = exports.BankReconciliationApiFp = exports.BankReconciliationApiAxiosParamCreator = exports.CoaApiV1InvoiceListStatusEnum = exports.CoaApiV1InvoiceListSentStatusEnum = exports.CoaApiV1CreditMemoListStatusEnum = exports.CoaApiV1CreditMemoListSortEnum = exports.AccountsReceivableApi = exports.AccountsReceivableApiFactory = exports.AccountsReceivableApiFp = exports.AccountsReceivableApiAxiosParamCreator = exports.CoaApiV1BillRetrieveStatusEnum = exports.AccountsPayableApi = exports.AccountsPayableApiFactory = exports.AccountsPayableApiFp = exports.AccountsPayableApiAxiosParamCreator = exports.VendorType391Enum = exports.Type4aaEnum = exports.TriggerEnum = exports.TransactionMatchStatusEnum = exports.TierPriceOverrideSourceEnum = exports.TermsEnum = exports.TerminationSettlementLineKindEnum = exports.TaxBehaviorEnum = exports.SystemTypeEnum = exports.SuggestionClassEnum = exports.SuccessorTargetKindEnum = exports.Status8ecEnum = exports.Status8d4Enum = exports.Status372Enum = exports.SourceTypeEnum = exports.SourceFc1Enum = exports.Source47fEnum = exports.Source3b3Enum = exports.Source340Enum = exports.SkipReasonEnum = void 0;
-exports.SettingsApi = exports.SettingsApiFactory = exports.SettingsApiFp = exports.SettingsApiAxiosParamCreator = exports.RevenueRecognitionApi = exports.RevenueRecognitionApiFactory = exports.RevenueRecognitionApiFp = exports.RevenueRecognitionApiAxiosParamCreator = exports.IntegrationsApi = exports.IntegrationsApiFactory = exports.IntegrationsApiFp = exports.IntegrationsApiAxiosParamCreator = exports.CaApiIncomeStatementComparativeRetrieveCadenceEnum = exports.CaApiGetTrialBalanceRetrieveIncomeStatementBasisEnum = exports.CaApiGetIncomeStatementRetrieveCadenceEnum = exports.CaApiGetCashFlowV2RetrieveCadenceEnum = exports.CaApiGetCashFlowRetrieveCadenceEnum = exports.CaApiGetCashFlowActivityRetrieveCadenceEnum = exports.CaApiGetBalanceSheetRetrieveCadenceEnum = exports.CaApiCashBasisRetrieveExportEnum = exports.CaApiCashBasisRetrieveCadenceEnum = exports.CaApiCashBasisOperatingStatementRetrieveExportEnum = exports.CaApiCashBasisOperatingStatementRetrieveCadenceEnum = exports.CaApiBalanceSheetComparativeRetrieveCadenceEnum = exports.FinancialStatementsApi = exports.FinancialStatementsApiFactory = exports.FinancialStatementsApiFp = exports.FinancialStatementsApiAxiosParamCreator = exports.CustomFieldsApi = exports.CustomFieldsApiFactory = exports.CustomFieldsApiFp = exports.CustomFieldsApiAxiosParamCreator = exports.CoaApiTransactionListMatchTypeEnum = void 0;
+exports.RenewalBehaviorEnum = exports.ReconciliationReportV2SourceReconciliationTransactionStatusEnum = exports.ProrationMethodEnum = exports.PricingModelEnum = exports.PaymentTypeEnum = exports.PaymentStatusCdcEnum = exports.OverageInvoiceCadenceEnum = exports.MonthlyBillingPeriodAlignmentEnum = exports.ModeEnum = exports.MembershipModeEnum = exports.Kind5e2Enum = exports.ItaVendorEntityTypeEnum = exports.ItaVendorEntityCodeEnum = exports.ItaPayerStatusEnum = exports.ItaBillTypeEnum = exports.InvoiceReportResponseEngineUsedEnum = exports.InvoiceCalculationEnum = exports.InvoiceBasisEnum = exports.GenerageSubscriptionScheduleBillingCadenceEnum = exports.FixedAssetStatusEnum = exports.FieldTypeEnum = exports.EvergreenDateBoundaryModeEnum = exports.DrawdownBasisEnum = exports.DataTypeEnum = exports.DataSubtypeEnum = exports.CustomReportDataTableResponseEngineUsedEnum = exports.CreditMemoTypeEnum = exports.ContractStatusEnum = exports.ContractPrepaidCommitStatusEnum = exports.ComponentTypeEnum = exports.CheckStockLayoutEnum = exports.ChargeTypeEnum = exports.BundledUsageRevenueRecognitionTypeEnum = exports.BulkVendorVendorTypeEnum = exports.BreakdownTypeEnum = exports.BillingTimingEnum = exports.BillingFrequencyEnum = exports.BillingCadence450Enum = exports.BillTypeEnum = exports.BillDraftCreateSourceEnum = exports.BankAccountTypeEnum = exports.AsyncTaskStatusEnum = exports.AppliedPaymentKindEnum = exports.ApplicationStatusEnum = exports.AllocationSyncRunStatusEnum = exports.AccountingInvoiceJournalEntryTypeEnum = exports.AccountingBillPaymentStatusEnum = exports.AccountTypeEnum = exports.AccountSubtypeEnum = exports.AccountCashflowClassificationEnum = void 0;
+exports.CoreAccountingApiFactory = exports.CoreAccountingApiFp = exports.CoreAccountingApiAxiosParamCreator = exports.CoaApiVendorListVendorTypeEnum = exports.CompanyObjectsApi = exports.CompanyObjectsApiFactory = exports.CompanyObjectsApiFp = exports.CompanyObjectsApiAxiosParamCreator = exports.CashManagementApi = exports.CashManagementApiFactory = exports.CashManagementApiFp = exports.CashManagementApiAxiosParamCreator = exports.BankReconciliationApi = exports.BankReconciliationApiFactory = exports.BankReconciliationApiFp = exports.BankReconciliationApiAxiosParamCreator = exports.CoaApiV1InvoiceListStatusEnum = exports.CoaApiV1InvoiceListSentStatusEnum = exports.CoaApiV1CreditMemoListStatusEnum = exports.CoaApiV1CreditMemoListSortEnum = exports.AccountsReceivableApi = exports.AccountsReceivableApiFactory = exports.AccountsReceivableApiFp = exports.AccountsReceivableApiAxiosParamCreator = exports.CoaApiV1BillRetrieveStatusEnum = exports.AccountsPayableApi = exports.AccountsPayableApiFactory = exports.AccountsPayableApiFp = exports.AccountsPayableApiAxiosParamCreator = exports.VendorType391Enum = exports.Type4aaEnum = exports.TriggerEnum = exports.TransactionMatchStatusEnum = exports.TierPriceOverrideSourceEnum = exports.TermsEnum = exports.TerminationSettlementLineKindEnum = exports.TaxBehaviorEnum = exports.SystemTypeEnum = exports.SuggestionClassEnum = exports.SuccessorTargetKindEnum = exports.Status8ecEnum = exports.Status8d4Enum = exports.Status372Enum = exports.SourceTypeEnum = exports.SourceFc1Enum = exports.Source47fEnum = exports.Source3b3Enum = exports.Source340Enum = exports.SkipReasonEnum = exports.RevenueRecognitionTypeEnum = void 0;
+exports.SettingsApi = exports.SettingsApiFactory = exports.SettingsApiFp = exports.SettingsApiAxiosParamCreator = exports.RevenueRecognitionApi = exports.RevenueRecognitionApiFactory = exports.RevenueRecognitionApiFp = exports.RevenueRecognitionApiAxiosParamCreator = exports.IntegrationsApi = exports.IntegrationsApiFactory = exports.IntegrationsApiFp = exports.IntegrationsApiAxiosParamCreator = exports.CaApiIncomeStatementComparativeRetrieveCadenceEnum = exports.CaApiGetTrialBalanceRetrieveIncomeStatementBasisEnum = exports.CaApiGetIncomeStatementRetrieveCadenceEnum = exports.CaApiGetCashFlowV2RetrieveCadenceEnum = exports.CaApiGetCashFlowRetrieveCadenceEnum = exports.CaApiGetCashFlowActivityRetrieveCadenceEnum = exports.CaApiGetBalanceSheetRetrieveCadenceEnum = exports.CaApiCashBasisRetrieveExportEnum = exports.CaApiCashBasisRetrieveCadenceEnum = exports.CaApiCashBasisOperatingStatementRetrieveExportEnum = exports.CaApiCashBasisOperatingStatementRetrieveCadenceEnum = exports.CaApiBalanceSheetComparativeRetrieveCadenceEnum = exports.FinancialStatementsApi = exports.FinancialStatementsApiFactory = exports.FinancialStatementsApiFp = exports.FinancialStatementsApiAxiosParamCreator = exports.CustomFieldsApi = exports.CustomFieldsApiFactory = exports.CustomFieldsApiFp = exports.CustomFieldsApiAxiosParamCreator = exports.CoaApiTransactionListMatchTypeEnum = exports.CoreAccountingApi = void 0;
 const axios_1 = __importDefault(require("axios"));
 // Some imports not used depending on template conditions
 // @ts-ignore
@@ -288,6 +288,13 @@ exports.DataTypeEnum = {
     Transaction: 'transaction',
     FinancialStatement: 'financial_statement',
     Invoice: 'invoice',
+};
+/**
+ * * `monetary` - Monetary amount * `quantity` - Quantity
+ */
+exports.DrawdownBasisEnum = {
+    Monetary: 'monetary',
+    Quantity: 'quantity',
 };
 /**
  * * `CONTRACT_PERIOD` - Contract billing period * `EXACT_DATE` - Exact service dates
@@ -751,7 +758,7 @@ const AccountsPayableApiAxiosParamCreator = function (configuration) {
          * @throws {RequiredError}
          */
         bulkSyncBillsToRamp: async (options = {}) => {
-            const localVarPath = `/coa/api/v1/bill/bulk-sync-to-ramp/`;
+            const localVarPath = `/coa/api/v1/bill/bulk-sync-to-ramp`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -810,7 +817,7 @@ const AccountsPayableApiAxiosParamCreator = function (configuration) {
         coaApiV1BillCreate: async (accountingBill, options = {}) => {
             // verify required parameter 'accountingBill' is not null or undefined
             (0, common_1.assertParamExists)('coaApiV1BillCreate', 'accountingBill', accountingBill);
-            const localVarPath = `/coa/api/v1/bill/`;
+            const localVarPath = `/coa/api/v1/bill`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -834,14 +841,14 @@ const AccountsPayableApiAxiosParamCreator = function (configuration) {
         /**
          *          Permanently deletes an accounting bill and its associated journal entry.          This endpoint performs a complete deletion of the bill including:         - Removal of all bill line items and associated data         - Deletion of the corresponding accounts payable journal entry         - Cleanup of any tax calculations and allocations         - Removal of vendor payment allocations if applicable          **Important Notes:**         - This operation is irreversible and permanently removes the bill from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity         - All double-entry bookkeeping records related to this bill will be removed         - Any payments allocated to this bill should be handled separately before deletion         - Deletion may affect financial reports and account balances          **Restrictions:**         - Bills with allocated payments may require payment reallocation first         - Consider the impact on historical financial reporting         - Bills cannot be deleted in a closed period
          * @summary Delete Accounting Bill
-         * @param {string} id
+         * @param {number} id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
         coaApiV1BillDestroy: async (id, options = {}) => {
             // verify required parameter 'id' is not null or undefined
             (0, common_1.assertParamExists)('coaApiV1BillDestroy', 'id', id);
-            const localVarPath = `/coa/api/v1/bill/{id}/`
+            const localVarPath = `/coa/api/v1/bill/{id}`
                 .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -893,7 +900,7 @@ const AccountsPayableApiAxiosParamCreator = function (configuration) {
         /**
          *          Performs a partial update of an existing accounting bill using PATCH semantics.          This endpoint allows selective modification of bill fields without requiring         a complete bill replacement. You can update specific aspects of the bill while         leaving other fields unchanged.          **Updatable Fields:**         - Bill metadata (number, dates, descriptions, vendor, entity)         - Line items (amounts, accounts, descriptions, departments)         - Payment terms and due dates         - Tax calculations and allocations         - Custom fields and tags         - Currency and exchange rates
          * @summary Partial Update Accounting Bill
-         * @param {string} id
+         * @param {number} id
          * @param {PatchedAccountingBill} [patchedAccountingBill]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -901,7 +908,7 @@ const AccountsPayableApiAxiosParamCreator = function (configuration) {
         coaApiV1BillPartialUpdate: async (id, patchedAccountingBill, options = {}) => {
             // verify required parameter 'id' is not null or undefined
             (0, common_1.assertParamExists)('coaApiV1BillPartialUpdate', 'id', id);
-            const localVarPath = `/coa/api/v1/bill/{id}/`
+            const localVarPath = `/coa/api/v1/bill/{id}`
                 .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -934,7 +941,7 @@ const AccountsPayableApiAxiosParamCreator = function (configuration) {
         coaApiV1BillPayCreate: async (billId, markPaid, options = {}) => {
             // verify required parameter 'billId' is not null or undefined
             (0, common_1.assertParamExists)('coaApiV1BillPayCreate', 'billId', billId);
-            const localVarPath = `/coa/api/v1/bill/{bill_id}/pay/`
+            const localVarPath = `/coa/api/v1/bill/{bill_id}/pay`
                 .replace('{bill_id}', encodeURIComponent(String(billId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -970,7 +977,7 @@ const AccountsPayableApiAxiosParamCreator = function (configuration) {
             (0, common_1.assertParamExists)('coaApiV1BillPaymentVoidCreate', 'billId', billId);
             // verify required parameter 'paymentId' is not null or undefined
             (0, common_1.assertParamExists)('coaApiV1BillPaymentVoidCreate', 'paymentId', paymentId);
-            const localVarPath = `/coa/api/v1/bill/{bill_id}/payment/{payment_id}/void/`
+            const localVarPath = `/coa/api/v1/bill/{bill_id}/payment/{payment_id}/void`
                 .replace('{bill_id}', encodeURIComponent(String(billId)))
                 .replace('{payment_id}', encodeURIComponent(String(paymentId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1006,7 +1013,7 @@ const AccountsPayableApiAxiosParamCreator = function (configuration) {
             (0, common_1.assertParamExists)('coaApiV1BillPaymentVoidDestroy', 'billId', billId);
             // verify required parameter 'paymentId' is not null or undefined
             (0, common_1.assertParamExists)('coaApiV1BillPaymentVoidDestroy', 'paymentId', paymentId);
-            const localVarPath = `/coa/api/v1/bill/{bill_id}/payment/{payment_id}/void/`
+            const localVarPath = `/coa/api/v1/bill/{bill_id}/payment/{payment_id}/void`
                 .replace('{bill_id}', encodeURIComponent(String(billId)))
                 .replace('{payment_id}', encodeURIComponent(String(paymentId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1090,7 +1097,7 @@ const AccountsPayableApiAxiosParamCreator = function (configuration) {
         coaApiV1BillReopenCreate: async (billId, options = {}) => {
             // verify required parameter 'billId' is not null or undefined
             (0, common_1.assertParamExists)('coaApiV1BillReopenCreate', 'billId', billId);
-            const localVarPath = `/coa/api/v1/bill/{bill_id}/reopen/`
+            const localVarPath = `/coa/api/v1/bill/{bill_id}/reopen`
                 .replace('{bill_id}', encodeURIComponent(String(billId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -1131,7 +1138,7 @@ const AccountsPayableApiAxiosParamCreator = function (configuration) {
          * @throws {RequiredError}
          */
         coaApiV1BillRetrieve: async (currency, download, endDate, entity, includeDeleted, lastModifiedAtGte, lastModifiedAtLte, limit, offset, q, sort, startDate, status, vendor, options = {}) => {
-            const localVarPath = `/coa/api/v1/bill/`;
+            const localVarPath = `/coa/api/v1/bill`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -1194,14 +1201,14 @@ const AccountsPayableApiAxiosParamCreator = function (configuration) {
         /**
          *          Retrieve a single accounting bill by ID with complete detail including all line items, payments, and related data.          This endpoint returns comprehensive bill information including:         - Full bill details with vendor, entity, and customer information         - All line items with account details, departments, tags, and amortization schedules         - Complete payment history with journal entry references         - Calculated fields including total amounts, amounts paid, amounts due, and payment status         - Journal entry references for accounting integration         - Exchange rate information for multi-currency bills
          * @summary Retrieve Accounting Bill
-         * @param {string} id
+         * @param {number} id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
         coaApiV1BillRetrieve2: async (id, options = {}) => {
             // verify required parameter 'id' is not null or undefined
             (0, common_1.assertParamExists)('coaApiV1BillRetrieve2', 'id', id);
-            const localVarPath = `/coa/api/v1/bill/{id}/`
+            const localVarPath = `/coa/api/v1/bill/{id}`
                 .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -1257,7 +1264,7 @@ const AccountsPayableApiAxiosParamCreator = function (configuration) {
         coaApiV1BillSyncToRampCreate: async (billId, options = {}) => {
             // verify required parameter 'billId' is not null or undefined
             (0, common_1.assertParamExists)('coaApiV1BillSyncToRampCreate', 'billId', billId);
-            const localVarPath = `/coa/api/v1/bill/{bill_id}/sync-to-ramp/`
+            const localVarPath = `/coa/api/v1/bill/{bill_id}/sync-to-ramp`
                 .replace('{bill_id}', encodeURIComponent(String(billId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -1279,7 +1286,7 @@ const AccountsPayableApiAxiosParamCreator = function (configuration) {
         /**
          *          Update an existing accounting bill with complete replacement of all data including line items and metadata.          This endpoint performs a full update (PUT) of an accounting bill with:         - Complete replacement of all bill data including vendor, entity, dates, and terms         - Full replacement of all line items with new account assignments, amounts, and descriptions         - Automatic recalculation of journal entries and accounting transactions         - Preservation of payment history while updating balances and amounts due         - Validation of all referenced accounts, vendors, entities, and departments         - Automatic exchange rate updates for multi-currency bills         - Custom field updates and attachment management
          * @summary Update Accounting Bill
-         * @param {string} id
+         * @param {number} id
          * @param {AccountingBill} accountingBill
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1289,7 +1296,7 @@ const AccountsPayableApiAxiosParamCreator = function (configuration) {
             (0, common_1.assertParamExists)('coaApiV1BillUpdate', 'id', id);
             // verify required parameter 'accountingBill' is not null or undefined
             (0, common_1.assertParamExists)('coaApiV1BillUpdate', 'accountingBill', accountingBill);
-            const localVarPath = `/coa/api/v1/bill/{id}/`
+            const localVarPath = `/coa/api/v1/bill/{id}`
                 .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -1324,7 +1331,7 @@ const AccountsPayableApiAxiosParamCreator = function (configuration) {
             (0, common_1.assertParamExists)('coaApiV1BillVoidCreate', 'billId', billId);
             // verify required parameter 'voidBillRequest' is not null or undefined
             (0, common_1.assertParamExists)('coaApiV1BillVoidCreate', 'voidBillRequest', voidBillRequest);
-            const localVarPath = `/coa/api/v1/bill/{bill_id}/void/`
+            const localVarPath = `/coa/api/v1/bill/{bill_id}/void`
                 .replace('{bill_id}', encodeURIComponent(String(billId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -1644,7 +1651,7 @@ const AccountsPayableApiAxiosParamCreator = function (configuration) {
         coaApiV1DebitMemoReopenCreate: async (debitMemoId, options = {}) => {
             // verify required parameter 'debitMemoId' is not null or undefined
             (0, common_1.assertParamExists)('coaApiV1DebitMemoReopenCreate', 'debitMemoId', debitMemoId);
-            const localVarPath = `/coa/api/v1/debit-memo/{debit_memo_id}/reopen/`
+            const localVarPath = `/coa/api/v1/debit-memo/{debit_memo_id}/reopen`
                 .replace('{debit_memo_id}', encodeURIComponent(String(debitMemoId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -1742,7 +1749,7 @@ const AccountsPayableApiAxiosParamCreator = function (configuration) {
             (0, common_1.assertParamExists)('coaApiV1DebitMemoVoidCreate', 'debitMemoId', debitMemoId);
             // verify required parameter 'voidDebitMemoRequest' is not null or undefined
             (0, common_1.assertParamExists)('coaApiV1DebitMemoVoidCreate', 'voidDebitMemoRequest', voidDebitMemoRequest);
-            const localVarPath = `/coa/api/v1/debit-memo/{debit_memo_id}/void/`
+            const localVarPath = `/coa/api/v1/debit-memo/{debit_memo_id}/void`
                 .replace('{debit_memo_id}', encodeURIComponent(String(debitMemoId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -2118,7 +2125,7 @@ const AccountsPayableApiFp = function (configuration) {
         /**
          *          Permanently deletes an accounting bill and its associated journal entry.          This endpoint performs a complete deletion of the bill including:         - Removal of all bill line items and associated data         - Deletion of the corresponding accounts payable journal entry         - Cleanup of any tax calculations and allocations         - Removal of vendor payment allocations if applicable          **Important Notes:**         - This operation is irreversible and permanently removes the bill from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity         - All double-entry bookkeeping records related to this bill will be removed         - Any payments allocated to this bill should be handled separately before deletion         - Deletion may affect financial reports and account balances          **Restrictions:**         - Bills with allocated payments may require payment reallocation first         - Consider the impact on historical financial reporting         - Bills cannot be deleted in a closed period
          * @summary Delete Accounting Bill
-         * @param {string} id
+         * @param {number} id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -2148,7 +2155,7 @@ const AccountsPayableApiFp = function (configuration) {
         /**
          *          Performs a partial update of an existing accounting bill using PATCH semantics.          This endpoint allows selective modification of bill fields without requiring         a complete bill replacement. You can update specific aspects of the bill while         leaving other fields unchanged.          **Updatable Fields:**         - Bill metadata (number, dates, descriptions, vendor, entity)         - Line items (amounts, accounts, descriptions, departments)         - Payment terms and due dates         - Tax calculations and allocations         - Custom fields and tags         - Currency and exchange rates
          * @summary Partial Update Accounting Bill
-         * @param {string} id
+         * @param {number} id
          * @param {PatchedAccountingBill} [patchedAccountingBill]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -2277,7 +2284,7 @@ const AccountsPayableApiFp = function (configuration) {
         /**
          *          Retrieve a single accounting bill by ID with complete detail including all line items, payments, and related data.          This endpoint returns comprehensive bill information including:         - Full bill details with vendor, entity, and customer information         - All line items with account details, departments, tags, and amortization schedules         - Complete payment history with journal entry references         - Calculated fields including total amounts, amounts paid, amounts due, and payment status         - Journal entry references for accounting integration         - Exchange rate information for multi-currency bills
          * @summary Retrieve Accounting Bill
-         * @param {string} id
+         * @param {number} id
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -2321,7 +2328,7 @@ const AccountsPayableApiFp = function (configuration) {
         /**
          *          Update an existing accounting bill with complete replacement of all data including line items and metadata.          This endpoint performs a full update (PUT) of an accounting bill with:         - Complete replacement of all bill data including vendor, entity, dates, and terms         - Full replacement of all line items with new account assignments, amounts, and descriptions         - Automatic recalculation of journal entries and accounting transactions         - Preservation of payment history while updating balances and amounts due         - Validation of all referenced accounts, vendors, entities, and departments         - Automatic exchange rate updates for multi-currency bills         - Custom field updates and attachment management
          * @summary Update Accounting Bill
-         * @param {string} id
+         * @param {number} id
          * @param {AccountingBill} accountingBill
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -3897,7 +3904,7 @@ const AccountsReceivableApiAxiosParamCreator = function (configuration) {
         coaApiV1CreditMemoReopenCreate: async (creditMemoId, options = {}) => {
             // verify required parameter 'creditMemoId' is not null or undefined
             (0, common_1.assertParamExists)('coaApiV1CreditMemoReopenCreate', 'creditMemoId', creditMemoId);
-            const localVarPath = `/coa/api/v1/credit-memo/{credit_memo_id}/reopen/`
+            const localVarPath = `/coa/api/v1/credit-memo/{credit_memo_id}/reopen`
                 .replace('{credit_memo_id}', encodeURIComponent(String(creditMemoId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -3995,7 +4002,7 @@ const AccountsReceivableApiAxiosParamCreator = function (configuration) {
             (0, common_1.assertParamExists)('coaApiV1CreditMemoVoidCreate', 'creditMemoId', creditMemoId);
             // verify required parameter 'voidCreditMemoRequest' is not null or undefined
             (0, common_1.assertParamExists)('coaApiV1CreditMemoVoidCreate', 'voidCreditMemoRequest', voidCreditMemoRequest);
-            const localVarPath = `/coa/api/v1/credit-memo/{credit_memo_id}/void/`
+            const localVarPath = `/coa/api/v1/credit-memo/{credit_memo_id}/void`
                 .replace('{credit_memo_id}', encodeURIComponent(String(creditMemoId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -4122,7 +4129,7 @@ const AccountsReceivableApiAxiosParamCreator = function (configuration) {
         coaApiV1InvoiceCreate: async (accountingInvoice, options = {}) => {
             // verify required parameter 'accountingInvoice' is not null or undefined
             (0, common_1.assertParamExists)('coaApiV1InvoiceCreate', 'accountingInvoice', accountingInvoice);
-            const localVarPath = `/coa/api/v1/invoice/`;
+            const localVarPath = `/coa/api/v1/invoice`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -4188,7 +4195,7 @@ const AccountsReceivableApiAxiosParamCreator = function (configuration) {
         coaApiV1InvoiceDestroy: async (id, options = {}) => {
             // verify required parameter 'id' is not null or undefined
             (0, common_1.assertParamExists)('coaApiV1InvoiceDestroy', 'id', id);
-            const localVarPath = `/coa/api/v1/invoice/{id}/`
+            const localVarPath = `/coa/api/v1/invoice/{id}`
                 .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -4234,7 +4241,7 @@ const AccountsReceivableApiAxiosParamCreator = function (configuration) {
          * @throws {RequiredError}
          */
         coaApiV1InvoiceList: async (client, contract, currency, download, endDate, entity, invoiceNumber, limit, lineTagGroupId, lineTagId, offset, paidDateFrom, paidDateTo, parentClient, q, refNumber, sentStatus, sort, startDate, status, options = {}) => {
-            const localVarPath = `/coa/api/v1/invoice/`;
+            const localVarPath = `/coa/api/v1/invoice`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -4324,7 +4331,7 @@ const AccountsReceivableApiAxiosParamCreator = function (configuration) {
         coaApiV1InvoicePartialUpdate: async (id, patchedAccountingInvoice, options = {}) => {
             // verify required parameter 'id' is not null or undefined
             (0, common_1.assertParamExists)('coaApiV1InvoicePartialUpdate', 'id', id);
-            const localVarPath = `/coa/api/v1/invoice/{id}/`
+            const localVarPath = `/coa/api/v1/invoice/{id}`
                 .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -4357,7 +4364,7 @@ const AccountsReceivableApiAxiosParamCreator = function (configuration) {
         coaApiV1InvoicePayCreate: async (invoiceId, markPaid, options = {}) => {
             // verify required parameter 'invoiceId' is not null or undefined
             (0, common_1.assertParamExists)('coaApiV1InvoicePayCreate', 'invoiceId', invoiceId);
-            const localVarPath = `/coa/api/v1/invoice/{invoice_id}/pay/`
+            const localVarPath = `/coa/api/v1/invoice/{invoice_id}/pay`
                 .replace('{invoice_id}', encodeURIComponent(String(invoiceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -4393,7 +4400,7 @@ const AccountsReceivableApiAxiosParamCreator = function (configuration) {
             (0, common_1.assertParamExists)('coaApiV1InvoicePaymentVoidCreate', 'invoiceId', invoiceId);
             // verify required parameter 'paymentId' is not null or undefined
             (0, common_1.assertParamExists)('coaApiV1InvoicePaymentVoidCreate', 'paymentId', paymentId);
-            const localVarPath = `/coa/api/v1/invoice/{invoice_id}/payment/{payment_id}/void/`
+            const localVarPath = `/coa/api/v1/invoice/{invoice_id}/payment/{payment_id}/void`
                 .replace('{invoice_id}', encodeURIComponent(String(invoiceId)))
                 .replace('{payment_id}', encodeURIComponent(String(paymentId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -4429,7 +4436,7 @@ const AccountsReceivableApiAxiosParamCreator = function (configuration) {
             (0, common_1.assertParamExists)('coaApiV1InvoicePaymentVoidDestroy', 'invoiceId', invoiceId);
             // verify required parameter 'paymentId' is not null or undefined
             (0, common_1.assertParamExists)('coaApiV1InvoicePaymentVoidDestroy', 'paymentId', paymentId);
-            const localVarPath = `/coa/api/v1/invoice/{invoice_id}/payment/{payment_id}/void/`
+            const localVarPath = `/coa/api/v1/invoice/{invoice_id}/payment/{payment_id}/void`
                 .replace('{invoice_id}', encodeURIComponent(String(invoiceId)))
                 .replace('{payment_id}', encodeURIComponent(String(paymentId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -4521,7 +4528,7 @@ const AccountsReceivableApiAxiosParamCreator = function (configuration) {
         coaApiV1InvoiceReopenCreate: async (invoiceId, options = {}) => {
             // verify required parameter 'invoiceId' is not null or undefined
             (0, common_1.assertParamExists)('coaApiV1InvoiceReopenCreate', 'invoiceId', invoiceId);
-            const localVarPath = `/coa/api/v1/invoice/{invoice_id}/reopen/`
+            const localVarPath = `/coa/api/v1/invoice/{invoice_id}/reopen`
                 .replace('{invoice_id}', encodeURIComponent(String(invoiceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -4751,7 +4758,7 @@ const AccountsReceivableApiAxiosParamCreator = function (configuration) {
         coaApiV1InvoiceRetrieve: async (id, options = {}) => {
             // verify required parameter 'id' is not null or undefined
             (0, common_1.assertParamExists)('coaApiV1InvoiceRetrieve', 'id', id);
-            const localVarPath = `/coa/api/v1/invoice/{id}/`
+            const localVarPath = `/coa/api/v1/invoice/{id}`
                 .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -4810,7 +4817,7 @@ const AccountsReceivableApiAxiosParamCreator = function (configuration) {
             (0, common_1.assertParamExists)('coaApiV1InvoiceUpdate', 'id', id);
             // verify required parameter 'accountingInvoice' is not null or undefined
             (0, common_1.assertParamExists)('coaApiV1InvoiceUpdate', 'accountingInvoice', accountingInvoice);
-            const localVarPath = `/coa/api/v1/invoice/{id}/`
+            const localVarPath = `/coa/api/v1/invoice/{id}`
                 .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -4843,7 +4850,7 @@ const AccountsReceivableApiAxiosParamCreator = function (configuration) {
         coaApiV1InvoiceVoidCreate: async (invoiceId, voidInvoiceRequest, options = {}) => {
             // verify required parameter 'invoiceId' is not null or undefined
             (0, common_1.assertParamExists)('coaApiV1InvoiceVoidCreate', 'invoiceId', invoiceId);
-            const localVarPath = `/coa/api/v1/invoice/{invoice_id}/void/`
+            const localVarPath = `/coa/api/v1/invoice/{invoice_id}/void`
                 .replace('{invoice_id}', encodeURIComponent(String(invoiceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -4906,7 +4913,7 @@ const AccountsReceivableApiAxiosParamCreator = function (configuration) {
         getClientInvoiceStatementPdf: async (clientId, options = {}) => {
             // verify required parameter 'clientId' is not null or undefined
             (0, common_1.assertParamExists)('getClientInvoiceStatementPdf', 'clientId', clientId);
-            const localVarPath = `/coa/api/v1/invoice/statement/client/{client_id}/pdf/`
+            const localVarPath = `/coa/api/v1/invoice/statement/client/{client_id}/pdf`
                 .replace('{client_id}', encodeURIComponent(String(clientId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -4935,7 +4942,7 @@ const AccountsReceivableApiAxiosParamCreator = function (configuration) {
         getCreditMemoPdf: async (id, options = {}) => {
             // verify required parameter 'id' is not null or undefined
             (0, common_1.assertParamExists)('getCreditMemoPdf', 'id', id);
-            const localVarPath = `/coa/api/v1/credit-memo/{id}/pdf/`
+            const localVarPath = `/coa/api/v1/credit-memo/{id}/pdf`
                 .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -5201,7 +5208,7 @@ const AccountsReceivableApiAxiosParamCreator = function (configuration) {
         sendCreditMemo: async (id, options = {}) => {
             // verify required parameter 'id' is not null or undefined
             (0, common_1.assertParamExists)('sendCreditMemo', 'id', id);
-            const localVarPath = `/coa/api/v1/credit-memo/{id}/send/`
+            const localVarPath = `/coa/api/v1/credit-memo/{id}/send`
                 .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -11021,7 +11028,7 @@ const CompanyObjectsApiAxiosParamCreator = function (configuration) {
         createVendorCustomField: async (vendorCustomField1, options = {}) => {
             // verify required parameter 'vendorCustomField1' is not null or undefined
             (0, common_1.assertParamExists)('createVendorCustomField', 'vendorCustomField1', vendorCustomField1);
-            const localVarPath = `/coa/api/vendor_custom_field_1/`;
+            const localVarPath = `/coa/api/vendor_custom_field_1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -11052,7 +11059,7 @@ const CompanyObjectsApiAxiosParamCreator = function (configuration) {
         deleteVendorCustomField: async (id, options = {}) => {
             // verify required parameter 'id' is not null or undefined
             (0, common_1.assertParamExists)('deleteVendorCustomField', 'id', id);
-            const localVarPath = `/coa/api/vendor_custom_field_1/{id}/`
+            const localVarPath = `/coa/api/vendor_custom_field_1/{id}`
                 .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -11081,7 +11088,7 @@ const CompanyObjectsApiAxiosParamCreator = function (configuration) {
         getVendorCustomField: async (id, options = {}) => {
             // verify required parameter 'id' is not null or undefined
             (0, common_1.assertParamExists)('getVendorCustomField', 'id', id);
-            const localVarPath = `/coa/api/vendor_custom_field_1/{id}/`
+            const localVarPath = `/coa/api/vendor_custom_field_1/{id}`
                 .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -11108,7 +11115,7 @@ const CompanyObjectsApiAxiosParamCreator = function (configuration) {
          * @throws {RequiredError}
          */
         listVendorCustomFields: async (options = {}) => {
-            const localVarPath = `/coa/api/vendor_custom_field_1/`;
+            const localVarPath = `/coa/api/vendor_custom_field_1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -11172,7 +11179,7 @@ const CompanyObjectsApiAxiosParamCreator = function (configuration) {
         partialUpdateVendorCustomField: async (id, patchedVendorCustomField1, options = {}) => {
             // verify required parameter 'id' is not null or undefined
             (0, common_1.assertParamExists)('partialUpdateVendorCustomField', 'id', id);
-            const localVarPath = `/coa/api/vendor_custom_field_1/{id}/`
+            const localVarPath = `/coa/api/vendor_custom_field_1/{id}`
                 .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -11207,7 +11214,7 @@ const CompanyObjectsApiAxiosParamCreator = function (configuration) {
             (0, common_1.assertParamExists)('updateVendorCustomField', 'id', id);
             // verify required parameter 'vendorCustomField1' is not null or undefined
             (0, common_1.assertParamExists)('updateVendorCustomField', 'vendorCustomField1', vendorCustomField1);
-            const localVarPath = `/coa/api/vendor_custom_field_1/{id}/`
+            const localVarPath = `/coa/api/vendor_custom_field_1/{id}`
                 .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -15097,7 +15104,7 @@ const CoreAccountingApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
-         * Lists general-ledger transactions (`ChartTransaction` records) - Campfire\'s GL transaction log, and the recommended endpoint for retrieving GL transaction data.  Each transaction carries account, department, vendor, entity, journal/date metadata, and tags (where applicable). Product metadata is not stored directly on a transaction; it is reached through relations with other Campfire objects.  **Date range:** filter with `start_date` and `end_date` (both `YYYY-MM-DD`, inclusive); the bounds match on transaction date (the journal entry date, which `posted_at` mirrors).  **Pagination:** results are paginated via `limit` (default 100, max 10000) and `offset`. To retrieve more than 10000 records, page through with `offset`, or use cursor pagination by passing an empty `cursor=` parameter and following the `next` link.  **Key response fields:** - `amount` - amount in consolidated currency (the root entity\'s currency). - `amount_book` - amount in the currency of the entity the transaction belongs to. - `amount_native` - amount in the currency the transaction was originally created in. Example: for a transaction made in GBP where the entity uses EUR and the root entity uses USD, `amount_native` is GBP, `amount_book` is EUR, and `amount` is USD. - `posted_at` - the transaction date; determines which period the transaction falls in. `date_year` and `date_month` are derived from it. - `vendor` / `vendor_name` - the linked Campfire `Vendor` object\'s ID and name. - `merchant_name` - a free-text field stored directly on the transaction; not linked to any Campfire object. - `account` - the Campfire `ChartAccount` (GL account) the transaction is posted to. - `entity` - the Campfire `ChartEntity` ID. - `tags` - the transaction\'s tags; each tag\'s `group`/`group_name` identify the tag group (dimension) it belongs to. List a customer\'s tag groups via `/coa/api/tag-group` and tags via `/coa/api/tag`.  **Dynamic tag-group columns:** in addition to `tags`, each row carries flattened per-dimension columns `tag_group_<id>` (tag ID) and `tag_group_<id>_name` (tag name), one pair per tag group defined by the customer, plus `tag_group_none` / `tag_group_none_name` for ungrouped tags. Journal-level custom fields are merged in as `custom_field_<name>` keys. These columns are customer-specific, so they cannot appear in this static schema - discover tag groups via `/coa/api/tag-group` and custom fields via `/ca/api/v1/custom-fields`.
+         * Lists general-ledger transactions (`ChartTransaction` records) - Campfire\'s GL transaction log, and the recommended endpoint for retrieving GL transaction data.  Each transaction carries account, department, vendor, entity, journal/date metadata, and tags (where applicable). Product metadata is not stored directly on a transaction; it is reached through relations with other Campfire objects.  **Date range:** filter with `start_date` and `end_date` (both `YYYY-MM-DD`, inclusive); `date_from` and `date_to` are aliases, and `start_date`/`end_date` win when both are sent. The bounds match on transaction date (the journal entry date, which `posted_at` mirrors).  **Pagination:** results are paginated via `limit` (default 100, max 10000) and `offset`. To retrieve more than 10000 records, page through with `offset`, or use cursor pagination by passing an empty `cursor=` parameter and following the `next` link.  **Key response fields:** - `amount` - amount in consolidated currency (the root entity\'s currency). - `amount_book` - amount in the currency of the entity the transaction belongs to. - `amount_native` - amount in the currency the transaction was originally created in. Example: for a transaction made in GBP where the entity uses EUR and the root entity uses USD, `amount_native` is GBP, `amount_book` is EUR, and `amount` is USD. - `posted_at` - the transaction date; determines which period the transaction falls in. `date_year` and `date_month` are derived from it. - `vendor` / `vendor_name` - the linked Campfire `Vendor` object\'s ID and name. - `merchant_name` - a free-text field stored directly on the transaction; not linked to any Campfire object. - `account` - the Campfire `ChartAccount` (GL account) the transaction is posted to. - `entity` - the Campfire `ChartEntity` ID. - `tags` - the transaction\'s tags; each tag\'s `group`/`group_name` identify the tag group (dimension) it belongs to. List a customer\'s tag groups via `/coa/api/tag-group` and tags via `/coa/api/tag`.  **Dynamic tag-group columns:** in addition to `tags`, each row carries flattened per-dimension columns `tag_group_<id>` (tag ID) and `tag_group_<id>_name` (tag name), one pair per tag group defined by the customer, plus `tag_group_none` / `tag_group_none_name` for ungrouped tags. Journal-level custom fields are merged in as `custom_field_<name>` keys. These columns are customer-specific, so they cannot appear in this static schema - discover tag groups via `/coa/api/tag-group` and custom fields via `/ca/api/v1/custom-fields`.
          * @summary List Chart Transactions
          * @param {number} [account]
          * @param {number} [accountId]
@@ -15118,6 +15125,8 @@ const CoreAccountingApiAxiosParamCreator = function (configuration) {
          * @param {number} [creditAmountLte]
          * @param {boolean} [creditAmountNull]
          * @param {string} [currency]
+         * @param {string} [dateFrom] Alias of &#x60;start_date&#x60;; &#x60;start_date&#x60; wins when both are sent
+         * @param {string} [dateTo] Alias of &#x60;end_date&#x60;; &#x60;end_date&#x60; wins when both are sent
          * @param {number} [debitAmountEqual]
          * @param {number} [debitAmountGte]
          * @param {number} [debitAmountLte]
@@ -15148,6 +15157,7 @@ const CoreAccountingApiAxiosParamCreator = function (configuration) {
          * @param {boolean} [includeMatches] If true, include match metadata (has_matches, primary_action_type) in serialized rows
          * @param {boolean} [isNotReconciled]
          * @param {boolean} [isReconciled]
+         * @param {number} [journal] Only transactions on these journal entry ids (repeat the param for several)
          * @param {string} [journalType]
          * @param {string} [journalTypeNin]
          * @param {string} [lastModifiedAtGte] Filter for records modified on or after this timestamp. Format: ISO 8601 (e.g., \&#39;2024-01-01T00:00:00Z\&#39; or \&#39;2024-01-01\&#39;). Works with both active records and deleted records (filters by deletion time for deleted records).
@@ -15180,7 +15190,7 @@ const CoreAccountingApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        coaApiTransactionList: async (account, accountId, accountRollup, accountSubtype, accountType, accounts, aggregationFields, allTime, bank, bankDescription, bankId, categorized, counterparty, counterpartyId, creditAmountEqual, creditAmountGte, creditAmountLte, creditAmountNull, currency, debitAmountEqual, debitAmountGte, debitAmountLte, debitAmountNull, department, departmentId, departmentOrUnassigned, download, endDate, entity, entityId, entityRollup, excludeEntity, excludeEntityId, excludeId, excludeJournal, excludeReconciliationReport, excludeUncategorizedAccounts, expenseOrAp, fields, group, groupFields, groupId, groupKeys, hasLinkedFixedAsset, hasParentBankTransaction, includeDeleted, includeMatches, isNotReconciled, isReconciled, journalType, journalTypeNin, lastModifiedAtGte, lastModifiedAtLte, limit, matchType, needsReview, noCounterparty, noDepartment, noTag, noVendor, offset, opposingAccount, opposingAccountSubtype, ordering, payee, payeeId, pivotFields, q, reconciliationReport, revenueOrReceivables, shouldPivot, sort, startDate, tag, tagGroups, tagId, vendor, vendorId, options = {}) => {
+        coaApiTransactionList: async (account, accountId, accountRollup, accountSubtype, accountType, accounts, aggregationFields, allTime, bank, bankDescription, bankId, categorized, counterparty, counterpartyId, creditAmountEqual, creditAmountGte, creditAmountLte, creditAmountNull, currency, dateFrom, dateTo, debitAmountEqual, debitAmountGte, debitAmountLte, debitAmountNull, department, departmentId, departmentOrUnassigned, download, endDate, entity, entityId, entityRollup, excludeEntity, excludeEntityId, excludeId, excludeJournal, excludeReconciliationReport, excludeUncategorizedAccounts, expenseOrAp, fields, group, groupFields, groupId, groupKeys, hasLinkedFixedAsset, hasParentBankTransaction, includeDeleted, includeMatches, isNotReconciled, isReconciled, journal, journalType, journalTypeNin, lastModifiedAtGte, lastModifiedAtLte, limit, matchType, needsReview, noCounterparty, noDepartment, noTag, noVendor, offset, opposingAccount, opposingAccountSubtype, ordering, payee, payeeId, pivotFields, q, reconciliationReport, revenueOrReceivables, shouldPivot, sort, startDate, tag, tagGroups, tagId, vendor, vendorId, options = {}) => {
             const localVarPath = `/coa/api/transaction`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -15247,6 +15257,16 @@ const CoreAccountingApiAxiosParamCreator = function (configuration) {
             }
             if (currency !== undefined) {
                 localVarQueryParameter['currency'] = currency;
+            }
+            if (dateFrom !== undefined) {
+                localVarQueryParameter['date_from'] = (dateFrom instanceof Date) ?
+                    dateFrom.toISOString().substring(0, 10) :
+                    dateFrom;
+            }
+            if (dateTo !== undefined) {
+                localVarQueryParameter['date_to'] = (dateTo instanceof Date) ?
+                    dateTo.toISOString().substring(0, 10) :
+                    dateTo;
             }
             if (debitAmountEqual !== undefined) {
                 localVarQueryParameter['debit_amount_equal'] = debitAmountEqual;
@@ -15339,6 +15359,9 @@ const CoreAccountingApiAxiosParamCreator = function (configuration) {
             }
             if (isReconciled !== undefined) {
                 localVarQueryParameter['is_reconciled'] = isReconciled;
+            }
+            if (journal !== undefined) {
+                localVarQueryParameter['journal'] = journal;
             }
             if (journalType !== undefined) {
                 localVarQueryParameter['journal_type'] = journalType;
@@ -15807,7 +15830,7 @@ const CoreAccountingApiAxiosParamCreator = function (configuration) {
         createFixedAssetAutomation: async (fixedAssetAutomationRule, options = {}) => {
             // verify required parameter 'fixedAssetAutomationRule' is not null or undefined
             (0, common_1.assertParamExists)('createFixedAssetAutomation', 'fixedAssetAutomationRule', fixedAssetAutomationRule);
-            const localVarPath = `/coa/api/fixed-asset-automation/`;
+            const localVarPath = `/coa/api/fixed-asset-automation`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -15984,7 +16007,7 @@ const CoreAccountingApiAxiosParamCreator = function (configuration) {
         deleteFixedAssetAutomation: async (id, options = {}) => {
             // verify required parameter 'id' is not null or undefined
             (0, common_1.assertParamExists)('deleteFixedAssetAutomation', 'id', id);
-            const localVarPath = `/coa/api/fixed-asset-automation/{id}/`
+            const localVarPath = `/coa/api/fixed-asset-automation/{id}`
                 .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -16097,7 +16120,7 @@ const CoreAccountingApiAxiosParamCreator = function (configuration) {
         getFixedAssetAutomation: async (id, options = {}) => {
             // verify required parameter 'id' is not null or undefined
             (0, common_1.assertParamExists)('getFixedAssetAutomation', 'id', id);
-            const localVarPath = `/coa/api/fixed-asset-automation/{id}/`
+            const localVarPath = `/coa/api/fixed-asset-automation/{id}`
                 .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -16127,7 +16150,7 @@ const CoreAccountingApiAxiosParamCreator = function (configuration) {
         getFixedAssetAutomationMatch: async (id, options = {}) => {
             // verify required parameter 'id' is not null or undefined
             (0, common_1.assertParamExists)('getFixedAssetAutomationMatch', 'id', id);
-            const localVarPath = `/coa/api/fixed-asset-automation-match/{id}/`
+            const localVarPath = `/coa/api/fixed-asset-automation-match/{id}`
                 .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -16301,7 +16324,7 @@ const CoreAccountingApiAxiosParamCreator = function (configuration) {
          * @throws {RequiredError}
          */
         listFixedAssetAutomations: async (limit, offset, ordering, search, options = {}) => {
-            const localVarPath = `/coa/api/fixed-asset-automation/`;
+            const localVarPath = `/coa/api/fixed-asset-automation`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -16433,7 +16456,7 @@ const CoreAccountingApiAxiosParamCreator = function (configuration) {
         partialUpdateFixedAssetAutomation: async (id, patchedFixedAssetAutomationRule, options = {}) => {
             // verify required parameter 'id' is not null or undefined
             (0, common_1.assertParamExists)('partialUpdateFixedAssetAutomation', 'id', id);
-            const localVarPath = `/coa/api/fixed-asset-automation/{id}/`
+            const localVarPath = `/coa/api/fixed-asset-automation/{id}`
                 .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -16466,7 +16489,7 @@ const CoreAccountingApiAxiosParamCreator = function (configuration) {
         partialUpdateFixedAssetAutomationMatch: async (id, patchedFixedAssetAutomationMatch, options = {}) => {
             // verify required parameter 'id' is not null or undefined
             (0, common_1.assertParamExists)('partialUpdateFixedAssetAutomationMatch', 'id', id);
-            const localVarPath = `/coa/api/fixed-asset-automation-match/{id}/`
+            const localVarPath = `/coa/api/fixed-asset-automation-match/{id}`
                 .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -16756,7 +16779,7 @@ const CoreAccountingApiAxiosParamCreator = function (configuration) {
             (0, common_1.assertParamExists)('updateFixedAssetAutomation', 'id', id);
             // verify required parameter 'fixedAssetAutomationRule' is not null or undefined
             (0, common_1.assertParamExists)('updateFixedAssetAutomation', 'fixedAssetAutomationRule', fixedAssetAutomationRule);
-            const localVarPath = `/coa/api/fixed-asset-automation/{id}/`
+            const localVarPath = `/coa/api/fixed-asset-automation/{id}`
                 .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -16791,7 +16814,7 @@ const CoreAccountingApiAxiosParamCreator = function (configuration) {
             (0, common_1.assertParamExists)('updateFixedAssetAutomationMatch', 'id', id);
             // verify required parameter 'fixedAssetAutomationMatch' is not null or undefined
             (0, common_1.assertParamExists)('updateFixedAssetAutomationMatch', 'fixedAssetAutomationMatch', fixedAssetAutomationMatch);
-            const localVarPath = `/coa/api/fixed-asset-automation-match/{id}/`
+            const localVarPath = `/coa/api/fixed-asset-automation-match/{id}`
                 .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -17452,7 +17475,7 @@ const CoreAccountingApiFp = function (configuration) {
             return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Lists general-ledger transactions (`ChartTransaction` records) - Campfire\'s GL transaction log, and the recommended endpoint for retrieving GL transaction data.  Each transaction carries account, department, vendor, entity, journal/date metadata, and tags (where applicable). Product metadata is not stored directly on a transaction; it is reached through relations with other Campfire objects.  **Date range:** filter with `start_date` and `end_date` (both `YYYY-MM-DD`, inclusive); the bounds match on transaction date (the journal entry date, which `posted_at` mirrors).  **Pagination:** results are paginated via `limit` (default 100, max 10000) and `offset`. To retrieve more than 10000 records, page through with `offset`, or use cursor pagination by passing an empty `cursor=` parameter and following the `next` link.  **Key response fields:** - `amount` - amount in consolidated currency (the root entity\'s currency). - `amount_book` - amount in the currency of the entity the transaction belongs to. - `amount_native` - amount in the currency the transaction was originally created in. Example: for a transaction made in GBP where the entity uses EUR and the root entity uses USD, `amount_native` is GBP, `amount_book` is EUR, and `amount` is USD. - `posted_at` - the transaction date; determines which period the transaction falls in. `date_year` and `date_month` are derived from it. - `vendor` / `vendor_name` - the linked Campfire `Vendor` object\'s ID and name. - `merchant_name` - a free-text field stored directly on the transaction; not linked to any Campfire object. - `account` - the Campfire `ChartAccount` (GL account) the transaction is posted to. - `entity` - the Campfire `ChartEntity` ID. - `tags` - the transaction\'s tags; each tag\'s `group`/`group_name` identify the tag group (dimension) it belongs to. List a customer\'s tag groups via `/coa/api/tag-group` and tags via `/coa/api/tag`.  **Dynamic tag-group columns:** in addition to `tags`, each row carries flattened per-dimension columns `tag_group_<id>` (tag ID) and `tag_group_<id>_name` (tag name), one pair per tag group defined by the customer, plus `tag_group_none` / `tag_group_none_name` for ungrouped tags. Journal-level custom fields are merged in as `custom_field_<name>` keys. These columns are customer-specific, so they cannot appear in this static schema - discover tag groups via `/coa/api/tag-group` and custom fields via `/ca/api/v1/custom-fields`.
+         * Lists general-ledger transactions (`ChartTransaction` records) - Campfire\'s GL transaction log, and the recommended endpoint for retrieving GL transaction data.  Each transaction carries account, department, vendor, entity, journal/date metadata, and tags (where applicable). Product metadata is not stored directly on a transaction; it is reached through relations with other Campfire objects.  **Date range:** filter with `start_date` and `end_date` (both `YYYY-MM-DD`, inclusive); `date_from` and `date_to` are aliases, and `start_date`/`end_date` win when both are sent. The bounds match on transaction date (the journal entry date, which `posted_at` mirrors).  **Pagination:** results are paginated via `limit` (default 100, max 10000) and `offset`. To retrieve more than 10000 records, page through with `offset`, or use cursor pagination by passing an empty `cursor=` parameter and following the `next` link.  **Key response fields:** - `amount` - amount in consolidated currency (the root entity\'s currency). - `amount_book` - amount in the currency of the entity the transaction belongs to. - `amount_native` - amount in the currency the transaction was originally created in. Example: for a transaction made in GBP where the entity uses EUR and the root entity uses USD, `amount_native` is GBP, `amount_book` is EUR, and `amount` is USD. - `posted_at` - the transaction date; determines which period the transaction falls in. `date_year` and `date_month` are derived from it. - `vendor` / `vendor_name` - the linked Campfire `Vendor` object\'s ID and name. - `merchant_name` - a free-text field stored directly on the transaction; not linked to any Campfire object. - `account` - the Campfire `ChartAccount` (GL account) the transaction is posted to. - `entity` - the Campfire `ChartEntity` ID. - `tags` - the transaction\'s tags; each tag\'s `group`/`group_name` identify the tag group (dimension) it belongs to. List a customer\'s tag groups via `/coa/api/tag-group` and tags via `/coa/api/tag`.  **Dynamic tag-group columns:** in addition to `tags`, each row carries flattened per-dimension columns `tag_group_<id>` (tag ID) and `tag_group_<id>_name` (tag name), one pair per tag group defined by the customer, plus `tag_group_none` / `tag_group_none_name` for ungrouped tags. Journal-level custom fields are merged in as `custom_field_<name>` keys. These columns are customer-specific, so they cannot appear in this static schema - discover tag groups via `/coa/api/tag-group` and custom fields via `/ca/api/v1/custom-fields`.
          * @summary List Chart Transactions
          * @param {number} [account]
          * @param {number} [accountId]
@@ -17473,6 +17496,8 @@ const CoreAccountingApiFp = function (configuration) {
          * @param {number} [creditAmountLte]
          * @param {boolean} [creditAmountNull]
          * @param {string} [currency]
+         * @param {string} [dateFrom] Alias of &#x60;start_date&#x60;; &#x60;start_date&#x60; wins when both are sent
+         * @param {string} [dateTo] Alias of &#x60;end_date&#x60;; &#x60;end_date&#x60; wins when both are sent
          * @param {number} [debitAmountEqual]
          * @param {number} [debitAmountGte]
          * @param {number} [debitAmountLte]
@@ -17503,6 +17528,7 @@ const CoreAccountingApiFp = function (configuration) {
          * @param {boolean} [includeMatches] If true, include match metadata (has_matches, primary_action_type) in serialized rows
          * @param {boolean} [isNotReconciled]
          * @param {boolean} [isReconciled]
+         * @param {number} [journal] Only transactions on these journal entry ids (repeat the param for several)
          * @param {string} [journalType]
          * @param {string} [journalTypeNin]
          * @param {string} [lastModifiedAtGte] Filter for records modified on or after this timestamp. Format: ISO 8601 (e.g., \&#39;2024-01-01T00:00:00Z\&#39; or \&#39;2024-01-01\&#39;). Works with both active records and deleted records (filters by deletion time for deleted records).
@@ -17535,10 +17561,10 @@ const CoreAccountingApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async coaApiTransactionList(account, accountId, accountRollup, accountSubtype, accountType, accounts, aggregationFields, allTime, bank, bankDescription, bankId, categorized, counterparty, counterpartyId, creditAmountEqual, creditAmountGte, creditAmountLte, creditAmountNull, currency, debitAmountEqual, debitAmountGte, debitAmountLte, debitAmountNull, department, departmentId, departmentOrUnassigned, download, endDate, entity, entityId, entityRollup, excludeEntity, excludeEntityId, excludeId, excludeJournal, excludeReconciliationReport, excludeUncategorizedAccounts, expenseOrAp, fields, group, groupFields, groupId, groupKeys, hasLinkedFixedAsset, hasParentBankTransaction, includeDeleted, includeMatches, isNotReconciled, isReconciled, journalType, journalTypeNin, lastModifiedAtGte, lastModifiedAtLte, limit, matchType, needsReview, noCounterparty, noDepartment, noTag, noVendor, offset, opposingAccount, opposingAccountSubtype, ordering, payee, payeeId, pivotFields, q, reconciliationReport, revenueOrReceivables, shouldPivot, sort, startDate, tag, tagGroups, tagId, vendor, vendorId, options) {
+        async coaApiTransactionList(account, accountId, accountRollup, accountSubtype, accountType, accounts, aggregationFields, allTime, bank, bankDescription, bankId, categorized, counterparty, counterpartyId, creditAmountEqual, creditAmountGte, creditAmountLte, creditAmountNull, currency, dateFrom, dateTo, debitAmountEqual, debitAmountGte, debitAmountLte, debitAmountNull, department, departmentId, departmentOrUnassigned, download, endDate, entity, entityId, entityRollup, excludeEntity, excludeEntityId, excludeId, excludeJournal, excludeReconciliationReport, excludeUncategorizedAccounts, expenseOrAp, fields, group, groupFields, groupId, groupKeys, hasLinkedFixedAsset, hasParentBankTransaction, includeDeleted, includeMatches, isNotReconciled, isReconciled, journal, journalType, journalTypeNin, lastModifiedAtGte, lastModifiedAtLte, limit, matchType, needsReview, noCounterparty, noDepartment, noTag, noVendor, offset, opposingAccount, opposingAccountSubtype, ordering, payee, payeeId, pivotFields, q, reconciliationReport, revenueOrReceivables, shouldPivot, sort, startDate, tag, tagGroups, tagId, vendor, vendorId, options) {
             var _a, _b;
             var _c;
-            const localVarAxiosArgs = await localVarAxiosParamCreator.coaApiTransactionList(account, accountId, accountRollup, accountSubtype, accountType, accounts, aggregationFields, allTime, bank, bankDescription, bankId, categorized, counterparty, counterpartyId, creditAmountEqual, creditAmountGte, creditAmountLte, creditAmountNull, currency, debitAmountEqual, debitAmountGte, debitAmountLte, debitAmountNull, department, departmentId, departmentOrUnassigned, download, endDate, entity, entityId, entityRollup, excludeEntity, excludeEntityId, excludeId, excludeJournal, excludeReconciliationReport, excludeUncategorizedAccounts, expenseOrAp, fields, group, groupFields, groupId, groupKeys, hasLinkedFixedAsset, hasParentBankTransaction, includeDeleted, includeMatches, isNotReconciled, isReconciled, journalType, journalTypeNin, lastModifiedAtGte, lastModifiedAtLte, limit, matchType, needsReview, noCounterparty, noDepartment, noTag, noVendor, offset, opposingAccount, opposingAccountSubtype, ordering, payee, payeeId, pivotFields, q, reconciliationReport, revenueOrReceivables, shouldPivot, sort, startDate, tag, tagGroups, tagId, vendor, vendorId, options);
+            const localVarAxiosArgs = await localVarAxiosParamCreator.coaApiTransactionList(account, accountId, accountRollup, accountSubtype, accountType, accounts, aggregationFields, allTime, bank, bankDescription, bankId, categorized, counterparty, counterpartyId, creditAmountEqual, creditAmountGte, creditAmountLte, creditAmountNull, currency, dateFrom, dateTo, debitAmountEqual, debitAmountGte, debitAmountLte, debitAmountNull, department, departmentId, departmentOrUnassigned, download, endDate, entity, entityId, entityRollup, excludeEntity, excludeEntityId, excludeId, excludeJournal, excludeReconciliationReport, excludeUncategorizedAccounts, expenseOrAp, fields, group, groupFields, groupId, groupKeys, hasLinkedFixedAsset, hasParentBankTransaction, includeDeleted, includeMatches, isNotReconciled, isReconciled, journal, journalType, journalTypeNin, lastModifiedAtGte, lastModifiedAtLte, limit, matchType, needsReview, noCounterparty, noDepartment, noTag, noVendor, offset, opposingAccount, opposingAccountSubtype, ordering, payee, payeeId, pivotFields, q, reconciliationReport, revenueOrReceivables, shouldPivot, sort, startDate, tag, tagGroups, tagId, vendor, vendorId, options);
             const localVarOperationServerIndex = (_c = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _c !== void 0 ? _c : 0;
             const localVarOperationServerBasePath = (_b = (_a = base_1.operationServerMap['CoreAccountingApi.coaApiTransactionList']) === null || _a === void 0 ? void 0 : _a[localVarOperationServerIndex]) === null || _b === void 0 ? void 0 : _b.url;
             return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -18619,14 +18645,14 @@ const CoreAccountingApiFactory = function (configuration, basePath, axios) {
             return localVarFp.coaApiTagBulkSearchCreate(requestParameters.bulkTagSearch, options).then((request) => request(axios, basePath));
         },
         /**
-         * Lists general-ledger transactions (`ChartTransaction` records) - Campfire\'s GL transaction log, and the recommended endpoint for retrieving GL transaction data.  Each transaction carries account, department, vendor, entity, journal/date metadata, and tags (where applicable). Product metadata is not stored directly on a transaction; it is reached through relations with other Campfire objects.  **Date range:** filter with `start_date` and `end_date` (both `YYYY-MM-DD`, inclusive); the bounds match on transaction date (the journal entry date, which `posted_at` mirrors).  **Pagination:** results are paginated via `limit` (default 100, max 10000) and `offset`. To retrieve more than 10000 records, page through with `offset`, or use cursor pagination by passing an empty `cursor=` parameter and following the `next` link.  **Key response fields:** - `amount` - amount in consolidated currency (the root entity\'s currency). - `amount_book` - amount in the currency of the entity the transaction belongs to. - `amount_native` - amount in the currency the transaction was originally created in. Example: for a transaction made in GBP where the entity uses EUR and the root entity uses USD, `amount_native` is GBP, `amount_book` is EUR, and `amount` is USD. - `posted_at` - the transaction date; determines which period the transaction falls in. `date_year` and `date_month` are derived from it. - `vendor` / `vendor_name` - the linked Campfire `Vendor` object\'s ID and name. - `merchant_name` - a free-text field stored directly on the transaction; not linked to any Campfire object. - `account` - the Campfire `ChartAccount` (GL account) the transaction is posted to. - `entity` - the Campfire `ChartEntity` ID. - `tags` - the transaction\'s tags; each tag\'s `group`/`group_name` identify the tag group (dimension) it belongs to. List a customer\'s tag groups via `/coa/api/tag-group` and tags via `/coa/api/tag`.  **Dynamic tag-group columns:** in addition to `tags`, each row carries flattened per-dimension columns `tag_group_<id>` (tag ID) and `tag_group_<id>_name` (tag name), one pair per tag group defined by the customer, plus `tag_group_none` / `tag_group_none_name` for ungrouped tags. Journal-level custom fields are merged in as `custom_field_<name>` keys. These columns are customer-specific, so they cannot appear in this static schema - discover tag groups via `/coa/api/tag-group` and custom fields via `/ca/api/v1/custom-fields`.
+         * Lists general-ledger transactions (`ChartTransaction` records) - Campfire\'s GL transaction log, and the recommended endpoint for retrieving GL transaction data.  Each transaction carries account, department, vendor, entity, journal/date metadata, and tags (where applicable). Product metadata is not stored directly on a transaction; it is reached through relations with other Campfire objects.  **Date range:** filter with `start_date` and `end_date` (both `YYYY-MM-DD`, inclusive); `date_from` and `date_to` are aliases, and `start_date`/`end_date` win when both are sent. The bounds match on transaction date (the journal entry date, which `posted_at` mirrors).  **Pagination:** results are paginated via `limit` (default 100, max 10000) and `offset`. To retrieve more than 10000 records, page through with `offset`, or use cursor pagination by passing an empty `cursor=` parameter and following the `next` link.  **Key response fields:** - `amount` - amount in consolidated currency (the root entity\'s currency). - `amount_book` - amount in the currency of the entity the transaction belongs to. - `amount_native` - amount in the currency the transaction was originally created in. Example: for a transaction made in GBP where the entity uses EUR and the root entity uses USD, `amount_native` is GBP, `amount_book` is EUR, and `amount` is USD. - `posted_at` - the transaction date; determines which period the transaction falls in. `date_year` and `date_month` are derived from it. - `vendor` / `vendor_name` - the linked Campfire `Vendor` object\'s ID and name. - `merchant_name` - a free-text field stored directly on the transaction; not linked to any Campfire object. - `account` - the Campfire `ChartAccount` (GL account) the transaction is posted to. - `entity` - the Campfire `ChartEntity` ID. - `tags` - the transaction\'s tags; each tag\'s `group`/`group_name` identify the tag group (dimension) it belongs to. List a customer\'s tag groups via `/coa/api/tag-group` and tags via `/coa/api/tag`.  **Dynamic tag-group columns:** in addition to `tags`, each row carries flattened per-dimension columns `tag_group_<id>` (tag ID) and `tag_group_<id>_name` (tag name), one pair per tag group defined by the customer, plus `tag_group_none` / `tag_group_none_name` for ungrouped tags. Journal-level custom fields are merged in as `custom_field_<name>` keys. These columns are customer-specific, so they cannot appear in this static schema - discover tag groups via `/coa/api/tag-group` and custom fields via `/ca/api/v1/custom-fields`.
          * @summary List Chart Transactions
          * @param {CoreAccountingApiCoaApiTransactionListRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
         coaApiTransactionList(requestParameters = {}, options) {
-            return localVarFp.coaApiTransactionList(requestParameters.account, requestParameters.accountId, requestParameters.accountRollup, requestParameters.accountSubtype, requestParameters.accountType, requestParameters.accounts, requestParameters.aggregationFields, requestParameters.allTime, requestParameters.bank, requestParameters.bankDescription, requestParameters.bankId, requestParameters.categorized, requestParameters.counterparty, requestParameters.counterpartyId, requestParameters.creditAmountEqual, requestParameters.creditAmountGte, requestParameters.creditAmountLte, requestParameters.creditAmountNull, requestParameters.currency, requestParameters.debitAmountEqual, requestParameters.debitAmountGte, requestParameters.debitAmountLte, requestParameters.debitAmountNull, requestParameters.department, requestParameters.departmentId, requestParameters.departmentOrUnassigned, requestParameters.download, requestParameters.endDate, requestParameters.entity, requestParameters.entityId, requestParameters.entityRollup, requestParameters.excludeEntity, requestParameters.excludeEntityId, requestParameters.excludeId, requestParameters.excludeJournal, requestParameters.excludeReconciliationReport, requestParameters.excludeUncategorizedAccounts, requestParameters.expenseOrAp, requestParameters.fields, requestParameters.group, requestParameters.groupFields, requestParameters.groupId, requestParameters.groupKeys, requestParameters.hasLinkedFixedAsset, requestParameters.hasParentBankTransaction, requestParameters.includeDeleted, requestParameters.includeMatches, requestParameters.isNotReconciled, requestParameters.isReconciled, requestParameters.journalType, requestParameters.journalTypeNin, requestParameters.lastModifiedAtGte, requestParameters.lastModifiedAtLte, requestParameters.limit, requestParameters.matchType, requestParameters.needsReview, requestParameters.noCounterparty, requestParameters.noDepartment, requestParameters.noTag, requestParameters.noVendor, requestParameters.offset, requestParameters.opposingAccount, requestParameters.opposingAccountSubtype, requestParameters.ordering, requestParameters.payee, requestParameters.payeeId, requestParameters.pivotFields, requestParameters.q, requestParameters.reconciliationReport, requestParameters.revenueOrReceivables, requestParameters.shouldPivot, requestParameters.sort, requestParameters.startDate, requestParameters.tag, requestParameters.tagGroups, requestParameters.tagId, requestParameters.vendor, requestParameters.vendorId, options).then((request) => request(axios, basePath));
+            return localVarFp.coaApiTransactionList(requestParameters.account, requestParameters.accountId, requestParameters.accountRollup, requestParameters.accountSubtype, requestParameters.accountType, requestParameters.accounts, requestParameters.aggregationFields, requestParameters.allTime, requestParameters.bank, requestParameters.bankDescription, requestParameters.bankId, requestParameters.categorized, requestParameters.counterparty, requestParameters.counterpartyId, requestParameters.creditAmountEqual, requestParameters.creditAmountGte, requestParameters.creditAmountLte, requestParameters.creditAmountNull, requestParameters.currency, requestParameters.dateFrom, requestParameters.dateTo, requestParameters.debitAmountEqual, requestParameters.debitAmountGte, requestParameters.debitAmountLte, requestParameters.debitAmountNull, requestParameters.department, requestParameters.departmentId, requestParameters.departmentOrUnassigned, requestParameters.download, requestParameters.endDate, requestParameters.entity, requestParameters.entityId, requestParameters.entityRollup, requestParameters.excludeEntity, requestParameters.excludeEntityId, requestParameters.excludeId, requestParameters.excludeJournal, requestParameters.excludeReconciliationReport, requestParameters.excludeUncategorizedAccounts, requestParameters.expenseOrAp, requestParameters.fields, requestParameters.group, requestParameters.groupFields, requestParameters.groupId, requestParameters.groupKeys, requestParameters.hasLinkedFixedAsset, requestParameters.hasParentBankTransaction, requestParameters.includeDeleted, requestParameters.includeMatches, requestParameters.isNotReconciled, requestParameters.isReconciled, requestParameters.journal, requestParameters.journalType, requestParameters.journalTypeNin, requestParameters.lastModifiedAtGte, requestParameters.lastModifiedAtLte, requestParameters.limit, requestParameters.matchType, requestParameters.needsReview, requestParameters.noCounterparty, requestParameters.noDepartment, requestParameters.noTag, requestParameters.noVendor, requestParameters.offset, requestParameters.opposingAccount, requestParameters.opposingAccountSubtype, requestParameters.ordering, requestParameters.payee, requestParameters.payeeId, requestParameters.pivotFields, requestParameters.q, requestParameters.reconciliationReport, requestParameters.revenueOrReceivables, requestParameters.shouldPivot, requestParameters.sort, requestParameters.startDate, requestParameters.tag, requestParameters.tagGroups, requestParameters.tagId, requestParameters.vendor, requestParameters.vendorId, options).then((request) => request(axios, basePath));
         },
         /**
          * Apply one class of pending suggestions (match | rule | merge | ai) across an explicit or filter-implicit transaction selection, each through its existing single-item flow. Per-item outcomes; capped per call — drain until \'truncated\' is false, excluding blocked transaction ids on subsequent calls.
@@ -19448,14 +19474,14 @@ class CoreAccountingApi extends base_1.BaseAPI {
         return (0, exports.CoreAccountingApiFp)(this.configuration).coaApiTagBulkSearchCreate(requestParameters.bulkTagSearch, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Lists general-ledger transactions (`ChartTransaction` records) - Campfire\'s GL transaction log, and the recommended endpoint for retrieving GL transaction data.  Each transaction carries account, department, vendor, entity, journal/date metadata, and tags (where applicable). Product metadata is not stored directly on a transaction; it is reached through relations with other Campfire objects.  **Date range:** filter with `start_date` and `end_date` (both `YYYY-MM-DD`, inclusive); the bounds match on transaction date (the journal entry date, which `posted_at` mirrors).  **Pagination:** results are paginated via `limit` (default 100, max 10000) and `offset`. To retrieve more than 10000 records, page through with `offset`, or use cursor pagination by passing an empty `cursor=` parameter and following the `next` link.  **Key response fields:** - `amount` - amount in consolidated currency (the root entity\'s currency). - `amount_book` - amount in the currency of the entity the transaction belongs to. - `amount_native` - amount in the currency the transaction was originally created in. Example: for a transaction made in GBP where the entity uses EUR and the root entity uses USD, `amount_native` is GBP, `amount_book` is EUR, and `amount` is USD. - `posted_at` - the transaction date; determines which period the transaction falls in. `date_year` and `date_month` are derived from it. - `vendor` / `vendor_name` - the linked Campfire `Vendor` object\'s ID and name. - `merchant_name` - a free-text field stored directly on the transaction; not linked to any Campfire object. - `account` - the Campfire `ChartAccount` (GL account) the transaction is posted to. - `entity` - the Campfire `ChartEntity` ID. - `tags` - the transaction\'s tags; each tag\'s `group`/`group_name` identify the tag group (dimension) it belongs to. List a customer\'s tag groups via `/coa/api/tag-group` and tags via `/coa/api/tag`.  **Dynamic tag-group columns:** in addition to `tags`, each row carries flattened per-dimension columns `tag_group_<id>` (tag ID) and `tag_group_<id>_name` (tag name), one pair per tag group defined by the customer, plus `tag_group_none` / `tag_group_none_name` for ungrouped tags. Journal-level custom fields are merged in as `custom_field_<name>` keys. These columns are customer-specific, so they cannot appear in this static schema - discover tag groups via `/coa/api/tag-group` and custom fields via `/ca/api/v1/custom-fields`.
+     * Lists general-ledger transactions (`ChartTransaction` records) - Campfire\'s GL transaction log, and the recommended endpoint for retrieving GL transaction data.  Each transaction carries account, department, vendor, entity, journal/date metadata, and tags (where applicable). Product metadata is not stored directly on a transaction; it is reached through relations with other Campfire objects.  **Date range:** filter with `start_date` and `end_date` (both `YYYY-MM-DD`, inclusive); `date_from` and `date_to` are aliases, and `start_date`/`end_date` win when both are sent. The bounds match on transaction date (the journal entry date, which `posted_at` mirrors).  **Pagination:** results are paginated via `limit` (default 100, max 10000) and `offset`. To retrieve more than 10000 records, page through with `offset`, or use cursor pagination by passing an empty `cursor=` parameter and following the `next` link.  **Key response fields:** - `amount` - amount in consolidated currency (the root entity\'s currency). - `amount_book` - amount in the currency of the entity the transaction belongs to. - `amount_native` - amount in the currency the transaction was originally created in. Example: for a transaction made in GBP where the entity uses EUR and the root entity uses USD, `amount_native` is GBP, `amount_book` is EUR, and `amount` is USD. - `posted_at` - the transaction date; determines which period the transaction falls in. `date_year` and `date_month` are derived from it. - `vendor` / `vendor_name` - the linked Campfire `Vendor` object\'s ID and name. - `merchant_name` - a free-text field stored directly on the transaction; not linked to any Campfire object. - `account` - the Campfire `ChartAccount` (GL account) the transaction is posted to. - `entity` - the Campfire `ChartEntity` ID. - `tags` - the transaction\'s tags; each tag\'s `group`/`group_name` identify the tag group (dimension) it belongs to. List a customer\'s tag groups via `/coa/api/tag-group` and tags via `/coa/api/tag`.  **Dynamic tag-group columns:** in addition to `tags`, each row carries flattened per-dimension columns `tag_group_<id>` (tag ID) and `tag_group_<id>_name` (tag name), one pair per tag group defined by the customer, plus `tag_group_none` / `tag_group_none_name` for ungrouped tags. Journal-level custom fields are merged in as `custom_field_<name>` keys. These columns are customer-specific, so they cannot appear in this static schema - discover tag groups via `/coa/api/tag-group` and custom fields via `/ca/api/v1/custom-fields`.
      * @summary List Chart Transactions
      * @param {CoreAccountingApiCoaApiTransactionListRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     coaApiTransactionList(requestParameters = {}, options) {
-        return (0, exports.CoreAccountingApiFp)(this.configuration).coaApiTransactionList(requestParameters.account, requestParameters.accountId, requestParameters.accountRollup, requestParameters.accountSubtype, requestParameters.accountType, requestParameters.accounts, requestParameters.aggregationFields, requestParameters.allTime, requestParameters.bank, requestParameters.bankDescription, requestParameters.bankId, requestParameters.categorized, requestParameters.counterparty, requestParameters.counterpartyId, requestParameters.creditAmountEqual, requestParameters.creditAmountGte, requestParameters.creditAmountLte, requestParameters.creditAmountNull, requestParameters.currency, requestParameters.debitAmountEqual, requestParameters.debitAmountGte, requestParameters.debitAmountLte, requestParameters.debitAmountNull, requestParameters.department, requestParameters.departmentId, requestParameters.departmentOrUnassigned, requestParameters.download, requestParameters.endDate, requestParameters.entity, requestParameters.entityId, requestParameters.entityRollup, requestParameters.excludeEntity, requestParameters.excludeEntityId, requestParameters.excludeId, requestParameters.excludeJournal, requestParameters.excludeReconciliationReport, requestParameters.excludeUncategorizedAccounts, requestParameters.expenseOrAp, requestParameters.fields, requestParameters.group, requestParameters.groupFields, requestParameters.groupId, requestParameters.groupKeys, requestParameters.hasLinkedFixedAsset, requestParameters.hasParentBankTransaction, requestParameters.includeDeleted, requestParameters.includeMatches, requestParameters.isNotReconciled, requestParameters.isReconciled, requestParameters.journalType, requestParameters.journalTypeNin, requestParameters.lastModifiedAtGte, requestParameters.lastModifiedAtLte, requestParameters.limit, requestParameters.matchType, requestParameters.needsReview, requestParameters.noCounterparty, requestParameters.noDepartment, requestParameters.noTag, requestParameters.noVendor, requestParameters.offset, requestParameters.opposingAccount, requestParameters.opposingAccountSubtype, requestParameters.ordering, requestParameters.payee, requestParameters.payeeId, requestParameters.pivotFields, requestParameters.q, requestParameters.reconciliationReport, requestParameters.revenueOrReceivables, requestParameters.shouldPivot, requestParameters.sort, requestParameters.startDate, requestParameters.tag, requestParameters.tagGroups, requestParameters.tagId, requestParameters.vendor, requestParameters.vendorId, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.CoreAccountingApiFp)(this.configuration).coaApiTransactionList(requestParameters.account, requestParameters.accountId, requestParameters.accountRollup, requestParameters.accountSubtype, requestParameters.accountType, requestParameters.accounts, requestParameters.aggregationFields, requestParameters.allTime, requestParameters.bank, requestParameters.bankDescription, requestParameters.bankId, requestParameters.categorized, requestParameters.counterparty, requestParameters.counterpartyId, requestParameters.creditAmountEqual, requestParameters.creditAmountGte, requestParameters.creditAmountLte, requestParameters.creditAmountNull, requestParameters.currency, requestParameters.dateFrom, requestParameters.dateTo, requestParameters.debitAmountEqual, requestParameters.debitAmountGte, requestParameters.debitAmountLte, requestParameters.debitAmountNull, requestParameters.department, requestParameters.departmentId, requestParameters.departmentOrUnassigned, requestParameters.download, requestParameters.endDate, requestParameters.entity, requestParameters.entityId, requestParameters.entityRollup, requestParameters.excludeEntity, requestParameters.excludeEntityId, requestParameters.excludeId, requestParameters.excludeJournal, requestParameters.excludeReconciliationReport, requestParameters.excludeUncategorizedAccounts, requestParameters.expenseOrAp, requestParameters.fields, requestParameters.group, requestParameters.groupFields, requestParameters.groupId, requestParameters.groupKeys, requestParameters.hasLinkedFixedAsset, requestParameters.hasParentBankTransaction, requestParameters.includeDeleted, requestParameters.includeMatches, requestParameters.isNotReconciled, requestParameters.isReconciled, requestParameters.journal, requestParameters.journalType, requestParameters.journalTypeNin, requestParameters.lastModifiedAtGte, requestParameters.lastModifiedAtLte, requestParameters.limit, requestParameters.matchType, requestParameters.needsReview, requestParameters.noCounterparty, requestParameters.noDepartment, requestParameters.noTag, requestParameters.noVendor, requestParameters.offset, requestParameters.opposingAccount, requestParameters.opposingAccountSubtype, requestParameters.ordering, requestParameters.payee, requestParameters.payeeId, requestParameters.pivotFields, requestParameters.q, requestParameters.reconciliationReport, requestParameters.revenueOrReceivables, requestParameters.shouldPivot, requestParameters.sort, requestParameters.startDate, requestParameters.tag, requestParameters.tagGroups, requestParameters.tagId, requestParameters.vendor, requestParameters.vendorId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Apply one class of pending suggestions (match | rule | merge | ai) across an explicit or filter-implicit transaction selection, each through its existing single-item flow. Per-item outcomes; capped per call — drain until \'truncated\' is false, excluding blocked transaction ids on subsequent calls.
@@ -28693,7 +28719,7 @@ const SettingsApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
-         *          Upload a file directly to Campfire. This is the primary way to upload files.          **Supported Models:**         bill, chat, close_task, closecheckitem, contract, credit_memo, customer, debit_memo, draft_queue, fixed_asset, forecast, intercompany_journal, invoice, journal_entry, journalentry, lease_v2, migration_record, policy, reconciliation, reconciliation_report, revenue_contract          **Supported Content Types:**         application/msword, application/pdf, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/vnd.openxmlformats-officedocument.presentationml.presentation, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.openxmlformats-officedocument.wordprocessingml.document, image/gif, image/jpeg, image/jpg, image/png, image/webp, text/csv, text/markdown, text/plain, text/x-markdown          **Maximum File Size:** 100MB          **Example:**         ```bash         curl -X POST \"https://api.meetcampfire.com/ca/api/file/upload?model=bill&object_id=12345\" \\           -H \"Authorization: Token YOUR_TOKEN\" \\           -F \"file=@receipt.pdf\"         ```          **Query Parameters:**         - `model` (required): Model type (e.g., \"bill\", \"invoice\", \"contract\")         - `object_id` (optional): ID of the object to attach the file to          **Request Body:**         - `file` (required): The file to upload (multipart/form-data)
+         *          Upload a file directly to Campfire. This is the primary way to upload files.          **Supported Models:**         bill, chat, close_task, closecheckitem, contract, credit_memo, customer, debit_memo, draft_queue, fixed_asset, forecast, intercompany_journal, invoice, journal_entry, journalentry, lease_v2, migration_record, policy, reconciliation, reconciliation_report, revenue_contract          **Supported Content Types:**         application/msword, application/pdf, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/vnd.openxmlformats-officedocument.presentationml.presentation, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.openxmlformats-officedocument.wordprocessingml.document, image/gif, image/jpeg, image/jpg, image/png, image/webp, text/csv, text/markdown, text/plain, text/x-markdown          **Maximum File Size:** 100MB          **Example:**         ```bash         curl -X POST \"https://api.meetcampfire.com/ca/api/file/upload?model=bill&object_id=12345\" \\           -H \"Authorization: Token YOUR_TOKEN\" \\           -F \"file=@receipt.pdf\"         ```          **OAuth Apps:** attaching a file changes the record, so an app token needs the write scope for         that record type (e.g. `journal_entries:write` for `model=journal_entry`), and the person who         connected the app must hold the same permission. Apps pass `model` alone, never `app`.          **Query Parameters:**         - `model` (required): Model type (e.g., \"bill\", \"invoice\", \"contract\")         - `object_id` (optional): ID of the object to attach the file to          **Request Body:**         - `file` (required): The file to upload (multipart/form-data)
          * @summary Upload File
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -29453,7 +29479,7 @@ const SettingsApiFp = function (configuration) {
             return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *          Upload a file directly to Campfire. This is the primary way to upload files.          **Supported Models:**         bill, chat, close_task, closecheckitem, contract, credit_memo, customer, debit_memo, draft_queue, fixed_asset, forecast, intercompany_journal, invoice, journal_entry, journalentry, lease_v2, migration_record, policy, reconciliation, reconciliation_report, revenue_contract          **Supported Content Types:**         application/msword, application/pdf, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/vnd.openxmlformats-officedocument.presentationml.presentation, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.openxmlformats-officedocument.wordprocessingml.document, image/gif, image/jpeg, image/jpg, image/png, image/webp, text/csv, text/markdown, text/plain, text/x-markdown          **Maximum File Size:** 100MB          **Example:**         ```bash         curl -X POST \"https://api.meetcampfire.com/ca/api/file/upload?model=bill&object_id=12345\" \\           -H \"Authorization: Token YOUR_TOKEN\" \\           -F \"file=@receipt.pdf\"         ```          **Query Parameters:**         - `model` (required): Model type (e.g., \"bill\", \"invoice\", \"contract\")         - `object_id` (optional): ID of the object to attach the file to          **Request Body:**         - `file` (required): The file to upload (multipart/form-data)
+         *          Upload a file directly to Campfire. This is the primary way to upload files.          **Supported Models:**         bill, chat, close_task, closecheckitem, contract, credit_memo, customer, debit_memo, draft_queue, fixed_asset, forecast, intercompany_journal, invoice, journal_entry, journalentry, lease_v2, migration_record, policy, reconciliation, reconciliation_report, revenue_contract          **Supported Content Types:**         application/msword, application/pdf, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/vnd.openxmlformats-officedocument.presentationml.presentation, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.openxmlformats-officedocument.wordprocessingml.document, image/gif, image/jpeg, image/jpg, image/png, image/webp, text/csv, text/markdown, text/plain, text/x-markdown          **Maximum File Size:** 100MB          **Example:**         ```bash         curl -X POST \"https://api.meetcampfire.com/ca/api/file/upload?model=bill&object_id=12345\" \\           -H \"Authorization: Token YOUR_TOKEN\" \\           -F \"file=@receipt.pdf\"         ```          **OAuth Apps:** attaching a file changes the record, so an app token needs the write scope for         that record type (e.g. `journal_entries:write` for `model=journal_entry`), and the person who         connected the app must hold the same permission. Apps pass `model` alone, never `app`.          **Query Parameters:**         - `model` (required): Model type (e.g., \"bill\", \"invoice\", \"contract\")         - `object_id` (optional): ID of the object to attach the file to          **Request Body:**         - `file` (required): The file to upload (multipart/form-data)
          * @summary Upload File
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -29846,7 +29872,7 @@ const SettingsApiFactory = function (configuration, basePath, axios) {
             return localVarFp.caApiFileUpdate(requestParameters.id, requestParameters.modelFile, options).then((request) => request(axios, basePath));
         },
         /**
-         *          Upload a file directly to Campfire. This is the primary way to upload files.          **Supported Models:**         bill, chat, close_task, closecheckitem, contract, credit_memo, customer, debit_memo, draft_queue, fixed_asset, forecast, intercompany_journal, invoice, journal_entry, journalentry, lease_v2, migration_record, policy, reconciliation, reconciliation_report, revenue_contract          **Supported Content Types:**         application/msword, application/pdf, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/vnd.openxmlformats-officedocument.presentationml.presentation, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.openxmlformats-officedocument.wordprocessingml.document, image/gif, image/jpeg, image/jpg, image/png, image/webp, text/csv, text/markdown, text/plain, text/x-markdown          **Maximum File Size:** 100MB          **Example:**         ```bash         curl -X POST \"https://api.meetcampfire.com/ca/api/file/upload?model=bill&object_id=12345\" \\           -H \"Authorization: Token YOUR_TOKEN\" \\           -F \"file=@receipt.pdf\"         ```          **Query Parameters:**         - `model` (required): Model type (e.g., \"bill\", \"invoice\", \"contract\")         - `object_id` (optional): ID of the object to attach the file to          **Request Body:**         - `file` (required): The file to upload (multipart/form-data)
+         *          Upload a file directly to Campfire. This is the primary way to upload files.          **Supported Models:**         bill, chat, close_task, closecheckitem, contract, credit_memo, customer, debit_memo, draft_queue, fixed_asset, forecast, intercompany_journal, invoice, journal_entry, journalentry, lease_v2, migration_record, policy, reconciliation, reconciliation_report, revenue_contract          **Supported Content Types:**         application/msword, application/pdf, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/vnd.openxmlformats-officedocument.presentationml.presentation, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.openxmlformats-officedocument.wordprocessingml.document, image/gif, image/jpeg, image/jpg, image/png, image/webp, text/csv, text/markdown, text/plain, text/x-markdown          **Maximum File Size:** 100MB          **Example:**         ```bash         curl -X POST \"https://api.meetcampfire.com/ca/api/file/upload?model=bill&object_id=12345\" \\           -H \"Authorization: Token YOUR_TOKEN\" \\           -F \"file=@receipt.pdf\"         ```          **OAuth Apps:** attaching a file changes the record, so an app token needs the write scope for         that record type (e.g. `journal_entries:write` for `model=journal_entry`), and the person who         connected the app must hold the same permission. Apps pass `model` alone, never `app`.          **Query Parameters:**         - `model` (required): Model type (e.g., \"bill\", \"invoice\", \"contract\")         - `object_id` (optional): ID of the object to attach the file to          **Request Body:**         - `file` (required): The file to upload (multipart/form-data)
          * @summary Upload File
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -30118,7 +30144,7 @@ class SettingsApi extends base_1.BaseAPI {
         return (0, exports.SettingsApiFp)(this.configuration).caApiFileUpdate(requestParameters.id, requestParameters.modelFile, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *          Upload a file directly to Campfire. This is the primary way to upload files.          **Supported Models:**         bill, chat, close_task, closecheckitem, contract, credit_memo, customer, debit_memo, draft_queue, fixed_asset, forecast, intercompany_journal, invoice, journal_entry, journalentry, lease_v2, migration_record, policy, reconciliation, reconciliation_report, revenue_contract          **Supported Content Types:**         application/msword, application/pdf, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/vnd.openxmlformats-officedocument.presentationml.presentation, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.openxmlformats-officedocument.wordprocessingml.document, image/gif, image/jpeg, image/jpg, image/png, image/webp, text/csv, text/markdown, text/plain, text/x-markdown          **Maximum File Size:** 100MB          **Example:**         ```bash         curl -X POST \"https://api.meetcampfire.com/ca/api/file/upload?model=bill&object_id=12345\" \\           -H \"Authorization: Token YOUR_TOKEN\" \\           -F \"file=@receipt.pdf\"         ```          **Query Parameters:**         - `model` (required): Model type (e.g., \"bill\", \"invoice\", \"contract\")         - `object_id` (optional): ID of the object to attach the file to          **Request Body:**         - `file` (required): The file to upload (multipart/form-data)
+     *          Upload a file directly to Campfire. This is the primary way to upload files.          **Supported Models:**         bill, chat, close_task, closecheckitem, contract, credit_memo, customer, debit_memo, draft_queue, fixed_asset, forecast, intercompany_journal, invoice, journal_entry, journalentry, lease_v2, migration_record, policy, reconciliation, reconciliation_report, revenue_contract          **Supported Content Types:**         application/msword, application/pdf, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/vnd.openxmlformats-officedocument.presentationml.presentation, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.openxmlformats-officedocument.wordprocessingml.document, image/gif, image/jpeg, image/jpg, image/png, image/webp, text/csv, text/markdown, text/plain, text/x-markdown          **Maximum File Size:** 100MB          **Example:**         ```bash         curl -X POST \"https://api.meetcampfire.com/ca/api/file/upload?model=bill&object_id=12345\" \\           -H \"Authorization: Token YOUR_TOKEN\" \\           -F \"file=@receipt.pdf\"         ```          **OAuth Apps:** attaching a file changes the record, so an app token needs the write scope for         that record type (e.g. `journal_entries:write` for `model=journal_entry`), and the person who         connected the app must hold the same permission. Apps pass `model` alone, never `app`.          **Query Parameters:**         - `model` (required): Model type (e.g., \"bill\", \"invoice\", \"contract\")         - `object_id` (optional): ID of the object to attach the file to          **Request Body:**         - `file` (required): The file to upload (multipart/form-data)
      * @summary Upload File
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}

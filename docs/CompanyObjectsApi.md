@@ -69,13 +69,13 @@ All URIs are relative to *https://api.meetcampfire.com*
 |[**coaApiVendorPartialUpdate**](#coaapivendorpartialupdate) | **PATCH** /coa/api/vendor/{id} | Partial Update Vendor|
 |[**coaApiVendorRetrieve**](#coaapivendorretrieve) | **GET** /coa/api/vendor/{id} | Retrieve Vendor|
 |[**coaApiVendorUpdate**](#coaapivendorupdate) | **PUT** /coa/api/vendor/{id} | Update Vendor|
-|[**createVendorCustomField**](#createvendorcustomfield) | **POST** /coa/api/vendor_custom_field_1/ | Create Vendor Custom Field|
-|[**deleteVendorCustomField**](#deletevendorcustomfield) | **DELETE** /coa/api/vendor_custom_field_1/{id}/ | Delete Vendor Custom Field|
-|[**getVendorCustomField**](#getvendorcustomfield) | **GET** /coa/api/vendor_custom_field_1/{id}/ | Retrieve Vendor Custom Field|
-|[**listVendorCustomFields**](#listvendorcustomfields) | **GET** /coa/api/vendor_custom_field_1/ | List Vendor Custom Fields|
+|[**createVendorCustomField**](#createvendorcustomfield) | **POST** /coa/api/vendor_custom_field_1 | Create Vendor Custom Field|
+|[**deleteVendorCustomField**](#deletevendorcustomfield) | **DELETE** /coa/api/vendor_custom_field_1/{id} | Delete Vendor Custom Field|
+|[**getVendorCustomField**](#getvendorcustomfield) | **GET** /coa/api/vendor_custom_field_1/{id} | Retrieve Vendor Custom Field|
+|[**listVendorCustomFields**](#listvendorcustomfields) | **GET** /coa/api/vendor_custom_field_1 | List Vendor Custom Fields|
 |[**listVendorSummaries**](#listvendorsummaries) | **GET** /coa/api/vendor/summary | List Vendor Summaries|
-|[**partialUpdateVendorCustomField**](#partialupdatevendorcustomfield) | **PATCH** /coa/api/vendor_custom_field_1/{id}/ | Partial Update Vendor Custom Field|
-|[**updateVendorCustomField**](#updatevendorcustomfield) | **PUT** /coa/api/vendor_custom_field_1/{id}/ | Update Vendor Custom Field|
+|[**partialUpdateVendorCustomField**](#partialupdatevendorcustomfield) | **PATCH** /coa/api/vendor_custom_field_1/{id} | Partial Update Vendor Custom Field|
+|[**updateVendorCustomField**](#updatevendorcustomfield) | **PUT** /coa/api/vendor_custom_field_1/{id} | Update Vendor Custom Field|
 
 # **caApiV1CustomFieldsCreate**
 > CustomField caApiV1CustomFieldsCreate(customField)
