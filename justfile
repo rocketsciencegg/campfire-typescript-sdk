@@ -32,6 +32,10 @@ spec-diff:
 lint-spec:
     speakeasy lint openapi --non-interactive --max-validation-warnings 0 --max-validation-errors 0 -s {{ spec_file }}
 
+# Build the feedback zip we send Campfire (default: ~/Desktop)
+feedback-package out_dir="":
+    scripts/feedback_package.sh {{ out_dir }}
+
 # Refresh from Campfire: download, fix, regenerate and compile
 refresh: fetch-spec fix-spec spec-diff build
 
