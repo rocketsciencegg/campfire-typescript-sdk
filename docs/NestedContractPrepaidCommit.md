@@ -20,6 +20,8 @@ Name | Type | Description | Notes
 **totalValue** | **number** |  | [default to undefined]
 **discountPercentage** | **number** |  | [optional] [default to 0.0]
 **rate** | **number** |  | [optional] [default to undefined]
+**quantity** | **number** |  | [optional] [default to undefined]
+**unit** | **string** |  | [optional] [default to '']
 **startDate** | **string** |  | [default to undefined]
 **expirationDate** | **string** |  | [optional] [default to undefined]
 **priority** | **number** |  | [optional] [default to 1]
@@ -51,6 +53,8 @@ const instance: NestedContractPrepaidCommit = {
     totalValue,
     discountPercentage,
     rate,
+    quantity,
+    unit,
     startDate,
     expirationDate,
     priority,

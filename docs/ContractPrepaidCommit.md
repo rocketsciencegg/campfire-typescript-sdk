@@ -25,6 +25,10 @@ Name | Type | Description | Notes
 **remainingValue** | **number** |  | [readonly] [default to undefined]
 **discountPercentage** | **number** | Discount applied to gross usage (e.g. 20.00 for 20%) | [optional] [default to undefined]
 **rate** | **number** | List price per unit. Prepaid usage &#x3D; rate * (1 - discount%). Overage &#x3D; rate (no discount). | [optional] [default to undefined]
+**quantity** | **string** |  | [optional] [default to undefined]
+**unit** | **string** |  | [optional] [default to undefined]
+**drawdownBasis** | [**DrawdownBasisEnum**](DrawdownBasisEnum.md) |  | [optional] [default to undefined]
+**contractUsageTerm** | **string** |  | [optional] [default to undefined]
 **startDate** | **string** |  | [default to undefined]
 **expirationDate** | **string** |  | [optional] [default to undefined]
 **status** | [**ContractPrepaidCommitStatusEnum**](ContractPrepaidCommitStatusEnum.md) |  | [readonly] [default to undefined]
@@ -67,6 +71,10 @@ const instance: ContractPrepaidCommit = {
     remainingValue,
     discountPercentage,
     rate,
+    quantity,
+    unit,
+    drawdownBasis,
+    contractUsageTerm,
     startDate,
     expirationDate,
     status,

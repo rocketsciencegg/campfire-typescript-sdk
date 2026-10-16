@@ -2507,6 +2507,10 @@ export interface ContractPrepaidCommit {
      * List price per unit. Prepaid usage = rate * (1 - discount%). Overage = rate (no discount).
      */
     'rate'?: number | null;
+    'quantity'?: string | null;
+    'unit'?: string;
+    'drawdown_basis'?: DrawdownBasisEnum;
+    'contract_usage_term'?: string | null;
     'start_date': string;
     'expiration_date'?: string | null;
     'status': ContractPrepaidCommitStatusEnum;
@@ -3108,6 +3112,14 @@ export interface Department {
     'customer': number;
     'parent'?: number | null;
 }
+/**
+ * * `monetary` - Monetary amount * `quantity` - Quantity
+ */
+export declare const DrawdownBasisEnum: {
+    readonly Monetary: 'monetary';
+    readonly Quantity: 'quantity';
+};
+export type DrawdownBasisEnum = typeof DrawdownBasisEnum[keyof typeof DrawdownBasisEnum];
 export interface EmptyTransactionInput {
     'amount': number;
     /**
@@ -4106,6 +4118,8 @@ export interface NestedContractPrepaidCommit {
     'total_value': number;
     'discount_percentage'?: number;
     'rate'?: number | null;
+    'quantity'?: number | null;
+    'unit'?: string;
     'start_date': string;
     'expiration_date'?: string | null;
     'priority'?: number;
@@ -5726,6 +5740,10 @@ export interface PatchedContractPrepaidCommit {
      * List price per unit. Prepaid usage = rate * (1 - discount%). Overage = rate (no discount).
      */
     'rate'?: number | null;
+    'quantity'?: string | null;
+    'unit'?: string;
+    'drawdown_basis'?: DrawdownBasisEnum;
+    'contract_usage_term'?: string | null;
     'start_date'?: string;
     'expiration_date'?: string | null;
     'status'?: ContractPrepaidCommitStatusEnum;
@@ -6249,6 +6267,7 @@ export interface PatchedProduct {
     'tag_group_ids'?: Array<number>;
     'currency'?: string | null;
     'price'?: number | null;
+    'usage_price_unit'?: string;
     'cost'?: number | null;
     'exclude_from_mrr'?: boolean;
     'is_taxable'?: boolean;
@@ -6807,6 +6826,7 @@ export interface Product {
     'tag_group_ids'?: Array<number>;
     'currency'?: string | null;
     'price'?: number | null;
+    'usage_price_unit'?: string;
     'cost'?: number | null;
     'exclude_from_mrr'?: boolean;
     'is_taxable'?: boolean;
@@ -7981,11 +8001,11 @@ export declare const AccountsPayableApiAxiosParamCreator: (configuration?: Confi
     /**
      *          Permanently deletes an accounting bill and its associated journal entry.          This endpoint performs a complete deletion of the bill including:         - Removal of all bill line items and associated data         - Deletion of the corresponding accounts payable journal entry         - Cleanup of any tax calculations and allocations         - Removal of vendor payment allocations if applicable          **Important Notes:**         - This operation is irreversible and permanently removes the bill from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity         - All double-entry bookkeeping records related to this bill will be removed         - Any payments allocated to this bill should be handled separately before deletion         - Deletion may affect financial reports and account balances          **Restrictions:**         - Bills with allocated payments may require payment reallocation first         - Consider the impact on historical financial reporting         - Bills cannot be deleted in a closed period
      * @summary Delete Accounting Bill
-     * @param {string} id
+     * @param {number} id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    coaApiV1BillDestroy: (id: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    coaApiV1BillDestroy: (id: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get the default department and tags from the bill line with the largest total amount.          This endpoint is used to provide default values when creating empty transactions (marking as paid without a transaction).         The total amount is calculated as: amount + tax.         If multiple lines have the same total amount, the line with the lowest ID (first created) is selected.         The department and tags are retrieved directly from the bill line.
      * @summary Get Default Department and Tags for Empty Transaction
@@ -7997,12 +8017,12 @@ export declare const AccountsPayableApiAxiosParamCreator: (configuration?: Confi
     /**
      *          Performs a partial update of an existing accounting bill using PATCH semantics.          This endpoint allows selective modification of bill fields without requiring         a complete bill replacement. You can update specific aspects of the bill while         leaving other fields unchanged.          **Updatable Fields:**         - Bill metadata (number, dates, descriptions, vendor, entity)         - Line items (amounts, accounts, descriptions, departments)         - Payment terms and due dates         - Tax calculations and allocations         - Custom fields and tags         - Currency and exchange rates
      * @summary Partial Update Accounting Bill
-     * @param {string} id
+     * @param {number} id
      * @param {PatchedAccountingBill} [patchedAccountingBill]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    coaApiV1BillPartialUpdate: (id: string, patchedAccountingBill?: PatchedAccountingBill, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    coaApiV1BillPartialUpdate: (id: number, patchedAccountingBill?: PatchedAccountingBill, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Mark a bill as paid, allowing partial payments.          This endpoint supports multiple payment methods:         - Apply existing transactions as payments         - Apply debit memos to reduce the bill balance         - Create manual payments without a transaction          The request body should contain at least one of:         - transactions: List of transaction payments to apply         - debit_memos: List of debit memos to apply         - empty_transactions: List of manual payments without transactions
      * @summary Mark Bill as Paid
@@ -8077,11 +8097,11 @@ export declare const AccountsPayableApiAxiosParamCreator: (configuration?: Confi
     /**
      *          Retrieve a single accounting bill by ID with complete detail including all line items, payments, and related data.          This endpoint returns comprehensive bill information including:         - Full bill details with vendor, entity, and customer information         - All line items with account details, departments, tags, and amortization schedules         - Complete payment history with journal entry references         - Calculated fields including total amounts, amounts paid, amounts due, and payment status         - Journal entry references for accounting integration         - Exchange rate information for multi-currency bills
      * @summary Retrieve Accounting Bill
-     * @param {string} id
+     * @param {number} id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    coaApiV1BillRetrieve2: (id: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    coaApiV1BillRetrieve2: (id: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Customer-scoped counts and outstanding amounts for the Bills page Needs Approval / Awaiting Payment / Overdue stat cards.
      * @summary Bill Stat Card Aggregates
@@ -8100,12 +8120,12 @@ export declare const AccountsPayableApiAxiosParamCreator: (configuration?: Confi
     /**
      *          Update an existing accounting bill with complete replacement of all data including line items and metadata.          This endpoint performs a full update (PUT) of an accounting bill with:         - Complete replacement of all bill data including vendor, entity, dates, and terms         - Full replacement of all line items with new account assignments, amounts, and descriptions         - Automatic recalculation of journal entries and accounting transactions         - Preservation of payment history while updating balances and amounts due         - Validation of all referenced accounts, vendors, entities, and departments         - Automatic exchange rate updates for multi-currency bills         - Custom field updates and attachment management
      * @summary Update Accounting Bill
-     * @param {string} id
+     * @param {number} id
      * @param {AccountingBill} accountingBill
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    coaApiV1BillUpdate: (id: string, accountingBill: AccountingBill, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    coaApiV1BillUpdate: (id: number, accountingBill: AccountingBill, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Void an existing bill.          This creates a reversing journal entry to void the bill by reversing all debit and credit amounts.         The bill status will be updated to reflect the void.
      * @summary Void Bill
@@ -8347,11 +8367,11 @@ export declare const AccountsPayableApiFp: (configuration?: Configuration) => {
     /**
      *          Permanently deletes an accounting bill and its associated journal entry.          This endpoint performs a complete deletion of the bill including:         - Removal of all bill line items and associated data         - Deletion of the corresponding accounts payable journal entry         - Cleanup of any tax calculations and allocations         - Removal of vendor payment allocations if applicable          **Important Notes:**         - This operation is irreversible and permanently removes the bill from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity         - All double-entry bookkeeping records related to this bill will be removed         - Any payments allocated to this bill should be handled separately before deletion         - Deletion may affect financial reports and account balances          **Restrictions:**         - Bills with allocated payments may require payment reallocation first         - Consider the impact on historical financial reporting         - Bills cannot be deleted in a closed period
      * @summary Delete Accounting Bill
-     * @param {string} id
+     * @param {number} id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    coaApiV1BillDestroy(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    coaApiV1BillDestroy(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Get the default department and tags from the bill line with the largest total amount.          This endpoint is used to provide default values when creating empty transactions (marking as paid without a transaction).         The total amount is calculated as: amount + tax.         If multiple lines have the same total amount, the line with the lowest ID (first created) is selected.         The department and tags are retrieved directly from the bill line.
      * @summary Get Default Department and Tags for Empty Transaction
@@ -8363,12 +8383,12 @@ export declare const AccountsPayableApiFp: (configuration?: Configuration) => {
     /**
      *          Performs a partial update of an existing accounting bill using PATCH semantics.          This endpoint allows selective modification of bill fields without requiring         a complete bill replacement. You can update specific aspects of the bill while         leaving other fields unchanged.          **Updatable Fields:**         - Bill metadata (number, dates, descriptions, vendor, entity)         - Line items (amounts, accounts, descriptions, departments)         - Payment terms and due dates         - Tax calculations and allocations         - Custom fields and tags         - Currency and exchange rates
      * @summary Partial Update Accounting Bill
-     * @param {string} id
+     * @param {number} id
      * @param {PatchedAccountingBill} [patchedAccountingBill]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    coaApiV1BillPartialUpdate(id: string, patchedAccountingBill?: PatchedAccountingBill, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountingBill>>;
+    coaApiV1BillPartialUpdate(id: number, patchedAccountingBill?: PatchedAccountingBill, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountingBill>>;
     /**
      * Mark a bill as paid, allowing partial payments.          This endpoint supports multiple payment methods:         - Apply existing transactions as payments         - Apply debit memos to reduce the bill balance         - Create manual payments without a transaction          The request body should contain at least one of:         - transactions: List of transaction payments to apply         - debit_memos: List of debit memos to apply         - empty_transactions: List of manual payments without transactions
      * @summary Mark Bill as Paid
@@ -8443,11 +8463,11 @@ export declare const AccountsPayableApiFp: (configuration?: Configuration) => {
     /**
      *          Retrieve a single accounting bill by ID with complete detail including all line items, payments, and related data.          This endpoint returns comprehensive bill information including:         - Full bill details with vendor, entity, and customer information         - All line items with account details, departments, tags, and amortization schedules         - Complete payment history with journal entry references         - Calculated fields including total amounts, amounts paid, amounts due, and payment status         - Journal entry references for accounting integration         - Exchange rate information for multi-currency bills
      * @summary Retrieve Accounting Bill
-     * @param {string} id
+     * @param {number} id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    coaApiV1BillRetrieve2(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountingBill>>;
+    coaApiV1BillRetrieve2(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountingBill>>;
     /**
      * Customer-scoped counts and outstanding amounts for the Bills page Needs Approval / Awaiting Payment / Overdue stat cards.
      * @summary Bill Stat Card Aggregates
@@ -8468,12 +8488,12 @@ export declare const AccountsPayableApiFp: (configuration?: Configuration) => {
     /**
      *          Update an existing accounting bill with complete replacement of all data including line items and metadata.          This endpoint performs a full update (PUT) of an accounting bill with:         - Complete replacement of all bill data including vendor, entity, dates, and terms         - Full replacement of all line items with new account assignments, amounts, and descriptions         - Automatic recalculation of journal entries and accounting transactions         - Preservation of payment history while updating balances and amounts due         - Validation of all referenced accounts, vendors, entities, and departments         - Automatic exchange rate updates for multi-currency bills         - Custom field updates and attachment management
      * @summary Update Accounting Bill
-     * @param {string} id
+     * @param {number} id
      * @param {AccountingBill} accountingBill
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    coaApiV1BillUpdate(id: string, accountingBill: AccountingBill, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountingBill>>;
+    coaApiV1BillUpdate(id: number, accountingBill: AccountingBill, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountingBill>>;
     /**
      * Void an existing bill.          This creates a reversing journal entry to void the bill by reversing all debit and credit amounts.         The bill status will be updated to reflect the void.
      * @summary Void Bill
@@ -9025,7 +9045,7 @@ export interface AccountsPayableApiCoaApiV1BillCreateRequest {
  * Request parameters for coaApiV1BillDestroy operation in AccountsPayableApi.
  */
 export interface AccountsPayableApiCoaApiV1BillDestroyRequest {
-    readonly id: string;
+    readonly id: number;
 }
 /**
  * Request parameters for coaApiV1BillEmptyTransactionDefaultDepartmentTagsRetrieve operation in AccountsPayableApi.
@@ -9040,7 +9060,7 @@ export interface AccountsPayableApiCoaApiV1BillEmptyTransactionDefaultDepartment
  * Request parameters for coaApiV1BillPartialUpdate operation in AccountsPayableApi.
  */
 export interface AccountsPayableApiCoaApiV1BillPartialUpdateRequest {
-    readonly id: string;
+    readonly id: number;
     readonly patchedAccountingBill?: PatchedAccountingBill;
 }
 /**
@@ -9187,7 +9207,7 @@ export interface AccountsPayableApiCoaApiV1BillRetrieveRequest {
  * Request parameters for coaApiV1BillRetrieve2 operation in AccountsPayableApi.
  */
 export interface AccountsPayableApiCoaApiV1BillRetrieve2Request {
-    readonly id: string;
+    readonly id: number;
 }
 /**
  * Request parameters for coaApiV1BillSyncToRampCreate operation in AccountsPayableApi.
@@ -9199,7 +9219,7 @@ export interface AccountsPayableApiCoaApiV1BillSyncToRampCreateRequest {
  * Request parameters for coaApiV1BillUpdate operation in AccountsPayableApi.
  */
 export interface AccountsPayableApiCoaApiV1BillUpdateRequest {
-    readonly id: string;
+    readonly id: number;
     readonly accountingBill: AccountingBill;
 }
 /**
@@ -16784,7 +16804,7 @@ export declare const CoreAccountingApiAxiosParamCreator: (configuration?: Config
      */
     coaApiTagBulkSearchCreate: (bulkTagSearch: BulkTagSearch, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     * Lists general-ledger transactions (`ChartTransaction` records) - Campfire\'s GL transaction log, and the recommended endpoint for retrieving GL transaction data.  Each transaction carries account, department, vendor, entity, journal/date metadata, and tags (where applicable). Product metadata is not stored directly on a transaction; it is reached through relations with other Campfire objects.  **Date range:** filter with `start_date` and `end_date` (both `YYYY-MM-DD`, inclusive); the bounds match on transaction date (the journal entry date, which `posted_at` mirrors).  **Pagination:** results are paginated via `limit` (default 100, max 10000) and `offset`. To retrieve more than 10000 records, page through with `offset`, or use cursor pagination by passing an empty `cursor=` parameter and following the `next` link.  **Key response fields:** - `amount` - amount in consolidated currency (the root entity\'s currency). - `amount_book` - amount in the currency of the entity the transaction belongs to. - `amount_native` - amount in the currency the transaction was originally created in. Example: for a transaction made in GBP where the entity uses EUR and the root entity uses USD, `amount_native` is GBP, `amount_book` is EUR, and `amount` is USD. - `posted_at` - the transaction date; determines which period the transaction falls in. `date_year` and `date_month` are derived from it. - `vendor` / `vendor_name` - the linked Campfire `Vendor` object\'s ID and name. - `merchant_name` - a free-text field stored directly on the transaction; not linked to any Campfire object. - `account` - the Campfire `ChartAccount` (GL account) the transaction is posted to. - `entity` - the Campfire `ChartEntity` ID. - `tags` - the transaction\'s tags; each tag\'s `group`/`group_name` identify the tag group (dimension) it belongs to. List a customer\'s tag groups via `/coa/api/tag-group` and tags via `/coa/api/tag`.  **Dynamic tag-group columns:** in addition to `tags`, each row carries flattened per-dimension columns `tag_group_<id>` (tag ID) and `tag_group_<id>_name` (tag name), one pair per tag group defined by the customer, plus `tag_group_none` / `tag_group_none_name` for ungrouped tags. Journal-level custom fields are merged in as `custom_field_<name>` keys. These columns are customer-specific, so they cannot appear in this static schema - discover tag groups via `/coa/api/tag-group` and custom fields via `/ca/api/v1/custom-fields`.
+     * Lists general-ledger transactions (`ChartTransaction` records) - Campfire\'s GL transaction log, and the recommended endpoint for retrieving GL transaction data.  Each transaction carries account, department, vendor, entity, journal/date metadata, and tags (where applicable). Product metadata is not stored directly on a transaction; it is reached through relations with other Campfire objects.  **Date range:** filter with `start_date` and `end_date` (both `YYYY-MM-DD`, inclusive); `date_from` and `date_to` are aliases, and `start_date`/`end_date` win when both are sent. The bounds match on transaction date (the journal entry date, which `posted_at` mirrors).  **Pagination:** results are paginated via `limit` (default 100, max 10000) and `offset`. To retrieve more than 10000 records, page through with `offset`, or use cursor pagination by passing an empty `cursor=` parameter and following the `next` link.  **Key response fields:** - `amount` - amount in consolidated currency (the root entity\'s currency). - `amount_book` - amount in the currency of the entity the transaction belongs to. - `amount_native` - amount in the currency the transaction was originally created in. Example: for a transaction made in GBP where the entity uses EUR and the root entity uses USD, `amount_native` is GBP, `amount_book` is EUR, and `amount` is USD. - `posted_at` - the transaction date; determines which period the transaction falls in. `date_year` and `date_month` are derived from it. - `vendor` / `vendor_name` - the linked Campfire `Vendor` object\'s ID and name. - `merchant_name` - a free-text field stored directly on the transaction; not linked to any Campfire object. - `account` - the Campfire `ChartAccount` (GL account) the transaction is posted to. - `entity` - the Campfire `ChartEntity` ID. - `tags` - the transaction\'s tags; each tag\'s `group`/`group_name` identify the tag group (dimension) it belongs to. List a customer\'s tag groups via `/coa/api/tag-group` and tags via `/coa/api/tag`.  **Dynamic tag-group columns:** in addition to `tags`, each row carries flattened per-dimension columns `tag_group_<id>` (tag ID) and `tag_group_<id>_name` (tag name), one pair per tag group defined by the customer, plus `tag_group_none` / `tag_group_none_name` for ungrouped tags. Journal-level custom fields are merged in as `custom_field_<name>` keys. These columns are customer-specific, so they cannot appear in this static schema - discover tag groups via `/coa/api/tag-group` and custom fields via `/ca/api/v1/custom-fields`.
      * @summary List Chart Transactions
      * @param {number} [account]
      * @param {number} [accountId]
@@ -16805,6 +16825,8 @@ export declare const CoreAccountingApiAxiosParamCreator: (configuration?: Config
      * @param {number} [creditAmountLte]
      * @param {boolean} [creditAmountNull]
      * @param {string} [currency]
+     * @param {string} [dateFrom] Alias of &#x60;start_date&#x60;; &#x60;start_date&#x60; wins when both are sent
+     * @param {string} [dateTo] Alias of &#x60;end_date&#x60;; &#x60;end_date&#x60; wins when both are sent
      * @param {number} [debitAmountEqual]
      * @param {number} [debitAmountGte]
      * @param {number} [debitAmountLte]
@@ -16835,6 +16857,7 @@ export declare const CoreAccountingApiAxiosParamCreator: (configuration?: Config
      * @param {boolean} [includeMatches] If true, include match metadata (has_matches, primary_action_type) in serialized rows
      * @param {boolean} [isNotReconciled]
      * @param {boolean} [isReconciled]
+     * @param {number} [journal] Only transactions on these journal entry ids (repeat the param for several)
      * @param {string} [journalType]
      * @param {string} [journalTypeNin]
      * @param {string} [lastModifiedAtGte] Filter for records modified on or after this timestamp. Format: ISO 8601 (e.g., \&#39;2024-01-01T00:00:00Z\&#39; or \&#39;2024-01-01\&#39;). Works with both active records and deleted records (filters by deletion time for deleted records).
@@ -16867,7 +16890,7 @@ export declare const CoreAccountingApiAxiosParamCreator: (configuration?: Config
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    coaApiTransactionList: (account?: number, accountId?: number, accountRollup?: boolean, accountSubtype?: string, accountType?: string, accounts?: number, aggregationFields?: string, allTime?: boolean, bank?: number, bankDescription?: string, bankId?: number, categorized?: string, counterparty?: number, counterpartyId?: number, creditAmountEqual?: number, creditAmountGte?: number, creditAmountLte?: number, creditAmountNull?: boolean, currency?: string, debitAmountEqual?: number, debitAmountGte?: number, debitAmountLte?: number, debitAmountNull?: boolean, department?: number, departmentId?: number, departmentOrUnassigned?: boolean, download?: boolean, endDate?: string, entity?: number, entityId?: number, entityRollup?: boolean, excludeEntity?: number, excludeEntityId?: number, excludeId?: number, excludeJournal?: number, excludeReconciliationReport?: number, excludeUncategorizedAccounts?: boolean, expenseOrAp?: boolean, fields?: string, group?: number, groupFields?: string, groupId?: number, groupKeys?: string, hasLinkedFixedAsset?: string, hasParentBankTransaction?: string, includeDeleted?: boolean, includeMatches?: boolean, isNotReconciled?: boolean, isReconciled?: boolean, journalType?: string, journalTypeNin?: string, lastModifiedAtGte?: string, lastModifiedAtLte?: string, limit?: number, matchType?: CoaApiTransactionListMatchTypeEnum, needsReview?: boolean, noCounterparty?: boolean, noDepartment?: boolean, noTag?: boolean, noVendor?: boolean, offset?: number, opposingAccount?: number, opposingAccountSubtype?: string, ordering?: string, payee?: string, payeeId?: string, pivotFields?: string, q?: string, reconciliationReport?: number, revenueOrReceivables?: boolean, shouldPivot?: boolean, sort?: string, startDate?: string, tag?: number, tagGroups?: number, tagId?: number, vendor?: string, vendorId?: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    coaApiTransactionList: (account?: number, accountId?: number, accountRollup?: boolean, accountSubtype?: string, accountType?: string, accounts?: number, aggregationFields?: string, allTime?: boolean, bank?: number, bankDescription?: string, bankId?: number, categorized?: string, counterparty?: number, counterpartyId?: number, creditAmountEqual?: number, creditAmountGte?: number, creditAmountLte?: number, creditAmountNull?: boolean, currency?: string, dateFrom?: string, dateTo?: string, debitAmountEqual?: number, debitAmountGte?: number, debitAmountLte?: number, debitAmountNull?: boolean, department?: number, departmentId?: number, departmentOrUnassigned?: boolean, download?: boolean, endDate?: string, entity?: number, entityId?: number, entityRollup?: boolean, excludeEntity?: number, excludeEntityId?: number, excludeId?: number, excludeJournal?: number, excludeReconciliationReport?: number, excludeUncategorizedAccounts?: boolean, expenseOrAp?: boolean, fields?: string, group?: number, groupFields?: string, groupId?: number, groupKeys?: string, hasLinkedFixedAsset?: string, hasParentBankTransaction?: string, includeDeleted?: boolean, includeMatches?: boolean, isNotReconciled?: boolean, isReconciled?: boolean, journal?: number, journalType?: string, journalTypeNin?: string, lastModifiedAtGte?: string, lastModifiedAtLte?: string, limit?: number, matchType?: CoaApiTransactionListMatchTypeEnum, needsReview?: boolean, noCounterparty?: boolean, noDepartment?: boolean, noTag?: boolean, noVendor?: boolean, offset?: number, opposingAccount?: number, opposingAccountSubtype?: string, ordering?: string, payee?: string, payeeId?: string, pivotFields?: string, q?: string, reconciliationReport?: number, revenueOrReceivables?: boolean, shouldPivot?: boolean, sort?: string, startDate?: string, tag?: number, tagGroups?: number, tagId?: number, vendor?: string, vendorId?: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Apply one class of pending suggestions (match | rule | merge | ai) across an explicit or filter-implicit transaction selection, each through its existing single-item flow. Per-item outcomes; capped per call — drain until \'truncated\' is false, excluding blocked transaction ids on subsequent calls.
      * @summary Bulk Accept Suggestions
@@ -17582,7 +17605,7 @@ export declare const CoreAccountingApiFp: (configuration?: Configuration) => {
      */
     coaApiTagBulkSearchCreate(bulkTagSearch: BulkTagSearch, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TransactionTag>>>;
     /**
-     * Lists general-ledger transactions (`ChartTransaction` records) - Campfire\'s GL transaction log, and the recommended endpoint for retrieving GL transaction data.  Each transaction carries account, department, vendor, entity, journal/date metadata, and tags (where applicable). Product metadata is not stored directly on a transaction; it is reached through relations with other Campfire objects.  **Date range:** filter with `start_date` and `end_date` (both `YYYY-MM-DD`, inclusive); the bounds match on transaction date (the journal entry date, which `posted_at` mirrors).  **Pagination:** results are paginated via `limit` (default 100, max 10000) and `offset`. To retrieve more than 10000 records, page through with `offset`, or use cursor pagination by passing an empty `cursor=` parameter and following the `next` link.  **Key response fields:** - `amount` - amount in consolidated currency (the root entity\'s currency). - `amount_book` - amount in the currency of the entity the transaction belongs to. - `amount_native` - amount in the currency the transaction was originally created in. Example: for a transaction made in GBP where the entity uses EUR and the root entity uses USD, `amount_native` is GBP, `amount_book` is EUR, and `amount` is USD. - `posted_at` - the transaction date; determines which period the transaction falls in. `date_year` and `date_month` are derived from it. - `vendor` / `vendor_name` - the linked Campfire `Vendor` object\'s ID and name. - `merchant_name` - a free-text field stored directly on the transaction; not linked to any Campfire object. - `account` - the Campfire `ChartAccount` (GL account) the transaction is posted to. - `entity` - the Campfire `ChartEntity` ID. - `tags` - the transaction\'s tags; each tag\'s `group`/`group_name` identify the tag group (dimension) it belongs to. List a customer\'s tag groups via `/coa/api/tag-group` and tags via `/coa/api/tag`.  **Dynamic tag-group columns:** in addition to `tags`, each row carries flattened per-dimension columns `tag_group_<id>` (tag ID) and `tag_group_<id>_name` (tag name), one pair per tag group defined by the customer, plus `tag_group_none` / `tag_group_none_name` for ungrouped tags. Journal-level custom fields are merged in as `custom_field_<name>` keys. These columns are customer-specific, so they cannot appear in this static schema - discover tag groups via `/coa/api/tag-group` and custom fields via `/ca/api/v1/custom-fields`.
+     * Lists general-ledger transactions (`ChartTransaction` records) - Campfire\'s GL transaction log, and the recommended endpoint for retrieving GL transaction data.  Each transaction carries account, department, vendor, entity, journal/date metadata, and tags (where applicable). Product metadata is not stored directly on a transaction; it is reached through relations with other Campfire objects.  **Date range:** filter with `start_date` and `end_date` (both `YYYY-MM-DD`, inclusive); `date_from` and `date_to` are aliases, and `start_date`/`end_date` win when both are sent. The bounds match on transaction date (the journal entry date, which `posted_at` mirrors).  **Pagination:** results are paginated via `limit` (default 100, max 10000) and `offset`. To retrieve more than 10000 records, page through with `offset`, or use cursor pagination by passing an empty `cursor=` parameter and following the `next` link.  **Key response fields:** - `amount` - amount in consolidated currency (the root entity\'s currency). - `amount_book` - amount in the currency of the entity the transaction belongs to. - `amount_native` - amount in the currency the transaction was originally created in. Example: for a transaction made in GBP where the entity uses EUR and the root entity uses USD, `amount_native` is GBP, `amount_book` is EUR, and `amount` is USD. - `posted_at` - the transaction date; determines which period the transaction falls in. `date_year` and `date_month` are derived from it. - `vendor` / `vendor_name` - the linked Campfire `Vendor` object\'s ID and name. - `merchant_name` - a free-text field stored directly on the transaction; not linked to any Campfire object. - `account` - the Campfire `ChartAccount` (GL account) the transaction is posted to. - `entity` - the Campfire `ChartEntity` ID. - `tags` - the transaction\'s tags; each tag\'s `group`/`group_name` identify the tag group (dimension) it belongs to. List a customer\'s tag groups via `/coa/api/tag-group` and tags via `/coa/api/tag`.  **Dynamic tag-group columns:** in addition to `tags`, each row carries flattened per-dimension columns `tag_group_<id>` (tag ID) and `tag_group_<id>_name` (tag name), one pair per tag group defined by the customer, plus `tag_group_none` / `tag_group_none_name` for ungrouped tags. Journal-level custom fields are merged in as `custom_field_<name>` keys. These columns are customer-specific, so they cannot appear in this static schema - discover tag groups via `/coa/api/tag-group` and custom fields via `/ca/api/v1/custom-fields`.
      * @summary List Chart Transactions
      * @param {number} [account]
      * @param {number} [accountId]
@@ -17603,6 +17626,8 @@ export declare const CoreAccountingApiFp: (configuration?: Configuration) => {
      * @param {number} [creditAmountLte]
      * @param {boolean} [creditAmountNull]
      * @param {string} [currency]
+     * @param {string} [dateFrom] Alias of &#x60;start_date&#x60;; &#x60;start_date&#x60; wins when both are sent
+     * @param {string} [dateTo] Alias of &#x60;end_date&#x60;; &#x60;end_date&#x60; wins when both are sent
      * @param {number} [debitAmountEqual]
      * @param {number} [debitAmountGte]
      * @param {number} [debitAmountLte]
@@ -17633,6 +17658,7 @@ export declare const CoreAccountingApiFp: (configuration?: Configuration) => {
      * @param {boolean} [includeMatches] If true, include match metadata (has_matches, primary_action_type) in serialized rows
      * @param {boolean} [isNotReconciled]
      * @param {boolean} [isReconciled]
+     * @param {number} [journal] Only transactions on these journal entry ids (repeat the param for several)
      * @param {string} [journalType]
      * @param {string} [journalTypeNin]
      * @param {string} [lastModifiedAtGte] Filter for records modified on or after this timestamp. Format: ISO 8601 (e.g., \&#39;2024-01-01T00:00:00Z\&#39; or \&#39;2024-01-01\&#39;). Works with both active records and deleted records (filters by deletion time for deleted records).
@@ -17665,7 +17691,7 @@ export declare const CoreAccountingApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    coaApiTransactionList(account?: number, accountId?: number, accountRollup?: boolean, accountSubtype?: string, accountType?: string, accounts?: number, aggregationFields?: string, allTime?: boolean, bank?: number, bankDescription?: string, bankId?: number, categorized?: string, counterparty?: number, counterpartyId?: number, creditAmountEqual?: number, creditAmountGte?: number, creditAmountLte?: number, creditAmountNull?: boolean, currency?: string, debitAmountEqual?: number, debitAmountGte?: number, debitAmountLte?: number, debitAmountNull?: boolean, department?: number, departmentId?: number, departmentOrUnassigned?: boolean, download?: boolean, endDate?: string, entity?: number, entityId?: number, entityRollup?: boolean, excludeEntity?: number, excludeEntityId?: number, excludeId?: number, excludeJournal?: number, excludeReconciliationReport?: number, excludeUncategorizedAccounts?: boolean, expenseOrAp?: boolean, fields?: string, group?: number, groupFields?: string, groupId?: number, groupKeys?: string, hasLinkedFixedAsset?: string, hasParentBankTransaction?: string, includeDeleted?: boolean, includeMatches?: boolean, isNotReconciled?: boolean, isReconciled?: boolean, journalType?: string, journalTypeNin?: string, lastModifiedAtGte?: string, lastModifiedAtLte?: string, limit?: number, matchType?: CoaApiTransactionListMatchTypeEnum, needsReview?: boolean, noCounterparty?: boolean, noDepartment?: boolean, noTag?: boolean, noVendor?: boolean, offset?: number, opposingAccount?: number, opposingAccountSubtype?: string, ordering?: string, payee?: string, payeeId?: string, pivotFields?: string, q?: string, reconciliationReport?: number, revenueOrReceivables?: boolean, shouldPivot?: boolean, sort?: string, startDate?: string, tag?: number, tagGroups?: number, tagId?: number, vendor?: string, vendorId?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PaginatedChartTransactionList>>;
+    coaApiTransactionList(account?: number, accountId?: number, accountRollup?: boolean, accountSubtype?: string, accountType?: string, accounts?: number, aggregationFields?: string, allTime?: boolean, bank?: number, bankDescription?: string, bankId?: number, categorized?: string, counterparty?: number, counterpartyId?: number, creditAmountEqual?: number, creditAmountGte?: number, creditAmountLte?: number, creditAmountNull?: boolean, currency?: string, dateFrom?: string, dateTo?: string, debitAmountEqual?: number, debitAmountGte?: number, debitAmountLte?: number, debitAmountNull?: boolean, department?: number, departmentId?: number, departmentOrUnassigned?: boolean, download?: boolean, endDate?: string, entity?: number, entityId?: number, entityRollup?: boolean, excludeEntity?: number, excludeEntityId?: number, excludeId?: number, excludeJournal?: number, excludeReconciliationReport?: number, excludeUncategorizedAccounts?: boolean, expenseOrAp?: boolean, fields?: string, group?: number, groupFields?: string, groupId?: number, groupKeys?: string, hasLinkedFixedAsset?: string, hasParentBankTransaction?: string, includeDeleted?: boolean, includeMatches?: boolean, isNotReconciled?: boolean, isReconciled?: boolean, journal?: number, journalType?: string, journalTypeNin?: string, lastModifiedAtGte?: string, lastModifiedAtLte?: string, limit?: number, matchType?: CoaApiTransactionListMatchTypeEnum, needsReview?: boolean, noCounterparty?: boolean, noDepartment?: boolean, noTag?: boolean, noVendor?: boolean, offset?: number, opposingAccount?: number, opposingAccountSubtype?: string, ordering?: string, payee?: string, payeeId?: string, pivotFields?: string, q?: string, reconciliationReport?: number, revenueOrReceivables?: boolean, shouldPivot?: boolean, sort?: string, startDate?: string, tag?: number, tagGroups?: number, tagId?: number, vendor?: string, vendorId?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PaginatedChartTransactionList>>;
     /**
      * Apply one class of pending suggestions (match | rule | merge | ai) across an explicit or filter-implicit transaction selection, each through its existing single-item flow. Per-item outcomes; capped per call — drain until \'truncated\' is false, excluding blocked transaction ids on subsequent calls.
      * @summary Bulk Accept Suggestions
@@ -18339,7 +18365,7 @@ export declare const CoreAccountingApiFactory: (configuration?: Configuration, b
      */
     coaApiTagBulkSearchCreate(requestParameters: CoreAccountingApiCoaApiTagBulkSearchCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<TransactionTag>>;
     /**
-     * Lists general-ledger transactions (`ChartTransaction` records) - Campfire\'s GL transaction log, and the recommended endpoint for retrieving GL transaction data.  Each transaction carries account, department, vendor, entity, journal/date metadata, and tags (where applicable). Product metadata is not stored directly on a transaction; it is reached through relations with other Campfire objects.  **Date range:** filter with `start_date` and `end_date` (both `YYYY-MM-DD`, inclusive); the bounds match on transaction date (the journal entry date, which `posted_at` mirrors).  **Pagination:** results are paginated via `limit` (default 100, max 10000) and `offset`. To retrieve more than 10000 records, page through with `offset`, or use cursor pagination by passing an empty `cursor=` parameter and following the `next` link.  **Key response fields:** - `amount` - amount in consolidated currency (the root entity\'s currency). - `amount_book` - amount in the currency of the entity the transaction belongs to. - `amount_native` - amount in the currency the transaction was originally created in. Example: for a transaction made in GBP where the entity uses EUR and the root entity uses USD, `amount_native` is GBP, `amount_book` is EUR, and `amount` is USD. - `posted_at` - the transaction date; determines which period the transaction falls in. `date_year` and `date_month` are derived from it. - `vendor` / `vendor_name` - the linked Campfire `Vendor` object\'s ID and name. - `merchant_name` - a free-text field stored directly on the transaction; not linked to any Campfire object. - `account` - the Campfire `ChartAccount` (GL account) the transaction is posted to. - `entity` - the Campfire `ChartEntity` ID. - `tags` - the transaction\'s tags; each tag\'s `group`/`group_name` identify the tag group (dimension) it belongs to. List a customer\'s tag groups via `/coa/api/tag-group` and tags via `/coa/api/tag`.  **Dynamic tag-group columns:** in addition to `tags`, each row carries flattened per-dimension columns `tag_group_<id>` (tag ID) and `tag_group_<id>_name` (tag name), one pair per tag group defined by the customer, plus `tag_group_none` / `tag_group_none_name` for ungrouped tags. Journal-level custom fields are merged in as `custom_field_<name>` keys. These columns are customer-specific, so they cannot appear in this static schema - discover tag groups via `/coa/api/tag-group` and custom fields via `/ca/api/v1/custom-fields`.
+     * Lists general-ledger transactions (`ChartTransaction` records) - Campfire\'s GL transaction log, and the recommended endpoint for retrieving GL transaction data.  Each transaction carries account, department, vendor, entity, journal/date metadata, and tags (where applicable). Product metadata is not stored directly on a transaction; it is reached through relations with other Campfire objects.  **Date range:** filter with `start_date` and `end_date` (both `YYYY-MM-DD`, inclusive); `date_from` and `date_to` are aliases, and `start_date`/`end_date` win when both are sent. The bounds match on transaction date (the journal entry date, which `posted_at` mirrors).  **Pagination:** results are paginated via `limit` (default 100, max 10000) and `offset`. To retrieve more than 10000 records, page through with `offset`, or use cursor pagination by passing an empty `cursor=` parameter and following the `next` link.  **Key response fields:** - `amount` - amount in consolidated currency (the root entity\'s currency). - `amount_book` - amount in the currency of the entity the transaction belongs to. - `amount_native` - amount in the currency the transaction was originally created in. Example: for a transaction made in GBP where the entity uses EUR and the root entity uses USD, `amount_native` is GBP, `amount_book` is EUR, and `amount` is USD. - `posted_at` - the transaction date; determines which period the transaction falls in. `date_year` and `date_month` are derived from it. - `vendor` / `vendor_name` - the linked Campfire `Vendor` object\'s ID and name. - `merchant_name` - a free-text field stored directly on the transaction; not linked to any Campfire object. - `account` - the Campfire `ChartAccount` (GL account) the transaction is posted to. - `entity` - the Campfire `ChartEntity` ID. - `tags` - the transaction\'s tags; each tag\'s `group`/`group_name` identify the tag group (dimension) it belongs to. List a customer\'s tag groups via `/coa/api/tag-group` and tags via `/coa/api/tag`.  **Dynamic tag-group columns:** in addition to `tags`, each row carries flattened per-dimension columns `tag_group_<id>` (tag ID) and `tag_group_<id>_name` (tag name), one pair per tag group defined by the customer, plus `tag_group_none` / `tag_group_none_name` for ungrouped tags. Journal-level custom fields are merged in as `custom_field_<name>` keys. These columns are customer-specific, so they cannot appear in this static schema - discover tag groups via `/coa/api/tag-group` and custom fields via `/ca/api/v1/custom-fields`.
      * @summary List Chart Transactions
      * @param {CoreAccountingApiCoaApiTransactionListRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -19086,6 +19112,14 @@ export interface CoreAccountingApiCoaApiTransactionListRequest {
     readonly creditAmountLte?: number;
     readonly creditAmountNull?: boolean;
     readonly currency?: string;
+    /**
+     * Alias of &#x60;start_date&#x60;; &#x60;start_date&#x60; wins when both are sent
+     */
+    readonly dateFrom?: string;
+    /**
+     * Alias of &#x60;end_date&#x60;; &#x60;end_date&#x60; wins when both are sent
+     */
+    readonly dateTo?: string;
     readonly debitAmountEqual?: number;
     readonly debitAmountGte?: number;
     readonly debitAmountLte?: number;
@@ -19137,6 +19171,10 @@ export interface CoreAccountingApiCoaApiTransactionListRequest {
     readonly includeMatches?: boolean;
     readonly isNotReconciled?: boolean;
     readonly isReconciled?: boolean;
+    /**
+     * Only transactions on these journal entry ids (repeat the param for several)
+     */
+    readonly journal?: number;
     readonly journalType?: string;
     readonly journalTypeNin?: string;
     /**
@@ -19779,7 +19817,7 @@ export declare class CoreAccountingApi extends BaseAPI {
      */
     coaApiTagBulkSearchCreate(requestParameters: CoreAccountingApiCoaApiTagBulkSearchCreateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<TransactionTag[], any, {}, any>>;
     /**
-     * Lists general-ledger transactions (`ChartTransaction` records) - Campfire\'s GL transaction log, and the recommended endpoint for retrieving GL transaction data.  Each transaction carries account, department, vendor, entity, journal/date metadata, and tags (where applicable). Product metadata is not stored directly on a transaction; it is reached through relations with other Campfire objects.  **Date range:** filter with `start_date` and `end_date` (both `YYYY-MM-DD`, inclusive); the bounds match on transaction date (the journal entry date, which `posted_at` mirrors).  **Pagination:** results are paginated via `limit` (default 100, max 10000) and `offset`. To retrieve more than 10000 records, page through with `offset`, or use cursor pagination by passing an empty `cursor=` parameter and following the `next` link.  **Key response fields:** - `amount` - amount in consolidated currency (the root entity\'s currency). - `amount_book` - amount in the currency of the entity the transaction belongs to. - `amount_native` - amount in the currency the transaction was originally created in. Example: for a transaction made in GBP where the entity uses EUR and the root entity uses USD, `amount_native` is GBP, `amount_book` is EUR, and `amount` is USD. - `posted_at` - the transaction date; determines which period the transaction falls in. `date_year` and `date_month` are derived from it. - `vendor` / `vendor_name` - the linked Campfire `Vendor` object\'s ID and name. - `merchant_name` - a free-text field stored directly on the transaction; not linked to any Campfire object. - `account` - the Campfire `ChartAccount` (GL account) the transaction is posted to. - `entity` - the Campfire `ChartEntity` ID. - `tags` - the transaction\'s tags; each tag\'s `group`/`group_name` identify the tag group (dimension) it belongs to. List a customer\'s tag groups via `/coa/api/tag-group` and tags via `/coa/api/tag`.  **Dynamic tag-group columns:** in addition to `tags`, each row carries flattened per-dimension columns `tag_group_<id>` (tag ID) and `tag_group_<id>_name` (tag name), one pair per tag group defined by the customer, plus `tag_group_none` / `tag_group_none_name` for ungrouped tags. Journal-level custom fields are merged in as `custom_field_<name>` keys. These columns are customer-specific, so they cannot appear in this static schema - discover tag groups via `/coa/api/tag-group` and custom fields via `/ca/api/v1/custom-fields`.
+     * Lists general-ledger transactions (`ChartTransaction` records) - Campfire\'s GL transaction log, and the recommended endpoint for retrieving GL transaction data.  Each transaction carries account, department, vendor, entity, journal/date metadata, and tags (where applicable). Product metadata is not stored directly on a transaction; it is reached through relations with other Campfire objects.  **Date range:** filter with `start_date` and `end_date` (both `YYYY-MM-DD`, inclusive); `date_from` and `date_to` are aliases, and `start_date`/`end_date` win when both are sent. The bounds match on transaction date (the journal entry date, which `posted_at` mirrors).  **Pagination:** results are paginated via `limit` (default 100, max 10000) and `offset`. To retrieve more than 10000 records, page through with `offset`, or use cursor pagination by passing an empty `cursor=` parameter and following the `next` link.  **Key response fields:** - `amount` - amount in consolidated currency (the root entity\'s currency). - `amount_book` - amount in the currency of the entity the transaction belongs to. - `amount_native` - amount in the currency the transaction was originally created in. Example: for a transaction made in GBP where the entity uses EUR and the root entity uses USD, `amount_native` is GBP, `amount_book` is EUR, and `amount` is USD. - `posted_at` - the transaction date; determines which period the transaction falls in. `date_year` and `date_month` are derived from it. - `vendor` / `vendor_name` - the linked Campfire `Vendor` object\'s ID and name. - `merchant_name` - a free-text field stored directly on the transaction; not linked to any Campfire object. - `account` - the Campfire `ChartAccount` (GL account) the transaction is posted to. - `entity` - the Campfire `ChartEntity` ID. - `tags` - the transaction\'s tags; each tag\'s `group`/`group_name` identify the tag group (dimension) it belongs to. List a customer\'s tag groups via `/coa/api/tag-group` and tags via `/coa/api/tag`.  **Dynamic tag-group columns:** in addition to `tags`, each row carries flattened per-dimension columns `tag_group_<id>` (tag ID) and `tag_group_<id>_name` (tag name), one pair per tag group defined by the customer, plus `tag_group_none` / `tag_group_none_name` for ungrouped tags. Journal-level custom fields are merged in as `custom_field_<name>` keys. These columns are customer-specific, so they cannot appear in this static schema - discover tag groups via `/coa/api/tag-group` and custom fields via `/ca/api/v1/custom-fields`.
      * @summary List Chart Transactions
      * @param {CoreAccountingApiCoaApiTransactionListRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -25644,7 +25682,7 @@ export declare const SettingsApiAxiosParamCreator: (configuration?: Configuratio
      */
     caApiFileUpdate: (id: number, modelFile: ModelFile, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     *          Upload a file directly to Campfire. This is the primary way to upload files.          **Supported Models:**         bill, chat, close_task, closecheckitem, contract, credit_memo, customer, debit_memo, draft_queue, fixed_asset, forecast, intercompany_journal, invoice, journal_entry, journalentry, lease_v2, migration_record, policy, reconciliation, reconciliation_report, revenue_contract          **Supported Content Types:**         application/msword, application/pdf, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/vnd.openxmlformats-officedocument.presentationml.presentation, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.openxmlformats-officedocument.wordprocessingml.document, image/gif, image/jpeg, image/jpg, image/png, image/webp, text/csv, text/markdown, text/plain, text/x-markdown          **Maximum File Size:** 100MB          **Example:**         ```bash         curl -X POST \"https://api.meetcampfire.com/ca/api/file/upload?model=bill&object_id=12345\" \\           -H \"Authorization: Token YOUR_TOKEN\" \\           -F \"file=@receipt.pdf\"         ```          **Query Parameters:**         - `model` (required): Model type (e.g., \"bill\", \"invoice\", \"contract\")         - `object_id` (optional): ID of the object to attach the file to          **Request Body:**         - `file` (required): The file to upload (multipart/form-data)
+     *          Upload a file directly to Campfire. This is the primary way to upload files.          **Supported Models:**         bill, chat, close_task, closecheckitem, contract, credit_memo, customer, debit_memo, draft_queue, fixed_asset, forecast, intercompany_journal, invoice, journal_entry, journalentry, lease_v2, migration_record, policy, reconciliation, reconciliation_report, revenue_contract          **Supported Content Types:**         application/msword, application/pdf, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/vnd.openxmlformats-officedocument.presentationml.presentation, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.openxmlformats-officedocument.wordprocessingml.document, image/gif, image/jpeg, image/jpg, image/png, image/webp, text/csv, text/markdown, text/plain, text/x-markdown          **Maximum File Size:** 100MB          **Example:**         ```bash         curl -X POST \"https://api.meetcampfire.com/ca/api/file/upload?model=bill&object_id=12345\" \\           -H \"Authorization: Token YOUR_TOKEN\" \\           -F \"file=@receipt.pdf\"         ```          **OAuth Apps:** attaching a file changes the record, so an app token needs the write scope for         that record type (e.g. `journal_entries:write` for `model=journal_entry`), and the person who         connected the app must hold the same permission. Apps pass `model` alone, never `app`.          **Query Parameters:**         - `model` (required): Model type (e.g., \"bill\", \"invoice\", \"contract\")         - `object_id` (optional): ID of the object to attach the file to          **Request Body:**         - `file` (required): The file to upload (multipart/form-data)
      * @summary Upload File
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -25875,7 +25913,7 @@ export declare const SettingsApiFp: (configuration?: Configuration) => {
      */
     caApiFileUpdate(id: number, modelFile: ModelFile, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
     /**
-     *          Upload a file directly to Campfire. This is the primary way to upload files.          **Supported Models:**         bill, chat, close_task, closecheckitem, contract, credit_memo, customer, debit_memo, draft_queue, fixed_asset, forecast, intercompany_journal, invoice, journal_entry, journalentry, lease_v2, migration_record, policy, reconciliation, reconciliation_report, revenue_contract          **Supported Content Types:**         application/msword, application/pdf, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/vnd.openxmlformats-officedocument.presentationml.presentation, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.openxmlformats-officedocument.wordprocessingml.document, image/gif, image/jpeg, image/jpg, image/png, image/webp, text/csv, text/markdown, text/plain, text/x-markdown          **Maximum File Size:** 100MB          **Example:**         ```bash         curl -X POST \"https://api.meetcampfire.com/ca/api/file/upload?model=bill&object_id=12345\" \\           -H \"Authorization: Token YOUR_TOKEN\" \\           -F \"file=@receipt.pdf\"         ```          **Query Parameters:**         - `model` (required): Model type (e.g., \"bill\", \"invoice\", \"contract\")         - `object_id` (optional): ID of the object to attach the file to          **Request Body:**         - `file` (required): The file to upload (multipart/form-data)
+     *          Upload a file directly to Campfire. This is the primary way to upload files.          **Supported Models:**         bill, chat, close_task, closecheckitem, contract, credit_memo, customer, debit_memo, draft_queue, fixed_asset, forecast, intercompany_journal, invoice, journal_entry, journalentry, lease_v2, migration_record, policy, reconciliation, reconciliation_report, revenue_contract          **Supported Content Types:**         application/msword, application/pdf, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/vnd.openxmlformats-officedocument.presentationml.presentation, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.openxmlformats-officedocument.wordprocessingml.document, image/gif, image/jpeg, image/jpg, image/png, image/webp, text/csv, text/markdown, text/plain, text/x-markdown          **Maximum File Size:** 100MB          **Example:**         ```bash         curl -X POST \"https://api.meetcampfire.com/ca/api/file/upload?model=bill&object_id=12345\" \\           -H \"Authorization: Token YOUR_TOKEN\" \\           -F \"file=@receipt.pdf\"         ```          **OAuth Apps:** attaching a file changes the record, so an app token needs the write scope for         that record type (e.g. `journal_entries:write` for `model=journal_entry`), and the person who         connected the app must hold the same permission. Apps pass `model` alone, never `app`.          **Query Parameters:**         - `model` (required): Model type (e.g., \"bill\", \"invoice\", \"contract\")         - `object_id` (optional): ID of the object to attach the file to          **Request Body:**         - `file` (required): The file to upload (multipart/form-data)
      * @summary Upload File
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -26100,7 +26138,7 @@ export declare const SettingsApiFactory: (configuration?: Configuration, basePat
      */
     caApiFileUpdate(requestParameters: SettingsApiCaApiFileUpdateRequest, options?: RawAxiosRequestConfig): AxiosPromise<any>;
     /**
-     *          Upload a file directly to Campfire. This is the primary way to upload files.          **Supported Models:**         bill, chat, close_task, closecheckitem, contract, credit_memo, customer, debit_memo, draft_queue, fixed_asset, forecast, intercompany_journal, invoice, journal_entry, journalentry, lease_v2, migration_record, policy, reconciliation, reconciliation_report, revenue_contract          **Supported Content Types:**         application/msword, application/pdf, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/vnd.openxmlformats-officedocument.presentationml.presentation, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.openxmlformats-officedocument.wordprocessingml.document, image/gif, image/jpeg, image/jpg, image/png, image/webp, text/csv, text/markdown, text/plain, text/x-markdown          **Maximum File Size:** 100MB          **Example:**         ```bash         curl -X POST \"https://api.meetcampfire.com/ca/api/file/upload?model=bill&object_id=12345\" \\           -H \"Authorization: Token YOUR_TOKEN\" \\           -F \"file=@receipt.pdf\"         ```          **Query Parameters:**         - `model` (required): Model type (e.g., \"bill\", \"invoice\", \"contract\")         - `object_id` (optional): ID of the object to attach the file to          **Request Body:**         - `file` (required): The file to upload (multipart/form-data)
+     *          Upload a file directly to Campfire. This is the primary way to upload files.          **Supported Models:**         bill, chat, close_task, closecheckitem, contract, credit_memo, customer, debit_memo, draft_queue, fixed_asset, forecast, intercompany_journal, invoice, journal_entry, journalentry, lease_v2, migration_record, policy, reconciliation, reconciliation_report, revenue_contract          **Supported Content Types:**         application/msword, application/pdf, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/vnd.openxmlformats-officedocument.presentationml.presentation, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.openxmlformats-officedocument.wordprocessingml.document, image/gif, image/jpeg, image/jpg, image/png, image/webp, text/csv, text/markdown, text/plain, text/x-markdown          **Maximum File Size:** 100MB          **Example:**         ```bash         curl -X POST \"https://api.meetcampfire.com/ca/api/file/upload?model=bill&object_id=12345\" \\           -H \"Authorization: Token YOUR_TOKEN\" \\           -F \"file=@receipt.pdf\"         ```          **OAuth Apps:** attaching a file changes the record, so an app token needs the write scope for         that record type (e.g. `journal_entries:write` for `model=journal_entry`), and the person who         connected the app must hold the same permission. Apps pass `model` alone, never `app`.          **Query Parameters:**         - `model` (required): Model type (e.g., \"bill\", \"invoice\", \"contract\")         - `object_id` (optional): ID of the object to attach the file to          **Request Body:**         - `file` (required): The file to upload (multipart/form-data)
      * @summary Upload File
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -26499,7 +26537,7 @@ export declare class SettingsApi extends BaseAPI {
      */
     caApiFileUpdate(requestParameters: SettingsApiCaApiFileUpdateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<any, any, {}, any>>;
     /**
-     *          Upload a file directly to Campfire. This is the primary way to upload files.          **Supported Models:**         bill, chat, close_task, closecheckitem, contract, credit_memo, customer, debit_memo, draft_queue, fixed_asset, forecast, intercompany_journal, invoice, journal_entry, journalentry, lease_v2, migration_record, policy, reconciliation, reconciliation_report, revenue_contract          **Supported Content Types:**         application/msword, application/pdf, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/vnd.openxmlformats-officedocument.presentationml.presentation, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.openxmlformats-officedocument.wordprocessingml.document, image/gif, image/jpeg, image/jpg, image/png, image/webp, text/csv, text/markdown, text/plain, text/x-markdown          **Maximum File Size:** 100MB          **Example:**         ```bash         curl -X POST \"https://api.meetcampfire.com/ca/api/file/upload?model=bill&object_id=12345\" \\           -H \"Authorization: Token YOUR_TOKEN\" \\           -F \"file=@receipt.pdf\"         ```          **Query Parameters:**         - `model` (required): Model type (e.g., \"bill\", \"invoice\", \"contract\")         - `object_id` (optional): ID of the object to attach the file to          **Request Body:**         - `file` (required): The file to upload (multipart/form-data)
+     *          Upload a file directly to Campfire. This is the primary way to upload files.          **Supported Models:**         bill, chat, close_task, closecheckitem, contract, credit_memo, customer, debit_memo, draft_queue, fixed_asset, forecast, intercompany_journal, invoice, journal_entry, journalentry, lease_v2, migration_record, policy, reconciliation, reconciliation_report, revenue_contract          **Supported Content Types:**         application/msword, application/pdf, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/vnd.openxmlformats-officedocument.presentationml.presentation, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.openxmlformats-officedocument.wordprocessingml.document, image/gif, image/jpeg, image/jpg, image/png, image/webp, text/csv, text/markdown, text/plain, text/x-markdown          **Maximum File Size:** 100MB          **Example:**         ```bash         curl -X POST \"https://api.meetcampfire.com/ca/api/file/upload?model=bill&object_id=12345\" \\           -H \"Authorization: Token YOUR_TOKEN\" \\           -F \"file=@receipt.pdf\"         ```          **OAuth Apps:** attaching a file changes the record, so an app token needs the write scope for         that record type (e.g. `journal_entries:write` for `model=journal_entry`), and the person who         connected the app must hold the same permission. Apps pass `model` alone, never `app`.          **Query Parameters:**         - `model` (required): Model type (e.g., \"bill\", \"invoice\", \"contract\")         - `object_id` (optional): ID of the object to attach the file to          **Request Body:**         - `file` (required): The file to upload (multipart/form-data)
      * @summary Upload File
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}

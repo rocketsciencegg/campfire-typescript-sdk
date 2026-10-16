@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **tagGroupIds** | **Array&lt;number&gt;** |  | [optional] [default to undefined]
 **currency** | **string** |  | [optional] [default to undefined]
 **price** | **number** |  | [optional] [default to undefined]
+**usagePriceUnit** | **string** |  | [optional] [default to undefined]
 **cost** | **number** |  | [optional] [default to undefined]
 **excludeFromMrr** | **boolean** |  | [optional] [default to undefined]
 **isTaxable** | **boolean** |  | [optional] [default to undefined]
@@ -81,6 +82,7 @@ const instance: PatchedProduct = {
     tagGroupIds,
     currency,
     price,
+    usagePriceUnit,
     cost,
     excludeFromMrr,
     isTaxable,
