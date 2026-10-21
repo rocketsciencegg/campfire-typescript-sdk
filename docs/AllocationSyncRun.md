@@ -14,6 +14,10 @@ Name | Type | Description | Notes
 **trigger** | [**TriggerEnum**](TriggerEnum.md) |  | [readonly] [default to undefined]
 **causedBy** | **number** |  | [readonly] [default to undefined]
 **causedByName** | **string** |  | [readonly] [default to undefined]
+**balancePost** | **number** |  | [readonly] [default to undefined]
+**balancePostPostedAt** | **string** |  | [readonly] [default to undefined]
+**balancePostPostedByName** | **string** |  | [readonly] [default to undefined]
+**balancePostMemo** | **string** |  | [readonly] [default to undefined]
 **weightsUsed** | **any** |  | [readonly] [default to undefined]
 **transactionsUpdated** | **number** |  | [readonly] [default to undefined]
 **status** | [**AllocationSyncRunStatusEnum**](AllocationSyncRunStatusEnum.md) |  | [readonly] [default to undefined]
@@ -39,6 +43,10 @@ const instance: AllocationSyncRun = {
     trigger,
     causedBy,
     causedByName,
+    balancePost,
+    balancePostPostedAt,
+    balancePostPostedByName,
+    balancePostMemo,
     weightsUsed,
     transactionsUpdated,
     status,

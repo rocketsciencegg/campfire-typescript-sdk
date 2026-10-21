@@ -10,6 +10,10 @@ Name | Type | Description | Notes
 **endDate** | **string** |  | [default to undefined]
 **incomeStatementStart** | **string** |  | [default to undefined]
 **breakdown** | **{ [key: string]: any; }** |  | [optional] [default to undefined]
+**basis** | **{ [key: string]: any; }** |  | [default to undefined]
+**activityBasis** | **string** |  | [default to undefined]
+**translationWarnings** | **Array&lt;string&gt;** |  | [optional] [default to undefined]
+**translationUnresolved** | **Array&lt;{ [key: string]: any; }&gt;** |  | [optional] [default to undefined]
 
 ## Example
 
@@ -22,6 +26,10 @@ const instance: TrialBalanceResponse = {
     endDate,
     incomeStatementStart,
     breakdown,
+    basis,
+    activityBasis,
+    translationWarnings,
+    translationUnresolved,
 };
 ```
 

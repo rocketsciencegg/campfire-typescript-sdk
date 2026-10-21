@@ -13,6 +13,9 @@ Name | Type | Description | Notes
 **beginningBalances** | [**TrialBalanceAccountBalance**](TrialBalanceAccountBalance.md) |  | [optional] [default to undefined]
 **activity** | [**TrialBalanceAccountBalance**](TrialBalanceAccountBalance.md) |  | [optional] [default to undefined]
 **endingBalances** | [**TrialBalanceAccountBalance**](TrialBalanceAccountBalance.md) |  | [optional] [default to undefined]
+**netMovement** | **number** |  | [optional] [default to undefined]
+**drilldownDisabled** | **boolean** |  | [optional] [default to undefined]
+**translationUnresolved** | **boolean** |  | [optional] [default to undefined]
 **departments** | **{ [key: string]: any; }** |  | [optional] [default to undefined]
 **department** | **string** |  | [optional] [default to undefined]
 **entities** | **{ [key: string]: any; }** |  | [optional] [default to undefined]
@@ -32,6 +35,9 @@ const instance: TrialBalanceAccount = {
     beginningBalances,
     activity,
     endingBalances,
+    netMovement,
+    drilldownDisabled,
+    translationUnresolved,
     departments,
     department,
     entities,

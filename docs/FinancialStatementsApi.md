@@ -653,6 +653,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**200** | OK |  -  |
+|**400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -866,6 +867,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new FinancialStatementsApi(configuration);
 
+let basis: 'transaction_rates' | 'translated'; //Balances as stamped at transaction time (default) or translated at read time (flagged customers; closing and average rates, CTA derived). Gross activity stays on transaction rates. (optional) (default to undefined)
 let department: number; //Filter by department ID. Can be specified multiple times for multiple departments (optional) (default to undefined)
 let endDate: string; //Latest date (inclusive) for which to retrieve data. Defaults to end of current month (optional) (default to undefined)
 let entity: number; //Entity ID(s) to scope the report. Can be repeated (?entity=1&entity=2) or JSON array (optional) (default to undefined)
@@ -875,6 +877,7 @@ let incomeStatementBasis: 'fiscal_ytd' | 'period'; //Income-statement window: se
 let startDate: string; //Earliest date (inclusive) for which to retrieve data. Defaults to six months ago (optional) (default to undefined)
 
 const { status, data } = await apiInstance.caApiGetTrialBalanceRetrieve(
+    basis,
     department,
     endDate,
     entity,
@@ -889,6 +892,7 @@ const { status, data } = await apiInstance.caApiGetTrialBalanceRetrieve(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
+| **basis** | [**&#39;transaction_rates&#39; | &#39;translated&#39;**]**Array<&#39;transaction_rates&#39; &#124; &#39;translated&#39;>** | Balances as stamped at transaction time (default) or translated at read time (flagged customers; closing and average rates, CTA derived). Gross activity stays on transaction rates. | (optional) defaults to undefined|
 | **department** | [**number**] | Filter by department ID. Can be specified multiple times for multiple departments | (optional) defaults to undefined|
 | **endDate** | [**string**] | Latest date (inclusive) for which to retrieve data. Defaults to end of current month | (optional) defaults to undefined|
 | **entity** | [**number**] | Entity ID(s) to scope the report. Can be repeated (?entity&#x3D;1&amp;entity&#x3D;2) or JSON array | (optional) defaults to undefined|

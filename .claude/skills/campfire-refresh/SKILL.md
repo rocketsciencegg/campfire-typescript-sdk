@@ -9,7 +9,7 @@ Campfire republishes its spec often (twice on 2026-10-15) and `info.version` sta
 
 ## 1. Check for a new spec (no repo changes)
 
-Download `https://api.meetcampfire.com/api/schema/?format=json` to the scratchpad and diff it against `campfire.upstream.json`: operations added/removed (path + method), operationIds added/removed, schemas added/removed/changed, operations changed. Then run `python3 -I scripts/fix_spec.py <new> <out>` and compare its counts with a run on the current `campfire.upstream.json`. A step whose count drops is a fix Campfire adopted (delete that step from the script; see CLAUDE.md).
+Download `https://api.meetcampfire.com/api/schema/?format=json` to the scratchpad and diff it against `campfire.upstream.json`: operations added/removed (path + method), operationIds added/removed, schemas added/removed/changed, operations changed, and every other top-level key and `components` section — `info.description` carries the published rate limit (5 → 10 requests per second on 2026-10-21) and lands in the header of every generated file. Then run `python3 -I scripts/fix_spec.py <new> <out>` and compare its counts with a run on the current `campfire.upstream.json`. A step whose count drops is a fix Campfire adopted (delete that step from the script; see CLAUDE.md).
 
 Report to the user before you change anything. Call out anything that changes SDK signatures (parameter types, operationIds → method names): that makes the release a major bump.
 

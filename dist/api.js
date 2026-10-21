@@ -3,7 +3,7 @@
 /* eslint-disable */
 /**
  * Campfire Developer APIs
- * ## Introduction Campfire\'s developer APIs offer granular access to Campfire\'s core accounting, revenue recognition, and financial data features.  These APIs are designed to be used by developers to build custom integrations, automate workflows, and perform any other programmatic operations.  ## Rate limits API users can make up to **5 requests per second**. This limit is shared across all endpoints for the same API user. Requests that exceed the limit receive a `429 Too Many Requests` response. Wait for the number of seconds specified in the `Retry-After` response header before retrying.
+ * ## Introduction Campfire\'s developer APIs offer granular access to Campfire\'s core accounting, revenue recognition, and financial data features.  These APIs are designed to be used by developers to build custom integrations, automate workflows, and perform any other programmatic operations.  ## Rate limits API users can make up to **10 requests per second**. This limit is shared across all endpoints for the same API user. OAuth app tokens get the same limit, counted separately for each app connection. Requests that exceed the limit receive a `429 Too Many Requests` response. Wait for the number of seconds specified in the `Retry-After` response header before retrying.
  *
  * The version of the OpenAPI document: 1.0.0
  *
@@ -18,7 +18,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RenewalBehaviorEnum = exports.ReconciliationReportV2SourceReconciliationTransactionStatusEnum = exports.ProrationMethodEnum = exports.PricingModelEnum = exports.PaymentTypeEnum = exports.PaymentStatusCdcEnum = exports.OverageInvoiceCadenceEnum = exports.MonthlyBillingPeriodAlignmentEnum = exports.ModeEnum = exports.MembershipModeEnum = exports.Kind5e2Enum = exports.ItaVendorEntityTypeEnum = exports.ItaVendorEntityCodeEnum = exports.ItaPayerStatusEnum = exports.ItaBillTypeEnum = exports.InvoiceReportResponseEngineUsedEnum = exports.InvoiceCalculationEnum = exports.InvoiceBasisEnum = exports.GenerageSubscriptionScheduleBillingCadenceEnum = exports.FixedAssetStatusEnum = exports.FieldTypeEnum = exports.EvergreenDateBoundaryModeEnum = exports.DrawdownBasisEnum = exports.DataTypeEnum = exports.DataSubtypeEnum = exports.CustomReportDataTableResponseEngineUsedEnum = exports.CreditMemoTypeEnum = exports.ContractStatusEnum = exports.ContractPrepaidCommitStatusEnum = exports.ComponentTypeEnum = exports.CheckStockLayoutEnum = exports.ChargeTypeEnum = exports.BundledUsageRevenueRecognitionTypeEnum = exports.BulkVendorVendorTypeEnum = exports.BreakdownTypeEnum = exports.BillingTimingEnum = exports.BillingFrequencyEnum = exports.BillingCadence450Enum = exports.BillTypeEnum = exports.BillDraftCreateSourceEnum = exports.BankAccountTypeEnum = exports.AsyncTaskStatusEnum = exports.AppliedPaymentKindEnum = exports.ApplicationStatusEnum = exports.AllocationSyncRunStatusEnum = exports.AccountingInvoiceJournalEntryTypeEnum = exports.AccountingBillPaymentStatusEnum = exports.AccountTypeEnum = exports.AccountSubtypeEnum = exports.AccountCashflowClassificationEnum = void 0;
 exports.CoreAccountingApiFactory = exports.CoreAccountingApiFp = exports.CoreAccountingApiAxiosParamCreator = exports.CoaApiVendorListVendorTypeEnum = exports.CompanyObjectsApi = exports.CompanyObjectsApiFactory = exports.CompanyObjectsApiFp = exports.CompanyObjectsApiAxiosParamCreator = exports.CashManagementApi = exports.CashManagementApiFactory = exports.CashManagementApiFp = exports.CashManagementApiAxiosParamCreator = exports.BankReconciliationApi = exports.BankReconciliationApiFactory = exports.BankReconciliationApiFp = exports.BankReconciliationApiAxiosParamCreator = exports.CoaApiV1InvoiceListStatusEnum = exports.CoaApiV1InvoiceListSentStatusEnum = exports.CoaApiV1CreditMemoListStatusEnum = exports.CoaApiV1CreditMemoListSortEnum = exports.AccountsReceivableApi = exports.AccountsReceivableApiFactory = exports.AccountsReceivableApiFp = exports.AccountsReceivableApiAxiosParamCreator = exports.CoaApiV1BillRetrieveStatusEnum = exports.AccountsPayableApi = exports.AccountsPayableApiFactory = exports.AccountsPayableApiFp = exports.AccountsPayableApiAxiosParamCreator = exports.VendorType391Enum = exports.Type4aaEnum = exports.TriggerEnum = exports.TransactionMatchStatusEnum = exports.TierPriceOverrideSourceEnum = exports.TermsEnum = exports.TerminationSettlementLineKindEnum = exports.TaxBehaviorEnum = exports.SystemTypeEnum = exports.SuggestionClassEnum = exports.SuccessorTargetKindEnum = exports.Status8ecEnum = exports.Status8d4Enum = exports.Status372Enum = exports.SourceTypeEnum = exports.SourceFc1Enum = exports.Source47fEnum = exports.Source3b3Enum = exports.Source340Enum = exports.SkipReasonEnum = exports.RevenueRecognitionTypeEnum = void 0;
-exports.SettingsApi = exports.SettingsApiFactory = exports.SettingsApiFp = exports.SettingsApiAxiosParamCreator = exports.RevenueRecognitionApi = exports.RevenueRecognitionApiFactory = exports.RevenueRecognitionApiFp = exports.RevenueRecognitionApiAxiosParamCreator = exports.IntegrationsApi = exports.IntegrationsApiFactory = exports.IntegrationsApiFp = exports.IntegrationsApiAxiosParamCreator = exports.CaApiIncomeStatementComparativeRetrieveCadenceEnum = exports.CaApiGetTrialBalanceRetrieveIncomeStatementBasisEnum = exports.CaApiGetIncomeStatementRetrieveCadenceEnum = exports.CaApiGetCashFlowV2RetrieveCadenceEnum = exports.CaApiGetCashFlowRetrieveCadenceEnum = exports.CaApiGetCashFlowActivityRetrieveCadenceEnum = exports.CaApiGetBalanceSheetRetrieveCadenceEnum = exports.CaApiCashBasisRetrieveExportEnum = exports.CaApiCashBasisRetrieveCadenceEnum = exports.CaApiCashBasisOperatingStatementRetrieveExportEnum = exports.CaApiCashBasisOperatingStatementRetrieveCadenceEnum = exports.CaApiBalanceSheetComparativeRetrieveCadenceEnum = exports.FinancialStatementsApi = exports.FinancialStatementsApiFactory = exports.FinancialStatementsApiFp = exports.FinancialStatementsApiAxiosParamCreator = exports.CustomFieldsApi = exports.CustomFieldsApiFactory = exports.CustomFieldsApiFp = exports.CustomFieldsApiAxiosParamCreator = exports.CoaApiTransactionListMatchTypeEnum = exports.CoreAccountingApi = void 0;
+exports.SettingsApi = exports.SettingsApiFactory = exports.SettingsApiFp = exports.SettingsApiAxiosParamCreator = exports.RevenueRecognitionApi = exports.RevenueRecognitionApiFactory = exports.RevenueRecognitionApiFp = exports.RevenueRecognitionApiAxiosParamCreator = exports.IntegrationsApi = exports.IntegrationsApiFactory = exports.IntegrationsApiFp = exports.IntegrationsApiAxiosParamCreator = exports.CaApiIncomeStatementComparativeRetrieveCadenceEnum = exports.CaApiGetTrialBalanceRetrieveIncomeStatementBasisEnum = exports.CaApiGetTrialBalanceRetrieveBasisEnum = exports.CaApiGetIncomeStatementRetrieveCadenceEnum = exports.CaApiGetCashFlowV2RetrieveCadenceEnum = exports.CaApiGetCashFlowRetrieveCadenceEnum = exports.CaApiGetCashFlowActivityRetrieveCadenceEnum = exports.CaApiGetBalanceSheetRetrieveCadenceEnum = exports.CaApiCashBasisRetrieveExportEnum = exports.CaApiCashBasisRetrieveCadenceEnum = exports.CaApiCashBasisOperatingStatementRetrieveExportEnum = exports.CaApiCashBasisOperatingStatementRetrieveCadenceEnum = exports.CaApiBalanceSheetComparativeRetrieveCadenceEnum = exports.FinancialStatementsApi = exports.FinancialStatementsApiFactory = exports.FinancialStatementsApiFp = exports.FinancialStatementsApiAxiosParamCreator = exports.CustomFieldsApi = exports.CustomFieldsApiFactory = exports.CustomFieldsApiFp = exports.CustomFieldsApiAxiosParamCreator = exports.CoaApiTransactionListMatchTypeEnum = exports.CoreAccountingApi = void 0;
 const axios_1 = __importDefault(require("axios"));
 // Some imports not used depending on template conditions
 // @ts-ignore
@@ -1609,7 +1609,7 @@ const AccountsPayableApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
-         * Remove a debit memo \'mark used\' payment application.          This recategorizes the transaction back to Uncategorized and deletes the payment record.
+         * Remove a debit memo \'mark used\' payment application.          An application to a bill is removed from both the debit memo and the bill, along with its         journal entry, so the bill reopens. Any other application recategorizes the transaction         back to Uncategorized and deletes the payment record.
          * @summary Delete Debit Memo Used Payment
          * @param {number} debitMemoId ID of the debit memo
          * @param {number} paymentId ID of the payment to delete
@@ -2482,7 +2482,7 @@ const AccountsPayableApiFp = function (configuration) {
             return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Remove a debit memo \'mark used\' payment application.          This recategorizes the transaction back to Uncategorized and deletes the payment record.
+         * Remove a debit memo \'mark used\' payment application.          An application to a bill is removed from both the debit memo and the bill, along with its         journal entry, so the bill reopens. Any other application recategorizes the transaction         back to Uncategorized and deletes the payment record.
          * @summary Delete Debit Memo Used Payment
          * @param {number} debitMemoId ID of the debit memo
          * @param {number} paymentId ID of the payment to delete
@@ -2971,7 +2971,7 @@ const AccountsPayableApiFactory = function (configuration, basePath, axios) {
             return localVarFp.coaApiV1DebitMemoPaymentVoidCreate(requestParameters.debitMemoId, requestParameters.paymentId, requestParameters.voidPayment, options).then((request) => request(axios, basePath));
         },
         /**
-         * Remove a debit memo \'mark used\' payment application.          This recategorizes the transaction back to Uncategorized and deletes the payment record.
+         * Remove a debit memo \'mark used\' payment application.          An application to a bill is removed from both the debit memo and the bill, along with its         journal entry, so the bill reopens. Any other application recategorizes the transaction         back to Uncategorized and deletes the payment record.
          * @summary Delete Debit Memo Used Payment
          * @param {AccountsPayableApiCoaApiV1DebitMemoPaymentVoidDestroyRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -3382,7 +3382,7 @@ class AccountsPayableApi extends base_1.BaseAPI {
         return (0, exports.AccountsPayableApiFp)(this.configuration).coaApiV1DebitMemoPaymentVoidCreate(requestParameters.debitMemoId, requestParameters.paymentId, requestParameters.voidPayment, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Remove a debit memo \'mark used\' payment application.          This recategorizes the transaction back to Uncategorized and deletes the payment record.
+     * Remove a debit memo \'mark used\' payment application.          An application to a bill is removed from both the debit memo and the bill, along with its         journal entry, so the bill reopens. Any other application recategorizes the transaction         back to Uncategorized and deletes the payment record.
      * @summary Delete Debit Memo Used Payment
      * @param {AccountsPayableApiCoaApiV1DebitMemoPaymentVoidDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -20743,6 +20743,7 @@ const FinancialStatementsApiAxiosParamCreator = function (configuration) {
         /**
          * Returns debit and credit totals for each account over a date range.  **The summation window depends on the account type:** - **Balance sheet accounts** (assets, liabilities, equity): totals are summed from the beginning of time through `end_date`. - **Income statement accounts** (revenue, expenses): the window depends on `income_statement_basis`. With the default `period` basis, totals are summed from `start_date` through `end_date` and a synthetic Net Income (Prior Periods) row carries current-fiscal-year income earned before `start_date`. With `fiscal_ytd`, totals are summed from the fiscal-year start through `end_date` and no Net Income row is emitted.  The effective income-statement window start is returned as `income_statement_start`.  Each account also carries rollforward columns, all presented as one-sided debit/credit pairs: `beginning_balances` (balance as of the day before `start_date`; fiscal-window-scoped for income-statement accounts), `activity` (gross period debits and credits), and `ending_balances` (`beginning + activity`, the net one-sided presentation of the account\'s balance). Beginning and ending columns each foot to zero across the report and period debits equal period credits.  Retained earnings is included as its own row. For balance sheet ending balances specifically, prefer `GET /ca/api/get_balance_sheet`.
          * @summary Get Trial Balance
+         * @param {CaApiGetTrialBalanceRetrieveBasisEnum} [basis] Balances as stamped at transaction time (default) or translated at read time (flagged customers; closing and average rates, CTA derived). Gross activity stays on transaction rates.
          * @param {number} [department] Filter by department ID. Can be specified multiple times for multiple departments
          * @param {string} [endDate] Latest date (inclusive) for which to retrieve data. Defaults to end of current month
          * @param {number} [entity] Entity ID(s) to scope the report. Can be repeated (?entity&#x3D;1&amp;entity&#x3D;2) or JSON array
@@ -20753,7 +20754,7 @@ const FinancialStatementsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        caApiGetTrialBalanceRetrieve: async (department, endDate, entity, entityRollup, groupBy, incomeStatementBasis, startDate, options = {}) => {
+        caApiGetTrialBalanceRetrieve: async (basis, department, endDate, entity, entityRollup, groupBy, incomeStatementBasis, startDate, options = {}) => {
             const localVarPath = `/ca/api/get_trial_balance`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -20764,6 +20765,9 @@ const FinancialStatementsApiAxiosParamCreator = function (configuration) {
             const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
+            if (basis !== undefined) {
+                localVarQueryParameter['basis'] = basis;
+            }
             if (department !== undefined) {
                 localVarQueryParameter['department'] = department;
             }
@@ -21133,6 +21137,7 @@ const FinancialStatementsApiFp = function (configuration) {
         /**
          * Returns debit and credit totals for each account over a date range.  **The summation window depends on the account type:** - **Balance sheet accounts** (assets, liabilities, equity): totals are summed from the beginning of time through `end_date`. - **Income statement accounts** (revenue, expenses): the window depends on `income_statement_basis`. With the default `period` basis, totals are summed from `start_date` through `end_date` and a synthetic Net Income (Prior Periods) row carries current-fiscal-year income earned before `start_date`. With `fiscal_ytd`, totals are summed from the fiscal-year start through `end_date` and no Net Income row is emitted.  The effective income-statement window start is returned as `income_statement_start`.  Each account also carries rollforward columns, all presented as one-sided debit/credit pairs: `beginning_balances` (balance as of the day before `start_date`; fiscal-window-scoped for income-statement accounts), `activity` (gross period debits and credits), and `ending_balances` (`beginning + activity`, the net one-sided presentation of the account\'s balance). Beginning and ending columns each foot to zero across the report and period debits equal period credits.  Retained earnings is included as its own row. For balance sheet ending balances specifically, prefer `GET /ca/api/get_balance_sheet`.
          * @summary Get Trial Balance
+         * @param {CaApiGetTrialBalanceRetrieveBasisEnum} [basis] Balances as stamped at transaction time (default) or translated at read time (flagged customers; closing and average rates, CTA derived). Gross activity stays on transaction rates.
          * @param {number} [department] Filter by department ID. Can be specified multiple times for multiple departments
          * @param {string} [endDate] Latest date (inclusive) for which to retrieve data. Defaults to end of current month
          * @param {number} [entity] Entity ID(s) to scope the report. Can be repeated (?entity&#x3D;1&amp;entity&#x3D;2) or JSON array
@@ -21143,10 +21148,10 @@ const FinancialStatementsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async caApiGetTrialBalanceRetrieve(department, endDate, entity, entityRollup, groupBy, incomeStatementBasis, startDate, options) {
+        async caApiGetTrialBalanceRetrieve(basis, department, endDate, entity, entityRollup, groupBy, incomeStatementBasis, startDate, options) {
             var _a, _b;
             var _c;
-            const localVarAxiosArgs = await localVarAxiosParamCreator.caApiGetTrialBalanceRetrieve(department, endDate, entity, entityRollup, groupBy, incomeStatementBasis, startDate, options);
+            const localVarAxiosArgs = await localVarAxiosParamCreator.caApiGetTrialBalanceRetrieve(basis, department, endDate, entity, entityRollup, groupBy, incomeStatementBasis, startDate, options);
             const localVarOperationServerIndex = (_c = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _c !== void 0 ? _c : 0;
             const localVarOperationServerBasePath = (_b = (_a = base_1.operationServerMap['FinancialStatementsApi.caApiGetTrialBalanceRetrieve']) === null || _a === void 0 ? void 0 : _a[localVarOperationServerIndex]) === null || _b === void 0 ? void 0 : _b.url;
             return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -21320,7 +21325,7 @@ const FinancialStatementsApiFactory = function (configuration, basePath, axios) 
          * @throws {RequiredError}
          */
         caApiGetTrialBalanceRetrieve(requestParameters = {}, options) {
-            return localVarFp.caApiGetTrialBalanceRetrieve(requestParameters.department, requestParameters.endDate, requestParameters.entity, requestParameters.entityRollup, requestParameters.groupBy, requestParameters.incomeStatementBasis, requestParameters.startDate, options).then((request) => request(axios, basePath));
+            return localVarFp.caApiGetTrialBalanceRetrieve(requestParameters.basis, requestParameters.department, requestParameters.endDate, requestParameters.entity, requestParameters.entityRollup, requestParameters.groupBy, requestParameters.incomeStatementBasis, requestParameters.startDate, options).then((request) => request(axios, basePath));
         },
         /**
          *
@@ -21476,7 +21481,7 @@ class FinancialStatementsApi extends base_1.BaseAPI {
      * @throws {RequiredError}
      */
     caApiGetTrialBalanceRetrieve(requestParameters = {}, options) {
-        return (0, exports.FinancialStatementsApiFp)(this.configuration).caApiGetTrialBalanceRetrieve(requestParameters.department, requestParameters.endDate, requestParameters.entity, requestParameters.entityRollup, requestParameters.groupBy, requestParameters.incomeStatementBasis, requestParameters.startDate, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.FinancialStatementsApiFp)(this.configuration).caApiGetTrialBalanceRetrieve(requestParameters.basis, requestParameters.department, requestParameters.endDate, requestParameters.entity, requestParameters.entityRollup, requestParameters.groupBy, requestParameters.incomeStatementBasis, requestParameters.startDate, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -21560,6 +21565,10 @@ exports.CaApiGetIncomeStatementRetrieveCadenceEnum = {
     Quarterly: 'quarterly',
     Weekly: 'weekly',
     Yearly: 'yearly',
+};
+exports.CaApiGetTrialBalanceRetrieveBasisEnum = {
+    TransactionRates: 'transaction_rates',
+    Translated: 'translated',
 };
 exports.CaApiGetTrialBalanceRetrieveIncomeStatementBasisEnum = {
     FiscalYtd: 'fiscal_ytd',
@@ -22662,7 +22671,7 @@ const RevenueRecognitionApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
-         *          Retrieve a list of contract subscriptions with optional filtering and sorting.          Supports including soft-deleted records for audit and recovery purposes.         When include_deleted=true, returns ONLY deleted records instead of active records.         Deleted records contain minimal data: \'id\', \'is_deleted=true\', \'deleted_at\' timestamp,         and \'last_modified_at\'. When \'false\' or omitted, returns ONLY active records.         This provides clean separation between active and deleted data.
+         *          Retrieve a list of contract subscriptions with optional filtering and sorting.         Subscriptions on Stripe contracts with no linked revenue transactions are omitted.          Supports including soft-deleted records for audit and recovery purposes.         When include_deleted=true, returns ONLY deleted records instead of active records.         Deleted records contain minimal data: \'id\', \'is_deleted=true\', \'deleted_at\' timestamp,         and \'last_modified_at\'. When \'false\' or omitted, returns ONLY active records.         This provides clean separation between active and deleted data.
          * @summary List Contract Subscriptions
          * @param {number} contractId
          * @param {boolean} [includeDeleted] When set to \&#39;true\&#39;, returns ONLY deleted records instead of active records. Deleted records contain minimal data: \&#39;id\&#39;, \&#39;is_deleted&#x3D;true\&#39;, \&#39;deleted_at\&#39; timestamp, and \&#39;last_modified_at\&#39;. When \&#39;false\&#39; or omitted, returns ONLY active records. This provides clean separation between active and deleted data.
@@ -23933,7 +23942,7 @@ const RevenueRecognitionApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
-         *
+         * Subscriptions on Stripe contracts with no linked revenue transactions return 404.
          * @summary Retrieve Contract Subscription
          * @param {number} contractId
          * @param {number} id
@@ -25528,7 +25537,7 @@ const RevenueRecognitionApiFp = function (configuration) {
             return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *          Retrieve a list of contract subscriptions with optional filtering and sorting.          Supports including soft-deleted records for audit and recovery purposes.         When include_deleted=true, returns ONLY deleted records instead of active records.         Deleted records contain minimal data: \'id\', \'is_deleted=true\', \'deleted_at\' timestamp,         and \'last_modified_at\'. When \'false\' or omitted, returns ONLY active records.         This provides clean separation between active and deleted data.
+         *          Retrieve a list of contract subscriptions with optional filtering and sorting.         Subscriptions on Stripe contracts with no linked revenue transactions are omitted.          Supports including soft-deleted records for audit and recovery purposes.         When include_deleted=true, returns ONLY deleted records instead of active records.         Deleted records contain minimal data: \'id\', \'is_deleted=true\', \'deleted_at\' timestamp,         and \'last_modified_at\'. When \'false\' or omitted, returns ONLY active records.         This provides clean separation between active and deleted data.
          * @summary List Contract Subscriptions
          * @param {number} contractId
          * @param {boolean} [includeDeleted] When set to \&#39;true\&#39;, returns ONLY deleted records instead of active records. Deleted records contain minimal data: \&#39;id\&#39;, \&#39;is_deleted&#x3D;true\&#39;, \&#39;deleted_at\&#39; timestamp, and \&#39;last_modified_at\&#39;. When \&#39;false\&#39; or omitted, returns ONLY active records. This provides clean separation between active and deleted data.
@@ -26110,7 +26119,7 @@ const RevenueRecognitionApiFp = function (configuration) {
             return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *
+         * Subscriptions on Stripe contracts with no linked revenue transactions return 404.
          * @summary Retrieve Contract Subscription
          * @param {number} contractId
          * @param {number} id
@@ -26902,7 +26911,7 @@ const RevenueRecognitionApiFactory = function (configuration, basePath, axios) {
             return localVarFp.listContractMilestones(requestParameters.contractId, requestParameters.includeDeleted, requestParameters.lastModifiedAtGte, requestParameters.lastModifiedAtLte, requestParameters.limit, requestParameters.offset, options).then((request) => request(axios, basePath));
         },
         /**
-         *          Retrieve a list of contract subscriptions with optional filtering and sorting.          Supports including soft-deleted records for audit and recovery purposes.         When include_deleted=true, returns ONLY deleted records instead of active records.         Deleted records contain minimal data: \'id\', \'is_deleted=true\', \'deleted_at\' timestamp,         and \'last_modified_at\'. When \'false\' or omitted, returns ONLY active records.         This provides clean separation between active and deleted data.
+         *          Retrieve a list of contract subscriptions with optional filtering and sorting.         Subscriptions on Stripe contracts with no linked revenue transactions are omitted.          Supports including soft-deleted records for audit and recovery purposes.         When include_deleted=true, returns ONLY deleted records instead of active records.         Deleted records contain minimal data: \'id\', \'is_deleted=true\', \'deleted_at\' timestamp,         and \'last_modified_at\'. When \'false\' or omitted, returns ONLY active records.         This provides clean separation between active and deleted data.
          * @summary List Contract Subscriptions
          * @param {RevenueRecognitionApiListContractSubscriptionsRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -27251,7 +27260,7 @@ const RevenueRecognitionApiFactory = function (configuration, basePath, axios) {
             return localVarFp.rrApiV1ContractsSubscriptionsPartialUpdate(requestParameters.contractId, requestParameters.id, requestParameters.patchedContractSubscription, options).then((request) => request(axios, basePath));
         },
         /**
-         *
+         * Subscriptions on Stripe contracts with no linked revenue transactions return 404.
          * @summary Retrieve Contract Subscription
          * @param {RevenueRecognitionApiRrApiV1ContractsSubscriptionsRetrieveRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -27809,7 +27818,7 @@ class RevenueRecognitionApi extends base_1.BaseAPI {
         return (0, exports.RevenueRecognitionApiFp)(this.configuration).listContractMilestones(requestParameters.contractId, requestParameters.includeDeleted, requestParameters.lastModifiedAtGte, requestParameters.lastModifiedAtLte, requestParameters.limit, requestParameters.offset, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *          Retrieve a list of contract subscriptions with optional filtering and sorting.          Supports including soft-deleted records for audit and recovery purposes.         When include_deleted=true, returns ONLY deleted records instead of active records.         Deleted records contain minimal data: \'id\', \'is_deleted=true\', \'deleted_at\' timestamp,         and \'last_modified_at\'. When \'false\' or omitted, returns ONLY active records.         This provides clean separation between active and deleted data.
+     *          Retrieve a list of contract subscriptions with optional filtering and sorting.         Subscriptions on Stripe contracts with no linked revenue transactions are omitted.          Supports including soft-deleted records for audit and recovery purposes.         When include_deleted=true, returns ONLY deleted records instead of active records.         Deleted records contain minimal data: \'id\', \'is_deleted=true\', \'deleted_at\' timestamp,         and \'last_modified_at\'. When \'false\' or omitted, returns ONLY active records.         This provides clean separation between active and deleted data.
      * @summary List Contract Subscriptions
      * @param {RevenueRecognitionApiListContractSubscriptionsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -28158,7 +28167,7 @@ class RevenueRecognitionApi extends base_1.BaseAPI {
         return (0, exports.RevenueRecognitionApiFp)(this.configuration).rrApiV1ContractsSubscriptionsPartialUpdate(requestParameters.contractId, requestParameters.id, requestParameters.patchedContractSubscription, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *
+     * Subscriptions on Stripe contracts with no linked revenue transactions return 404.
      * @summary Retrieve Contract Subscription
      * @param {RevenueRecognitionApiRrApiV1ContractsSubscriptionsRetrieveRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
