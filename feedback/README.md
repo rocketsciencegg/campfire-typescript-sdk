@@ -1,24 +1,28 @@
 # Campfire OpenAPI spec: fixes and feedback
 
-From Rocket Science, 2026-10-15 (second version).
+From Rocket Science, 2026-10-21.
 
-## What changed since our first package
+## What changed since our last package
 
-You published a new spec on the evening of 2026-10-15. We ran the same script on it. This package replaces the first one.
+Our last package used your spec of the evening of 2026-10-15. You published two updates since then, and we ran the same script on the newest one (2026-10-21).
 
-- Your update removed the trailing slash from 26 paths (45 operations), for example `/coa/api/v1/bill/` is now `/coa/api/v1/bill`. No path ends in `/` now.
-- Your update changed the `id` path parameter of `/coa/api/v1/bill/{id}` from a string with pattern `^\d+$` to an integer.
-- Neither change touched our fixes. All 8 fixes still apply with the same counts, and the patch still has 1,308 changed lines.
-- The only lint count that changed is boolean `exclusiveMinimum` / `exclusiveMaximum`: 4,527 to 4,530, from the new `quantity` field on prepaid commits.
+- **Rate limit.** `info.description` now says 10 requests per second, and that OAuth app tokens get the same limit for each app connection. Before, it said 5. Our earlier packages said that you publish no limit. That was our mistake: the 5 requests per second text was already in your spec. See the rate-limit row and question 2 below.
+- **Trial balance.** `GET /ca/api/get_trial_balance` has a new `basis` query parameter (`transaction_rates` or `translated`). `TrialBalanceResponse` has new fields (`activity_basis` and `basis` are required), and so does `TrialBalanceAccount` (`net_movement`, `drilldown_disabled`, `translation_unresolved`).
+- **Debit memos.** `amount_used` and `application_status` are now read-only, and `application_status` no longer allows `""`. That is our Fix 8 for one field, so the patch is 4 lines shorter (1,304 changed lines).
+- **Cost allocations.** `AllocationSyncRun` has 4 new read-only `balance_post*` fields.
+- **Cash flow activity.** `GET /ca/api/get_cash_flow_activity` has a new 400 response. It has the same problem as Fix 2: its text is in `schema.description` and its `description` is empty. Our Fix 2 step does not move the text, because this schema has a `type`, but Fix 1 now counts 296 responses.
+- You adopted none of our fixes yet. All 8 still apply.
 
-We generate our TypeScript SDK from your published spec (`https://api.meetcampfire.com/api/schema/?format=json`, OpenAPI 3.0.3). It lints with 0 errors in Speakeasy, but it has 489 warnings apart from the `exclusiveMinimum` / `exclusiveMaximum` ones. We fix most of them with a script. This package gives you those fixes as a patch, and a separate list of behavior that we use but that the spec does not document.
+**One new suggestion: read-only fields in request bodies.** 1,177 properties in your spec are both `readOnly` and `required`. Most of your schemas are used for requests and responses, so generators that ignore `readOnly` (ours does) ask callers to send server fields such as `id`, `created_at` and `payments`. For example, `POST /coa/api/v1/debit-memo` takes `AccountingDebitMemo`, which has 22 required read-only fields. drf-spectacular's `COMPONENT_SPLIT_REQUEST = True` makes separate request schemas without them. We did not put this in the patch, because it changes the shape of the spec.
+
+We generate our TypeScript SDK from your published spec (`https://api.meetcampfire.com/api/schema/?format=json`, OpenAPI 3.0.3). It lints with 0 errors in Speakeasy, but it has 490 warnings apart from the `exclusiveMinimum` / `exclusiveMaximum` ones. We fix most of them with a script. This package gives you those fixes as a patch, and a separate list of behavior that we use but that the spec does not document.
 
 ## Files
 
 | File | What it is |
 | --- | --- |
-| `campfire.patch` | Unified diff: your published spec → our fixed spec. Only real changes (1,308 changed lines), no formatting noise |
-| `campfire.published.json` | Your spec exactly as served on the evening of 2026-10-15 (SHA-256 `e3071fd53f810713de022f8fbc9349bd1df4eeef1214344f00660bbf75d0ab00`). The patch applies to this file |
+| `campfire.patch` | Unified diff: your published spec → our fixed spec. Only real changes (1,304 changed lines), no formatting noise |
+| `campfire.published.json` | Your spec exactly as served on 2026-10-21 (SHA-256 `f3b2ee0519ca5be4e8842210b701019349d946e8a0f7d32b7a8dc4eb2846ad15`). The patch applies to this file |
 | `campfire.json` | The fixed spec that we generate our SDK from |
 | `fix_spec.py` | The script that makes `campfire.json` from your spec. Each fix is a named step with its reason |
 | `speakeasy-lint-published.txt` | Speakeasy lint of your spec |
@@ -36,7 +40,7 @@ The patch keeps your file's formatting (`json.dumps(indent=4, ensure_ascii=False
 
 | # | Problem | Places | Our fix | Likely source change (drf-spectacular) |
 | --- | --- | --- | --- | --- |
-| 1 | Response `description` is empty. OpenAPI 3.0 requires it | 295 responses | HTTP reason phrase (`OK`, `Created`, `No Content`, `Bad Request`, ...) | Give each response a description, for example with `OpenApiResponse(description=...)` |
+| 1 | Response `description` is empty. OpenAPI 3.0 requires it | 296 responses | HTTP reason phrase (`OK`, `Created`, `No Content`, `Bad Request`, ...) | Give each response a description, for example with `OpenApiResponse(description=...)` |
 | 2 | Response text is in `schema.description`, and the schema has no type. So the response has no description and no body shape | 7 responses (list below) | Move the text to the response `description`. The schema becomes `{"type": "object"}` | Pass the text as `OpenApiResponse(description=...)`, not as the schema |
 | 3 | Operations use tags that have no global definition: `Bank Reconciliation`, `Company Objects`, `Custom Fields`, `Integrations` | 92 operations | Add the 4 tag definitions | Add them to `SPECTACULAR_SETTINGS['TAGS']` |
 | 4 | Stray `coa` tag. Every related operation uses a real tag | 2 operations | `POST /coa/api/entity/{entity_id}/attachment` → `Settings`. `POST /coa/api/fixed-asset-automation/{id}/delete` → `Core Accounting` | `tags=[...]` in `extend_schema` on those views |
@@ -75,11 +79,11 @@ Fix 8 is optional. With the `oneOf` form, Speakeasy cannot check a `default` val
 
 ## Warnings we left as they are
 
-After the fixes, Speakeasy still gives 0 errors, and the 489 other warnings go down to 68. These remain, and we do not think that they need a change:
+After the fixes, Speakeasy still gives 0 errors, and the 490 other warnings go down to 68. These remain, and we do not think that they need a change:
 
 | Warning | Count | Why we keep it |
 | --- | --- | --- |
-| Boolean `exclusiveMinimum` / `exclusiveMaximum` | 4,530 | Valid OpenAPI 3.0.3. Speakeasy expects the 3.1 number form. The bounds come from Django decimal fields and are real |
+| Boolean `exclusiveMinimum` / `exclusiveMaximum` | 4,534 | Valid OpenAPI 3.0.3. Speakeasy expects the 3.1 number form. The bounds come from Django decimal fields and are real |
 | Request body is optional | 61 operations | Their schemas have no required field (mostly `PATCH`), so an empty body is valid |
 | Error responses with non-object content | 7 responses | They are free-form objects (`additionalProperties: {}`), which Speakeasy does not support. This is not a spec defect |
 
@@ -92,14 +96,14 @@ We use these items, or you told us about them, but the published spec does not d
 | `GET /coa/api/payment-term` | It exists. Pedro Rodrigues named it on Slack | Not in the spec |
 | `GET /coa/api/v1/amortization` | It exists. Pedro Rodrigues named it on Slack | Not in the spec. Since February 2026, the spec also no longer has `/coa/api/v1/bill/amortization` or `/coa/api/v1/bill/{bill_id}/amortization` |
 | `GET /coa/api/general-ledger` parameters | It filters on `start_date` / `end_date`. `account_ids` takes one account: a comma list or a repeated parameter is ignored. It pages on `limit` / `offset`. It silently ignores `page`, `date_from` and `date_to` | The operation has no parameters in the spec |
-| Rate limits | A 429 comes with `retry-after: 1` and the body `{"detail": "Request was throttled. Expected available in 1 second."}`. One sequential client at about 4 requests per second gets 429s. 10 concurrent requests got four 429s. Successful responses have no `x-ratelimit-*` headers | No published limit. No operation lists a 429 response |
+| Rate limits | Your spec says 10 requests per second for each API user (it still said 5 on 2026-10-20). Before that change, we measured this: a 429 comes with `retry-after: 1` and the body `{"detail": "Request was throttled. Expected available in 1 second."}`. One sequential client at about 4 requests per second got 429s. 10 concurrent requests got four 429s. Successful responses have no `x-ratelimit-*` headers | No operation lists a 429 response or the `Retry-After` header |
 | `GET /ca/api/draft_queue` and `/ca/api/draft_queue/{id}` | We use them to read draft invoices and journal entries (filter `created_by`, `limit` / `offset`) | Not in the spec |
 | `GET /coa/api/tax_rate` | We use it to list tax rates | Not in the spec |
 
 ## Questions
 
 1. Did the bill amortization endpoints move to `/coa/api/v1/amortization`, or did you remove them?
-2. Is there a published rate limit that we should pace against?
+2. Your spec now says 10 requests per second. Before, it said 5, but one sequential client at about 4 requests per second already got 429s. Which limit applies in practice, and can the 429 response and the `Retry-After` header go into the spec?
 
 ## When you publish an update
 

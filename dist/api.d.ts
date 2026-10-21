@@ -1,6 +1,6 @@
 /**
  * Campfire Developer APIs
- * ## Introduction Campfire\'s developer APIs offer granular access to Campfire\'s core accounting, revenue recognition, and financial data features.  These APIs are designed to be used by developers to build custom integrations, automate workflows, and perform any other programmatic operations.  ## Rate limits API users can make up to **5 requests per second**. This limit is shared across all endpoints for the same API user. Requests that exceed the limit receive a `429 Too Many Requests` response. Wait for the number of seconds specified in the `Retry-After` response header before retrying.
+ * ## Introduction Campfire\'s developer APIs offer granular access to Campfire\'s core accounting, revenue recognition, and financial data features.  These APIs are designed to be used by developers to build custom integrations, automate workflows, and perform any other programmatic operations.  ## Rate limits API users can make up to **10 requests per second**. This limit is shared across all endpoints for the same API user. OAuth app tokens get the same limit, counted separately for each app connection. Requests that exceed the limit receive a `429 Too Many Requests` response. Wait for the number of seconds specified in the `Retry-After` response header before retrying.
  *
  * The version of the OpenAPI document: 1.0.0
  *
@@ -406,7 +406,7 @@ export interface AccountingDebitMemo {
     'message_on_debit_memo'?: string | null;
     'source_id'?: string | null;
     'source'?: string | null;
-    'application_status'?: ApplicationStatusEnum | null;
+    'application_status': ApplicationStatusEnum | null;
     'currency'?: string;
     'exchange_rate'?: number | null;
     'exchange_rate_book'?: number | null;
@@ -418,7 +418,7 @@ export interface AccountingDebitMemo {
     /**
      * Sum of all non-voided payment amounts
      */
-    'amount_used'?: number;
+    'amount_used': number;
     'chat_id'?: number | null;
     'tax_behavior'?: TaxBehaviorEnum | null;
     'customer': number;
@@ -951,6 +951,10 @@ export interface AllocationSyncRun {
     'trigger': TriggerEnum;
     'caused_by': number | null;
     'caused_by_name': string;
+    'balance_post': number | null;
+    'balance_post_posted_at': string;
+    'balance_post_posted_by_name': string;
+    'balance_post_memo': string;
     'weights_used': any | null;
     'transactions_updated': number;
     'status': AllocationSyncRunStatusEnum;
@@ -1591,6 +1595,12 @@ export interface CaApiGetCashFlowActivityRetrieve200Response {
 export interface CaApiGetCashFlowActivityRetrieve200ResponseTransactionActivityValue {
     'total_debit'?: number;
     'total_credit'?: number;
+}
+/**
+ * No entity selected and the company has no root entity configured.
+ */
+export interface CaApiGetCashFlowActivityRetrieve400Response {
+    'error'?: string;
 }
 export interface CaApiGetCashFlowRetrieve200Response {
     'cash_flow'?: Array<CaApiGetCashFlowRetrieve200ResponseCashFlowInner>;
@@ -7670,6 +7680,9 @@ export interface TrialBalanceAccount {
     'beginning_balances'?: TrialBalanceAccountBalance;
     'activity'?: TrialBalanceAccountBalance;
     'ending_balances'?: TrialBalanceAccountBalance;
+    'net_movement'?: number;
+    'drilldown_disabled'?: boolean;
+    'translation_unresolved'?: boolean;
     'departments'?: {
         [key: string]: any;
     };
@@ -7694,6 +7707,14 @@ export interface TrialBalanceResponse {
     'breakdown'?: {
         [key: string]: any;
     };
+    'basis': {
+        [key: string]: any;
+    };
+    'activity_basis': string;
+    'translation_warnings'?: Array<string>;
+    'translation_unresolved'?: Array<{
+        [key: string]: any;
+    }>;
 }
 /**
  * * `balance_post` - Balance Post * `source_change` - Source Change * `manual` - Manual * `catch_up` - Catch Up
@@ -8204,7 +8225,7 @@ export declare const AccountsPayableApiAxiosParamCreator: (configuration?: Confi
      */
     coaApiV1DebitMemoPaymentVoidCreate: (debitMemoId: number, paymentId: number, voidPayment?: VoidPayment, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     * Remove a debit memo \'mark used\' payment application.          This recategorizes the transaction back to Uncategorized and deletes the payment record.
+     * Remove a debit memo \'mark used\' payment application.          An application to a bill is removed from both the debit memo and the bill, along with its         journal entry, so the bill reopens. Any other application recategorizes the transaction         back to Uncategorized and deletes the payment record.
      * @summary Delete Debit Memo Used Payment
      * @param {number} debitMemoId ID of the debit memo
      * @param {number} paymentId ID of the payment to delete
@@ -8574,7 +8595,7 @@ export declare const AccountsPayableApiFp: (configuration?: Configuration) => {
      */
     coaApiV1DebitMemoPaymentVoidCreate(debitMemoId: number, paymentId: number, voidPayment?: VoidPayment, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountingDebitMemoPayment>>;
     /**
-     * Remove a debit memo \'mark used\' payment application.          This recategorizes the transaction back to Uncategorized and deletes the payment record.
+     * Remove a debit memo \'mark used\' payment application.          An application to a bill is removed from both the debit memo and the bill, along with its         journal entry, so the bill reopens. Any other application recategorizes the transaction         back to Uncategorized and deletes the payment record.
      * @summary Delete Debit Memo Used Payment
      * @param {number} debitMemoId ID of the debit memo
      * @param {number} paymentId ID of the payment to delete
@@ -8913,7 +8934,7 @@ export declare const AccountsPayableApiFactory: (configuration?: Configuration, 
      */
     coaApiV1DebitMemoPaymentVoidCreate(requestParameters: AccountsPayableApiCoaApiV1DebitMemoPaymentVoidCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<AccountingDebitMemoPayment>;
     /**
-     * Remove a debit memo \'mark used\' payment application.          This recategorizes the transaction back to Uncategorized and deletes the payment record.
+     * Remove a debit memo \'mark used\' payment application.          An application to a bill is removed from both the debit memo and the bill, along with its         journal entry, so the bill reopens. Any other application recategorizes the transaction         back to Uncategorized and deletes the payment record.
      * @summary Delete Debit Memo Used Payment
      * @param {AccountsPayableApiCoaApiV1DebitMemoPaymentVoidDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -9613,7 +9634,7 @@ export declare class AccountsPayableApi extends BaseAPI {
      */
     coaApiV1DebitMemoPaymentVoidCreate(requestParameters: AccountsPayableApiCoaApiV1DebitMemoPaymentVoidCreateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<AccountingDebitMemoPayment, any, {}, any>>;
     /**
-     * Remove a debit memo \'mark used\' payment application.          This recategorizes the transaction back to Uncategorized and deletes the payment record.
+     * Remove a debit memo \'mark used\' payment application.          An application to a bill is removed from both the debit memo and the bill, along with its         journal entry, so the bill reopens. Any other application recategorizes the transaction         back to Uncategorized and deletes the payment record.
      * @summary Delete Debit Memo Used Payment
      * @param {AccountsPayableApiCoaApiV1DebitMemoPaymentVoidDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -20435,6 +20456,7 @@ export declare const FinancialStatementsApiAxiosParamCreator: (configuration?: C
     /**
      * Returns debit and credit totals for each account over a date range.  **The summation window depends on the account type:** - **Balance sheet accounts** (assets, liabilities, equity): totals are summed from the beginning of time through `end_date`. - **Income statement accounts** (revenue, expenses): the window depends on `income_statement_basis`. With the default `period` basis, totals are summed from `start_date` through `end_date` and a synthetic Net Income (Prior Periods) row carries current-fiscal-year income earned before `start_date`. With `fiscal_ytd`, totals are summed from the fiscal-year start through `end_date` and no Net Income row is emitted.  The effective income-statement window start is returned as `income_statement_start`.  Each account also carries rollforward columns, all presented as one-sided debit/credit pairs: `beginning_balances` (balance as of the day before `start_date`; fiscal-window-scoped for income-statement accounts), `activity` (gross period debits and credits), and `ending_balances` (`beginning + activity`, the net one-sided presentation of the account\'s balance). Beginning and ending columns each foot to zero across the report and period debits equal period credits.  Retained earnings is included as its own row. For balance sheet ending balances specifically, prefer `GET /ca/api/get_balance_sheet`.
      * @summary Get Trial Balance
+     * @param {CaApiGetTrialBalanceRetrieveBasisEnum} [basis] Balances as stamped at transaction time (default) or translated at read time (flagged customers; closing and average rates, CTA derived). Gross activity stays on transaction rates.
      * @param {number} [department] Filter by department ID. Can be specified multiple times for multiple departments
      * @param {string} [endDate] Latest date (inclusive) for which to retrieve data. Defaults to end of current month
      * @param {number} [entity] Entity ID(s) to scope the report. Can be repeated (?entity&#x3D;1&amp;entity&#x3D;2) or JSON array
@@ -20445,7 +20467,7 @@ export declare const FinancialStatementsApiAxiosParamCreator: (configuration?: C
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    caApiGetTrialBalanceRetrieve: (department?: number, endDate?: string, entity?: number, entityRollup?: boolean, groupBy?: string, incomeStatementBasis?: CaApiGetTrialBalanceRetrieveIncomeStatementBasisEnum, startDate?: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    caApiGetTrialBalanceRetrieve: (basis?: CaApiGetTrialBalanceRetrieveBasisEnum, department?: number, endDate?: string, entity?: number, entityRollup?: boolean, groupBy?: string, incomeStatementBasis?: CaApiGetTrialBalanceRetrieveIncomeStatementBasisEnum, startDate?: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Get Comparative Income Statement
@@ -20643,6 +20665,7 @@ export declare const FinancialStatementsApiFp: (configuration?: Configuration) =
     /**
      * Returns debit and credit totals for each account over a date range.  **The summation window depends on the account type:** - **Balance sheet accounts** (assets, liabilities, equity): totals are summed from the beginning of time through `end_date`. - **Income statement accounts** (revenue, expenses): the window depends on `income_statement_basis`. With the default `period` basis, totals are summed from `start_date` through `end_date` and a synthetic Net Income (Prior Periods) row carries current-fiscal-year income earned before `start_date`. With `fiscal_ytd`, totals are summed from the fiscal-year start through `end_date` and no Net Income row is emitted.  The effective income-statement window start is returned as `income_statement_start`.  Each account also carries rollforward columns, all presented as one-sided debit/credit pairs: `beginning_balances` (balance as of the day before `start_date`; fiscal-window-scoped for income-statement accounts), `activity` (gross period debits and credits), and `ending_balances` (`beginning + activity`, the net one-sided presentation of the account\'s balance). Beginning and ending columns each foot to zero across the report and period debits equal period credits.  Retained earnings is included as its own row. For balance sheet ending balances specifically, prefer `GET /ca/api/get_balance_sheet`.
      * @summary Get Trial Balance
+     * @param {CaApiGetTrialBalanceRetrieveBasisEnum} [basis] Balances as stamped at transaction time (default) or translated at read time (flagged customers; closing and average rates, CTA derived). Gross activity stays on transaction rates.
      * @param {number} [department] Filter by department ID. Can be specified multiple times for multiple departments
      * @param {string} [endDate] Latest date (inclusive) for which to retrieve data. Defaults to end of current month
      * @param {number} [entity] Entity ID(s) to scope the report. Can be repeated (?entity&#x3D;1&amp;entity&#x3D;2) or JSON array
@@ -20653,7 +20676,7 @@ export declare const FinancialStatementsApiFp: (configuration?: Configuration) =
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    caApiGetTrialBalanceRetrieve(department?: number, endDate?: string, entity?: number, entityRollup?: boolean, groupBy?: string, incomeStatementBasis?: CaApiGetTrialBalanceRetrieveIncomeStatementBasisEnum, startDate?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TrialBalanceResponse>>;
+    caApiGetTrialBalanceRetrieve(basis?: CaApiGetTrialBalanceRetrieveBasisEnum, department?: number, endDate?: string, entity?: number, entityRollup?: boolean, groupBy?: string, incomeStatementBasis?: CaApiGetTrialBalanceRetrieveIncomeStatementBasisEnum, startDate?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TrialBalanceResponse>>;
     /**
      *
      * @summary Get Comparative Income Statement
@@ -21168,6 +21191,10 @@ export interface FinancialStatementsApiCaApiGetIncomeStatementRetrieveRequest {
  */
 export interface FinancialStatementsApiCaApiGetTrialBalanceRetrieveRequest {
     /**
+     * Balances as stamped at transaction time (default) or translated at read time (flagged customers; closing and average rates, CTA derived). Gross activity stays on transaction rates.
+     */
+    readonly basis?: CaApiGetTrialBalanceRetrieveBasisEnum;
+    /**
      * Filter by department ID. Can be specified multiple times for multiple departments
      */
     readonly department?: number;
@@ -21404,6 +21431,11 @@ export declare const CaApiGetIncomeStatementRetrieveCadenceEnum: {
     readonly Yearly: 'yearly';
 };
 export type CaApiGetIncomeStatementRetrieveCadenceEnum = typeof CaApiGetIncomeStatementRetrieveCadenceEnum[keyof typeof CaApiGetIncomeStatementRetrieveCadenceEnum];
+export declare const CaApiGetTrialBalanceRetrieveBasisEnum: {
+    readonly TransactionRates: 'transaction_rates';
+    readonly Translated: 'translated';
+};
+export type CaApiGetTrialBalanceRetrieveBasisEnum = typeof CaApiGetTrialBalanceRetrieveBasisEnum[keyof typeof CaApiGetTrialBalanceRetrieveBasisEnum];
 export declare const CaApiGetTrialBalanceRetrieveIncomeStatementBasisEnum: {
     readonly FiscalYtd: 'fiscal_ytd';
     readonly Period: 'period';
@@ -21860,7 +21892,7 @@ export declare const RevenueRecognitionApiAxiosParamCreator: (configuration?: Co
      */
     listContractMilestones: (contractId: number, includeDeleted?: boolean, lastModifiedAtGte?: string, lastModifiedAtLte?: string, limit?: number, offset?: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     *          Retrieve a list of contract subscriptions with optional filtering and sorting.          Supports including soft-deleted records for audit and recovery purposes.         When include_deleted=true, returns ONLY deleted records instead of active records.         Deleted records contain minimal data: \'id\', \'is_deleted=true\', \'deleted_at\' timestamp,         and \'last_modified_at\'. When \'false\' or omitted, returns ONLY active records.         This provides clean separation between active and deleted data.
+     *          Retrieve a list of contract subscriptions with optional filtering and sorting.         Subscriptions on Stripe contracts with no linked revenue transactions are omitted.          Supports including soft-deleted records for audit and recovery purposes.         When include_deleted=true, returns ONLY deleted records instead of active records.         Deleted records contain minimal data: \'id\', \'is_deleted=true\', \'deleted_at\' timestamp,         and \'last_modified_at\'. When \'false\' or omitted, returns ONLY active records.         This provides clean separation between active and deleted data.
      * @summary List Contract Subscriptions
      * @param {number} contractId
      * @param {boolean} [includeDeleted] When set to \&#39;true\&#39;, returns ONLY deleted records instead of active records. Deleted records contain minimal data: \&#39;id\&#39;, \&#39;is_deleted&#x3D;true\&#39;, \&#39;deleted_at\&#39; timestamp, and \&#39;last_modified_at\&#39;. When \&#39;false\&#39; or omitted, returns ONLY active records. This provides clean separation between active and deleted data.
@@ -22197,7 +22229,7 @@ export declare const RevenueRecognitionApiAxiosParamCreator: (configuration?: Co
      */
     rrApiV1ContractsSubscriptionsPartialUpdate: (contractId: number, id: number, patchedContractSubscription?: PatchedContractSubscription, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     *
+     * Subscriptions on Stripe contracts with no linked revenue transactions return 404.
      * @summary Retrieve Contract Subscription
      * @param {number} contractId
      * @param {number} id
@@ -22705,7 +22737,7 @@ export declare const RevenueRecognitionApiFp: (configuration?: Configuration) =>
      */
     listContractMilestones(contractId: number, includeDeleted?: boolean, lastModifiedAtGte?: string, lastModifiedAtLte?: string, limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PaginatedContractMilestoneList>>;
     /**
-     *          Retrieve a list of contract subscriptions with optional filtering and sorting.          Supports including soft-deleted records for audit and recovery purposes.         When include_deleted=true, returns ONLY deleted records instead of active records.         Deleted records contain minimal data: \'id\', \'is_deleted=true\', \'deleted_at\' timestamp,         and \'last_modified_at\'. When \'false\' or omitted, returns ONLY active records.         This provides clean separation between active and deleted data.
+     *          Retrieve a list of contract subscriptions with optional filtering and sorting.         Subscriptions on Stripe contracts with no linked revenue transactions are omitted.          Supports including soft-deleted records for audit and recovery purposes.         When include_deleted=true, returns ONLY deleted records instead of active records.         Deleted records contain minimal data: \'id\', \'is_deleted=true\', \'deleted_at\' timestamp,         and \'last_modified_at\'. When \'false\' or omitted, returns ONLY active records.         This provides clean separation between active and deleted data.
      * @summary List Contract Subscriptions
      * @param {number} contractId
      * @param {boolean} [includeDeleted] When set to \&#39;true\&#39;, returns ONLY deleted records instead of active records. Deleted records contain minimal data: \&#39;id\&#39;, \&#39;is_deleted&#x3D;true\&#39;, \&#39;deleted_at\&#39; timestamp, and \&#39;last_modified_at\&#39;. When \&#39;false\&#39; or omitted, returns ONLY active records. This provides clean separation between active and deleted data.
@@ -23042,7 +23074,7 @@ export declare const RevenueRecognitionApiFp: (configuration?: Configuration) =>
      */
     rrApiV1ContractsSubscriptionsPartialUpdate(contractId: number, id: number, patchedContractSubscription?: PatchedContractSubscription, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ContractSubscription>>;
     /**
-     *
+     * Subscriptions on Stripe contracts with no linked revenue transactions return 404.
      * @summary Retrieve Contract Subscription
      * @param {number} contractId
      * @param {number} id
@@ -23530,7 +23562,7 @@ export declare const RevenueRecognitionApiFactory: (configuration?: Configuratio
      */
     listContractMilestones(requestParameters: RevenueRecognitionApiListContractMilestonesRequest, options?: RawAxiosRequestConfig): AxiosPromise<PaginatedContractMilestoneList>;
     /**
-     *          Retrieve a list of contract subscriptions with optional filtering and sorting.          Supports including soft-deleted records for audit and recovery purposes.         When include_deleted=true, returns ONLY deleted records instead of active records.         Deleted records contain minimal data: \'id\', \'is_deleted=true\', \'deleted_at\' timestamp,         and \'last_modified_at\'. When \'false\' or omitted, returns ONLY active records.         This provides clean separation between active and deleted data.
+     *          Retrieve a list of contract subscriptions with optional filtering and sorting.         Subscriptions on Stripe contracts with no linked revenue transactions are omitted.          Supports including soft-deleted records for audit and recovery purposes.         When include_deleted=true, returns ONLY deleted records instead of active records.         Deleted records contain minimal data: \'id\', \'is_deleted=true\', \'deleted_at\' timestamp,         and \'last_modified_at\'. When \'false\' or omitted, returns ONLY active records.         This provides clean separation between active and deleted data.
      * @summary List Contract Subscriptions
      * @param {RevenueRecognitionApiListContractSubscriptionsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -23809,7 +23841,7 @@ export declare const RevenueRecognitionApiFactory: (configuration?: Configuratio
      */
     rrApiV1ContractsSubscriptionsPartialUpdate(requestParameters: RevenueRecognitionApiRrApiV1ContractsSubscriptionsPartialUpdateRequest, options?: RawAxiosRequestConfig): AxiosPromise<ContractSubscription>;
     /**
-     *
+     * Subscriptions on Stripe contracts with no linked revenue transactions return 404.
      * @summary Retrieve Contract Subscription
      * @param {RevenueRecognitionApiRrApiV1ContractsSubscriptionsRetrieveRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -25047,7 +25079,7 @@ export declare class RevenueRecognitionApi extends BaseAPI {
      */
     listContractMilestones(requestParameters: RevenueRecognitionApiListContractMilestonesRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<PaginatedContractMilestoneList, any, {}, any>>;
     /**
-     *          Retrieve a list of contract subscriptions with optional filtering and sorting.          Supports including soft-deleted records for audit and recovery purposes.         When include_deleted=true, returns ONLY deleted records instead of active records.         Deleted records contain minimal data: \'id\', \'is_deleted=true\', \'deleted_at\' timestamp,         and \'last_modified_at\'. When \'false\' or omitted, returns ONLY active records.         This provides clean separation between active and deleted data.
+     *          Retrieve a list of contract subscriptions with optional filtering and sorting.         Subscriptions on Stripe contracts with no linked revenue transactions are omitted.          Supports including soft-deleted records for audit and recovery purposes.         When include_deleted=true, returns ONLY deleted records instead of active records.         Deleted records contain minimal data: \'id\', \'is_deleted=true\', \'deleted_at\' timestamp,         and \'last_modified_at\'. When \'false\' or omitted, returns ONLY active records.         This provides clean separation between active and deleted data.
      * @summary List Contract Subscriptions
      * @param {RevenueRecognitionApiListContractSubscriptionsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -25326,7 +25358,7 @@ export declare class RevenueRecognitionApi extends BaseAPI {
      */
     rrApiV1ContractsSubscriptionsPartialUpdate(requestParameters: RevenueRecognitionApiRrApiV1ContractsSubscriptionsPartialUpdateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<ContractSubscription, any, {}, any>>;
     /**
-     *
+     * Subscriptions on Stripe contracts with no linked revenue transactions return 404.
      * @summary Retrieve Contract Subscription
      * @param {RevenueRecognitionApiRrApiV1ContractsSubscriptionsRetrieveRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.

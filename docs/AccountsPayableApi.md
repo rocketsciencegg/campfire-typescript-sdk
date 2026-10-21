@@ -1505,7 +1505,7 @@ No authorization required
 # **coaApiV1DebitMemoPaymentVoidDestroy**
 > coaApiV1DebitMemoPaymentVoidDestroy()
 
-Remove a debit memo \'mark used\' payment application.          This recategorizes the transaction back to Uncategorized and deletes the payment record.
+Remove a debit memo \'mark used\' payment application.          An application to a bill is removed from both the debit memo and the bill, along with its         journal entry, so the bill reopens. Any other application recategorizes the transaction         back to Uncategorized and deletes the payment record.
 
 ### Example
 

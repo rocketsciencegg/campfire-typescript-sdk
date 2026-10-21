@@ -1028,7 +1028,7 @@ No authorization required
 # **listContractSubscriptions**
 > Array<ContractSubscription> listContractSubscriptions()
 
-         Retrieve a list of contract subscriptions with optional filtering and sorting.          Supports including soft-deleted records for audit and recovery purposes.         When include_deleted=true, returns ONLY deleted records instead of active records.         Deleted records contain minimal data: \'id\', \'is_deleted=true\', \'deleted_at\' timestamp,         and \'last_modified_at\'. When \'false\' or omitted, returns ONLY active records.         This provides clean separation between active and deleted data.         
+         Retrieve a list of contract subscriptions with optional filtering and sorting.         Subscriptions on Stripe contracts with no linked revenue transactions are omitted.          Supports including soft-deleted records for audit and recovery purposes.         When include_deleted=true, returns ONLY deleted records instead of active records.         Deleted records contain minimal data: \'id\', \'is_deleted=true\', \'deleted_at\' timestamp,         and \'last_modified_at\'. When \'false\' or omitted, returns ONLY active records.         This provides clean separation between active and deleted data.         
 
 ### Example
 
@@ -2981,6 +2981,7 @@ No authorization required
 # **rrApiV1ContractsSubscriptionsRetrieve**
 > ContractSubscription rrApiV1ContractsSubscriptionsRetrieve()
 
+Subscriptions on Stripe contracts with no linked revenue transactions return 404.
 
 ### Example
 

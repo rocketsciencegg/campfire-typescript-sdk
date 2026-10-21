@@ -3,7 +3,7 @@
     "info": {
         "title": "Campfire Developer APIs",
         "version": "1.0.0",
-        "description": "## Introduction\nCampfire's developer APIs offer granular access to Campfire's core accounting,\nrevenue recognition, and financial data features.\n\nThese APIs are designed to be used by developers to build custom integrations,\nautomate workflows, and perform any other programmatic operations.\n\n## Rate limits\nAPI users can make up to **5 requests per second**. This limit is shared across\nall endpoints for the same API user. Requests that exceed the limit receive a\n`429 Too Many Requests` response. Wait for the number of seconds specified in\nthe `Retry-After` response header before retrying.\n"
+        "description": "## Introduction\nCampfire's developer APIs offer granular access to Campfire's core accounting,\nrevenue recognition, and financial data features.\n\nThese APIs are designed to be used by developers to build custom integrations,\nautomate workflows, and perform any other programmatic operations.\n\n## Rate limits\nAPI users can make up to **10 requests per second**. This limit is shared across\nall endpoints for the same API user. OAuth app tokens get the same limit,\ncounted separately for each app connection. Requests that exceed the limit receive a\n`429 Too Many Requests` response. Wait for the number of seconds specified in\nthe `Retry-After` response header before retrying.\n"
     },
     "paths": {
         "/ca/api/account": {
@@ -1801,6 +1801,22 @@
                             }
                         },
                         "description": "OK"
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "description": "No entity selected and the company has no root entity configured.",
+                                    "properties": {
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
                     }
                 }
             }
@@ -2040,6 +2056,18 @@
                 "description": "Returns debit and credit totals for each account over a date range.\n\n**The summation window depends on the account type:**\n- **Balance sheet accounts** (assets, liabilities, equity): totals are summed from the beginning of time through `end_date`.\n- **Income statement accounts** (revenue, expenses): the window depends on `income_statement_basis`. With the default `period` basis, totals are summed from `start_date` through `end_date` and a synthetic Net Income (Prior Periods) row carries current-fiscal-year income earned before `start_date`. With `fiscal_ytd`, totals are summed from the fiscal-year start through `end_date` and no Net Income row is emitted.\n\nThe effective income-statement window start is returned as `income_statement_start`.\n\nEach account also carries rollforward columns, all presented as one-sided debit/credit pairs: `beginning_balances` (balance as of the day before `start_date`; fiscal-window-scoped for income-statement accounts), `activity` (gross period debits and credits), and `ending_balances` (`beginning + activity`, the net one-sided presentation of the account's balance). Beginning and ending columns each foot to zero across the report and period debits equal period credits.\n\nRetained earnings is included as its own row. For balance sheet ending balances specifically, prefer `GET /ca/api/get_balance_sheet`.",
                 "summary": "Get Trial Balance",
                 "parameters": [
+                    {
+                        "in": "query",
+                        "name": "basis",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "transaction_rates",
+                                "translated"
+                            ]
+                        },
+                        "description": "Balances as stamped at transaction time (default) or translated at read time (flagged customers; closing and average rates, CTA derived). Gross activity stays on transaction rates."
+                    },
                     {
                         "in": "query",
                         "name": "department",
@@ -15354,7 +15382,7 @@
             },
             "delete": {
                 "operationId": "coa_api_v1_debit_memo_payment_void_destroy",
-                "description": "Remove a debit memo 'mark used' payment application.\n\n        This recategorizes the transaction back to Uncategorized and deletes the payment record.",
+                "description": "Remove a debit memo 'mark used' payment application.\n\n        An application to a bill is removed from both the debit memo and the bill, along with its\n        journal entry, so the bill reopens. Any other application recategorizes the transaction\n        back to Uncategorized and deletes the payment record.",
                 "summary": "Delete Debit Memo Used Payment",
                 "parameters": [
                     {
@@ -21238,7 +21266,7 @@
         "/rr/api/v1/contracts/{contract_id}/subscriptions": {
             "get": {
                 "operationId": "list_contract_subscriptions",
-                "description": "\n        Retrieve a list of contract subscriptions with optional filtering and sorting.\n\n        Supports including soft-deleted records for audit and recovery purposes.\n        When include_deleted=true, returns ONLY deleted records instead of active records.\n        Deleted records contain minimal data: 'id', 'is_deleted=true', 'deleted_at' timestamp,\n        and 'last_modified_at'. When 'false' or omitted, returns ONLY active records.\n        This provides clean separation between active and deleted data.\n        ",
+                "description": "\n        Retrieve a list of contract subscriptions with optional filtering and sorting.\n        Subscriptions on Stripe contracts with no linked revenue transactions are omitted.\n\n        Supports including soft-deleted records for audit and recovery purposes.\n        When include_deleted=true, returns ONLY deleted records instead of active records.\n        Deleted records contain minimal data: 'id', 'is_deleted=true', 'deleted_at' timestamp,\n        and 'last_modified_at'. When 'false' or omitted, returns ONLY active records.\n        This provides clean separation between active and deleted data.\n        ",
                 "summary": "List Contract Subscriptions",
                 "parameters": [
                     {
@@ -21391,6 +21419,7 @@
         "/rr/api/v1/contracts/{contract_id}/subscriptions/{id}": {
             "get": {
                 "operationId": "rr_api_v1_contracts_subscriptions_retrieve",
+                "description": "Subscriptions on Stripe contracts with no linked revenue transactions return 404.",
                 "summary": "Retrieve Contract Subscription",
                 "parameters": [
                     {
@@ -25308,6 +25337,7 @@
                         "maxLength": 120
                     },
                     "application_status": {
+                        "readOnly": true,
                         "nullable": true,
                         "allOf": [
                             {
@@ -25358,6 +25388,7 @@
                         "minimum": -1000000000000000000,
                         "exclusiveMaximum": true,
                         "exclusiveMinimum": true,
+                        "readOnly": true,
                         "description": "Sum of all non-voided payment amounts"
                     },
                     "chat_id": {
@@ -25401,6 +25432,8 @@
                 "required": [
                     "amortizations",
                     "amount_remaining",
+                    "amount_used",
+                    "application_status",
                     "attachments",
                     "created_at",
                     "customer",
@@ -27432,6 +27465,24 @@
                         "type": "string",
                         "readOnly": true
                     },
+                    "balance_post": {
+                        "type": "integer",
+                        "readOnly": true,
+                        "nullable": true
+                    },
+                    "balance_post_posted_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "readOnly": true
+                    },
+                    "balance_post_posted_by_name": {
+                        "type": "string",
+                        "readOnly": true
+                    },
+                    "balance_post_memo": {
+                        "type": "string",
+                        "readOnly": true
+                    },
                     "weights_used": {
                         "readOnly": true,
                         "nullable": true
@@ -27488,6 +27539,10 @@
                 "required": [
                     "allocation",
                     "allocation_name",
+                    "balance_post",
+                    "balance_post_memo",
+                    "balance_post_posted_at",
+                    "balance_post_posted_by_name",
                     "caused_by",
                     "caused_by_name",
                     "created_at",
@@ -40131,6 +40186,7 @@
                         "maxLength": 120
                     },
                     "application_status": {
+                        "readOnly": true,
                         "nullable": true,
                         "allOf": [
                             {
@@ -40181,6 +40237,7 @@
                         "minimum": -1000000000000000000,
                         "exclusiveMaximum": true,
                         "exclusiveMinimum": true,
+                        "readOnly": true,
                         "description": "Sum of all non-voided payment amounts"
                     },
                     "chat_id": {
@@ -50929,6 +50986,20 @@
                     "ending_balances": {
                         "$ref": "#/components/schemas/TrialBalanceAccountBalance"
                     },
+                    "net_movement": {
+                        "type": "number",
+                        "format": "double",
+                        "maximum": 10000000000000,
+                        "minimum": -10000000000000,
+                        "exclusiveMaximum": true,
+                        "exclusiveMinimum": true
+                    },
+                    "drilldown_disabled": {
+                        "type": "boolean"
+                    },
+                    "translation_unresolved": {
+                        "type": "boolean"
+                    },
                     "departments": {
                         "type": "object",
                         "additionalProperties": {}
@@ -51010,9 +51081,31 @@
                     "breakdown": {
                         "type": "object",
                         "additionalProperties": {}
+                    },
+                    "basis": {
+                        "type": "object",
+                        "additionalProperties": {}
+                    },
+                    "activity_basis": {
+                        "type": "string"
+                    },
+                    "translation_warnings": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "translation_unresolved": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": {}
+                        }
                     }
                 },
                 "required": [
+                    "activity_basis",
+                    "basis",
                     "end_date",
                     "income_statement_start",
                     "start_date",
