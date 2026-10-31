@@ -11,13 +11,13 @@ Requires Node.js **>= 22.13.0** — the oldest non-EOL Node this package support
 and released on the exact Node version pinned in `.node-version`.
 
 ```bash
-npm install github:rocketsciencegg/campfire-typescript-sdk
+pnpm add github:rocketsciencegg/campfire-typescript-sdk
 ```
 
 Pin a specific version:
 
 ```bash
-npm install github:rocketsciencegg/campfire-typescript-sdk#v1.0.0
+pnpm add github:rocketsciencegg/campfire-typescript-sdk#v1.0.0
 ```
 
 ## Quick Start
@@ -59,6 +59,15 @@ All methods follow the pattern `api.methodName(params?, axiosOptions?)` returnin
 ## API Reference
 
 See the [generated docs](docs/) for all available methods and models, or the [Campfire API reference](https://docs.campfire.ai/api-reference).
+
+## Contributing
+
+This repo uses pnpm. Install dependencies from the lockfile, then compile:
+
+```bash
+pnpm install --frozen-lockfile
+pnpm run build
+```
 
 ## How This SDK Is Generated
 

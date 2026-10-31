@@ -18,6 +18,7 @@
   "engines": {
     "node": ">=22.13.0"
   },
+  "packageManager": "pnpm@11.1.1",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [

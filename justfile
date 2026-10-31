@@ -57,8 +57,8 @@ build:
     # The generator never deletes docs for models that no longer exist.
     comm -23 <(ls docs | sed 's#^#docs/#' | sort) <(grep '^docs/' .openapi-generator/FILES | sort) | xargs rm -f
     echo "Compiling TypeScript..."
-    npx tsc
+    pnpm exec tsc
 
 # Compile TypeScript only (no regeneration)
 compile:
-    npx tsc
+    pnpm exec tsc

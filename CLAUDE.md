@@ -9,8 +9,8 @@ Auto-generated TypeScript SDK for the [Campfire API](https://api.meetcampfire.co
 ## Build Commands
 
 ```bash
-npm install            # Install dependencies (also runs build via prepare hook)
-npm run build          # Compile TypeScript to dist/
+pnpm install           # Install dependencies from pnpm-lock.yaml
+pnpm run build         # Compile TypeScript to dist/
 just refresh           # Download Campfire's spec, apply scripts/fix_spec.py, write campfire.patch, regenerate + compile
 just build             # Full regeneration: generate SDK from campfire.json OpenAPI spec + compile
 just lint-spec         # Speakeasy lint of campfire.json

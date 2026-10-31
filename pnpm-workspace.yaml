@@ -1,0 +1,6 @@
+# Versions published less than 7 days ago (10080 minutes) are ignored.
+minimumReleaseAge: 10080
+# axios@1.21.0 was published on 2026-10-27 and is already required on main.
+# This exact version is inside the 7-day window until 2026-11-03.
+minimumReleaseAgeExclude:
+  - axios@1.21.0
