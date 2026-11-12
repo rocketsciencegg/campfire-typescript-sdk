@@ -9,7 +9,7 @@ Auto-generated TypeScript SDK for the [Campfire API](https://api.meetcampfire.co
 ## Build Commands
 
 ```bash
-pnpm install           # pnpm 12.15.0; dependencies from pnpm-lock.yaml
+pnpm install           # pnpm 12.18.0; dependencies from pnpm-lock.yaml
 pnpm run build         # Compile TypeScript to dist/
 just refresh           # Download Campfire's spec, apply scripts/fix_spec.py, write campfire.patch, regenerate + compile
 just build             # Full regeneration: generate SDK from campfire.json OpenAPI spec + compile
