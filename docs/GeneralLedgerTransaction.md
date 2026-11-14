@@ -37,6 +37,8 @@ Name | Type | Description | Notes
 **tags** | [**Array&lt;GeneralLedgerTag&gt;**](GeneralLedgerTag.md) |  | [readonly] [default to undefined]
 **opposingAccountName** | **string** |  | [default to undefined]
 **opposingAccountNumber** | **string** |  | [default to undefined]
+**rowType** | **string** | &#x60;transaction&#x60;, or &#x60;translation_adjustment&#x60; on the translated basis | [optional] [default to undefined]
+**translationUnresolved** | **boolean** |  | [optional] [default to undefined]
 
 ## Example
 
@@ -76,6 +78,8 @@ const instance: GeneralLedgerTransaction = {
     tags,
     opposingAccountName,
     opposingAccountNumber,
+    rowType,
+    translationUnresolved,
 };
 ```
 

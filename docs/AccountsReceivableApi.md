@@ -7,7 +7,8 @@ All URIs are relative to *https://api.meetcampfire.com*
 |[**bulkCreateInvoices**](#bulkcreateinvoices) | **POST** /coa/api/v1/invoice/bulk-create | Bulk Create Invoices|
 |[**coaApiV1CreditMemoBulkSearchCreate**](#coaapiv1creditmemobulksearchcreate) | **POST** /coa/api/v1/credit-memo/bulk-search | Bulk Search Credit Memos by Number|
 |[**coaApiV1CreditMemoCreate**](#coaapiv1creditmemocreate) | **POST** /coa/api/v1/credit-memo | Create Credit Memo|
-|[**coaApiV1CreditMemoDestroy**](#coaapiv1creditmemodestroy) | **DELETE** /coa/api/v1/credit-memo/{id} | Delete Credit Memo|
+|[**coaApiV1CreditMemoDeleteCreate**](#coaapiv1creditmemodeletecreate) | **POST** /coa/api/v1/credit-memo/{id}/delete | Delete Credit Memo|
+|[**coaApiV1CreditMemoDestroy**](#coaapiv1creditmemodestroy) | **DELETE** /coa/api/v1/credit-memo/{id} | Delete Credit Memo (deprecated)|
 |[**coaApiV1CreditMemoList**](#coaapiv1creditmemolist) | **GET** /coa/api/v1/credit-memo | List Credit Memos|
 |[**coaApiV1CreditMemoMarkUsedCreate**](#coaapiv1creditmemomarkusedcreate) | **POST** /coa/api/v1/credit-memo/{credit_memo_id}/mark-used | Mark Credit Memo as Used|
 |[**coaApiV1CreditMemoNextCreditMemoNumberRetrieve**](#coaapiv1creditmemonextcreditmemonumberretrieve) | **GET** /coa/api/v1/credit-memo/next-credit-memo-number | Get Next Credit Memo Number|
@@ -22,8 +23,10 @@ All URIs are relative to *https://api.meetcampfire.com*
 |[**coaApiV1InvoiceBulkSearchCreate**](#coaapiv1invoicebulksearchcreate) | **POST** /coa/api/v1/invoice/bulk-search | Bulk Search Invoices by Number|
 |[**coaApiV1InvoiceCalculatePaymentCreate**](#coaapiv1invoicecalculatepaymentcreate) | **POST** /coa/api/v1/invoice/{invoice_id}/calculate-payment | Calculate Invoice Payment|
 |[**coaApiV1InvoiceCreate**](#coaapiv1invoicecreate) | **POST** /coa/api/v1/invoice | Create Invoice|
+|[**coaApiV1InvoiceCsvRevenuePreviewCreate**](#coaapiv1invoicecsvrevenuepreviewcreate) | **POST** /coa/api/v1/invoice/csv-revenue-preview | Preview Invoice Upload Revenue Links|
 |[**coaApiV1InvoiceDefaultPaymentCreate**](#coaapiv1invoicedefaultpaymentcreate) | **POST** /coa/api/v1/invoice/{invoice_id}/default-payment | Get Default Payment Amount|
-|[**coaApiV1InvoiceDestroy**](#coaapiv1invoicedestroy) | **DELETE** /coa/api/v1/invoice/{id} | Delete Invoice|
+|[**coaApiV1InvoiceDeleteCreate**](#coaapiv1invoicedeletecreate) | **POST** /coa/api/v1/invoice/{id}/delete | Delete Invoice|
+|[**coaApiV1InvoiceDestroy**](#coaapiv1invoicedestroy) | **DELETE** /coa/api/v1/invoice/{id} | Delete Invoice (deprecated)|
 |[**coaApiV1InvoiceList**](#coaapiv1invoicelist) | **GET** /coa/api/v1/invoice | List Invoices|
 |[**coaApiV1InvoicePartialUpdate**](#coaapiv1invoicepartialupdate) | **PATCH** /coa/api/v1/invoice/{id} | Partial Update Invoice|
 |[**coaApiV1InvoicePayCreate**](#coaapiv1invoicepaycreate) | **POST** /coa/api/v1/invoice/{invoice_id}/pay | Mark Invoice as Paid|
@@ -206,10 +209,66 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **coaApiV1CreditMemoDeleteCreate**
+> coaApiV1CreditMemoDeleteCreate()
+
+         Permanently deletes an accounting credit memo and all associated data from the system.          This endpoint performs a complete removal of the credit memo including:         - Complete credit memo record deletion with all line items         - Automatic journal entry removal and accounting transaction cleanup          **Accounting Impact:**         - Associated journal entries are automatically deleted to maintain accounting integrity         - Exchange rate records and multi-currency data are cleaned up          **Restrictions:**         - Credit memos that have been applied to invoices cannot be deleted         - Credit memos in closed accounting periods may have deletion restrictions         - Consider the impact on historical financial reporting           A customer can require a reason for this delete in its approval settings. When it does, and this record has a journal entry or a voided journal entry, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
+
+### Example
+
+```typescript
+import {
+    AccountsReceivableApi,
+    Configuration,
+    DeleteRequest
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new AccountsReceivableApi(configuration);
+
+let id: number; // (default to undefined)
+let deleteRequest: DeleteRequest; // (optional)
+
+const { status, data } = await apiInstance.coaApiV1CreditMemoDeleteCreate(
+    id,
+    deleteRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **deleteRequest** | **DeleteRequest**|  | |
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**204** | Deleted. |  -  |
+|**202** | Sent for approval; the record is deleted once a reviewer approves. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **coaApiV1CreditMemoDestroy**
 > coaApiV1CreditMemoDestroy()
 
-         Permanently deletes an accounting credit memo and all associated data from the system.          This endpoint performs a complete removal of the credit memo including:         - Complete credit memo record deletion with all line items         - Automatic journal entry removal and accounting transaction cleanup          **Accounting Impact:**         - Associated journal entries are automatically deleted to maintain accounting integrity         - Exchange rate records and multi-currency data are cleaned up          **Restrictions:**         - Credit memos that have been applied to invoices cannot be deleted         - Credit memos in closed accounting periods may have deletion restrictions         - Consider the impact on historical financial reporting         
+Deprecated: use `POST /coa/api/v1/credit-memo/{id}/delete`, which also takes an optional reason for the audit log.           Permanently deletes an accounting credit memo and all associated data from the system.          This endpoint performs a complete removal of the credit memo including:         - Complete credit memo record deletion with all line items         - Automatic journal entry removal and accounting transaction cleanup          **Accounting Impact:**         - Associated journal entries are automatically deleted to maintain accounting integrity         - Exchange rate records and multi-currency data are cleaned up          **Restrictions:**         - Credit memos that have been applied to invoices cannot be deleted         - Credit memos in closed accounting periods may have deletion restrictions         - Consider the impact on historical financial reporting         
 
 ### Example
 
@@ -280,6 +339,7 @@ let entity: Array<number>; //Filter by entity IDs (can specify multiple) (option
 let limit: number; //Number of results to return per page (optional) (default to undefined)
 let offset: number; //Number of results to skip for pagination (optional) (default to undefined)
 let q: string; //Search credit memo numbers, messages, and client names (optional) (default to undefined)
+let revenueLinkableFor: number; //Revenue contract ID. Only credit memos that can be linked to that contract. (optional) (default to undefined)
 let sort: '-amount_used' | '-client_name' | '-credit_memo_date' | '-credit_memo_number' | '-total_amount' | 'amount_used' | 'client_name' | 'credit_memo_date' | 'credit_memo_number' | 'total_amount'; //Sort results by field (prefix with - for descending) (optional) (default to undefined)
 let startDate: string; //Filter credit memos created on or after this date (YYYY-MM-DD format) (optional) (default to undefined)
 let status: 'open' | 'partially_used' | 'used' | 'voided'; //Filter by application status (optional) (default to undefined)
@@ -292,6 +352,7 @@ const { status, data } = await apiInstance.coaApiV1CreditMemoList(
     limit,
     offset,
     q,
+    revenueLinkableFor,
     sort,
     startDate,
     status
@@ -309,6 +370,7 @@ const { status, data } = await apiInstance.coaApiV1CreditMemoList(
 | **limit** | [**number**] | Number of results to return per page | (optional) defaults to undefined|
 | **offset** | [**number**] | Number of results to skip for pagination | (optional) defaults to undefined|
 | **q** | [**string**] | Search credit memo numbers, messages, and client names | (optional) defaults to undefined|
+| **revenueLinkableFor** | [**number**] | Revenue contract ID. Only credit memos that can be linked to that contract. | (optional) defaults to undefined|
 | **sort** | [**&#39;-amount_used&#39; | &#39;-client_name&#39; | &#39;-credit_memo_date&#39; | &#39;-credit_memo_number&#39; | &#39;-total_amount&#39; | &#39;amount_used&#39; | &#39;client_name&#39; | &#39;credit_memo_date&#39; | &#39;credit_memo_number&#39; | &#39;total_amount&#39;**]**Array<&#39;-amount_used&#39; &#124; &#39;-client_name&#39; &#124; &#39;-credit_memo_date&#39; &#124; &#39;-credit_memo_number&#39; &#124; &#39;-total_amount&#39; &#124; &#39;amount_used&#39; &#124; &#39;client_name&#39; &#124; &#39;credit_memo_date&#39; &#124; &#39;credit_memo_number&#39; &#124; &#39;total_amount&#39;>** | Sort results by field (prefix with - for descending) | (optional) defaults to undefined|
 | **startDate** | [**string**] | Filter credit memos created on or after this date (YYYY-MM-DD format) | (optional) defaults to undefined|
 | **status** | [**&#39;open&#39; | &#39;partially_used&#39; | &#39;used&#39; | &#39;voided&#39;**]**Array<&#39;open&#39; &#124; &#39;partially_used&#39; &#124; &#39;used&#39; &#124; &#39;voided&#39;>** | Filter by application status | (optional) defaults to undefined|
@@ -491,7 +553,7 @@ No authorization required
 # **coaApiV1CreditMemoPaymentVoidCreate**
 > AccountingCreditMemoPayment coaApiV1CreditMemoPaymentVoidCreate()
 
-Void a credit memo \'mark used\' payment by creating a reversing journal entry.          This creates a reversing JE that credits the A/R account and debits Uncategorized,         then marks the payment as voided.
+Void a credit memo \'mark used\' payment by creating a reversing journal entry.          An application to an invoice is voided on both the credit memo and the invoice, as voiding         it from the invoice does. Any other application gets a reversing JE that credits the A/R         account and debits Uncategorized, then the payment is marked as voided.
 
 ### Example
 
@@ -549,7 +611,7 @@ No authorization required
 # **coaApiV1CreditMemoPaymentVoidDestroy**
 > coaApiV1CreditMemoPaymentVoidDestroy()
 
-Remove a credit memo \'mark used\' payment application.          This recategorizes the transaction back to Uncategorized and deletes the payment record.
+Remove a credit memo \'mark used\' payment application.          An application to an invoice is removed from both the credit memo and the invoice, along with         its journal entry, as removing it from the invoice does. Any other application recategorizes         the transaction back to Uncategorized and deletes the payment record.
 
 ### Example
 
@@ -1027,6 +1089,58 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **coaApiV1InvoiceCsvRevenuePreviewCreate**
+> UploadRevenuePreview coaApiV1InvoiceCsvRevenuePreviewCreate(uploadRevenuePreviewRequest)
+
+Dry run of the invoice upload\'s revenue linking, in the order given (the order the upload posts them). Nothing is saved.
+
+### Example
+
+```typescript
+import {
+    AccountsReceivableApi,
+    Configuration,
+    UploadRevenuePreviewRequest
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new AccountsReceivableApi(configuration);
+
+let uploadRevenuePreviewRequest: UploadRevenuePreviewRequest; //
+
+const { status, data } = await apiInstance.coaApiV1InvoiceCsvRevenuePreviewCreate(
+    uploadRevenuePreviewRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **uploadRevenuePreviewRequest** | **UploadRevenuePreviewRequest**|  | |
+
+
+### Return type
+
+**UploadRevenuePreview**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **coaApiV1InvoiceDefaultPaymentCreate**
 > GetDefaultPaymentOutput coaApiV1InvoiceDefaultPaymentCreate(getDefaultPaymentInput)
 
@@ -1084,10 +1198,66 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **coaApiV1InvoiceDeleteCreate**
+> coaApiV1InvoiceDeleteCreate()
+
+         Permanently deletes an accounting invoice and its associated journal entry and related data.          This endpoint performs a complete deletion of the invoice including:         - Removal of all invoice line items and associated product data         - Deletion of the corresponding accounts receivable journal entry         - Removal of payment records and journal entries          **Important Notes:**         - This operation is irreversible and permanently removes the invoice from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity          **Restrictions:**         - Invoices in closed accounting periods cannot be deleted         - Consider the impact on historical financial reporting           A customer can require a reason for this delete in its approval settings. When it does, and this record has a journal entry or a voided journal entry, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
+
+### Example
+
+```typescript
+import {
+    AccountsReceivableApi,
+    Configuration,
+    DeleteRequest
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new AccountsReceivableApi(configuration);
+
+let id: number; // (default to undefined)
+let deleteRequest: DeleteRequest; // (optional)
+
+const { status, data } = await apiInstance.coaApiV1InvoiceDeleteCreate(
+    id,
+    deleteRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **deleteRequest** | **DeleteRequest**|  | |
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**204** | Deleted. |  -  |
+|**202** | Sent for approval; the record is deleted once a reviewer approves. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **coaApiV1InvoiceDestroy**
 > coaApiV1InvoiceDestroy()
 
-         Permanently deletes an accounting invoice and its associated journal entry and related data.          This endpoint performs a complete deletion of the invoice including:         - Removal of all invoice line items and associated product data         - Deletion of the corresponding accounts receivable journal entry         - Removal of payment records and journal entries          **Important Notes:**         - This operation is irreversible and permanently removes the invoice from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity          **Restrictions:**         - Invoices in closed accounting periods cannot be deleted         - Consider the impact on historical financial reporting         
+Deprecated: use `POST /coa/api/v1/invoice/{id}/delete`, which also takes an optional reason for the audit log.           Permanently deletes an accounting invoice and its associated journal entry and related data.          This endpoint performs a complete deletion of the invoice including:         - Removal of all invoice line items and associated product data         - Deletion of the corresponding accounts receivable journal entry         - Removal of payment records and journal entries          **Important Notes:**         - This operation is irreversible and permanently removes the invoice from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity          **Restrictions:**         - Invoices in closed accounting periods cannot be deleted         - Consider the impact on historical financial reporting         
 
 ### Example
 
@@ -1157,6 +1327,7 @@ let currency: string; //Filter by currency code (e.g., USD, EUR) (optional) (def
 let download: boolean; //If true, triggers async CSV download workflow and sends result via email (optional) (default to false)
 let endDate: string; //Filter invoices with invoice_date on or before this date (YYYY-MM-DD) (optional) (default to undefined)
 let entity: number; //Filter by entity ID. Can be specified multiple times (optional) (default to undefined)
+let expenseBillingAttachable: boolean; //Only invoices project expenses can still be billed onto: draft or open, never sent, unpaid (optional) (default to undefined)
 let invoiceNumber: string; //Filter by exact invoice number (optional) (default to undefined)
 let limit: number; //Number of results to return per page. (optional) (default to undefined)
 let lineTagGroupId: number; //Filter invoices with at least one line item assigned a tag from this tag group ID (optional) (default to undefined)
@@ -1167,6 +1338,7 @@ let paidDateTo: string; //Filter invoices with paid_date on or before this date 
 let parentClient: number; //Filter by parent client (Vendor) ID. Returns invoices for the specified client and all of its descendants via vendor lineage. (optional) (default to undefined)
 let q: string; //Search query - searches shipping address, invoice number, message, or client name (optional) (default to undefined)
 let refNumber: string; //Filter by exact ref number (optional) (default to undefined)
+let revenueLinkableFor: number; //Revenue contract ID. Only invoices that can be linked to that contract. (optional) (default to undefined)
 let sentStatus: 'not_sent' | 'sent'; //Filter by sent status (optional) (default to undefined)
 let sort: string; //Sort order. Use field name for ascending, -field for descending. Special fields: client_name, amount_due. Default: -invoice_date (optional) (default to '-invoice_date')
 let startDate: string; //Filter invoices with invoice_date on or after this date (YYYY-MM-DD) (optional) (default to undefined)
@@ -1179,6 +1351,7 @@ const { status, data } = await apiInstance.coaApiV1InvoiceList(
     download,
     endDate,
     entity,
+    expenseBillingAttachable,
     invoiceNumber,
     limit,
     lineTagGroupId,
@@ -1189,6 +1362,7 @@ const { status, data } = await apiInstance.coaApiV1InvoiceList(
     parentClient,
     q,
     refNumber,
+    revenueLinkableFor,
     sentStatus,
     sort,
     startDate,
@@ -1206,6 +1380,7 @@ const { status, data } = await apiInstance.coaApiV1InvoiceList(
 | **download** | [**boolean**] | If true, triggers async CSV download workflow and sends result via email | (optional) defaults to false|
 | **endDate** | [**string**] | Filter invoices with invoice_date on or before this date (YYYY-MM-DD) | (optional) defaults to undefined|
 | **entity** | [**number**] | Filter by entity ID. Can be specified multiple times | (optional) defaults to undefined|
+| **expenseBillingAttachable** | [**boolean**] | Only invoices project expenses can still be billed onto: draft or open, never sent, unpaid | (optional) defaults to undefined|
 | **invoiceNumber** | [**string**] | Filter by exact invoice number | (optional) defaults to undefined|
 | **limit** | [**number**] | Number of results to return per page. | (optional) defaults to undefined|
 | **lineTagGroupId** | [**number**] | Filter invoices with at least one line item assigned a tag from this tag group ID | (optional) defaults to undefined|
@@ -1216,6 +1391,7 @@ const { status, data } = await apiInstance.coaApiV1InvoiceList(
 | **parentClient** | [**number**] | Filter by parent client (Vendor) ID. Returns invoices for the specified client and all of its descendants via vendor lineage. | (optional) defaults to undefined|
 | **q** | [**string**] | Search query - searches shipping address, invoice number, message, or client name | (optional) defaults to undefined|
 | **refNumber** | [**string**] | Filter by exact ref number | (optional) defaults to undefined|
+| **revenueLinkableFor** | [**number**] | Revenue contract ID. Only invoices that can be linked to that contract. | (optional) defaults to undefined|
 | **sentStatus** | [**&#39;not_sent&#39; | &#39;sent&#39;**]**Array<&#39;not_sent&#39; &#124; &#39;sent&#39;>** | Filter by sent status | (optional) defaults to undefined|
 | **sort** | [**string**] | Sort order. Use field name for ascending, -field for descending. Special fields: client_name, amount_due. Default: -invoice_date | (optional) defaults to '-invoice_date'|
 | **startDate** | [**string**] | Filter invoices with invoice_date on or after this date (YYYY-MM-DD) | (optional) defaults to undefined|
@@ -2274,7 +2450,7 @@ No authorization required
 # **rrApiV1ProductDeleteCreate**
 > rrApiV1ProductDeleteCreate()
 
-Delete a product.
+Delete the record. The body can carry a reason, which is saved to the audit log.
 
 ### Example
 
@@ -2289,10 +2465,12 @@ const configuration = new Configuration();
 const apiInstance = new AccountsReceivableApi(configuration);
 
 let id: number; // (default to undefined)
+let newProduct: number; //ID of the product to reassign the deleted product\'s records to before deletion (optional) (default to undefined)
 let deleteRequest: DeleteRequest; // (optional)
 
 const { status, data } = await apiInstance.rrApiV1ProductDeleteCreate(
     id,
+    newProduct,
     deleteRequest
 );
 ```
@@ -2303,6 +2481,7 @@ const { status, data } = await apiInstance.rrApiV1ProductDeleteCreate(
 |------------- | ------------- | ------------- | -------------|
 | **deleteRequest** | **DeleteRequest**|  | |
 | **id** | [**number**] |  | defaults to undefined|
+| **newProduct** | [**number**] | ID of the product to reassign the deleted product\&#39;s records to before deletion | (optional) defaults to undefined|
 
 
 ### Return type
@@ -2344,9 +2523,11 @@ const configuration = new Configuration();
 const apiInstance = new AccountsReceivableApi(configuration);
 
 let id: number; // (default to undefined)
+let newProduct: number; //ID of the product to reassign the deleted product\'s records to before deletion (optional) (default to undefined)
 
 const { status, data } = await apiInstance.rrApiV1ProductDestroy(
-    id
+    id,
+    newProduct
 );
 ```
 
@@ -2355,6 +2536,7 @@ const { status, data } = await apiInstance.rrApiV1ProductDestroy(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **id** | [**number**] |  | defaults to undefined|
+| **newProduct** | [**number**] | ID of the product to reassign the deleted product\&#39;s records to before deletion | (optional) defaults to undefined|
 
 
 ### Return type
@@ -2374,8 +2556,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**204** | Deleted. |  -  |
-|**202** | Sent for approval; the record is deleted once a reviewer approves. |  -  |
+|**204** | No response body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

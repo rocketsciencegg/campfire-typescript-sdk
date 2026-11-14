@@ -1,28 +1,33 @@
 # Campfire OpenAPI spec: fixes and feedback
 
-From Rocket Science, 2026-10-21.
+From Rocket Science, 2026-11-14.
 
 ## What changed since our last package
 
-Our last package used your spec of the evening of 2026-10-15. You published two updates since then, and we ran the same script on the newest one (2026-10-21).
+Our last package used your spec of 2026-10-21. This package uses your spec of 2026-11-14.
 
-- **Rate limit.** `info.description` now says 10 requests per second, and that OAuth app tokens get the same limit for each app connection. Before, it said 5. Our earlier packages said that you publish no limit. That was our mistake: the 5 requests per second text was already in your spec. See the rate-limit row and question 2 below.
-- **Trial balance.** `GET /ca/api/get_trial_balance` has a new `basis` query parameter (`transaction_rates` or `translated`). `TrialBalanceResponse` has new fields (`activity_basis` and `basis` are required), and so does `TrialBalanceAccount` (`net_movement`, `drilldown_disabled`, `translation_unresolved`).
-- **Debit memos.** `amount_used` and `application_status` are now read-only, and `application_status` no longer allows `""`. That is our Fix 8 for one field, so the patch is 4 lines shorter (1,304 changed lines).
-- **Cost allocations.** `AllocationSyncRun` has 4 new read-only `balance_post*` fields.
-- **Cash flow activity.** `GET /ca/api/get_cash_flow_activity` has a new 400 response. It has the same problem as Fix 2: its text is in `schema.description` and its `description` is empty. Our Fix 2 step does not move the text, because this schema has a `type`, but Fix 1 now counts 296 responses.
-- You adopted none of our fixes yet. All 8 still apply.
+- **New operations.** Your spec has 22 new operations (395 → 417). You removed none and renamed no operationId.
+  - A `POST …/{id}/delete` endpoint for accounts, bills, invoices, credit and debit memos, journal entries, intercompany journal entries, fixed assets, vendors, and revenue-recognition contracts, milestones, subscriptions, usage, prepaid commits and transactions. The matching `DELETE` endpoints are now `deprecated`.
+  - Audit log (list and get), bank-account totals, transaction allocation, contract subledger accounts, and the invoice CSV revenue preview.
+  - New query parameters: `revenue_linkable_for`, `expense_billing_attachable`, `new_account` and `new_product`.
+- **Schemas.** 25 schemas are new and 42 changed, mostly with new fields. `Type4aaEnum` is now `TypeB9aEnum` and adds `migration_offset`. The rename of a generated enum breaks every typed client. A stable name (an `ENUM_NAME_OVERRIDES` entry in drf-spectacular) prevents that.
+- **Fixes you adopted.** Thank you:
+  - `POST /coa/api/fixed-asset-automation/{id}/delete` now has a real tag (our old Fix 4), a summary and a description.
+  - `POST /rr/api/v1/product/{id}/delete` now has a summary and a description.
+  - No description is a leaked Python docstring any more, so we removed the old Fix 5.
+- **The rate limit did not change.** It is still 10 requests per second.
+- **Counts that grew with the spec.** Fix 1 now covers 302 responses (was 296). Fix 7 covers 81 places (was 79). The patch has 1,323 changed lines.
 
-**One new suggestion: read-only fields in request bodies.** 1,177 properties in your spec are both `readOnly` and `required`. Most of your schemas are used for requests and responses, so generators that ignore `readOnly` (ours does) ask callers to send server fields such as `id`, `created_at` and `payments`. For example, `POST /coa/api/v1/debit-memo` takes `AccountingDebitMemo`, which has 22 required read-only fields. drf-spectacular's `COMPONENT_SPLIT_REQUEST = True` makes separate request schemas without them. We did not put this in the patch, because it changes the shape of the spec.
+**Read-only fields in request bodies (repeated from our last package).** 1,214 properties in your spec are both `readOnly` and `required` (was 1,177). This release made `tag_ids` and `tag_group_ids` read-only and required on `Department`, `Product` and `AccountingInvoiceLine`, so our generated request types now ask callers to send them. drf-spectacular's `COMPONENT_SPLIT_REQUEST = True` makes separate request schemas without them. We did not put this in the patch, because it changes the shape of the spec.
 
-We generate our TypeScript SDK from your published spec (`https://api.meetcampfire.com/api/schema/?format=json`, OpenAPI 3.0.3). It lints with 0 errors in Speakeasy, but it has 490 warnings apart from the `exclusiveMinimum` / `exclusiveMaximum` ones. We fix most of them with a script. This package gives you those fixes as a patch, and a separate list of behavior that we use but that the spec does not document.
+We generate our TypeScript SDK from your published spec (`https://api.meetcampfire.com/api/schema/?format=json`, OpenAPI 3.0.3). It lints with 0 errors in Speakeasy, but it has 518 warnings apart from the `exclusiveMinimum` / `exclusiveMaximum` ones. We fix most of them with a script. This package gives you those fixes as a patch, and a separate list of behavior that we use but that the spec does not document.
 
 ## Files
 
 | File | What it is |
 | --- | --- |
-| `campfire.patch` | Unified diff: your published spec → our fixed spec. Only real changes (1,304 changed lines), no formatting noise |
-| `campfire.published.json` | Your spec exactly as served on 2026-10-21 (SHA-256 `f3b2ee0519ca5be4e8842210b701019349d946e8a0f7d32b7a8dc4eb2846ad15`). The patch applies to this file |
+| `campfire.patch` | Unified diff: your published spec → our fixed spec. Only real changes (1,323 changed lines), no formatting noise |
+| `campfire.published.json` | Your spec exactly as served on 2026-11-14 (SHA-256 `fa138d2e57b4a9797270637e73e1aa2ad39f35b2d931d2881187db4155b03000`). The patch applies to this file |
 | `campfire.json` | The fixed spec that we generate our SDK from |
 | `fix_spec.py` | The script that makes `campfire.json` from your spec. Each fix is a named step with its reason |
 | `speakeasy-lint-published.txt` | Speakeasy lint of your spec |
@@ -40,16 +45,15 @@ The patch keeps your file's formatting (`json.dumps(indent=4, ensure_ascii=False
 
 | # | Problem | Places | Our fix | Likely source change (drf-spectacular) |
 | --- | --- | --- | --- | --- |
-| 1 | Response `description` is empty. OpenAPI 3.0 requires it | 296 responses | HTTP reason phrase (`OK`, `Created`, `No Content`, `Bad Request`, ...) | Give each response a description, for example with `OpenApiResponse(description=...)` |
+| 1 | Response `description` is empty. OpenAPI 3.0 requires it | 302 responses | HTTP reason phrase (`OK`, `Created`, `No Content`, `Bad Request`, ...) | Give each response a description, for example with `OpenApiResponse(description=...)` |
 | 2 | Response text is in `schema.description`, and the schema has no type. So the response has no description and no body shape | 7 responses (list below) | Move the text to the response `description`. The schema becomes `{"type": "object"}` | Pass the text as `OpenApiResponse(description=...)`, not as the schema |
-| 3 | Operations use tags that have no global definition: `Bank Reconciliation`, `Company Objects`, `Custom Fields`, `Integrations` | 92 operations | Add the 4 tag definitions | Add them to `SPECTACULAR_SETTINGS['TAGS']` |
-| 4 | Stray `coa` tag. Every related operation uses a real tag | 2 operations | `POST /coa/api/entity/{entity_id}/attachment` → `Settings`. `POST /coa/api/fixed-asset-automation/{id}/delete` → `Core Accounting` | `tags=[...]` in `extend_schema` on those views |
-| 5 | The description is a leaked Python docstring: "The type of the None singleton." | 2 operations | Real summary and description | Set a description on `POST /coa/api/fixed-asset-automation/{id}/delete` and `POST /rr/api/v1/product/{id}/delete` |
-| 6 | No `summary` | 1 operation | "Preview Contract Minimum Commit" | Summary on `GET /rr/api/v1/contracts/{id}/minimum-commit-preview` |
-| 7 | The request body has required fields, but the spec marks it optional | 21 operations (list below) | `requestBody.required: true` | Mark these bodies required |
-| 8 | Nullable choice fields written as `oneOf: [XEnum, BlankEnum, NullEnum]` | 79 places | `allOf: [XEnum]` + `nullable: true` | `ENUM_ADD_EXPLICIT_BLANK_NULL_CHOICE = False` should give the same result |
+| 3 | Operations use tags that have no global definition: `Bank Reconciliation`, `Company Objects`, `Custom Fields`, `Integrations` | 93 operations | Add the 4 tag definitions | Add them to `SPECTACULAR_SETTINGS['TAGS']` |
+| 4 | Stray `coa` tag. Every related operation uses a real tag | 1 operation | `POST /coa/api/entity/{entity_id}/attachment` → `Settings` | `tags=[...]` in `extend_schema` on that view |
+| 5 | No `summary` | 1 operation | "Preview Contract Minimum Commit" | Summary on `GET /rr/api/v1/contracts/{id}/minimum-commit-preview` |
+| 6 | The request body has required fields, but the spec marks it optional | 21 operations (list below) | `requestBody.required: true` | Mark these bodies required |
+| 7 | Nullable choice fields written as `oneOf: [XEnum, BlankEnum, NullEnum]` | 81 places | `allOf: [XEnum]` + `nullable: true` | `ENUM_ADD_EXPLICIT_BLANK_NULL_CHOICE = False` should give the same result |
 
-Fix 8 is optional. With the `oneOf` form, Speakeasy cannot check a `default` value. For example, `vendor_type` defaults to `"vendor"` and gets a warning. Generators also turn the form into three-way union types. Our change removes `""` as an allowed value, so you decide if it fits your API.
+Fix 7 is optional. With the `oneOf` form, Speakeasy cannot check a `default` value. For example, `vendor_type` defaults to `"vendor"` and gets a warning. Generators also turn the form into three-way union types. Our change removes `""` as an allowed value, so you decide if it fits your API.
 
 **Fix 2, the 7 responses:**
 
@@ -60,7 +64,7 @@ Fix 8 is optional. With the `oneOf` form, Speakeasy cannot check a `default` val
 - `POST /coa/api/v1/credit-memo/{credit_memo_id}/mark-used`: 200
 - `POST /coa/api/v1/debit-memo/{debit_memo_id}/mark-used`: 200
 
-**Fix 7, the 21 request bodies:**
+**Fix 6, the 21 request bodies:**
 
 - `POST` and `PUT` on each of these paths (the collection and `{id}`):
   - `/ca/api/user_currency`
@@ -79,12 +83,12 @@ Fix 8 is optional. With the `oneOf` form, Speakeasy cannot check a `default` val
 
 ## Warnings we left as they are
 
-After the fixes, Speakeasy still gives 0 errors, and the 490 other warnings go down to 68. These remain, and we do not think that they need a change:
+After the fixes, Speakeasy still gives 0 errors, and the 518 other warnings go down to 88. These remain, and we do not think that they need a change:
 
 | Warning | Count | Why we keep it |
 | --- | --- | --- |
-| Boolean `exclusiveMinimum` / `exclusiveMaximum` | 4,534 | Valid OpenAPI 3.0.3. Speakeasy expects the 3.1 number form. The bounds come from Django decimal fields and are real |
-| Request body is optional | 61 operations | Their schemas have no required field (mostly `PATCH`), so an empty body is valid |
+| Boolean `exclusiveMinimum` / `exclusiveMaximum` | 4,554 | Valid OpenAPI 3.0.3. Speakeasy expects the 3.1 number form. The bounds come from Django decimal fields and are real |
+| Request body is optional | 77 operations | Their schemas have no required field (mostly `PATCH`), so an empty body is valid |
 | Error responses with non-object content | 7 responses | They are free-form objects (`additionalProperties: {}`), which Speakeasy does not support. This is not a spec defect |
 
 ## Behavior the spec does not document

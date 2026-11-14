@@ -10,6 +10,11 @@ Name | Type | Description | Notes
 **hasNext** | **boolean** |  | [default to undefined]
 **currentPage** | **number** |  | [default to undefined]
 **totalPages** | **number** |  | [default to undefined]
+**basis** | **{ [key: string]: any; }** |  | [optional] [default to undefined]
+**activityBasis** | **string** |  | [optional] [default to undefined]
+**translationNote** | **string** |  | [optional] [default to undefined]
+**translationWarnings** | **Array&lt;string&gt;** |  | [optional] [default to undefined]
+**translationUnresolved** | **Array&lt;{ [key: string]: any; }&gt;** |  | [optional] [default to undefined]
 
 ## Example
 
@@ -22,6 +27,11 @@ const instance: GeneralLedgerResponse = {
     hasNext,
     currentPage,
     totalPages,
+    basis,
+    activityBasis,
+    translationNote,
+    translationWarnings,
+    translationUnresolved,
 };
 ```
 

@@ -57,7 +57,7 @@ Name | Type | Description | Notes
 **crmLink** | **string** |  | [optional] [default to undefined]
 **contractLink** | **string** |  | [optional] [default to undefined]
 **status** | [**ContractStatusEnum**](ContractStatusEnum.md) |  | [optional] [default to undefined]
-**source** | [**SourceFc1Enum**](SourceFc1Enum.md) |  | [optional] [default to undefined]
+**source** | [**ContractSourceEnum**](ContractSourceEnum.md) |  | [optional] [default to undefined]
 **sourceDealData** | **any** |  | [optional] [default to undefined]
 **createdAt** | **string** |  | [optional] [readonly] [default to undefined]
 **autoRenew** | **boolean** |  | [optional] [default to undefined]

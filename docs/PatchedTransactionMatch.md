@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **revertedAt** | **string** |  | [optional] [default to undefined]
 **customer** | **number** |  | [optional] [default to undefined]
 **transaction** | **number** |  | [optional] [default to undefined]
+**bankTransaction** | **number** |  | [optional] [readonly] [default to undefined]
 **contentType** | **number** |  | [optional] [default to undefined]
 **reviewedBy** | **number** |  | [optional] [default to undefined]
 **revertedBy** | **number** | User whose undo (or payment void/delete) reverted this applied match. | [optional] [default to undefined]
@@ -55,6 +56,7 @@ const instance: PatchedTransactionMatch = {
     revertedAt,
     customer,
     transaction,
+    bankTransaction,
     contentType,
     reviewedBy,
     revertedBy,

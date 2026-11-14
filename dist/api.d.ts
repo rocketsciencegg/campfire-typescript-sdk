@@ -151,6 +151,7 @@ export interface AccountingBill {
     'created_at': string;
     'tax_behavior'?: TaxBehaviorEnum | null;
     'bill_type'?: BillTypeEnum;
+    'posts_opening_balance_offset': boolean;
     'chat_id'?: number | null;
     'customer': number;
     'entity': number;
@@ -167,6 +168,7 @@ export interface AccountingBill {
      */
     'ap_account'?: number | null;
     'voided_journal_entry'?: number | null;
+    'opening_balance_offset_journal_entry': number | null;
 }
 export interface AccountingBillLine {
     'id'?: number | null;
@@ -222,6 +224,8 @@ export interface AccountingBillPayment {
     'payment_date'?: string | null;
     'source'?: string | null;
     'source_id'?: string | null;
+    'source_reference': string | null;
+    'source_reported_date'?: string | null;
     'created_at': string;
     'voided_date'?: string | null;
     'last_modified_at': string;
@@ -302,6 +306,11 @@ export interface AccountingCreditMemo {
     'integration_id'?: string | null;
     'integration_context'?: any | null;
     'vat_number'?: string | null;
+    'billing_addressee'?: string | null;
+    'billing_address'?: string | null;
+    'shipping_addressee'?: string | null;
+    'shipping_address'?: string | null;
+    'purchase_order_number'?: string | null;
     /**
      * Sum of all line item amounts
      */
@@ -503,6 +512,8 @@ export interface AccountingInvoice {
     'entity_name': string;
     'entity_currency': string;
     'entity_invoice_message': string | null;
+    'entity_quantity_max_decimal_places': number;
+    'entity_rate_max_decimal_places': number;
     'total_amount': number;
     'amount_paid': number;
     'amount_due': number;
@@ -524,8 +535,8 @@ export interface AccountingInvoice {
     'stripe_connection_billing_portal_enabled': boolean;
     'avalara_connection_name': string;
     'avalara_connection_company': string;
-    'tax_rate_name': string;
-    'tax_rate_value': number;
+    'tax_rate_name': string | null;
+    'tax_rate_value': number | null;
     'payment_term_name': string;
     /**
      * Write-only. Revenue transaction IDs to link to this invoice. This field is never included in responses.
@@ -590,6 +601,7 @@ export interface AccountingInvoice {
     'location_of_sale'?: string | null;
     'message_on_invoice'?: string | null;
     'ita_allocation_number'?: string | null;
+    'posts_opening_balance_offset': boolean;
     'payment_status'?: PaymentStatusCdcEnum | null;
     /**
      * ID of the transaction in Anrok (set when transaction is created)
@@ -631,7 +643,7 @@ export interface AccountingInvoice {
     'use_stripe_auto_bill'?: boolean | null;
     'stripe_payment_link_id'?: string | null;
     'stripe_payment_intent_id'?: string | null;
-    'stripe_invoice_id': string | null;
+    'stripe_invoice_id'?: string | null;
     'stripe_pdf_url'?: string | null;
     'stripe_payment_link': string | null;
     'source'?: string | null;
@@ -655,6 +667,7 @@ export interface AccountingInvoice {
      */
     'ar_account': number | null;
     'voided_journal_entry': number | null;
+    'opening_balance_offset_journal_entry': number | null;
     'entity_transfer_journal_entry': number | null;
     'contract'?: number | null;
     'avalara_connection'?: number | null;
@@ -707,11 +720,14 @@ export interface AccountingInvoiceLine {
     }>;
     'department_name': string;
     'department_code': string;
+    'tax_rate_name': string | null;
+    'tax_rate_value': number | null;
     'withholding_tax_rate_name': string;
     /**
      * Sum of the selected withholding rate\'s component rates, for line-level preview.
      */
     'withholding_tax_rate_value': number | null;
+    'billed_expense_ids'?: Array<number>;
     'description'?: string | null;
     /**
      * Billing charge classification for generated invoice lines; null when unclassified.  * `prepaid_commit` - Prepaid commitment * `overage` - Overage
@@ -739,13 +755,14 @@ export interface AccountingInvoiceLine {
      * Discount amount calculated from percentage
      */
     'discount_amount'?: number;
-    'tag_ids'?: Array<number>;
-    'tag_group_ids'?: Array<number>;
+    'tag_ids': Array<number>;
+    'tag_group_ids': Array<number>;
     'created_at': string;
     'last_modified_at': string;
     'customer': number;
     'product'?: number | null;
     'product_bundle'?: number | null;
+    'tax_rate'?: number | null;
     /**
      * Marks this line as subject to withholding; used for preview only. Null = not subject.
      */
@@ -791,8 +808,8 @@ export interface AccountingInvoiceList {
     'stripe_connection_billing_portal_enabled': boolean;
     'avalara_connection_name': string;
     'avalara_connection_company': string;
-    'tax_rate_name': string;
-    'tax_rate_value': number;
+    'tax_rate_name': string | null;
+    'tax_rate_value': number | null;
     'payment_term_name': string;
     /**
      * Write-only. Revenue transaction IDs to link to this invoice. This field is never included in responses.
@@ -832,6 +849,7 @@ export interface AccountingInvoiceList {
     'location_of_sale'?: string | null;
     'message_on_invoice'?: string | null;
     'ita_allocation_number'?: string | null;
+    'posts_opening_balance_offset'?: boolean;
     'payment_status'?: PaymentStatusCdcEnum | null;
     /**
      * ID of the transaction in Anrok (set when transaction is created)
@@ -897,6 +915,7 @@ export interface AccountingInvoiceList {
      */
     'ar_account'?: number | null;
     'voided_journal_entry'?: number | null;
+    'opening_balance_offset_journal_entry'?: number | null;
     'entity_transfer_journal_entry'?: number | null;
     'contract'?: number | null;
     'avalara_connection'?: number | null;
@@ -1080,6 +1099,47 @@ export declare const AsyncTaskStatusEnum: {
     readonly Cancelled: 'CANCELLED';
 };
 export type AsyncTaskStatusEnum = typeof AsyncTaskStatusEnum[keyof typeof AsyncTaskStatusEnum];
+/**
+ * The published shape of an audit entry, for the API docs; AuditLogEntrySerializer produces it.
+ */
+export interface AuditLogEntrySchema {
+    'id': number;
+    /**
+     * Raw operation, such as add, change or delete. Open set.
+     */
+    'operation': string | null;
+    /**
+     * Object type as app_label.model. Open set.
+     */
+    'model': string;
+    'object_id': number | null;
+    'parent_model': string | null;
+    'parent_object_id': number | null;
+    /**
+     * The audit entry this row was written as part of.
+     */
+    'parent_draft_queue': number | null;
+    'created_by': number | null;
+    'created_by_name': string | null;
+    'created_at': string;
+    /**
+     * User who gave final approval.
+     */
+    'approved_by': number | null;
+    'approved_by_name': string | null;
+    'approved_at': string | null;
+    'notes': string | null;
+    'reason': string | null;
+    'old_payload': any | null;
+    'new_payload': any | null;
+    'workflow_name': string | null;
+    /**
+     * Each workflow step; [] when the row had no workflow.
+     */
+    'approvers': Array<{
+        [key: string]: any;
+    }>;
+}
 export interface BankAccount {
     'id': number;
     'is_deleted': boolean;
@@ -1093,6 +1153,9 @@ export interface BankAccount {
     'type_name': string;
     'subtype_name': string;
     'cashflow_classification_name': string;
+    'is_disconnected': boolean;
+    'in_cash_total': boolean;
+    'check_field_offsets_mm'?: any;
     'account_id': string;
     'currency'?: string;
     'external_account_id'?: string | null;
@@ -1119,6 +1182,7 @@ export interface BankAccount {
     'check_print_payee_address'?: boolean;
     'check_print_company_block'?: boolean;
     'check_stock_prenumbered'?: boolean;
+    'check_print_currency_symbol'?: boolean;
     'created_at': string;
     'last_modified_at': string;
     'tag_ids'?: Array<number>;
@@ -1128,6 +1192,14 @@ export interface BankAccount {
     'chart_of_accounts_account'?: number | null;
     'department'?: number | null;
     'tags': Array<number>;
+}
+export interface BankAccountCurrencyTotal {
+    'currency': string;
+    'current_balance': number;
+    'account_count': number;
+}
+export interface BankAccountTotals {
+    'cash_totals': Array<BankAccountCurrencyTotal>;
 }
 /**
  * * `CHECKING` - Checking * `SAVING` - Savings * `CREDIT_CARD` - Credit Card * `DEBIT_CARD` - Debit Card * `INVESTMENT` - Investment * `LOAN` - Loan
@@ -1420,6 +1492,7 @@ export interface BulkBillSearch {
 }
 export interface BulkContract {
     'deal_name'?: string | null;
+    'contract_ref'?: string | null;
 }
 export interface BulkContractSearch {
     'contracts': Array<BulkContract>;
@@ -1694,6 +1767,10 @@ export interface ChartAccount {
      * Allow manual journal entries to post to this AR/AP account, bypassing subledger validation
      */
     'skip_subledger_validation'?: boolean;
+    /**
+     * Follow the AP subledger lock: manual entries to this account or its child accounts dated in a locked period are blocked, and synced plain journal entries (not bills, invoices, memos, payments or recurring entries) post on the next open day
+     */
+    'include_in_ap_lock'?: boolean;
     'external_id': string | null;
     'source': string | null;
     'created_at': string;
@@ -1827,6 +1904,14 @@ export interface ChartAccountSettings {
      * Account credited when a dispute is reinstated (won). Falls back to dispute_expense_account if not set.
      */
     'dispute_reinstatement_account'?: number | null;
+    /**
+     * Asset account holding withdrawn funds while a dispute is pending: debited on the withdrawal, credited when the dispute resolves (won, or written off on loss).
+     */
+    'disputed_receivable_account'?: number | null;
+    /**
+     * Expense account for the Stripe dispute fee, booked when a dispute opens. Non-refundable win or lose, and kept separate from Stripe processing fees. Falls back to the processing-fees account if not set.
+     */
+    'dispute_fee_account'?: number | null;
     /**
      * Equity account that holds a migrated opening Retained Earnings balance. When folding is enabled, its directly posted balances combine with the calculated retained earnings into a single line on reports.
      */
@@ -2135,6 +2220,24 @@ export interface CoaApiV1BillEmptyTransactionDefaultDepartmentTagsRetrieve200Res
     'group'?: number | null;
     'group_name'?: string | null;
 }
+export interface CommitUsagePricing {
+    'usage_product': string;
+    'price_source': CommitUsagePricingPriceSourceEnum;
+    'expected_rate': number;
+    'expected_unit': string;
+    'expected_currency': string;
+    'confirm_price': boolean;
+    'confirm_historical_price'?: boolean;
+}
+/**
+ * * `product_default` - product_default * `contract_override` - contract_override * `existing` - existing
+ */
+export declare const CommitUsagePricingPriceSourceEnum: {
+    readonly ProductDefault: 'product_default';
+    readonly ContractOverride: 'contract_override';
+    readonly Existing: 'existing';
+};
+export type CommitUsagePricingPriceSourceEnum = typeof CommitUsagePricingPriceSourceEnum[keyof typeof CommitUsagePricingPriceSourceEnum];
 /**
  * * `SUBSCRIPTION` - Subscription * `MILESTONE` - Milestone * `USAGE` - Usage
  */
@@ -2243,7 +2346,7 @@ export interface Contract {
     'crm_link'?: string | null;
     'contract_link'?: string | null;
     'status'?: ContractStatusEnum;
-    'source'?: SourceFc1Enum;
+    'source'?: ContractSourceEnum;
     'source_deal_data'?: any | null;
     'created_at': string;
     'auto_renew'?: boolean;
@@ -2300,6 +2403,7 @@ export interface Contract {
 }
 export interface ContractBundle {
     'id': number;
+    'rebalance'?: boolean;
     'is_deleted': boolean;
     'deleted_at': string | null;
     /**
@@ -2493,6 +2597,21 @@ export interface ContractMilestone {
 export interface ContractPrepaidCommit {
     'id': number;
     'contract': number;
+    'client'?: number | null;
+    /**
+     * Create native funding revenue transactions for this commit. Off when another system funds it.
+     */
+    'create_funding_transactions'?: boolean;
+    /**
+     * Project native usage revenue for this commit. Off when another system recognizes it.
+     */
+    'project_usage_revenue'?: boolean;
+    'external_invoice_id'?: string | null;
+    'external_invoice_line_id'?: string | null;
+    /**
+     * Stripe account whose namespace the external invoice references belong to.
+     */
+    'invoice_reference_stripe_connection'?: number | null;
     'invoice_basis'?: InvoiceBasisEnum;
     'billing_cadence'?: BillingCadence450Enum | null;
     'billing_timing'?: BillingTimingEnum | null;
@@ -2502,6 +2621,12 @@ export interface ContractPrepaidCommit {
     'entity_name': string | null;
     'product'?: number | null;
     'product_name': string | null;
+    'eligible_usage_products'?: Array<string>;
+    'eligible_usage_product_details': Array<{
+        [key: string]: any;
+    }>;
+    'eligibility_locked': boolean;
+    'eligibility_lock_reason': string | null;
     'name': string;
     'description'?: string | null;
     'currency'?: string;
@@ -2521,6 +2646,9 @@ export interface ContractPrepaidCommit {
     'unit'?: string;
     'drawdown_basis'?: DrawdownBasisEnum;
     'contract_usage_term'?: string | null;
+    'valuation_pool'?: number | null;
+    'usage_pricing'?: CommitUsagePricing;
+    'usage_pricing_terms'?: Array<LifetimePriceEntry>;
     'start_date': string;
     'expiration_date'?: string | null;
     'status': ContractPrepaidCommitStatusEnum;
@@ -2710,6 +2838,17 @@ export interface ContractProductBundleUpdate {
     'lines': Array<ContractProductBundleLineUpdate>;
 }
 /**
+ * * `SALESFORCE` - Salesforce * `HUBSPOT` - Hubspot * `STRIPE` - Stripe * `METRONOME` - Metronome * `MANUAL` - Manual
+ */
+export declare const ContractSourceEnum: {
+    readonly Salesforce: 'SALESFORCE';
+    readonly Hubspot: 'HUBSPOT';
+    readonly Stripe: 'STRIPE';
+    readonly Metronome: 'METRONOME';
+    readonly Manual: 'MANUAL';
+};
+export type ContractSourceEnum = typeof ContractSourceEnum[keyof typeof ContractSourceEnum];
+/**
  * * `ACTIVE` - Active * `PENDING` - Pending * `COMPLETED` - Completed * `DELETED` - Deleted
  */
 export declare const ContractStatusEnum: {
@@ -2719,6 +2858,12 @@ export declare const ContractStatusEnum: {
     readonly Deleted: 'DELETED';
 };
 export type ContractStatusEnum = typeof ContractStatusEnum[keyof typeof ContractStatusEnum];
+export interface ContractSubledgerAccounts {
+    'entity': SubledgerEntity;
+    'currency': string;
+    'client': SubledgerClient | null;
+    'accounts': Array<SubledgerAccount>;
+}
 export interface ContractSubscription {
     'id': number;
     'is_deleted': boolean;
@@ -3116,11 +3261,15 @@ export interface Department {
     'display_name'?: string | null;
     'external_id': string | null;
     'source': string | null;
-    'tag_ids'?: Array<number>;
-    'tag_group_ids'?: Array<number>;
+    'tag_ids': Array<number>;
+    'tag_group_ids': Array<number>;
     'created_at': string;
     'customer': number;
     'parent'?: number | null;
+}
+export interface DisputeInvoiceReference {
+    'id': number;
+    'invoice_number': string;
 }
 /**
  * * `monetary` - Monetary amount * `quantity` - Quantity
@@ -3137,6 +3286,10 @@ export interface EmptyTransactionInput {
      */
     'payment_date': string;
     'withholding_amount'?: number | null;
+    /**
+     * Clearing account to validate
+     */
+    'account_id'?: number | null;
 }
 /**
  * Standard error response.
@@ -3468,6 +3621,15 @@ export interface GeneralLedgerResponse {
     'has_next': boolean;
     'current_page': number;
     'total_pages': number;
+    'basis'?: {
+        [key: string]: any;
+    };
+    'activity_basis'?: string;
+    'translation_note'?: string;
+    'translation_warnings'?: Array<string>;
+    'translation_unresolved'?: Array<{
+        [key: string]: any;
+    }>;
 }
 /**
  * Schema shape for a resolved transaction tag on a general-ledger row.
@@ -3524,6 +3686,11 @@ export interface GeneralLedgerTransaction {
     'tags': Array<GeneralLedgerTag>;
     'opposing_account_name': string | null;
     'opposing_account_number': string | null;
+    /**
+     * `transaction`, or `translation_adjustment` on the translated basis
+     */
+    'row_type'?: string;
+    'translation_unresolved'?: boolean;
 }
 export interface GetDefaultPaymentInput {
     /**
@@ -3568,7 +3735,7 @@ export interface IntercompanyJournalEntry {
     'statement_transaction_id'?: number | null;
     'is_deleted': boolean;
     'deleted_at': string | null;
-    'type'?: Type4aaEnum;
+    'type'?: TypeB9aEnum;
     'journal_id'?: string;
     'memo'?: string | null;
     'currency'?: string;
@@ -3782,6 +3949,7 @@ export interface JournalEntry {
     'linked_source_documents': Array<{
         [key: string]: any;
     }>;
+    'dispute_invoices': Array<DisputeInvoiceReference>;
     /**
      * Upload run to record this row against; must be one of your own runs. Ignored on update.
      */
@@ -3792,7 +3960,7 @@ export interface JournalEntry {
     'csv_upload_row_number'?: number | null;
     'search_vector': string | null;
     'search_text': string | null;
-    'type'?: Type4aaEnum;
+    'type'?: TypeB9aEnum;
     'journal_id'?: string;
     'memo'?: string | null;
     'currency'?: string;
@@ -3922,6 +4090,7 @@ export interface JournalEntryWrite {
     'linked_source_documents': Array<{
         [key: string]: any;
     }>;
+    'dispute_invoices': Array<DisputeInvoiceReference>;
     /**
      * Upload run to record this row against; must be one of your own runs. Ignored on update.
      */
@@ -3932,7 +4101,7 @@ export interface JournalEntryWrite {
     'csv_upload_row_number'?: number | null;
     'search_vector': string | null;
     'search_text': string | null;
-    'type'?: Type4aaEnum;
+    'type'?: TypeB9aEnum;
     'journal_id'?: string;
     'memo'?: string | null;
     'currency'?: string;
@@ -3962,6 +4131,28 @@ export declare const Kind5e2Enum: {
     readonly PrepaidCommit: 'prepaid_commit';
 };
 export type Kind5e2Enum = typeof Kind5e2Enum[keyof typeof Kind5e2Enum];
+export interface LifetimePriceEntry {
+    'usage_product': string;
+    'price_source': LifetimePriceEntryPriceSourceEnum;
+    'rate_card'?: number | null;
+    'schedule'?: {
+        [key: string]: any;
+    } | null;
+    'contract_usage_term'?: string | null;
+    'preview_digest': string;
+    'preview_token': string;
+    'confirm_price': boolean;
+    'confirm_historical_price'?: boolean;
+}
+/**
+ * * `rate_card` - rate_card * `contract_override` - contract_override * `existing` - existing
+ */
+export declare const LifetimePriceEntryPriceSourceEnum: {
+    readonly RateCard: 'rate_card';
+    readonly ContractOverride: 'contract_override';
+    readonly Existing: 'existing';
+};
+export type LifetimePriceEntryPriceSourceEnum = typeof LifetimePriceEntryPriceSourceEnum[keyof typeof LifetimePriceEntryPriceSourceEnum];
 /**
  * Serializer for marking a credit memo as used with a transaction.
  */
@@ -4113,6 +4304,11 @@ export declare const MonthlyBillingPeriodAlignmentEnum: {
 };
 export type MonthlyBillingPeriodAlignmentEnum = typeof MonthlyBillingPeriodAlignmentEnum[keyof typeof MonthlyBillingPeriodAlignmentEnum];
 export interface NestedContractPrepaidCommit {
+    'eligible_usage_products'?: Array<string>;
+    'usage_pricing'?: CommitUsagePricing;
+    'usage_pricing_terms'?: Array<LifetimePriceEntry>;
+    'contract_usage_term'?: string | null;
+    'drawdown_basis'?: DrawdownBasisEnum;
     'entity'?: number | null;
     'product'?: number | null;
     'invoice_basis'?: InvoiceBasisEnum;
@@ -4175,6 +4371,12 @@ export interface PaginatedAllocationSyncRunList {
     'next'?: string | null;
     'previous'?: string | null;
     'results': Array<AllocationSyncRun>;
+}
+export interface PaginatedAuditLogEntrySchemaList {
+    'count': number;
+    'next'?: string | null;
+    'previous'?: string | null;
+    'results': Array<AuditLogEntrySchema>;
 }
 export interface PaginatedBankAccountList {
     'count': number;
@@ -4493,6 +4695,7 @@ export interface PatchedAccountingBill {
     'created_at'?: string;
     'tax_behavior'?: TaxBehaviorEnum | null;
     'bill_type'?: BillTypeEnum;
+    'posts_opening_balance_offset'?: boolean;
     'chat_id'?: number | null;
     'customer'?: number;
     'entity'?: number;
@@ -4509,6 +4712,7 @@ export interface PatchedAccountingBill {
      */
     'ap_account'?: number | null;
     'voided_journal_entry'?: number | null;
+    'opening_balance_offset_journal_entry'?: number | null;
 }
 export interface PatchedAccountingCreditMemo {
     'id'?: number;
@@ -4568,6 +4772,11 @@ export interface PatchedAccountingCreditMemo {
     'integration_id'?: string | null;
     'integration_context'?: any | null;
     'vat_number'?: string | null;
+    'billing_addressee'?: string | null;
+    'billing_address'?: string | null;
+    'shipping_addressee'?: string | null;
+    'shipping_address'?: string | null;
+    'purchase_order_number'?: string | null;
     /**
      * Sum of all line item amounts
      */
@@ -4677,6 +4886,8 @@ export interface PatchedAccountingInvoice {
     'entity_name'?: string;
     'entity_currency'?: string;
     'entity_invoice_message'?: string | null;
+    'entity_quantity_max_decimal_places'?: number;
+    'entity_rate_max_decimal_places'?: number;
     'total_amount'?: number;
     'amount_paid'?: number;
     'amount_due'?: number;
@@ -4698,8 +4909,8 @@ export interface PatchedAccountingInvoice {
     'stripe_connection_billing_portal_enabled'?: boolean;
     'avalara_connection_name'?: string;
     'avalara_connection_company'?: string;
-    'tax_rate_name'?: string;
-    'tax_rate_value'?: number;
+    'tax_rate_name'?: string | null;
+    'tax_rate_value'?: number | null;
     'payment_term_name'?: string;
     /**
      * Write-only. Revenue transaction IDs to link to this invoice. This field is never included in responses.
@@ -4764,6 +4975,7 @@ export interface PatchedAccountingInvoice {
     'location_of_sale'?: string | null;
     'message_on_invoice'?: string | null;
     'ita_allocation_number'?: string | null;
+    'posts_opening_balance_offset'?: boolean;
     'payment_status'?: PaymentStatusCdcEnum | null;
     /**
      * ID of the transaction in Anrok (set when transaction is created)
@@ -4829,6 +5041,7 @@ export interface PatchedAccountingInvoice {
      */
     'ar_account'?: number | null;
     'voided_journal_entry'?: number | null;
+    'opening_balance_offset_journal_entry'?: number | null;
     'entity_transfer_journal_entry'?: number | null;
     'contract'?: number | null;
     'avalara_connection'?: number | null;
@@ -4851,6 +5064,9 @@ export interface PatchedBankAccount {
     'type_name'?: string;
     'subtype_name'?: string;
     'cashflow_classification_name'?: string;
+    'is_disconnected'?: boolean;
+    'in_cash_total'?: boolean;
+    'check_field_offsets_mm'?: any;
     'account_id'?: string;
     'currency'?: string;
     'external_account_id'?: string | null;
@@ -4877,6 +5093,7 @@ export interface PatchedBankAccount {
     'check_print_payee_address'?: boolean;
     'check_print_company_block'?: boolean;
     'check_stock_prenumbered'?: boolean;
+    'check_print_currency_symbol'?: boolean;
     'created_at'?: string;
     'last_modified_at'?: string;
     'tag_ids'?: Array<number>;
@@ -5010,6 +5227,10 @@ export interface PatchedChartAccount {
      * Allow manual journal entries to post to this AR/AP account, bypassing subledger validation
      */
     'skip_subledger_validation'?: boolean;
+    /**
+     * Follow the AP subledger lock: manual entries to this account or its child accounts dated in a locked period are blocked, and synced plain journal entries (not bills, invoices, memos, payments or recurring entries) post on the next open day
+     */
+    'include_in_ap_lock'?: boolean;
     'external_id'?: string | null;
     'source'?: string | null;
     'created_at'?: string;
@@ -5143,6 +5364,14 @@ export interface PatchedChartAccountSettings {
      * Account credited when a dispute is reinstated (won). Falls back to dispute_expense_account if not set.
      */
     'dispute_reinstatement_account'?: number | null;
+    /**
+     * Asset account holding withdrawn funds while a dispute is pending: debited on the withdrawal, credited when the dispute resolves (won, or written off on loss).
+     */
+    'disputed_receivable_account'?: number | null;
+    /**
+     * Expense account for the Stripe dispute fee, booked when a dispute opens. Non-refundable win or lose, and kept separate from Stripe processing fees. Falls back to the processing-fees account if not set.
+     */
+    'dispute_fee_account'?: number | null;
     /**
      * Equity account that holds a migrated opening Retained Earnings balance. When folding is enabled, its directly posted balances combine with the calculated retained earnings into a single line on reports.
      */
@@ -5494,7 +5723,7 @@ export interface PatchedContract {
     'crm_link'?: string | null;
     'contract_link'?: string | null;
     'status'?: ContractStatusEnum;
-    'source'?: SourceFc1Enum;
+    'source'?: ContractSourceEnum;
     'source_deal_data'?: any | null;
     'created_at'?: string;
     'auto_renew'?: boolean;
@@ -5551,6 +5780,7 @@ export interface PatchedContract {
 }
 export interface PatchedContractBundle {
     'id'?: number;
+    'rebalance'?: boolean;
     'is_deleted'?: boolean;
     'deleted_at'?: string | null;
     /**
@@ -5726,6 +5956,21 @@ export interface PatchedContractMilestone {
 export interface PatchedContractPrepaidCommit {
     'id'?: number;
     'contract'?: number;
+    'client'?: number | null;
+    /**
+     * Create native funding revenue transactions for this commit. Off when another system funds it.
+     */
+    'create_funding_transactions'?: boolean;
+    /**
+     * Project native usage revenue for this commit. Off when another system recognizes it.
+     */
+    'project_usage_revenue'?: boolean;
+    'external_invoice_id'?: string | null;
+    'external_invoice_line_id'?: string | null;
+    /**
+     * Stripe account whose namespace the external invoice references belong to.
+     */
+    'invoice_reference_stripe_connection'?: number | null;
     'invoice_basis'?: InvoiceBasisEnum;
     'billing_cadence'?: BillingCadence450Enum | null;
     'billing_timing'?: BillingTimingEnum | null;
@@ -5735,6 +5980,12 @@ export interface PatchedContractPrepaidCommit {
     'entity_name'?: string | null;
     'product'?: number | null;
     'product_name'?: string | null;
+    'eligible_usage_products'?: Array<string>;
+    'eligible_usage_product_details'?: Array<{
+        [key: string]: any;
+    }>;
+    'eligibility_locked'?: boolean;
+    'eligibility_lock_reason'?: string | null;
     'name'?: string;
     'description'?: string | null;
     'currency'?: string;
@@ -5754,6 +6005,9 @@ export interface PatchedContractPrepaidCommit {
     'unit'?: string;
     'drawdown_basis'?: DrawdownBasisEnum;
     'contract_usage_term'?: string | null;
+    'valuation_pool'?: number | null;
+    'usage_pricing'?: CommitUsagePricing;
+    'usage_pricing_terms'?: Array<LifetimePriceEntry>;
     'start_date'?: string;
     'expiration_date'?: string | null;
     'status'?: ContractPrepaidCommitStatusEnum;
@@ -6142,7 +6396,7 @@ export interface PatchedIntercompanyJournalEntry {
     'statement_transaction_id'?: number | null;
     'is_deleted'?: boolean;
     'deleted_at'?: string | null;
-    'type'?: Type4aaEnum;
+    'type'?: TypeB9aEnum;
     'journal_id'?: string;
     'memo'?: string | null;
     'currency'?: string;
@@ -6218,6 +6472,7 @@ export interface PatchedJournalEntryWrite {
     'linked_source_documents'?: Array<{
         [key: string]: any;
     }>;
+    'dispute_invoices'?: Array<DisputeInvoiceReference>;
     /**
      * Upload run to record this row against; must be one of your own runs. Ignored on update.
      */
@@ -6228,7 +6483,7 @@ export interface PatchedJournalEntryWrite {
     'csv_upload_row_number'?: number | null;
     'search_vector'?: string | null;
     'search_text'?: string | null;
-    'type'?: Type4aaEnum;
+    'type'?: TypeB9aEnum;
     'journal_id'?: string;
     'memo'?: string | null;
     'currency'?: string;
@@ -6286,6 +6541,10 @@ export interface PatchedProduct {
      * If False, contract-sync skips the revenue-recognition waterfall for this product (no ContractSubscription / RevenueTransaction rows).
      */
     'recognize_revenue'?: boolean;
+    /**
+     * Recognition method for integrations to use. Unset preserves existing behavior.  * `ratable` - Ratable * `as_consumed` - As consumed
+     */
+    'default_revenue_recognition_method'?: ProductRevenueRecognitionMethodEnum | null;
     /**
      * Default subscription revenue recognition when this customer-scoped product is created on a contract with a prepaid usage commitment.  * `RATABLE` - Ratable * `RELATIVE_TO_PREPAID_COMMIT` - Relative to prepaid commit
      */
@@ -6567,6 +6826,7 @@ export interface PatchedTransactionMatch {
     'reverted_at'?: string | null;
     'customer'?: number;
     'transaction'?: number | null;
+    'bank_transaction'?: number | null;
     'content_type'?: number;
     'reviewed_by'?: number | null;
     /**
@@ -6799,6 +7059,59 @@ export interface PrepaidUsageEvent {
     'original_period_month'?: string | null;
     'created_at': string | null;
 }
+export interface PreviewAllocation {
+    'revenue_line_id': number;
+    'amount_before': number;
+    'allocated_amount': number;
+    'split': boolean;
+    'outside_period': boolean;
+}
+export interface PreviewContract {
+    'id': number;
+    'deal_name': string | null;
+    'deal_id': string | null;
+    'currency': string;
+    'revenue_lines': Array<PreviewRevenueLine>;
+}
+/**
+ * The invoice the upload will post, plus the row reference the page shows it under.
+ */
+export interface PreviewInvoice {
+    'reference': string;
+    'invoice_number'?: string | null;
+    'invoice_date'?: string | null;
+    'period_start'?: string | null;
+    'period_end'?: string | null;
+    'currency'?: string | null;
+    'entity'?: number | null;
+    'client'?: number | null;
+    'contract'?: number | null;
+    'lines': Array<PreviewLine>;
+}
+export interface PreviewInvoiceResult {
+    'reference': string;
+    'invoice_number': string | null;
+    'contract_id': number | null;
+    'status': string;
+    'reason': string | null;
+    'review_flags': Array<string>;
+    'allocations': Array<PreviewAllocation>;
+}
+export interface PreviewLine {
+    'product'?: number | null;
+    'amount': number;
+    'discount'?: number | null;
+    'service_date'?: string | null;
+}
+export interface PreviewRevenueLine {
+    'id': number;
+    'transaction_date': string | null;
+    'transaction_end_date': string | null;
+    'product_name': string | null;
+    'amount': number;
+    'invoice_id': number | null;
+    'invoice_number': string | null;
+}
 /**
  * * `unit_based` - Unit based pricing * `fixed_fee` - Fixed fee pricing * `percentage_based` - Percentage based pricing * `graduated_tiered` - Graduated tiered pricing * `volume_based` - Volume based pricing
  */
@@ -6832,8 +7145,8 @@ export interface Product {
     'product_id'?: string | null;
     'product_name'?: string | null;
     'product_description'?: string | null;
-    'tag_ids'?: Array<number>;
-    'tag_group_ids'?: Array<number>;
+    'tag_ids': Array<number>;
+    'tag_group_ids': Array<number>;
     'currency'?: string | null;
     'price'?: number | null;
     'usage_price_unit'?: string;
@@ -6845,6 +7158,10 @@ export interface Product {
      * If False, contract-sync skips the revenue-recognition waterfall for this product (no ContractSubscription / RevenueTransaction rows).
      */
     'recognize_revenue'?: boolean;
+    /**
+     * Recognition method for integrations to use. Unset preserves existing behavior.  * `ratable` - Ratable * `as_consumed` - As consumed
+     */
+    'default_revenue_recognition_method'?: ProductRevenueRecognitionMethodEnum | null;
     /**
      * Default subscription revenue recognition when this customer-scoped product is created on a contract with a prepaid usage commitment.  * `RATABLE` - Ratable * `RELATIVE_TO_PREPAID_COMMIT` - Relative to prepaid commit
      */
@@ -6899,6 +7216,14 @@ export interface ProductBundleLine {
      */
     'component_type'?: ComponentTypeEnum | null;
 }
+/**
+ * * `ratable` - Ratable * `as_consumed` - As consumed
+ */
+export declare const ProductRevenueRecognitionMethodEnum: {
+    readonly Ratable: 'ratable';
+    readonly AsConsumed: 'as_consumed';
+};
+export type ProductRevenueRecognitionMethodEnum = typeof ProductRevenueRecognitionMethodEnum[keyof typeof ProductRevenueRecognitionMethodEnum];
 /**
  * Lookup-only product shape used by bulk search.
  */
@@ -7148,6 +7473,16 @@ export declare const RenewalBehaviorEnum: {
 };
 export type RenewalBehaviorEnum = typeof RenewalBehaviorEnum[keyof typeof RenewalBehaviorEnum];
 /**
+ * * `as_consumed` - As consumed * `period_incurred` - Period incurred * `ratable` - Ratable * `proportional_to_commit` - Proportional to commit
+ */
+export declare const RevenueRecognitionMethodEnum: {
+    readonly AsConsumed: 'as_consumed';
+    readonly PeriodIncurred: 'period_incurred';
+    readonly Ratable: 'ratable';
+    readonly ProportionalToCommit: 'proportional_to_commit';
+};
+export type RevenueRecognitionMethodEnum = typeof RevenueRecognitionMethodEnum[keyof typeof RevenueRecognitionMethodEnum];
+/**
  * * `RATABLE` - Ratable * `RELATIVE_TO_PREPAID_COMMIT` - Relative to prepaid commit
  */
 export declare const RevenueRecognitionTypeEnum: {
@@ -7361,6 +7696,23 @@ export declare const Status8ecEnum: {
     readonly Deleted: 'DELETED';
 };
 export type Status8ecEnum = typeof Status8ecEnum[keyof typeof Status8ecEnum];
+export interface SubledgerAccount {
+    'id': number;
+    'name_and_number': string;
+    'account_type': string;
+    'account_subtype': string | null;
+    'roles': Array<string>;
+    'manual_entry_blocked_reason': string | null;
+}
+export interface SubledgerClient {
+    'id': number;
+    'name': string;
+}
+export interface SubledgerEntity {
+    'id': number;
+    'name': string;
+    'currency': string;
+}
 /**
  * * `prepaid_commit` - prepaid_commit
  */
@@ -7554,10 +7906,7 @@ export interface TierPriceOverride {
     'deal_name': string;
     'usage_group_id': number;
     'usage_group_name': string;
-    /**
-     * Override price per unit for this contract+tier
-     */
-    'price'?: number | null;
+    'price'?: TierPriceOverridePrice | null;
     /**
      * Override percentage for this contract+tier (percentage-based pricing)
      */
@@ -7569,6 +7918,10 @@ export interface TierPriceOverride {
     'created_at': string;
     'last_modified_at': string;
 }
+/**
+ * @type TierPriceOverridePrice
+ */
+export type TierPriceOverridePrice = number | string;
 /**
  * * `manual` - Manual entry * `integration` - Integration-driven
  */
@@ -7619,6 +7972,7 @@ export interface TransactionMatch {
     'reverted_at'?: string | null;
     'customer': number;
     'transaction': number | null;
+    'bank_transaction': number | null;
     'content_type': number;
     'reviewed_by'?: number | null;
     /**
@@ -7727,9 +8081,9 @@ export declare const TriggerEnum: {
 };
 export type TriggerEnum = typeof TriggerEnum[keyof typeof TriggerEnum];
 /**
- * * `bill` - Bill * `bill_payment` - Bill Payment * `bill_prepayment` - Bill Prepayment * `check` - Check * `check_cleared` - Check Cleared * `credit_card` - Credit Card * `credit_memo` - Credit Memo * `credit_memo_payment` - Credit Memo Payment * `debit_memo` - Debit Memo * `debit_memo_payment` - Debit Memo Payment * `deposit` - Deposit * `expense` - Expense * `invoice` - Invoice * `intercompany_journal` - Intercompany Journal * `invoice_payment` - Invoice Payment * `journal_entry` - Journal Entry * `lease` - Lease * `payment` - Payment * `receive_payment` - Receive Payment * `refund` - Refund * `revenue_recognition` - Revenue Recognition * `sales_receipt` - Sales Receipt * `transfer` - Transfer * `vendor_credit` - Vendor Credit * `void_bill` - Void Bill * `void_bill_payment` - Void Bill Payment * `void_invoice_payment` - Void Invoice Payment * `void_credit_memo` - Void Credit Memo * `void_credit_memo_payment` - Void Credit Memo Payment * `void_debit_memo_payment` - Void Debit Memo Payment * `void_invoice` - Void Invoice * `elimination` - Elimination * `revaluation` - Revaluation * `asset_reclassification` - Asset Reclassification * `statistical_allocation` - Statistical Allocation * `allocation_true_up` - Allocation True-Up * `asset_impairment` - Asset Impairment
+ * * `bill` - Bill * `bill_payment` - Bill Payment * `bill_prepayment` - Bill Prepayment * `check` - Check * `check_cleared` - Check Cleared * `credit_card` - Credit Card * `credit_memo` - Credit Memo * `credit_memo_payment` - Credit Memo Payment * `debit_memo` - Debit Memo * `debit_memo_payment` - Debit Memo Payment * `deposit` - Deposit * `expense` - Expense * `invoice` - Invoice * `intercompany_journal` - Intercompany Journal * `invoice_payment` - Invoice Payment * `journal_entry` - Journal Entry * `lease` - Lease * `payment` - Payment * `receive_payment` - Receive Payment * `refund` - Refund * `revenue_recognition` - Revenue Recognition * `sales_receipt` - Sales Receipt * `transfer` - Transfer * `vendor_credit` - Vendor Credit * `void_bill` - Void Bill * `void_bill_payment` - Void Bill Payment * `void_invoice_payment` - Void Invoice Payment * `void_credit_memo` - Void Credit Memo * `void_credit_memo_payment` - Void Credit Memo Payment * `void_debit_memo_payment` - Void Debit Memo Payment * `void_invoice` - Void Invoice * `elimination` - Elimination * `revaluation` - Revaluation * `asset_reclassification` - Asset Reclassification * `statistical_allocation` - Statistical Allocation * `allocation_true_up` - Allocation True-Up * `asset_impairment` - Asset Impairment * `migration_offset` - Migration Offset
  */
-export declare const Type4aaEnum: {
+export declare const TypeB9aEnum: {
     readonly Bill: 'bill';
     readonly BillPayment: 'bill_payment';
     readonly BillPrepayment: 'bill_prepayment';
@@ -7767,8 +8121,16 @@ export declare const Type4aaEnum: {
     readonly StatisticalAllocation: 'statistical_allocation';
     readonly AllocationTrueUp: 'allocation_true_up';
     readonly AssetImpairment: 'asset_impairment';
+    readonly MigrationOffset: 'migration_offset';
 };
-export type Type4aaEnum = typeof Type4aaEnum[keyof typeof Type4aaEnum];
+export type TypeB9aEnum = typeof TypeB9aEnum[keyof typeof TypeB9aEnum];
+export interface UploadRevenuePreview {
+    'invoices': Array<PreviewInvoiceResult>;
+    'contracts': Array<PreviewContract>;
+}
+export interface UploadRevenuePreviewRequest {
+    'invoices': Array<PreviewInvoice>;
+}
 export interface Vendor {
     'id': number;
     'contacts'?: Array<VendorContact>;
@@ -7907,6 +8269,7 @@ export interface VendorSummary {
     'campfire_id': string | null;
     'name'?: string | null;
     'dba'?: string | null;
+    'stripe_customer_id'?: string | null;
     'total_spend'?: number;
     'total_bill_spend'?: number;
     'total_card_spend'?: number;
@@ -7947,6 +8310,10 @@ export interface VoidInvoiceRequest {
 }
 export interface VoidPayment {
     'void_date'?: string | null;
+    /**
+     * Account to post the reversal to instead of Uncategorized.
+     */
+    'reversal_account_id'?: number | null;
 }
 export interface Webhook {
     'id': number;
@@ -8020,10 +8387,20 @@ export declare const AccountsPayableApiAxiosParamCreator: (configuration?: Confi
      */
     coaApiV1BillCreate: (accountingBill: AccountingBill, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     *          Permanently deletes an accounting bill and its associated journal entry.          This endpoint performs a complete deletion of the bill including:         - Removal of all bill line items and associated data         - Deletion of the corresponding accounts payable journal entry         - Cleanup of any tax calculations and allocations         - Removal of vendor payment allocations if applicable          **Important Notes:**         - This operation is irreversible and permanently removes the bill from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity         - All double-entry bookkeeping records related to this bill will be removed         - Any payments allocated to this bill should be handled separately before deletion         - Deletion may affect financial reports and account balances          **Restrictions:**         - Bills with allocated payments may require payment reallocation first         - Consider the impact on historical financial reporting         - Bills cannot be deleted in a closed period
+     *          Permanently deletes an accounting bill and its associated journal entry.          This endpoint performs a complete deletion of the bill including:         - Removal of all bill line items and associated data         - Deletion of the corresponding accounts payable journal entry         - Cleanup of any tax calculations and allocations         - Removal of vendor payment allocations if applicable          **Important Notes:**         - This operation is irreversible and permanently removes the bill from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity         - All double-entry bookkeeping records related to this bill will be removed         - Any payments allocated to this bill should be handled separately before deletion         - Deletion may affect financial reports and account balances          **Restrictions:**         - Bills with allocated payments may require payment reallocation first         - Consider the impact on historical financial reporting         - Bills cannot be deleted in a closed period           A customer can require a reason for this delete in its approval settings. When it does, and this record has a journal entry or a voided journal entry, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
      * @summary Delete Accounting Bill
      * @param {number} id
+     * @param {DeleteRequest} [deleteRequest]
      * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiV1BillDeleteCreate: (id: number, deleteRequest?: DeleteRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Deprecated: use `POST /coa/api/v1/bill/{id}/delete`, which also takes an optional reason for the audit log.           Permanently deletes an accounting bill and its associated journal entry.          This endpoint performs a complete deletion of the bill including:         - Removal of all bill line items and associated data         - Deletion of the corresponding accounts payable journal entry         - Cleanup of any tax calculations and allocations         - Removal of vendor payment allocations if applicable          **Important Notes:**         - This operation is irreversible and permanently removes the bill from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity         - All double-entry bookkeeping records related to this bill will be removed         - Any payments allocated to this bill should be handled separately before deletion         - Deletion may affect financial reports and account balances          **Restrictions:**         - Bills with allocated payments may require payment reallocation first         - Consider the impact on historical financial reporting         - Bills cannot be deleted in a closed period
+     * @summary Delete Accounting Bill (deprecated)
+     * @param {number} id
+     * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiV1BillDestroy: (id: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
@@ -8173,10 +8550,20 @@ export declare const AccountsPayableApiAxiosParamCreator: (configuration?: Confi
      */
     coaApiV1DebitMemoCreate: (accountingDebitMemo: AccountingDebitMemo, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     *
+     * Delete the record. The body can carry a reason, which is saved to the audit log.  A customer can require a reason for this delete in its approval settings. When it does, and this record has a journal entry or a voided journal entry, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
      * @summary Delete Debit Memo
      * @param {number} id
+     * @param {DeleteRequest} [deleteRequest]
      * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiV1DebitMemoDeleteCreate: (id: number, deleteRequest?: DeleteRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Deprecated: use `POST /coa/api/v1/debit-memo/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Debit Memo (deprecated)
+     * @param {number} id
+     * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiV1DebitMemoDestroy: (id: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
@@ -8386,10 +8773,20 @@ export declare const AccountsPayableApiFp: (configuration?: Configuration) => {
      */
     coaApiV1BillCreate(accountingBill: AccountingBill, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountingBill>>;
     /**
-     *          Permanently deletes an accounting bill and its associated journal entry.          This endpoint performs a complete deletion of the bill including:         - Removal of all bill line items and associated data         - Deletion of the corresponding accounts payable journal entry         - Cleanup of any tax calculations and allocations         - Removal of vendor payment allocations if applicable          **Important Notes:**         - This operation is irreversible and permanently removes the bill from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity         - All double-entry bookkeeping records related to this bill will be removed         - Any payments allocated to this bill should be handled separately before deletion         - Deletion may affect financial reports and account balances          **Restrictions:**         - Bills with allocated payments may require payment reallocation first         - Consider the impact on historical financial reporting         - Bills cannot be deleted in a closed period
+     *          Permanently deletes an accounting bill and its associated journal entry.          This endpoint performs a complete deletion of the bill including:         - Removal of all bill line items and associated data         - Deletion of the corresponding accounts payable journal entry         - Cleanup of any tax calculations and allocations         - Removal of vendor payment allocations if applicable          **Important Notes:**         - This operation is irreversible and permanently removes the bill from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity         - All double-entry bookkeeping records related to this bill will be removed         - Any payments allocated to this bill should be handled separately before deletion         - Deletion may affect financial reports and account balances          **Restrictions:**         - Bills with allocated payments may require payment reallocation first         - Consider the impact on historical financial reporting         - Bills cannot be deleted in a closed period           A customer can require a reason for this delete in its approval settings. When it does, and this record has a journal entry or a voided journal entry, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
      * @summary Delete Accounting Bill
      * @param {number} id
+     * @param {DeleteRequest} [deleteRequest]
      * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiV1BillDeleteCreate(id: number, deleteRequest?: DeleteRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * Deprecated: use `POST /coa/api/v1/bill/{id}/delete`, which also takes an optional reason for the audit log.           Permanently deletes an accounting bill and its associated journal entry.          This endpoint performs a complete deletion of the bill including:         - Removal of all bill line items and associated data         - Deletion of the corresponding accounts payable journal entry         - Cleanup of any tax calculations and allocations         - Removal of vendor payment allocations if applicable          **Important Notes:**         - This operation is irreversible and permanently removes the bill from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity         - All double-entry bookkeeping records related to this bill will be removed         - Any payments allocated to this bill should be handled separately before deletion         - Deletion may affect financial reports and account balances          **Restrictions:**         - Bills with allocated payments may require payment reallocation first         - Consider the impact on historical financial reporting         - Bills cannot be deleted in a closed period
+     * @summary Delete Accounting Bill (deprecated)
+     * @param {number} id
+     * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiV1BillDestroy(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
@@ -8543,10 +8940,20 @@ export declare const AccountsPayableApiFp: (configuration?: Configuration) => {
      */
     coaApiV1DebitMemoCreate(accountingDebitMemo: AccountingDebitMemo, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountingDebitMemo>>;
     /**
-     *
+     * Delete the record. The body can carry a reason, which is saved to the audit log.  A customer can require a reason for this delete in its approval settings. When it does, and this record has a journal entry or a voided journal entry, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
      * @summary Delete Debit Memo
      * @param {number} id
+     * @param {DeleteRequest} [deleteRequest]
      * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiV1DebitMemoDeleteCreate(id: number, deleteRequest?: DeleteRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * Deprecated: use `POST /coa/api/v1/debit-memo/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Debit Memo (deprecated)
+     * @param {number} id
+     * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiV1DebitMemoDestroy(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
@@ -8756,10 +9163,19 @@ export declare const AccountsPayableApiFactory: (configuration?: Configuration, 
      */
     coaApiV1BillCreate(requestParameters: AccountsPayableApiCoaApiV1BillCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<AccountingBill>;
     /**
-     *          Permanently deletes an accounting bill and its associated journal entry.          This endpoint performs a complete deletion of the bill including:         - Removal of all bill line items and associated data         - Deletion of the corresponding accounts payable journal entry         - Cleanup of any tax calculations and allocations         - Removal of vendor payment allocations if applicable          **Important Notes:**         - This operation is irreversible and permanently removes the bill from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity         - All double-entry bookkeeping records related to this bill will be removed         - Any payments allocated to this bill should be handled separately before deletion         - Deletion may affect financial reports and account balances          **Restrictions:**         - Bills with allocated payments may require payment reallocation first         - Consider the impact on historical financial reporting         - Bills cannot be deleted in a closed period
+     *          Permanently deletes an accounting bill and its associated journal entry.          This endpoint performs a complete deletion of the bill including:         - Removal of all bill line items and associated data         - Deletion of the corresponding accounts payable journal entry         - Cleanup of any tax calculations and allocations         - Removal of vendor payment allocations if applicable          **Important Notes:**         - This operation is irreversible and permanently removes the bill from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity         - All double-entry bookkeeping records related to this bill will be removed         - Any payments allocated to this bill should be handled separately before deletion         - Deletion may affect financial reports and account balances          **Restrictions:**         - Bills with allocated payments may require payment reallocation first         - Consider the impact on historical financial reporting         - Bills cannot be deleted in a closed period           A customer can require a reason for this delete in its approval settings. When it does, and this record has a journal entry or a voided journal entry, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
      * @summary Delete Accounting Bill
+     * @param {AccountsPayableApiCoaApiV1BillDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiV1BillDeleteCreate(requestParameters: AccountsPayableApiCoaApiV1BillDeleteCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+    /**
+     * Deprecated: use `POST /coa/api/v1/bill/{id}/delete`, which also takes an optional reason for the audit log.           Permanently deletes an accounting bill and its associated journal entry.          This endpoint performs a complete deletion of the bill including:         - Removal of all bill line items and associated data         - Deletion of the corresponding accounts payable journal entry         - Cleanup of any tax calculations and allocations         - Removal of vendor payment allocations if applicable          **Important Notes:**         - This operation is irreversible and permanently removes the bill from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity         - All double-entry bookkeeping records related to this bill will be removed         - Any payments allocated to this bill should be handled separately before deletion         - Deletion may affect financial reports and account balances          **Restrictions:**         - Bills with allocated payments may require payment reallocation first         - Consider the impact on historical financial reporting         - Bills cannot be deleted in a closed period
+     * @summary Delete Accounting Bill (deprecated)
      * @param {AccountsPayableApiCoaApiV1BillDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiV1BillDestroy(requestParameters: AccountsPayableApiCoaApiV1BillDestroyRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
@@ -8887,10 +9303,19 @@ export declare const AccountsPayableApiFactory: (configuration?: Configuration, 
      */
     coaApiV1DebitMemoCreate(requestParameters: AccountsPayableApiCoaApiV1DebitMemoCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<AccountingDebitMemo>;
     /**
-     *
+     * Delete the record. The body can carry a reason, which is saved to the audit log.  A customer can require a reason for this delete in its approval settings. When it does, and this record has a journal entry or a voided journal entry, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
      * @summary Delete Debit Memo
+     * @param {AccountsPayableApiCoaApiV1DebitMemoDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiV1DebitMemoDeleteCreate(requestParameters: AccountsPayableApiCoaApiV1DebitMemoDeleteCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+    /**
+     * Deprecated: use `POST /coa/api/v1/debit-memo/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Debit Memo (deprecated)
      * @param {AccountsPayableApiCoaApiV1DebitMemoDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiV1DebitMemoDestroy(requestParameters: AccountsPayableApiCoaApiV1DebitMemoDestroyRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
@@ -9061,6 +9486,13 @@ export interface AccountsPayableApiCoaApiV1BillBulkSearchCreateRequest {
  */
 export interface AccountsPayableApiCoaApiV1BillCreateRequest {
     readonly accountingBill: AccountingBill;
+}
+/**
+ * Request parameters for coaApiV1BillDeleteCreate operation in AccountsPayableApi.
+ */
+export interface AccountsPayableApiCoaApiV1BillDeleteCreateRequest {
+    readonly id: number;
+    readonly deleteRequest?: DeleteRequest;
 }
 /**
  * Request parameters for coaApiV1BillDestroy operation in AccountsPayableApi.
@@ -9266,6 +9698,13 @@ export interface AccountsPayableApiCoaApiV1DebitMemoCreateRequest {
     readonly accountingDebitMemo: AccountingDebitMemo;
 }
 /**
+ * Request parameters for coaApiV1DebitMemoDeleteCreate operation in AccountsPayableApi.
+ */
+export interface AccountsPayableApiCoaApiV1DebitMemoDeleteCreateRequest {
+    readonly id: number;
+    readonly deleteRequest?: DeleteRequest;
+}
+/**
  * Request parameters for coaApiV1DebitMemoDestroy operation in AccountsPayableApi.
  */
 export interface AccountsPayableApiCoaApiV1DebitMemoDestroyRequest {
@@ -9456,10 +9895,19 @@ export declare class AccountsPayableApi extends BaseAPI {
      */
     coaApiV1BillCreate(requestParameters: AccountsPayableApiCoaApiV1BillCreateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<AccountingBill, any, {}, any>>;
     /**
-     *          Permanently deletes an accounting bill and its associated journal entry.          This endpoint performs a complete deletion of the bill including:         - Removal of all bill line items and associated data         - Deletion of the corresponding accounts payable journal entry         - Cleanup of any tax calculations and allocations         - Removal of vendor payment allocations if applicable          **Important Notes:**         - This operation is irreversible and permanently removes the bill from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity         - All double-entry bookkeeping records related to this bill will be removed         - Any payments allocated to this bill should be handled separately before deletion         - Deletion may affect financial reports and account balances          **Restrictions:**         - Bills with allocated payments may require payment reallocation first         - Consider the impact on historical financial reporting         - Bills cannot be deleted in a closed period
+     *          Permanently deletes an accounting bill and its associated journal entry.          This endpoint performs a complete deletion of the bill including:         - Removal of all bill line items and associated data         - Deletion of the corresponding accounts payable journal entry         - Cleanup of any tax calculations and allocations         - Removal of vendor payment allocations if applicable          **Important Notes:**         - This operation is irreversible and permanently removes the bill from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity         - All double-entry bookkeeping records related to this bill will be removed         - Any payments allocated to this bill should be handled separately before deletion         - Deletion may affect financial reports and account balances          **Restrictions:**         - Bills with allocated payments may require payment reallocation first         - Consider the impact on historical financial reporting         - Bills cannot be deleted in a closed period           A customer can require a reason for this delete in its approval settings. When it does, and this record has a journal entry or a voided journal entry, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
      * @summary Delete Accounting Bill
+     * @param {AccountsPayableApiCoaApiV1BillDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiV1BillDeleteCreate(requestParameters: AccountsPayableApiCoaApiV1BillDeleteCreateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<void, any, {}, any>>;
+    /**
+     * Deprecated: use `POST /coa/api/v1/bill/{id}/delete`, which also takes an optional reason for the audit log.           Permanently deletes an accounting bill and its associated journal entry.          This endpoint performs a complete deletion of the bill including:         - Removal of all bill line items and associated data         - Deletion of the corresponding accounts payable journal entry         - Cleanup of any tax calculations and allocations         - Removal of vendor payment allocations if applicable          **Important Notes:**         - This operation is irreversible and permanently removes the bill from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity         - All double-entry bookkeeping records related to this bill will be removed         - Any payments allocated to this bill should be handled separately before deletion         - Deletion may affect financial reports and account balances          **Restrictions:**         - Bills with allocated payments may require payment reallocation first         - Consider the impact on historical financial reporting         - Bills cannot be deleted in a closed period
+     * @summary Delete Accounting Bill (deprecated)
      * @param {AccountsPayableApiCoaApiV1BillDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiV1BillDestroy(requestParameters: AccountsPayableApiCoaApiV1BillDestroyRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<void, any, {}, any>>;
@@ -9587,10 +10035,19 @@ export declare class AccountsPayableApi extends BaseAPI {
      */
     coaApiV1DebitMemoCreate(requestParameters: AccountsPayableApiCoaApiV1DebitMemoCreateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<AccountingDebitMemo, any, {}, any>>;
     /**
-     *
+     * Delete the record. The body can carry a reason, which is saved to the audit log.  A customer can require a reason for this delete in its approval settings. When it does, and this record has a journal entry or a voided journal entry, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
      * @summary Delete Debit Memo
+     * @param {AccountsPayableApiCoaApiV1DebitMemoDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiV1DebitMemoDeleteCreate(requestParameters: AccountsPayableApiCoaApiV1DebitMemoDeleteCreateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<void, any, {}, any>>;
+    /**
+     * Deprecated: use `POST /coa/api/v1/debit-memo/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Debit Memo (deprecated)
      * @param {AccountsPayableApiCoaApiV1DebitMemoDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiV1DebitMemoDestroy(requestParameters: AccountsPayableApiCoaApiV1DebitMemoDestroyRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<void, any, {}, any>>;
@@ -9791,10 +10248,20 @@ export declare const AccountsReceivableApiAxiosParamCreator: (configuration?: Co
      */
     coaApiV1CreditMemoCreate: (accountingCreditMemo: AccountingCreditMemo, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     *          Permanently deletes an accounting credit memo and all associated data from the system.          This endpoint performs a complete removal of the credit memo including:         - Complete credit memo record deletion with all line items         - Automatic journal entry removal and accounting transaction cleanup          **Accounting Impact:**         - Associated journal entries are automatically deleted to maintain accounting integrity         - Exchange rate records and multi-currency data are cleaned up          **Restrictions:**         - Credit memos that have been applied to invoices cannot be deleted         - Credit memos in closed accounting periods may have deletion restrictions         - Consider the impact on historical financial reporting
+     *          Permanently deletes an accounting credit memo and all associated data from the system.          This endpoint performs a complete removal of the credit memo including:         - Complete credit memo record deletion with all line items         - Automatic journal entry removal and accounting transaction cleanup          **Accounting Impact:**         - Associated journal entries are automatically deleted to maintain accounting integrity         - Exchange rate records and multi-currency data are cleaned up          **Restrictions:**         - Credit memos that have been applied to invoices cannot be deleted         - Credit memos in closed accounting periods may have deletion restrictions         - Consider the impact on historical financial reporting           A customer can require a reason for this delete in its approval settings. When it does, and this record has a journal entry or a voided journal entry, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
      * @summary Delete Credit Memo
      * @param {number} id
+     * @param {DeleteRequest} [deleteRequest]
      * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiV1CreditMemoDeleteCreate: (id: number, deleteRequest?: DeleteRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Deprecated: use `POST /coa/api/v1/credit-memo/{id}/delete`, which also takes an optional reason for the audit log.           Permanently deletes an accounting credit memo and all associated data from the system.          This endpoint performs a complete removal of the credit memo including:         - Complete credit memo record deletion with all line items         - Automatic journal entry removal and accounting transaction cleanup          **Accounting Impact:**         - Associated journal entries are automatically deleted to maintain accounting integrity         - Exchange rate records and multi-currency data are cleaned up          **Restrictions:**         - Credit memos that have been applied to invoices cannot be deleted         - Credit memos in closed accounting periods may have deletion restrictions         - Consider the impact on historical financial reporting
+     * @summary Delete Credit Memo (deprecated)
+     * @param {number} id
+     * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiV1CreditMemoDestroy: (id: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
@@ -9808,13 +10275,14 @@ export declare const AccountsReceivableApiAxiosParamCreator: (configuration?: Co
      * @param {number} [limit] Number of results to return per page
      * @param {number} [offset] Number of results to skip for pagination
      * @param {string} [q] Search credit memo numbers, messages, and client names
+     * @param {number} [revenueLinkableFor] Revenue contract ID. Only credit memos that can be linked to that contract.
      * @param {CoaApiV1CreditMemoListSortEnum} [sort] Sort results by field (prefix with - for descending)
      * @param {string} [startDate] Filter credit memos created on or after this date (YYYY-MM-DD format)
      * @param {CoaApiV1CreditMemoListStatusEnum} [status] Filter by application status
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    coaApiV1CreditMemoList: (client?: Array<number>, contract?: Array<number>, endDate?: string, entity?: Array<number>, limit?: number, offset?: number, q?: string, sort?: CoaApiV1CreditMemoListSortEnum, startDate?: string, status?: CoaApiV1CreditMemoListStatusEnum, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    coaApiV1CreditMemoList: (client?: Array<number>, contract?: Array<number>, endDate?: string, entity?: Array<number>, limit?: number, offset?: number, q?: string, revenueLinkableFor?: number, sort?: CoaApiV1CreditMemoListSortEnum, startDate?: string, status?: CoaApiV1CreditMemoListStatusEnum, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Mark a credit memo as used by linking to an existing transaction.          The transaction\'s debit amount will be recategorized to A/R to clear the credit memo.         The credit memo\'s status will be updated to \"used\" or \"partially_used\" based on         the amount applied vs the total amount.
      * @summary Mark Credit Memo as Used
@@ -9841,7 +10309,7 @@ export declare const AccountsReceivableApiAxiosParamCreator: (configuration?: Co
      */
     coaApiV1CreditMemoPartialUpdate: (id: number, patchedAccountingCreditMemo?: PatchedAccountingCreditMemo, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     * Void a credit memo \'mark used\' payment by creating a reversing journal entry.          This creates a reversing JE that credits the A/R account and debits Uncategorized,         then marks the payment as voided.
+     * Void a credit memo \'mark used\' payment by creating a reversing journal entry.          An application to an invoice is voided on both the credit memo and the invoice, as voiding         it from the invoice does. Any other application gets a reversing JE that credits the A/R         account and debits Uncategorized, then the payment is marked as voided.
      * @summary Void Credit Memo Used Payment
      * @param {number} creditMemoId ID of the credit memo
      * @param {number} paymentId ID of the payment to void
@@ -9851,7 +10319,7 @@ export declare const AccountsReceivableApiAxiosParamCreator: (configuration?: Co
      */
     coaApiV1CreditMemoPaymentVoidCreate: (creditMemoId: number, paymentId: number, voidPayment?: VoidPayment, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     * Remove a credit memo \'mark used\' payment application.          This recategorizes the transaction back to Uncategorized and deletes the payment record.
+     * Remove a credit memo \'mark used\' payment application.          An application to an invoice is removed from both the credit memo and the invoice, along with         its journal entry, as removing it from the invoice does. Any other application recategorizes         the transaction back to Uncategorized and deletes the payment record.
      * @summary Delete Credit Memo Used Payment
      * @param {number} creditMemoId ID of the credit memo
      * @param {number} paymentId ID of the payment to delete
@@ -9927,6 +10395,14 @@ export declare const AccountsReceivableApiAxiosParamCreator: (configuration?: Co
      */
     coaApiV1InvoiceCreate: (accountingInvoice: AccountingInvoice, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
+     * Dry run of the invoice upload\'s revenue linking, in the order given (the order the upload posts them). Nothing is saved.
+     * @summary Preview Invoice Upload Revenue Links
+     * @param {UploadRevenuePreviewRequest} uploadRevenuePreviewRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiV1InvoiceCsvRevenuePreviewCreate: (uploadRevenuePreviewRequest: UploadRevenuePreviewRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Get the default payment amount for an invoice based on when payment is posted.          If the invoice has discount terms and the posted date is within the discount period,         the discounted amount is returned. Otherwise, the full amount is returned.
      * @summary Get Default Payment Amount
      * @param {number} invoiceId ID of the invoice
@@ -9936,10 +10412,20 @@ export declare const AccountsReceivableApiAxiosParamCreator: (configuration?: Co
      */
     coaApiV1InvoiceDefaultPaymentCreate: (invoiceId: number, getDefaultPaymentInput: GetDefaultPaymentInput, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     *          Permanently deletes an accounting invoice and its associated journal entry and related data.          This endpoint performs a complete deletion of the invoice including:         - Removal of all invoice line items and associated product data         - Deletion of the corresponding accounts receivable journal entry         - Removal of payment records and journal entries          **Important Notes:**         - This operation is irreversible and permanently removes the invoice from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity          **Restrictions:**         - Invoices in closed accounting periods cannot be deleted         - Consider the impact on historical financial reporting
+     *          Permanently deletes an accounting invoice and its associated journal entry and related data.          This endpoint performs a complete deletion of the invoice including:         - Removal of all invoice line items and associated product data         - Deletion of the corresponding accounts receivable journal entry         - Removal of payment records and journal entries          **Important Notes:**         - This operation is irreversible and permanently removes the invoice from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity          **Restrictions:**         - Invoices in closed accounting periods cannot be deleted         - Consider the impact on historical financial reporting           A customer can require a reason for this delete in its approval settings. When it does, and this record has a journal entry or a voided journal entry, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
      * @summary Delete Invoice
      * @param {number} id
+     * @param {DeleteRequest} [deleteRequest]
      * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiV1InvoiceDeleteCreate: (id: number, deleteRequest?: DeleteRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Deprecated: use `POST /coa/api/v1/invoice/{id}/delete`, which also takes an optional reason for the audit log.           Permanently deletes an accounting invoice and its associated journal entry and related data.          This endpoint performs a complete deletion of the invoice including:         - Removal of all invoice line items and associated product data         - Deletion of the corresponding accounts receivable journal entry         - Removal of payment records and journal entries          **Important Notes:**         - This operation is irreversible and permanently removes the invoice from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity          **Restrictions:**         - Invoices in closed accounting periods cannot be deleted         - Consider the impact on historical financial reporting
+     * @summary Delete Invoice (deprecated)
+     * @param {number} id
+     * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiV1InvoiceDestroy: (id: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
@@ -9952,6 +10438,7 @@ export declare const AccountsReceivableApiAxiosParamCreator: (configuration?: Co
      * @param {boolean} [download] If true, triggers async CSV download workflow and sends result via email
      * @param {string} [endDate] Filter invoices with invoice_date on or before this date (YYYY-MM-DD)
      * @param {number} [entity] Filter by entity ID. Can be specified multiple times
+     * @param {boolean} [expenseBillingAttachable] Only invoices project expenses can still be billed onto: draft or open, never sent, unpaid
      * @param {string} [invoiceNumber] Filter by exact invoice number
      * @param {number} [limit] Number of results to return per page.
      * @param {number} [lineTagGroupId] Filter invoices with at least one line item assigned a tag from this tag group ID
@@ -9962,6 +10449,7 @@ export declare const AccountsReceivableApiAxiosParamCreator: (configuration?: Co
      * @param {number} [parentClient] Filter by parent client (Vendor) ID. Returns invoices for the specified client and all of its descendants via vendor lineage.
      * @param {string} [q] Search query - searches shipping address, invoice number, message, or client name
      * @param {string} [refNumber] Filter by exact ref number
+     * @param {number} [revenueLinkableFor] Revenue contract ID. Only invoices that can be linked to that contract.
      * @param {CoaApiV1InvoiceListSentStatusEnum} [sentStatus] Filter by sent status
      * @param {string} [sort] Sort order. Use field name for ascending, -field for descending. Special fields: client_name, amount_due. Default: -invoice_date
      * @param {string} [startDate] Filter invoices with invoice_date on or after this date (YYYY-MM-DD)
@@ -9969,7 +10457,7 @@ export declare const AccountsReceivableApiAxiosParamCreator: (configuration?: Co
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    coaApiV1InvoiceList: (client?: number, contract?: number, currency?: string, download?: boolean, endDate?: string, entity?: number, invoiceNumber?: string, limit?: number, lineTagGroupId?: number, lineTagId?: number, offset?: number, paidDateFrom?: string, paidDateTo?: string, parentClient?: number, q?: string, refNumber?: string, sentStatus?: CoaApiV1InvoiceListSentStatusEnum, sort?: string, startDate?: string, status?: CoaApiV1InvoiceListStatusEnum, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    coaApiV1InvoiceList: (client?: number, contract?: number, currency?: string, download?: boolean, endDate?: string, entity?: number, expenseBillingAttachable?: boolean, invoiceNumber?: string, limit?: number, lineTagGroupId?: number, lineTagId?: number, offset?: number, paidDateFrom?: string, paidDateTo?: string, parentClient?: number, q?: string, refNumber?: string, revenueLinkableFor?: number, sentStatus?: CoaApiV1InvoiceListSentStatusEnum, sort?: string, startDate?: string, status?: CoaApiV1InvoiceListStatusEnum, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *          Performs a partial update of an existing accounting invoice using PATCH semantics.          This endpoint allows selective modification of invoice fields without requiring         a complete invoice replacement. You can update specific aspects of the invoice while         leaving other fields unchanged.          **Updatable Fields:**         - Invoice metadata (dates, terms, descriptions, client, entity, currency)         - Line items (amounts, accounts, descriptions, departments, products)         - Payment terms and due dates         - Tax calculations and allocations         - Custom fields and tags         - Contract and purchase order associations         - Exchange rates and currency information
      * @summary Partial Update Invoice
@@ -10160,23 +10648,25 @@ export declare const AccountsReceivableApiAxiosParamCreator: (configuration?: Co
      */
     rrApiV1ProductBulkSearchCreate: (bulkProductSearch: BulkProductSearch, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     * Delete a product.
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Product
      * @param {number} id
+     * @param {number} [newProduct] ID of the product to reassign the deleted product\&#39;s records to before deletion
      * @param {DeleteRequest} [deleteRequest]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    rrApiV1ProductDeleteCreate: (id: number, deleteRequest?: DeleteRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    rrApiV1ProductDeleteCreate: (id: number, newProduct?: number, deleteRequest?: DeleteRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Deprecated: use `POST /rr/api/v1/product/{id}/delete`, which also takes an optional reason for the audit log.
      * @summary Delete Product (deprecated)
      * @param {number} id
+     * @param {number} [newProduct] ID of the product to reassign the deleted product\&#39;s records to before deletion
      * @param {*} [options] Override http request option.
      * @deprecated
      * @throws {RequiredError}
      */
-    rrApiV1ProductDestroy: (id: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    rrApiV1ProductDestroy: (id: number, newProduct?: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Partial Update Product
@@ -10243,10 +10733,20 @@ export declare const AccountsReceivableApiFp: (configuration?: Configuration) =>
      */
     coaApiV1CreditMemoCreate(accountingCreditMemo: AccountingCreditMemo, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountingCreditMemo>>;
     /**
-     *          Permanently deletes an accounting credit memo and all associated data from the system.          This endpoint performs a complete removal of the credit memo including:         - Complete credit memo record deletion with all line items         - Automatic journal entry removal and accounting transaction cleanup          **Accounting Impact:**         - Associated journal entries are automatically deleted to maintain accounting integrity         - Exchange rate records and multi-currency data are cleaned up          **Restrictions:**         - Credit memos that have been applied to invoices cannot be deleted         - Credit memos in closed accounting periods may have deletion restrictions         - Consider the impact on historical financial reporting
+     *          Permanently deletes an accounting credit memo and all associated data from the system.          This endpoint performs a complete removal of the credit memo including:         - Complete credit memo record deletion with all line items         - Automatic journal entry removal and accounting transaction cleanup          **Accounting Impact:**         - Associated journal entries are automatically deleted to maintain accounting integrity         - Exchange rate records and multi-currency data are cleaned up          **Restrictions:**         - Credit memos that have been applied to invoices cannot be deleted         - Credit memos in closed accounting periods may have deletion restrictions         - Consider the impact on historical financial reporting           A customer can require a reason for this delete in its approval settings. When it does, and this record has a journal entry or a voided journal entry, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
      * @summary Delete Credit Memo
      * @param {number} id
+     * @param {DeleteRequest} [deleteRequest]
      * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiV1CreditMemoDeleteCreate(id: number, deleteRequest?: DeleteRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * Deprecated: use `POST /coa/api/v1/credit-memo/{id}/delete`, which also takes an optional reason for the audit log.           Permanently deletes an accounting credit memo and all associated data from the system.          This endpoint performs a complete removal of the credit memo including:         - Complete credit memo record deletion with all line items         - Automatic journal entry removal and accounting transaction cleanup          **Accounting Impact:**         - Associated journal entries are automatically deleted to maintain accounting integrity         - Exchange rate records and multi-currency data are cleaned up          **Restrictions:**         - Credit memos that have been applied to invoices cannot be deleted         - Credit memos in closed accounting periods may have deletion restrictions         - Consider the impact on historical financial reporting
+     * @summary Delete Credit Memo (deprecated)
+     * @param {number} id
+     * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiV1CreditMemoDestroy(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
@@ -10260,13 +10760,14 @@ export declare const AccountsReceivableApiFp: (configuration?: Configuration) =>
      * @param {number} [limit] Number of results to return per page
      * @param {number} [offset] Number of results to skip for pagination
      * @param {string} [q] Search credit memo numbers, messages, and client names
+     * @param {number} [revenueLinkableFor] Revenue contract ID. Only credit memos that can be linked to that contract.
      * @param {CoaApiV1CreditMemoListSortEnum} [sort] Sort results by field (prefix with - for descending)
      * @param {string} [startDate] Filter credit memos created on or after this date (YYYY-MM-DD format)
      * @param {CoaApiV1CreditMemoListStatusEnum} [status] Filter by application status
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    coaApiV1CreditMemoList(client?: Array<number>, contract?: Array<number>, endDate?: string, entity?: Array<number>, limit?: number, offset?: number, q?: string, sort?: CoaApiV1CreditMemoListSortEnum, startDate?: string, status?: CoaApiV1CreditMemoListStatusEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PaginatedAccountingCreditMemoList>>;
+    coaApiV1CreditMemoList(client?: Array<number>, contract?: Array<number>, endDate?: string, entity?: Array<number>, limit?: number, offset?: number, q?: string, revenueLinkableFor?: number, sort?: CoaApiV1CreditMemoListSortEnum, startDate?: string, status?: CoaApiV1CreditMemoListStatusEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PaginatedAccountingCreditMemoList>>;
     /**
      * Mark a credit memo as used by linking to an existing transaction.          The transaction\'s debit amount will be recategorized to A/R to clear the credit memo.         The credit memo\'s status will be updated to \"used\" or \"partially_used\" based on         the amount applied vs the total amount.
      * @summary Mark Credit Memo as Used
@@ -10293,7 +10794,7 @@ export declare const AccountsReceivableApiFp: (configuration?: Configuration) =>
      */
     coaApiV1CreditMemoPartialUpdate(id: number, patchedAccountingCreditMemo?: PatchedAccountingCreditMemo, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountingCreditMemo>>;
     /**
-     * Void a credit memo \'mark used\' payment by creating a reversing journal entry.          This creates a reversing JE that credits the A/R account and debits Uncategorized,         then marks the payment as voided.
+     * Void a credit memo \'mark used\' payment by creating a reversing journal entry.          An application to an invoice is voided on both the credit memo and the invoice, as voiding         it from the invoice does. Any other application gets a reversing JE that credits the A/R         account and debits Uncategorized, then the payment is marked as voided.
      * @summary Void Credit Memo Used Payment
      * @param {number} creditMemoId ID of the credit memo
      * @param {number} paymentId ID of the payment to void
@@ -10303,7 +10804,7 @@ export declare const AccountsReceivableApiFp: (configuration?: Configuration) =>
      */
     coaApiV1CreditMemoPaymentVoidCreate(creditMemoId: number, paymentId: number, voidPayment?: VoidPayment, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountingCreditMemoPayment>>;
     /**
-     * Remove a credit memo \'mark used\' payment application.          This recategorizes the transaction back to Uncategorized and deletes the payment record.
+     * Remove a credit memo \'mark used\' payment application.          An application to an invoice is removed from both the credit memo and the invoice, along with         its journal entry, as removing it from the invoice does. Any other application recategorizes         the transaction back to Uncategorized and deletes the payment record.
      * @summary Delete Credit Memo Used Payment
      * @param {number} creditMemoId ID of the credit memo
      * @param {number} paymentId ID of the payment to delete
@@ -10383,6 +10884,14 @@ export declare const AccountsReceivableApiFp: (configuration?: Configuration) =>
      */
     coaApiV1InvoiceCreate(accountingInvoice: AccountingInvoice, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountingInvoice>>;
     /**
+     * Dry run of the invoice upload\'s revenue linking, in the order given (the order the upload posts them). Nothing is saved.
+     * @summary Preview Invoice Upload Revenue Links
+     * @param {UploadRevenuePreviewRequest} uploadRevenuePreviewRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiV1InvoiceCsvRevenuePreviewCreate(uploadRevenuePreviewRequest: UploadRevenuePreviewRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UploadRevenuePreview>>;
+    /**
      * Get the default payment amount for an invoice based on when payment is posted.          If the invoice has discount terms and the posted date is within the discount period,         the discounted amount is returned. Otherwise, the full amount is returned.
      * @summary Get Default Payment Amount
      * @param {number} invoiceId ID of the invoice
@@ -10392,10 +10901,20 @@ export declare const AccountsReceivableApiFp: (configuration?: Configuration) =>
      */
     coaApiV1InvoiceDefaultPaymentCreate(invoiceId: number, getDefaultPaymentInput: GetDefaultPaymentInput, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetDefaultPaymentOutput>>;
     /**
-     *          Permanently deletes an accounting invoice and its associated journal entry and related data.          This endpoint performs a complete deletion of the invoice including:         - Removal of all invoice line items and associated product data         - Deletion of the corresponding accounts receivable journal entry         - Removal of payment records and journal entries          **Important Notes:**         - This operation is irreversible and permanently removes the invoice from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity          **Restrictions:**         - Invoices in closed accounting periods cannot be deleted         - Consider the impact on historical financial reporting
+     *          Permanently deletes an accounting invoice and its associated journal entry and related data.          This endpoint performs a complete deletion of the invoice including:         - Removal of all invoice line items and associated product data         - Deletion of the corresponding accounts receivable journal entry         - Removal of payment records and journal entries          **Important Notes:**         - This operation is irreversible and permanently removes the invoice from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity          **Restrictions:**         - Invoices in closed accounting periods cannot be deleted         - Consider the impact on historical financial reporting           A customer can require a reason for this delete in its approval settings. When it does, and this record has a journal entry or a voided journal entry, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
      * @summary Delete Invoice
      * @param {number} id
+     * @param {DeleteRequest} [deleteRequest]
      * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiV1InvoiceDeleteCreate(id: number, deleteRequest?: DeleteRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * Deprecated: use `POST /coa/api/v1/invoice/{id}/delete`, which also takes an optional reason for the audit log.           Permanently deletes an accounting invoice and its associated journal entry and related data.          This endpoint performs a complete deletion of the invoice including:         - Removal of all invoice line items and associated product data         - Deletion of the corresponding accounts receivable journal entry         - Removal of payment records and journal entries          **Important Notes:**         - This operation is irreversible and permanently removes the invoice from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity          **Restrictions:**         - Invoices in closed accounting periods cannot be deleted         - Consider the impact on historical financial reporting
+     * @summary Delete Invoice (deprecated)
+     * @param {number} id
+     * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiV1InvoiceDestroy(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
@@ -10408,6 +10927,7 @@ export declare const AccountsReceivableApiFp: (configuration?: Configuration) =>
      * @param {boolean} [download] If true, triggers async CSV download workflow and sends result via email
      * @param {string} [endDate] Filter invoices with invoice_date on or before this date (YYYY-MM-DD)
      * @param {number} [entity] Filter by entity ID. Can be specified multiple times
+     * @param {boolean} [expenseBillingAttachable] Only invoices project expenses can still be billed onto: draft or open, never sent, unpaid
      * @param {string} [invoiceNumber] Filter by exact invoice number
      * @param {number} [limit] Number of results to return per page.
      * @param {number} [lineTagGroupId] Filter invoices with at least one line item assigned a tag from this tag group ID
@@ -10418,6 +10938,7 @@ export declare const AccountsReceivableApiFp: (configuration?: Configuration) =>
      * @param {number} [parentClient] Filter by parent client (Vendor) ID. Returns invoices for the specified client and all of its descendants via vendor lineage.
      * @param {string} [q] Search query - searches shipping address, invoice number, message, or client name
      * @param {string} [refNumber] Filter by exact ref number
+     * @param {number} [revenueLinkableFor] Revenue contract ID. Only invoices that can be linked to that contract.
      * @param {CoaApiV1InvoiceListSentStatusEnum} [sentStatus] Filter by sent status
      * @param {string} [sort] Sort order. Use field name for ascending, -field for descending. Special fields: client_name, amount_due. Default: -invoice_date
      * @param {string} [startDate] Filter invoices with invoice_date on or after this date (YYYY-MM-DD)
@@ -10425,7 +10946,7 @@ export declare const AccountsReceivableApiFp: (configuration?: Configuration) =>
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    coaApiV1InvoiceList(client?: number, contract?: number, currency?: string, download?: boolean, endDate?: string, entity?: number, invoiceNumber?: string, limit?: number, lineTagGroupId?: number, lineTagId?: number, offset?: number, paidDateFrom?: string, paidDateTo?: string, parentClient?: number, q?: string, refNumber?: string, sentStatus?: CoaApiV1InvoiceListSentStatusEnum, sort?: string, startDate?: string, status?: CoaApiV1InvoiceListStatusEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PaginatedAccountingInvoiceListList>>;
+    coaApiV1InvoiceList(client?: number, contract?: number, currency?: string, download?: boolean, endDate?: string, entity?: number, expenseBillingAttachable?: boolean, invoiceNumber?: string, limit?: number, lineTagGroupId?: number, lineTagId?: number, offset?: number, paidDateFrom?: string, paidDateTo?: string, parentClient?: number, q?: string, refNumber?: string, revenueLinkableFor?: number, sentStatus?: CoaApiV1InvoiceListSentStatusEnum, sort?: string, startDate?: string, status?: CoaApiV1InvoiceListStatusEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PaginatedAccountingInvoiceListList>>;
     /**
      *          Performs a partial update of an existing accounting invoice using PATCH semantics.          This endpoint allows selective modification of invoice fields without requiring         a complete invoice replacement. You can update specific aspects of the invoice while         leaving other fields unchanged.          **Updatable Fields:**         - Invoice metadata (dates, terms, descriptions, client, entity, currency)         - Line items (amounts, accounts, descriptions, departments, products)         - Payment terms and due dates         - Tax calculations and allocations         - Custom fields and tags         - Contract and purchase order associations         - Exchange rates and currency information
      * @summary Partial Update Invoice
@@ -10618,23 +11139,25 @@ export declare const AccountsReceivableApiFp: (configuration?: Configuration) =>
      */
     rrApiV1ProductBulkSearchCreate(bulkProductSearch: BulkProductSearch, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BulkProductSearchResponse>>;
     /**
-     * Delete a product.
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Product
      * @param {number} id
+     * @param {number} [newProduct] ID of the product to reassign the deleted product\&#39;s records to before deletion
      * @param {DeleteRequest} [deleteRequest]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    rrApiV1ProductDeleteCreate(id: number, deleteRequest?: DeleteRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    rrApiV1ProductDeleteCreate(id: number, newProduct?: number, deleteRequest?: DeleteRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Deprecated: use `POST /rr/api/v1/product/{id}/delete`, which also takes an optional reason for the audit log.
      * @summary Delete Product (deprecated)
      * @param {number} id
+     * @param {number} [newProduct] ID of the product to reassign the deleted product\&#39;s records to before deletion
      * @param {*} [options] Override http request option.
      * @deprecated
      * @throws {RequiredError}
      */
-    rrApiV1ProductDestroy(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    rrApiV1ProductDestroy(id: number, newProduct?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      *
      * @summary Partial Update Product
@@ -10701,10 +11224,19 @@ export declare const AccountsReceivableApiFactory: (configuration?: Configuratio
      */
     coaApiV1CreditMemoCreate(requestParameters: AccountsReceivableApiCoaApiV1CreditMemoCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<AccountingCreditMemo>;
     /**
-     *          Permanently deletes an accounting credit memo and all associated data from the system.          This endpoint performs a complete removal of the credit memo including:         - Complete credit memo record deletion with all line items         - Automatic journal entry removal and accounting transaction cleanup          **Accounting Impact:**         - Associated journal entries are automatically deleted to maintain accounting integrity         - Exchange rate records and multi-currency data are cleaned up          **Restrictions:**         - Credit memos that have been applied to invoices cannot be deleted         - Credit memos in closed accounting periods may have deletion restrictions         - Consider the impact on historical financial reporting
+     *          Permanently deletes an accounting credit memo and all associated data from the system.          This endpoint performs a complete removal of the credit memo including:         - Complete credit memo record deletion with all line items         - Automatic journal entry removal and accounting transaction cleanup          **Accounting Impact:**         - Associated journal entries are automatically deleted to maintain accounting integrity         - Exchange rate records and multi-currency data are cleaned up          **Restrictions:**         - Credit memos that have been applied to invoices cannot be deleted         - Credit memos in closed accounting periods may have deletion restrictions         - Consider the impact on historical financial reporting           A customer can require a reason for this delete in its approval settings. When it does, and this record has a journal entry or a voided journal entry, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
      * @summary Delete Credit Memo
+     * @param {AccountsReceivableApiCoaApiV1CreditMemoDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiV1CreditMemoDeleteCreate(requestParameters: AccountsReceivableApiCoaApiV1CreditMemoDeleteCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+    /**
+     * Deprecated: use `POST /coa/api/v1/credit-memo/{id}/delete`, which also takes an optional reason for the audit log.           Permanently deletes an accounting credit memo and all associated data from the system.          This endpoint performs a complete removal of the credit memo including:         - Complete credit memo record deletion with all line items         - Automatic journal entry removal and accounting transaction cleanup          **Accounting Impact:**         - Associated journal entries are automatically deleted to maintain accounting integrity         - Exchange rate records and multi-currency data are cleaned up          **Restrictions:**         - Credit memos that have been applied to invoices cannot be deleted         - Credit memos in closed accounting periods may have deletion restrictions         - Consider the impact on historical financial reporting
+     * @summary Delete Credit Memo (deprecated)
      * @param {AccountsReceivableApiCoaApiV1CreditMemoDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiV1CreditMemoDestroy(requestParameters: AccountsReceivableApiCoaApiV1CreditMemoDestroyRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
@@ -10740,7 +11272,7 @@ export declare const AccountsReceivableApiFactory: (configuration?: Configuratio
      */
     coaApiV1CreditMemoPartialUpdate(requestParameters: AccountsReceivableApiCoaApiV1CreditMemoPartialUpdateRequest, options?: RawAxiosRequestConfig): AxiosPromise<AccountingCreditMemo>;
     /**
-     * Void a credit memo \'mark used\' payment by creating a reversing journal entry.          This creates a reversing JE that credits the A/R account and debits Uncategorized,         then marks the payment as voided.
+     * Void a credit memo \'mark used\' payment by creating a reversing journal entry.          An application to an invoice is voided on both the credit memo and the invoice, as voiding         it from the invoice does. Any other application gets a reversing JE that credits the A/R         account and debits Uncategorized, then the payment is marked as voided.
      * @summary Void Credit Memo Used Payment
      * @param {AccountsReceivableApiCoaApiV1CreditMemoPaymentVoidCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -10748,7 +11280,7 @@ export declare const AccountsReceivableApiFactory: (configuration?: Configuratio
      */
     coaApiV1CreditMemoPaymentVoidCreate(requestParameters: AccountsReceivableApiCoaApiV1CreditMemoPaymentVoidCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<AccountingCreditMemoPayment>;
     /**
-     * Remove a credit memo \'mark used\' payment application.          This recategorizes the transaction back to Uncategorized and deletes the payment record.
+     * Remove a credit memo \'mark used\' payment application.          An application to an invoice is removed from both the credit memo and the invoice, along with         its journal entry, as removing it from the invoice does. Any other application recategorizes         the transaction back to Uncategorized and deletes the payment record.
      * @summary Delete Credit Memo Used Payment
      * @param {AccountsReceivableApiCoaApiV1CreditMemoPaymentVoidDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -10824,6 +11356,14 @@ export declare const AccountsReceivableApiFactory: (configuration?: Configuratio
      */
     coaApiV1InvoiceCreate(requestParameters: AccountsReceivableApiCoaApiV1InvoiceCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<AccountingInvoice>;
     /**
+     * Dry run of the invoice upload\'s revenue linking, in the order given (the order the upload posts them). Nothing is saved.
+     * @summary Preview Invoice Upload Revenue Links
+     * @param {AccountsReceivableApiCoaApiV1InvoiceCsvRevenuePreviewCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiV1InvoiceCsvRevenuePreviewCreate(requestParameters: AccountsReceivableApiCoaApiV1InvoiceCsvRevenuePreviewCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<UploadRevenuePreview>;
+    /**
      * Get the default payment amount for an invoice based on when payment is posted.          If the invoice has discount terms and the posted date is within the discount period,         the discounted amount is returned. Otherwise, the full amount is returned.
      * @summary Get Default Payment Amount
      * @param {AccountsReceivableApiCoaApiV1InvoiceDefaultPaymentCreateRequest} requestParameters Request parameters.
@@ -10832,10 +11372,19 @@ export declare const AccountsReceivableApiFactory: (configuration?: Configuratio
      */
     coaApiV1InvoiceDefaultPaymentCreate(requestParameters: AccountsReceivableApiCoaApiV1InvoiceDefaultPaymentCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<GetDefaultPaymentOutput>;
     /**
-     *          Permanently deletes an accounting invoice and its associated journal entry and related data.          This endpoint performs a complete deletion of the invoice including:         - Removal of all invoice line items and associated product data         - Deletion of the corresponding accounts receivable journal entry         - Removal of payment records and journal entries          **Important Notes:**         - This operation is irreversible and permanently removes the invoice from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity          **Restrictions:**         - Invoices in closed accounting periods cannot be deleted         - Consider the impact on historical financial reporting
+     *          Permanently deletes an accounting invoice and its associated journal entry and related data.          This endpoint performs a complete deletion of the invoice including:         - Removal of all invoice line items and associated product data         - Deletion of the corresponding accounts receivable journal entry         - Removal of payment records and journal entries          **Important Notes:**         - This operation is irreversible and permanently removes the invoice from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity          **Restrictions:**         - Invoices in closed accounting periods cannot be deleted         - Consider the impact on historical financial reporting           A customer can require a reason for this delete in its approval settings. When it does, and this record has a journal entry or a voided journal entry, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
      * @summary Delete Invoice
+     * @param {AccountsReceivableApiCoaApiV1InvoiceDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiV1InvoiceDeleteCreate(requestParameters: AccountsReceivableApiCoaApiV1InvoiceDeleteCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+    /**
+     * Deprecated: use `POST /coa/api/v1/invoice/{id}/delete`, which also takes an optional reason for the audit log.           Permanently deletes an accounting invoice and its associated journal entry and related data.          This endpoint performs a complete deletion of the invoice including:         - Removal of all invoice line items and associated product data         - Deletion of the corresponding accounts receivable journal entry         - Removal of payment records and journal entries          **Important Notes:**         - This operation is irreversible and permanently removes the invoice from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity          **Restrictions:**         - Invoices in closed accounting periods cannot be deleted         - Consider the impact on historical financial reporting
+     * @summary Delete Invoice (deprecated)
      * @param {AccountsReceivableApiCoaApiV1InvoiceDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiV1InvoiceDestroy(requestParameters: AccountsReceivableApiCoaApiV1InvoiceDestroyRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
@@ -10985,7 +11534,7 @@ export declare const AccountsReceivableApiFactory: (configuration?: Configuratio
      */
     rrApiV1ProductBulkSearchCreate(requestParameters: AccountsReceivableApiRrApiV1ProductBulkSearchCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<BulkProductSearchResponse>;
     /**
-     * Delete a product.
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Product
      * @param {AccountsReceivableApiRrApiV1ProductDeleteCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -11053,6 +11602,13 @@ export interface AccountsReceivableApiCoaApiV1CreditMemoCreateRequest {
     readonly accountingCreditMemo: AccountingCreditMemo;
 }
 /**
+ * Request parameters for coaApiV1CreditMemoDeleteCreate operation in AccountsReceivableApi.
+ */
+export interface AccountsReceivableApiCoaApiV1CreditMemoDeleteCreateRequest {
+    readonly id: number;
+    readonly deleteRequest?: DeleteRequest;
+}
+/**
  * Request parameters for coaApiV1CreditMemoDestroy operation in AccountsReceivableApi.
  */
 export interface AccountsReceivableApiCoaApiV1CreditMemoDestroyRequest {
@@ -11090,6 +11646,10 @@ export interface AccountsReceivableApiCoaApiV1CreditMemoListRequest {
      * Search credit memo numbers, messages, and client names
      */
     readonly q?: string;
+    /**
+     * Revenue contract ID. Only credit memos that can be linked to that contract.
+     */
+    readonly revenueLinkableFor?: number;
     /**
      * Sort results by field (prefix with - for descending)
      */
@@ -11208,6 +11768,12 @@ export interface AccountsReceivableApiCoaApiV1InvoiceCreateRequest {
     readonly accountingInvoice: AccountingInvoice;
 }
 /**
+ * Request parameters for coaApiV1InvoiceCsvRevenuePreviewCreate operation in AccountsReceivableApi.
+ */
+export interface AccountsReceivableApiCoaApiV1InvoiceCsvRevenuePreviewCreateRequest {
+    readonly uploadRevenuePreviewRequest: UploadRevenuePreviewRequest;
+}
+/**
  * Request parameters for coaApiV1InvoiceDefaultPaymentCreate operation in AccountsReceivableApi.
  */
 export interface AccountsReceivableApiCoaApiV1InvoiceDefaultPaymentCreateRequest {
@@ -11216,6 +11782,13 @@ export interface AccountsReceivableApiCoaApiV1InvoiceDefaultPaymentCreateRequest
      */
     readonly invoiceId: number;
     readonly getDefaultPaymentInput: GetDefaultPaymentInput;
+}
+/**
+ * Request parameters for coaApiV1InvoiceDeleteCreate operation in AccountsReceivableApi.
+ */
+export interface AccountsReceivableApiCoaApiV1InvoiceDeleteCreateRequest {
+    readonly id: number;
+    readonly deleteRequest?: DeleteRequest;
 }
 /**
  * Request parameters for coaApiV1InvoiceDestroy operation in AccountsReceivableApi.
@@ -11251,6 +11824,10 @@ export interface AccountsReceivableApiCoaApiV1InvoiceListRequest {
      * Filter by entity ID. Can be specified multiple times
      */
     readonly entity?: number;
+    /**
+     * Only invoices project expenses can still be billed onto: draft or open, never sent, unpaid
+     */
+    readonly expenseBillingAttachable?: boolean;
     /**
      * Filter by exact invoice number
      */
@@ -11291,6 +11868,10 @@ export interface AccountsReceivableApiCoaApiV1InvoiceListRequest {
      * Filter by exact ref number
      */
     readonly refNumber?: string;
+    /**
+     * Revenue contract ID. Only invoices that can be linked to that contract.
+     */
+    readonly revenueLinkableFor?: number;
     /**
      * Filter by sent status
      */
@@ -11634,6 +12215,10 @@ export interface AccountsReceivableApiRrApiV1ProductBulkSearchCreateRequest {
  */
 export interface AccountsReceivableApiRrApiV1ProductDeleteCreateRequest {
     readonly id: number;
+    /**
+     * ID of the product to reassign the deleted product\&#39;s records to before deletion
+     */
+    readonly newProduct?: number;
     readonly deleteRequest?: DeleteRequest;
 }
 /**
@@ -11641,6 +12226,10 @@ export interface AccountsReceivableApiRrApiV1ProductDeleteCreateRequest {
  */
 export interface AccountsReceivableApiRrApiV1ProductDestroyRequest {
     readonly id: number;
+    /**
+     * ID of the product to reassign the deleted product\&#39;s records to before deletion
+     */
+    readonly newProduct?: number;
 }
 /**
  * Request parameters for rrApiV1ProductPartialUpdate operation in AccountsReceivableApi.
@@ -11699,10 +12288,19 @@ export declare class AccountsReceivableApi extends BaseAPI {
      */
     coaApiV1CreditMemoCreate(requestParameters: AccountsReceivableApiCoaApiV1CreditMemoCreateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<AccountingCreditMemo, any, {}, any>>;
     /**
-     *          Permanently deletes an accounting credit memo and all associated data from the system.          This endpoint performs a complete removal of the credit memo including:         - Complete credit memo record deletion with all line items         - Automatic journal entry removal and accounting transaction cleanup          **Accounting Impact:**         - Associated journal entries are automatically deleted to maintain accounting integrity         - Exchange rate records and multi-currency data are cleaned up          **Restrictions:**         - Credit memos that have been applied to invoices cannot be deleted         - Credit memos in closed accounting periods may have deletion restrictions         - Consider the impact on historical financial reporting
+     *          Permanently deletes an accounting credit memo and all associated data from the system.          This endpoint performs a complete removal of the credit memo including:         - Complete credit memo record deletion with all line items         - Automatic journal entry removal and accounting transaction cleanup          **Accounting Impact:**         - Associated journal entries are automatically deleted to maintain accounting integrity         - Exchange rate records and multi-currency data are cleaned up          **Restrictions:**         - Credit memos that have been applied to invoices cannot be deleted         - Credit memos in closed accounting periods may have deletion restrictions         - Consider the impact on historical financial reporting           A customer can require a reason for this delete in its approval settings. When it does, and this record has a journal entry or a voided journal entry, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
      * @summary Delete Credit Memo
+     * @param {AccountsReceivableApiCoaApiV1CreditMemoDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiV1CreditMemoDeleteCreate(requestParameters: AccountsReceivableApiCoaApiV1CreditMemoDeleteCreateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<void, any, {}, any>>;
+    /**
+     * Deprecated: use `POST /coa/api/v1/credit-memo/{id}/delete`, which also takes an optional reason for the audit log.           Permanently deletes an accounting credit memo and all associated data from the system.          This endpoint performs a complete removal of the credit memo including:         - Complete credit memo record deletion with all line items         - Automatic journal entry removal and accounting transaction cleanup          **Accounting Impact:**         - Associated journal entries are automatically deleted to maintain accounting integrity         - Exchange rate records and multi-currency data are cleaned up          **Restrictions:**         - Credit memos that have been applied to invoices cannot be deleted         - Credit memos in closed accounting periods may have deletion restrictions         - Consider the impact on historical financial reporting
+     * @summary Delete Credit Memo (deprecated)
      * @param {AccountsReceivableApiCoaApiV1CreditMemoDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiV1CreditMemoDestroy(requestParameters: AccountsReceivableApiCoaApiV1CreditMemoDestroyRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<void, any, {}, any>>;
@@ -11738,7 +12336,7 @@ export declare class AccountsReceivableApi extends BaseAPI {
      */
     coaApiV1CreditMemoPartialUpdate(requestParameters: AccountsReceivableApiCoaApiV1CreditMemoPartialUpdateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<AccountingCreditMemo, any, {}, any>>;
     /**
-     * Void a credit memo \'mark used\' payment by creating a reversing journal entry.          This creates a reversing JE that credits the A/R account and debits Uncategorized,         then marks the payment as voided.
+     * Void a credit memo \'mark used\' payment by creating a reversing journal entry.          An application to an invoice is voided on both the credit memo and the invoice, as voiding         it from the invoice does. Any other application gets a reversing JE that credits the A/R         account and debits Uncategorized, then the payment is marked as voided.
      * @summary Void Credit Memo Used Payment
      * @param {AccountsReceivableApiCoaApiV1CreditMemoPaymentVoidCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -11746,7 +12344,7 @@ export declare class AccountsReceivableApi extends BaseAPI {
      */
     coaApiV1CreditMemoPaymentVoidCreate(requestParameters: AccountsReceivableApiCoaApiV1CreditMemoPaymentVoidCreateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<AccountingCreditMemoPayment, any, {}, any>>;
     /**
-     * Remove a credit memo \'mark used\' payment application.          This recategorizes the transaction back to Uncategorized and deletes the payment record.
+     * Remove a credit memo \'mark used\' payment application.          An application to an invoice is removed from both the credit memo and the invoice, along with         its journal entry, as removing it from the invoice does. Any other application recategorizes         the transaction back to Uncategorized and deletes the payment record.
      * @summary Delete Credit Memo Used Payment
      * @param {AccountsReceivableApiCoaApiV1CreditMemoPaymentVoidDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -11822,6 +12420,14 @@ export declare class AccountsReceivableApi extends BaseAPI {
      */
     coaApiV1InvoiceCreate(requestParameters: AccountsReceivableApiCoaApiV1InvoiceCreateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<AccountingInvoice, any, {}, any>>;
     /**
+     * Dry run of the invoice upload\'s revenue linking, in the order given (the order the upload posts them). Nothing is saved.
+     * @summary Preview Invoice Upload Revenue Links
+     * @param {AccountsReceivableApiCoaApiV1InvoiceCsvRevenuePreviewCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiV1InvoiceCsvRevenuePreviewCreate(requestParameters: AccountsReceivableApiCoaApiV1InvoiceCsvRevenuePreviewCreateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<UploadRevenuePreview, any, {}, any>>;
+    /**
      * Get the default payment amount for an invoice based on when payment is posted.          If the invoice has discount terms and the posted date is within the discount period,         the discounted amount is returned. Otherwise, the full amount is returned.
      * @summary Get Default Payment Amount
      * @param {AccountsReceivableApiCoaApiV1InvoiceDefaultPaymentCreateRequest} requestParameters Request parameters.
@@ -11830,10 +12436,19 @@ export declare class AccountsReceivableApi extends BaseAPI {
      */
     coaApiV1InvoiceDefaultPaymentCreate(requestParameters: AccountsReceivableApiCoaApiV1InvoiceDefaultPaymentCreateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<GetDefaultPaymentOutput, any, {}, any>>;
     /**
-     *          Permanently deletes an accounting invoice and its associated journal entry and related data.          This endpoint performs a complete deletion of the invoice including:         - Removal of all invoice line items and associated product data         - Deletion of the corresponding accounts receivable journal entry         - Removal of payment records and journal entries          **Important Notes:**         - This operation is irreversible and permanently removes the invoice from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity          **Restrictions:**         - Invoices in closed accounting periods cannot be deleted         - Consider the impact on historical financial reporting
+     *          Permanently deletes an accounting invoice and its associated journal entry and related data.          This endpoint performs a complete deletion of the invoice including:         - Removal of all invoice line items and associated product data         - Deletion of the corresponding accounts receivable journal entry         - Removal of payment records and journal entries          **Important Notes:**         - This operation is irreversible and permanently removes the invoice from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity          **Restrictions:**         - Invoices in closed accounting periods cannot be deleted         - Consider the impact on historical financial reporting           A customer can require a reason for this delete in its approval settings. When it does, and this record has a journal entry or a voided journal entry, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
      * @summary Delete Invoice
+     * @param {AccountsReceivableApiCoaApiV1InvoiceDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiV1InvoiceDeleteCreate(requestParameters: AccountsReceivableApiCoaApiV1InvoiceDeleteCreateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<void, any, {}, any>>;
+    /**
+     * Deprecated: use `POST /coa/api/v1/invoice/{id}/delete`, which also takes an optional reason for the audit log.           Permanently deletes an accounting invoice and its associated journal entry and related data.          This endpoint performs a complete deletion of the invoice including:         - Removal of all invoice line items and associated product data         - Deletion of the corresponding accounts receivable journal entry         - Removal of payment records and journal entries          **Important Notes:**         - This operation is irreversible and permanently removes the invoice from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity          **Restrictions:**         - Invoices in closed accounting periods cannot be deleted         - Consider the impact on historical financial reporting
+     * @summary Delete Invoice (deprecated)
      * @param {AccountsReceivableApiCoaApiV1InvoiceDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiV1InvoiceDestroy(requestParameters: AccountsReceivableApiCoaApiV1InvoiceDestroyRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<void, any, {}, any>>;
@@ -11983,7 +12598,7 @@ export declare class AccountsReceivableApi extends BaseAPI {
      */
     rrApiV1ProductBulkSearchCreate(requestParameters: AccountsReceivableApiRrApiV1ProductBulkSearchCreateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<BulkProductSearchResponse, any, {}, any>>;
     /**
-     * Delete a product.
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Product
      * @param {AccountsReceivableApiRrApiV1ProductDeleteCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -12617,11 +13232,30 @@ export declare class BankReconciliationApi extends BaseAPI {
  */
 export declare const CashManagementApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
-     *
+     * Current balance per currency of the accounts in the cash total: everything except credit cards, loans, liability accounts and disconnected Plaid accounts.
+     * @summary Bank Account Totals
+     * @param {boolean} [includeDeleted] When set to \&#39;true\&#39;, returns ONLY deleted records instead of active records. Deleted records contain minimal data: \&#39;id\&#39;, \&#39;is_deleted&#x3D;true\&#39;, \&#39;deleted_at\&#39; timestamp, and \&#39;last_modified_at\&#39;. When \&#39;false\&#39; or omitted, returns ONLY active records. This provides clean separation between active and deleted data.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    bankAccountTotalsRetrieve: (includeDeleted?: boolean, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Bank Account
      * @param {number} id
      * @param {number} [newAccount] ID of the bank account to reassign transactions to before deletion
+     * @param {DeleteRequest} [deleteRequest]
      * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    caApiAccountDeleteCreate: (id: number, newAccount?: number, deleteRequest?: DeleteRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Deprecated: use `POST /ca/api/account/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Bank Account (deprecated)
+     * @param {number} id
+     * @param {number} [newAccount] ID of the bank account to reassign transactions to before deletion
+     * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     caApiAccountDestroy: (id: number, newAccount?: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
@@ -12740,11 +13374,30 @@ export declare const CashManagementApiAxiosParamCreator: (configuration?: Config
  */
 export declare const CashManagementApiFp: (configuration?: Configuration) => {
     /**
-     *
+     * Current balance per currency of the accounts in the cash total: everything except credit cards, loans, liability accounts and disconnected Plaid accounts.
+     * @summary Bank Account Totals
+     * @param {boolean} [includeDeleted] When set to \&#39;true\&#39;, returns ONLY deleted records instead of active records. Deleted records contain minimal data: \&#39;id\&#39;, \&#39;is_deleted&#x3D;true\&#39;, \&#39;deleted_at\&#39; timestamp, and \&#39;last_modified_at\&#39;. When \&#39;false\&#39; or omitted, returns ONLY active records. This provides clean separation between active and deleted data.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    bankAccountTotalsRetrieve(includeDeleted?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BankAccountTotals>>;
+    /**
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Bank Account
      * @param {number} id
      * @param {number} [newAccount] ID of the bank account to reassign transactions to before deletion
+     * @param {DeleteRequest} [deleteRequest]
      * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    caApiAccountDeleteCreate(id: number, newAccount?: number, deleteRequest?: DeleteRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * Deprecated: use `POST /ca/api/account/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Bank Account (deprecated)
+     * @param {number} id
+     * @param {number} [newAccount] ID of the bank account to reassign transactions to before deletion
+     * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     caApiAccountDestroy(id: number, newAccount?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
@@ -12863,10 +13516,27 @@ export declare const CashManagementApiFp: (configuration?: Configuration) => {
  */
 export declare const CashManagementApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
-     *
+     * Current balance per currency of the accounts in the cash total: everything except credit cards, loans, liability accounts and disconnected Plaid accounts.
+     * @summary Bank Account Totals
+     * @param {CashManagementApiBankAccountTotalsRetrieveRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    bankAccountTotalsRetrieve(requestParameters?: CashManagementApiBankAccountTotalsRetrieveRequest, options?: RawAxiosRequestConfig): AxiosPromise<BankAccountTotals>;
+    /**
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Bank Account
+     * @param {CashManagementApiCaApiAccountDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    caApiAccountDeleteCreate(requestParameters: CashManagementApiCaApiAccountDeleteCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+    /**
+     * Deprecated: use `POST /ca/api/account/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Bank Account (deprecated)
      * @param {CashManagementApiCaApiAccountDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     caApiAccountDestroy(requestParameters: CashManagementApiCaApiAccountDestroyRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
@@ -12967,6 +13637,26 @@ export declare const CashManagementApiFactory: (configuration?: Configuration, b
      */
     listBankTransactions(requestParameters?: CashManagementApiListBankTransactionsRequest, options?: RawAxiosRequestConfig): AxiosPromise<PaginatedBankTransactionList>;
 };
+/**
+ * Request parameters for bankAccountTotalsRetrieve operation in CashManagementApi.
+ */
+export interface CashManagementApiBankAccountTotalsRetrieveRequest {
+    /**
+     * When set to \&#39;true\&#39;, returns ONLY deleted records instead of active records. Deleted records contain minimal data: \&#39;id\&#39;, \&#39;is_deleted&#x3D;true\&#39;, \&#39;deleted_at\&#39; timestamp, and \&#39;last_modified_at\&#39;. When \&#39;false\&#39; or omitted, returns ONLY active records. This provides clean separation between active and deleted data.
+     */
+    readonly includeDeleted?: boolean;
+}
+/**
+ * Request parameters for caApiAccountDeleteCreate operation in CashManagementApi.
+ */
+export interface CashManagementApiCaApiAccountDeleteCreateRequest {
+    readonly id: number;
+    /**
+     * ID of the bank account to reassign transactions to before deletion
+     */
+    readonly newAccount?: number;
+    readonly deleteRequest?: DeleteRequest;
+}
 /**
  * Request parameters for caApiAccountDestroy operation in CashManagementApi.
  */
@@ -13097,10 +13787,27 @@ export interface CashManagementApiListBankTransactionsRequest {
  */
 export declare class CashManagementApi extends BaseAPI {
     /**
-     *
+     * Current balance per currency of the accounts in the cash total: everything except credit cards, loans, liability accounts and disconnected Plaid accounts.
+     * @summary Bank Account Totals
+     * @param {CashManagementApiBankAccountTotalsRetrieveRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    bankAccountTotalsRetrieve(requestParameters?: CashManagementApiBankAccountTotalsRetrieveRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<BankAccountTotals, any, {}, any>>;
+    /**
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Bank Account
+     * @param {CashManagementApiCaApiAccountDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    caApiAccountDeleteCreate(requestParameters: CashManagementApiCaApiAccountDeleteCreateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<void, any, {}, any>>;
+    /**
+     * Deprecated: use `POST /ca/api/account/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Bank Account (deprecated)
      * @param {CashManagementApiCaApiAccountDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     caApiAccountDestroy(requestParameters: CashManagementApiCaApiAccountDestroyRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<void, any, {}, any>>;
@@ -13294,13 +14001,25 @@ export declare const CompanyObjectsApiAxiosParamCreator: (configuration?: Config
      */
     coaApiAccountCreate: (chartAccount: ChartAccount, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     *
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Chart Account
      * @param {number} id
+     * @param {number} [newAccount] ID of the account to move the deleted account\&#39;s transactions to before deletion
+     * @param {DeleteRequest} [deleteRequest]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    coaApiAccountDestroy: (id: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    coaApiAccountDeleteCreate: (id: number, newAccount?: number, deleteRequest?: DeleteRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Deprecated: use `POST /coa/api/account/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Chart Account (deprecated)
+     * @param {number} id
+     * @param {number} [newAccount] ID of the account to move the deleted account\&#39;s transactions to before deletion
+     * @param {*} [options] Override http request option.
+     * @deprecated
+     * @throws {RequiredError}
+     */
+    coaApiAccountDestroy: (id: number, newAccount?: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Lists the chart of accounts (GL accounts). Each account includes metadata about its parent account and its full lineage (the ordered chain of ancestor accounts), so parent/child account relationships can be reconstructed from the response.
      * @summary Create Chart Account
@@ -13707,6 +14426,14 @@ export declare const CompanyObjectsApiAxiosParamCreator: (configuration?: Config
      */
     coaApiTagUpdate: (id: number, transactionTag: TransactionTag, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
+     * How a dynamic allocation split one ledger line. Writes nothing.
+     * @summary Explain Transaction Allocation
+     * @param {number} id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiTransactionAllocationRetrieve: (id: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Mixin to provide consistent last_modified_at filtering and sorting functionality for List APIs with comprehensive timestamp computation.
      * @summary Create Vendor Contact Title
      * @param {VendorContactTitle} vendorContactTitle
@@ -13774,7 +14501,18 @@ export declare const CompanyObjectsApiAxiosParamCreator: (configuration?: Config
      * @summary Delete Vendor
      * @param {number} id
      * @param {string} [newVendor] Identifier of the vendor to reassign all related records to before deletion. Accepts a Campfire ID (e.g. VEN-0000001) or the legacy internal integer id.
+     * @param {DeleteRequest} [deleteRequest]
      * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiVendorDeleteCreate: (id: number, newVendor?: string, deleteRequest?: DeleteRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Deprecated: use `POST /coa/api/vendor/{id}/delete`, which also takes an optional reason for the audit log.  Delete a vendor and optionally reassign all related records to another vendor. Returns 202 Accepted as deletion is processed asynchronously.
+     * @summary Delete Vendor (deprecated)
+     * @param {number} id
+     * @param {string} [newVendor] Identifier of the vendor to reassign all related records to before deletion. Accepts a Campfire ID (e.g. VEN-0000001) or the legacy internal integer id.
+     * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiVendorDestroy: (id: number, newVendor?: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
@@ -13974,13 +14712,25 @@ export declare const CompanyObjectsApiFp: (configuration?: Configuration) => {
      */
     coaApiAccountCreate(chartAccount: ChartAccount, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ChartAccount>>;
     /**
-     *
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Chart Account
      * @param {number} id
+     * @param {number} [newAccount] ID of the account to move the deleted account\&#39;s transactions to before deletion
+     * @param {DeleteRequest} [deleteRequest]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    coaApiAccountDestroy(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    coaApiAccountDeleteCreate(id: number, newAccount?: number, deleteRequest?: DeleteRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * Deprecated: use `POST /coa/api/account/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Chart Account (deprecated)
+     * @param {number} id
+     * @param {number} [newAccount] ID of the account to move the deleted account\&#39;s transactions to before deletion
+     * @param {*} [options] Override http request option.
+     * @deprecated
+     * @throws {RequiredError}
+     */
+    coaApiAccountDestroy(id: number, newAccount?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Lists the chart of accounts (GL accounts). Each account includes metadata about its parent account and its full lineage (the ordered chain of ancestor accounts), so parent/child account relationships can be reconstructed from the response.
      * @summary Create Chart Account
@@ -14387,6 +15137,16 @@ export declare const CompanyObjectsApiFp: (configuration?: Configuration) => {
      */
     coaApiTagUpdate(id: number, transactionTag: TransactionTag, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TransactionTag>>;
     /**
+     * How a dynamic allocation split one ledger line. Writes nothing.
+     * @summary Explain Transaction Allocation
+     * @param {number} id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiTransactionAllocationRetrieve(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
+        [key: string]: any;
+    }>>;
+    /**
      * Mixin to provide consistent last_modified_at filtering and sorting functionality for List APIs with comprehensive timestamp computation.
      * @summary Create Vendor Contact Title
      * @param {VendorContactTitle} vendorContactTitle
@@ -14454,7 +15214,18 @@ export declare const CompanyObjectsApiFp: (configuration?: Configuration) => {
      * @summary Delete Vendor
      * @param {number} id
      * @param {string} [newVendor] Identifier of the vendor to reassign all related records to before deletion. Accepts a Campfire ID (e.g. VEN-0000001) or the legacy internal integer id.
+     * @param {DeleteRequest} [deleteRequest]
      * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiVendorDeleteCreate(id: number, newVendor?: string, deleteRequest?: DeleteRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * Deprecated: use `POST /coa/api/vendor/{id}/delete`, which also takes an optional reason for the audit log.  Delete a vendor and optionally reassign all related records to another vendor. Returns 202 Accepted as deletion is processed asynchronously.
+     * @summary Delete Vendor (deprecated)
+     * @param {number} id
+     * @param {string} [newVendor] Identifier of the vendor to reassign all related records to before deletion. Accepts a Campfire ID (e.g. VEN-0000001) or the legacy internal integer id.
+     * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiVendorDestroy(id: number, newVendor?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
@@ -14638,10 +15409,19 @@ export declare const CompanyObjectsApiFactory: (configuration?: Configuration, b
      */
     coaApiAccountCreate(requestParameters: CompanyObjectsApiCoaApiAccountCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<ChartAccount>;
     /**
-     *
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Chart Account
+     * @param {CompanyObjectsApiCoaApiAccountDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiAccountDeleteCreate(requestParameters: CompanyObjectsApiCoaApiAccountDeleteCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+    /**
+     * Deprecated: use `POST /coa/api/account/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Chart Account (deprecated)
      * @param {CompanyObjectsApiCoaApiAccountDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiAccountDestroy(requestParameters: CompanyObjectsApiCoaApiAccountDestroyRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
@@ -14992,6 +15772,16 @@ export declare const CompanyObjectsApiFactory: (configuration?: Configuration, b
      */
     coaApiTagUpdate(requestParameters: CompanyObjectsApiCoaApiTagUpdateRequest, options?: RawAxiosRequestConfig): AxiosPromise<TransactionTag>;
     /**
+     * How a dynamic allocation split one ledger line. Writes nothing.
+     * @summary Explain Transaction Allocation
+     * @param {CompanyObjectsApiCoaApiTransactionAllocationRetrieveRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiTransactionAllocationRetrieve(requestParameters: CompanyObjectsApiCoaApiTransactionAllocationRetrieveRequest, options?: RawAxiosRequestConfig): AxiosPromise<{
+        [key: string]: any;
+    }>;
+    /**
      * Mixin to provide consistent last_modified_at filtering and sorting functionality for List APIs with comprehensive timestamp computation.
      * @summary Create Vendor Contact Title
      * @param {CompanyObjectsApiCoaApiVendorContactTitleCreateRequest} requestParameters Request parameters.
@@ -15050,8 +15840,17 @@ export declare const CompanyObjectsApiFactory: (configuration?: Configuration, b
     /**
      * Delete a vendor and optionally reassign all related records to another vendor. Returns 202 Accepted as deletion is processed asynchronously.
      * @summary Delete Vendor
+     * @param {CompanyObjectsApiCoaApiVendorDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiVendorDeleteCreate(requestParameters: CompanyObjectsApiCoaApiVendorDeleteCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+    /**
+     * Deprecated: use `POST /coa/api/vendor/{id}/delete`, which also takes an optional reason for the audit log.  Delete a vendor and optionally reassign all related records to another vendor. Returns 202 Accepted as deletion is processed asynchronously.
+     * @summary Delete Vendor (deprecated)
      * @param {CompanyObjectsApiCoaApiVendorDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiVendorDestroy(requestParameters: CompanyObjectsApiCoaApiVendorDestroyRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
@@ -15262,10 +16061,25 @@ export interface CompanyObjectsApiCoaApiAccountCreateRequest {
     readonly chartAccount: ChartAccount;
 }
 /**
+ * Request parameters for coaApiAccountDeleteCreate operation in CompanyObjectsApi.
+ */
+export interface CompanyObjectsApiCoaApiAccountDeleteCreateRequest {
+    readonly id: number;
+    /**
+     * ID of the account to move the deleted account\&#39;s transactions to before deletion
+     */
+    readonly newAccount?: number;
+    readonly deleteRequest?: DeleteRequest;
+}
+/**
  * Request parameters for coaApiAccountDestroy operation in CompanyObjectsApi.
  */
 export interface CompanyObjectsApiCoaApiAccountDestroyRequest {
     readonly id: number;
+    /**
+     * ID of the account to move the deleted account\&#39;s transactions to before deletion
+     */
+    readonly newAccount?: number;
 }
 /**
  * Request parameters for coaApiAccountIncomeStatementCreate operation in CompanyObjectsApi.
@@ -15723,6 +16537,12 @@ export interface CompanyObjectsApiCoaApiTagUpdateRequest {
     readonly transactionTag: TransactionTag;
 }
 /**
+ * Request parameters for coaApiTransactionAllocationRetrieve operation in CompanyObjectsApi.
+ */
+export interface CompanyObjectsApiCoaApiTransactionAllocationRetrieveRequest {
+    readonly id: number;
+}
+/**
  * Request parameters for coaApiVendorContactTitleCreate operation in CompanyObjectsApi.
  */
 export interface CompanyObjectsApiCoaApiVendorContactTitleCreateRequest {
@@ -15788,6 +16608,17 @@ export interface CompanyObjectsApiCoaApiVendorContactTitleUpdateRequest {
  */
 export interface CompanyObjectsApiCoaApiVendorCreateRequest {
     readonly vendor: Vendor;
+}
+/**
+ * Request parameters for coaApiVendorDeleteCreate operation in CompanyObjectsApi.
+ */
+export interface CompanyObjectsApiCoaApiVendorDeleteCreateRequest {
+    readonly id: number;
+    /**
+     * Identifier of the vendor to reassign all related records to before deletion. Accepts a Campfire ID (e.g. VEN-0000001) or the legacy internal integer id.
+     */
+    readonly newVendor?: string;
+    readonly deleteRequest?: DeleteRequest;
 }
 /**
  * Request parameters for coaApiVendorDestroy operation in CompanyObjectsApi.
@@ -15990,10 +16821,19 @@ export declare class CompanyObjectsApi extends BaseAPI {
      */
     coaApiAccountCreate(requestParameters: CompanyObjectsApiCoaApiAccountCreateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<ChartAccount, any, {}, any>>;
     /**
-     *
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Chart Account
+     * @param {CompanyObjectsApiCoaApiAccountDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiAccountDeleteCreate(requestParameters: CompanyObjectsApiCoaApiAccountDeleteCreateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<void, any, {}, any>>;
+    /**
+     * Deprecated: use `POST /coa/api/account/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Chart Account (deprecated)
      * @param {CompanyObjectsApiCoaApiAccountDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiAccountDestroy(requestParameters: CompanyObjectsApiCoaApiAccountDestroyRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<void, any, {}, any>>;
@@ -16344,6 +17184,16 @@ export declare class CompanyObjectsApi extends BaseAPI {
      */
     coaApiTagUpdate(requestParameters: CompanyObjectsApiCoaApiTagUpdateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<TransactionTag, any, {}, any>>;
     /**
+     * How a dynamic allocation split one ledger line. Writes nothing.
+     * @summary Explain Transaction Allocation
+     * @param {CompanyObjectsApiCoaApiTransactionAllocationRetrieveRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiTransactionAllocationRetrieve(requestParameters: CompanyObjectsApiCoaApiTransactionAllocationRetrieveRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<{
+        [key: string]: any;
+    }, any, {}, any>>;
+    /**
      * Mixin to provide consistent last_modified_at filtering and sorting functionality for List APIs with comprehensive timestamp computation.
      * @summary Create Vendor Contact Title
      * @param {CompanyObjectsApiCoaApiVendorContactTitleCreateRequest} requestParameters Request parameters.
@@ -16402,8 +17252,17 @@ export declare class CompanyObjectsApi extends BaseAPI {
     /**
      * Delete a vendor and optionally reassign all related records to another vendor. Returns 202 Accepted as deletion is processed asynchronously.
      * @summary Delete Vendor
+     * @param {CompanyObjectsApiCoaApiVendorDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiVendorDeleteCreate(requestParameters: CompanyObjectsApiCoaApiVendorDeleteCreateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<void, any, {}, any>>;
+    /**
+     * Deprecated: use `POST /coa/api/vendor/{id}/delete`, which also takes an optional reason for the audit log.  Delete a vendor and optionally reassign all related records to another vendor. Returns 202 Accepted as deletion is processed asynchronously.
+     * @summary Delete Vendor (deprecated)
      * @param {CompanyObjectsApiCoaApiVendorDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiVendorDestroy(requestParameters: CompanyObjectsApiCoaApiVendorDestroyRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<void, any, {}, any>>;
@@ -16636,7 +17495,7 @@ export declare const CoreAccountingApiAxiosParamCreator: (configuration?: Config
      */
     coaApiDepartmentBulkSearchCreate: (bulkDepartmentSearch: BulkDepartmentSearch, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     * Delete a fixed asset automation. Replaces the deprecated DELETE /coa/api/fixed-asset-automation/{id}/.
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Fixed Asset Automation
      * @param {number} id
      * @param {DeleteRequest} [deleteRequest]
@@ -16653,10 +17512,20 @@ export declare const CoreAccountingApiAxiosParamCreator: (configuration?: Config
      */
     coaApiFixedAssetCreate: (fixedAsset: FixedAsset, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     *
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Fixed Asset
      * @param {number} id
+     * @param {DeleteRequest} [deleteRequest]
      * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiFixedAssetDeleteCreate: (id: number, deleteRequest?: DeleteRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Deprecated: use `POST /coa/api/fixed-asset/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Fixed Asset (deprecated)
+     * @param {number} id
+     * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiFixedAssetDestroy: (id: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
@@ -16715,10 +17584,20 @@ export declare const CoreAccountingApiAxiosParamCreator: (configuration?: Config
      */
     coaApiIntercompanyJournalEntryCreate: (intercompanyJournalEntry: IntercompanyJournalEntry, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     *          Permanently deletes an intercompany journal entry and all related transactions.          This endpoint performs a comprehensive cleanup when deleting an intercompany journal entry:         - Validates that the entry can be deleted (not in closed period)         - Removes all associated journal entries across entities         - Updates summary tables and account balances         - Handles cascade deletion of related transactions         - Ensures data integrity across the accounting system          Deletion restrictions:         - Cannot delete entries in closed accounting periods          Error conditions:         - 400 Bad Request: Entry date is in a closed period         - 409 Conflict: Entry has protected relationships (e.g., close checklist tasks)         - 404 Not Found: Entry does not exist or user lacks access          On successful deletion, all related journal entries are removed and accounting summaries are recalculated.
+     *          Permanently deletes an intercompany journal entry and all related transactions.          This endpoint performs a comprehensive cleanup when deleting an intercompany journal entry:         - Validates that the entry can be deleted (not in closed period)         - Removes all associated journal entries across entities         - Updates summary tables and account balances         - Handles cascade deletion of related transactions         - Ensures data integrity across the accounting system          Deletion restrictions:         - Cannot delete entries in closed accounting periods          Error conditions:         - 400 Bad Request: Entry date is in a closed period         - 409 Conflict: Entry has protected relationships (e.g., close checklist tasks)         - 404 Not Found: Entry does not exist or user lacks access          On successful deletion, all related journal entries are removed and accounting summaries are recalculated.           A customer can require a reason for this delete in its approval settings. When it does, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
      * @summary Delete Intercompany Journal Entry
      * @param {number} id
+     * @param {DeleteRequest} [deleteRequest]
      * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiIntercompanyJournalEntryDeleteCreate: (id: number, deleteRequest?: DeleteRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Deprecated: use `POST /coa/api/intercompany-journal-entry/{id}/delete`, which also takes an optional reason for the audit log.           Permanently deletes an intercompany journal entry and all related transactions.          This endpoint performs a comprehensive cleanup when deleting an intercompany journal entry:         - Validates that the entry can be deleted (not in closed period)         - Removes all associated journal entries across entities         - Updates summary tables and account balances         - Handles cascade deletion of related transactions         - Ensures data integrity across the accounting system          Deletion restrictions:         - Cannot delete entries in closed accounting periods          Error conditions:         - 400 Bad Request: Entry date is in a closed period         - 409 Conflict: Entry has protected relationships (e.g., close checklist tasks)         - 404 Not Found: Entry does not exist or user lacks access          On successful deletion, all related journal entries are removed and accounting summaries are recalculated.
+     * @summary Delete Intercompany Journal Entry (deprecated)
+     * @param {number} id
+     * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiIntercompanyJournalEntryDestroy: (id: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
@@ -16769,10 +17648,20 @@ export declare const CoreAccountingApiAxiosParamCreator: (configuration?: Config
      */
     coaApiJournalEntryCreate: (journalEntryWrite: JournalEntryWrite, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     *          Delete a journal entry and all its associated transactions.          **Restrictions:**         - Cannot delete entries before closed book dates          **Response Codes:**         - 204: Successfully deleted         - 400: Cannot delete (books closed for this date)         - 409: Cannot delete (associated with other objects)
+     *          Delete a journal entry and all its associated transactions.          **Restrictions:**         - Cannot delete entries before closed book dates          **Response Codes:**         - 204: Successfully deleted         - 400: Cannot delete (books closed for this date)         - 409: Cannot delete (associated with other objects)           A customer can require a reason for this delete in its approval settings. When it does, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
      * @summary Delete Journal Entry
      * @param {number} id
+     * @param {DeleteRequest} [deleteRequest]
      * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiJournalEntryDeleteCreate: (id: number, deleteRequest?: DeleteRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Deprecated: use `POST /coa/api/journal_entry/{id}/delete`, which also takes an optional reason for the audit log.           Delete a journal entry and all its associated transactions.          **Restrictions:**         - Cannot delete entries before closed book dates          **Response Codes:**         - 204: Successfully deleted         - 400: Cannot delete (books closed for this date)         - 409: Cannot delete (associated with other objects)
+     * @summary Delete Journal Entry (deprecated)
+     * @param {number} id
+     * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiJournalEntryDestroy: (id: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
@@ -17437,7 +18326,7 @@ export declare const CoreAccountingApiFp: (configuration?: Configuration) => {
      */
     coaApiDepartmentBulkSearchCreate(bulkDepartmentSearch: BulkDepartmentSearch, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Department>>>;
     /**
-     * Delete a fixed asset automation. Replaces the deprecated DELETE /coa/api/fixed-asset-automation/{id}/.
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Fixed Asset Automation
      * @param {number} id
      * @param {DeleteRequest} [deleteRequest]
@@ -17454,10 +18343,20 @@ export declare const CoreAccountingApiFp: (configuration?: Configuration) => {
      */
     coaApiFixedAssetCreate(fixedAsset: FixedAsset, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FixedAsset>>;
     /**
-     *
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Fixed Asset
      * @param {number} id
+     * @param {DeleteRequest} [deleteRequest]
      * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiFixedAssetDeleteCreate(id: number, deleteRequest?: DeleteRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * Deprecated: use `POST /coa/api/fixed-asset/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Fixed Asset (deprecated)
+     * @param {number} id
+     * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiFixedAssetDestroy(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
@@ -17516,10 +18415,20 @@ export declare const CoreAccountingApiFp: (configuration?: Configuration) => {
      */
     coaApiIntercompanyJournalEntryCreate(intercompanyJournalEntry: IntercompanyJournalEntry, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IntercompanyJournalEntry>>;
     /**
-     *          Permanently deletes an intercompany journal entry and all related transactions.          This endpoint performs a comprehensive cleanup when deleting an intercompany journal entry:         - Validates that the entry can be deleted (not in closed period)         - Removes all associated journal entries across entities         - Updates summary tables and account balances         - Handles cascade deletion of related transactions         - Ensures data integrity across the accounting system          Deletion restrictions:         - Cannot delete entries in closed accounting periods          Error conditions:         - 400 Bad Request: Entry date is in a closed period         - 409 Conflict: Entry has protected relationships (e.g., close checklist tasks)         - 404 Not Found: Entry does not exist or user lacks access          On successful deletion, all related journal entries are removed and accounting summaries are recalculated.
+     *          Permanently deletes an intercompany journal entry and all related transactions.          This endpoint performs a comprehensive cleanup when deleting an intercompany journal entry:         - Validates that the entry can be deleted (not in closed period)         - Removes all associated journal entries across entities         - Updates summary tables and account balances         - Handles cascade deletion of related transactions         - Ensures data integrity across the accounting system          Deletion restrictions:         - Cannot delete entries in closed accounting periods          Error conditions:         - 400 Bad Request: Entry date is in a closed period         - 409 Conflict: Entry has protected relationships (e.g., close checklist tasks)         - 404 Not Found: Entry does not exist or user lacks access          On successful deletion, all related journal entries are removed and accounting summaries are recalculated.           A customer can require a reason for this delete in its approval settings. When it does, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
      * @summary Delete Intercompany Journal Entry
      * @param {number} id
+     * @param {DeleteRequest} [deleteRequest]
      * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiIntercompanyJournalEntryDeleteCreate(id: number, deleteRequest?: DeleteRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * Deprecated: use `POST /coa/api/intercompany-journal-entry/{id}/delete`, which also takes an optional reason for the audit log.           Permanently deletes an intercompany journal entry and all related transactions.          This endpoint performs a comprehensive cleanup when deleting an intercompany journal entry:         - Validates that the entry can be deleted (not in closed period)         - Removes all associated journal entries across entities         - Updates summary tables and account balances         - Handles cascade deletion of related transactions         - Ensures data integrity across the accounting system          Deletion restrictions:         - Cannot delete entries in closed accounting periods          Error conditions:         - 400 Bad Request: Entry date is in a closed period         - 409 Conflict: Entry has protected relationships (e.g., close checklist tasks)         - 404 Not Found: Entry does not exist or user lacks access          On successful deletion, all related journal entries are removed and accounting summaries are recalculated.
+     * @summary Delete Intercompany Journal Entry (deprecated)
+     * @param {number} id
+     * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiIntercompanyJournalEntryDestroy(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
@@ -17570,10 +18479,20 @@ export declare const CoreAccountingApiFp: (configuration?: Configuration) => {
      */
     coaApiJournalEntryCreate(journalEntryWrite: JournalEntryWrite, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<JournalEntry>>;
     /**
-     *          Delete a journal entry and all its associated transactions.          **Restrictions:**         - Cannot delete entries before closed book dates          **Response Codes:**         - 204: Successfully deleted         - 400: Cannot delete (books closed for this date)         - 409: Cannot delete (associated with other objects)
+     *          Delete a journal entry and all its associated transactions.          **Restrictions:**         - Cannot delete entries before closed book dates          **Response Codes:**         - 204: Successfully deleted         - 400: Cannot delete (books closed for this date)         - 409: Cannot delete (associated with other objects)           A customer can require a reason for this delete in its approval settings. When it does, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
      * @summary Delete Journal Entry
      * @param {number} id
+     * @param {DeleteRequest} [deleteRequest]
      * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiJournalEntryDeleteCreate(id: number, deleteRequest?: DeleteRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * Deprecated: use `POST /coa/api/journal_entry/{id}/delete`, which also takes an optional reason for the audit log.           Delete a journal entry and all its associated transactions.          **Restrictions:**         - Cannot delete entries before closed book dates          **Response Codes:**         - 204: Successfully deleted         - 400: Cannot delete (books closed for this date)         - 409: Cannot delete (associated with other objects)
+     * @summary Delete Journal Entry (deprecated)
+     * @param {number} id
+     * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiJournalEntryDestroy(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
@@ -18218,7 +19137,7 @@ export declare const CoreAccountingApiFactory: (configuration?: Configuration, b
      */
     coaApiDepartmentBulkSearchCreate(requestParameters: CoreAccountingApiCoaApiDepartmentBulkSearchCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<Department>>;
     /**
-     * Delete a fixed asset automation. Replaces the deprecated DELETE /coa/api/fixed-asset-automation/{id}/.
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Fixed Asset Automation
      * @param {CoreAccountingApiCoaApiFixedAssetAutomationDeleteCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -18234,10 +19153,19 @@ export declare const CoreAccountingApiFactory: (configuration?: Configuration, b
      */
     coaApiFixedAssetCreate(requestParameters: CoreAccountingApiCoaApiFixedAssetCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<FixedAsset>;
     /**
-     *
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Fixed Asset
+     * @param {CoreAccountingApiCoaApiFixedAssetDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiFixedAssetDeleteCreate(requestParameters: CoreAccountingApiCoaApiFixedAssetDeleteCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+    /**
+     * Deprecated: use `POST /coa/api/fixed-asset/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Fixed Asset (deprecated)
      * @param {CoreAccountingApiCoaApiFixedAssetDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiFixedAssetDestroy(requestParameters: CoreAccountingApiCoaApiFixedAssetDestroyRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
@@ -18290,10 +19218,19 @@ export declare const CoreAccountingApiFactory: (configuration?: Configuration, b
      */
     coaApiIntercompanyJournalEntryCreate(requestParameters: CoreAccountingApiCoaApiIntercompanyJournalEntryCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<IntercompanyJournalEntry>;
     /**
-     *          Permanently deletes an intercompany journal entry and all related transactions.          This endpoint performs a comprehensive cleanup when deleting an intercompany journal entry:         - Validates that the entry can be deleted (not in closed period)         - Removes all associated journal entries across entities         - Updates summary tables and account balances         - Handles cascade deletion of related transactions         - Ensures data integrity across the accounting system          Deletion restrictions:         - Cannot delete entries in closed accounting periods          Error conditions:         - 400 Bad Request: Entry date is in a closed period         - 409 Conflict: Entry has protected relationships (e.g., close checklist tasks)         - 404 Not Found: Entry does not exist or user lacks access          On successful deletion, all related journal entries are removed and accounting summaries are recalculated.
+     *          Permanently deletes an intercompany journal entry and all related transactions.          This endpoint performs a comprehensive cleanup when deleting an intercompany journal entry:         - Validates that the entry can be deleted (not in closed period)         - Removes all associated journal entries across entities         - Updates summary tables and account balances         - Handles cascade deletion of related transactions         - Ensures data integrity across the accounting system          Deletion restrictions:         - Cannot delete entries in closed accounting periods          Error conditions:         - 400 Bad Request: Entry date is in a closed period         - 409 Conflict: Entry has protected relationships (e.g., close checklist tasks)         - 404 Not Found: Entry does not exist or user lacks access          On successful deletion, all related journal entries are removed and accounting summaries are recalculated.           A customer can require a reason for this delete in its approval settings. When it does, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
      * @summary Delete Intercompany Journal Entry
+     * @param {CoreAccountingApiCoaApiIntercompanyJournalEntryDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiIntercompanyJournalEntryDeleteCreate(requestParameters: CoreAccountingApiCoaApiIntercompanyJournalEntryDeleteCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+    /**
+     * Deprecated: use `POST /coa/api/intercompany-journal-entry/{id}/delete`, which also takes an optional reason for the audit log.           Permanently deletes an intercompany journal entry and all related transactions.          This endpoint performs a comprehensive cleanup when deleting an intercompany journal entry:         - Validates that the entry can be deleted (not in closed period)         - Removes all associated journal entries across entities         - Updates summary tables and account balances         - Handles cascade deletion of related transactions         - Ensures data integrity across the accounting system          Deletion restrictions:         - Cannot delete entries in closed accounting periods          Error conditions:         - 400 Bad Request: Entry date is in a closed period         - 409 Conflict: Entry has protected relationships (e.g., close checklist tasks)         - 404 Not Found: Entry does not exist or user lacks access          On successful deletion, all related journal entries are removed and accounting summaries are recalculated.
+     * @summary Delete Intercompany Journal Entry (deprecated)
      * @param {CoreAccountingApiCoaApiIntercompanyJournalEntryDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiIntercompanyJournalEntryDestroy(requestParameters: CoreAccountingApiCoaApiIntercompanyJournalEntryDestroyRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
@@ -18338,10 +19275,19 @@ export declare const CoreAccountingApiFactory: (configuration?: Configuration, b
      */
     coaApiJournalEntryCreate(requestParameters: CoreAccountingApiCoaApiJournalEntryCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<JournalEntry>;
     /**
-     *          Delete a journal entry and all its associated transactions.          **Restrictions:**         - Cannot delete entries before closed book dates          **Response Codes:**         - 204: Successfully deleted         - 400: Cannot delete (books closed for this date)         - 409: Cannot delete (associated with other objects)
+     *          Delete a journal entry and all its associated transactions.          **Restrictions:**         - Cannot delete entries before closed book dates          **Response Codes:**         - 204: Successfully deleted         - 400: Cannot delete (books closed for this date)         - 409: Cannot delete (associated with other objects)           A customer can require a reason for this delete in its approval settings. When it does, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
      * @summary Delete Journal Entry
+     * @param {CoreAccountingApiCoaApiJournalEntryDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiJournalEntryDeleteCreate(requestParameters: CoreAccountingApiCoaApiJournalEntryDeleteCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+    /**
+     * Deprecated: use `POST /coa/api/journal_entry/{id}/delete`, which also takes an optional reason for the audit log.           Delete a journal entry and all its associated transactions.          **Restrictions:**         - Cannot delete entries before closed book dates          **Response Codes:**         - 204: Successfully deleted         - 400: Cannot delete (books closed for this date)         - 409: Cannot delete (associated with other objects)
+     * @summary Delete Journal Entry (deprecated)
      * @param {CoreAccountingApiCoaApiJournalEntryDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiJournalEntryDestroy(requestParameters: CoreAccountingApiCoaApiJournalEntryDestroyRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
@@ -18911,6 +19857,13 @@ export interface CoreAccountingApiCoaApiFixedAssetCreateRequest {
     readonly fixedAsset: FixedAsset;
 }
 /**
+ * Request parameters for coaApiFixedAssetDeleteCreate operation in CoreAccountingApi.
+ */
+export interface CoreAccountingApiCoaApiFixedAssetDeleteCreateRequest {
+    readonly id: number;
+    readonly deleteRequest?: DeleteRequest;
+}
+/**
  * Request parameters for coaApiFixedAssetDestroy operation in CoreAccountingApi.
  */
 export interface CoreAccountingApiCoaApiFixedAssetDestroyRequest {
@@ -18974,6 +19927,13 @@ export interface CoreAccountingApiCoaApiIntercompanyJournalEntryCreateRequest {
     readonly intercompanyJournalEntry: IntercompanyJournalEntry;
 }
 /**
+ * Request parameters for coaApiIntercompanyJournalEntryDeleteCreate operation in CoreAccountingApi.
+ */
+export interface CoreAccountingApiCoaApiIntercompanyJournalEntryDeleteCreateRequest {
+    readonly id: number;
+    readonly deleteRequest?: DeleteRequest;
+}
+/**
  * Request parameters for coaApiIntercompanyJournalEntryDestroy operation in CoreAccountingApi.
  */
 export interface CoreAccountingApiCoaApiIntercompanyJournalEntryDestroyRequest {
@@ -19029,6 +19989,13 @@ export interface CoreAccountingApiCoaApiIntercompanyJournalEntryUpdateRequest {
  */
 export interface CoreAccountingApiCoaApiJournalEntryCreateRequest {
     readonly journalEntryWrite: JournalEntryWrite;
+}
+/**
+ * Request parameters for coaApiJournalEntryDeleteCreate operation in CoreAccountingApi.
+ */
+export interface CoreAccountingApiCoaApiJournalEntryDeleteCreateRequest {
+    readonly id: number;
+    readonly deleteRequest?: DeleteRequest;
 }
 /**
  * Request parameters for coaApiJournalEntryDestroy operation in CoreAccountingApi.
@@ -19670,7 +20637,7 @@ export declare class CoreAccountingApi extends BaseAPI {
      */
     coaApiDepartmentBulkSearchCreate(requestParameters: CoreAccountingApiCoaApiDepartmentBulkSearchCreateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<Department[], any, {}, any>>;
     /**
-     * Delete a fixed asset automation. Replaces the deprecated DELETE /coa/api/fixed-asset-automation/{id}/.
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Fixed Asset Automation
      * @param {CoreAccountingApiCoaApiFixedAssetAutomationDeleteCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -19686,10 +20653,19 @@ export declare class CoreAccountingApi extends BaseAPI {
      */
     coaApiFixedAssetCreate(requestParameters: CoreAccountingApiCoaApiFixedAssetCreateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<FixedAsset, any, {}, any>>;
     /**
-     *
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Fixed Asset
+     * @param {CoreAccountingApiCoaApiFixedAssetDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiFixedAssetDeleteCreate(requestParameters: CoreAccountingApiCoaApiFixedAssetDeleteCreateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<void, any, {}, any>>;
+    /**
+     * Deprecated: use `POST /coa/api/fixed-asset/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Fixed Asset (deprecated)
      * @param {CoreAccountingApiCoaApiFixedAssetDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiFixedAssetDestroy(requestParameters: CoreAccountingApiCoaApiFixedAssetDestroyRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<void, any, {}, any>>;
@@ -19742,10 +20718,19 @@ export declare class CoreAccountingApi extends BaseAPI {
      */
     coaApiIntercompanyJournalEntryCreate(requestParameters: CoreAccountingApiCoaApiIntercompanyJournalEntryCreateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<IntercompanyJournalEntry, any, {}, any>>;
     /**
-     *          Permanently deletes an intercompany journal entry and all related transactions.          This endpoint performs a comprehensive cleanup when deleting an intercompany journal entry:         - Validates that the entry can be deleted (not in closed period)         - Removes all associated journal entries across entities         - Updates summary tables and account balances         - Handles cascade deletion of related transactions         - Ensures data integrity across the accounting system          Deletion restrictions:         - Cannot delete entries in closed accounting periods          Error conditions:         - 400 Bad Request: Entry date is in a closed period         - 409 Conflict: Entry has protected relationships (e.g., close checklist tasks)         - 404 Not Found: Entry does not exist or user lacks access          On successful deletion, all related journal entries are removed and accounting summaries are recalculated.
+     *          Permanently deletes an intercompany journal entry and all related transactions.          This endpoint performs a comprehensive cleanup when deleting an intercompany journal entry:         - Validates that the entry can be deleted (not in closed period)         - Removes all associated journal entries across entities         - Updates summary tables and account balances         - Handles cascade deletion of related transactions         - Ensures data integrity across the accounting system          Deletion restrictions:         - Cannot delete entries in closed accounting periods          Error conditions:         - 400 Bad Request: Entry date is in a closed period         - 409 Conflict: Entry has protected relationships (e.g., close checklist tasks)         - 404 Not Found: Entry does not exist or user lacks access          On successful deletion, all related journal entries are removed and accounting summaries are recalculated.           A customer can require a reason for this delete in its approval settings. When it does, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
      * @summary Delete Intercompany Journal Entry
+     * @param {CoreAccountingApiCoaApiIntercompanyJournalEntryDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiIntercompanyJournalEntryDeleteCreate(requestParameters: CoreAccountingApiCoaApiIntercompanyJournalEntryDeleteCreateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<void, any, {}, any>>;
+    /**
+     * Deprecated: use `POST /coa/api/intercompany-journal-entry/{id}/delete`, which also takes an optional reason for the audit log.           Permanently deletes an intercompany journal entry and all related transactions.          This endpoint performs a comprehensive cleanup when deleting an intercompany journal entry:         - Validates that the entry can be deleted (not in closed period)         - Removes all associated journal entries across entities         - Updates summary tables and account balances         - Handles cascade deletion of related transactions         - Ensures data integrity across the accounting system          Deletion restrictions:         - Cannot delete entries in closed accounting periods          Error conditions:         - 400 Bad Request: Entry date is in a closed period         - 409 Conflict: Entry has protected relationships (e.g., close checklist tasks)         - 404 Not Found: Entry does not exist or user lacks access          On successful deletion, all related journal entries are removed and accounting summaries are recalculated.
+     * @summary Delete Intercompany Journal Entry (deprecated)
      * @param {CoreAccountingApiCoaApiIntercompanyJournalEntryDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiIntercompanyJournalEntryDestroy(requestParameters: CoreAccountingApiCoaApiIntercompanyJournalEntryDestroyRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<void, any, {}, any>>;
@@ -19790,10 +20775,19 @@ export declare class CoreAccountingApi extends BaseAPI {
      */
     coaApiJournalEntryCreate(requestParameters: CoreAccountingApiCoaApiJournalEntryCreateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<JournalEntry, any, {}, any>>;
     /**
-     *          Delete a journal entry and all its associated transactions.          **Restrictions:**         - Cannot delete entries before closed book dates          **Response Codes:**         - 204: Successfully deleted         - 400: Cannot delete (books closed for this date)         - 409: Cannot delete (associated with other objects)
+     *          Delete a journal entry and all its associated transactions.          **Restrictions:**         - Cannot delete entries before closed book dates          **Response Codes:**         - 204: Successfully deleted         - 400: Cannot delete (books closed for this date)         - 409: Cannot delete (associated with other objects)           A customer can require a reason for this delete in its approval settings. When it does, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
      * @summary Delete Journal Entry
+     * @param {CoreAccountingApiCoaApiJournalEntryDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiJournalEntryDeleteCreate(requestParameters: CoreAccountingApiCoaApiJournalEntryDeleteCreateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<void, any, {}, any>>;
+    /**
+     * Deprecated: use `POST /coa/api/journal_entry/{id}/delete`, which also takes an optional reason for the audit log.           Delete a journal entry and all its associated transactions.          **Restrictions:**         - Cannot delete entries before closed book dates          **Response Codes:**         - 204: Successfully deleted         - 400: Cannot delete (books closed for this date)         - 409: Cannot delete (associated with other objects)
+     * @summary Delete Journal Entry (deprecated)
      * @param {CoreAccountingApiCoaApiJournalEntryDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiJournalEntryDestroy(requestParameters: CoreAccountingApiCoaApiJournalEntryDestroyRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<void, any, {}, any>>;
@@ -21814,11 +22808,12 @@ export declare const RevenueRecognitionApiAxiosParamCreator: (configuration?: Co
      */
     createRevenueTransaction: (revenueTransaction: RevenueTransaction, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     *
-     * @summary Delete Prepaid Commit
+     * Deprecated: use `POST /rr/api/v1/contracts/{contract_id}/prepaid-commits/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Prepaid Commit (deprecated)
      * @param {number} contractId
      * @param {number} id
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     deletePrepaidCommit: (contractId: number, id: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
@@ -22027,7 +23022,7 @@ export declare const RevenueRecognitionApiAxiosParamCreator: (configuration?: Co
      */
     reverseContractSubscriptionFully: (contractId: number, id: number, contractSubscriptionFullReversal: ContractSubscriptionFullReversal, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     * Search for contracts by deal_name in a single request.
+     * Search for contracts by deal_name, Campfire contract id, or CRM deal id in a single request.
      * @summary Bulk Search Contracts
      * @param {BulkContractSearch} bulkContractSearch
      * @param {*} [options] Override http request option.
@@ -22073,10 +23068,20 @@ export declare const RevenueRecognitionApiAxiosParamCreator: (configuration?: Co
      */
     rrApiV1ContractsBundlesUpdate: (contractId: number, id: number, contractBundle: ContractBundle, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     *
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Contract
      * @param {number} id
+     * @param {DeleteRequest} [deleteRequest]
      * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rrApiV1ContractsDeleteCreate: (id: number, deleteRequest?: DeleteRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Deprecated: use `POST /rr/api/v1/contracts/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Contract (deprecated)
+     * @param {number} id
+     * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     rrApiV1ContractsDestroy: (id: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
@@ -22118,11 +23123,22 @@ export declare const RevenueRecognitionApiAxiosParamCreator: (configuration?: Co
      */
     rrApiV1ContractsMilestonesAllocationsUpdate: (contractId: number, milestoneId: number, contractProductBundleUpdate: ContractProductBundleUpdate, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     *
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Contract Milestone
      * @param {number} contractId
      * @param {number} id
+     * @param {DeleteRequest} [deleteRequest]
      * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rrApiV1ContractsMilestonesDeleteCreate: (contractId: number, id: number, deleteRequest?: DeleteRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Deprecated: use `POST /rr/api/v1/contracts/{contract_id}/milestones/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Contract Milestone (deprecated)
+     * @param {number} contractId
+     * @param {number} id
+     * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     rrApiV1ContractsMilestonesDestroy: (contractId: number, id: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
@@ -22173,6 +23189,16 @@ export declare const RevenueRecognitionApiAxiosParamCreator: (configuration?: Co
      */
     rrApiV1ContractsPartialUpdate: (id: number, patchedContract?: PatchedContract, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
+     * @summary Delete Prepaid Commit
+     * @param {number} contractId
+     * @param {number} id
+     * @param {DeleteRequest} [deleteRequest]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rrApiV1ContractsPrepaidCommitsDeleteCreate: (contractId: number, id: number, deleteRequest?: DeleteRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      *
      * @summary Retrieve Contract
      * @param {number} id
@@ -22180,6 +23206,14 @@ export declare const RevenueRecognitionApiAxiosParamCreator: (configuration?: Co
      * @throws {RequiredError}
      */
     rrApiV1ContractsRetrieve: (id: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary List the accounts a contract\'s revenue subledger posts to
+     * @param {number} id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rrApiV1ContractsSubledgerAccountsRetrieve: (id: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Partially update bundle allocations. Same behavior as PUT.
      * @summary Partial Update Bundle Allocations
@@ -22210,11 +23244,22 @@ export declare const RevenueRecognitionApiAxiosParamCreator: (configuration?: Co
      */
     rrApiV1ContractsSubscriptionsAllocationsUpdate: (contractId: number, subscriptionId: number, contractProductBundleUpdate: ContractProductBundleUpdate, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     *
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Contract Subscription
      * @param {number} contractId
      * @param {number} id
+     * @param {DeleteRequest} [deleteRequest]
      * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rrApiV1ContractsSubscriptionsDeleteCreate: (contractId: number, id: number, deleteRequest?: DeleteRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Deprecated: use `POST /rr/api/v1/contracts/{contract_id}/subscriptions/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Contract Subscription (deprecated)
+     * @param {number} contractId
+     * @param {number} id
+     * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     rrApiV1ContractsSubscriptionsDestroy: (contractId: number, id: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
@@ -22333,11 +23378,22 @@ export declare const RevenueRecognitionApiAxiosParamCreator: (configuration?: Co
      */
     rrApiV1ContractsUsageCreate: (contractId: number, contractUsage: ContractUsage, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     * Retrieve, update, and delete contract usage revenue records
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Contract Usage Revenue
      * @param {number} contractId
      * @param {number} id
+     * @param {DeleteRequest} [deleteRequest]
      * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rrApiV1ContractsUsageDeleteCreate: (contractId: number, id: number, deleteRequest?: DeleteRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Deprecated: use `POST /rr/api/v1/contracts/{contract_id}/usage/{id}/delete`, which also takes an optional reason for the audit log.  Retrieve, update, and delete contract usage revenue records
+     * @summary Delete Contract Usage Revenue (deprecated)
+     * @param {number} contractId
+     * @param {number} id
+     * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     rrApiV1ContractsUsageDestroy: (contractId: number, id: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
@@ -22469,23 +23525,25 @@ export declare const RevenueRecognitionApiAxiosParamCreator: (configuration?: Co
      */
     rrApiV1ProductBundlesUpdate: (id: number, productBundle: ProductBundle, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     * Delete a product.
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Product
      * @param {number} id
+     * @param {number} [newProduct] ID of the product to reassign the deleted product\&#39;s records to before deletion
      * @param {DeleteRequest} [deleteRequest]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    rrApiV1ProductDeleteCreate: (id: number, deleteRequest?: DeleteRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    rrApiV1ProductDeleteCreate: (id: number, newProduct?: number, deleteRequest?: DeleteRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Deprecated: use `POST /rr/api/v1/product/{id}/delete`, which also takes an optional reason for the audit log.
      * @summary Delete Product (deprecated)
      * @param {number} id
+     * @param {number} [newProduct] ID of the product to reassign the deleted product\&#39;s records to before deletion
      * @param {*} [options] Override http request option.
      * @deprecated
      * @throws {RequiredError}
      */
-    rrApiV1ProductDestroy: (id: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    rrApiV1ProductDestroy: (id: number, newProduct?: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Partial Update Product
@@ -22513,10 +23571,20 @@ export declare const RevenueRecognitionApiAxiosParamCreator: (configuration?: Co
      */
     rrApiV1ProductUpdate: (id: number, product: Product, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     *
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Revenue Transaction
      * @param {number} id
+     * @param {DeleteRequest} [deleteRequest]
      * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rrApiV1TransactionsDeleteCreate: (id: number, deleteRequest?: DeleteRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Deprecated: use `POST /rr/api/v1/transactions/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Revenue Transaction (deprecated)
+     * @param {number} id
+     * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     rrApiV1TransactionsDestroy: (id: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
@@ -22659,11 +23727,12 @@ export declare const RevenueRecognitionApiFp: (configuration?: Configuration) =>
      */
     createRevenueTransaction(revenueTransaction: RevenueTransaction, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RevenueTransaction>>;
     /**
-     *
-     * @summary Delete Prepaid Commit
+     * Deprecated: use `POST /rr/api/v1/contracts/{contract_id}/prepaid-commits/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Prepaid Commit (deprecated)
      * @param {number} contractId
      * @param {number} id
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     deletePrepaidCommit(contractId: number, id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
@@ -22872,7 +23941,7 @@ export declare const RevenueRecognitionApiFp: (configuration?: Configuration) =>
      */
     reverseContractSubscriptionFully(contractId: number, id: number, contractSubscriptionFullReversal: ContractSubscriptionFullReversal, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ContractSubscriptionFullReversalResponse>>;
     /**
-     * Search for contracts by deal_name in a single request.
+     * Search for contracts by deal_name, Campfire contract id, or CRM deal id in a single request.
      * @summary Bulk Search Contracts
      * @param {BulkContractSearch} bulkContractSearch
      * @param {*} [options] Override http request option.
@@ -22918,10 +23987,20 @@ export declare const RevenueRecognitionApiFp: (configuration?: Configuration) =>
      */
     rrApiV1ContractsBundlesUpdate(contractId: number, id: number, contractBundle: ContractBundle, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ContractBundle>>;
     /**
-     *
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Contract
      * @param {number} id
+     * @param {DeleteRequest} [deleteRequest]
      * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rrApiV1ContractsDeleteCreate(id: number, deleteRequest?: DeleteRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * Deprecated: use `POST /rr/api/v1/contracts/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Contract (deprecated)
+     * @param {number} id
+     * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     rrApiV1ContractsDestroy(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
@@ -22963,11 +24042,22 @@ export declare const RevenueRecognitionApiFp: (configuration?: Configuration) =>
      */
     rrApiV1ContractsMilestonesAllocationsUpdate(contractId: number, milestoneId: number, contractProductBundleUpdate: ContractProductBundleUpdate, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ContractProductBundle>>;
     /**
-     *
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Contract Milestone
      * @param {number} contractId
      * @param {number} id
+     * @param {DeleteRequest} [deleteRequest]
      * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rrApiV1ContractsMilestonesDeleteCreate(contractId: number, id: number, deleteRequest?: DeleteRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * Deprecated: use `POST /rr/api/v1/contracts/{contract_id}/milestones/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Contract Milestone (deprecated)
+     * @param {number} contractId
+     * @param {number} id
+     * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     rrApiV1ContractsMilestonesDestroy(contractId: number, id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
@@ -23018,6 +24108,16 @@ export declare const RevenueRecognitionApiFp: (configuration?: Configuration) =>
      */
     rrApiV1ContractsPartialUpdate(id: number, patchedContract?: PatchedContract, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Contract>>;
     /**
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
+     * @summary Delete Prepaid Commit
+     * @param {number} contractId
+     * @param {number} id
+     * @param {DeleteRequest} [deleteRequest]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rrApiV1ContractsPrepaidCommitsDeleteCreate(contractId: number, id: number, deleteRequest?: DeleteRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
      *
      * @summary Retrieve Contract
      * @param {number} id
@@ -23025,6 +24125,14 @@ export declare const RevenueRecognitionApiFp: (configuration?: Configuration) =>
      * @throws {RequiredError}
      */
     rrApiV1ContractsRetrieve(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Contract>>;
+    /**
+     *
+     * @summary List the accounts a contract\'s revenue subledger posts to
+     * @param {number} id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rrApiV1ContractsSubledgerAccountsRetrieve(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ContractSubledgerAccounts>>;
     /**
      * Partially update bundle allocations. Same behavior as PUT.
      * @summary Partial Update Bundle Allocations
@@ -23055,11 +24163,22 @@ export declare const RevenueRecognitionApiFp: (configuration?: Configuration) =>
      */
     rrApiV1ContractsSubscriptionsAllocationsUpdate(contractId: number, subscriptionId: number, contractProductBundleUpdate: ContractProductBundleUpdate, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ContractProductBundle>>;
     /**
-     *
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Contract Subscription
      * @param {number} contractId
      * @param {number} id
+     * @param {DeleteRequest} [deleteRequest]
      * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rrApiV1ContractsSubscriptionsDeleteCreate(contractId: number, id: number, deleteRequest?: DeleteRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * Deprecated: use `POST /rr/api/v1/contracts/{contract_id}/subscriptions/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Contract Subscription (deprecated)
+     * @param {number} contractId
+     * @param {number} id
+     * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     rrApiV1ContractsSubscriptionsDestroy(contractId: number, id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
@@ -23178,11 +24297,22 @@ export declare const RevenueRecognitionApiFp: (configuration?: Configuration) =>
      */
     rrApiV1ContractsUsageCreate(contractId: number, contractUsage: ContractUsage, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ContractUsage>>;
     /**
-     * Retrieve, update, and delete contract usage revenue records
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Contract Usage Revenue
      * @param {number} contractId
      * @param {number} id
+     * @param {DeleteRequest} [deleteRequest]
      * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rrApiV1ContractsUsageDeleteCreate(contractId: number, id: number, deleteRequest?: DeleteRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * Deprecated: use `POST /rr/api/v1/contracts/{contract_id}/usage/{id}/delete`, which also takes an optional reason for the audit log.  Retrieve, update, and delete contract usage revenue records
+     * @summary Delete Contract Usage Revenue (deprecated)
+     * @param {number} contractId
+     * @param {number} id
+     * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     rrApiV1ContractsUsageDestroy(contractId: number, id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
@@ -23314,23 +24444,25 @@ export declare const RevenueRecognitionApiFp: (configuration?: Configuration) =>
      */
     rrApiV1ProductBundlesUpdate(id: number, productBundle: ProductBundle, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProductBundle>>;
     /**
-     * Delete a product.
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Product
      * @param {number} id
+     * @param {number} [newProduct] ID of the product to reassign the deleted product\&#39;s records to before deletion
      * @param {DeleteRequest} [deleteRequest]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    rrApiV1ProductDeleteCreate(id: number, deleteRequest?: DeleteRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    rrApiV1ProductDeleteCreate(id: number, newProduct?: number, deleteRequest?: DeleteRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Deprecated: use `POST /rr/api/v1/product/{id}/delete`, which also takes an optional reason for the audit log.
      * @summary Delete Product (deprecated)
      * @param {number} id
+     * @param {number} [newProduct] ID of the product to reassign the deleted product\&#39;s records to before deletion
      * @param {*} [options] Override http request option.
      * @deprecated
      * @throws {RequiredError}
      */
-    rrApiV1ProductDestroy(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    rrApiV1ProductDestroy(id: number, newProduct?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      *
      * @summary Partial Update Product
@@ -23358,10 +24490,20 @@ export declare const RevenueRecognitionApiFp: (configuration?: Configuration) =>
      */
     rrApiV1ProductUpdate(id: number, product: Product, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Product>>;
     /**
-     *
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Revenue Transaction
      * @param {number} id
+     * @param {DeleteRequest} [deleteRequest]
      * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rrApiV1TransactionsDeleteCreate(id: number, deleteRequest?: DeleteRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * Deprecated: use `POST /rr/api/v1/transactions/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Revenue Transaction (deprecated)
+     * @param {number} id
+     * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     rrApiV1TransactionsDestroy(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
@@ -23498,10 +24640,11 @@ export declare const RevenueRecognitionApiFactory: (configuration?: Configuratio
      */
     createRevenueTransaction(requestParameters: RevenueRecognitionApiCreateRevenueTransactionRequest, options?: RawAxiosRequestConfig): AxiosPromise<RevenueTransaction>;
     /**
-     *
-     * @summary Delete Prepaid Commit
+     * Deprecated: use `POST /rr/api/v1/contracts/{contract_id}/prepaid-commits/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Prepaid Commit (deprecated)
      * @param {RevenueRecognitionApiDeletePrepaidCommitRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     deletePrepaidCommit(requestParameters: RevenueRecognitionApiDeletePrepaidCommitRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
@@ -23665,7 +24808,7 @@ export declare const RevenueRecognitionApiFactory: (configuration?: Configuratio
      */
     reverseContractSubscriptionFully(requestParameters: RevenueRecognitionApiReverseContractSubscriptionFullyRequest, options?: RawAxiosRequestConfig): AxiosPromise<ContractSubscriptionFullReversalResponse>;
     /**
-     * Search for contracts by deal_name in a single request.
+     * Search for contracts by deal_name, Campfire contract id, or CRM deal id in a single request.
      * @summary Bulk Search Contracts
      * @param {RevenueRecognitionApiRrApiV1ContractsBulkSearchCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -23705,10 +24848,19 @@ export declare const RevenueRecognitionApiFactory: (configuration?: Configuratio
      */
     rrApiV1ContractsBundlesUpdate(requestParameters: RevenueRecognitionApiRrApiV1ContractsBundlesUpdateRequest, options?: RawAxiosRequestConfig): AxiosPromise<ContractBundle>;
     /**
-     *
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Contract
+     * @param {RevenueRecognitionApiRrApiV1ContractsDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rrApiV1ContractsDeleteCreate(requestParameters: RevenueRecognitionApiRrApiV1ContractsDeleteCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+    /**
+     * Deprecated: use `POST /rr/api/v1/contracts/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Contract (deprecated)
      * @param {RevenueRecognitionApiRrApiV1ContractsDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     rrApiV1ContractsDestroy(requestParameters: RevenueRecognitionApiRrApiV1ContractsDestroyRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
@@ -23745,10 +24897,19 @@ export declare const RevenueRecognitionApiFactory: (configuration?: Configuratio
      */
     rrApiV1ContractsMilestonesAllocationsUpdate(requestParameters: RevenueRecognitionApiRrApiV1ContractsMilestonesAllocationsUpdateRequest, options?: RawAxiosRequestConfig): AxiosPromise<ContractProductBundle>;
     /**
-     *
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Contract Milestone
+     * @param {RevenueRecognitionApiRrApiV1ContractsMilestonesDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rrApiV1ContractsMilestonesDeleteCreate(requestParameters: RevenueRecognitionApiRrApiV1ContractsMilestonesDeleteCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+    /**
+     * Deprecated: use `POST /rr/api/v1/contracts/{contract_id}/milestones/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Contract Milestone (deprecated)
      * @param {RevenueRecognitionApiRrApiV1ContractsMilestonesDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     rrApiV1ContractsMilestonesDestroy(requestParameters: RevenueRecognitionApiRrApiV1ContractsMilestonesDestroyRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
@@ -23793,6 +24954,14 @@ export declare const RevenueRecognitionApiFactory: (configuration?: Configuratio
      */
     rrApiV1ContractsPartialUpdate(requestParameters: RevenueRecognitionApiRrApiV1ContractsPartialUpdateRequest, options?: RawAxiosRequestConfig): AxiosPromise<Contract>;
     /**
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
+     * @summary Delete Prepaid Commit
+     * @param {RevenueRecognitionApiRrApiV1ContractsPrepaidCommitsDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rrApiV1ContractsPrepaidCommitsDeleteCreate(requestParameters: RevenueRecognitionApiRrApiV1ContractsPrepaidCommitsDeleteCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+    /**
      *
      * @summary Retrieve Contract
      * @param {RevenueRecognitionApiRrApiV1ContractsRetrieveRequest} requestParameters Request parameters.
@@ -23800,6 +24969,14 @@ export declare const RevenueRecognitionApiFactory: (configuration?: Configuratio
      * @throws {RequiredError}
      */
     rrApiV1ContractsRetrieve(requestParameters: RevenueRecognitionApiRrApiV1ContractsRetrieveRequest, options?: RawAxiosRequestConfig): AxiosPromise<Contract>;
+    /**
+     *
+     * @summary List the accounts a contract\'s revenue subledger posts to
+     * @param {RevenueRecognitionApiRrApiV1ContractsSubledgerAccountsRetrieveRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rrApiV1ContractsSubledgerAccountsRetrieve(requestParameters: RevenueRecognitionApiRrApiV1ContractsSubledgerAccountsRetrieveRequest, options?: RawAxiosRequestConfig): AxiosPromise<ContractSubledgerAccounts>;
     /**
      * Partially update bundle allocations. Same behavior as PUT.
      * @summary Partial Update Bundle Allocations
@@ -23825,10 +25002,19 @@ export declare const RevenueRecognitionApiFactory: (configuration?: Configuratio
      */
     rrApiV1ContractsSubscriptionsAllocationsUpdate(requestParameters: RevenueRecognitionApiRrApiV1ContractsSubscriptionsAllocationsUpdateRequest, options?: RawAxiosRequestConfig): AxiosPromise<ContractProductBundle>;
     /**
-     *
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Contract Subscription
+     * @param {RevenueRecognitionApiRrApiV1ContractsSubscriptionsDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rrApiV1ContractsSubscriptionsDeleteCreate(requestParameters: RevenueRecognitionApiRrApiV1ContractsSubscriptionsDeleteCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+    /**
+     * Deprecated: use `POST /rr/api/v1/contracts/{contract_id}/subscriptions/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Contract Subscription (deprecated)
      * @param {RevenueRecognitionApiRrApiV1ContractsSubscriptionsDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     rrApiV1ContractsSubscriptionsDestroy(requestParameters: RevenueRecognitionApiRrApiV1ContractsSubscriptionsDestroyRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
@@ -23929,10 +25115,19 @@ export declare const RevenueRecognitionApiFactory: (configuration?: Configuratio
      */
     rrApiV1ContractsUsageCreate(requestParameters: RevenueRecognitionApiRrApiV1ContractsUsageCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<ContractUsage>;
     /**
-     * Retrieve, update, and delete contract usage revenue records
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Contract Usage Revenue
+     * @param {RevenueRecognitionApiRrApiV1ContractsUsageDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rrApiV1ContractsUsageDeleteCreate(requestParameters: RevenueRecognitionApiRrApiV1ContractsUsageDeleteCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+    /**
+     * Deprecated: use `POST /rr/api/v1/contracts/{contract_id}/usage/{id}/delete`, which also takes an optional reason for the audit log.  Retrieve, update, and delete contract usage revenue records
+     * @summary Delete Contract Usage Revenue (deprecated)
      * @param {RevenueRecognitionApiRrApiV1ContractsUsageDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     rrApiV1ContractsUsageDestroy(requestParameters: RevenueRecognitionApiRrApiV1ContractsUsageDestroyRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
@@ -24049,7 +25244,7 @@ export declare const RevenueRecognitionApiFactory: (configuration?: Configuratio
      */
     rrApiV1ProductBundlesUpdate(requestParameters: RevenueRecognitionApiRrApiV1ProductBundlesUpdateRequest, options?: RawAxiosRequestConfig): AxiosPromise<ProductBundle>;
     /**
-     * Delete a product.
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Product
      * @param {RevenueRecognitionApiRrApiV1ProductDeleteCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -24090,10 +25285,19 @@ export declare const RevenueRecognitionApiFactory: (configuration?: Configuratio
      */
     rrApiV1ProductUpdate(requestParameters: RevenueRecognitionApiRrApiV1ProductUpdateRequest, options?: RawAxiosRequestConfig): AxiosPromise<Product>;
     /**
-     *
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Revenue Transaction
+     * @param {RevenueRecognitionApiRrApiV1TransactionsDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rrApiV1TransactionsDeleteCreate(requestParameters: RevenueRecognitionApiRrApiV1TransactionsDeleteCreateRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+    /**
+     * Deprecated: use `POST /rr/api/v1/transactions/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Revenue Transaction (deprecated)
      * @param {RevenueRecognitionApiRrApiV1TransactionsDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     rrApiV1TransactionsDestroy(requestParameters: RevenueRecognitionApiRrApiV1TransactionsDestroyRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
@@ -24520,6 +25724,13 @@ export interface RevenueRecognitionApiRrApiV1ContractsBundlesUpdateRequest {
     readonly contractBundle: ContractBundle;
 }
 /**
+ * Request parameters for rrApiV1ContractsDeleteCreate operation in RevenueRecognitionApi.
+ */
+export interface RevenueRecognitionApiRrApiV1ContractsDeleteCreateRequest {
+    readonly id: number;
+    readonly deleteRequest?: DeleteRequest;
+}
+/**
  * Request parameters for rrApiV1ContractsDestroy operation in RevenueRecognitionApi.
  */
 export interface RevenueRecognitionApiRrApiV1ContractsDestroyRequest {
@@ -24553,6 +25764,14 @@ export interface RevenueRecognitionApiRrApiV1ContractsMilestonesAllocationsUpdat
     readonly contractId: number;
     readonly milestoneId: number;
     readonly contractProductBundleUpdate: ContractProductBundleUpdate;
+}
+/**
+ * Request parameters for rrApiV1ContractsMilestonesDeleteCreate operation in RevenueRecognitionApi.
+ */
+export interface RevenueRecognitionApiRrApiV1ContractsMilestonesDeleteCreateRequest {
+    readonly contractId: number;
+    readonly id: number;
+    readonly deleteRequest?: DeleteRequest;
 }
 /**
  * Request parameters for rrApiV1ContractsMilestonesDestroy operation in RevenueRecognitionApi.
@@ -24598,9 +25817,23 @@ export interface RevenueRecognitionApiRrApiV1ContractsPartialUpdateRequest {
     readonly patchedContract?: PatchedContract;
 }
 /**
+ * Request parameters for rrApiV1ContractsPrepaidCommitsDeleteCreate operation in RevenueRecognitionApi.
+ */
+export interface RevenueRecognitionApiRrApiV1ContractsPrepaidCommitsDeleteCreateRequest {
+    readonly contractId: number;
+    readonly id: number;
+    readonly deleteRequest?: DeleteRequest;
+}
+/**
  * Request parameters for rrApiV1ContractsRetrieve operation in RevenueRecognitionApi.
  */
 export interface RevenueRecognitionApiRrApiV1ContractsRetrieveRequest {
+    readonly id: number;
+}
+/**
+ * Request parameters for rrApiV1ContractsSubledgerAccountsRetrieve operation in RevenueRecognitionApi.
+ */
+export interface RevenueRecognitionApiRrApiV1ContractsSubledgerAccountsRetrieveRequest {
     readonly id: number;
 }
 /**
@@ -24625,6 +25858,14 @@ export interface RevenueRecognitionApiRrApiV1ContractsSubscriptionsAllocationsUp
     readonly contractId: number;
     readonly subscriptionId: number;
     readonly contractProductBundleUpdate: ContractProductBundleUpdate;
+}
+/**
+ * Request parameters for rrApiV1ContractsSubscriptionsDeleteCreate operation in RevenueRecognitionApi.
+ */
+export interface RevenueRecognitionApiRrApiV1ContractsSubscriptionsDeleteCreateRequest {
+    readonly contractId: number;
+    readonly id: number;
+    readonly deleteRequest?: DeleteRequest;
 }
 /**
  * Request parameters for rrApiV1ContractsSubscriptionsDestroy operation in RevenueRecognitionApi.
@@ -24728,6 +25969,14 @@ export interface RevenueRecognitionApiRrApiV1ContractsUsageAllocationsUpdateRequ
 export interface RevenueRecognitionApiRrApiV1ContractsUsageCreateRequest {
     readonly contractId: number;
     readonly contractUsage: ContractUsage;
+}
+/**
+ * Request parameters for rrApiV1ContractsUsageDeleteCreate operation in RevenueRecognitionApi.
+ */
+export interface RevenueRecognitionApiRrApiV1ContractsUsageDeleteCreateRequest {
+    readonly contractId: number;
+    readonly id: number;
+    readonly deleteRequest?: DeleteRequest;
 }
 /**
  * Request parameters for rrApiV1ContractsUsageDestroy operation in RevenueRecognitionApi.
@@ -24861,6 +26110,10 @@ export interface RevenueRecognitionApiRrApiV1ProductBundlesUpdateRequest {
  */
 export interface RevenueRecognitionApiRrApiV1ProductDeleteCreateRequest {
     readonly id: number;
+    /**
+     * ID of the product to reassign the deleted product\&#39;s records to before deletion
+     */
+    readonly newProduct?: number;
     readonly deleteRequest?: DeleteRequest;
 }
 /**
@@ -24868,6 +26121,10 @@ export interface RevenueRecognitionApiRrApiV1ProductDeleteCreateRequest {
  */
 export interface RevenueRecognitionApiRrApiV1ProductDestroyRequest {
     readonly id: number;
+    /**
+     * ID of the product to reassign the deleted product\&#39;s records to before deletion
+     */
+    readonly newProduct?: number;
 }
 /**
  * Request parameters for rrApiV1ProductPartialUpdate operation in RevenueRecognitionApi.
@@ -24888,6 +26145,13 @@ export interface RevenueRecognitionApiRrApiV1ProductRetrieveRequest {
 export interface RevenueRecognitionApiRrApiV1ProductUpdateRequest {
     readonly id: number;
     readonly product: Product;
+}
+/**
+ * Request parameters for rrApiV1TransactionsDeleteCreate operation in RevenueRecognitionApi.
+ */
+export interface RevenueRecognitionApiRrApiV1TransactionsDeleteCreateRequest {
+    readonly id: number;
+    readonly deleteRequest?: DeleteRequest;
 }
 /**
  * Request parameters for rrApiV1TransactionsDestroy operation in RevenueRecognitionApi.
@@ -25015,10 +26279,11 @@ export declare class RevenueRecognitionApi extends BaseAPI {
      */
     createRevenueTransaction(requestParameters: RevenueRecognitionApiCreateRevenueTransactionRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<RevenueTransaction, any, {}, any>>;
     /**
-     *
-     * @summary Delete Prepaid Commit
+     * Deprecated: use `POST /rr/api/v1/contracts/{contract_id}/prepaid-commits/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Prepaid Commit (deprecated)
      * @param {RevenueRecognitionApiDeletePrepaidCommitRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     deletePrepaidCommit(requestParameters: RevenueRecognitionApiDeletePrepaidCommitRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<void, any, {}, any>>;
@@ -25182,7 +26447,7 @@ export declare class RevenueRecognitionApi extends BaseAPI {
      */
     reverseContractSubscriptionFully(requestParameters: RevenueRecognitionApiReverseContractSubscriptionFullyRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<ContractSubscriptionFullReversalResponse, any, {}, any>>;
     /**
-     * Search for contracts by deal_name in a single request.
+     * Search for contracts by deal_name, Campfire contract id, or CRM deal id in a single request.
      * @summary Bulk Search Contracts
      * @param {RevenueRecognitionApiRrApiV1ContractsBulkSearchCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -25222,10 +26487,19 @@ export declare class RevenueRecognitionApi extends BaseAPI {
      */
     rrApiV1ContractsBundlesUpdate(requestParameters: RevenueRecognitionApiRrApiV1ContractsBundlesUpdateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<ContractBundle, any, {}, any>>;
     /**
-     *
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Contract
+     * @param {RevenueRecognitionApiRrApiV1ContractsDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rrApiV1ContractsDeleteCreate(requestParameters: RevenueRecognitionApiRrApiV1ContractsDeleteCreateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<void, any, {}, any>>;
+    /**
+     * Deprecated: use `POST /rr/api/v1/contracts/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Contract (deprecated)
      * @param {RevenueRecognitionApiRrApiV1ContractsDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     rrApiV1ContractsDestroy(requestParameters: RevenueRecognitionApiRrApiV1ContractsDestroyRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<void, any, {}, any>>;
@@ -25262,10 +26536,19 @@ export declare class RevenueRecognitionApi extends BaseAPI {
      */
     rrApiV1ContractsMilestonesAllocationsUpdate(requestParameters: RevenueRecognitionApiRrApiV1ContractsMilestonesAllocationsUpdateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<ContractProductBundle, any, {}, any>>;
     /**
-     *
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Contract Milestone
+     * @param {RevenueRecognitionApiRrApiV1ContractsMilestonesDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rrApiV1ContractsMilestonesDeleteCreate(requestParameters: RevenueRecognitionApiRrApiV1ContractsMilestonesDeleteCreateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<void, any, {}, any>>;
+    /**
+     * Deprecated: use `POST /rr/api/v1/contracts/{contract_id}/milestones/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Contract Milestone (deprecated)
      * @param {RevenueRecognitionApiRrApiV1ContractsMilestonesDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     rrApiV1ContractsMilestonesDestroy(requestParameters: RevenueRecognitionApiRrApiV1ContractsMilestonesDestroyRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<void, any, {}, any>>;
@@ -25310,6 +26593,14 @@ export declare class RevenueRecognitionApi extends BaseAPI {
      */
     rrApiV1ContractsPartialUpdate(requestParameters: RevenueRecognitionApiRrApiV1ContractsPartialUpdateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<Contract, any, {}, any>>;
     /**
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
+     * @summary Delete Prepaid Commit
+     * @param {RevenueRecognitionApiRrApiV1ContractsPrepaidCommitsDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rrApiV1ContractsPrepaidCommitsDeleteCreate(requestParameters: RevenueRecognitionApiRrApiV1ContractsPrepaidCommitsDeleteCreateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<void, any, {}, any>>;
+    /**
      *
      * @summary Retrieve Contract
      * @param {RevenueRecognitionApiRrApiV1ContractsRetrieveRequest} requestParameters Request parameters.
@@ -25317,6 +26608,14 @@ export declare class RevenueRecognitionApi extends BaseAPI {
      * @throws {RequiredError}
      */
     rrApiV1ContractsRetrieve(requestParameters: RevenueRecognitionApiRrApiV1ContractsRetrieveRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<Contract, any, {}, any>>;
+    /**
+     *
+     * @summary List the accounts a contract\'s revenue subledger posts to
+     * @param {RevenueRecognitionApiRrApiV1ContractsSubledgerAccountsRetrieveRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rrApiV1ContractsSubledgerAccountsRetrieve(requestParameters: RevenueRecognitionApiRrApiV1ContractsSubledgerAccountsRetrieveRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<ContractSubledgerAccounts, any, {}, any>>;
     /**
      * Partially update bundle allocations. Same behavior as PUT.
      * @summary Partial Update Bundle Allocations
@@ -25342,10 +26641,19 @@ export declare class RevenueRecognitionApi extends BaseAPI {
      */
     rrApiV1ContractsSubscriptionsAllocationsUpdate(requestParameters: RevenueRecognitionApiRrApiV1ContractsSubscriptionsAllocationsUpdateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<ContractProductBundle, any, {}, any>>;
     /**
-     *
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Contract Subscription
+     * @param {RevenueRecognitionApiRrApiV1ContractsSubscriptionsDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rrApiV1ContractsSubscriptionsDeleteCreate(requestParameters: RevenueRecognitionApiRrApiV1ContractsSubscriptionsDeleteCreateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<void, any, {}, any>>;
+    /**
+     * Deprecated: use `POST /rr/api/v1/contracts/{contract_id}/subscriptions/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Contract Subscription (deprecated)
      * @param {RevenueRecognitionApiRrApiV1ContractsSubscriptionsDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     rrApiV1ContractsSubscriptionsDestroy(requestParameters: RevenueRecognitionApiRrApiV1ContractsSubscriptionsDestroyRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<void, any, {}, any>>;
@@ -25446,10 +26754,19 @@ export declare class RevenueRecognitionApi extends BaseAPI {
      */
     rrApiV1ContractsUsageCreate(requestParameters: RevenueRecognitionApiRrApiV1ContractsUsageCreateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<ContractUsage, any, {}, any>>;
     /**
-     * Retrieve, update, and delete contract usage revenue records
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Contract Usage Revenue
+     * @param {RevenueRecognitionApiRrApiV1ContractsUsageDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rrApiV1ContractsUsageDeleteCreate(requestParameters: RevenueRecognitionApiRrApiV1ContractsUsageDeleteCreateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<void, any, {}, any>>;
+    /**
+     * Deprecated: use `POST /rr/api/v1/contracts/{contract_id}/usage/{id}/delete`, which also takes an optional reason for the audit log.  Retrieve, update, and delete contract usage revenue records
+     * @summary Delete Contract Usage Revenue (deprecated)
      * @param {RevenueRecognitionApiRrApiV1ContractsUsageDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     rrApiV1ContractsUsageDestroy(requestParameters: RevenueRecognitionApiRrApiV1ContractsUsageDestroyRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<void, any, {}, any>>;
@@ -25566,7 +26883,7 @@ export declare class RevenueRecognitionApi extends BaseAPI {
      */
     rrApiV1ProductBundlesUpdate(requestParameters: RevenueRecognitionApiRrApiV1ProductBundlesUpdateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<ProductBundle, any, {}, any>>;
     /**
-     * Delete a product.
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Product
      * @param {RevenueRecognitionApiRrApiV1ProductDeleteCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -25607,10 +26924,19 @@ export declare class RevenueRecognitionApi extends BaseAPI {
      */
     rrApiV1ProductUpdate(requestParameters: RevenueRecognitionApiRrApiV1ProductUpdateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<Product, any, {}, any>>;
     /**
-     *
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Revenue Transaction
+     * @param {RevenueRecognitionApiRrApiV1TransactionsDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rrApiV1TransactionsDeleteCreate(requestParameters: RevenueRecognitionApiRrApiV1TransactionsDeleteCreateRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<void, any, {}, any>>;
+    /**
+     * Deprecated: use `POST /rr/api/v1/transactions/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Revenue Transaction (deprecated)
      * @param {RevenueRecognitionApiRrApiV1TransactionsDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     rrApiV1TransactionsDestroy(requestParameters: RevenueRecognitionApiRrApiV1TransactionsDestroyRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<void, any, {}, any>>;
@@ -25789,6 +27115,34 @@ export declare const SettingsApiAxiosParamCreator: (configuration?: Configuratio
      */
     caApiUserCurrencyWithRateRetrieve: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
+     *          Retrieve approved audit log entries: each change to a record, with who made it, who approved it,         and the record\'s payload before and after. Entries are ordered newest first by (created_at, id).          **Access:** customer admins, or users with the \"View audit logs\" permission. OAuth apps also need         the `audit_logs:read` scope. Users restricted to some entities see only entries whose every entity         they can access.          **Filtering:**         - `created_at__gte` (inclusive) and `created_at__lt` (exclusive) take an ISO 8601 date, read as           00:00 UTC, or a datetime with a UTC offset. URL-encode the `+` in an offset as `%2B`.         - `model` (as `app_label.model`) returns that object type; with `object_id` it returns that           object\'s entries and the entries of records under it, such as a bill\'s payments.         - Unknown parameters are rejected with a 400.          **Paging:**         - For a complete export, pass an empty cursor (`cursor=`) on the first request and follow the           `next` URL until it is null. Entries written while you page don\'t shift later pages.         - Pass `skip_count=true` when you don\'t need the total; `count` stops at 10,000.          **Notes:**         - The entry\'s `approved_by` is who gave final approval. Inside `approvers`, `approved_by` is the           step\'s approver type and `approved_by_user` is who approved that step; it can be empty for           steps approved before step approvers were recorded.         - Entries recorded when data was first imported can appear later with historical `created_at` dates.         - Payload fields that hold secrets are stored hashed.
+     * @summary List audit log entries
+     * @param {Array<string>} [actionType] created, updated or deleted. Repeat or comma-separate.
+     * @param {number} [approvedBy] User who gave final approval.
+     * @param {string} [createdAtGte] Start, inclusive. Use an ISO 8601 date or a datetime with a UTC offset, such as 2026-03-10T11:00:00-04:00.
+     * @param {string} [createdAtLt] End, exclusive. Use an ISO 8601 date or a datetime with a UTC offset, such as 2026-03-10T11:00:00-04:00.
+     * @param {number} [createdBy] User who made the change.
+     * @param {string} [cursor] Opts into cursor pagination. Pass an empty value (cursor&#x3D;) on the first request, then follow the next URL until it is null. Recommended for complete exports: rows written while paging don\&#39;t shift pages, so none are skipped or repeated.
+     * @param {number} [limit] Page size. Default 100, maximum 10000.
+     * @param {string} [model] Object type as app_label.model. Open set.
+     * @param {number} [objectId] Rows for this object, or whose parent is this object. Needs model.
+     * @param {number} [offset] Number of records to skip. Use with limit to paginate.
+     * @param {string} [operation] Raw operation, such as add or delete. Open set.
+     * @param {number} [parentDraftQueue] Rows written as part of this audit entry.
+     * @param {boolean} [skipCount] When true, skips the total count. Recommended for large exports.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    caApiV1AuditLogList: (actionType?: Array<string>, approvedBy?: number, createdAtGte?: string, createdAtLt?: string, createdBy?: number, cursor?: string, limit?: number, model?: string, objectId?: number, offset?: number, operation?: string, parentDraftQueue?: number, skipCount?: boolean, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *          Retrieve one approved audit log entry by id, with its payloads expanded into readable values.         Access is the same as for the list: an entry the list hides is a 404 here.
+     * @summary Get one audit log entry, with readable payloads
+     * @param {number} id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    caApiV1AuditLogRetrieve: (id: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Upload invoice email attachment with proper permissions
      * @summary Upload Entity Invoice Email Attachment
      * @param {number} entityId
@@ -25813,7 +27167,7 @@ export declare const SettingsApiAxiosParamCreator: (configuration?: Configuratio
      */
     coaApiEntityDestroy: (id: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     * Returns ALL entities for intercompany journal entry creation.  This endpoint bypasses entity-scoped filtering because users need to select entities they don\'t normally have access to when creating intercompany journal entries (per the entity-scoped-user-access spec).  Uses minimal serializer to only expose id, name, and currency - preventing data leakage of sensitive entity details to users who may not have full access to all entities.
+     * Returns every operating entity for intercompany journal entry creation. Adjusting entities are left out: they are never an intercompany leg or counterparty.  This endpoint bypasses entity-scoped filtering because users need to select entities they don\'t normally have access to when creating intercompany journal entries (per the entity-scoped-user-access spec).  Uses minimal serializer to only expose id, name, and currency - preventing data leakage of sensitive entity details to users who may not have full access to all entities.
      * @summary List All Entities for Intercompany JE
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -26020,6 +27374,34 @@ export declare const SettingsApiFp: (configuration?: Configuration) => {
      */
     caApiUserCurrencyWithRateRetrieve(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
+     *          Retrieve approved audit log entries: each change to a record, with who made it, who approved it,         and the record\'s payload before and after. Entries are ordered newest first by (created_at, id).          **Access:** customer admins, or users with the \"View audit logs\" permission. OAuth apps also need         the `audit_logs:read` scope. Users restricted to some entities see only entries whose every entity         they can access.          **Filtering:**         - `created_at__gte` (inclusive) and `created_at__lt` (exclusive) take an ISO 8601 date, read as           00:00 UTC, or a datetime with a UTC offset. URL-encode the `+` in an offset as `%2B`.         - `model` (as `app_label.model`) returns that object type; with `object_id` it returns that           object\'s entries and the entries of records under it, such as a bill\'s payments.         - Unknown parameters are rejected with a 400.          **Paging:**         - For a complete export, pass an empty cursor (`cursor=`) on the first request and follow the           `next` URL until it is null. Entries written while you page don\'t shift later pages.         - Pass `skip_count=true` when you don\'t need the total; `count` stops at 10,000.          **Notes:**         - The entry\'s `approved_by` is who gave final approval. Inside `approvers`, `approved_by` is the           step\'s approver type and `approved_by_user` is who approved that step; it can be empty for           steps approved before step approvers were recorded.         - Entries recorded when data was first imported can appear later with historical `created_at` dates.         - Payload fields that hold secrets are stored hashed.
+     * @summary List audit log entries
+     * @param {Array<string>} [actionType] created, updated or deleted. Repeat or comma-separate.
+     * @param {number} [approvedBy] User who gave final approval.
+     * @param {string} [createdAtGte] Start, inclusive. Use an ISO 8601 date or a datetime with a UTC offset, such as 2026-03-10T11:00:00-04:00.
+     * @param {string} [createdAtLt] End, exclusive. Use an ISO 8601 date or a datetime with a UTC offset, such as 2026-03-10T11:00:00-04:00.
+     * @param {number} [createdBy] User who made the change.
+     * @param {string} [cursor] Opts into cursor pagination. Pass an empty value (cursor&#x3D;) on the first request, then follow the next URL until it is null. Recommended for complete exports: rows written while paging don\&#39;t shift pages, so none are skipped or repeated.
+     * @param {number} [limit] Page size. Default 100, maximum 10000.
+     * @param {string} [model] Object type as app_label.model. Open set.
+     * @param {number} [objectId] Rows for this object, or whose parent is this object. Needs model.
+     * @param {number} [offset] Number of records to skip. Use with limit to paginate.
+     * @param {string} [operation] Raw operation, such as add or delete. Open set.
+     * @param {number} [parentDraftQueue] Rows written as part of this audit entry.
+     * @param {boolean} [skipCount] When true, skips the total count. Recommended for large exports.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    caApiV1AuditLogList(actionType?: Array<string>, approvedBy?: number, createdAtGte?: string, createdAtLt?: string, createdBy?: number, cursor?: string, limit?: number, model?: string, objectId?: number, offset?: number, operation?: string, parentDraftQueue?: number, skipCount?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PaginatedAuditLogEntrySchemaList>>;
+    /**
+     *          Retrieve one approved audit log entry by id, with its payloads expanded into readable values.         Access is the same as for the list: an entry the list hides is a 404 here.
+     * @summary Get one audit log entry, with readable payloads
+     * @param {number} id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    caApiV1AuditLogRetrieve(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuditLogEntrySchema>>;
+    /**
      * Upload invoice email attachment with proper permissions
      * @summary Upload Entity Invoice Email Attachment
      * @param {number} entityId
@@ -26044,7 +27426,7 @@ export declare const SettingsApiFp: (configuration?: Configuration) => {
      */
     coaApiEntityDestroy(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
-     * Returns ALL entities for intercompany journal entry creation.  This endpoint bypasses entity-scoped filtering because users need to select entities they don\'t normally have access to when creating intercompany journal entries (per the entity-scoped-user-access spec).  Uses minimal serializer to only expose id, name, and currency - preventing data leakage of sensitive entity details to users who may not have full access to all entities.
+     * Returns every operating entity for intercompany journal entry creation. Adjusting entities are left out: they are never an intercompany leg or counterparty.  This endpoint bypasses entity-scoped filtering because users need to select entities they don\'t normally have access to when creating intercompany journal entries (per the entity-scoped-user-access spec).  Uses minimal serializer to only expose id, name, and currency - preventing data leakage of sensitive entity details to users who may not have full access to all entities.
      * @summary List All Entities for Intercompany JE
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -26239,6 +27621,22 @@ export declare const SettingsApiFactory: (configuration?: Configuration, basePat
      */
     caApiUserCurrencyWithRateRetrieve(options?: RawAxiosRequestConfig): AxiosPromise<void>;
     /**
+     *          Retrieve approved audit log entries: each change to a record, with who made it, who approved it,         and the record\'s payload before and after. Entries are ordered newest first by (created_at, id).          **Access:** customer admins, or users with the \"View audit logs\" permission. OAuth apps also need         the `audit_logs:read` scope. Users restricted to some entities see only entries whose every entity         they can access.          **Filtering:**         - `created_at__gte` (inclusive) and `created_at__lt` (exclusive) take an ISO 8601 date, read as           00:00 UTC, or a datetime with a UTC offset. URL-encode the `+` in an offset as `%2B`.         - `model` (as `app_label.model`) returns that object type; with `object_id` it returns that           object\'s entries and the entries of records under it, such as a bill\'s payments.         - Unknown parameters are rejected with a 400.          **Paging:**         - For a complete export, pass an empty cursor (`cursor=`) on the first request and follow the           `next` URL until it is null. Entries written while you page don\'t shift later pages.         - Pass `skip_count=true` when you don\'t need the total; `count` stops at 10,000.          **Notes:**         - The entry\'s `approved_by` is who gave final approval. Inside `approvers`, `approved_by` is the           step\'s approver type and `approved_by_user` is who approved that step; it can be empty for           steps approved before step approvers were recorded.         - Entries recorded when data was first imported can appear later with historical `created_at` dates.         - Payload fields that hold secrets are stored hashed.
+     * @summary List audit log entries
+     * @param {SettingsApiCaApiV1AuditLogListRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    caApiV1AuditLogList(requestParameters?: SettingsApiCaApiV1AuditLogListRequest, options?: RawAxiosRequestConfig): AxiosPromise<PaginatedAuditLogEntrySchemaList>;
+    /**
+     *          Retrieve one approved audit log entry by id, with its payloads expanded into readable values.         Access is the same as for the list: an entry the list hides is a 404 here.
+     * @summary Get one audit log entry, with readable payloads
+     * @param {SettingsApiCaApiV1AuditLogRetrieveRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    caApiV1AuditLogRetrieve(requestParameters: SettingsApiCaApiV1AuditLogRetrieveRequest, options?: RawAxiosRequestConfig): AxiosPromise<AuditLogEntrySchema>;
+    /**
      * Upload invoice email attachment with proper permissions
      * @summary Upload Entity Invoice Email Attachment
      * @param {SettingsApiCoaApiEntityAttachmentCreateRequest} requestParameters Request parameters.
@@ -26263,7 +27661,7 @@ export declare const SettingsApiFactory: (configuration?: Configuration, basePat
      */
     coaApiEntityDestroy(requestParameters: SettingsApiCoaApiEntityDestroyRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
     /**
-     * Returns ALL entities for intercompany journal entry creation.  This endpoint bypasses entity-scoped filtering because users need to select entities they don\'t normally have access to when creating intercompany journal entries (per the entity-scoped-user-access spec).  Uses minimal serializer to only expose id, name, and currency - preventing data leakage of sensitive entity details to users who may not have full access to all entities.
+     * Returns every operating entity for intercompany journal entry creation. Adjusting entities are left out: they are never an intercompany leg or counterparty.  This endpoint bypasses entity-scoped filtering because users need to select entities they don\'t normally have access to when creating intercompany journal entries (per the entity-scoped-user-access spec).  Uses minimal serializer to only expose id, name, and currency - preventing data leakage of sensitive entity details to users who may not have full access to all entities.
      * @summary List All Entities for Intercompany JE
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -26448,6 +27846,69 @@ export interface SettingsApiCaApiUserCurrencyRetrieveRequest {
 export interface SettingsApiCaApiUserCurrencyUpdateRequest {
     readonly id: number;
     readonly customerCurrency: CustomerCurrency;
+}
+/**
+ * Request parameters for caApiV1AuditLogList operation in SettingsApi.
+ */
+export interface SettingsApiCaApiV1AuditLogListRequest {
+    /**
+     * created, updated or deleted. Repeat or comma-separate.
+     */
+    readonly actionType?: Array<string>;
+    /**
+     * User who gave final approval.
+     */
+    readonly approvedBy?: number;
+    /**
+     * Start, inclusive. Use an ISO 8601 date or a datetime with a UTC offset, such as 2026-03-10T11:00:00-04:00.
+     */
+    readonly createdAtGte?: string;
+    /**
+     * End, exclusive. Use an ISO 8601 date or a datetime with a UTC offset, such as 2026-03-10T11:00:00-04:00.
+     */
+    readonly createdAtLt?: string;
+    /**
+     * User who made the change.
+     */
+    readonly createdBy?: number;
+    /**
+     * Opts into cursor pagination. Pass an empty value (cursor&#x3D;) on the first request, then follow the next URL until it is null. Recommended for complete exports: rows written while paging don\&#39;t shift pages, so none are skipped or repeated.
+     */
+    readonly cursor?: string;
+    /**
+     * Page size. Default 100, maximum 10000.
+     */
+    readonly limit?: number;
+    /**
+     * Object type as app_label.model. Open set.
+     */
+    readonly model?: string;
+    /**
+     * Rows for this object, or whose parent is this object. Needs model.
+     */
+    readonly objectId?: number;
+    /**
+     * Number of records to skip. Use with limit to paginate.
+     */
+    readonly offset?: number;
+    /**
+     * Raw operation, such as add or delete. Open set.
+     */
+    readonly operation?: string;
+    /**
+     * Rows written as part of this audit entry.
+     */
+    readonly parentDraftQueue?: number;
+    /**
+     * When true, skips the total count. Recommended for large exports.
+     */
+    readonly skipCount?: boolean;
+}
+/**
+ * Request parameters for caApiV1AuditLogRetrieve operation in SettingsApi.
+ */
+export interface SettingsApiCaApiV1AuditLogRetrieveRequest {
+    readonly id: number;
 }
 /**
  * Request parameters for coaApiEntityAttachmentCreate operation in SettingsApi.
@@ -26638,6 +28099,22 @@ export declare class SettingsApi extends BaseAPI {
      */
     caApiUserCurrencyWithRateRetrieve(options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<void, any, {}, any>>;
     /**
+     *          Retrieve approved audit log entries: each change to a record, with who made it, who approved it,         and the record\'s payload before and after. Entries are ordered newest first by (created_at, id).          **Access:** customer admins, or users with the \"View audit logs\" permission. OAuth apps also need         the `audit_logs:read` scope. Users restricted to some entities see only entries whose every entity         they can access.          **Filtering:**         - `created_at__gte` (inclusive) and `created_at__lt` (exclusive) take an ISO 8601 date, read as           00:00 UTC, or a datetime with a UTC offset. URL-encode the `+` in an offset as `%2B`.         - `model` (as `app_label.model`) returns that object type; with `object_id` it returns that           object\'s entries and the entries of records under it, such as a bill\'s payments.         - Unknown parameters are rejected with a 400.          **Paging:**         - For a complete export, pass an empty cursor (`cursor=`) on the first request and follow the           `next` URL until it is null. Entries written while you page don\'t shift later pages.         - Pass `skip_count=true` when you don\'t need the total; `count` stops at 10,000.          **Notes:**         - The entry\'s `approved_by` is who gave final approval. Inside `approvers`, `approved_by` is the           step\'s approver type and `approved_by_user` is who approved that step; it can be empty for           steps approved before step approvers were recorded.         - Entries recorded when data was first imported can appear later with historical `created_at` dates.         - Payload fields that hold secrets are stored hashed.
+     * @summary List audit log entries
+     * @param {SettingsApiCaApiV1AuditLogListRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    caApiV1AuditLogList(requestParameters?: SettingsApiCaApiV1AuditLogListRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<PaginatedAuditLogEntrySchemaList, any, {}, any>>;
+    /**
+     *          Retrieve one approved audit log entry by id, with its payloads expanded into readable values.         Access is the same as for the list: an entry the list hides is a 404 here.
+     * @summary Get one audit log entry, with readable payloads
+     * @param {SettingsApiCaApiV1AuditLogRetrieveRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    caApiV1AuditLogRetrieve(requestParameters: SettingsApiCaApiV1AuditLogRetrieveRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<AuditLogEntrySchema, any, {}, any>>;
+    /**
      * Upload invoice email attachment with proper permissions
      * @summary Upload Entity Invoice Email Attachment
      * @param {SettingsApiCoaApiEntityAttachmentCreateRequest} requestParameters Request parameters.
@@ -26662,7 +28139,7 @@ export declare class SettingsApi extends BaseAPI {
      */
     coaApiEntityDestroy(requestParameters: SettingsApiCoaApiEntityDestroyRequest, options?: RawAxiosRequestConfig): Promise<globalAxios.AxiosResponse<void, any, {}, any>>;
     /**
-     * Returns ALL entities for intercompany journal entry creation.  This endpoint bypasses entity-scoped filtering because users need to select entities they don\'t normally have access to when creating intercompany journal entries (per the entity-scoped-user-access spec).  Uses minimal serializer to only expose id, name, and currency - preventing data leakage of sensitive entity details to users who may not have full access to all entities.
+     * Returns every operating entity for intercompany journal entry creation. Adjusting entities are left out: they are never an intercompany leg or counterparty.  This endpoint bypasses entity-scoped filtering because users need to select entities they don\'t normally have access to when creating intercompany journal entries (per the entity-scoped-user-access spec).  Uses minimal serializer to only expose id, name, and currency - preventing data leakage of sensitive entity details to users who may not have full access to all entities.
      * @summary List All Entities for Intercompany JE
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}

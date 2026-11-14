@@ -36,11 +36,12 @@ Name | Type | Description | Notes
 **allocationId** | **number** |  | [readonly] [default to undefined]
 **allocationName** | **string** |  | [readonly] [default to undefined]
 **linkedSourceDocuments** | **Array&lt;{ [key: string]: any; }&gt;** | Documents this journal is posted from; deleting it deletes them too. | [readonly] [default to undefined]
+**disputeInvoices** | [**Array&lt;DisputeInvoiceReference&gt;**](DisputeInvoiceReference.md) |  | [readonly] [default to undefined]
 **csvUploadRunId** | **number** | Upload run to record this row against; must be one of your own runs. Ignored on update. | [optional] [default to undefined]
 **csvUploadRowNumber** | **number** | Spreadsheet row this document starts on (the header is row 1), recorded with it. Ignored on update. | [optional] [default to undefined]
 **searchVector** | **string** |  | [readonly] [default to undefined]
 **searchText** | **string** |  | [readonly] [default to undefined]
-**type** | [**Type4aaEnum**](Type4aaEnum.md) |  | [optional] [default to undefined]
+**type** | [**TypeB9aEnum**](TypeB9aEnum.md) |  | [optional] [default to undefined]
 **journalId** | **string** |  | [optional] [default to undefined]
 **memo** | **string** |  | [optional] [default to undefined]
 **currency** | **string** |  | [optional] [default to undefined]
@@ -99,6 +100,7 @@ const instance: JournalEntryWrite = {
     allocationId,
     allocationName,
     linkedSourceDocuments,
+    disputeInvoices,
     csvUploadRunId,
     csvUploadRowNumber,
     searchVector,

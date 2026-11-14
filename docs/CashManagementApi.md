@@ -4,7 +4,9 @@ All URIs are relative to *https://api.meetcampfire.com*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
-|[**caApiAccountDestroy**](#caapiaccountdestroy) | **DELETE** /ca/api/account/{id} | Delete Bank Account|
+|[**bankAccountTotalsRetrieve**](#bankaccounttotalsretrieve) | **GET** /ca/api/account/totals | Bank Account Totals|
+|[**caApiAccountDeleteCreate**](#caapiaccountdeletecreate) | **POST** /ca/api/account/{id}/delete | Delete Bank Account|
+|[**caApiAccountDestroy**](#caapiaccountdestroy) | **DELETE** /ca/api/account/{id} | Delete Bank Account (deprecated)|
 |[**caApiAccountPartialUpdate**](#caapiaccountpartialupdate) | **PATCH** /ca/api/account/{id} | Partial Update Bank Account|
 |[**caApiAccountRetrieve**](#caapiaccountretrieve) | **GET** /ca/api/account/{id} | Retrieve Bank Account|
 |[**caApiAccountUpdate**](#caapiaccountupdate) | **PUT** /ca/api/account/{id} | Update Bank Account|
@@ -18,9 +20,120 @@ All URIs are relative to *https://api.meetcampfire.com*
 |[**listAccounts**](#listaccounts) | **GET** /ca/api/account | List Bank Accounts|
 |[**listBankTransactions**](#listbanktransactions) | **GET** /ca/api/transaction | List Bank Transactions|
 
+# **bankAccountTotalsRetrieve**
+> BankAccountTotals bankAccountTotalsRetrieve()
+
+Current balance per currency of the accounts in the cash total: everything except credit cards, loans, liability accounts and disconnected Plaid accounts.
+
+### Example
+
+```typescript
+import {
+    CashManagementApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new CashManagementApi(configuration);
+
+let includeDeleted: boolean; //When set to \'true\', returns ONLY deleted records instead of active records. Deleted records contain minimal data: \'id\', \'is_deleted=true\', \'deleted_at\' timestamp, and \'last_modified_at\'. When \'false\' or omitted, returns ONLY active records. This provides clean separation between active and deleted data. (optional) (default to false)
+
+const { status, data } = await apiInstance.bankAccountTotalsRetrieve(
+    includeDeleted
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **includeDeleted** | [**boolean**] | When set to \&#39;true\&#39;, returns ONLY deleted records instead of active records. Deleted records contain minimal data: \&#39;id\&#39;, \&#39;is_deleted&#x3D;true\&#39;, \&#39;deleted_at\&#39; timestamp, and \&#39;last_modified_at\&#39;. When \&#39;false\&#39; or omitted, returns ONLY active records. This provides clean separation between active and deleted data. | (optional) defaults to false|
+
+
+### Return type
+
+**BankAccountTotals**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **caApiAccountDeleteCreate**
+> caApiAccountDeleteCreate()
+
+Delete the record. The body can carry a reason, which is saved to the audit log.
+
+### Example
+
+```typescript
+import {
+    CashManagementApi,
+    Configuration,
+    DeleteRequest
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new CashManagementApi(configuration);
+
+let id: number; // (default to undefined)
+let newAccount: number; //ID of the bank account to reassign transactions to before deletion (optional) (default to undefined)
+let deleteRequest: DeleteRequest; // (optional)
+
+const { status, data } = await apiInstance.caApiAccountDeleteCreate(
+    id,
+    newAccount,
+    deleteRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **deleteRequest** | **DeleteRequest**|  | |
+| **id** | [**number**] |  | defaults to undefined|
+| **newAccount** | [**number**] | ID of the bank account to reassign transactions to before deletion | (optional) defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**204** | Deleted. |  -  |
+|**202** | Sent for approval; the record is deleted once a reviewer approves. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **caApiAccountDestroy**
 > caApiAccountDestroy()
 
+Deprecated: use `POST /ca/api/account/{id}/delete`, which also takes an optional reason for the audit log.
 
 ### Example
 

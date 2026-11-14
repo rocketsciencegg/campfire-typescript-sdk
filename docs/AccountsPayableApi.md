@@ -9,7 +9,8 @@ All URIs are relative to *https://api.meetcampfire.com*
 |[**bulkSyncBillsToRamp**](#bulksyncbillstoramp) | **POST** /coa/api/v1/bill/bulk-sync-to-ramp | Bulk Sync Bills to Ramp|
 |[**coaApiV1BillBulkSearchCreate**](#coaapiv1billbulksearchcreate) | **POST** /coa/api/v1/bill/bulk-search | Bulk Search Bills by Number|
 |[**coaApiV1BillCreate**](#coaapiv1billcreate) | **POST** /coa/api/v1/bill | Create Accounting Bill|
-|[**coaApiV1BillDestroy**](#coaapiv1billdestroy) | **DELETE** /coa/api/v1/bill/{id} | Delete Accounting Bill|
+|[**coaApiV1BillDeleteCreate**](#coaapiv1billdeletecreate) | **POST** /coa/api/v1/bill/{id}/delete | Delete Accounting Bill|
+|[**coaApiV1BillDestroy**](#coaapiv1billdestroy) | **DELETE** /coa/api/v1/bill/{id} | Delete Accounting Bill (deprecated)|
 |[**coaApiV1BillEmptyTransactionDefaultDepartmentTagsRetrieve**](#coaapiv1billemptytransactiondefaultdepartmenttagsretrieve) | **GET** /coa/api/v1/bill/{bill_id}/empty-transaction-default-department-tags | Get Default Department and Tags for Empty Transaction|
 |[**coaApiV1BillPartialUpdate**](#coaapiv1billpartialupdate) | **PATCH** /coa/api/v1/bill/{id} | Partial Update Accounting Bill|
 |[**coaApiV1BillPayCreate**](#coaapiv1billpaycreate) | **POST** /coa/api/v1/bill/{bill_id}/pay | Mark Bill as Paid|
@@ -25,7 +26,8 @@ All URIs are relative to *https://api.meetcampfire.com*
 |[**coaApiV1BillVoidCreate**](#coaapiv1billvoidcreate) | **POST** /coa/api/v1/bill/{bill_id}/void | Void Bill|
 |[**coaApiV1DebitMemoBulkSearchCreate**](#coaapiv1debitmemobulksearchcreate) | **POST** /coa/api/v1/debit-memo/bulk-search | Bulk Search Debit Memos by Number|
 |[**coaApiV1DebitMemoCreate**](#coaapiv1debitmemocreate) | **POST** /coa/api/v1/debit-memo | Create Debit Memo|
-|[**coaApiV1DebitMemoDestroy**](#coaapiv1debitmemodestroy) | **DELETE** /coa/api/v1/debit-memo/{id} | Delete Debit Memo|
+|[**coaApiV1DebitMemoDeleteCreate**](#coaapiv1debitmemodeletecreate) | **POST** /coa/api/v1/debit-memo/{id}/delete | Delete Debit Memo|
+|[**coaApiV1DebitMemoDestroy**](#coaapiv1debitmemodestroy) | **DELETE** /coa/api/v1/debit-memo/{id} | Delete Debit Memo (deprecated)|
 |[**coaApiV1DebitMemoList**](#coaapiv1debitmemolist) | **GET** /coa/api/v1/debit-memo | List Debit Memos|
 |[**coaApiV1DebitMemoMarkUsedCreate**](#coaapiv1debitmemomarkusedcreate) | **POST** /coa/api/v1/debit-memo/{debit_memo_id}/mark-used | Mark Debit Memo as Used|
 |[**coaApiV1DebitMemoNextDebitMemoNumberRetrieve**](#coaapiv1debitmemonextdebitmemonumberretrieve) | **GET** /coa/api/v1/debit-memo/next-debit-memo-number | Get Next Debit Memo Number|
@@ -290,10 +292,66 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **coaApiV1BillDeleteCreate**
+> coaApiV1BillDeleteCreate()
+
+         Permanently deletes an accounting bill and its associated journal entry.          This endpoint performs a complete deletion of the bill including:         - Removal of all bill line items and associated data         - Deletion of the corresponding accounts payable journal entry         - Cleanup of any tax calculations and allocations         - Removal of vendor payment allocations if applicable          **Important Notes:**         - This operation is irreversible and permanently removes the bill from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity         - All double-entry bookkeeping records related to this bill will be removed         - Any payments allocated to this bill should be handled separately before deletion         - Deletion may affect financial reports and account balances          **Restrictions:**         - Bills with allocated payments may require payment reallocation first         - Consider the impact on historical financial reporting         - Bills cannot be deleted in a closed period           A customer can require a reason for this delete in its approval settings. When it does, and this record has a journal entry or a voided journal entry, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
+
+### Example
+
+```typescript
+import {
+    AccountsPayableApi,
+    Configuration,
+    DeleteRequest
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new AccountsPayableApi(configuration);
+
+let id: number; // (default to undefined)
+let deleteRequest: DeleteRequest; // (optional)
+
+const { status, data } = await apiInstance.coaApiV1BillDeleteCreate(
+    id,
+    deleteRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **deleteRequest** | **DeleteRequest**|  | |
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**204** | Deleted. |  -  |
+|**202** | Sent for approval; the record is deleted once a reviewer approves. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **coaApiV1BillDestroy**
 > coaApiV1BillDestroy()
 
-         Permanently deletes an accounting bill and its associated journal entry.          This endpoint performs a complete deletion of the bill including:         - Removal of all bill line items and associated data         - Deletion of the corresponding accounts payable journal entry         - Cleanup of any tax calculations and allocations         - Removal of vendor payment allocations if applicable          **Important Notes:**         - This operation is irreversible and permanently removes the bill from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity         - All double-entry bookkeeping records related to this bill will be removed         - Any payments allocated to this bill should be handled separately before deletion         - Deletion may affect financial reports and account balances          **Restrictions:**         - Bills with allocated payments may require payment reallocation first         - Consider the impact on historical financial reporting         - Bills cannot be deleted in a closed period         
+Deprecated: use `POST /coa/api/v1/bill/{id}/delete`, which also takes an optional reason for the audit log.           Permanently deletes an accounting bill and its associated journal entry.          This endpoint performs a complete deletion of the bill including:         - Removal of all bill line items and associated data         - Deletion of the corresponding accounts payable journal entry         - Cleanup of any tax calculations and allocations         - Removal of vendor payment allocations if applicable          **Important Notes:**         - This operation is irreversible and permanently removes the bill from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity         - All double-entry bookkeeping records related to this bill will be removed         - Any payments allocated to this bill should be handled separately before deletion         - Deletion may affect financial reports and account balances          **Restrictions:**         - Bills with allocated payments may require payment reallocation first         - Consider the impact on historical financial reporting         - Bills cannot be deleted in a closed period         
 
 ### Example
 
@@ -1187,9 +1245,66 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **coaApiV1DebitMemoDeleteCreate**
+> coaApiV1DebitMemoDeleteCreate()
+
+Delete the record. The body can carry a reason, which is saved to the audit log.  A customer can require a reason for this delete in its approval settings. When it does, and this record has a journal entry or a voided journal entry, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
+
+### Example
+
+```typescript
+import {
+    AccountsPayableApi,
+    Configuration,
+    DeleteRequest
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new AccountsPayableApi(configuration);
+
+let id: number; // (default to undefined)
+let deleteRequest: DeleteRequest; // (optional)
+
+const { status, data } = await apiInstance.coaApiV1DebitMemoDeleteCreate(
+    id,
+    deleteRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **deleteRequest** | **DeleteRequest**|  | |
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**204** | Deleted. |  -  |
+|**202** | Sent for approval; the record is deleted once a reviewer approves. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **coaApiV1DebitMemoDestroy**
 > coaApiV1DebitMemoDestroy()
 
+Deprecated: use `POST /coa/api/v1/debit-memo/{id}/delete`, which also takes an optional reason for the audit log.
 
 ### Example
 

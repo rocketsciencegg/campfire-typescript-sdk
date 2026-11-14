@@ -61,6 +61,7 @@ Name | Type | Description | Notes
 **createdAt** | **string** |  | [optional] [readonly] [default to undefined]
 **taxBehavior** | [**TaxBehaviorEnum**](TaxBehaviorEnum.md) |  | [optional] [default to undefined]
 **billType** | [**BillTypeEnum**](BillTypeEnum.md) |  | [optional] [default to undefined]
+**postsOpeningBalanceOffset** | **boolean** |  | [optional] [readonly] [default to undefined]
 **chatId** | **number** |  | [optional] [default to undefined]
 **customer** | **number** |  | [optional] [readonly] [default to undefined]
 **entity** | **number** |  | [optional] [default to undefined]
@@ -71,6 +72,7 @@ Name | Type | Description | Notes
 **taxRate** | **number** |  | [optional] [default to undefined]
 **apAccount** | **number** | Accounts Payable account for this bill | [optional] [default to undefined]
 **voidedJournalEntry** | **number** |  | [optional] [default to undefined]
+**openingBalanceOffsetJournalEntry** | **number** |  | [optional] [readonly] [default to undefined]
 
 ## Example
 
@@ -134,6 +136,7 @@ const instance: PatchedAccountingBill = {
     createdAt,
     taxBehavior,
     billType,
+    postsOpeningBalanceOffset,
     chatId,
     customer,
     entity,
@@ -144,6 +147,7 @@ const instance: PatchedAccountingBill = {
     taxRate,
     apAccount,
     voidedJournalEntry,
+    openingBalanceOffsetJournalEntry,
 };
 ```
 

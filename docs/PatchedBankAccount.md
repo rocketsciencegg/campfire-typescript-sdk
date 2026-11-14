@@ -17,6 +17,9 @@ Name | Type | Description | Notes
 **typeName** | **string** |  | [optional] [readonly] [default to undefined]
 **subtypeName** | **string** |  | [optional] [readonly] [default to undefined]
 **cashflowClassificationName** | **string** |  | [optional] [readonly] [default to undefined]
+**isDisconnected** | **boolean** |  | [optional] [readonly] [default to false]
+**inCashTotal** | **boolean** |  | [optional] [readonly] [default to false]
+**checkFieldOffsetsMm** | **any** |  | [optional] [default to undefined]
 **accountId** | **string** |  | [optional] [readonly] [default to undefined]
 **currency** | **string** |  | [optional] [default to undefined]
 **externalAccountId** | **string** |  | [optional] [default to undefined]
@@ -37,6 +40,7 @@ Name | Type | Description | Notes
 **checkPrintPayeeAddress** | **boolean** |  | [optional] [default to undefined]
 **checkPrintCompanyBlock** | **boolean** |  | [optional] [default to undefined]
 **checkStockPrenumbered** | **boolean** |  | [optional] [default to undefined]
+**checkPrintCurrencySymbol** | **boolean** |  | [optional] [default to undefined]
 **createdAt** | **string** |  | [optional] [readonly] [default to undefined]
 **lastModifiedAt** | **string** |  | [optional] [readonly] [default to undefined]
 **tagIds** | **Array&lt;number&gt;** |  | [optional] [default to undefined]
@@ -65,6 +69,9 @@ const instance: PatchedBankAccount = {
     typeName,
     subtypeName,
     cashflowClassificationName,
+    isDisconnected,
+    inCashTotal,
+    checkFieldOffsetsMm,
     accountId,
     currency,
     externalAccountId,
@@ -85,6 +92,7 @@ const instance: PatchedBankAccount = {
     checkPrintPayeeAddress,
     checkPrintCompanyBlock,
     checkStockPrenumbered,
+    checkPrintCurrencySymbol,
     createdAt,
     lastModifiedAt,
     tagIds,

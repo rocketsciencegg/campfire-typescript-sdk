@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **voidDate** | **string** |  | [optional] [default to undefined]
+**reversalAccountId** | **number** | Account to post the reversal to instead of Uncategorized. | [optional] [default to undefined]
 
 ## Example
 
@@ -14,6 +15,7 @@ import { VoidPayment } from 'campfire-typescript-sdk';
 
 const instance: VoidPayment = {
     voidDate,
+    reversalAccountId,
 };
 ```
 

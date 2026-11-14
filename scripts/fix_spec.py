@@ -97,11 +97,10 @@ def main(src, dst):
                 n += 1
         return n
 
-    # 3. Two operations carry a stray `coa` tag where every sibling uses a real one. The tag also
+    # 3. An operation carries a stray `coa` tag where every sibling uses a real one. The tag also
     #    decides which SDK class an operation lands in.
     retag = {
         'POST /coa/api/entity/{entity_id}/attachment': 'Settings',
-        'POST /coa/api/fixed-asset-automation/{id}/delete': 'Core Accounting',
     }
 
     @step('stray `coa` tags replaced')
@@ -138,34 +137,18 @@ def main(src, dst):
                 n += 1
         return n
 
-    # 5. Operations with no summary, or whose description is a leaked Python docstring.
-    docs = {
-        'POST /coa/api/fixed-asset-automation/{id}/delete': {
-            'summary': 'Delete Fixed Asset Automation',
-            'description': 'Delete a fixed asset automation. Replaces the deprecated DELETE /coa/api/fixed-asset-automation/{id}/.',
-        },
-        'POST /rr/api/v1/product/{id}/delete': {
-            'summary': 'Delete Product',
-            'description': 'Delete a product.',
-        },
-        'GET /rr/api/v1/contracts/{id}/minimum-commit-preview': {
-            'summary': 'Preview Contract Minimum Commit',
-        },
+    # 5. Operations with no summary.
+    summaries = {
+        'GET /rr/api/v1/contracts/{id}/minimum-commit-preview': 'Preview Contract Minimum Commit',
     }
-    leaked_docstrings = {'The type of the None singleton.'}
 
-    @step('missing summaries and leaked docstrings fixed')
+    @step('missing summaries added')
     def _():
         n = 0
         for path, method, op in operations():
-            d = docs.get(f'{method.upper()} {path}')
-            if not d:
-                continue
-            if 'summary' in d and not op.get('summary'):
-                op['summary'] = d['summary']
-                n += 1
-            if 'description' in d and (not op.get('description') or op['description'] in leaked_docstrings):
-                op['description'] = d['description']
+            summary = summaries.get(f'{method.upper()} {path}')
+            if summary and not op.get('summary'):
+                op['summary'] = summary
                 n += 1
         return n
 

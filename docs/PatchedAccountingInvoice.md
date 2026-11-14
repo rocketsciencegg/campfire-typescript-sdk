@@ -27,6 +27,8 @@ Name | Type | Description | Notes
 **entityName** | **string** |  | [optional] [readonly] [default to undefined]
 **entityCurrency** | **string** |  | [optional] [readonly] [default to undefined]
 **entityInvoiceMessage** | **string** |  | [optional] [readonly] [default to undefined]
+**entityQuantityMaxDecimalPlaces** | **number** |  | [optional] [readonly] [default to undefined]
+**entityRateMaxDecimalPlaces** | **number** |  | [optional] [readonly] [default to undefined]
 **totalAmount** | **number** |  | [optional] [readonly] [default to undefined]
 **amountPaid** | **number** |  | [optional] [readonly] [default to undefined]
 **amountDue** | **number** |  | [optional] [readonly] [default to undefined]
@@ -86,6 +88,7 @@ Name | Type | Description | Notes
 **locationOfSale** | **string** |  | [optional] [default to undefined]
 **messageOnInvoice** | **string** |  | [optional] [default to undefined]
 **itaAllocationNumber** | **string** |  | [optional] [default to undefined]
+**postsOpeningBalanceOffset** | **boolean** |  | [optional] [readonly] [default to undefined]
 **paymentStatus** | [**PaymentStatusCdcEnum**](PaymentStatusCdcEnum.md) |  | [optional] [default to undefined]
 **anrokTransactionId** | **string** | ID of the transaction in Anrok (set when transaction is created) | [optional] [default to undefined]
 **excludeFromTaxConnection** | **boolean** | When true, no tax is calculated through, and no transaction is created in, the entity\&#39;s tax connection for this invoice. Set at creation; cannot be changed. | [optional] [default to undefined]
@@ -106,7 +109,7 @@ Name | Type | Description | Notes
 **useStripeAutoBill** | **boolean** |  | [optional] [default to undefined]
 **stripePaymentLinkId** | **string** |  | [optional] [default to undefined]
 **stripePaymentIntentId** | **string** |  | [optional] [default to undefined]
-**stripeInvoiceId** | **string** |  | [optional] [readonly] [default to undefined]
+**stripeInvoiceId** | **string** |  | [optional] [default to undefined]
 **stripePdfUrl** | **string** |  | [optional] [default to undefined]
 **stripePaymentLink** | **string** |  | [optional] [readonly] [default to undefined]
 **source** | **string** |  | [optional] [default to undefined]
@@ -124,6 +127,7 @@ Name | Type | Description | Notes
 **journalEntry** | **number** |  | [optional] [readonly] [default to undefined]
 **arAccount** | **number** | Accounts Receivable account for this invoice. Populated for single-AR and migrated invoices. NULL for multi-AR invoices (aging uses ChartTransactions instead). | [optional] [readonly] [default to undefined]
 **voidedJournalEntry** | **number** |  | [optional] [readonly] [default to undefined]
+**openingBalanceOffsetJournalEntry** | **number** |  | [optional] [readonly] [default to undefined]
 **entityTransferJournalEntry** | **number** |  | [optional] [readonly] [default to undefined]
 **contract** | **number** |  | [optional] [default to undefined]
 **avalaraConnection** | **number** |  | [optional] [default to undefined]
@@ -160,6 +164,8 @@ const instance: PatchedAccountingInvoice = {
     entityName,
     entityCurrency,
     entityInvoiceMessage,
+    entityQuantityMaxDecimalPlaces,
+    entityRateMaxDecimalPlaces,
     totalAmount,
     amountPaid,
     amountDue,
@@ -219,6 +225,7 @@ const instance: PatchedAccountingInvoice = {
     locationOfSale,
     messageOnInvoice,
     itaAllocationNumber,
+    postsOpeningBalanceOffset,
     paymentStatus,
     anrokTransactionId,
     excludeFromTaxConnection,
@@ -257,6 +264,7 @@ const instance: PatchedAccountingInvoice = {
     journalEntry,
     arAccount,
     voidedJournalEntry,
+    openingBalanceOffsetJournalEntry,
     entityTransferJournalEntry,
     contract,
     avalaraConnection,

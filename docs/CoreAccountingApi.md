@@ -20,20 +20,23 @@ All URIs are relative to *https://api.meetcampfire.com*
 |[**coaApiDepartmentBulkSearchCreate**](#coaapidepartmentbulksearchcreate) | **POST** /coa/api/department/bulk-search | Bulk Search Departments by Name|
 |[**coaApiFixedAssetAutomationDeleteCreate**](#coaapifixedassetautomationdeletecreate) | **POST** /coa/api/fixed-asset-automation/{id}/delete | Delete Fixed Asset Automation|
 |[**coaApiFixedAssetCreate**](#coaapifixedassetcreate) | **POST** /coa/api/fixed-asset | Create Fixed Asset|
-|[**coaApiFixedAssetDestroy**](#coaapifixedassetdestroy) | **DELETE** /coa/api/fixed-asset/{id} | Delete Fixed Asset|
+|[**coaApiFixedAssetDeleteCreate**](#coaapifixedassetdeletecreate) | **POST** /coa/api/fixed-asset/{id}/delete | Delete Fixed Asset|
+|[**coaApiFixedAssetDestroy**](#coaapifixedassetdestroy) | **DELETE** /coa/api/fixed-asset/{id} | Delete Fixed Asset (deprecated)|
 |[**coaApiFixedAssetList**](#coaapifixedassetlist) | **GET** /coa/api/fixed-asset | List Fixed Assets|
 |[**coaApiFixedAssetPartialUpdate**](#coaapifixedassetpartialupdate) | **PATCH** /coa/api/fixed-asset/{id} | Partial Update Fixed Asset|
 |[**coaApiFixedAssetRetrieve**](#coaapifixedassetretrieve) | **GET** /coa/api/fixed-asset/{id} | Retrieve Fixed Asset|
 |[**coaApiFixedAssetUpdate**](#coaapifixedassetupdate) | **PUT** /coa/api/fixed-asset/{id} | Update Fixed Asset|
 |[**coaApiIntercompanyJournalEntryBalanceCreate**](#coaapiintercompanyjournalentrybalancecreate) | **POST** /coa/api/intercompany-journal-entry/balance | Balance Intercompany Journal Entry|
 |[**coaApiIntercompanyJournalEntryCreate**](#coaapiintercompanyjournalentrycreate) | **POST** /coa/api/intercompany-journal-entry | Create Intercompany Journal Entry|
-|[**coaApiIntercompanyJournalEntryDestroy**](#coaapiintercompanyjournalentrydestroy) | **DELETE** /coa/api/intercompany-journal-entry/{id} | Delete Intercompany Journal Entry|
+|[**coaApiIntercompanyJournalEntryDeleteCreate**](#coaapiintercompanyjournalentrydeletecreate) | **POST** /coa/api/intercompany-journal-entry/{id}/delete | Delete Intercompany Journal Entry|
+|[**coaApiIntercompanyJournalEntryDestroy**](#coaapiintercompanyjournalentrydestroy) | **DELETE** /coa/api/intercompany-journal-entry/{id} | Delete Intercompany Journal Entry (deprecated)|
 |[**coaApiIntercompanyJournalEntryList**](#coaapiintercompanyjournalentrylist) | **GET** /coa/api/intercompany-journal-entry | List Intercompany Journal Entries|
 |[**coaApiIntercompanyJournalEntryPartialUpdate**](#coaapiintercompanyjournalentrypartialupdate) | **PATCH** /coa/api/intercompany-journal-entry/{id} | Partial Update Intercompany Journal Entry|
 |[**coaApiIntercompanyJournalEntryRetrieve**](#coaapiintercompanyjournalentryretrieve) | **GET** /coa/api/intercompany-journal-entry/{id} | Get Intercompany Journal Entry|
 |[**coaApiIntercompanyJournalEntryUpdate**](#coaapiintercompanyjournalentryupdate) | **PUT** /coa/api/intercompany-journal-entry/{id} | Update Intercompany Journal Entry|
 |[**coaApiJournalEntryCreate**](#coaapijournalentrycreate) | **POST** /coa/api/journal_entry | Create Journal Entry|
-|[**coaApiJournalEntryDestroy**](#coaapijournalentrydestroy) | **DELETE** /coa/api/journal_entry/{id} | Delete Journal Entry|
+|[**coaApiJournalEntryDeleteCreate**](#coaapijournalentrydeletecreate) | **POST** /coa/api/journal_entry/{id}/delete | Delete Journal Entry|
+|[**coaApiJournalEntryDestroy**](#coaapijournalentrydestroy) | **DELETE** /coa/api/journal_entry/{id} | Delete Journal Entry (deprecated)|
 |[**coaApiJournalEntryList**](#coaapijournalentrylist) | **GET** /coa/api/journal_entry | List Journal Entries|
 |[**coaApiJournalEntryPartialUpdate**](#coaapijournalentrypartialupdate) | **PATCH** /coa/api/journal_entry/{id} | Partial Update Journal Entry|
 |[**coaApiJournalEntryRetrieve**](#coaapijournalentryretrieve) | **GET** /coa/api/journal_entry/{id} | Retrieve Journal Entry|
@@ -856,7 +859,7 @@ No authorization required
 # **coaApiFixedAssetAutomationDeleteCreate**
 > coaApiFixedAssetAutomationDeleteCreate()
 
-Delete a fixed asset automation. Replaces the deprecated DELETE /coa/api/fixed-asset-automation/{id}/.
+Delete the record. The body can carry a reason, which is saved to the audit log.
 
 ### Example
 
@@ -961,9 +964,66 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **coaApiFixedAssetDeleteCreate**
+> coaApiFixedAssetDeleteCreate()
+
+Delete the record. The body can carry a reason, which is saved to the audit log.
+
+### Example
+
+```typescript
+import {
+    CoreAccountingApi,
+    Configuration,
+    DeleteRequest
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new CoreAccountingApi(configuration);
+
+let id: number; // (default to undefined)
+let deleteRequest: DeleteRequest; // (optional)
+
+const { status, data } = await apiInstance.coaApiFixedAssetDeleteCreate(
+    id,
+    deleteRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **deleteRequest** | **DeleteRequest**|  | |
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**204** | Deleted. |  -  |
+|**202** | Sent for approval; the record is deleted once a reviewer approves. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **coaApiFixedAssetDestroy**
 > coaApiFixedAssetDestroy()
 
+Deprecated: use `POST /coa/api/fixed-asset/{id}/delete`, which also takes an optional reason for the audit log.
 
 ### Example
 
@@ -1336,10 +1396,66 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **coaApiIntercompanyJournalEntryDeleteCreate**
+> coaApiIntercompanyJournalEntryDeleteCreate()
+
+         Permanently deletes an intercompany journal entry and all related transactions.          This endpoint performs a comprehensive cleanup when deleting an intercompany journal entry:         - Validates that the entry can be deleted (not in closed period)         - Removes all associated journal entries across entities         - Updates summary tables and account balances         - Handles cascade deletion of related transactions         - Ensures data integrity across the accounting system          Deletion restrictions:         - Cannot delete entries in closed accounting periods          Error conditions:         - 400 Bad Request: Entry date is in a closed period         - 409 Conflict: Entry has protected relationships (e.g., close checklist tasks)         - 404 Not Found: Entry does not exist or user lacks access          On successful deletion, all related journal entries are removed and accounting summaries are recalculated.           A customer can require a reason for this delete in its approval settings. When it does, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
+
+### Example
+
+```typescript
+import {
+    CoreAccountingApi,
+    Configuration,
+    DeleteRequest
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new CoreAccountingApi(configuration);
+
+let id: number; // (default to undefined)
+let deleteRequest: DeleteRequest; // (optional)
+
+const { status, data } = await apiInstance.coaApiIntercompanyJournalEntryDeleteCreate(
+    id,
+    deleteRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **deleteRequest** | **DeleteRequest**|  | |
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**204** | Deleted. |  -  |
+|**202** | Sent for approval; the record is deleted once a reviewer approves. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **coaApiIntercompanyJournalEntryDestroy**
 > coaApiIntercompanyJournalEntryDestroy()
 
-         Permanently deletes an intercompany journal entry and all related transactions.          This endpoint performs a comprehensive cleanup when deleting an intercompany journal entry:         - Validates that the entry can be deleted (not in closed period)         - Removes all associated journal entries across entities         - Updates summary tables and account balances         - Handles cascade deletion of related transactions         - Ensures data integrity across the accounting system          Deletion restrictions:         - Cannot delete entries in closed accounting periods          Error conditions:         - 400 Bad Request: Entry date is in a closed period         - 409 Conflict: Entry has protected relationships (e.g., close checklist tasks)         - 404 Not Found: Entry does not exist or user lacks access          On successful deletion, all related journal entries are removed and accounting summaries are recalculated.         
+Deprecated: use `POST /coa/api/intercompany-journal-entry/{id}/delete`, which also takes an optional reason for the audit log.           Permanently deletes an intercompany journal entry and all related transactions.          This endpoint performs a comprehensive cleanup when deleting an intercompany journal entry:         - Validates that the entry can be deleted (not in closed period)         - Removes all associated journal entries across entities         - Updates summary tables and account balances         - Handles cascade deletion of related transactions         - Ensures data integrity across the accounting system          Deletion restrictions:         - Cannot delete entries in closed accounting periods          Error conditions:         - 400 Bad Request: Entry date is in a closed period         - 409 Conflict: Entry has protected relationships (e.g., close checklist tasks)         - 404 Not Found: Entry does not exist or user lacks access          On successful deletion, all related journal entries are removed and accounting summaries are recalculated.         
 
 ### Example
 
@@ -1663,10 +1779,66 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **coaApiJournalEntryDeleteCreate**
+> coaApiJournalEntryDeleteCreate()
+
+         Delete a journal entry and all its associated transactions.          **Restrictions:**         - Cannot delete entries before closed book dates          **Response Codes:**         - 204: Successfully deleted         - 400: Cannot delete (books closed for this date)         - 409: Cannot delete (associated with other objects)           A customer can require a reason for this delete in its approval settings. When it does, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
+
+### Example
+
+```typescript
+import {
+    CoreAccountingApi,
+    Configuration,
+    DeleteRequest
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new CoreAccountingApi(configuration);
+
+let id: number; // (default to undefined)
+let deleteRequest: DeleteRequest; // (optional)
+
+const { status, data } = await apiInstance.coaApiJournalEntryDeleteCreate(
+    id,
+    deleteRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **deleteRequest** | **DeleteRequest**|  | |
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**204** | Deleted. |  -  |
+|**202** | Sent for approval; the record is deleted once a reviewer approves. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **coaApiJournalEntryDestroy**
 > coaApiJournalEntryDestroy()
 
-         Delete a journal entry and all its associated transactions.          **Restrictions:**         - Cannot delete entries before closed book dates          **Response Codes:**         - 204: Successfully deleted         - 400: Cannot delete (books closed for this date)         - 409: Cannot delete (associated with other objects)         
+Deprecated: use `POST /coa/api/journal_entry/{id}/delete`, which also takes an optional reason for the audit log.           Delete a journal entry and all its associated transactions.          **Restrictions:**         - Cannot delete entries before closed book dates          **Response Codes:**         - 204: Successfully deleted         - 400: Cannot delete (books closed for this date)         - 409: Cannot delete (associated with other objects)         
 
 ### Example
 

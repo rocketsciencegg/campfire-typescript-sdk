@@ -16,9 +16,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RenewalBehaviorEnum = exports.ReconciliationReportV2SourceReconciliationTransactionStatusEnum = exports.ProrationMethodEnum = exports.PricingModelEnum = exports.PaymentTypeEnum = exports.PaymentStatusCdcEnum = exports.OverageInvoiceCadenceEnum = exports.MonthlyBillingPeriodAlignmentEnum = exports.ModeEnum = exports.MembershipModeEnum = exports.Kind5e2Enum = exports.ItaVendorEntityTypeEnum = exports.ItaVendorEntityCodeEnum = exports.ItaPayerStatusEnum = exports.ItaBillTypeEnum = exports.InvoiceReportResponseEngineUsedEnum = exports.InvoiceCalculationEnum = exports.InvoiceBasisEnum = exports.GenerageSubscriptionScheduleBillingCadenceEnum = exports.FixedAssetStatusEnum = exports.FieldTypeEnum = exports.EvergreenDateBoundaryModeEnum = exports.DrawdownBasisEnum = exports.DataTypeEnum = exports.DataSubtypeEnum = exports.CustomReportDataTableResponseEngineUsedEnum = exports.CreditMemoTypeEnum = exports.ContractStatusEnum = exports.ContractPrepaidCommitStatusEnum = exports.ComponentTypeEnum = exports.CheckStockLayoutEnum = exports.ChargeTypeEnum = exports.BundledUsageRevenueRecognitionTypeEnum = exports.BulkVendorVendorTypeEnum = exports.BreakdownTypeEnum = exports.BillingTimingEnum = exports.BillingFrequencyEnum = exports.BillingCadence450Enum = exports.BillTypeEnum = exports.BillDraftCreateSourceEnum = exports.BankAccountTypeEnum = exports.AsyncTaskStatusEnum = exports.AppliedPaymentKindEnum = exports.ApplicationStatusEnum = exports.AllocationSyncRunStatusEnum = exports.AccountingInvoiceJournalEntryTypeEnum = exports.AccountingBillPaymentStatusEnum = exports.AccountTypeEnum = exports.AccountSubtypeEnum = exports.AccountCashflowClassificationEnum = void 0;
-exports.CoreAccountingApiFactory = exports.CoreAccountingApiFp = exports.CoreAccountingApiAxiosParamCreator = exports.CoaApiVendorListVendorTypeEnum = exports.CompanyObjectsApi = exports.CompanyObjectsApiFactory = exports.CompanyObjectsApiFp = exports.CompanyObjectsApiAxiosParamCreator = exports.CashManagementApi = exports.CashManagementApiFactory = exports.CashManagementApiFp = exports.CashManagementApiAxiosParamCreator = exports.BankReconciliationApi = exports.BankReconciliationApiFactory = exports.BankReconciliationApiFp = exports.BankReconciliationApiAxiosParamCreator = exports.CoaApiV1InvoiceListStatusEnum = exports.CoaApiV1InvoiceListSentStatusEnum = exports.CoaApiV1CreditMemoListStatusEnum = exports.CoaApiV1CreditMemoListSortEnum = exports.AccountsReceivableApi = exports.AccountsReceivableApiFactory = exports.AccountsReceivableApiFp = exports.AccountsReceivableApiAxiosParamCreator = exports.CoaApiV1BillRetrieveStatusEnum = exports.AccountsPayableApi = exports.AccountsPayableApiFactory = exports.AccountsPayableApiFp = exports.AccountsPayableApiAxiosParamCreator = exports.VendorType391Enum = exports.Type4aaEnum = exports.TriggerEnum = exports.TransactionMatchStatusEnum = exports.TierPriceOverrideSourceEnum = exports.TermsEnum = exports.TerminationSettlementLineKindEnum = exports.TaxBehaviorEnum = exports.SystemTypeEnum = exports.SuggestionClassEnum = exports.SuccessorTargetKindEnum = exports.Status8ecEnum = exports.Status8d4Enum = exports.Status372Enum = exports.SourceTypeEnum = exports.SourceFc1Enum = exports.Source47fEnum = exports.Source3b3Enum = exports.Source340Enum = exports.SkipReasonEnum = exports.RevenueRecognitionTypeEnum = void 0;
-exports.SettingsApi = exports.SettingsApiFactory = exports.SettingsApiFp = exports.SettingsApiAxiosParamCreator = exports.RevenueRecognitionApi = exports.RevenueRecognitionApiFactory = exports.RevenueRecognitionApiFp = exports.RevenueRecognitionApiAxiosParamCreator = exports.IntegrationsApi = exports.IntegrationsApiFactory = exports.IntegrationsApiFp = exports.IntegrationsApiAxiosParamCreator = exports.CaApiIncomeStatementComparativeRetrieveCadenceEnum = exports.CaApiGetTrialBalanceRetrieveIncomeStatementBasisEnum = exports.CaApiGetTrialBalanceRetrieveBasisEnum = exports.CaApiGetIncomeStatementRetrieveCadenceEnum = exports.CaApiGetCashFlowV2RetrieveCadenceEnum = exports.CaApiGetCashFlowRetrieveCadenceEnum = exports.CaApiGetCashFlowActivityRetrieveCadenceEnum = exports.CaApiGetBalanceSheetRetrieveCadenceEnum = exports.CaApiCashBasisRetrieveExportEnum = exports.CaApiCashBasisRetrieveCadenceEnum = exports.CaApiCashBasisOperatingStatementRetrieveExportEnum = exports.CaApiCashBasisOperatingStatementRetrieveCadenceEnum = exports.CaApiBalanceSheetComparativeRetrieveCadenceEnum = exports.FinancialStatementsApi = exports.FinancialStatementsApiFactory = exports.FinancialStatementsApiFp = exports.FinancialStatementsApiAxiosParamCreator = exports.CustomFieldsApi = exports.CustomFieldsApiFactory = exports.CustomFieldsApiFp = exports.CustomFieldsApiAxiosParamCreator = exports.CoaApiTransactionListMatchTypeEnum = exports.CoreAccountingApi = void 0;
+exports.PricingModelEnum = exports.PaymentTypeEnum = exports.PaymentStatusCdcEnum = exports.OverageInvoiceCadenceEnum = exports.MonthlyBillingPeriodAlignmentEnum = exports.ModeEnum = exports.MembershipModeEnum = exports.LifetimePriceEntryPriceSourceEnum = exports.Kind5e2Enum = exports.ItaVendorEntityTypeEnum = exports.ItaVendorEntityCodeEnum = exports.ItaPayerStatusEnum = exports.ItaBillTypeEnum = exports.InvoiceReportResponseEngineUsedEnum = exports.InvoiceCalculationEnum = exports.InvoiceBasisEnum = exports.GenerageSubscriptionScheduleBillingCadenceEnum = exports.FixedAssetStatusEnum = exports.FieldTypeEnum = exports.EvergreenDateBoundaryModeEnum = exports.DrawdownBasisEnum = exports.DataTypeEnum = exports.DataSubtypeEnum = exports.CustomReportDataTableResponseEngineUsedEnum = exports.CreditMemoTypeEnum = exports.ContractStatusEnum = exports.ContractSourceEnum = exports.ContractPrepaidCommitStatusEnum = exports.ComponentTypeEnum = exports.CommitUsagePricingPriceSourceEnum = exports.CheckStockLayoutEnum = exports.ChargeTypeEnum = exports.BundledUsageRevenueRecognitionTypeEnum = exports.BulkVendorVendorTypeEnum = exports.BreakdownTypeEnum = exports.BillingTimingEnum = exports.BillingFrequencyEnum = exports.BillingCadence450Enum = exports.BillTypeEnum = exports.BillDraftCreateSourceEnum = exports.BankAccountTypeEnum = exports.AsyncTaskStatusEnum = exports.AppliedPaymentKindEnum = exports.ApplicationStatusEnum = exports.AllocationSyncRunStatusEnum = exports.AccountingInvoiceJournalEntryTypeEnum = exports.AccountingBillPaymentStatusEnum = exports.AccountTypeEnum = exports.AccountSubtypeEnum = exports.AccountCashflowClassificationEnum = void 0;
+exports.CompanyObjectsApiFactory = exports.CompanyObjectsApiFp = exports.CompanyObjectsApiAxiosParamCreator = exports.CashManagementApi = exports.CashManagementApiFactory = exports.CashManagementApiFp = exports.CashManagementApiAxiosParamCreator = exports.BankReconciliationApi = exports.BankReconciliationApiFactory = exports.BankReconciliationApiFp = exports.BankReconciliationApiAxiosParamCreator = exports.CoaApiV1InvoiceListStatusEnum = exports.CoaApiV1InvoiceListSentStatusEnum = exports.CoaApiV1CreditMemoListStatusEnum = exports.CoaApiV1CreditMemoListSortEnum = exports.AccountsReceivableApi = exports.AccountsReceivableApiFactory = exports.AccountsReceivableApiFp = exports.AccountsReceivableApiAxiosParamCreator = exports.CoaApiV1BillRetrieveStatusEnum = exports.AccountsPayableApi = exports.AccountsPayableApiFactory = exports.AccountsPayableApiFp = exports.AccountsPayableApiAxiosParamCreator = exports.VendorType391Enum = exports.TypeB9aEnum = exports.TriggerEnum = exports.TransactionMatchStatusEnum = exports.TierPriceOverrideSourceEnum = exports.TermsEnum = exports.TerminationSettlementLineKindEnum = exports.TaxBehaviorEnum = exports.SystemTypeEnum = exports.SuggestionClassEnum = exports.SuccessorTargetKindEnum = exports.Status8ecEnum = exports.Status8d4Enum = exports.Status372Enum = exports.SourceTypeEnum = exports.SourceFc1Enum = exports.Source47fEnum = exports.Source3b3Enum = exports.Source340Enum = exports.SkipReasonEnum = exports.RevenueRecognitionTypeEnum = exports.RevenueRecognitionMethodEnum = exports.RenewalBehaviorEnum = exports.ReconciliationReportV2SourceReconciliationTransactionStatusEnum = exports.ProrationMethodEnum = exports.ProductRevenueRecognitionMethodEnum = void 0;
+exports.SettingsApi = exports.SettingsApiFactory = exports.SettingsApiFp = exports.SettingsApiAxiosParamCreator = exports.RevenueRecognitionApi = exports.RevenueRecognitionApiFactory = exports.RevenueRecognitionApiFp = exports.RevenueRecognitionApiAxiosParamCreator = exports.IntegrationsApi = exports.IntegrationsApiFactory = exports.IntegrationsApiFp = exports.IntegrationsApiAxiosParamCreator = exports.CaApiIncomeStatementComparativeRetrieveCadenceEnum = exports.CaApiGetTrialBalanceRetrieveIncomeStatementBasisEnum = exports.CaApiGetTrialBalanceRetrieveBasisEnum = exports.CaApiGetIncomeStatementRetrieveCadenceEnum = exports.CaApiGetCashFlowV2RetrieveCadenceEnum = exports.CaApiGetCashFlowRetrieveCadenceEnum = exports.CaApiGetCashFlowActivityRetrieveCadenceEnum = exports.CaApiGetBalanceSheetRetrieveCadenceEnum = exports.CaApiCashBasisRetrieveExportEnum = exports.CaApiCashBasisRetrieveCadenceEnum = exports.CaApiCashBasisOperatingStatementRetrieveExportEnum = exports.CaApiCashBasisOperatingStatementRetrieveCadenceEnum = exports.CaApiBalanceSheetComparativeRetrieveCadenceEnum = exports.FinancialStatementsApi = exports.FinancialStatementsApiFactory = exports.FinancialStatementsApiFp = exports.FinancialStatementsApiAxiosParamCreator = exports.CustomFieldsApi = exports.CustomFieldsApiFactory = exports.CustomFieldsApiFp = exports.CustomFieldsApiAxiosParamCreator = exports.CoaApiTransactionListMatchTypeEnum = exports.CoreAccountingApi = exports.CoreAccountingApiFactory = exports.CoreAccountingApiFp = exports.CoreAccountingApiAxiosParamCreator = exports.CoaApiVendorListVendorTypeEnum = exports.CompanyObjectsApi = void 0;
 const axios_1 = __importDefault(require("axios"));
 // Some imports not used depending on template conditions
 // @ts-ignore
@@ -236,6 +236,14 @@ exports.CheckStockLayoutEnum = {
     ThreePerPage: 'three_per_page',
 };
 /**
+ * * `product_default` - product_default * `contract_override` - contract_override * `existing` - existing
+ */
+exports.CommitUsagePricingPriceSourceEnum = {
+    ProductDefault: 'product_default',
+    ContractOverride: 'contract_override',
+    Existing: 'existing',
+};
+/**
  * * `SUBSCRIPTION` - Subscription * `MILESTONE` - Milestone * `USAGE` - Usage
  */
 exports.ComponentTypeEnum = {
@@ -250,6 +258,16 @@ exports.ContractPrepaidCommitStatusEnum = {
     Active: 'ACTIVE',
     Exhausted: 'EXHAUSTED',
     Expired: 'EXPIRED',
+};
+/**
+ * * `SALESFORCE` - Salesforce * `HUBSPOT` - Hubspot * `STRIPE` - Stripe * `METRONOME` - Metronome * `MANUAL` - Manual
+ */
+exports.ContractSourceEnum = {
+    Salesforce: 'SALESFORCE',
+    Hubspot: 'HUBSPOT',
+    Stripe: 'STRIPE',
+    Metronome: 'METRONOME',
+    Manual: 'MANUAL',
 };
 /**
  * * `ACTIVE` - Active * `PENDING` - Pending * `COMPLETED` - Completed * `DELETED` - Deleted
@@ -392,6 +410,14 @@ exports.Kind5e2Enum = {
     PrepaidCommit: 'prepaid_commit',
 };
 /**
+ * * `rate_card` - rate_card * `contract_override` - contract_override * `existing` - existing
+ */
+exports.LifetimePriceEntryPriceSourceEnum = {
+    RateCard: 'rate_card',
+    ContractOverride: 'contract_override',
+    Existing: 'existing',
+};
+/**
  * * `all_departments` - All Departments * `fixed_subset` - Fixed Subset
  */
 exports.MembershipModeEnum = {
@@ -454,6 +480,13 @@ exports.PricingModelEnum = {
     VolumeBased: 'volume_based',
 };
 /**
+ * * `ratable` - Ratable * `as_consumed` - As consumed
+ */
+exports.ProductRevenueRecognitionMethodEnum = {
+    Ratable: 'ratable',
+    AsConsumed: 'as_consumed',
+};
+/**
  * * `standard` - Standard (actual month length) * `thirty_day` - Fixed 30-day month * `daily` - Daily
  */
 exports.ProrationMethodEnum = {
@@ -474,6 +507,15 @@ exports.ReconciliationReportV2SourceReconciliationTransactionStatusEnum = {
 exports.RenewalBehaviorEnum = {
     FollowContract: 'FOLLOW_CONTRACT',
     FixedEnd: 'FIXED_END',
+};
+/**
+ * * `as_consumed` - As consumed * `period_incurred` - Period incurred * `ratable` - Ratable * `proportional_to_commit` - Proportional to commit
+ */
+exports.RevenueRecognitionMethodEnum = {
+    AsConsumed: 'as_consumed',
+    PeriodIncurred: 'period_incurred',
+    Ratable: 'ratable',
+    ProportionalToCommit: 'proportional_to_commit',
 };
 /**
  * * `RATABLE` - Ratable * `RELATIVE_TO_PREPAID_COMMIT` - Relative to prepaid commit
@@ -643,9 +685,9 @@ exports.TriggerEnum = {
     CatchUp: 'catch_up',
 };
 /**
- * * `bill` - Bill * `bill_payment` - Bill Payment * `bill_prepayment` - Bill Prepayment * `check` - Check * `check_cleared` - Check Cleared * `credit_card` - Credit Card * `credit_memo` - Credit Memo * `credit_memo_payment` - Credit Memo Payment * `debit_memo` - Debit Memo * `debit_memo_payment` - Debit Memo Payment * `deposit` - Deposit * `expense` - Expense * `invoice` - Invoice * `intercompany_journal` - Intercompany Journal * `invoice_payment` - Invoice Payment * `journal_entry` - Journal Entry * `lease` - Lease * `payment` - Payment * `receive_payment` - Receive Payment * `refund` - Refund * `revenue_recognition` - Revenue Recognition * `sales_receipt` - Sales Receipt * `transfer` - Transfer * `vendor_credit` - Vendor Credit * `void_bill` - Void Bill * `void_bill_payment` - Void Bill Payment * `void_invoice_payment` - Void Invoice Payment * `void_credit_memo` - Void Credit Memo * `void_credit_memo_payment` - Void Credit Memo Payment * `void_debit_memo_payment` - Void Debit Memo Payment * `void_invoice` - Void Invoice * `elimination` - Elimination * `revaluation` - Revaluation * `asset_reclassification` - Asset Reclassification * `statistical_allocation` - Statistical Allocation * `allocation_true_up` - Allocation True-Up * `asset_impairment` - Asset Impairment
+ * * `bill` - Bill * `bill_payment` - Bill Payment * `bill_prepayment` - Bill Prepayment * `check` - Check * `check_cleared` - Check Cleared * `credit_card` - Credit Card * `credit_memo` - Credit Memo * `credit_memo_payment` - Credit Memo Payment * `debit_memo` - Debit Memo * `debit_memo_payment` - Debit Memo Payment * `deposit` - Deposit * `expense` - Expense * `invoice` - Invoice * `intercompany_journal` - Intercompany Journal * `invoice_payment` - Invoice Payment * `journal_entry` - Journal Entry * `lease` - Lease * `payment` - Payment * `receive_payment` - Receive Payment * `refund` - Refund * `revenue_recognition` - Revenue Recognition * `sales_receipt` - Sales Receipt * `transfer` - Transfer * `vendor_credit` - Vendor Credit * `void_bill` - Void Bill * `void_bill_payment` - Void Bill Payment * `void_invoice_payment` - Void Invoice Payment * `void_credit_memo` - Void Credit Memo * `void_credit_memo_payment` - Void Credit Memo Payment * `void_debit_memo_payment` - Void Debit Memo Payment * `void_invoice` - Void Invoice * `elimination` - Elimination * `revaluation` - Revaluation * `asset_reclassification` - Asset Reclassification * `statistical_allocation` - Statistical Allocation * `allocation_true_up` - Allocation True-Up * `asset_impairment` - Asset Impairment * `migration_offset` - Migration Offset
  */
-exports.Type4aaEnum = {
+exports.TypeB9aEnum = {
     Bill: 'bill',
     BillPayment: 'bill_payment',
     BillPrepayment: 'bill_prepayment',
@@ -683,6 +725,7 @@ exports.Type4aaEnum = {
     StatisticalAllocation: 'statistical_allocation',
     AllocationTrueUp: 'allocation_true_up',
     AssetImpairment: 'asset_impairment',
+    MigrationOffset: 'migration_offset',
 };
 /**
  * * `vendor` - Vendor * `customer` - Customer * `employee` - Employee
@@ -839,10 +882,43 @@ const AccountsPayableApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
-         *          Permanently deletes an accounting bill and its associated journal entry.          This endpoint performs a complete deletion of the bill including:         - Removal of all bill line items and associated data         - Deletion of the corresponding accounts payable journal entry         - Cleanup of any tax calculations and allocations         - Removal of vendor payment allocations if applicable          **Important Notes:**         - This operation is irreversible and permanently removes the bill from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity         - All double-entry bookkeeping records related to this bill will be removed         - Any payments allocated to this bill should be handled separately before deletion         - Deletion may affect financial reports and account balances          **Restrictions:**         - Bills with allocated payments may require payment reallocation first         - Consider the impact on historical financial reporting         - Bills cannot be deleted in a closed period
+         *          Permanently deletes an accounting bill and its associated journal entry.          This endpoint performs a complete deletion of the bill including:         - Removal of all bill line items and associated data         - Deletion of the corresponding accounts payable journal entry         - Cleanup of any tax calculations and allocations         - Removal of vendor payment allocations if applicable          **Important Notes:**         - This operation is irreversible and permanently removes the bill from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity         - All double-entry bookkeeping records related to this bill will be removed         - Any payments allocated to this bill should be handled separately before deletion         - Deletion may affect financial reports and account balances          **Restrictions:**         - Bills with allocated payments may require payment reallocation first         - Consider the impact on historical financial reporting         - Bills cannot be deleted in a closed period           A customer can require a reason for this delete in its approval settings. When it does, and this record has a journal entry or a voided journal entry, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
          * @summary Delete Accounting Bill
          * @param {number} id
+         * @param {DeleteRequest} [deleteRequest]
          * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        coaApiV1BillDeleteCreate: async (id, deleteRequest, options = {}) => {
+            // verify required parameter 'id' is not null or undefined
+            (0, common_1.assertParamExists)('coaApiV1BillDeleteCreate', 'id', id);
+            const localVarPath = `/coa/api/v1/bill/{id}/delete`
+                .replace('{id}', encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(deleteRequest, localVarRequestOptions, configuration);
+            return {
+                url: (0, common_1.toPathString)(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Deprecated: use `POST /coa/api/v1/bill/{id}/delete`, which also takes an optional reason for the audit log.           Permanently deletes an accounting bill and its associated journal entry.          This endpoint performs a complete deletion of the bill including:         - Removal of all bill line items and associated data         - Deletion of the corresponding accounts payable journal entry         - Cleanup of any tax calculations and allocations         - Removal of vendor payment allocations if applicable          **Important Notes:**         - This operation is irreversible and permanently removes the bill from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity         - All double-entry bookkeeping records related to this bill will be removed         - Any payments allocated to this bill should be handled separately before deletion         - Deletion may affect financial reports and account balances          **Restrictions:**         - Bills with allocated payments may require payment reallocation first         - Consider the impact on historical financial reporting         - Bills cannot be deleted in a closed period
+         * @summary Delete Accounting Bill (deprecated)
+         * @param {number} id
+         * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         coaApiV1BillDestroy: async (id, options = {}) => {
@@ -1416,10 +1492,43 @@ const AccountsPayableApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
-         *
+         * Delete the record. The body can carry a reason, which is saved to the audit log.  A customer can require a reason for this delete in its approval settings. When it does, and this record has a journal entry or a voided journal entry, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
          * @summary Delete Debit Memo
          * @param {number} id
+         * @param {DeleteRequest} [deleteRequest]
          * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        coaApiV1DebitMemoDeleteCreate: async (id, deleteRequest, options = {}) => {
+            // verify required parameter 'id' is not null or undefined
+            (0, common_1.assertParamExists)('coaApiV1DebitMemoDeleteCreate', 'id', id);
+            const localVarPath = `/coa/api/v1/debit-memo/{id}/delete`
+                .replace('{id}', encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(deleteRequest, localVarRequestOptions, configuration);
+            return {
+                url: (0, common_1.toPathString)(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Deprecated: use `POST /coa/api/v1/debit-memo/{id}/delete`, which also takes an optional reason for the audit log.
+         * @summary Delete Debit Memo (deprecated)
+         * @param {number} id
+         * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         coaApiV1DebitMemoDestroy: async (id, options = {}) => {
@@ -2123,10 +2232,27 @@ const AccountsPayableApiFp = function (configuration) {
             return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *          Permanently deletes an accounting bill and its associated journal entry.          This endpoint performs a complete deletion of the bill including:         - Removal of all bill line items and associated data         - Deletion of the corresponding accounts payable journal entry         - Cleanup of any tax calculations and allocations         - Removal of vendor payment allocations if applicable          **Important Notes:**         - This operation is irreversible and permanently removes the bill from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity         - All double-entry bookkeeping records related to this bill will be removed         - Any payments allocated to this bill should be handled separately before deletion         - Deletion may affect financial reports and account balances          **Restrictions:**         - Bills with allocated payments may require payment reallocation first         - Consider the impact on historical financial reporting         - Bills cannot be deleted in a closed period
+         *          Permanently deletes an accounting bill and its associated journal entry.          This endpoint performs a complete deletion of the bill including:         - Removal of all bill line items and associated data         - Deletion of the corresponding accounts payable journal entry         - Cleanup of any tax calculations and allocations         - Removal of vendor payment allocations if applicable          **Important Notes:**         - This operation is irreversible and permanently removes the bill from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity         - All double-entry bookkeeping records related to this bill will be removed         - Any payments allocated to this bill should be handled separately before deletion         - Deletion may affect financial reports and account balances          **Restrictions:**         - Bills with allocated payments may require payment reallocation first         - Consider the impact on historical financial reporting         - Bills cannot be deleted in a closed period           A customer can require a reason for this delete in its approval settings. When it does, and this record has a journal entry or a voided journal entry, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
          * @summary Delete Accounting Bill
          * @param {number} id
+         * @param {DeleteRequest} [deleteRequest]
          * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async coaApiV1BillDeleteCreate(id, deleteRequest, options) {
+            var _a, _b;
+            var _c;
+            const localVarAxiosArgs = await localVarAxiosParamCreator.coaApiV1BillDeleteCreate(id, deleteRequest, options);
+            const localVarOperationServerIndex = (_c = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _c !== void 0 ? _c : 0;
+            const localVarOperationServerBasePath = (_b = (_a = base_1.operationServerMap['AccountsPayableApi.coaApiV1BillDeleteCreate']) === null || _a === void 0 ? void 0 : _a[localVarOperationServerIndex]) === null || _b === void 0 ? void 0 : _b.url;
+            return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Deprecated: use `POST /coa/api/v1/bill/{id}/delete`, which also takes an optional reason for the audit log.           Permanently deletes an accounting bill and its associated journal entry.          This endpoint performs a complete deletion of the bill including:         - Removal of all bill line items and associated data         - Deletion of the corresponding accounts payable journal entry         - Cleanup of any tax calculations and allocations         - Removal of vendor payment allocations if applicable          **Important Notes:**         - This operation is irreversible and permanently removes the bill from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity         - All double-entry bookkeeping records related to this bill will be removed         - Any payments allocated to this bill should be handled separately before deletion         - Deletion may affect financial reports and account balances          **Restrictions:**         - Bills with allocated payments may require payment reallocation first         - Consider the impact on historical financial reporting         - Bills cannot be deleted in a closed period
+         * @summary Delete Accounting Bill (deprecated)
+         * @param {number} id
+         * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async coaApiV1BillDestroy(id, options) {
@@ -2388,10 +2514,27 @@ const AccountsPayableApiFp = function (configuration) {
             return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *
+         * Delete the record. The body can carry a reason, which is saved to the audit log.  A customer can require a reason for this delete in its approval settings. When it does, and this record has a journal entry or a voided journal entry, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
          * @summary Delete Debit Memo
          * @param {number} id
+         * @param {DeleteRequest} [deleteRequest]
          * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async coaApiV1DebitMemoDeleteCreate(id, deleteRequest, options) {
+            var _a, _b;
+            var _c;
+            const localVarAxiosArgs = await localVarAxiosParamCreator.coaApiV1DebitMemoDeleteCreate(id, deleteRequest, options);
+            const localVarOperationServerIndex = (_c = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _c !== void 0 ? _c : 0;
+            const localVarOperationServerBasePath = (_b = (_a = base_1.operationServerMap['AccountsPayableApi.coaApiV1DebitMemoDeleteCreate']) === null || _a === void 0 ? void 0 : _a[localVarOperationServerIndex]) === null || _b === void 0 ? void 0 : _b.url;
+            return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Deprecated: use `POST /coa/api/v1/debit-memo/{id}/delete`, which also takes an optional reason for the audit log.
+         * @summary Delete Debit Memo (deprecated)
+         * @param {number} id
+         * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async coaApiV1DebitMemoDestroy(id, options) {
@@ -2753,10 +2896,21 @@ const AccountsPayableApiFactory = function (configuration, basePath, axios) {
             return localVarFp.coaApiV1BillCreate(requestParameters.accountingBill, options).then((request) => request(axios, basePath));
         },
         /**
-         *          Permanently deletes an accounting bill and its associated journal entry.          This endpoint performs a complete deletion of the bill including:         - Removal of all bill line items and associated data         - Deletion of the corresponding accounts payable journal entry         - Cleanup of any tax calculations and allocations         - Removal of vendor payment allocations if applicable          **Important Notes:**         - This operation is irreversible and permanently removes the bill from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity         - All double-entry bookkeeping records related to this bill will be removed         - Any payments allocated to this bill should be handled separately before deletion         - Deletion may affect financial reports and account balances          **Restrictions:**         - Bills with allocated payments may require payment reallocation first         - Consider the impact on historical financial reporting         - Bills cannot be deleted in a closed period
+         *          Permanently deletes an accounting bill and its associated journal entry.          This endpoint performs a complete deletion of the bill including:         - Removal of all bill line items and associated data         - Deletion of the corresponding accounts payable journal entry         - Cleanup of any tax calculations and allocations         - Removal of vendor payment allocations if applicable          **Important Notes:**         - This operation is irreversible and permanently removes the bill from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity         - All double-entry bookkeeping records related to this bill will be removed         - Any payments allocated to this bill should be handled separately before deletion         - Deletion may affect financial reports and account balances          **Restrictions:**         - Bills with allocated payments may require payment reallocation first         - Consider the impact on historical financial reporting         - Bills cannot be deleted in a closed period           A customer can require a reason for this delete in its approval settings. When it does, and this record has a journal entry or a voided journal entry, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
          * @summary Delete Accounting Bill
+         * @param {AccountsPayableApiCoaApiV1BillDeleteCreateRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        coaApiV1BillDeleteCreate(requestParameters, options) {
+            return localVarFp.coaApiV1BillDeleteCreate(requestParameters.id, requestParameters.deleteRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Deprecated: use `POST /coa/api/v1/bill/{id}/delete`, which also takes an optional reason for the audit log.           Permanently deletes an accounting bill and its associated journal entry.          This endpoint performs a complete deletion of the bill including:         - Removal of all bill line items and associated data         - Deletion of the corresponding accounts payable journal entry         - Cleanup of any tax calculations and allocations         - Removal of vendor payment allocations if applicable          **Important Notes:**         - This operation is irreversible and permanently removes the bill from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity         - All double-entry bookkeeping records related to this bill will be removed         - Any payments allocated to this bill should be handled separately before deletion         - Deletion may affect financial reports and account balances          **Restrictions:**         - Bills with allocated payments may require payment reallocation first         - Consider the impact on historical financial reporting         - Bills cannot be deleted in a closed period
+         * @summary Delete Accounting Bill (deprecated)
          * @param {AccountsPayableApiCoaApiV1BillDestroyRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         coaApiV1BillDestroy(requestParameters, options) {
@@ -2912,10 +3066,21 @@ const AccountsPayableApiFactory = function (configuration, basePath, axios) {
             return localVarFp.coaApiV1DebitMemoCreate(requestParameters.accountingDebitMemo, options).then((request) => request(axios, basePath));
         },
         /**
-         *
+         * Delete the record. The body can carry a reason, which is saved to the audit log.  A customer can require a reason for this delete in its approval settings. When it does, and this record has a journal entry or a voided journal entry, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
          * @summary Delete Debit Memo
+         * @param {AccountsPayableApiCoaApiV1DebitMemoDeleteCreateRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        coaApiV1DebitMemoDeleteCreate(requestParameters, options) {
+            return localVarFp.coaApiV1DebitMemoDeleteCreate(requestParameters.id, requestParameters.deleteRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Deprecated: use `POST /coa/api/v1/debit-memo/{id}/delete`, which also takes an optional reason for the audit log.
+         * @summary Delete Debit Memo (deprecated)
          * @param {AccountsPayableApiCoaApiV1DebitMemoDestroyRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         coaApiV1DebitMemoDestroy(requestParameters, options) {
@@ -3164,10 +3329,21 @@ class AccountsPayableApi extends base_1.BaseAPI {
         return (0, exports.AccountsPayableApiFp)(this.configuration).coaApiV1BillCreate(requestParameters.accountingBill, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *          Permanently deletes an accounting bill and its associated journal entry.          This endpoint performs a complete deletion of the bill including:         - Removal of all bill line items and associated data         - Deletion of the corresponding accounts payable journal entry         - Cleanup of any tax calculations and allocations         - Removal of vendor payment allocations if applicable          **Important Notes:**         - This operation is irreversible and permanently removes the bill from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity         - All double-entry bookkeeping records related to this bill will be removed         - Any payments allocated to this bill should be handled separately before deletion         - Deletion may affect financial reports and account balances          **Restrictions:**         - Bills with allocated payments may require payment reallocation first         - Consider the impact on historical financial reporting         - Bills cannot be deleted in a closed period
+     *          Permanently deletes an accounting bill and its associated journal entry.          This endpoint performs a complete deletion of the bill including:         - Removal of all bill line items and associated data         - Deletion of the corresponding accounts payable journal entry         - Cleanup of any tax calculations and allocations         - Removal of vendor payment allocations if applicable          **Important Notes:**         - This operation is irreversible and permanently removes the bill from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity         - All double-entry bookkeeping records related to this bill will be removed         - Any payments allocated to this bill should be handled separately before deletion         - Deletion may affect financial reports and account balances          **Restrictions:**         - Bills with allocated payments may require payment reallocation first         - Consider the impact on historical financial reporting         - Bills cannot be deleted in a closed period           A customer can require a reason for this delete in its approval settings. When it does, and this record has a journal entry or a voided journal entry, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
      * @summary Delete Accounting Bill
+     * @param {AccountsPayableApiCoaApiV1BillDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiV1BillDeleteCreate(requestParameters, options) {
+        return (0, exports.AccountsPayableApiFp)(this.configuration).coaApiV1BillDeleteCreate(requestParameters.id, requestParameters.deleteRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Deprecated: use `POST /coa/api/v1/bill/{id}/delete`, which also takes an optional reason for the audit log.           Permanently deletes an accounting bill and its associated journal entry.          This endpoint performs a complete deletion of the bill including:         - Removal of all bill line items and associated data         - Deletion of the corresponding accounts payable journal entry         - Cleanup of any tax calculations and allocations         - Removal of vendor payment allocations if applicable          **Important Notes:**         - This operation is irreversible and permanently removes the bill from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity         - All double-entry bookkeeping records related to this bill will be removed         - Any payments allocated to this bill should be handled separately before deletion         - Deletion may affect financial reports and account balances          **Restrictions:**         - Bills with allocated payments may require payment reallocation first         - Consider the impact on historical financial reporting         - Bills cannot be deleted in a closed period
+     * @summary Delete Accounting Bill (deprecated)
      * @param {AccountsPayableApiCoaApiV1BillDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiV1BillDestroy(requestParameters, options) {
@@ -3323,10 +3499,21 @@ class AccountsPayableApi extends base_1.BaseAPI {
         return (0, exports.AccountsPayableApiFp)(this.configuration).coaApiV1DebitMemoCreate(requestParameters.accountingDebitMemo, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *
+     * Delete the record. The body can carry a reason, which is saved to the audit log.  A customer can require a reason for this delete in its approval settings. When it does, and this record has a journal entry or a voided journal entry, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
      * @summary Delete Debit Memo
+     * @param {AccountsPayableApiCoaApiV1DebitMemoDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiV1DebitMemoDeleteCreate(requestParameters, options) {
+        return (0, exports.AccountsPayableApiFp)(this.configuration).coaApiV1DebitMemoDeleteCreate(requestParameters.id, requestParameters.deleteRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Deprecated: use `POST /coa/api/v1/debit-memo/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Debit Memo (deprecated)
      * @param {AccountsPayableApiCoaApiV1DebitMemoDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiV1DebitMemoDestroy(requestParameters, options) {
@@ -3637,10 +3824,43 @@ const AccountsReceivableApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
-         *          Permanently deletes an accounting credit memo and all associated data from the system.          This endpoint performs a complete removal of the credit memo including:         - Complete credit memo record deletion with all line items         - Automatic journal entry removal and accounting transaction cleanup          **Accounting Impact:**         - Associated journal entries are automatically deleted to maintain accounting integrity         - Exchange rate records and multi-currency data are cleaned up          **Restrictions:**         - Credit memos that have been applied to invoices cannot be deleted         - Credit memos in closed accounting periods may have deletion restrictions         - Consider the impact on historical financial reporting
+         *          Permanently deletes an accounting credit memo and all associated data from the system.          This endpoint performs a complete removal of the credit memo including:         - Complete credit memo record deletion with all line items         - Automatic journal entry removal and accounting transaction cleanup          **Accounting Impact:**         - Associated journal entries are automatically deleted to maintain accounting integrity         - Exchange rate records and multi-currency data are cleaned up          **Restrictions:**         - Credit memos that have been applied to invoices cannot be deleted         - Credit memos in closed accounting periods may have deletion restrictions         - Consider the impact on historical financial reporting           A customer can require a reason for this delete in its approval settings. When it does, and this record has a journal entry or a voided journal entry, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
          * @summary Delete Credit Memo
          * @param {number} id
+         * @param {DeleteRequest} [deleteRequest]
          * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        coaApiV1CreditMemoDeleteCreate: async (id, deleteRequest, options = {}) => {
+            // verify required parameter 'id' is not null or undefined
+            (0, common_1.assertParamExists)('coaApiV1CreditMemoDeleteCreate', 'id', id);
+            const localVarPath = `/coa/api/v1/credit-memo/{id}/delete`
+                .replace('{id}', encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(deleteRequest, localVarRequestOptions, configuration);
+            return {
+                url: (0, common_1.toPathString)(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Deprecated: use `POST /coa/api/v1/credit-memo/{id}/delete`, which also takes an optional reason for the audit log.           Permanently deletes an accounting credit memo and all associated data from the system.          This endpoint performs a complete removal of the credit memo including:         - Complete credit memo record deletion with all line items         - Automatic journal entry removal and accounting transaction cleanup          **Accounting Impact:**         - Associated journal entries are automatically deleted to maintain accounting integrity         - Exchange rate records and multi-currency data are cleaned up          **Restrictions:**         - Credit memos that have been applied to invoices cannot be deleted         - Credit memos in closed accounting periods may have deletion restrictions         - Consider the impact on historical financial reporting
+         * @summary Delete Credit Memo (deprecated)
+         * @param {number} id
+         * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         coaApiV1CreditMemoDestroy: async (id, options = {}) => {
@@ -3675,13 +3895,14 @@ const AccountsReceivableApiAxiosParamCreator = function (configuration) {
          * @param {number} [limit] Number of results to return per page
          * @param {number} [offset] Number of results to skip for pagination
          * @param {string} [q] Search credit memo numbers, messages, and client names
+         * @param {number} [revenueLinkableFor] Revenue contract ID. Only credit memos that can be linked to that contract.
          * @param {CoaApiV1CreditMemoListSortEnum} [sort] Sort results by field (prefix with - for descending)
          * @param {string} [startDate] Filter credit memos created on or after this date (YYYY-MM-DD format)
          * @param {CoaApiV1CreditMemoListStatusEnum} [status] Filter by application status
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        coaApiV1CreditMemoList: async (client, contract, endDate, entity, limit, offset, q, sort, startDate, status, options = {}) => {
+        coaApiV1CreditMemoList: async (client, contract, endDate, entity, limit, offset, q, revenueLinkableFor, sort, startDate, status, options = {}) => {
             const localVarPath = `/coa/api/v1/credit-memo`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -3712,6 +3933,9 @@ const AccountsReceivableApiAxiosParamCreator = function (configuration) {
             }
             if (q !== undefined) {
                 localVarQueryParameter['q'] = q;
+            }
+            if (revenueLinkableFor !== undefined) {
+                localVarQueryParameter['revenue_linkable_for'] = revenueLinkableFor;
             }
             if (sort !== undefined) {
                 localVarQueryParameter['sort'] = sort;
@@ -3825,7 +4049,7 @@ const AccountsReceivableApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
-         * Void a credit memo \'mark used\' payment by creating a reversing journal entry.          This creates a reversing JE that credits the A/R account and debits Uncategorized,         then marks the payment as voided.
+         * Void a credit memo \'mark used\' payment by creating a reversing journal entry.          An application to an invoice is voided on both the credit memo and the invoice, as voiding         it from the invoice does. Any other application gets a reversing JE that credits the A/R         account and debits Uncategorized, then the payment is marked as voided.
          * @summary Void Credit Memo Used Payment
          * @param {number} creditMemoId ID of the credit memo
          * @param {number} paymentId ID of the payment to void
@@ -3862,7 +4086,7 @@ const AccountsReceivableApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
-         * Remove a credit memo \'mark used\' payment application.          This recategorizes the transaction back to Uncategorized and deletes the payment record.
+         * Remove a credit memo \'mark used\' payment application.          An application to an invoice is removed from both the credit memo and the invoice, along with         its journal entry, as removing it from the invoice does. Any other application recategorizes         the transaction back to Uncategorized and deletes the payment record.
          * @summary Delete Credit Memo Used Payment
          * @param {number} creditMemoId ID of the credit memo
          * @param {number} paymentId ID of the payment to delete
@@ -4151,6 +4375,37 @@ const AccountsReceivableApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
+         * Dry run of the invoice upload\'s revenue linking, in the order given (the order the upload posts them). Nothing is saved.
+         * @summary Preview Invoice Upload Revenue Links
+         * @param {UploadRevenuePreviewRequest} uploadRevenuePreviewRequest
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        coaApiV1InvoiceCsvRevenuePreviewCreate: async (uploadRevenuePreviewRequest, options = {}) => {
+            // verify required parameter 'uploadRevenuePreviewRequest' is not null or undefined
+            (0, common_1.assertParamExists)('coaApiV1InvoiceCsvRevenuePreviewCreate', 'uploadRevenuePreviewRequest', uploadRevenuePreviewRequest);
+            const localVarPath = `/coa/api/v1/invoice/csv-revenue-preview`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(uploadRevenuePreviewRequest, localVarRequestOptions, configuration);
+            return {
+                url: (0, common_1.toPathString)(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Get the default payment amount for an invoice based on when payment is posted.          If the invoice has discount terms and the posted date is within the discount period,         the discounted amount is returned. Otherwise, the full amount is returned.
          * @summary Get Default Payment Amount
          * @param {number} invoiceId ID of the invoice
@@ -4186,10 +4441,43 @@ const AccountsReceivableApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
-         *          Permanently deletes an accounting invoice and its associated journal entry and related data.          This endpoint performs a complete deletion of the invoice including:         - Removal of all invoice line items and associated product data         - Deletion of the corresponding accounts receivable journal entry         - Removal of payment records and journal entries          **Important Notes:**         - This operation is irreversible and permanently removes the invoice from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity          **Restrictions:**         - Invoices in closed accounting periods cannot be deleted         - Consider the impact on historical financial reporting
+         *          Permanently deletes an accounting invoice and its associated journal entry and related data.          This endpoint performs a complete deletion of the invoice including:         - Removal of all invoice line items and associated product data         - Deletion of the corresponding accounts receivable journal entry         - Removal of payment records and journal entries          **Important Notes:**         - This operation is irreversible and permanently removes the invoice from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity          **Restrictions:**         - Invoices in closed accounting periods cannot be deleted         - Consider the impact on historical financial reporting           A customer can require a reason for this delete in its approval settings. When it does, and this record has a journal entry or a voided journal entry, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
          * @summary Delete Invoice
          * @param {number} id
+         * @param {DeleteRequest} [deleteRequest]
          * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        coaApiV1InvoiceDeleteCreate: async (id, deleteRequest, options = {}) => {
+            // verify required parameter 'id' is not null or undefined
+            (0, common_1.assertParamExists)('coaApiV1InvoiceDeleteCreate', 'id', id);
+            const localVarPath = `/coa/api/v1/invoice/{id}/delete`
+                .replace('{id}', encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(deleteRequest, localVarRequestOptions, configuration);
+            return {
+                url: (0, common_1.toPathString)(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Deprecated: use `POST /coa/api/v1/invoice/{id}/delete`, which also takes an optional reason for the audit log.           Permanently deletes an accounting invoice and its associated journal entry and related data.          This endpoint performs a complete deletion of the invoice including:         - Removal of all invoice line items and associated product data         - Deletion of the corresponding accounts receivable journal entry         - Removal of payment records and journal entries          **Important Notes:**         - This operation is irreversible and permanently removes the invoice from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity          **Restrictions:**         - Invoices in closed accounting periods cannot be deleted         - Consider the impact on historical financial reporting
+         * @summary Delete Invoice (deprecated)
+         * @param {number} id
+         * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         coaApiV1InvoiceDestroy: async (id, options = {}) => {
@@ -4223,6 +4511,7 @@ const AccountsReceivableApiAxiosParamCreator = function (configuration) {
          * @param {boolean} [download] If true, triggers async CSV download workflow and sends result via email
          * @param {string} [endDate] Filter invoices with invoice_date on or before this date (YYYY-MM-DD)
          * @param {number} [entity] Filter by entity ID. Can be specified multiple times
+         * @param {boolean} [expenseBillingAttachable] Only invoices project expenses can still be billed onto: draft or open, never sent, unpaid
          * @param {string} [invoiceNumber] Filter by exact invoice number
          * @param {number} [limit] Number of results to return per page.
          * @param {number} [lineTagGroupId] Filter invoices with at least one line item assigned a tag from this tag group ID
@@ -4233,6 +4522,7 @@ const AccountsReceivableApiAxiosParamCreator = function (configuration) {
          * @param {number} [parentClient] Filter by parent client (Vendor) ID. Returns invoices for the specified client and all of its descendants via vendor lineage.
          * @param {string} [q] Search query - searches shipping address, invoice number, message, or client name
          * @param {string} [refNumber] Filter by exact ref number
+         * @param {number} [revenueLinkableFor] Revenue contract ID. Only invoices that can be linked to that contract.
          * @param {CoaApiV1InvoiceListSentStatusEnum} [sentStatus] Filter by sent status
          * @param {string} [sort] Sort order. Use field name for ascending, -field for descending. Special fields: client_name, amount_due. Default: -invoice_date
          * @param {string} [startDate] Filter invoices with invoice_date on or after this date (YYYY-MM-DD)
@@ -4240,7 +4530,7 @@ const AccountsReceivableApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        coaApiV1InvoiceList: async (client, contract, currency, download, endDate, entity, invoiceNumber, limit, lineTagGroupId, lineTagId, offset, paidDateFrom, paidDateTo, parentClient, q, refNumber, sentStatus, sort, startDate, status, options = {}) => {
+        coaApiV1InvoiceList: async (client, contract, currency, download, endDate, entity, expenseBillingAttachable, invoiceNumber, limit, lineTagGroupId, lineTagId, offset, paidDateFrom, paidDateTo, parentClient, q, refNumber, revenueLinkableFor, sentStatus, sort, startDate, status, options = {}) => {
             const localVarPath = `/coa/api/v1/invoice`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -4268,6 +4558,9 @@ const AccountsReceivableApiAxiosParamCreator = function (configuration) {
             }
             if (entity !== undefined) {
                 localVarQueryParameter['entity'] = entity;
+            }
+            if (expenseBillingAttachable !== undefined) {
+                localVarQueryParameter['expense_billing_attachable'] = expenseBillingAttachable;
             }
             if (invoiceNumber !== undefined) {
                 localVarQueryParameter['invoice_number'] = invoiceNumber;
@@ -4298,6 +4591,9 @@ const AccountsReceivableApiAxiosParamCreator = function (configuration) {
             }
             if (refNumber !== undefined) {
                 localVarQueryParameter['ref_number'] = refNumber;
+            }
+            if (revenueLinkableFor !== undefined) {
+                localVarQueryParameter['revenue_linkable_for'] = revenueLinkableFor;
             }
             if (sentStatus !== undefined) {
                 localVarQueryParameter['sentStatus'] = sentStatus;
@@ -5039,14 +5335,15 @@ const AccountsReceivableApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
-         * Delete a product.
+         * Delete the record. The body can carry a reason, which is saved to the audit log.
          * @summary Delete Product
          * @param {number} id
+         * @param {number} [newProduct] ID of the product to reassign the deleted product\&#39;s records to before deletion
          * @param {DeleteRequest} [deleteRequest]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        rrApiV1ProductDeleteCreate: async (id, deleteRequest, options = {}) => {
+        rrApiV1ProductDeleteCreate: async (id, newProduct, deleteRequest, options = {}) => {
             // verify required parameter 'id' is not null or undefined
             (0, common_1.assertParamExists)('rrApiV1ProductDeleteCreate', 'id', id);
             const localVarPath = `/rr/api/v1/product/{id}/delete`
@@ -5060,6 +5357,9 @@ const AccountsReceivableApiAxiosParamCreator = function (configuration) {
             const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
+            if (newProduct !== undefined) {
+                localVarQueryParameter['new_product'] = newProduct;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -5074,11 +5374,12 @@ const AccountsReceivableApiAxiosParamCreator = function (configuration) {
          * Deprecated: use `POST /rr/api/v1/product/{id}/delete`, which also takes an optional reason for the audit log.
          * @summary Delete Product (deprecated)
          * @param {number} id
+         * @param {number} [newProduct] ID of the product to reassign the deleted product\&#39;s records to before deletion
          * @param {*} [options] Override http request option.
          * @deprecated
          * @throws {RequiredError}
          */
-        rrApiV1ProductDestroy: async (id, options = {}) => {
+        rrApiV1ProductDestroy: async (id, newProduct, options = {}) => {
             // verify required parameter 'id' is not null or undefined
             (0, common_1.assertParamExists)('rrApiV1ProductDestroy', 'id', id);
             const localVarPath = `/rr/api/v1/product/{id}`
@@ -5092,6 +5393,9 @@ const AccountsReceivableApiAxiosParamCreator = function (configuration) {
             const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
+            if (newProduct !== undefined) {
+                localVarQueryParameter['new_product'] = newProduct;
+            }
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -5282,10 +5586,27 @@ const AccountsReceivableApiFp = function (configuration) {
             return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *          Permanently deletes an accounting credit memo and all associated data from the system.          This endpoint performs a complete removal of the credit memo including:         - Complete credit memo record deletion with all line items         - Automatic journal entry removal and accounting transaction cleanup          **Accounting Impact:**         - Associated journal entries are automatically deleted to maintain accounting integrity         - Exchange rate records and multi-currency data are cleaned up          **Restrictions:**         - Credit memos that have been applied to invoices cannot be deleted         - Credit memos in closed accounting periods may have deletion restrictions         - Consider the impact on historical financial reporting
+         *          Permanently deletes an accounting credit memo and all associated data from the system.          This endpoint performs a complete removal of the credit memo including:         - Complete credit memo record deletion with all line items         - Automatic journal entry removal and accounting transaction cleanup          **Accounting Impact:**         - Associated journal entries are automatically deleted to maintain accounting integrity         - Exchange rate records and multi-currency data are cleaned up          **Restrictions:**         - Credit memos that have been applied to invoices cannot be deleted         - Credit memos in closed accounting periods may have deletion restrictions         - Consider the impact on historical financial reporting           A customer can require a reason for this delete in its approval settings. When it does, and this record has a journal entry or a voided journal entry, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
          * @summary Delete Credit Memo
          * @param {number} id
+         * @param {DeleteRequest} [deleteRequest]
          * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async coaApiV1CreditMemoDeleteCreate(id, deleteRequest, options) {
+            var _a, _b;
+            var _c;
+            const localVarAxiosArgs = await localVarAxiosParamCreator.coaApiV1CreditMemoDeleteCreate(id, deleteRequest, options);
+            const localVarOperationServerIndex = (_c = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _c !== void 0 ? _c : 0;
+            const localVarOperationServerBasePath = (_b = (_a = base_1.operationServerMap['AccountsReceivableApi.coaApiV1CreditMemoDeleteCreate']) === null || _a === void 0 ? void 0 : _a[localVarOperationServerIndex]) === null || _b === void 0 ? void 0 : _b.url;
+            return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Deprecated: use `POST /coa/api/v1/credit-memo/{id}/delete`, which also takes an optional reason for the audit log.           Permanently deletes an accounting credit memo and all associated data from the system.          This endpoint performs a complete removal of the credit memo including:         - Complete credit memo record deletion with all line items         - Automatic journal entry removal and accounting transaction cleanup          **Accounting Impact:**         - Associated journal entries are automatically deleted to maintain accounting integrity         - Exchange rate records and multi-currency data are cleaned up          **Restrictions:**         - Credit memos that have been applied to invoices cannot be deleted         - Credit memos in closed accounting periods may have deletion restrictions         - Consider the impact on historical financial reporting
+         * @summary Delete Credit Memo (deprecated)
+         * @param {number} id
+         * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async coaApiV1CreditMemoDestroy(id, options) {
@@ -5306,16 +5627,17 @@ const AccountsReceivableApiFp = function (configuration) {
          * @param {number} [limit] Number of results to return per page
          * @param {number} [offset] Number of results to skip for pagination
          * @param {string} [q] Search credit memo numbers, messages, and client names
+         * @param {number} [revenueLinkableFor] Revenue contract ID. Only credit memos that can be linked to that contract.
          * @param {CoaApiV1CreditMemoListSortEnum} [sort] Sort results by field (prefix with - for descending)
          * @param {string} [startDate] Filter credit memos created on or after this date (YYYY-MM-DD format)
          * @param {CoaApiV1CreditMemoListStatusEnum} [status] Filter by application status
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async coaApiV1CreditMemoList(client, contract, endDate, entity, limit, offset, q, sort, startDate, status, options) {
+        async coaApiV1CreditMemoList(client, contract, endDate, entity, limit, offset, q, revenueLinkableFor, sort, startDate, status, options) {
             var _a, _b;
             var _c;
-            const localVarAxiosArgs = await localVarAxiosParamCreator.coaApiV1CreditMemoList(client, contract, endDate, entity, limit, offset, q, sort, startDate, status, options);
+            const localVarAxiosArgs = await localVarAxiosParamCreator.coaApiV1CreditMemoList(client, contract, endDate, entity, limit, offset, q, revenueLinkableFor, sort, startDate, status, options);
             const localVarOperationServerIndex = (_c = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _c !== void 0 ? _c : 0;
             const localVarOperationServerBasePath = (_b = (_a = base_1.operationServerMap['AccountsReceivableApi.coaApiV1CreditMemoList']) === null || _a === void 0 ? void 0 : _a[localVarOperationServerIndex]) === null || _b === void 0 ? void 0 : _b.url;
             return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -5367,7 +5689,7 @@ const AccountsReceivableApiFp = function (configuration) {
             return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Void a credit memo \'mark used\' payment by creating a reversing journal entry.          This creates a reversing JE that credits the A/R account and debits Uncategorized,         then marks the payment as voided.
+         * Void a credit memo \'mark used\' payment by creating a reversing journal entry.          An application to an invoice is voided on both the credit memo and the invoice, as voiding         it from the invoice does. Any other application gets a reversing JE that credits the A/R         account and debits Uncategorized, then the payment is marked as voided.
          * @summary Void Credit Memo Used Payment
          * @param {number} creditMemoId ID of the credit memo
          * @param {number} paymentId ID of the payment to void
@@ -5384,7 +5706,7 @@ const AccountsReceivableApiFp = function (configuration) {
             return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Remove a credit memo \'mark used\' payment application.          This recategorizes the transaction back to Uncategorized and deletes the payment record.
+         * Remove a credit memo \'mark used\' payment application.          An application to an invoice is removed from both the credit memo and the invoice, along with         its journal entry, as removing it from the invoice does. Any other application recategorizes         the transaction back to Uncategorized and deletes the payment record.
          * @summary Delete Credit Memo Used Payment
          * @param {number} creditMemoId ID of the credit memo
          * @param {number} paymentId ID of the payment to delete
@@ -5523,6 +5845,21 @@ const AccountsReceivableApiFp = function (configuration) {
             return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * Dry run of the invoice upload\'s revenue linking, in the order given (the order the upload posts them). Nothing is saved.
+         * @summary Preview Invoice Upload Revenue Links
+         * @param {UploadRevenuePreviewRequest} uploadRevenuePreviewRequest
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async coaApiV1InvoiceCsvRevenuePreviewCreate(uploadRevenuePreviewRequest, options) {
+            var _a, _b;
+            var _c;
+            const localVarAxiosArgs = await localVarAxiosParamCreator.coaApiV1InvoiceCsvRevenuePreviewCreate(uploadRevenuePreviewRequest, options);
+            const localVarOperationServerIndex = (_c = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _c !== void 0 ? _c : 0;
+            const localVarOperationServerBasePath = (_b = (_a = base_1.operationServerMap['AccountsReceivableApi.coaApiV1InvoiceCsvRevenuePreviewCreate']) === null || _a === void 0 ? void 0 : _a[localVarOperationServerIndex]) === null || _b === void 0 ? void 0 : _b.url;
+            return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * Get the default payment amount for an invoice based on when payment is posted.          If the invoice has discount terms and the posted date is within the discount period,         the discounted amount is returned. Otherwise, the full amount is returned.
          * @summary Get Default Payment Amount
          * @param {number} invoiceId ID of the invoice
@@ -5539,10 +5876,27 @@ const AccountsReceivableApiFp = function (configuration) {
             return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *          Permanently deletes an accounting invoice and its associated journal entry and related data.          This endpoint performs a complete deletion of the invoice including:         - Removal of all invoice line items and associated product data         - Deletion of the corresponding accounts receivable journal entry         - Removal of payment records and journal entries          **Important Notes:**         - This operation is irreversible and permanently removes the invoice from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity          **Restrictions:**         - Invoices in closed accounting periods cannot be deleted         - Consider the impact on historical financial reporting
+         *          Permanently deletes an accounting invoice and its associated journal entry and related data.          This endpoint performs a complete deletion of the invoice including:         - Removal of all invoice line items and associated product data         - Deletion of the corresponding accounts receivable journal entry         - Removal of payment records and journal entries          **Important Notes:**         - This operation is irreversible and permanently removes the invoice from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity          **Restrictions:**         - Invoices in closed accounting periods cannot be deleted         - Consider the impact on historical financial reporting           A customer can require a reason for this delete in its approval settings. When it does, and this record has a journal entry or a voided journal entry, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
          * @summary Delete Invoice
          * @param {number} id
+         * @param {DeleteRequest} [deleteRequest]
          * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async coaApiV1InvoiceDeleteCreate(id, deleteRequest, options) {
+            var _a, _b;
+            var _c;
+            const localVarAxiosArgs = await localVarAxiosParamCreator.coaApiV1InvoiceDeleteCreate(id, deleteRequest, options);
+            const localVarOperationServerIndex = (_c = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _c !== void 0 ? _c : 0;
+            const localVarOperationServerBasePath = (_b = (_a = base_1.operationServerMap['AccountsReceivableApi.coaApiV1InvoiceDeleteCreate']) === null || _a === void 0 ? void 0 : _a[localVarOperationServerIndex]) === null || _b === void 0 ? void 0 : _b.url;
+            return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Deprecated: use `POST /coa/api/v1/invoice/{id}/delete`, which also takes an optional reason for the audit log.           Permanently deletes an accounting invoice and its associated journal entry and related data.          This endpoint performs a complete deletion of the invoice including:         - Removal of all invoice line items and associated product data         - Deletion of the corresponding accounts receivable journal entry         - Removal of payment records and journal entries          **Important Notes:**         - This operation is irreversible and permanently removes the invoice from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity          **Restrictions:**         - Invoices in closed accounting periods cannot be deleted         - Consider the impact on historical financial reporting
+         * @summary Delete Invoice (deprecated)
+         * @param {number} id
+         * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async coaApiV1InvoiceDestroy(id, options) {
@@ -5562,6 +5916,7 @@ const AccountsReceivableApiFp = function (configuration) {
          * @param {boolean} [download] If true, triggers async CSV download workflow and sends result via email
          * @param {string} [endDate] Filter invoices with invoice_date on or before this date (YYYY-MM-DD)
          * @param {number} [entity] Filter by entity ID. Can be specified multiple times
+         * @param {boolean} [expenseBillingAttachable] Only invoices project expenses can still be billed onto: draft or open, never sent, unpaid
          * @param {string} [invoiceNumber] Filter by exact invoice number
          * @param {number} [limit] Number of results to return per page.
          * @param {number} [lineTagGroupId] Filter invoices with at least one line item assigned a tag from this tag group ID
@@ -5572,6 +5927,7 @@ const AccountsReceivableApiFp = function (configuration) {
          * @param {number} [parentClient] Filter by parent client (Vendor) ID. Returns invoices for the specified client and all of its descendants via vendor lineage.
          * @param {string} [q] Search query - searches shipping address, invoice number, message, or client name
          * @param {string} [refNumber] Filter by exact ref number
+         * @param {number} [revenueLinkableFor] Revenue contract ID. Only invoices that can be linked to that contract.
          * @param {CoaApiV1InvoiceListSentStatusEnum} [sentStatus] Filter by sent status
          * @param {string} [sort] Sort order. Use field name for ascending, -field for descending. Special fields: client_name, amount_due. Default: -invoice_date
          * @param {string} [startDate] Filter invoices with invoice_date on or after this date (YYYY-MM-DD)
@@ -5579,10 +5935,10 @@ const AccountsReceivableApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async coaApiV1InvoiceList(client, contract, currency, download, endDate, entity, invoiceNumber, limit, lineTagGroupId, lineTagId, offset, paidDateFrom, paidDateTo, parentClient, q, refNumber, sentStatus, sort, startDate, status, options) {
+        async coaApiV1InvoiceList(client, contract, currency, download, endDate, entity, expenseBillingAttachable, invoiceNumber, limit, lineTagGroupId, lineTagId, offset, paidDateFrom, paidDateTo, parentClient, q, refNumber, revenueLinkableFor, sentStatus, sort, startDate, status, options) {
             var _a, _b;
             var _c;
-            const localVarAxiosArgs = await localVarAxiosParamCreator.coaApiV1InvoiceList(client, contract, currency, download, endDate, entity, invoiceNumber, limit, lineTagGroupId, lineTagId, offset, paidDateFrom, paidDateTo, parentClient, q, refNumber, sentStatus, sort, startDate, status, options);
+            const localVarAxiosArgs = await localVarAxiosParamCreator.coaApiV1InvoiceList(client, contract, currency, download, endDate, entity, expenseBillingAttachable, invoiceNumber, limit, lineTagGroupId, lineTagId, offset, paidDateFrom, paidDateTo, parentClient, q, refNumber, revenueLinkableFor, sentStatus, sort, startDate, status, options);
             const localVarOperationServerIndex = (_c = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _c !== void 0 ? _c : 0;
             const localVarOperationServerBasePath = (_b = (_a = base_1.operationServerMap['AccountsReceivableApi.coaApiV1InvoiceList']) === null || _a === void 0 ? void 0 : _a[localVarOperationServerIndex]) === null || _b === void 0 ? void 0 : _b.url;
             return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -5896,17 +6252,18 @@ const AccountsReceivableApiFp = function (configuration) {
             return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Delete a product.
+         * Delete the record. The body can carry a reason, which is saved to the audit log.
          * @summary Delete Product
          * @param {number} id
+         * @param {number} [newProduct] ID of the product to reassign the deleted product\&#39;s records to before deletion
          * @param {DeleteRequest} [deleteRequest]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async rrApiV1ProductDeleteCreate(id, deleteRequest, options) {
+        async rrApiV1ProductDeleteCreate(id, newProduct, deleteRequest, options) {
             var _a, _b;
             var _c;
-            const localVarAxiosArgs = await localVarAxiosParamCreator.rrApiV1ProductDeleteCreate(id, deleteRequest, options);
+            const localVarAxiosArgs = await localVarAxiosParamCreator.rrApiV1ProductDeleteCreate(id, newProduct, deleteRequest, options);
             const localVarOperationServerIndex = (_c = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _c !== void 0 ? _c : 0;
             const localVarOperationServerBasePath = (_b = (_a = base_1.operationServerMap['AccountsReceivableApi.rrApiV1ProductDeleteCreate']) === null || _a === void 0 ? void 0 : _a[localVarOperationServerIndex]) === null || _b === void 0 ? void 0 : _b.url;
             return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -5915,14 +6272,15 @@ const AccountsReceivableApiFp = function (configuration) {
          * Deprecated: use `POST /rr/api/v1/product/{id}/delete`, which also takes an optional reason for the audit log.
          * @summary Delete Product (deprecated)
          * @param {number} id
+         * @param {number} [newProduct] ID of the product to reassign the deleted product\&#39;s records to before deletion
          * @param {*} [options] Override http request option.
          * @deprecated
          * @throws {RequiredError}
          */
-        async rrApiV1ProductDestroy(id, options) {
+        async rrApiV1ProductDestroy(id, newProduct, options) {
             var _a, _b;
             var _c;
-            const localVarAxiosArgs = await localVarAxiosParamCreator.rrApiV1ProductDestroy(id, options);
+            const localVarAxiosArgs = await localVarAxiosParamCreator.rrApiV1ProductDestroy(id, newProduct, options);
             const localVarOperationServerIndex = (_c = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _c !== void 0 ? _c : 0;
             const localVarOperationServerBasePath = (_b = (_a = base_1.operationServerMap['AccountsReceivableApi.rrApiV1ProductDestroy']) === null || _a === void 0 ? void 0 : _a[localVarOperationServerIndex]) === null || _b === void 0 ? void 0 : _b.url;
             return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -6029,10 +6387,21 @@ const AccountsReceivableApiFactory = function (configuration, basePath, axios) {
             return localVarFp.coaApiV1CreditMemoCreate(requestParameters.accountingCreditMemo, options).then((request) => request(axios, basePath));
         },
         /**
-         *          Permanently deletes an accounting credit memo and all associated data from the system.          This endpoint performs a complete removal of the credit memo including:         - Complete credit memo record deletion with all line items         - Automatic journal entry removal and accounting transaction cleanup          **Accounting Impact:**         - Associated journal entries are automatically deleted to maintain accounting integrity         - Exchange rate records and multi-currency data are cleaned up          **Restrictions:**         - Credit memos that have been applied to invoices cannot be deleted         - Credit memos in closed accounting periods may have deletion restrictions         - Consider the impact on historical financial reporting
+         *          Permanently deletes an accounting credit memo and all associated data from the system.          This endpoint performs a complete removal of the credit memo including:         - Complete credit memo record deletion with all line items         - Automatic journal entry removal and accounting transaction cleanup          **Accounting Impact:**         - Associated journal entries are automatically deleted to maintain accounting integrity         - Exchange rate records and multi-currency data are cleaned up          **Restrictions:**         - Credit memos that have been applied to invoices cannot be deleted         - Credit memos in closed accounting periods may have deletion restrictions         - Consider the impact on historical financial reporting           A customer can require a reason for this delete in its approval settings. When it does, and this record has a journal entry or a voided journal entry, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
          * @summary Delete Credit Memo
+         * @param {AccountsReceivableApiCoaApiV1CreditMemoDeleteCreateRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        coaApiV1CreditMemoDeleteCreate(requestParameters, options) {
+            return localVarFp.coaApiV1CreditMemoDeleteCreate(requestParameters.id, requestParameters.deleteRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Deprecated: use `POST /coa/api/v1/credit-memo/{id}/delete`, which also takes an optional reason for the audit log.           Permanently deletes an accounting credit memo and all associated data from the system.          This endpoint performs a complete removal of the credit memo including:         - Complete credit memo record deletion with all line items         - Automatic journal entry removal and accounting transaction cleanup          **Accounting Impact:**         - Associated journal entries are automatically deleted to maintain accounting integrity         - Exchange rate records and multi-currency data are cleaned up          **Restrictions:**         - Credit memos that have been applied to invoices cannot be deleted         - Credit memos in closed accounting periods may have deletion restrictions         - Consider the impact on historical financial reporting
+         * @summary Delete Credit Memo (deprecated)
          * @param {AccountsReceivableApiCoaApiV1CreditMemoDestroyRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         coaApiV1CreditMemoDestroy(requestParameters, options) {
@@ -6046,7 +6415,7 @@ const AccountsReceivableApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         coaApiV1CreditMemoList(requestParameters = {}, options) {
-            return localVarFp.coaApiV1CreditMemoList(requestParameters.client, requestParameters.contract, requestParameters.endDate, requestParameters.entity, requestParameters.limit, requestParameters.offset, requestParameters.q, requestParameters.sort, requestParameters.startDate, requestParameters.status, options).then((request) => request(axios, basePath));
+            return localVarFp.coaApiV1CreditMemoList(requestParameters.client, requestParameters.contract, requestParameters.endDate, requestParameters.entity, requestParameters.limit, requestParameters.offset, requestParameters.q, requestParameters.revenueLinkableFor, requestParameters.sort, requestParameters.startDate, requestParameters.status, options).then((request) => request(axios, basePath));
         },
         /**
          * Mark a credit memo as used by linking to an existing transaction.          The transaction\'s debit amount will be recategorized to A/R to clear the credit memo.         The credit memo\'s status will be updated to \"used\" or \"partially_used\" based on         the amount applied vs the total amount.
@@ -6078,7 +6447,7 @@ const AccountsReceivableApiFactory = function (configuration, basePath, axios) {
             return localVarFp.coaApiV1CreditMemoPartialUpdate(requestParameters.id, requestParameters.patchedAccountingCreditMemo, options).then((request) => request(axios, basePath));
         },
         /**
-         * Void a credit memo \'mark used\' payment by creating a reversing journal entry.          This creates a reversing JE that credits the A/R account and debits Uncategorized,         then marks the payment as voided.
+         * Void a credit memo \'mark used\' payment by creating a reversing journal entry.          An application to an invoice is voided on both the credit memo and the invoice, as voiding         it from the invoice does. Any other application gets a reversing JE that credits the A/R         account and debits Uncategorized, then the payment is marked as voided.
          * @summary Void Credit Memo Used Payment
          * @param {AccountsReceivableApiCoaApiV1CreditMemoPaymentVoidCreateRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -6088,7 +6457,7 @@ const AccountsReceivableApiFactory = function (configuration, basePath, axios) {
             return localVarFp.coaApiV1CreditMemoPaymentVoidCreate(requestParameters.creditMemoId, requestParameters.paymentId, requestParameters.voidPayment, options).then((request) => request(axios, basePath));
         },
         /**
-         * Remove a credit memo \'mark used\' payment application.          This recategorizes the transaction back to Uncategorized and deletes the payment record.
+         * Remove a credit memo \'mark used\' payment application.          An application to an invoice is removed from both the credit memo and the invoice, along with         its journal entry, as removing it from the invoice does. Any other application recategorizes         the transaction back to Uncategorized and deletes the payment record.
          * @summary Delete Credit Memo Used Payment
          * @param {AccountsReceivableApiCoaApiV1CreditMemoPaymentVoidDestroyRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -6178,6 +6547,16 @@ const AccountsReceivableApiFactory = function (configuration, basePath, axios) {
             return localVarFp.coaApiV1InvoiceCreate(requestParameters.accountingInvoice, options).then((request) => request(axios, basePath));
         },
         /**
+         * Dry run of the invoice upload\'s revenue linking, in the order given (the order the upload posts them). Nothing is saved.
+         * @summary Preview Invoice Upload Revenue Links
+         * @param {AccountsReceivableApiCoaApiV1InvoiceCsvRevenuePreviewCreateRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        coaApiV1InvoiceCsvRevenuePreviewCreate(requestParameters, options) {
+            return localVarFp.coaApiV1InvoiceCsvRevenuePreviewCreate(requestParameters.uploadRevenuePreviewRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get the default payment amount for an invoice based on when payment is posted.          If the invoice has discount terms and the posted date is within the discount period,         the discounted amount is returned. Otherwise, the full amount is returned.
          * @summary Get Default Payment Amount
          * @param {AccountsReceivableApiCoaApiV1InvoiceDefaultPaymentCreateRequest} requestParameters Request parameters.
@@ -6188,10 +6567,21 @@ const AccountsReceivableApiFactory = function (configuration, basePath, axios) {
             return localVarFp.coaApiV1InvoiceDefaultPaymentCreate(requestParameters.invoiceId, requestParameters.getDefaultPaymentInput, options).then((request) => request(axios, basePath));
         },
         /**
-         *          Permanently deletes an accounting invoice and its associated journal entry and related data.          This endpoint performs a complete deletion of the invoice including:         - Removal of all invoice line items and associated product data         - Deletion of the corresponding accounts receivable journal entry         - Removal of payment records and journal entries          **Important Notes:**         - This operation is irreversible and permanently removes the invoice from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity          **Restrictions:**         - Invoices in closed accounting periods cannot be deleted         - Consider the impact on historical financial reporting
+         *          Permanently deletes an accounting invoice and its associated journal entry and related data.          This endpoint performs a complete deletion of the invoice including:         - Removal of all invoice line items and associated product data         - Deletion of the corresponding accounts receivable journal entry         - Removal of payment records and journal entries          **Important Notes:**         - This operation is irreversible and permanently removes the invoice from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity          **Restrictions:**         - Invoices in closed accounting periods cannot be deleted         - Consider the impact on historical financial reporting           A customer can require a reason for this delete in its approval settings. When it does, and this record has a journal entry or a voided journal entry, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
          * @summary Delete Invoice
+         * @param {AccountsReceivableApiCoaApiV1InvoiceDeleteCreateRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        coaApiV1InvoiceDeleteCreate(requestParameters, options) {
+            return localVarFp.coaApiV1InvoiceDeleteCreate(requestParameters.id, requestParameters.deleteRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Deprecated: use `POST /coa/api/v1/invoice/{id}/delete`, which also takes an optional reason for the audit log.           Permanently deletes an accounting invoice and its associated journal entry and related data.          This endpoint performs a complete deletion of the invoice including:         - Removal of all invoice line items and associated product data         - Deletion of the corresponding accounts receivable journal entry         - Removal of payment records and journal entries          **Important Notes:**         - This operation is irreversible and permanently removes the invoice from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity          **Restrictions:**         - Invoices in closed accounting periods cannot be deleted         - Consider the impact on historical financial reporting
+         * @summary Delete Invoice (deprecated)
          * @param {AccountsReceivableApiCoaApiV1InvoiceDestroyRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         coaApiV1InvoiceDestroy(requestParameters, options) {
@@ -6205,7 +6595,7 @@ const AccountsReceivableApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         coaApiV1InvoiceList(requestParameters = {}, options) {
-            return localVarFp.coaApiV1InvoiceList(requestParameters.client, requestParameters.contract, requestParameters.currency, requestParameters.download, requestParameters.endDate, requestParameters.entity, requestParameters.invoiceNumber, requestParameters.limit, requestParameters.lineTagGroupId, requestParameters.lineTagId, requestParameters.offset, requestParameters.paidDateFrom, requestParameters.paidDateTo, requestParameters.parentClient, requestParameters.q, requestParameters.refNumber, requestParameters.sentStatus, requestParameters.sort, requestParameters.startDate, requestParameters.status, options).then((request) => request(axios, basePath));
+            return localVarFp.coaApiV1InvoiceList(requestParameters.client, requestParameters.contract, requestParameters.currency, requestParameters.download, requestParameters.endDate, requestParameters.entity, requestParameters.expenseBillingAttachable, requestParameters.invoiceNumber, requestParameters.limit, requestParameters.lineTagGroupId, requestParameters.lineTagId, requestParameters.offset, requestParameters.paidDateFrom, requestParameters.paidDateTo, requestParameters.parentClient, requestParameters.q, requestParameters.refNumber, requestParameters.revenueLinkableFor, requestParameters.sentStatus, requestParameters.sort, requestParameters.startDate, requestParameters.status, options).then((request) => request(axios, basePath));
         },
         /**
          *          Performs a partial update of an existing accounting invoice using PATCH semantics.          This endpoint allows selective modification of invoice fields without requiring         a complete invoice replacement. You can update specific aspects of the invoice while         leaving other fields unchanged.          **Updatable Fields:**         - Invoice metadata (dates, terms, descriptions, client, entity, currency)         - Line items (amounts, accounts, descriptions, departments, products)         - Payment terms and due dates         - Tax calculations and allocations         - Custom fields and tags         - Contract and purchase order associations         - Exchange rates and currency information
@@ -6377,14 +6767,14 @@ const AccountsReceivableApiFactory = function (configuration, basePath, axios) {
             return localVarFp.rrApiV1ProductBulkSearchCreate(requestParameters.bulkProductSearch, options).then((request) => request(axios, basePath));
         },
         /**
-         * Delete a product.
+         * Delete the record. The body can carry a reason, which is saved to the audit log.
          * @summary Delete Product
          * @param {AccountsReceivableApiRrApiV1ProductDeleteCreateRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
         rrApiV1ProductDeleteCreate(requestParameters, options) {
-            return localVarFp.rrApiV1ProductDeleteCreate(requestParameters.id, requestParameters.deleteRequest, options).then((request) => request(axios, basePath));
+            return localVarFp.rrApiV1ProductDeleteCreate(requestParameters.id, requestParameters.newProduct, requestParameters.deleteRequest, options).then((request) => request(axios, basePath));
         },
         /**
          * Deprecated: use `POST /rr/api/v1/product/{id}/delete`, which also takes an optional reason for the audit log.
@@ -6395,7 +6785,7 @@ const AccountsReceivableApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         rrApiV1ProductDestroy(requestParameters, options) {
-            return localVarFp.rrApiV1ProductDestroy(requestParameters.id, options).then((request) => request(axios, basePath));
+            return localVarFp.rrApiV1ProductDestroy(requestParameters.id, requestParameters.newProduct, options).then((request) => request(axios, basePath));
         },
         /**
          *
@@ -6475,10 +6865,21 @@ class AccountsReceivableApi extends base_1.BaseAPI {
         return (0, exports.AccountsReceivableApiFp)(this.configuration).coaApiV1CreditMemoCreate(requestParameters.accountingCreditMemo, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *          Permanently deletes an accounting credit memo and all associated data from the system.          This endpoint performs a complete removal of the credit memo including:         - Complete credit memo record deletion with all line items         - Automatic journal entry removal and accounting transaction cleanup          **Accounting Impact:**         - Associated journal entries are automatically deleted to maintain accounting integrity         - Exchange rate records and multi-currency data are cleaned up          **Restrictions:**         - Credit memos that have been applied to invoices cannot be deleted         - Credit memos in closed accounting periods may have deletion restrictions         - Consider the impact on historical financial reporting
+     *          Permanently deletes an accounting credit memo and all associated data from the system.          This endpoint performs a complete removal of the credit memo including:         - Complete credit memo record deletion with all line items         - Automatic journal entry removal and accounting transaction cleanup          **Accounting Impact:**         - Associated journal entries are automatically deleted to maintain accounting integrity         - Exchange rate records and multi-currency data are cleaned up          **Restrictions:**         - Credit memos that have been applied to invoices cannot be deleted         - Credit memos in closed accounting periods may have deletion restrictions         - Consider the impact on historical financial reporting           A customer can require a reason for this delete in its approval settings. When it does, and this record has a journal entry or a voided journal entry, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
      * @summary Delete Credit Memo
+     * @param {AccountsReceivableApiCoaApiV1CreditMemoDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiV1CreditMemoDeleteCreate(requestParameters, options) {
+        return (0, exports.AccountsReceivableApiFp)(this.configuration).coaApiV1CreditMemoDeleteCreate(requestParameters.id, requestParameters.deleteRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Deprecated: use `POST /coa/api/v1/credit-memo/{id}/delete`, which also takes an optional reason for the audit log.           Permanently deletes an accounting credit memo and all associated data from the system.          This endpoint performs a complete removal of the credit memo including:         - Complete credit memo record deletion with all line items         - Automatic journal entry removal and accounting transaction cleanup          **Accounting Impact:**         - Associated journal entries are automatically deleted to maintain accounting integrity         - Exchange rate records and multi-currency data are cleaned up          **Restrictions:**         - Credit memos that have been applied to invoices cannot be deleted         - Credit memos in closed accounting periods may have deletion restrictions         - Consider the impact on historical financial reporting
+     * @summary Delete Credit Memo (deprecated)
      * @param {AccountsReceivableApiCoaApiV1CreditMemoDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiV1CreditMemoDestroy(requestParameters, options) {
@@ -6492,7 +6893,7 @@ class AccountsReceivableApi extends base_1.BaseAPI {
      * @throws {RequiredError}
      */
     coaApiV1CreditMemoList(requestParameters = {}, options) {
-        return (0, exports.AccountsReceivableApiFp)(this.configuration).coaApiV1CreditMemoList(requestParameters.client, requestParameters.contract, requestParameters.endDate, requestParameters.entity, requestParameters.limit, requestParameters.offset, requestParameters.q, requestParameters.sort, requestParameters.startDate, requestParameters.status, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.AccountsReceivableApiFp)(this.configuration).coaApiV1CreditMemoList(requestParameters.client, requestParameters.contract, requestParameters.endDate, requestParameters.entity, requestParameters.limit, requestParameters.offset, requestParameters.q, requestParameters.revenueLinkableFor, requestParameters.sort, requestParameters.startDate, requestParameters.status, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Mark a credit memo as used by linking to an existing transaction.          The transaction\'s debit amount will be recategorized to A/R to clear the credit memo.         The credit memo\'s status will be updated to \"used\" or \"partially_used\" based on         the amount applied vs the total amount.
@@ -6524,7 +6925,7 @@ class AccountsReceivableApi extends base_1.BaseAPI {
         return (0, exports.AccountsReceivableApiFp)(this.configuration).coaApiV1CreditMemoPartialUpdate(requestParameters.id, requestParameters.patchedAccountingCreditMemo, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Void a credit memo \'mark used\' payment by creating a reversing journal entry.          This creates a reversing JE that credits the A/R account and debits Uncategorized,         then marks the payment as voided.
+     * Void a credit memo \'mark used\' payment by creating a reversing journal entry.          An application to an invoice is voided on both the credit memo and the invoice, as voiding         it from the invoice does. Any other application gets a reversing JE that credits the A/R         account and debits Uncategorized, then the payment is marked as voided.
      * @summary Void Credit Memo Used Payment
      * @param {AccountsReceivableApiCoaApiV1CreditMemoPaymentVoidCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -6534,7 +6935,7 @@ class AccountsReceivableApi extends base_1.BaseAPI {
         return (0, exports.AccountsReceivableApiFp)(this.configuration).coaApiV1CreditMemoPaymentVoidCreate(requestParameters.creditMemoId, requestParameters.paymentId, requestParameters.voidPayment, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Remove a credit memo \'mark used\' payment application.          This recategorizes the transaction back to Uncategorized and deletes the payment record.
+     * Remove a credit memo \'mark used\' payment application.          An application to an invoice is removed from both the credit memo and the invoice, along with         its journal entry, as removing it from the invoice does. Any other application recategorizes         the transaction back to Uncategorized and deletes the payment record.
      * @summary Delete Credit Memo Used Payment
      * @param {AccountsReceivableApiCoaApiV1CreditMemoPaymentVoidDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -6624,6 +7025,16 @@ class AccountsReceivableApi extends base_1.BaseAPI {
         return (0, exports.AccountsReceivableApiFp)(this.configuration).coaApiV1InvoiceCreate(requestParameters.accountingInvoice, options).then((request) => request(this.axios, this.basePath));
     }
     /**
+     * Dry run of the invoice upload\'s revenue linking, in the order given (the order the upload posts them). Nothing is saved.
+     * @summary Preview Invoice Upload Revenue Links
+     * @param {AccountsReceivableApiCoaApiV1InvoiceCsvRevenuePreviewCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiV1InvoiceCsvRevenuePreviewCreate(requestParameters, options) {
+        return (0, exports.AccountsReceivableApiFp)(this.configuration).coaApiV1InvoiceCsvRevenuePreviewCreate(requestParameters.uploadRevenuePreviewRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      * Get the default payment amount for an invoice based on when payment is posted.          If the invoice has discount terms and the posted date is within the discount period,         the discounted amount is returned. Otherwise, the full amount is returned.
      * @summary Get Default Payment Amount
      * @param {AccountsReceivableApiCoaApiV1InvoiceDefaultPaymentCreateRequest} requestParameters Request parameters.
@@ -6634,10 +7045,21 @@ class AccountsReceivableApi extends base_1.BaseAPI {
         return (0, exports.AccountsReceivableApiFp)(this.configuration).coaApiV1InvoiceDefaultPaymentCreate(requestParameters.invoiceId, requestParameters.getDefaultPaymentInput, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *          Permanently deletes an accounting invoice and its associated journal entry and related data.          This endpoint performs a complete deletion of the invoice including:         - Removal of all invoice line items and associated product data         - Deletion of the corresponding accounts receivable journal entry         - Removal of payment records and journal entries          **Important Notes:**         - This operation is irreversible and permanently removes the invoice from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity          **Restrictions:**         - Invoices in closed accounting periods cannot be deleted         - Consider the impact on historical financial reporting
+     *          Permanently deletes an accounting invoice and its associated journal entry and related data.          This endpoint performs a complete deletion of the invoice including:         - Removal of all invoice line items and associated product data         - Deletion of the corresponding accounts receivable journal entry         - Removal of payment records and journal entries          **Important Notes:**         - This operation is irreversible and permanently removes the invoice from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity          **Restrictions:**         - Invoices in closed accounting periods cannot be deleted         - Consider the impact on historical financial reporting           A customer can require a reason for this delete in its approval settings. When it does, and this record has a journal entry or a voided journal entry, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
      * @summary Delete Invoice
+     * @param {AccountsReceivableApiCoaApiV1InvoiceDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiV1InvoiceDeleteCreate(requestParameters, options) {
+        return (0, exports.AccountsReceivableApiFp)(this.configuration).coaApiV1InvoiceDeleteCreate(requestParameters.id, requestParameters.deleteRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Deprecated: use `POST /coa/api/v1/invoice/{id}/delete`, which also takes an optional reason for the audit log.           Permanently deletes an accounting invoice and its associated journal entry and related data.          This endpoint performs a complete deletion of the invoice including:         - Removal of all invoice line items and associated product data         - Deletion of the corresponding accounts receivable journal entry         - Removal of payment records and journal entries          **Important Notes:**         - This operation is irreversible and permanently removes the invoice from the system         - The associated journal entry will be automatically deleted to maintain accounting integrity          **Restrictions:**         - Invoices in closed accounting periods cannot be deleted         - Consider the impact on historical financial reporting
+     * @summary Delete Invoice (deprecated)
      * @param {AccountsReceivableApiCoaApiV1InvoiceDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiV1InvoiceDestroy(requestParameters, options) {
@@ -6651,7 +7073,7 @@ class AccountsReceivableApi extends base_1.BaseAPI {
      * @throws {RequiredError}
      */
     coaApiV1InvoiceList(requestParameters = {}, options) {
-        return (0, exports.AccountsReceivableApiFp)(this.configuration).coaApiV1InvoiceList(requestParameters.client, requestParameters.contract, requestParameters.currency, requestParameters.download, requestParameters.endDate, requestParameters.entity, requestParameters.invoiceNumber, requestParameters.limit, requestParameters.lineTagGroupId, requestParameters.lineTagId, requestParameters.offset, requestParameters.paidDateFrom, requestParameters.paidDateTo, requestParameters.parentClient, requestParameters.q, requestParameters.refNumber, requestParameters.sentStatus, requestParameters.sort, requestParameters.startDate, requestParameters.status, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.AccountsReceivableApiFp)(this.configuration).coaApiV1InvoiceList(requestParameters.client, requestParameters.contract, requestParameters.currency, requestParameters.download, requestParameters.endDate, requestParameters.entity, requestParameters.expenseBillingAttachable, requestParameters.invoiceNumber, requestParameters.limit, requestParameters.lineTagGroupId, requestParameters.lineTagId, requestParameters.offset, requestParameters.paidDateFrom, requestParameters.paidDateTo, requestParameters.parentClient, requestParameters.q, requestParameters.refNumber, requestParameters.revenueLinkableFor, requestParameters.sentStatus, requestParameters.sort, requestParameters.startDate, requestParameters.status, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      *          Performs a partial update of an existing accounting invoice using PATCH semantics.          This endpoint allows selective modification of invoice fields without requiring         a complete invoice replacement. You can update specific aspects of the invoice while         leaving other fields unchanged.          **Updatable Fields:**         - Invoice metadata (dates, terms, descriptions, client, entity, currency)         - Line items (amounts, accounts, descriptions, departments, products)         - Payment terms and due dates         - Tax calculations and allocations         - Custom fields and tags         - Contract and purchase order associations         - Exchange rates and currency information
@@ -6823,14 +7245,14 @@ class AccountsReceivableApi extends base_1.BaseAPI {
         return (0, exports.AccountsReceivableApiFp)(this.configuration).rrApiV1ProductBulkSearchCreate(requestParameters.bulkProductSearch, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Delete a product.
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Product
      * @param {AccountsReceivableApiRrApiV1ProductDeleteCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     rrApiV1ProductDeleteCreate(requestParameters, options) {
-        return (0, exports.AccountsReceivableApiFp)(this.configuration).rrApiV1ProductDeleteCreate(requestParameters.id, requestParameters.deleteRequest, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.AccountsReceivableApiFp)(this.configuration).rrApiV1ProductDeleteCreate(requestParameters.id, requestParameters.newProduct, requestParameters.deleteRequest, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Deprecated: use `POST /rr/api/v1/product/{id}/delete`, which also takes an optional reason for the audit log.
@@ -6841,7 +7263,7 @@ class AccountsReceivableApi extends base_1.BaseAPI {
      * @throws {RequiredError}
      */
     rrApiV1ProductDestroy(requestParameters, options) {
-        return (0, exports.AccountsReceivableApiFp)(this.configuration).rrApiV1ProductDestroy(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.AccountsReceivableApiFp)(this.configuration).rrApiV1ProductDestroy(requestParameters.id, requestParameters.newProduct, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -7735,11 +8157,78 @@ exports.BankReconciliationApi = BankReconciliationApi;
 const CashManagementApiAxiosParamCreator = function (configuration) {
     return {
         /**
-         *
+         * Current balance per currency of the accounts in the cash total: everything except credit cards, loans, liability accounts and disconnected Plaid accounts.
+         * @summary Bank Account Totals
+         * @param {boolean} [includeDeleted] When set to \&#39;true\&#39;, returns ONLY deleted records instead of active records. Deleted records contain minimal data: \&#39;id\&#39;, \&#39;is_deleted&#x3D;true\&#39;, \&#39;deleted_at\&#39; timestamp, and \&#39;last_modified_at\&#39;. When \&#39;false\&#39; or omitted, returns ONLY active records. This provides clean separation between active and deleted data.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        bankAccountTotalsRetrieve: async (includeDeleted, options = {}) => {
+            const localVarPath = `/ca/api/account/totals`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            if (includeDeleted !== undefined) {
+                localVarQueryParameter['include_deleted'] = includeDeleted;
+            }
+            localVarHeaderParameter['Accept'] = 'application/json';
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: (0, common_1.toPathString)(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Delete the record. The body can carry a reason, which is saved to the audit log.
          * @summary Delete Bank Account
          * @param {number} id
          * @param {number} [newAccount] ID of the bank account to reassign transactions to before deletion
+         * @param {DeleteRequest} [deleteRequest]
          * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        caApiAccountDeleteCreate: async (id, newAccount, deleteRequest, options = {}) => {
+            // verify required parameter 'id' is not null or undefined
+            (0, common_1.assertParamExists)('caApiAccountDeleteCreate', 'id', id);
+            const localVarPath = `/ca/api/account/{id}/delete`
+                .replace('{id}', encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            if (newAccount !== undefined) {
+                localVarQueryParameter['new_account'] = newAccount;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(deleteRequest, localVarRequestOptions, configuration);
+            return {
+                url: (0, common_1.toPathString)(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Deprecated: use `POST /ca/api/account/{id}/delete`, which also takes an optional reason for the audit log.
+         * @summary Delete Bank Account (deprecated)
+         * @param {number} id
+         * @param {number} [newAccount] ID of the bank account to reassign transactions to before deletion
+         * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         caApiAccountDestroy: async (id, newAccount, options = {}) => {
@@ -8191,11 +8680,44 @@ const CashManagementApiFp = function (configuration) {
     const localVarAxiosParamCreator = (0, exports.CashManagementApiAxiosParamCreator)(configuration);
     return {
         /**
-         *
+         * Current balance per currency of the accounts in the cash total: everything except credit cards, loans, liability accounts and disconnected Plaid accounts.
+         * @summary Bank Account Totals
+         * @param {boolean} [includeDeleted] When set to \&#39;true\&#39;, returns ONLY deleted records instead of active records. Deleted records contain minimal data: \&#39;id\&#39;, \&#39;is_deleted&#x3D;true\&#39;, \&#39;deleted_at\&#39; timestamp, and \&#39;last_modified_at\&#39;. When \&#39;false\&#39; or omitted, returns ONLY active records. This provides clean separation between active and deleted data.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async bankAccountTotalsRetrieve(includeDeleted, options) {
+            var _a, _b;
+            var _c;
+            const localVarAxiosArgs = await localVarAxiosParamCreator.bankAccountTotalsRetrieve(includeDeleted, options);
+            const localVarOperationServerIndex = (_c = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _c !== void 0 ? _c : 0;
+            const localVarOperationServerBasePath = (_b = (_a = base_1.operationServerMap['CashManagementApi.bankAccountTotalsRetrieve']) === null || _a === void 0 ? void 0 : _a[localVarOperationServerIndex]) === null || _b === void 0 ? void 0 : _b.url;
+            return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Delete the record. The body can carry a reason, which is saved to the audit log.
          * @summary Delete Bank Account
          * @param {number} id
          * @param {number} [newAccount] ID of the bank account to reassign transactions to before deletion
+         * @param {DeleteRequest} [deleteRequest]
          * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async caApiAccountDeleteCreate(id, newAccount, deleteRequest, options) {
+            var _a, _b;
+            var _c;
+            const localVarAxiosArgs = await localVarAxiosParamCreator.caApiAccountDeleteCreate(id, newAccount, deleteRequest, options);
+            const localVarOperationServerIndex = (_c = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _c !== void 0 ? _c : 0;
+            const localVarOperationServerBasePath = (_b = (_a = base_1.operationServerMap['CashManagementApi.caApiAccountDeleteCreate']) === null || _a === void 0 ? void 0 : _a[localVarOperationServerIndex]) === null || _b === void 0 ? void 0 : _b.url;
+            return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Deprecated: use `POST /ca/api/account/{id}/delete`, which also takes an optional reason for the audit log.
+         * @summary Delete Bank Account (deprecated)
+         * @param {number} id
+         * @param {number} [newAccount] ID of the bank account to reassign transactions to before deletion
+         * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async caApiAccountDestroy(id, newAccount, options) {
@@ -8409,10 +8931,31 @@ const CashManagementApiFactory = function (configuration, basePath, axios) {
     const localVarFp = (0, exports.CashManagementApiFp)(configuration);
     return {
         /**
-         *
+         * Current balance per currency of the accounts in the cash total: everything except credit cards, loans, liability accounts and disconnected Plaid accounts.
+         * @summary Bank Account Totals
+         * @param {CashManagementApiBankAccountTotalsRetrieveRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        bankAccountTotalsRetrieve(requestParameters = {}, options) {
+            return localVarFp.bankAccountTotalsRetrieve(requestParameters.includeDeleted, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete the record. The body can carry a reason, which is saved to the audit log.
          * @summary Delete Bank Account
+         * @param {CashManagementApiCaApiAccountDeleteCreateRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        caApiAccountDeleteCreate(requestParameters, options) {
+            return localVarFp.caApiAccountDeleteCreate(requestParameters.id, requestParameters.newAccount, requestParameters.deleteRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Deprecated: use `POST /ca/api/account/{id}/delete`, which also takes an optional reason for the audit log.
+         * @summary Delete Bank Account (deprecated)
          * @param {CashManagementApiCaApiAccountDestroyRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         caApiAccountDestroy(requestParameters, options) {
@@ -8546,10 +9089,31 @@ exports.CashManagementApiFactory = CashManagementApiFactory;
  */
 class CashManagementApi extends base_1.BaseAPI {
     /**
-     *
+     * Current balance per currency of the accounts in the cash total: everything except credit cards, loans, liability accounts and disconnected Plaid accounts.
+     * @summary Bank Account Totals
+     * @param {CashManagementApiBankAccountTotalsRetrieveRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    bankAccountTotalsRetrieve(requestParameters = {}, options) {
+        return (0, exports.CashManagementApiFp)(this.configuration).bankAccountTotalsRetrieve(requestParameters.includeDeleted, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Bank Account
+     * @param {CashManagementApiCaApiAccountDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    caApiAccountDeleteCreate(requestParameters, options) {
+        return (0, exports.CashManagementApiFp)(this.configuration).caApiAccountDeleteCreate(requestParameters.id, requestParameters.newAccount, requestParameters.deleteRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Deprecated: use `POST /ca/api/account/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Bank Account (deprecated)
      * @param {CashManagementApiCaApiAccountDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     caApiAccountDestroy(requestParameters, options) {
@@ -9019,13 +9583,51 @@ const CompanyObjectsApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
-         *
+         * Delete the record. The body can carry a reason, which is saved to the audit log.
          * @summary Delete Chart Account
          * @param {number} id
+         * @param {number} [newAccount] ID of the account to move the deleted account\&#39;s transactions to before deletion
+         * @param {DeleteRequest} [deleteRequest]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        coaApiAccountDestroy: async (id, options = {}) => {
+        coaApiAccountDeleteCreate: async (id, newAccount, deleteRequest, options = {}) => {
+            // verify required parameter 'id' is not null or undefined
+            (0, common_1.assertParamExists)('coaApiAccountDeleteCreate', 'id', id);
+            const localVarPath = `/coa/api/account/{id}/delete`
+                .replace('{id}', encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            if (newAccount !== undefined) {
+                localVarQueryParameter['new_account'] = newAccount;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(deleteRequest, localVarRequestOptions, configuration);
+            return {
+                url: (0, common_1.toPathString)(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Deprecated: use `POST /coa/api/account/{id}/delete`, which also takes an optional reason for the audit log.
+         * @summary Delete Chart Account (deprecated)
+         * @param {number} id
+         * @param {number} [newAccount] ID of the account to move the deleted account\&#39;s transactions to before deletion
+         * @param {*} [options] Override http request option.
+         * @deprecated
+         * @throws {RequiredError}
+         */
+        coaApiAccountDestroy: async (id, newAccount, options = {}) => {
             // verify required parameter 'id' is not null or undefined
             (0, common_1.assertParamExists)('coaApiAccountDestroy', 'id', id);
             const localVarPath = `/coa/api/account/{id}`
@@ -9039,6 +9641,9 @@ const CompanyObjectsApiAxiosParamCreator = function (configuration) {
             const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
+            if (newAccount !== undefined) {
+                localVarQueryParameter['new_account'] = newAccount;
+            }
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -10579,6 +11184,36 @@ const CompanyObjectsApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
+         * How a dynamic allocation split one ledger line. Writes nothing.
+         * @summary Explain Transaction Allocation
+         * @param {number} id
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        coaApiTransactionAllocationRetrieve: async (id, options = {}) => {
+            // verify required parameter 'id' is not null or undefined
+            (0, common_1.assertParamExists)('coaApiTransactionAllocationRetrieve', 'id', id);
+            const localVarPath = `/coa/api/transaction/{id}/allocation`
+                .replace('{id}', encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            localVarHeaderParameter['Accept'] = 'application/json';
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: (0, common_1.toPathString)(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Mixin to provide consistent last_modified_at filtering and sorting functionality for List APIs with comprehensive timestamp computation.
          * @summary Create Vendor Contact Title
          * @param {VendorContactTitle} vendorContactTitle
@@ -10822,7 +11457,45 @@ const CompanyObjectsApiAxiosParamCreator = function (configuration) {
          * @summary Delete Vendor
          * @param {number} id
          * @param {string} [newVendor] Identifier of the vendor to reassign all related records to before deletion. Accepts a Campfire ID (e.g. VEN-0000001) or the legacy internal integer id.
+         * @param {DeleteRequest} [deleteRequest]
          * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        coaApiVendorDeleteCreate: async (id, newVendor, deleteRequest, options = {}) => {
+            // verify required parameter 'id' is not null or undefined
+            (0, common_1.assertParamExists)('coaApiVendorDeleteCreate', 'id', id);
+            const localVarPath = `/coa/api/vendor/{id}/delete`
+                .replace('{id}', encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            if (newVendor !== undefined) {
+                localVarQueryParameter['new_vendor'] = newVendor;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(deleteRequest, localVarRequestOptions, configuration);
+            return {
+                url: (0, common_1.toPathString)(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Deprecated: use `POST /coa/api/vendor/{id}/delete`, which also takes an optional reason for the audit log.  Delete a vendor and optionally reassign all related records to another vendor. Returns 202 Accepted as deletion is processed asynchronously.
+         * @summary Delete Vendor (deprecated)
+         * @param {number} id
+         * @param {string} [newVendor] Identifier of the vendor to reassign all related records to before deletion. Accepts a Campfire ID (e.g. VEN-0000001) or the legacy internal integer id.
+         * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         coaApiVendorDestroy: async (id, newVendor, options = {}) => {
@@ -10842,6 +11515,7 @@ const CompanyObjectsApiAxiosParamCreator = function (configuration) {
             if (newVendor !== undefined) {
                 localVarQueryParameter['new_vendor'] = newVendor;
             }
+            localVarHeaderParameter['Accept'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -11397,16 +12071,35 @@ const CompanyObjectsApiFp = function (configuration) {
             return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *
+         * Delete the record. The body can carry a reason, which is saved to the audit log.
          * @summary Delete Chart Account
          * @param {number} id
+         * @param {number} [newAccount] ID of the account to move the deleted account\&#39;s transactions to before deletion
+         * @param {DeleteRequest} [deleteRequest]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async coaApiAccountDestroy(id, options) {
+        async coaApiAccountDeleteCreate(id, newAccount, deleteRequest, options) {
             var _a, _b;
             var _c;
-            const localVarAxiosArgs = await localVarAxiosParamCreator.coaApiAccountDestroy(id, options);
+            const localVarAxiosArgs = await localVarAxiosParamCreator.coaApiAccountDeleteCreate(id, newAccount, deleteRequest, options);
+            const localVarOperationServerIndex = (_c = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _c !== void 0 ? _c : 0;
+            const localVarOperationServerBasePath = (_b = (_a = base_1.operationServerMap['CompanyObjectsApi.coaApiAccountDeleteCreate']) === null || _a === void 0 ? void 0 : _a[localVarOperationServerIndex]) === null || _b === void 0 ? void 0 : _b.url;
+            return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Deprecated: use `POST /coa/api/account/{id}/delete`, which also takes an optional reason for the audit log.
+         * @summary Delete Chart Account (deprecated)
+         * @param {number} id
+         * @param {number} [newAccount] ID of the account to move the deleted account\&#39;s transactions to before deletion
+         * @param {*} [options] Override http request option.
+         * @deprecated
+         * @throws {RequiredError}
+         */
+        async coaApiAccountDestroy(id, newAccount, options) {
+            var _a, _b;
+            var _c;
+            const localVarAxiosArgs = await localVarAxiosParamCreator.coaApiAccountDestroy(id, newAccount, options);
             const localVarOperationServerIndex = (_c = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _c !== void 0 ? _c : 0;
             const localVarOperationServerBasePath = (_b = (_a = base_1.operationServerMap['CompanyObjectsApi.coaApiAccountDestroy']) === null || _a === void 0 ? void 0 : _a[localVarOperationServerIndex]) === null || _b === void 0 ? void 0 : _b.url;
             return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -12118,6 +12811,21 @@ const CompanyObjectsApiFp = function (configuration) {
             return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * How a dynamic allocation split one ledger line. Writes nothing.
+         * @summary Explain Transaction Allocation
+         * @param {number} id
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async coaApiTransactionAllocationRetrieve(id, options) {
+            var _a, _b;
+            var _c;
+            const localVarAxiosArgs = await localVarAxiosParamCreator.coaApiTransactionAllocationRetrieve(id, options);
+            const localVarOperationServerIndex = (_c = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _c !== void 0 ? _c : 0;
+            const localVarOperationServerBasePath = (_b = (_a = base_1.operationServerMap['CompanyObjectsApi.coaApiTransactionAllocationRetrieve']) === null || _a === void 0 ? void 0 : _a[localVarOperationServerIndex]) === null || _b === void 0 ? void 0 : _b.url;
+            return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * Mixin to provide consistent last_modified_at filtering and sorting functionality for List APIs with comprehensive timestamp computation.
          * @summary Create Vendor Contact Title
          * @param {VendorContactTitle} vendorContactTitle
@@ -12234,7 +12942,25 @@ const CompanyObjectsApiFp = function (configuration) {
          * @summary Delete Vendor
          * @param {number} id
          * @param {string} [newVendor] Identifier of the vendor to reassign all related records to before deletion. Accepts a Campfire ID (e.g. VEN-0000001) or the legacy internal integer id.
+         * @param {DeleteRequest} [deleteRequest]
          * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async coaApiVendorDeleteCreate(id, newVendor, deleteRequest, options) {
+            var _a, _b;
+            var _c;
+            const localVarAxiosArgs = await localVarAxiosParamCreator.coaApiVendorDeleteCreate(id, newVendor, deleteRequest, options);
+            const localVarOperationServerIndex = (_c = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _c !== void 0 ? _c : 0;
+            const localVarOperationServerBasePath = (_b = (_a = base_1.operationServerMap['CompanyObjectsApi.coaApiVendorDeleteCreate']) === null || _a === void 0 ? void 0 : _a[localVarOperationServerIndex]) === null || _b === void 0 ? void 0 : _b.url;
+            return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Deprecated: use `POST /coa/api/vendor/{id}/delete`, which also takes an optional reason for the audit log.  Delete a vendor and optionally reassign all related records to another vendor. Returns 202 Accepted as deletion is processed asynchronously.
+         * @summary Delete Vendor (deprecated)
+         * @param {number} id
+         * @param {string} [newVendor] Identifier of the vendor to reassign all related records to before deletion. Accepts a Campfire ID (e.g. VEN-0000001) or the legacy internal integer id.
+         * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async coaApiVendorDestroy(id, newVendor, options) {
@@ -12524,14 +13250,25 @@ const CompanyObjectsApiFactory = function (configuration, basePath, axios) {
             return localVarFp.coaApiAccountCreate(requestParameters.chartAccount, options).then((request) => request(axios, basePath));
         },
         /**
-         *
+         * Delete the record. The body can carry a reason, which is saved to the audit log.
          * @summary Delete Chart Account
-         * @param {CompanyObjectsApiCoaApiAccountDestroyRequest} requestParameters Request parameters.
+         * @param {CompanyObjectsApiCoaApiAccountDeleteCreateRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
+        coaApiAccountDeleteCreate(requestParameters, options) {
+            return localVarFp.coaApiAccountDeleteCreate(requestParameters.id, requestParameters.newAccount, requestParameters.deleteRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Deprecated: use `POST /coa/api/account/{id}/delete`, which also takes an optional reason for the audit log.
+         * @summary Delete Chart Account (deprecated)
+         * @param {CompanyObjectsApiCoaApiAccountDestroyRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @deprecated
+         * @throws {RequiredError}
+         */
         coaApiAccountDestroy(requestParameters, options) {
-            return localVarFp.coaApiAccountDestroy(requestParameters.id, options).then((request) => request(axios, basePath));
+            return localVarFp.coaApiAccountDestroy(requestParameters.id, requestParameters.newAccount, options).then((request) => request(axios, basePath));
         },
         /**
          * Lists the chart of accounts (GL accounts). Each account includes metadata about its parent account and its full lineage (the ordered chain of ancestor accounts), so parent/child account relationships can be reconstructed from the response.
@@ -12966,6 +13703,16 @@ const CompanyObjectsApiFactory = function (configuration, basePath, axios) {
             return localVarFp.coaApiTagUpdate(requestParameters.id, requestParameters.transactionTag, options).then((request) => request(axios, basePath));
         },
         /**
+         * How a dynamic allocation split one ledger line. Writes nothing.
+         * @summary Explain Transaction Allocation
+         * @param {CompanyObjectsApiCoaApiTransactionAllocationRetrieveRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        coaApiTransactionAllocationRetrieve(requestParameters, options) {
+            return localVarFp.coaApiTransactionAllocationRetrieve(requestParameters.id, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Mixin to provide consistent last_modified_at filtering and sorting functionality for List APIs with comprehensive timestamp computation.
          * @summary Create Vendor Contact Title
          * @param {CompanyObjectsApiCoaApiVendorContactTitleCreateRequest} requestParameters Request parameters.
@@ -13038,8 +13785,19 @@ const CompanyObjectsApiFactory = function (configuration, basePath, axios) {
         /**
          * Delete a vendor and optionally reassign all related records to another vendor. Returns 202 Accepted as deletion is processed asynchronously.
          * @summary Delete Vendor
+         * @param {CompanyObjectsApiCoaApiVendorDeleteCreateRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        coaApiVendorDeleteCreate(requestParameters, options) {
+            return localVarFp.coaApiVendorDeleteCreate(requestParameters.id, requestParameters.newVendor, requestParameters.deleteRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Deprecated: use `POST /coa/api/vendor/{id}/delete`, which also takes an optional reason for the audit log.  Delete a vendor and optionally reassign all related records to another vendor. Returns 202 Accepted as deletion is processed asynchronously.
+         * @summary Delete Vendor (deprecated)
          * @param {CompanyObjectsApiCoaApiVendorDestroyRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         coaApiVendorDestroy(requestParameters, options) {
@@ -13252,14 +14010,25 @@ class CompanyObjectsApi extends base_1.BaseAPI {
         return (0, exports.CompanyObjectsApiFp)(this.configuration).coaApiAccountCreate(requestParameters.chartAccount, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Chart Account
-     * @param {CompanyObjectsApiCoaApiAccountDestroyRequest} requestParameters Request parameters.
+     * @param {CompanyObjectsApiCoaApiAccountDeleteCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
+    coaApiAccountDeleteCreate(requestParameters, options) {
+        return (0, exports.CompanyObjectsApiFp)(this.configuration).coaApiAccountDeleteCreate(requestParameters.id, requestParameters.newAccount, requestParameters.deleteRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Deprecated: use `POST /coa/api/account/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Chart Account (deprecated)
+     * @param {CompanyObjectsApiCoaApiAccountDestroyRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @deprecated
+     * @throws {RequiredError}
+     */
     coaApiAccountDestroy(requestParameters, options) {
-        return (0, exports.CompanyObjectsApiFp)(this.configuration).coaApiAccountDestroy(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.CompanyObjectsApiFp)(this.configuration).coaApiAccountDestroy(requestParameters.id, requestParameters.newAccount, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Lists the chart of accounts (GL accounts). Each account includes metadata about its parent account and its full lineage (the ordered chain of ancestor accounts), so parent/child account relationships can be reconstructed from the response.
@@ -13694,6 +14463,16 @@ class CompanyObjectsApi extends base_1.BaseAPI {
         return (0, exports.CompanyObjectsApiFp)(this.configuration).coaApiTagUpdate(requestParameters.id, requestParameters.transactionTag, options).then((request) => request(this.axios, this.basePath));
     }
     /**
+     * How a dynamic allocation split one ledger line. Writes nothing.
+     * @summary Explain Transaction Allocation
+     * @param {CompanyObjectsApiCoaApiTransactionAllocationRetrieveRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiTransactionAllocationRetrieve(requestParameters, options) {
+        return (0, exports.CompanyObjectsApiFp)(this.configuration).coaApiTransactionAllocationRetrieve(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      * Mixin to provide consistent last_modified_at filtering and sorting functionality for List APIs with comprehensive timestamp computation.
      * @summary Create Vendor Contact Title
      * @param {CompanyObjectsApiCoaApiVendorContactTitleCreateRequest} requestParameters Request parameters.
@@ -13766,8 +14545,19 @@ class CompanyObjectsApi extends base_1.BaseAPI {
     /**
      * Delete a vendor and optionally reassign all related records to another vendor. Returns 202 Accepted as deletion is processed asynchronously.
      * @summary Delete Vendor
+     * @param {CompanyObjectsApiCoaApiVendorDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiVendorDeleteCreate(requestParameters, options) {
+        return (0, exports.CompanyObjectsApiFp)(this.configuration).coaApiVendorDeleteCreate(requestParameters.id, requestParameters.newVendor, requestParameters.deleteRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Deprecated: use `POST /coa/api/vendor/{id}/delete`, which also takes an optional reason for the audit log.  Delete a vendor and optionally reassign all related records to another vendor. Returns 202 Accepted as deletion is processed asynchronously.
+     * @summary Delete Vendor (deprecated)
      * @param {CompanyObjectsApiCoaApiVendorDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiVendorDestroy(requestParameters, options) {
@@ -14390,7 +15180,7 @@ const CoreAccountingApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
-         * Delete a fixed asset automation. Replaces the deprecated DELETE /coa/api/fixed-asset-automation/{id}/.
+         * Delete the record. The body can carry a reason, which is saved to the audit log.
          * @summary Delete Fixed Asset Automation
          * @param {number} id
          * @param {DeleteRequest} [deleteRequest]
@@ -14453,10 +15243,43 @@ const CoreAccountingApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
-         *
+         * Delete the record. The body can carry a reason, which is saved to the audit log.
          * @summary Delete Fixed Asset
          * @param {number} id
+         * @param {DeleteRequest} [deleteRequest]
          * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        coaApiFixedAssetDeleteCreate: async (id, deleteRequest, options = {}) => {
+            // verify required parameter 'id' is not null or undefined
+            (0, common_1.assertParamExists)('coaApiFixedAssetDeleteCreate', 'id', id);
+            const localVarPath = `/coa/api/fixed-asset/{id}/delete`
+                .replace('{id}', encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(deleteRequest, localVarRequestOptions, configuration);
+            return {
+                url: (0, common_1.toPathString)(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Deprecated: use `POST /coa/api/fixed-asset/{id}/delete`, which also takes an optional reason for the audit log.
+         * @summary Delete Fixed Asset (deprecated)
+         * @param {number} id
+         * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         coaApiFixedAssetDestroy: async (id, options = {}) => {
@@ -14687,10 +15510,43 @@ const CoreAccountingApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
-         *          Permanently deletes an intercompany journal entry and all related transactions.          This endpoint performs a comprehensive cleanup when deleting an intercompany journal entry:         - Validates that the entry can be deleted (not in closed period)         - Removes all associated journal entries across entities         - Updates summary tables and account balances         - Handles cascade deletion of related transactions         - Ensures data integrity across the accounting system          Deletion restrictions:         - Cannot delete entries in closed accounting periods          Error conditions:         - 400 Bad Request: Entry date is in a closed period         - 409 Conflict: Entry has protected relationships (e.g., close checklist tasks)         - 404 Not Found: Entry does not exist or user lacks access          On successful deletion, all related journal entries are removed and accounting summaries are recalculated.
+         *          Permanently deletes an intercompany journal entry and all related transactions.          This endpoint performs a comprehensive cleanup when deleting an intercompany journal entry:         - Validates that the entry can be deleted (not in closed period)         - Removes all associated journal entries across entities         - Updates summary tables and account balances         - Handles cascade deletion of related transactions         - Ensures data integrity across the accounting system          Deletion restrictions:         - Cannot delete entries in closed accounting periods          Error conditions:         - 400 Bad Request: Entry date is in a closed period         - 409 Conflict: Entry has protected relationships (e.g., close checklist tasks)         - 404 Not Found: Entry does not exist or user lacks access          On successful deletion, all related journal entries are removed and accounting summaries are recalculated.           A customer can require a reason for this delete in its approval settings. When it does, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
          * @summary Delete Intercompany Journal Entry
          * @param {number} id
+         * @param {DeleteRequest} [deleteRequest]
          * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        coaApiIntercompanyJournalEntryDeleteCreate: async (id, deleteRequest, options = {}) => {
+            // verify required parameter 'id' is not null or undefined
+            (0, common_1.assertParamExists)('coaApiIntercompanyJournalEntryDeleteCreate', 'id', id);
+            const localVarPath = `/coa/api/intercompany-journal-entry/{id}/delete`
+                .replace('{id}', encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(deleteRequest, localVarRequestOptions, configuration);
+            return {
+                url: (0, common_1.toPathString)(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Deprecated: use `POST /coa/api/intercompany-journal-entry/{id}/delete`, which also takes an optional reason for the audit log.           Permanently deletes an intercompany journal entry and all related transactions.          This endpoint performs a comprehensive cleanup when deleting an intercompany journal entry:         - Validates that the entry can be deleted (not in closed period)         - Removes all associated journal entries across entities         - Updates summary tables and account balances         - Handles cascade deletion of related transactions         - Ensures data integrity across the accounting system          Deletion restrictions:         - Cannot delete entries in closed accounting periods          Error conditions:         - 400 Bad Request: Entry date is in a closed period         - 409 Conflict: Entry has protected relationships (e.g., close checklist tasks)         - 404 Not Found: Entry does not exist or user lacks access          On successful deletion, all related journal entries are removed and accounting summaries are recalculated.
+         * @summary Delete Intercompany Journal Entry (deprecated)
+         * @param {number} id
+         * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         coaApiIntercompanyJournalEntryDestroy: async (id, options = {}) => {
@@ -14891,10 +15747,43 @@ const CoreAccountingApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
-         *          Delete a journal entry and all its associated transactions.          **Restrictions:**         - Cannot delete entries before closed book dates          **Response Codes:**         - 204: Successfully deleted         - 400: Cannot delete (books closed for this date)         - 409: Cannot delete (associated with other objects)
+         *          Delete a journal entry and all its associated transactions.          **Restrictions:**         - Cannot delete entries before closed book dates          **Response Codes:**         - 204: Successfully deleted         - 400: Cannot delete (books closed for this date)         - 409: Cannot delete (associated with other objects)           A customer can require a reason for this delete in its approval settings. When it does, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
          * @summary Delete Journal Entry
          * @param {number} id
+         * @param {DeleteRequest} [deleteRequest]
          * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        coaApiJournalEntryDeleteCreate: async (id, deleteRequest, options = {}) => {
+            // verify required parameter 'id' is not null or undefined
+            (0, common_1.assertParamExists)('coaApiJournalEntryDeleteCreate', 'id', id);
+            const localVarPath = `/coa/api/journal_entry/{id}/delete`
+                .replace('{id}', encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(deleteRequest, localVarRequestOptions, configuration);
+            return {
+                url: (0, common_1.toPathString)(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Deprecated: use `POST /coa/api/journal_entry/{id}/delete`, which also takes an optional reason for the audit log.           Delete a journal entry and all its associated transactions.          **Restrictions:**         - Cannot delete entries before closed book dates          **Response Codes:**         - 204: Successfully deleted         - 400: Cannot delete (books closed for this date)         - 409: Cannot delete (associated with other objects)
+         * @summary Delete Journal Entry (deprecated)
+         * @param {number} id
+         * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         coaApiJournalEntryDestroy: async (id, options = {}) => {
@@ -17139,7 +18028,7 @@ const CoreAccountingApiFp = function (configuration) {
             return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Delete a fixed asset automation. Replaces the deprecated DELETE /coa/api/fixed-asset-automation/{id}/.
+         * Delete the record. The body can carry a reason, which is saved to the audit log.
          * @summary Delete Fixed Asset Automation
          * @param {number} id
          * @param {DeleteRequest} [deleteRequest]
@@ -17170,10 +18059,27 @@ const CoreAccountingApiFp = function (configuration) {
             return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *
+         * Delete the record. The body can carry a reason, which is saved to the audit log.
          * @summary Delete Fixed Asset
          * @param {number} id
+         * @param {DeleteRequest} [deleteRequest]
          * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async coaApiFixedAssetDeleteCreate(id, deleteRequest, options) {
+            var _a, _b;
+            var _c;
+            const localVarAxiosArgs = await localVarAxiosParamCreator.coaApiFixedAssetDeleteCreate(id, deleteRequest, options);
+            const localVarOperationServerIndex = (_c = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _c !== void 0 ? _c : 0;
+            const localVarOperationServerBasePath = (_b = (_a = base_1.operationServerMap['CoreAccountingApi.coaApiFixedAssetDeleteCreate']) === null || _a === void 0 ? void 0 : _a[localVarOperationServerIndex]) === null || _b === void 0 ? void 0 : _b.url;
+            return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Deprecated: use `POST /coa/api/fixed-asset/{id}/delete`, which also takes an optional reason for the audit log.
+         * @summary Delete Fixed Asset (deprecated)
+         * @param {number} id
+         * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async coaApiFixedAssetDestroy(id, options) {
@@ -17281,10 +18187,27 @@ const CoreAccountingApiFp = function (configuration) {
             return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *          Permanently deletes an intercompany journal entry and all related transactions.          This endpoint performs a comprehensive cleanup when deleting an intercompany journal entry:         - Validates that the entry can be deleted (not in closed period)         - Removes all associated journal entries across entities         - Updates summary tables and account balances         - Handles cascade deletion of related transactions         - Ensures data integrity across the accounting system          Deletion restrictions:         - Cannot delete entries in closed accounting periods          Error conditions:         - 400 Bad Request: Entry date is in a closed period         - 409 Conflict: Entry has protected relationships (e.g., close checklist tasks)         - 404 Not Found: Entry does not exist or user lacks access          On successful deletion, all related journal entries are removed and accounting summaries are recalculated.
+         *          Permanently deletes an intercompany journal entry and all related transactions.          This endpoint performs a comprehensive cleanup when deleting an intercompany journal entry:         - Validates that the entry can be deleted (not in closed period)         - Removes all associated journal entries across entities         - Updates summary tables and account balances         - Handles cascade deletion of related transactions         - Ensures data integrity across the accounting system          Deletion restrictions:         - Cannot delete entries in closed accounting periods          Error conditions:         - 400 Bad Request: Entry date is in a closed period         - 409 Conflict: Entry has protected relationships (e.g., close checklist tasks)         - 404 Not Found: Entry does not exist or user lacks access          On successful deletion, all related journal entries are removed and accounting summaries are recalculated.           A customer can require a reason for this delete in its approval settings. When it does, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
          * @summary Delete Intercompany Journal Entry
          * @param {number} id
+         * @param {DeleteRequest} [deleteRequest]
          * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async coaApiIntercompanyJournalEntryDeleteCreate(id, deleteRequest, options) {
+            var _a, _b;
+            var _c;
+            const localVarAxiosArgs = await localVarAxiosParamCreator.coaApiIntercompanyJournalEntryDeleteCreate(id, deleteRequest, options);
+            const localVarOperationServerIndex = (_c = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _c !== void 0 ? _c : 0;
+            const localVarOperationServerBasePath = (_b = (_a = base_1.operationServerMap['CoreAccountingApi.coaApiIntercompanyJournalEntryDeleteCreate']) === null || _a === void 0 ? void 0 : _a[localVarOperationServerIndex]) === null || _b === void 0 ? void 0 : _b.url;
+            return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Deprecated: use `POST /coa/api/intercompany-journal-entry/{id}/delete`, which also takes an optional reason for the audit log.           Permanently deletes an intercompany journal entry and all related transactions.          This endpoint performs a comprehensive cleanup when deleting an intercompany journal entry:         - Validates that the entry can be deleted (not in closed period)         - Removes all associated journal entries across entities         - Updates summary tables and account balances         - Handles cascade deletion of related transactions         - Ensures data integrity across the accounting system          Deletion restrictions:         - Cannot delete entries in closed accounting periods          Error conditions:         - 400 Bad Request: Entry date is in a closed period         - 409 Conflict: Entry has protected relationships (e.g., close checklist tasks)         - 404 Not Found: Entry does not exist or user lacks access          On successful deletion, all related journal entries are removed and accounting summaries are recalculated.
+         * @summary Delete Intercompany Journal Entry (deprecated)
+         * @param {number} id
+         * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async coaApiIntercompanyJournalEntryDestroy(id, options) {
@@ -17377,10 +18300,27 @@ const CoreAccountingApiFp = function (configuration) {
             return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *          Delete a journal entry and all its associated transactions.          **Restrictions:**         - Cannot delete entries before closed book dates          **Response Codes:**         - 204: Successfully deleted         - 400: Cannot delete (books closed for this date)         - 409: Cannot delete (associated with other objects)
+         *          Delete a journal entry and all its associated transactions.          **Restrictions:**         - Cannot delete entries before closed book dates          **Response Codes:**         - 204: Successfully deleted         - 400: Cannot delete (books closed for this date)         - 409: Cannot delete (associated with other objects)           A customer can require a reason for this delete in its approval settings. When it does, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
          * @summary Delete Journal Entry
          * @param {number} id
+         * @param {DeleteRequest} [deleteRequest]
          * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async coaApiJournalEntryDeleteCreate(id, deleteRequest, options) {
+            var _a, _b;
+            var _c;
+            const localVarAxiosArgs = await localVarAxiosParamCreator.coaApiJournalEntryDeleteCreate(id, deleteRequest, options);
+            const localVarOperationServerIndex = (_c = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _c !== void 0 ? _c : 0;
+            const localVarOperationServerBasePath = (_b = (_a = base_1.operationServerMap['CoreAccountingApi.coaApiJournalEntryDeleteCreate']) === null || _a === void 0 ? void 0 : _a[localVarOperationServerIndex]) === null || _b === void 0 ? void 0 : _b.url;
+            return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Deprecated: use `POST /coa/api/journal_entry/{id}/delete`, which also takes an optional reason for the audit log.           Delete a journal entry and all its associated transactions.          **Restrictions:**         - Cannot delete entries before closed book dates          **Response Codes:**         - 204: Successfully deleted         - 400: Cannot delete (books closed for this date)         - 409: Cannot delete (associated with other objects)
+         * @summary Delete Journal Entry (deprecated)
+         * @param {number} id
+         * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async coaApiJournalEntryDestroy(id, options) {
@@ -18435,7 +19375,7 @@ const CoreAccountingApiFactory = function (configuration, basePath, axios) {
             return localVarFp.coaApiDepartmentBulkSearchCreate(requestParameters.bulkDepartmentSearch, options).then((request) => request(axios, basePath));
         },
         /**
-         * Delete a fixed asset automation. Replaces the deprecated DELETE /coa/api/fixed-asset-automation/{id}/.
+         * Delete the record. The body can carry a reason, which is saved to the audit log.
          * @summary Delete Fixed Asset Automation
          * @param {CoreAccountingApiCoaApiFixedAssetAutomationDeleteCreateRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -18455,10 +19395,21 @@ const CoreAccountingApiFactory = function (configuration, basePath, axios) {
             return localVarFp.coaApiFixedAssetCreate(requestParameters.fixedAsset, options).then((request) => request(axios, basePath));
         },
         /**
-         *
+         * Delete the record. The body can carry a reason, which is saved to the audit log.
          * @summary Delete Fixed Asset
+         * @param {CoreAccountingApiCoaApiFixedAssetDeleteCreateRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        coaApiFixedAssetDeleteCreate(requestParameters, options) {
+            return localVarFp.coaApiFixedAssetDeleteCreate(requestParameters.id, requestParameters.deleteRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Deprecated: use `POST /coa/api/fixed-asset/{id}/delete`, which also takes an optional reason for the audit log.
+         * @summary Delete Fixed Asset (deprecated)
          * @param {CoreAccountingApiCoaApiFixedAssetDestroyRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         coaApiFixedAssetDestroy(requestParameters, options) {
@@ -18525,10 +19476,21 @@ const CoreAccountingApiFactory = function (configuration, basePath, axios) {
             return localVarFp.coaApiIntercompanyJournalEntryCreate(requestParameters.intercompanyJournalEntry, options).then((request) => request(axios, basePath));
         },
         /**
-         *          Permanently deletes an intercompany journal entry and all related transactions.          This endpoint performs a comprehensive cleanup when deleting an intercompany journal entry:         - Validates that the entry can be deleted (not in closed period)         - Removes all associated journal entries across entities         - Updates summary tables and account balances         - Handles cascade deletion of related transactions         - Ensures data integrity across the accounting system          Deletion restrictions:         - Cannot delete entries in closed accounting periods          Error conditions:         - 400 Bad Request: Entry date is in a closed period         - 409 Conflict: Entry has protected relationships (e.g., close checklist tasks)         - 404 Not Found: Entry does not exist or user lacks access          On successful deletion, all related journal entries are removed and accounting summaries are recalculated.
+         *          Permanently deletes an intercompany journal entry and all related transactions.          This endpoint performs a comprehensive cleanup when deleting an intercompany journal entry:         - Validates that the entry can be deleted (not in closed period)         - Removes all associated journal entries across entities         - Updates summary tables and account balances         - Handles cascade deletion of related transactions         - Ensures data integrity across the accounting system          Deletion restrictions:         - Cannot delete entries in closed accounting periods          Error conditions:         - 400 Bad Request: Entry date is in a closed period         - 409 Conflict: Entry has protected relationships (e.g., close checklist tasks)         - 404 Not Found: Entry does not exist or user lacks access          On successful deletion, all related journal entries are removed and accounting summaries are recalculated.           A customer can require a reason for this delete in its approval settings. When it does, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
          * @summary Delete Intercompany Journal Entry
+         * @param {CoreAccountingApiCoaApiIntercompanyJournalEntryDeleteCreateRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        coaApiIntercompanyJournalEntryDeleteCreate(requestParameters, options) {
+            return localVarFp.coaApiIntercompanyJournalEntryDeleteCreate(requestParameters.id, requestParameters.deleteRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Deprecated: use `POST /coa/api/intercompany-journal-entry/{id}/delete`, which also takes an optional reason for the audit log.           Permanently deletes an intercompany journal entry and all related transactions.          This endpoint performs a comprehensive cleanup when deleting an intercompany journal entry:         - Validates that the entry can be deleted (not in closed period)         - Removes all associated journal entries across entities         - Updates summary tables and account balances         - Handles cascade deletion of related transactions         - Ensures data integrity across the accounting system          Deletion restrictions:         - Cannot delete entries in closed accounting periods          Error conditions:         - 400 Bad Request: Entry date is in a closed period         - 409 Conflict: Entry has protected relationships (e.g., close checklist tasks)         - 404 Not Found: Entry does not exist or user lacks access          On successful deletion, all related journal entries are removed and accounting summaries are recalculated.
+         * @summary Delete Intercompany Journal Entry (deprecated)
          * @param {CoreAccountingApiCoaApiIntercompanyJournalEntryDestroyRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         coaApiIntercompanyJournalEntryDestroy(requestParameters, options) {
@@ -18585,10 +19547,21 @@ const CoreAccountingApiFactory = function (configuration, basePath, axios) {
             return localVarFp.coaApiJournalEntryCreate(requestParameters.journalEntryWrite, options).then((request) => request(axios, basePath));
         },
         /**
-         *          Delete a journal entry and all its associated transactions.          **Restrictions:**         - Cannot delete entries before closed book dates          **Response Codes:**         - 204: Successfully deleted         - 400: Cannot delete (books closed for this date)         - 409: Cannot delete (associated with other objects)
+         *          Delete a journal entry and all its associated transactions.          **Restrictions:**         - Cannot delete entries before closed book dates          **Response Codes:**         - 204: Successfully deleted         - 400: Cannot delete (books closed for this date)         - 409: Cannot delete (associated with other objects)           A customer can require a reason for this delete in its approval settings. When it does, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
          * @summary Delete Journal Entry
+         * @param {CoreAccountingApiCoaApiJournalEntryDeleteCreateRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        coaApiJournalEntryDeleteCreate(requestParameters, options) {
+            return localVarFp.coaApiJournalEntryDeleteCreate(requestParameters.id, requestParameters.deleteRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Deprecated: use `POST /coa/api/journal_entry/{id}/delete`, which also takes an optional reason for the audit log.           Delete a journal entry and all its associated transactions.          **Restrictions:**         - Cannot delete entries before closed book dates          **Response Codes:**         - 204: Successfully deleted         - 400: Cannot delete (books closed for this date)         - 409: Cannot delete (associated with other objects)
+         * @summary Delete Journal Entry (deprecated)
          * @param {CoreAccountingApiCoaApiJournalEntryDestroyRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         coaApiJournalEntryDestroy(requestParameters, options) {
@@ -19264,7 +20237,7 @@ class CoreAccountingApi extends base_1.BaseAPI {
         return (0, exports.CoreAccountingApiFp)(this.configuration).coaApiDepartmentBulkSearchCreate(requestParameters.bulkDepartmentSearch, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Delete a fixed asset automation. Replaces the deprecated DELETE /coa/api/fixed-asset-automation/{id}/.
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Fixed Asset Automation
      * @param {CoreAccountingApiCoaApiFixedAssetAutomationDeleteCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -19284,10 +20257,21 @@ class CoreAccountingApi extends base_1.BaseAPI {
         return (0, exports.CoreAccountingApiFp)(this.configuration).coaApiFixedAssetCreate(requestParameters.fixedAsset, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Fixed Asset
+     * @param {CoreAccountingApiCoaApiFixedAssetDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiFixedAssetDeleteCreate(requestParameters, options) {
+        return (0, exports.CoreAccountingApiFp)(this.configuration).coaApiFixedAssetDeleteCreate(requestParameters.id, requestParameters.deleteRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Deprecated: use `POST /coa/api/fixed-asset/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Fixed Asset (deprecated)
      * @param {CoreAccountingApiCoaApiFixedAssetDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiFixedAssetDestroy(requestParameters, options) {
@@ -19354,10 +20338,21 @@ class CoreAccountingApi extends base_1.BaseAPI {
         return (0, exports.CoreAccountingApiFp)(this.configuration).coaApiIntercompanyJournalEntryCreate(requestParameters.intercompanyJournalEntry, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *          Permanently deletes an intercompany journal entry and all related transactions.          This endpoint performs a comprehensive cleanup when deleting an intercompany journal entry:         - Validates that the entry can be deleted (not in closed period)         - Removes all associated journal entries across entities         - Updates summary tables and account balances         - Handles cascade deletion of related transactions         - Ensures data integrity across the accounting system          Deletion restrictions:         - Cannot delete entries in closed accounting periods          Error conditions:         - 400 Bad Request: Entry date is in a closed period         - 409 Conflict: Entry has protected relationships (e.g., close checklist tasks)         - 404 Not Found: Entry does not exist or user lacks access          On successful deletion, all related journal entries are removed and accounting summaries are recalculated.
+     *          Permanently deletes an intercompany journal entry and all related transactions.          This endpoint performs a comprehensive cleanup when deleting an intercompany journal entry:         - Validates that the entry can be deleted (not in closed period)         - Removes all associated journal entries across entities         - Updates summary tables and account balances         - Handles cascade deletion of related transactions         - Ensures data integrity across the accounting system          Deletion restrictions:         - Cannot delete entries in closed accounting periods          Error conditions:         - 400 Bad Request: Entry date is in a closed period         - 409 Conflict: Entry has protected relationships (e.g., close checklist tasks)         - 404 Not Found: Entry does not exist or user lacks access          On successful deletion, all related journal entries are removed and accounting summaries are recalculated.           A customer can require a reason for this delete in its approval settings. When it does, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
      * @summary Delete Intercompany Journal Entry
+     * @param {CoreAccountingApiCoaApiIntercompanyJournalEntryDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiIntercompanyJournalEntryDeleteCreate(requestParameters, options) {
+        return (0, exports.CoreAccountingApiFp)(this.configuration).coaApiIntercompanyJournalEntryDeleteCreate(requestParameters.id, requestParameters.deleteRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Deprecated: use `POST /coa/api/intercompany-journal-entry/{id}/delete`, which also takes an optional reason for the audit log.           Permanently deletes an intercompany journal entry and all related transactions.          This endpoint performs a comprehensive cleanup when deleting an intercompany journal entry:         - Validates that the entry can be deleted (not in closed period)         - Removes all associated journal entries across entities         - Updates summary tables and account balances         - Handles cascade deletion of related transactions         - Ensures data integrity across the accounting system          Deletion restrictions:         - Cannot delete entries in closed accounting periods          Error conditions:         - 400 Bad Request: Entry date is in a closed period         - 409 Conflict: Entry has protected relationships (e.g., close checklist tasks)         - 404 Not Found: Entry does not exist or user lacks access          On successful deletion, all related journal entries are removed and accounting summaries are recalculated.
+     * @summary Delete Intercompany Journal Entry (deprecated)
      * @param {CoreAccountingApiCoaApiIntercompanyJournalEntryDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiIntercompanyJournalEntryDestroy(requestParameters, options) {
@@ -19414,10 +20409,21 @@ class CoreAccountingApi extends base_1.BaseAPI {
         return (0, exports.CoreAccountingApiFp)(this.configuration).coaApiJournalEntryCreate(requestParameters.journalEntryWrite, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *          Delete a journal entry and all its associated transactions.          **Restrictions:**         - Cannot delete entries before closed book dates          **Response Codes:**         - 204: Successfully deleted         - 400: Cannot delete (books closed for this date)         - 409: Cannot delete (associated with other objects)
+     *          Delete a journal entry and all its associated transactions.          **Restrictions:**         - Cannot delete entries before closed book dates          **Response Codes:**         - 204: Successfully deleted         - 400: Cannot delete (books closed for this date)         - 409: Cannot delete (associated with other objects)           A customer can require a reason for this delete in its approval settings. When it does, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.
      * @summary Delete Journal Entry
+     * @param {CoreAccountingApiCoaApiJournalEntryDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    coaApiJournalEntryDeleteCreate(requestParameters, options) {
+        return (0, exports.CoreAccountingApiFp)(this.configuration).coaApiJournalEntryDeleteCreate(requestParameters.id, requestParameters.deleteRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Deprecated: use `POST /coa/api/journal_entry/{id}/delete`, which also takes an optional reason for the audit log.           Delete a journal entry and all its associated transactions.          **Restrictions:**         - Cannot delete entries before closed book dates          **Response Codes:**         - 204: Successfully deleted         - 400: Cannot delete (books closed for this date)         - 409: Cannot delete (associated with other objects)
+     * @summary Delete Journal Entry (deprecated)
      * @param {CoreAccountingApiCoaApiJournalEntryDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     coaApiJournalEntryDestroy(requestParameters, options) {
@@ -22380,11 +23386,12 @@ const RevenueRecognitionApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
-         *
-         * @summary Delete Prepaid Commit
+         * Deprecated: use `POST /rr/api/v1/contracts/{contract_id}/prepaid-commits/{id}/delete`, which also takes an optional reason for the audit log.
+         * @summary Delete Prepaid Commit (deprecated)
          * @param {number} contractId
          * @param {number} id
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         deletePrepaidCommit: async (contractId, id, options = {}) => {
@@ -23184,7 +24191,7 @@ const RevenueRecognitionApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
-         * Search for contracts by deal_name in a single request.
+         * Search for contracts by deal_name, Campfire contract id, or CRM deal id in a single request.
          * @summary Bulk Search Contracts
          * @param {BulkContractSearch} bulkContractSearch
          * @param {*} [options] Override http request option.
@@ -23358,10 +24365,43 @@ const RevenueRecognitionApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
-         *
+         * Delete the record. The body can carry a reason, which is saved to the audit log.
          * @summary Delete Contract
          * @param {number} id
+         * @param {DeleteRequest} [deleteRequest]
          * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        rrApiV1ContractsDeleteCreate: async (id, deleteRequest, options = {}) => {
+            // verify required parameter 'id' is not null or undefined
+            (0, common_1.assertParamExists)('rrApiV1ContractsDeleteCreate', 'id', id);
+            const localVarPath = `/rr/api/v1/contracts/{id}/delete`
+                .replace('{id}', encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(deleteRequest, localVarRequestOptions, configuration);
+            return {
+                url: (0, common_1.toPathString)(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Deprecated: use `POST /rr/api/v1/contracts/{id}/delete`, which also takes an optional reason for the audit log.
+         * @summary Delete Contract (deprecated)
+         * @param {number} id
+         * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         rrApiV1ContractsDestroy: async (id, options = {}) => {
@@ -23527,11 +24567,48 @@ const RevenueRecognitionApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
-         *
+         * Delete the record. The body can carry a reason, which is saved to the audit log.
          * @summary Delete Contract Milestone
          * @param {number} contractId
          * @param {number} id
+         * @param {DeleteRequest} [deleteRequest]
          * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        rrApiV1ContractsMilestonesDeleteCreate: async (contractId, id, deleteRequest, options = {}) => {
+            // verify required parameter 'contractId' is not null or undefined
+            (0, common_1.assertParamExists)('rrApiV1ContractsMilestonesDeleteCreate', 'contractId', contractId);
+            // verify required parameter 'id' is not null or undefined
+            (0, common_1.assertParamExists)('rrApiV1ContractsMilestonesDeleteCreate', 'id', id);
+            const localVarPath = `/rr/api/v1/contracts/{contract_id}/milestones/{id}/delete`
+                .replace('{contract_id}', encodeURIComponent(String(contractId)))
+                .replace('{id}', encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(deleteRequest, localVarRequestOptions, configuration);
+            return {
+                url: (0, common_1.toPathString)(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Deprecated: use `POST /rr/api/v1/contracts/{contract_id}/milestones/{id}/delete`, which also takes an optional reason for the audit log.
+         * @summary Delete Contract Milestone (deprecated)
+         * @param {number} contractId
+         * @param {number} id
+         * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         rrApiV1ContractsMilestonesDestroy: async (contractId, id, options = {}) => {
@@ -23732,6 +24809,42 @@ const RevenueRecognitionApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
+         * Delete the record. The body can carry a reason, which is saved to the audit log.
+         * @summary Delete Prepaid Commit
+         * @param {number} contractId
+         * @param {number} id
+         * @param {DeleteRequest} [deleteRequest]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        rrApiV1ContractsPrepaidCommitsDeleteCreate: async (contractId, id, deleteRequest, options = {}) => {
+            // verify required parameter 'contractId' is not null or undefined
+            (0, common_1.assertParamExists)('rrApiV1ContractsPrepaidCommitsDeleteCreate', 'contractId', contractId);
+            // verify required parameter 'id' is not null or undefined
+            (0, common_1.assertParamExists)('rrApiV1ContractsPrepaidCommitsDeleteCreate', 'id', id);
+            const localVarPath = `/rr/api/v1/contracts/{contract_id}/prepaid-commits/{id}/delete`
+                .replace('{contract_id}', encodeURIComponent(String(contractId)))
+                .replace('{id}', encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(deleteRequest, localVarRequestOptions, configuration);
+            return {
+                url: (0, common_1.toPathString)(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          *
          * @summary Retrieve Contract
          * @param {number} id
@@ -23742,6 +24855,36 @@ const RevenueRecognitionApiAxiosParamCreator = function (configuration) {
             // verify required parameter 'id' is not null or undefined
             (0, common_1.assertParamExists)('rrApiV1ContractsRetrieve', 'id', id);
             const localVarPath = `/rr/api/v1/contracts/{id}`
+                .replace('{id}', encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            localVarHeaderParameter['Accept'] = 'application/json';
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: (0, common_1.toPathString)(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         *
+         * @summary List the accounts a contract\'s revenue subledger posts to
+         * @param {number} id
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        rrApiV1ContractsSubledgerAccountsRetrieve: async (id, options = {}) => {
+            // verify required parameter 'id' is not null or undefined
+            (0, common_1.assertParamExists)('rrApiV1ContractsSubledgerAccountsRetrieve', 'id', id);
+            const localVarPath = `/rr/api/v1/contracts/{id}/subledger-accounts`
                 .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -23872,11 +25015,48 @@ const RevenueRecognitionApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
-         *
+         * Delete the record. The body can carry a reason, which is saved to the audit log.
          * @summary Delete Contract Subscription
          * @param {number} contractId
          * @param {number} id
+         * @param {DeleteRequest} [deleteRequest]
          * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        rrApiV1ContractsSubscriptionsDeleteCreate: async (contractId, id, deleteRequest, options = {}) => {
+            // verify required parameter 'contractId' is not null or undefined
+            (0, common_1.assertParamExists)('rrApiV1ContractsSubscriptionsDeleteCreate', 'contractId', contractId);
+            // verify required parameter 'id' is not null or undefined
+            (0, common_1.assertParamExists)('rrApiV1ContractsSubscriptionsDeleteCreate', 'id', id);
+            const localVarPath = `/rr/api/v1/contracts/{contract_id}/subscriptions/{id}/delete`
+                .replace('{contract_id}', encodeURIComponent(String(contractId)))
+                .replace('{id}', encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(deleteRequest, localVarRequestOptions, configuration);
+            return {
+                url: (0, common_1.toPathString)(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Deprecated: use `POST /rr/api/v1/contracts/{contract_id}/subscriptions/{id}/delete`, which also takes an optional reason for the audit log.
+         * @summary Delete Contract Subscription (deprecated)
+         * @param {number} contractId
+         * @param {number} id
+         * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         rrApiV1ContractsSubscriptionsDestroy: async (contractId, id, options = {}) => {
@@ -24345,11 +25525,48 @@ const RevenueRecognitionApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
-         * Retrieve, update, and delete contract usage revenue records
+         * Delete the record. The body can carry a reason, which is saved to the audit log.
          * @summary Delete Contract Usage Revenue
          * @param {number} contractId
          * @param {number} id
+         * @param {DeleteRequest} [deleteRequest]
          * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        rrApiV1ContractsUsageDeleteCreate: async (contractId, id, deleteRequest, options = {}) => {
+            // verify required parameter 'contractId' is not null or undefined
+            (0, common_1.assertParamExists)('rrApiV1ContractsUsageDeleteCreate', 'contractId', contractId);
+            // verify required parameter 'id' is not null or undefined
+            (0, common_1.assertParamExists)('rrApiV1ContractsUsageDeleteCreate', 'id', id);
+            const localVarPath = `/rr/api/v1/contracts/{contract_id}/usage/{id}/delete`
+                .replace('{contract_id}', encodeURIComponent(String(contractId)))
+                .replace('{id}', encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(deleteRequest, localVarRequestOptions, configuration);
+            return {
+                url: (0, common_1.toPathString)(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Deprecated: use `POST /rr/api/v1/contracts/{contract_id}/usage/{id}/delete`, which also takes an optional reason for the audit log.  Retrieve, update, and delete contract usage revenue records
+         * @summary Delete Contract Usage Revenue (deprecated)
+         * @param {number} contractId
+         * @param {number} id
+         * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         rrApiV1ContractsUsageDestroy: async (contractId, id, options = {}) => {
@@ -24857,14 +26074,15 @@ const RevenueRecognitionApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
-         * Delete a product.
+         * Delete the record. The body can carry a reason, which is saved to the audit log.
          * @summary Delete Product
          * @param {number} id
+         * @param {number} [newProduct] ID of the product to reassign the deleted product\&#39;s records to before deletion
          * @param {DeleteRequest} [deleteRequest]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        rrApiV1ProductDeleteCreate: async (id, deleteRequest, options = {}) => {
+        rrApiV1ProductDeleteCreate: async (id, newProduct, deleteRequest, options = {}) => {
             // verify required parameter 'id' is not null or undefined
             (0, common_1.assertParamExists)('rrApiV1ProductDeleteCreate', 'id', id);
             const localVarPath = `/rr/api/v1/product/{id}/delete`
@@ -24878,6 +26096,9 @@ const RevenueRecognitionApiAxiosParamCreator = function (configuration) {
             const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
+            if (newProduct !== undefined) {
+                localVarQueryParameter['new_product'] = newProduct;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -24892,11 +26113,12 @@ const RevenueRecognitionApiAxiosParamCreator = function (configuration) {
          * Deprecated: use `POST /rr/api/v1/product/{id}/delete`, which also takes an optional reason for the audit log.
          * @summary Delete Product (deprecated)
          * @param {number} id
+         * @param {number} [newProduct] ID of the product to reassign the deleted product\&#39;s records to before deletion
          * @param {*} [options] Override http request option.
          * @deprecated
          * @throws {RequiredError}
          */
-        rrApiV1ProductDestroy: async (id, options = {}) => {
+        rrApiV1ProductDestroy: async (id, newProduct, options = {}) => {
             // verify required parameter 'id' is not null or undefined
             (0, common_1.assertParamExists)('rrApiV1ProductDestroy', 'id', id);
             const localVarPath = `/rr/api/v1/product/{id}`
@@ -24910,6 +26132,9 @@ const RevenueRecognitionApiAxiosParamCreator = function (configuration) {
             const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
+            if (newProduct !== undefined) {
+                localVarQueryParameter['new_product'] = newProduct;
+            }
             (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -25017,10 +26242,43 @@ const RevenueRecognitionApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
-         *
+         * Delete the record. The body can carry a reason, which is saved to the audit log.
          * @summary Delete Revenue Transaction
          * @param {number} id
+         * @param {DeleteRequest} [deleteRequest]
          * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        rrApiV1TransactionsDeleteCreate: async (id, deleteRequest, options = {}) => {
+            // verify required parameter 'id' is not null or undefined
+            (0, common_1.assertParamExists)('rrApiV1TransactionsDeleteCreate', 'id', id);
+            const localVarPath = `/rr/api/v1/transactions/{id}/delete`
+                .replace('{id}', encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(deleteRequest, localVarRequestOptions, configuration);
+            return {
+                url: (0, common_1.toPathString)(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Deprecated: use `POST /rr/api/v1/transactions/{id}/delete`, which also takes an optional reason for the audit log.
+         * @summary Delete Revenue Transaction (deprecated)
+         * @param {number} id
+         * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         rrApiV1TransactionsDestroy: async (id, options = {}) => {
@@ -25403,11 +26661,12 @@ const RevenueRecognitionApiFp = function (configuration) {
             return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *
-         * @summary Delete Prepaid Commit
+         * Deprecated: use `POST /rr/api/v1/contracts/{contract_id}/prepaid-commits/{id}/delete`, which also takes an optional reason for the audit log.
+         * @summary Delete Prepaid Commit (deprecated)
          * @param {number} contractId
          * @param {number} id
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async deletePrepaidCommit(contractId, id, options) {
@@ -25763,7 +27022,7 @@ const RevenueRecognitionApiFp = function (configuration) {
             return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Search for contracts by deal_name in a single request.
+         * Search for contracts by deal_name, Campfire contract id, or CRM deal id in a single request.
          * @summary Bulk Search Contracts
          * @param {BulkContractSearch} bulkContractSearch
          * @param {*} [options] Override http request option.
@@ -25844,10 +27103,27 @@ const RevenueRecognitionApiFp = function (configuration) {
             return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *
+         * Delete the record. The body can carry a reason, which is saved to the audit log.
          * @summary Delete Contract
          * @param {number} id
+         * @param {DeleteRequest} [deleteRequest]
          * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async rrApiV1ContractsDeleteCreate(id, deleteRequest, options) {
+            var _a, _b;
+            var _c;
+            const localVarAxiosArgs = await localVarAxiosParamCreator.rrApiV1ContractsDeleteCreate(id, deleteRequest, options);
+            const localVarOperationServerIndex = (_c = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _c !== void 0 ? _c : 0;
+            const localVarOperationServerBasePath = (_b = (_a = base_1.operationServerMap['RevenueRecognitionApi.rrApiV1ContractsDeleteCreate']) === null || _a === void 0 ? void 0 : _a[localVarOperationServerIndex]) === null || _b === void 0 ? void 0 : _b.url;
+            return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Deprecated: use `POST /rr/api/v1/contracts/{id}/delete`, which also takes an optional reason for the audit log.
+         * @summary Delete Contract (deprecated)
+         * @param {number} id
+         * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async rrApiV1ContractsDestroy(id, options) {
@@ -25924,11 +27200,29 @@ const RevenueRecognitionApiFp = function (configuration) {
             return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *
+         * Delete the record. The body can carry a reason, which is saved to the audit log.
          * @summary Delete Contract Milestone
          * @param {number} contractId
          * @param {number} id
+         * @param {DeleteRequest} [deleteRequest]
          * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async rrApiV1ContractsMilestonesDeleteCreate(contractId, id, deleteRequest, options) {
+            var _a, _b;
+            var _c;
+            const localVarAxiosArgs = await localVarAxiosParamCreator.rrApiV1ContractsMilestonesDeleteCreate(contractId, id, deleteRequest, options);
+            const localVarOperationServerIndex = (_c = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _c !== void 0 ? _c : 0;
+            const localVarOperationServerBasePath = (_b = (_a = base_1.operationServerMap['RevenueRecognitionApi.rrApiV1ContractsMilestonesDeleteCreate']) === null || _a === void 0 ? void 0 : _a[localVarOperationServerIndex]) === null || _b === void 0 ? void 0 : _b.url;
+            return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Deprecated: use `POST /rr/api/v1/contracts/{contract_id}/milestones/{id}/delete`, which also takes an optional reason for the audit log.
+         * @summary Delete Contract Milestone (deprecated)
+         * @param {number} contractId
+         * @param {number} id
+         * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async rrApiV1ContractsMilestonesDestroy(contractId, id, options) {
@@ -26021,6 +27315,23 @@ const RevenueRecognitionApiFp = function (configuration) {
             return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * Delete the record. The body can carry a reason, which is saved to the audit log.
+         * @summary Delete Prepaid Commit
+         * @param {number} contractId
+         * @param {number} id
+         * @param {DeleteRequest} [deleteRequest]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async rrApiV1ContractsPrepaidCommitsDeleteCreate(contractId, id, deleteRequest, options) {
+            var _a, _b;
+            var _c;
+            const localVarAxiosArgs = await localVarAxiosParamCreator.rrApiV1ContractsPrepaidCommitsDeleteCreate(contractId, id, deleteRequest, options);
+            const localVarOperationServerIndex = (_c = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _c !== void 0 ? _c : 0;
+            const localVarOperationServerBasePath = (_b = (_a = base_1.operationServerMap['RevenueRecognitionApi.rrApiV1ContractsPrepaidCommitsDeleteCreate']) === null || _a === void 0 ? void 0 : _a[localVarOperationServerIndex]) === null || _b === void 0 ? void 0 : _b.url;
+            return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          *
          * @summary Retrieve Contract
          * @param {number} id
@@ -26033,6 +27344,21 @@ const RevenueRecognitionApiFp = function (configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.rrApiV1ContractsRetrieve(id, options);
             const localVarOperationServerIndex = (_c = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _c !== void 0 ? _c : 0;
             const localVarOperationServerBasePath = (_b = (_a = base_1.operationServerMap['RevenueRecognitionApi.rrApiV1ContractsRetrieve']) === null || _a === void 0 ? void 0 : _a[localVarOperationServerIndex]) === null || _b === void 0 ? void 0 : _b.url;
+            return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         *
+         * @summary List the accounts a contract\'s revenue subledger posts to
+         * @param {number} id
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async rrApiV1ContractsSubledgerAccountsRetrieve(id, options) {
+            var _a, _b;
+            var _c;
+            const localVarAxiosArgs = await localVarAxiosParamCreator.rrApiV1ContractsSubledgerAccountsRetrieve(id, options);
+            const localVarOperationServerIndex = (_c = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _c !== void 0 ? _c : 0;
+            const localVarOperationServerBasePath = (_b = (_a = base_1.operationServerMap['RevenueRecognitionApi.rrApiV1ContractsSubledgerAccountsRetrieve']) === null || _a === void 0 ? void 0 : _a[localVarOperationServerIndex]) === null || _b === void 0 ? void 0 : _b.url;
             return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -26086,11 +27412,29 @@ const RevenueRecognitionApiFp = function (configuration) {
             return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *
+         * Delete the record. The body can carry a reason, which is saved to the audit log.
          * @summary Delete Contract Subscription
          * @param {number} contractId
          * @param {number} id
+         * @param {DeleteRequest} [deleteRequest]
          * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async rrApiV1ContractsSubscriptionsDeleteCreate(contractId, id, deleteRequest, options) {
+            var _a, _b;
+            var _c;
+            const localVarAxiosArgs = await localVarAxiosParamCreator.rrApiV1ContractsSubscriptionsDeleteCreate(contractId, id, deleteRequest, options);
+            const localVarOperationServerIndex = (_c = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _c !== void 0 ? _c : 0;
+            const localVarOperationServerBasePath = (_b = (_a = base_1.operationServerMap['RevenueRecognitionApi.rrApiV1ContractsSubscriptionsDeleteCreate']) === null || _a === void 0 ? void 0 : _a[localVarOperationServerIndex]) === null || _b === void 0 ? void 0 : _b.url;
+            return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Deprecated: use `POST /rr/api/v1/contracts/{contract_id}/subscriptions/{id}/delete`, which also takes an optional reason for the audit log.
+         * @summary Delete Contract Subscription (deprecated)
+         * @param {number} contractId
+         * @param {number} id
+         * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async rrApiV1ContractsSubscriptionsDestroy(contractId, id, options) {
@@ -26300,11 +27644,29 @@ const RevenueRecognitionApiFp = function (configuration) {
             return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Retrieve, update, and delete contract usage revenue records
+         * Delete the record. The body can carry a reason, which is saved to the audit log.
          * @summary Delete Contract Usage Revenue
          * @param {number} contractId
          * @param {number} id
+         * @param {DeleteRequest} [deleteRequest]
          * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async rrApiV1ContractsUsageDeleteCreate(contractId, id, deleteRequest, options) {
+            var _a, _b;
+            var _c;
+            const localVarAxiosArgs = await localVarAxiosParamCreator.rrApiV1ContractsUsageDeleteCreate(contractId, id, deleteRequest, options);
+            const localVarOperationServerIndex = (_c = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _c !== void 0 ? _c : 0;
+            const localVarOperationServerBasePath = (_b = (_a = base_1.operationServerMap['RevenueRecognitionApi.rrApiV1ContractsUsageDeleteCreate']) === null || _a === void 0 ? void 0 : _a[localVarOperationServerIndex]) === null || _b === void 0 ? void 0 : _b.url;
+            return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Deprecated: use `POST /rr/api/v1/contracts/{contract_id}/usage/{id}/delete`, which also takes an optional reason for the audit log.  Retrieve, update, and delete contract usage revenue records
+         * @summary Delete Contract Usage Revenue (deprecated)
+         * @param {number} contractId
+         * @param {number} id
+         * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async rrApiV1ContractsUsageDestroy(contractId, id, options) {
@@ -26541,17 +27903,18 @@ const RevenueRecognitionApiFp = function (configuration) {
             return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Delete a product.
+         * Delete the record. The body can carry a reason, which is saved to the audit log.
          * @summary Delete Product
          * @param {number} id
+         * @param {number} [newProduct] ID of the product to reassign the deleted product\&#39;s records to before deletion
          * @param {DeleteRequest} [deleteRequest]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async rrApiV1ProductDeleteCreate(id, deleteRequest, options) {
+        async rrApiV1ProductDeleteCreate(id, newProduct, deleteRequest, options) {
             var _a, _b;
             var _c;
-            const localVarAxiosArgs = await localVarAxiosParamCreator.rrApiV1ProductDeleteCreate(id, deleteRequest, options);
+            const localVarAxiosArgs = await localVarAxiosParamCreator.rrApiV1ProductDeleteCreate(id, newProduct, deleteRequest, options);
             const localVarOperationServerIndex = (_c = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _c !== void 0 ? _c : 0;
             const localVarOperationServerBasePath = (_b = (_a = base_1.operationServerMap['RevenueRecognitionApi.rrApiV1ProductDeleteCreate']) === null || _a === void 0 ? void 0 : _a[localVarOperationServerIndex]) === null || _b === void 0 ? void 0 : _b.url;
             return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -26560,14 +27923,15 @@ const RevenueRecognitionApiFp = function (configuration) {
          * Deprecated: use `POST /rr/api/v1/product/{id}/delete`, which also takes an optional reason for the audit log.
          * @summary Delete Product (deprecated)
          * @param {number} id
+         * @param {number} [newProduct] ID of the product to reassign the deleted product\&#39;s records to before deletion
          * @param {*} [options] Override http request option.
          * @deprecated
          * @throws {RequiredError}
          */
-        async rrApiV1ProductDestroy(id, options) {
+        async rrApiV1ProductDestroy(id, newProduct, options) {
             var _a, _b;
             var _c;
-            const localVarAxiosArgs = await localVarAxiosParamCreator.rrApiV1ProductDestroy(id, options);
+            const localVarAxiosArgs = await localVarAxiosParamCreator.rrApiV1ProductDestroy(id, newProduct, options);
             const localVarOperationServerIndex = (_c = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _c !== void 0 ? _c : 0;
             const localVarOperationServerBasePath = (_b = (_a = base_1.operationServerMap['RevenueRecognitionApi.rrApiV1ProductDestroy']) === null || _a === void 0 ? void 0 : _a[localVarOperationServerIndex]) === null || _b === void 0 ? void 0 : _b.url;
             return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -26620,10 +27984,27 @@ const RevenueRecognitionApiFp = function (configuration) {
             return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *
+         * Delete the record. The body can carry a reason, which is saved to the audit log.
          * @summary Delete Revenue Transaction
          * @param {number} id
+         * @param {DeleteRequest} [deleteRequest]
          * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async rrApiV1TransactionsDeleteCreate(id, deleteRequest, options) {
+            var _a, _b;
+            var _c;
+            const localVarAxiosArgs = await localVarAxiosParamCreator.rrApiV1TransactionsDeleteCreate(id, deleteRequest, options);
+            const localVarOperationServerIndex = (_c = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _c !== void 0 ? _c : 0;
+            const localVarOperationServerBasePath = (_b = (_a = base_1.operationServerMap['RevenueRecognitionApi.rrApiV1TransactionsDeleteCreate']) === null || _a === void 0 ? void 0 : _a[localVarOperationServerIndex]) === null || _b === void 0 ? void 0 : _b.url;
+            return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Deprecated: use `POST /rr/api/v1/transactions/{id}/delete`, which also takes an optional reason for the audit log.
+         * @summary Delete Revenue Transaction (deprecated)
+         * @param {number} id
+         * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async rrApiV1TransactionsDestroy(id, options) {
@@ -26831,10 +28212,11 @@ const RevenueRecognitionApiFactory = function (configuration, basePath, axios) {
             return localVarFp.createRevenueTransaction(requestParameters.revenueTransaction, options).then((request) => request(axios, basePath));
         },
         /**
-         *
-         * @summary Delete Prepaid Commit
+         * Deprecated: use `POST /rr/api/v1/contracts/{contract_id}/prepaid-commits/{id}/delete`, which also takes an optional reason for the audit log.
+         * @summary Delete Prepaid Commit (deprecated)
          * @param {RevenueRecognitionApiDeletePrepaidCommitRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         deletePrepaidCommit(requestParameters, options) {
@@ -27040,7 +28422,7 @@ const RevenueRecognitionApiFactory = function (configuration, basePath, axios) {
             return localVarFp.reverseContractSubscriptionFully(requestParameters.contractId, requestParameters.id, requestParameters.contractSubscriptionFullReversal, options).then((request) => request(axios, basePath));
         },
         /**
-         * Search for contracts by deal_name in a single request.
+         * Search for contracts by deal_name, Campfire contract id, or CRM deal id in a single request.
          * @summary Bulk Search Contracts
          * @param {RevenueRecognitionApiRrApiV1ContractsBulkSearchCreateRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -27090,10 +28472,21 @@ const RevenueRecognitionApiFactory = function (configuration, basePath, axios) {
             return localVarFp.rrApiV1ContractsBundlesUpdate(requestParameters.contractId, requestParameters.id, requestParameters.contractBundle, options).then((request) => request(axios, basePath));
         },
         /**
-         *
+         * Delete the record. The body can carry a reason, which is saved to the audit log.
          * @summary Delete Contract
+         * @param {RevenueRecognitionApiRrApiV1ContractsDeleteCreateRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        rrApiV1ContractsDeleteCreate(requestParameters, options) {
+            return localVarFp.rrApiV1ContractsDeleteCreate(requestParameters.id, requestParameters.deleteRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Deprecated: use `POST /rr/api/v1/contracts/{id}/delete`, which also takes an optional reason for the audit log.
+         * @summary Delete Contract (deprecated)
          * @param {RevenueRecognitionApiRrApiV1ContractsDestroyRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         rrApiV1ContractsDestroy(requestParameters, options) {
@@ -27140,10 +28533,21 @@ const RevenueRecognitionApiFactory = function (configuration, basePath, axios) {
             return localVarFp.rrApiV1ContractsMilestonesAllocationsUpdate(requestParameters.contractId, requestParameters.milestoneId, requestParameters.contractProductBundleUpdate, options).then((request) => request(axios, basePath));
         },
         /**
-         *
+         * Delete the record. The body can carry a reason, which is saved to the audit log.
          * @summary Delete Contract Milestone
+         * @param {RevenueRecognitionApiRrApiV1ContractsMilestonesDeleteCreateRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        rrApiV1ContractsMilestonesDeleteCreate(requestParameters, options) {
+            return localVarFp.rrApiV1ContractsMilestonesDeleteCreate(requestParameters.contractId, requestParameters.id, requestParameters.deleteRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Deprecated: use `POST /rr/api/v1/contracts/{contract_id}/milestones/{id}/delete`, which also takes an optional reason for the audit log.
+         * @summary Delete Contract Milestone (deprecated)
          * @param {RevenueRecognitionApiRrApiV1ContractsMilestonesDestroyRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         rrApiV1ContractsMilestonesDestroy(requestParameters, options) {
@@ -27200,6 +28604,16 @@ const RevenueRecognitionApiFactory = function (configuration, basePath, axios) {
             return localVarFp.rrApiV1ContractsPartialUpdate(requestParameters.id, requestParameters.patchedContract, options).then((request) => request(axios, basePath));
         },
         /**
+         * Delete the record. The body can carry a reason, which is saved to the audit log.
+         * @summary Delete Prepaid Commit
+         * @param {RevenueRecognitionApiRrApiV1ContractsPrepaidCommitsDeleteCreateRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        rrApiV1ContractsPrepaidCommitsDeleteCreate(requestParameters, options) {
+            return localVarFp.rrApiV1ContractsPrepaidCommitsDeleteCreate(requestParameters.contractId, requestParameters.id, requestParameters.deleteRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
          *
          * @summary Retrieve Contract
          * @param {RevenueRecognitionApiRrApiV1ContractsRetrieveRequest} requestParameters Request parameters.
@@ -27208,6 +28622,16 @@ const RevenueRecognitionApiFactory = function (configuration, basePath, axios) {
          */
         rrApiV1ContractsRetrieve(requestParameters, options) {
             return localVarFp.rrApiV1ContractsRetrieve(requestParameters.id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *
+         * @summary List the accounts a contract\'s revenue subledger posts to
+         * @param {RevenueRecognitionApiRrApiV1ContractsSubledgerAccountsRetrieveRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        rrApiV1ContractsSubledgerAccountsRetrieve(requestParameters, options) {
+            return localVarFp.rrApiV1ContractsSubledgerAccountsRetrieve(requestParameters.id, options).then((request) => request(axios, basePath));
         },
         /**
          * Partially update bundle allocations. Same behavior as PUT.
@@ -27240,10 +28664,21 @@ const RevenueRecognitionApiFactory = function (configuration, basePath, axios) {
             return localVarFp.rrApiV1ContractsSubscriptionsAllocationsUpdate(requestParameters.contractId, requestParameters.subscriptionId, requestParameters.contractProductBundleUpdate, options).then((request) => request(axios, basePath));
         },
         /**
-         *
+         * Delete the record. The body can carry a reason, which is saved to the audit log.
          * @summary Delete Contract Subscription
+         * @param {RevenueRecognitionApiRrApiV1ContractsSubscriptionsDeleteCreateRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        rrApiV1ContractsSubscriptionsDeleteCreate(requestParameters, options) {
+            return localVarFp.rrApiV1ContractsSubscriptionsDeleteCreate(requestParameters.contractId, requestParameters.id, requestParameters.deleteRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Deprecated: use `POST /rr/api/v1/contracts/{contract_id}/subscriptions/{id}/delete`, which also takes an optional reason for the audit log.
+         * @summary Delete Contract Subscription (deprecated)
          * @param {RevenueRecognitionApiRrApiV1ContractsSubscriptionsDestroyRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         rrApiV1ContractsSubscriptionsDestroy(requestParameters, options) {
@@ -27370,10 +28805,21 @@ const RevenueRecognitionApiFactory = function (configuration, basePath, axios) {
             return localVarFp.rrApiV1ContractsUsageCreate(requestParameters.contractId, requestParameters.contractUsage, options).then((request) => request(axios, basePath));
         },
         /**
-         * Retrieve, update, and delete contract usage revenue records
+         * Delete the record. The body can carry a reason, which is saved to the audit log.
          * @summary Delete Contract Usage Revenue
+         * @param {RevenueRecognitionApiRrApiV1ContractsUsageDeleteCreateRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        rrApiV1ContractsUsageDeleteCreate(requestParameters, options) {
+            return localVarFp.rrApiV1ContractsUsageDeleteCreate(requestParameters.contractId, requestParameters.id, requestParameters.deleteRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Deprecated: use `POST /rr/api/v1/contracts/{contract_id}/usage/{id}/delete`, which also takes an optional reason for the audit log.  Retrieve, update, and delete contract usage revenue records
+         * @summary Delete Contract Usage Revenue (deprecated)
          * @param {RevenueRecognitionApiRrApiV1ContractsUsageDestroyRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         rrApiV1ContractsUsageDestroy(requestParameters, options) {
@@ -27520,14 +28966,14 @@ const RevenueRecognitionApiFactory = function (configuration, basePath, axios) {
             return localVarFp.rrApiV1ProductBundlesUpdate(requestParameters.id, requestParameters.productBundle, options).then((request) => request(axios, basePath));
         },
         /**
-         * Delete a product.
+         * Delete the record. The body can carry a reason, which is saved to the audit log.
          * @summary Delete Product
          * @param {RevenueRecognitionApiRrApiV1ProductDeleteCreateRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
         rrApiV1ProductDeleteCreate(requestParameters, options) {
-            return localVarFp.rrApiV1ProductDeleteCreate(requestParameters.id, requestParameters.deleteRequest, options).then((request) => request(axios, basePath));
+            return localVarFp.rrApiV1ProductDeleteCreate(requestParameters.id, requestParameters.newProduct, requestParameters.deleteRequest, options).then((request) => request(axios, basePath));
         },
         /**
          * Deprecated: use `POST /rr/api/v1/product/{id}/delete`, which also takes an optional reason for the audit log.
@@ -27538,7 +28984,7 @@ const RevenueRecognitionApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         rrApiV1ProductDestroy(requestParameters, options) {
-            return localVarFp.rrApiV1ProductDestroy(requestParameters.id, options).then((request) => request(axios, basePath));
+            return localVarFp.rrApiV1ProductDestroy(requestParameters.id, requestParameters.newProduct, options).then((request) => request(axios, basePath));
         },
         /**
          *
@@ -27571,10 +29017,21 @@ const RevenueRecognitionApiFactory = function (configuration, basePath, axios) {
             return localVarFp.rrApiV1ProductUpdate(requestParameters.id, requestParameters.product, options).then((request) => request(axios, basePath));
         },
         /**
-         *
+         * Delete the record. The body can carry a reason, which is saved to the audit log.
          * @summary Delete Revenue Transaction
+         * @param {RevenueRecognitionApiRrApiV1TransactionsDeleteCreateRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        rrApiV1TransactionsDeleteCreate(requestParameters, options) {
+            return localVarFp.rrApiV1TransactionsDeleteCreate(requestParameters.id, requestParameters.deleteRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Deprecated: use `POST /rr/api/v1/transactions/{id}/delete`, which also takes an optional reason for the audit log.
+         * @summary Delete Revenue Transaction (deprecated)
          * @param {RevenueRecognitionApiRrApiV1TransactionsDestroyRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         rrApiV1TransactionsDestroy(requestParameters, options) {
@@ -27738,10 +29195,11 @@ class RevenueRecognitionApi extends base_1.BaseAPI {
         return (0, exports.RevenueRecognitionApiFp)(this.configuration).createRevenueTransaction(requestParameters.revenueTransaction, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *
-     * @summary Delete Prepaid Commit
+     * Deprecated: use `POST /rr/api/v1/contracts/{contract_id}/prepaid-commits/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Prepaid Commit (deprecated)
      * @param {RevenueRecognitionApiDeletePrepaidCommitRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     deletePrepaidCommit(requestParameters, options) {
@@ -27947,7 +29405,7 @@ class RevenueRecognitionApi extends base_1.BaseAPI {
         return (0, exports.RevenueRecognitionApiFp)(this.configuration).reverseContractSubscriptionFully(requestParameters.contractId, requestParameters.id, requestParameters.contractSubscriptionFullReversal, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Search for contracts by deal_name in a single request.
+     * Search for contracts by deal_name, Campfire contract id, or CRM deal id in a single request.
      * @summary Bulk Search Contracts
      * @param {RevenueRecognitionApiRrApiV1ContractsBulkSearchCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -27997,10 +29455,21 @@ class RevenueRecognitionApi extends base_1.BaseAPI {
         return (0, exports.RevenueRecognitionApiFp)(this.configuration).rrApiV1ContractsBundlesUpdate(requestParameters.contractId, requestParameters.id, requestParameters.contractBundle, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Contract
+     * @param {RevenueRecognitionApiRrApiV1ContractsDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rrApiV1ContractsDeleteCreate(requestParameters, options) {
+        return (0, exports.RevenueRecognitionApiFp)(this.configuration).rrApiV1ContractsDeleteCreate(requestParameters.id, requestParameters.deleteRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Deprecated: use `POST /rr/api/v1/contracts/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Contract (deprecated)
      * @param {RevenueRecognitionApiRrApiV1ContractsDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     rrApiV1ContractsDestroy(requestParameters, options) {
@@ -28047,10 +29516,21 @@ class RevenueRecognitionApi extends base_1.BaseAPI {
         return (0, exports.RevenueRecognitionApiFp)(this.configuration).rrApiV1ContractsMilestonesAllocationsUpdate(requestParameters.contractId, requestParameters.milestoneId, requestParameters.contractProductBundleUpdate, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Contract Milestone
+     * @param {RevenueRecognitionApiRrApiV1ContractsMilestonesDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rrApiV1ContractsMilestonesDeleteCreate(requestParameters, options) {
+        return (0, exports.RevenueRecognitionApiFp)(this.configuration).rrApiV1ContractsMilestonesDeleteCreate(requestParameters.contractId, requestParameters.id, requestParameters.deleteRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Deprecated: use `POST /rr/api/v1/contracts/{contract_id}/milestones/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Contract Milestone (deprecated)
      * @param {RevenueRecognitionApiRrApiV1ContractsMilestonesDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     rrApiV1ContractsMilestonesDestroy(requestParameters, options) {
@@ -28107,6 +29587,16 @@ class RevenueRecognitionApi extends base_1.BaseAPI {
         return (0, exports.RevenueRecognitionApiFp)(this.configuration).rrApiV1ContractsPartialUpdate(requestParameters.id, requestParameters.patchedContract, options).then((request) => request(this.axios, this.basePath));
     }
     /**
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
+     * @summary Delete Prepaid Commit
+     * @param {RevenueRecognitionApiRrApiV1ContractsPrepaidCommitsDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rrApiV1ContractsPrepaidCommitsDeleteCreate(requestParameters, options) {
+        return (0, exports.RevenueRecognitionApiFp)(this.configuration).rrApiV1ContractsPrepaidCommitsDeleteCreate(requestParameters.contractId, requestParameters.id, requestParameters.deleteRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      *
      * @summary Retrieve Contract
      * @param {RevenueRecognitionApiRrApiV1ContractsRetrieveRequest} requestParameters Request parameters.
@@ -28115,6 +29605,16 @@ class RevenueRecognitionApi extends base_1.BaseAPI {
      */
     rrApiV1ContractsRetrieve(requestParameters, options) {
         return (0, exports.RevenueRecognitionApiFp)(this.configuration).rrApiV1ContractsRetrieve(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *
+     * @summary List the accounts a contract\'s revenue subledger posts to
+     * @param {RevenueRecognitionApiRrApiV1ContractsSubledgerAccountsRetrieveRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rrApiV1ContractsSubledgerAccountsRetrieve(requestParameters, options) {
+        return (0, exports.RevenueRecognitionApiFp)(this.configuration).rrApiV1ContractsSubledgerAccountsRetrieve(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Partially update bundle allocations. Same behavior as PUT.
@@ -28147,10 +29647,21 @@ class RevenueRecognitionApi extends base_1.BaseAPI {
         return (0, exports.RevenueRecognitionApiFp)(this.configuration).rrApiV1ContractsSubscriptionsAllocationsUpdate(requestParameters.contractId, requestParameters.subscriptionId, requestParameters.contractProductBundleUpdate, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Contract Subscription
+     * @param {RevenueRecognitionApiRrApiV1ContractsSubscriptionsDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rrApiV1ContractsSubscriptionsDeleteCreate(requestParameters, options) {
+        return (0, exports.RevenueRecognitionApiFp)(this.configuration).rrApiV1ContractsSubscriptionsDeleteCreate(requestParameters.contractId, requestParameters.id, requestParameters.deleteRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Deprecated: use `POST /rr/api/v1/contracts/{contract_id}/subscriptions/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Contract Subscription (deprecated)
      * @param {RevenueRecognitionApiRrApiV1ContractsSubscriptionsDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     rrApiV1ContractsSubscriptionsDestroy(requestParameters, options) {
@@ -28277,10 +29788,21 @@ class RevenueRecognitionApi extends base_1.BaseAPI {
         return (0, exports.RevenueRecognitionApiFp)(this.configuration).rrApiV1ContractsUsageCreate(requestParameters.contractId, requestParameters.contractUsage, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Retrieve, update, and delete contract usage revenue records
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Contract Usage Revenue
+     * @param {RevenueRecognitionApiRrApiV1ContractsUsageDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rrApiV1ContractsUsageDeleteCreate(requestParameters, options) {
+        return (0, exports.RevenueRecognitionApiFp)(this.configuration).rrApiV1ContractsUsageDeleteCreate(requestParameters.contractId, requestParameters.id, requestParameters.deleteRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Deprecated: use `POST /rr/api/v1/contracts/{contract_id}/usage/{id}/delete`, which also takes an optional reason for the audit log.  Retrieve, update, and delete contract usage revenue records
+     * @summary Delete Contract Usage Revenue (deprecated)
      * @param {RevenueRecognitionApiRrApiV1ContractsUsageDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     rrApiV1ContractsUsageDestroy(requestParameters, options) {
@@ -28427,14 +29949,14 @@ class RevenueRecognitionApi extends base_1.BaseAPI {
         return (0, exports.RevenueRecognitionApiFp)(this.configuration).rrApiV1ProductBundlesUpdate(requestParameters.id, requestParameters.productBundle, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Delete a product.
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Product
      * @param {RevenueRecognitionApiRrApiV1ProductDeleteCreateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     rrApiV1ProductDeleteCreate(requestParameters, options) {
-        return (0, exports.RevenueRecognitionApiFp)(this.configuration).rrApiV1ProductDeleteCreate(requestParameters.id, requestParameters.deleteRequest, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.RevenueRecognitionApiFp)(this.configuration).rrApiV1ProductDeleteCreate(requestParameters.id, requestParameters.newProduct, requestParameters.deleteRequest, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Deprecated: use `POST /rr/api/v1/product/{id}/delete`, which also takes an optional reason for the audit log.
@@ -28445,7 +29967,7 @@ class RevenueRecognitionApi extends base_1.BaseAPI {
      * @throws {RequiredError}
      */
     rrApiV1ProductDestroy(requestParameters, options) {
-        return (0, exports.RevenueRecognitionApiFp)(this.configuration).rrApiV1ProductDestroy(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.RevenueRecognitionApiFp)(this.configuration).rrApiV1ProductDestroy(requestParameters.id, requestParameters.newProduct, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -28478,10 +30000,21 @@ class RevenueRecognitionApi extends base_1.BaseAPI {
         return (0, exports.RevenueRecognitionApiFp)(this.configuration).rrApiV1ProductUpdate(requestParameters.id, requestParameters.product, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *
+     * Delete the record. The body can carry a reason, which is saved to the audit log.
      * @summary Delete Revenue Transaction
+     * @param {RevenueRecognitionApiRrApiV1TransactionsDeleteCreateRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    rrApiV1TransactionsDeleteCreate(requestParameters, options) {
+        return (0, exports.RevenueRecognitionApiFp)(this.configuration).rrApiV1TransactionsDeleteCreate(requestParameters.id, requestParameters.deleteRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Deprecated: use `POST /rr/api/v1/transactions/{id}/delete`, which also takes an optional reason for the audit log.
+     * @summary Delete Revenue Transaction (deprecated)
      * @param {RevenueRecognitionApiRrApiV1TransactionsDestroyRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     rrApiV1TransactionsDestroy(requestParameters, options) {
@@ -29007,6 +30540,114 @@ const SettingsApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
+         *          Retrieve approved audit log entries: each change to a record, with who made it, who approved it,         and the record\'s payload before and after. Entries are ordered newest first by (created_at, id).          **Access:** customer admins, or users with the \"View audit logs\" permission. OAuth apps also need         the `audit_logs:read` scope. Users restricted to some entities see only entries whose every entity         they can access.          **Filtering:**         - `created_at__gte` (inclusive) and `created_at__lt` (exclusive) take an ISO 8601 date, read as           00:00 UTC, or a datetime with a UTC offset. URL-encode the `+` in an offset as `%2B`.         - `model` (as `app_label.model`) returns that object type; with `object_id` it returns that           object\'s entries and the entries of records under it, such as a bill\'s payments.         - Unknown parameters are rejected with a 400.          **Paging:**         - For a complete export, pass an empty cursor (`cursor=`) on the first request and follow the           `next` URL until it is null. Entries written while you page don\'t shift later pages.         - Pass `skip_count=true` when you don\'t need the total; `count` stops at 10,000.          **Notes:**         - The entry\'s `approved_by` is who gave final approval. Inside `approvers`, `approved_by` is the           step\'s approver type and `approved_by_user` is who approved that step; it can be empty for           steps approved before step approvers were recorded.         - Entries recorded when data was first imported can appear later with historical `created_at` dates.         - Payload fields that hold secrets are stored hashed.
+         * @summary List audit log entries
+         * @param {Array<string>} [actionType] created, updated or deleted. Repeat or comma-separate.
+         * @param {number} [approvedBy] User who gave final approval.
+         * @param {string} [createdAtGte] Start, inclusive. Use an ISO 8601 date or a datetime with a UTC offset, such as 2026-03-10T11:00:00-04:00.
+         * @param {string} [createdAtLt] End, exclusive. Use an ISO 8601 date or a datetime with a UTC offset, such as 2026-03-10T11:00:00-04:00.
+         * @param {number} [createdBy] User who made the change.
+         * @param {string} [cursor] Opts into cursor pagination. Pass an empty value (cursor&#x3D;) on the first request, then follow the next URL until it is null. Recommended for complete exports: rows written while paging don\&#39;t shift pages, so none are skipped or repeated.
+         * @param {number} [limit] Page size. Default 100, maximum 10000.
+         * @param {string} [model] Object type as app_label.model. Open set.
+         * @param {number} [objectId] Rows for this object, or whose parent is this object. Needs model.
+         * @param {number} [offset] Number of records to skip. Use with limit to paginate.
+         * @param {string} [operation] Raw operation, such as add or delete. Open set.
+         * @param {number} [parentDraftQueue] Rows written as part of this audit entry.
+         * @param {boolean} [skipCount] When true, skips the total count. Recommended for large exports.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        caApiV1AuditLogList: async (actionType, approvedBy, createdAtGte, createdAtLt, createdBy, cursor, limit, model, objectId, offset, operation, parentDraftQueue, skipCount, options = {}) => {
+            const localVarPath = `/ca/api/v1/audit-log`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            if (actionType) {
+                localVarQueryParameter['action_type'] = actionType;
+            }
+            if (approvedBy !== undefined) {
+                localVarQueryParameter['approved_by'] = approvedBy;
+            }
+            if (createdAtGte !== undefined) {
+                localVarQueryParameter['created_at__gte'] = createdAtGte;
+            }
+            if (createdAtLt !== undefined) {
+                localVarQueryParameter['created_at__lt'] = createdAtLt;
+            }
+            if (createdBy !== undefined) {
+                localVarQueryParameter['created_by'] = createdBy;
+            }
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (model !== undefined) {
+                localVarQueryParameter['model'] = model;
+            }
+            if (objectId !== undefined) {
+                localVarQueryParameter['object_id'] = objectId;
+            }
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (operation !== undefined) {
+                localVarQueryParameter['operation'] = operation;
+            }
+            if (parentDraftQueue !== undefined) {
+                localVarQueryParameter['parent_draft_queue'] = parentDraftQueue;
+            }
+            if (skipCount !== undefined) {
+                localVarQueryParameter['skip_count'] = skipCount;
+            }
+            localVarHeaderParameter['Accept'] = 'application/json';
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: (0, common_1.toPathString)(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         *          Retrieve one approved audit log entry by id, with its payloads expanded into readable values.         Access is the same as for the list: an entry the list hides is a 404 here.
+         * @summary Get one audit log entry, with readable payloads
+         * @param {number} id
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        caApiV1AuditLogRetrieve: async (id, options = {}) => {
+            // verify required parameter 'id' is not null or undefined
+            (0, common_1.assertParamExists)('caApiV1AuditLogRetrieve', 'id', id);
+            const localVarPath = `/ca/api/v1/audit-log/{id}`
+                .replace('{id}', encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            localVarHeaderParameter['Accept'] = 'application/json';
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: (0, common_1.toPathString)(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Upload invoice email attachment with proper permissions
          * @summary Upload Entity Invoice Email Attachment
          * @param {number} entityId
@@ -29096,7 +30737,7 @@ const SettingsApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
-         * Returns ALL entities for intercompany journal entry creation.  This endpoint bypasses entity-scoped filtering because users need to select entities they don\'t normally have access to when creating intercompany journal entries (per the entity-scoped-user-access spec).  Uses minimal serializer to only expose id, name, and currency - preventing data leakage of sensitive entity details to users who may not have full access to all entities.
+         * Returns every operating entity for intercompany journal entry creation. Adjusting entities are left out: they are never an intercompany leg or counterparty.  This endpoint bypasses entity-scoped filtering because users need to select entities they don\'t normally have access to when creating intercompany journal entries (per the entity-scoped-user-access spec).  Uses minimal serializer to only expose id, name, and currency - preventing data leakage of sensitive entity details to users who may not have full access to all entities.
          * @summary List All Entities for Intercompany JE
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -29626,6 +31267,48 @@ const SettingsApiFp = function (configuration) {
             return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         *          Retrieve approved audit log entries: each change to a record, with who made it, who approved it,         and the record\'s payload before and after. Entries are ordered newest first by (created_at, id).          **Access:** customer admins, or users with the \"View audit logs\" permission. OAuth apps also need         the `audit_logs:read` scope. Users restricted to some entities see only entries whose every entity         they can access.          **Filtering:**         - `created_at__gte` (inclusive) and `created_at__lt` (exclusive) take an ISO 8601 date, read as           00:00 UTC, or a datetime with a UTC offset. URL-encode the `+` in an offset as `%2B`.         - `model` (as `app_label.model`) returns that object type; with `object_id` it returns that           object\'s entries and the entries of records under it, such as a bill\'s payments.         - Unknown parameters are rejected with a 400.          **Paging:**         - For a complete export, pass an empty cursor (`cursor=`) on the first request and follow the           `next` URL until it is null. Entries written while you page don\'t shift later pages.         - Pass `skip_count=true` when you don\'t need the total; `count` stops at 10,000.          **Notes:**         - The entry\'s `approved_by` is who gave final approval. Inside `approvers`, `approved_by` is the           step\'s approver type and `approved_by_user` is who approved that step; it can be empty for           steps approved before step approvers were recorded.         - Entries recorded when data was first imported can appear later with historical `created_at` dates.         - Payload fields that hold secrets are stored hashed.
+         * @summary List audit log entries
+         * @param {Array<string>} [actionType] created, updated or deleted. Repeat or comma-separate.
+         * @param {number} [approvedBy] User who gave final approval.
+         * @param {string} [createdAtGte] Start, inclusive. Use an ISO 8601 date or a datetime with a UTC offset, such as 2026-03-10T11:00:00-04:00.
+         * @param {string} [createdAtLt] End, exclusive. Use an ISO 8601 date or a datetime with a UTC offset, such as 2026-03-10T11:00:00-04:00.
+         * @param {number} [createdBy] User who made the change.
+         * @param {string} [cursor] Opts into cursor pagination. Pass an empty value (cursor&#x3D;) on the first request, then follow the next URL until it is null. Recommended for complete exports: rows written while paging don\&#39;t shift pages, so none are skipped or repeated.
+         * @param {number} [limit] Page size. Default 100, maximum 10000.
+         * @param {string} [model] Object type as app_label.model. Open set.
+         * @param {number} [objectId] Rows for this object, or whose parent is this object. Needs model.
+         * @param {number} [offset] Number of records to skip. Use with limit to paginate.
+         * @param {string} [operation] Raw operation, such as add or delete. Open set.
+         * @param {number} [parentDraftQueue] Rows written as part of this audit entry.
+         * @param {boolean} [skipCount] When true, skips the total count. Recommended for large exports.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async caApiV1AuditLogList(actionType, approvedBy, createdAtGte, createdAtLt, createdBy, cursor, limit, model, objectId, offset, operation, parentDraftQueue, skipCount, options) {
+            var _a, _b;
+            var _c;
+            const localVarAxiosArgs = await localVarAxiosParamCreator.caApiV1AuditLogList(actionType, approvedBy, createdAtGte, createdAtLt, createdBy, cursor, limit, model, objectId, offset, operation, parentDraftQueue, skipCount, options);
+            const localVarOperationServerIndex = (_c = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _c !== void 0 ? _c : 0;
+            const localVarOperationServerBasePath = (_b = (_a = base_1.operationServerMap['SettingsApi.caApiV1AuditLogList']) === null || _a === void 0 ? void 0 : _a[localVarOperationServerIndex]) === null || _b === void 0 ? void 0 : _b.url;
+            return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         *          Retrieve one approved audit log entry by id, with its payloads expanded into readable values.         Access is the same as for the list: an entry the list hides is a 404 here.
+         * @summary Get one audit log entry, with readable payloads
+         * @param {number} id
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async caApiV1AuditLogRetrieve(id, options) {
+            var _a, _b;
+            var _c;
+            const localVarAxiosArgs = await localVarAxiosParamCreator.caApiV1AuditLogRetrieve(id, options);
+            const localVarOperationServerIndex = (_c = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _c !== void 0 ? _c : 0;
+            const localVarOperationServerBasePath = (_b = (_a = base_1.operationServerMap['SettingsApi.caApiV1AuditLogRetrieve']) === null || _a === void 0 ? void 0 : _a[localVarOperationServerIndex]) === null || _b === void 0 ? void 0 : _b.url;
+            return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * Upload invoice email attachment with proper permissions
          * @summary Upload Entity Invoice Email Attachment
          * @param {number} entityId
@@ -29671,7 +31354,7 @@ const SettingsApiFp = function (configuration) {
             return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Returns ALL entities for intercompany journal entry creation.  This endpoint bypasses entity-scoped filtering because users need to select entities they don\'t normally have access to when creating intercompany journal entries (per the entity-scoped-user-access spec).  Uses minimal serializer to only expose id, name, and currency - preventing data leakage of sensitive entity details to users who may not have full access to all entities.
+         * Returns every operating entity for intercompany journal entry creation. Adjusting entities are left out: they are never an intercompany leg or counterparty.  This endpoint bypasses entity-scoped filtering because users need to select entities they don\'t normally have access to when creating intercompany journal entries (per the entity-scoped-user-access spec).  Uses minimal serializer to only expose id, name, and currency - preventing data leakage of sensitive entity details to users who may not have full access to all entities.
          * @summary List All Entities for Intercompany JE
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -29968,6 +31651,26 @@ const SettingsApiFactory = function (configuration, basePath, axios) {
             return localVarFp.caApiUserCurrencyWithRateRetrieve(options).then((request) => request(axios, basePath));
         },
         /**
+         *          Retrieve approved audit log entries: each change to a record, with who made it, who approved it,         and the record\'s payload before and after. Entries are ordered newest first by (created_at, id).          **Access:** customer admins, or users with the \"View audit logs\" permission. OAuth apps also need         the `audit_logs:read` scope. Users restricted to some entities see only entries whose every entity         they can access.          **Filtering:**         - `created_at__gte` (inclusive) and `created_at__lt` (exclusive) take an ISO 8601 date, read as           00:00 UTC, or a datetime with a UTC offset. URL-encode the `+` in an offset as `%2B`.         - `model` (as `app_label.model`) returns that object type; with `object_id` it returns that           object\'s entries and the entries of records under it, such as a bill\'s payments.         - Unknown parameters are rejected with a 400.          **Paging:**         - For a complete export, pass an empty cursor (`cursor=`) on the first request and follow the           `next` URL until it is null. Entries written while you page don\'t shift later pages.         - Pass `skip_count=true` when you don\'t need the total; `count` stops at 10,000.          **Notes:**         - The entry\'s `approved_by` is who gave final approval. Inside `approvers`, `approved_by` is the           step\'s approver type and `approved_by_user` is who approved that step; it can be empty for           steps approved before step approvers were recorded.         - Entries recorded when data was first imported can appear later with historical `created_at` dates.         - Payload fields that hold secrets are stored hashed.
+         * @summary List audit log entries
+         * @param {SettingsApiCaApiV1AuditLogListRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        caApiV1AuditLogList(requestParameters = {}, options) {
+            return localVarFp.caApiV1AuditLogList(requestParameters.actionType, requestParameters.approvedBy, requestParameters.createdAtGte, requestParameters.createdAtLt, requestParameters.createdBy, requestParameters.cursor, requestParameters.limit, requestParameters.model, requestParameters.objectId, requestParameters.offset, requestParameters.operation, requestParameters.parentDraftQueue, requestParameters.skipCount, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *          Retrieve one approved audit log entry by id, with its payloads expanded into readable values.         Access is the same as for the list: an entry the list hides is a 404 here.
+         * @summary Get one audit log entry, with readable payloads
+         * @param {SettingsApiCaApiV1AuditLogRetrieveRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        caApiV1AuditLogRetrieve(requestParameters, options) {
+            return localVarFp.caApiV1AuditLogRetrieve(requestParameters.id, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Upload invoice email attachment with proper permissions
          * @summary Upload Entity Invoice Email Attachment
          * @param {SettingsApiCoaApiEntityAttachmentCreateRequest} requestParameters Request parameters.
@@ -29998,7 +31701,7 @@ const SettingsApiFactory = function (configuration, basePath, axios) {
             return localVarFp.coaApiEntityDestroy(requestParameters.id, options).then((request) => request(axios, basePath));
         },
         /**
-         * Returns ALL entities for intercompany journal entry creation.  This endpoint bypasses entity-scoped filtering because users need to select entities they don\'t normally have access to when creating intercompany journal entries (per the entity-scoped-user-access spec).  Uses minimal serializer to only expose id, name, and currency - preventing data leakage of sensitive entity details to users who may not have full access to all entities.
+         * Returns every operating entity for intercompany journal entry creation. Adjusting entities are left out: they are never an intercompany leg or counterparty.  This endpoint bypasses entity-scoped filtering because users need to select entities they don\'t normally have access to when creating intercompany journal entries (per the entity-scoped-user-access spec).  Uses minimal serializer to only expose id, name, and currency - preventing data leakage of sensitive entity details to users who may not have full access to all entities.
          * @summary List All Entities for Intercompany JE
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -30240,6 +31943,26 @@ class SettingsApi extends base_1.BaseAPI {
         return (0, exports.SettingsApiFp)(this.configuration).caApiUserCurrencyWithRateRetrieve(options).then((request) => request(this.axios, this.basePath));
     }
     /**
+     *          Retrieve approved audit log entries: each change to a record, with who made it, who approved it,         and the record\'s payload before and after. Entries are ordered newest first by (created_at, id).          **Access:** customer admins, or users with the \"View audit logs\" permission. OAuth apps also need         the `audit_logs:read` scope. Users restricted to some entities see only entries whose every entity         they can access.          **Filtering:**         - `created_at__gte` (inclusive) and `created_at__lt` (exclusive) take an ISO 8601 date, read as           00:00 UTC, or a datetime with a UTC offset. URL-encode the `+` in an offset as `%2B`.         - `model` (as `app_label.model`) returns that object type; with `object_id` it returns that           object\'s entries and the entries of records under it, such as a bill\'s payments.         - Unknown parameters are rejected with a 400.          **Paging:**         - For a complete export, pass an empty cursor (`cursor=`) on the first request and follow the           `next` URL until it is null. Entries written while you page don\'t shift later pages.         - Pass `skip_count=true` when you don\'t need the total; `count` stops at 10,000.          **Notes:**         - The entry\'s `approved_by` is who gave final approval. Inside `approvers`, `approved_by` is the           step\'s approver type and `approved_by_user` is who approved that step; it can be empty for           steps approved before step approvers were recorded.         - Entries recorded when data was first imported can appear later with historical `created_at` dates.         - Payload fields that hold secrets are stored hashed.
+     * @summary List audit log entries
+     * @param {SettingsApiCaApiV1AuditLogListRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    caApiV1AuditLogList(requestParameters = {}, options) {
+        return (0, exports.SettingsApiFp)(this.configuration).caApiV1AuditLogList(requestParameters.actionType, requestParameters.approvedBy, requestParameters.createdAtGte, requestParameters.createdAtLt, requestParameters.createdBy, requestParameters.cursor, requestParameters.limit, requestParameters.model, requestParameters.objectId, requestParameters.offset, requestParameters.operation, requestParameters.parentDraftQueue, requestParameters.skipCount, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *          Retrieve one approved audit log entry by id, with its payloads expanded into readable values.         Access is the same as for the list: an entry the list hides is a 404 here.
+     * @summary Get one audit log entry, with readable payloads
+     * @param {SettingsApiCaApiV1AuditLogRetrieveRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    caApiV1AuditLogRetrieve(requestParameters, options) {
+        return (0, exports.SettingsApiFp)(this.configuration).caApiV1AuditLogRetrieve(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      * Upload invoice email attachment with proper permissions
      * @summary Upload Entity Invoice Email Attachment
      * @param {SettingsApiCoaApiEntityAttachmentCreateRequest} requestParameters Request parameters.
@@ -30270,7 +31993,7 @@ class SettingsApi extends base_1.BaseAPI {
         return (0, exports.SettingsApiFp)(this.configuration).coaApiEntityDestroy(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Returns ALL entities for intercompany journal entry creation.  This endpoint bypasses entity-scoped filtering because users need to select entities they don\'t normally have access to when creating intercompany journal entries (per the entity-scoped-user-access spec).  Uses minimal serializer to only expose id, name, and currency - preventing data leakage of sensitive entity details to users who may not have full access to all entities.
+     * Returns every operating entity for intercompany journal entry creation. Adjusting entities are left out: they are never an intercompany leg or counterparty.  This endpoint bypasses entity-scoped filtering because users need to select entities they don\'t normally have access to when creating intercompany journal entries (per the entity-scoped-user-access spec).  Uses minimal serializer to only expose id, name, and currency - preventing data leakage of sensitive entity details to users who may not have full access to all entities.
      * @summary List All Entities for Intercompany JE
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}

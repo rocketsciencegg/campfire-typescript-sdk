@@ -16,6 +16,8 @@ Name | Type | Description | Notes
 **paymentDate** | **string** |  | [optional] [default to undefined]
 **source** | **string** |  | [optional] [default to undefined]
 **sourceId** | **string** |  | [optional] [default to undefined]
+**sourceReference** | **string** |  | [readonly] [default to undefined]
+**sourceReportedDate** | **string** |  | [optional] [default to undefined]
 **createdAt** | **string** |  | [readonly] [default to undefined]
 **voidedDate** | **string** |  | [optional] [default to undefined]
 **lastModifiedAt** | **string** |  | [readonly] [default to undefined]
@@ -43,6 +45,8 @@ const instance: AccountingBillPayment = {
     paymentDate,
     source,
     sourceId,
+    sourceReference,
+    sourceReportedDate,
     createdAt,
     voidedDate,
     lastModifiedAt,
