@@ -56,7 +56,7 @@ const { status, data } = await apiInstance.bankAccountTotalsRetrieve(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -114,7 +114,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -169,7 +169,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -223,7 +223,7 @@ const { status, data } = await apiInstance.caApiAccountPartialUpdate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -273,7 +273,7 @@ const { status, data } = await apiInstance.caApiAccountRetrieve(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -327,7 +327,7 @@ const { status, data } = await apiInstance.caApiAccountUpdate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -382,7 +382,7 @@ const { status, data } = await apiInstance.caApiBankFeedCreate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -432,7 +432,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -486,7 +486,7 @@ const { status, data } = await apiInstance.caApiTransactionPartialUpdate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -536,7 +536,7 @@ const { status, data } = await apiInstance.caApiTransactionRetrieve(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -590,7 +590,7 @@ const { status, data } = await apiInstance.caApiTransactionUpdate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -642,7 +642,7 @@ const { status, data } = await apiInstance.createAccount(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -694,7 +694,7 @@ const { status, data } = await apiInstance.createBankTransaction(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -760,7 +760,7 @@ const { status, data } = await apiInstance.listAccounts(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -820,7 +820,7 @@ const { status, data } = await apiInstance.listBankTransactions(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 

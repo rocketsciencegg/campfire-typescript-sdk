@@ -55,7 +55,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -109,7 +109,7 @@ const { status, data } = await apiInstance.coaApiV2ReconciliationCreate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -160,7 +160,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -232,7 +232,7 @@ const { status, data } = await apiInstance.coaApiV2ReconciliationList(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -287,7 +287,7 @@ const { status, data } = await apiInstance.coaApiV2ReconciliationPartialUpdate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -338,7 +338,7 @@ const { status, data } = await apiInstance.coaApiV2ReconciliationRetrieve(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -434,7 +434,7 @@ const { status, data } = await apiInstance.coaApiV2ReconciliationSourceTransacti
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -489,7 +489,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -545,7 +545,7 @@ const { status, data } = await apiInstance.coaApiV2ReconciliationUpdate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -589,7 +589,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 

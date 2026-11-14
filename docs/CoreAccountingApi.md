@@ -119,7 +119,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -174,7 +174,7 @@ const { status, data } = await apiInstance.coaApiBudgetsAccountsCreate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -227,7 +227,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -287,7 +287,7 @@ const { status, data } = await apiInstance.coaApiBudgetsAccountsList(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -344,7 +344,7 @@ const { status, data } = await apiInstance.coaApiBudgetsAccountsPartialUpdate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -397,7 +397,7 @@ const { status, data } = await apiInstance.coaApiBudgetsAccountsRetrieve(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -454,7 +454,7 @@ const { status, data } = await apiInstance.coaApiBudgetsAccountsUpdate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -506,7 +506,7 @@ const { status, data } = await apiInstance.coaApiBudgetsCreate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -556,7 +556,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -631,7 +631,7 @@ const { status, data } = await apiInstance.coaApiBudgetsList(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -685,7 +685,7 @@ const { status, data } = await apiInstance.coaApiBudgetsPartialUpdate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -735,7 +735,7 @@ const { status, data } = await apiInstance.coaApiBudgetsRetrieve(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -789,7 +789,7 @@ const { status, data } = await apiInstance.coaApiBudgetsUpdate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -841,7 +841,7 @@ const { status, data } = await apiInstance.coaApiDepartmentBulkSearchCreate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -896,7 +896,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -949,7 +949,7 @@ const { status, data } = await apiInstance.coaApiFixedAssetCreate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -1004,7 +1004,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -1056,7 +1056,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -1119,7 +1119,7 @@ const { status, data } = await apiInstance.coaApiFixedAssetList(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -1173,7 +1173,7 @@ const { status, data } = await apiInstance.coaApiFixedAssetPartialUpdate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -1223,7 +1223,7 @@ const { status, data } = await apiInstance.coaApiFixedAssetRetrieve(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -1277,7 +1277,7 @@ const { status, data } = await apiInstance.coaApiFixedAssetUpdate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -1329,7 +1329,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -1381,7 +1381,7 @@ const { status, data } = await apiInstance.coaApiIntercompanyJournalEntryCreate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -1436,7 +1436,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -1488,7 +1488,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -1551,7 +1551,7 @@ const { status, data } = await apiInstance.coaApiIntercompanyJournalEntryList(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -1606,7 +1606,7 @@ const { status, data } = await apiInstance.coaApiIntercompanyJournalEntryPartial
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -1657,7 +1657,7 @@ const { status, data } = await apiInstance.coaApiIntercompanyJournalEntryRetriev
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -1712,7 +1712,7 @@ const { status, data } = await apiInstance.coaApiIntercompanyJournalEntryUpdate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -1764,7 +1764,7 @@ const { status, data } = await apiInstance.coaApiJournalEntryCreate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -1819,7 +1819,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -1871,7 +1871,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -1942,7 +1942,7 @@ const { status, data } = await apiInstance.coaApiJournalEntryList(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -1997,7 +1997,7 @@ const { status, data } = await apiInstance.coaApiJournalEntryPartialUpdate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -2048,7 +2048,7 @@ const { status, data } = await apiInstance.coaApiJournalEntryRetrieve(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -2103,7 +2103,7 @@ const { status, data } = await apiInstance.coaApiJournalEntryUpdate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -2155,7 +2155,7 @@ const { status, data } = await apiInstance.coaApiTagBulkSearchCreate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -2446,7 +2446,7 @@ const { status, data } = await apiInstance.coaApiTransactionList(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -2498,7 +2498,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -2552,7 +2552,7 @@ const { status, data } = await apiInstance.coaApiTransactionPartialUpdate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -2602,7 +2602,7 @@ const { status, data } = await apiInstance.coaApiTransactionRetrieve(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -2656,7 +2656,7 @@ const { status, data } = await apiInstance.coaApiTransactionUpdate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -2708,7 +2708,7 @@ const { status, data } = await apiInstance.coaApiVendorBulkSearchCreate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -2759,7 +2759,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -2814,7 +2814,7 @@ const { status, data } = await apiInstance.coaApiVendorContactPartialUpdate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -2865,7 +2865,7 @@ const { status, data } = await apiInstance.coaApiVendorContactRetrieve(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -2920,7 +2920,7 @@ const { status, data } = await apiInstance.coaApiVendorContactUpdate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -2975,7 +2975,7 @@ const { status, data } = await apiInstance.coaApiVendorContactsCreate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -3032,7 +3032,7 @@ const { status, data } = await apiInstance.coaApiVendorContactsList(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -3084,7 +3084,7 @@ const { status, data } = await apiInstance.createFixedAssetAutomation(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -3134,7 +3134,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -3184,7 +3184,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -3234,7 +3234,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -3284,7 +3284,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -3334,7 +3334,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -3385,7 +3385,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -3435,7 +3435,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -3478,7 +3478,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -3529,7 +3529,7 @@ const { status, data } = await apiInstance.getChartTransactionTotals(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -3580,7 +3580,7 @@ const { status, data } = await apiInstance.getFixedAssetAutomation(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -3631,7 +3631,7 @@ const { status, data } = await apiInstance.getFixedAssetAutomationMatch(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -3681,7 +3681,7 @@ const { status, data } = await apiInstance.getTransactionMatch(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -3724,7 +3724,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -3768,7 +3768,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -3812,7 +3812,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -3869,7 +3869,7 @@ const { status, data } = await apiInstance.listFixedAssetAutomationMatches(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -3929,7 +3929,7 @@ const { status, data } = await apiInstance.listFixedAssetAutomations(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -3973,7 +3973,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -4026,7 +4026,7 @@ const { status, data } = await apiInstance.listTransactionMatches(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -4078,7 +4078,7 @@ const { status, data } = await apiInstance.mergeChartTransactions(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -4134,7 +4134,7 @@ const { status, data } = await apiInstance.partialUpdateFixedAssetAutomation(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -4189,7 +4189,7 @@ const { status, data } = await apiInstance.partialUpdateFixedAssetAutomationMatc
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -4243,7 +4243,7 @@ const { status, data } = await apiInstance.partialUpdateTransactionMatch(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -4287,7 +4287,7 @@ This endpoint does not have any parameters.
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -4331,7 +4331,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -4383,7 +4383,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -4435,7 +4435,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -4487,7 +4487,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -4537,7 +4537,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -4581,7 +4581,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -4632,7 +4632,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -4687,7 +4687,7 @@ const { status, data } = await apiInstance.updateFixedAssetAutomation(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -4742,7 +4742,7 @@ const { status, data } = await apiInstance.updateFixedAssetAutomationMatch(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -4796,7 +4796,7 @@ const { status, data } = await apiInstance.updateTransactionMatch(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -4846,7 +4846,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 

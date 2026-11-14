@@ -11,17 +11,22 @@ Campfire republishes its spec often (twice on 2026-10-15) and `info.version` sta
 
 Download `https://api.meetcampfire.com/api/schema/?format=json` to the scratchpad and diff it against `campfire.upstream.json`: operations added/removed (path + method), operationIds added/removed, schemas added/removed/changed, operations changed, and every other top-level key and `components` section — `info.description` carries the published rate limit (5 → 10 requests per second on 2026-10-21) and lands in the header of every generated file. Then run `python3 -I scripts/fix_spec.py <new> <out>` and compare its counts with a run on the current `campfire.upstream.json`. A step whose count drops is a fix Campfire adopted (delete that step from the script; see CLAUDE.md).
 
+Also check the things a diff against the last spec cannot show, because they may have gone missing earlier: the new spec has `components.securitySchemes` and a `security` requirement (Campfire dropped both on 2026-10-15, and four releases sent no `Authorization` header; `fix_spec.py` step 0 now restores them). If Campfire ships its own scheme again, step 0 prints 0: delete it.
+
 Report to the user before you change anything. Call out anything that changes SDK signatures (parameter types, operationIds → method names): that makes the release a major bump.
 
 ## 2. Regenerate and open the PR
 
 1. `git checkout -b <branch>` off an up-to-date `main`.
 2. `just refresh` (download → fix → `campfire.patch` → generate → compile). It must compile clean.
+   Then `just check-auth`: every request must set the `Authorization` header (CI runs it too).
 3. `git diff api.ts` to find breaking signature changes.
 4. `npm version <x.y.z> --no-git-tag-version`. Major for a breaking signature change, minor for additions only.
 5. Commit with `feat!:` (breaking) or `feat:`, listing what Campfire changed. Push, `gh pr create`, `gh pr checks <n> --watch`.
 
 ## 3. Merge and release
+
+Before the merge, test against the real API: `CAMPFIRE_API_KEY=<key> just smoke-live` (read-only; it needs 200 with the key and 401 or 403 without). The user runs it, or provides the key; do not go looking for it.
 
 The auto-mode classifier blocks `gh pr merge` ("Merge Without Review") even when the user approves in chat. Do not retry it. Ask the user to run `! gh pr merge <n> --squash --delete-branch` themselves.
 

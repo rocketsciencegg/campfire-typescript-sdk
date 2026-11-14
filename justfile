@@ -39,6 +39,14 @@ feedback-package out_dir="":
 # Refresh from Campfire: download, fix, regenerate and compile
 refresh: fetch-spec fix-spec spec-diff build
 
+# Offline: every built request sets the Authorization header (also runs in CI).
+check-auth:
+    node scripts/check-auth.mjs
+
+# Live, read-only, before a release: needs CAMPFIRE_API_KEY (the bare key).
+smoke-live:
+    node scripts/smoke-live.mjs
+
 # Generate SDK from OpenAPI spec and compile TypeScript
 build:
     #!/usr/bin/env bash

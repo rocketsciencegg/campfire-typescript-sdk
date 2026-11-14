@@ -56,6 +56,32 @@ def main(src, dst):
             steps.append((name, fn()))
         return run
 
+    # 0. Campfire's spec stopped declaring how to authenticate on 2026-10-15: no
+    #    `components.securitySchemes`, no `security` anywhere. The generator writes the
+    #    Authorization header only for operations that declare a scheme, so from v2.0.0 to v5.0.0
+    #    `Configuration.apiKey` was silently ignored and every call went out unauthenticated.
+    #    Restore the scheme the spec carried until then (Knox token, `Authorization: Token <key>`)
+    #    and require it globally. Every operation needs it; the old spec put it on all 318.
+    #    The count is 1 when we add the scheme and 1 when we add the global requirement.
+    auth_scheme = {
+        'type': 'apiKey',
+        'in': 'header',
+        'name': 'Authorization',
+        'description': 'Token-based authentication with required prefix "Token"',
+    }
+
+    @step('authentication scheme declared and required')
+    def _():
+        n = 0
+        schemes = spec.setdefault('components', {}).setdefault('securitySchemes', {})
+        if not schemes:
+            schemes['knoxApiToken'] = auth_scheme
+            n += 1
+        if not spec.get('security') and not any(op.get('security') for _, _, op in operations()):
+            spec['security'] = [{name: []} for name in schemes]
+            n += 1
+        return n
+
     # 1. A few responses put their text in `schema.description` and give the schema no type, so
     #    the response has no description and the body has no shape. Move the text to the
     #    response; the body becomes an object (DRF bodies are JSON objects).
