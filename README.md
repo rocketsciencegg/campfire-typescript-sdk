@@ -17,7 +17,7 @@ pnpm add github:rocketsciencegg/campfire-typescript-sdk
 Pin a specific version:
 
 ```bash
-pnpm add github:rocketsciencegg/campfire-typescript-sdk#v1.0.0
+pnpm add github:rocketsciencegg/campfire-typescript-sdk#v5.0.1
 ```
 
 ## Quick Start
@@ -35,6 +35,8 @@ console.log(accounts.data);
 ## Authentication
 
 All API calls require an API key passed via `Configuration.apiKey` with the `Token` prefix (e.g. `Token your-api-key-here`). The key is sent in the `Authorization` header.
+
+Do not use v2.0.0 through v5.0.0. Campfire's spec declared no security scheme in that period, so those builds ignore `Configuration.apiKey`, send no `Authorization` header, and every call returns 401. `scripts/fix_spec.py` restores the scheme, and `just check-auth` (run in CI) fails the build if any request goes out without the header.
 
 ## API Classes
 

@@ -3300,18 +3300,18 @@
                              }
                          ]
                      },
-@@ -30348,11 +30283,6 @@
+@@ -30347,11 +30282,6 @@
+                 ],
                  "type": "string",
                  "description": "* `advance` - In advance\n* `arrears` - In arrears"
-             },
+-            },
 -            "BlankEnum": {
 -                "enum": [
 -                    ""
 -                ]
--            },
+             },
              "BreakdownTypeEnum": {
                  "enum": [
-                     "standard",
 @@ -30953,12 +30883,9 @@
                      },
                      "vendor_type": {
@@ -3693,18 +3693,18 @@
                              }
                          ]
                      },
-@@ -40109,11 +39919,6 @@
-                     "name",
-                     "start_date",
+@@ -40111,11 +39921,6 @@
                      "total_value"
--                ]
--            },
+                 ]
+             },
 -            "NullEnum": {
 -                "enum": [
 -                    null
-                 ]
-             },
+-                ]
+-            },
              "OverageInvoiceCadenceEnum": {
+                 "enum": [
+                     "monthly",
 @@ -41711,15 +41516,9 @@
                      },
                      "terms": {
@@ -4364,7 +4364,22 @@
                              }
                          ]
                      },
-@@ -55078,6 +54655,22 @@
+@@ -55042,6 +54619,14 @@
+                     "name"
+                 ]
+             }
++        },
++        "securitySchemes": {
++            "knoxApiToken": {
++                "type": "apiKey",
++                "in": "header",
++                "name": "Authorization",
++                "description": "Token-based authentication with required prefix \"Token\""
++            }
+         }
+     },
+     "servers": [
+@@ -55078,6 +54663,27 @@
          {
              "name": "Settings",
              "description": "Operations related to system and accounting settings configuration."
@@ -4385,6 +4400,11 @@
 +            "name": "Integrations",
 +            "description": "Operations related to third-party integrations and webhooks."
          }
++    ],
++    "security": [
++        {
++            "knoxApiToken": []
++        }
      ]
  }
 \ No newline at end of file

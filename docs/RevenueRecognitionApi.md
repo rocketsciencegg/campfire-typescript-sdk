@@ -139,7 +139,7 @@ const { status, data } = await apiInstance.createContract(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -194,7 +194,7 @@ const { status, data } = await apiInstance.createContractBundle(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -251,7 +251,7 @@ const { status, data } = await apiInstance.createContractMilestone(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -306,7 +306,7 @@ const { status, data } = await apiInstance.createContractSubscription(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -360,7 +360,7 @@ const { status, data } = await apiInstance.createPrepaidCommit(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -417,7 +417,7 @@ const { status, data } = await apiInstance.createPrepaidCommitConsumption(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -469,7 +469,7 @@ const { status, data } = await apiInstance.createProduct(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -521,7 +521,7 @@ const { status, data } = await apiInstance.createProductBundle(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -573,7 +573,7 @@ const { status, data } = await apiInstance.createRevenueTransaction(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -627,7 +627,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -683,7 +683,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -736,7 +736,7 @@ const { status, data } = await apiInstance.getPrepaidCommit(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -786,7 +786,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -840,7 +840,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -894,7 +894,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -954,7 +954,7 @@ const { status, data } = await apiInstance.listContractBundles(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -1020,7 +1020,7 @@ const { status, data } = await apiInstance.listContractMilestones(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -1080,7 +1080,7 @@ const { status, data } = await apiInstance.listContractSubscriptions(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -1143,7 +1143,7 @@ const { status, data } = await apiInstance.listContracts(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -1202,7 +1202,7 @@ const { status, data } = await apiInstance.listPrepaidCommitConsumption(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -1261,7 +1261,7 @@ const { status, data } = await apiInstance.listPrepaidCommitUsageEvents(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -1317,7 +1317,7 @@ const { status, data } = await apiInstance.listPrepaidCommits(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -1380,7 +1380,7 @@ const { status, data } = await apiInstance.listProductBundles(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -1443,7 +1443,7 @@ const { status, data } = await apiInstance.listProducts(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -1506,7 +1506,7 @@ const { status, data } = await apiInstance.listRevenueTransactions(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -1558,7 +1558,7 @@ const { status, data } = await apiInstance.modifySubscriptionSchedule(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -1602,7 +1602,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -1659,7 +1659,7 @@ const { status, data } = await apiInstance.partialUpdatePrepaidCommit(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -1713,7 +1713,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -1771,7 +1771,7 @@ const { status, data } = await apiInstance.reverseContractSubscriptionFully(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -1828,7 +1828,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsBulkSearchCreate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -1881,7 +1881,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -1938,7 +1938,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsBundlesPartialUpdate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -1993,7 +1993,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsBundlesRetrieve(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -2050,7 +2050,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsBundlesUpdate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -2107,7 +2107,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -2159,7 +2159,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -2209,7 +2209,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsDuplicateCreate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -2267,7 +2267,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsMilestonesAllocations
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -2321,7 +2321,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsMilestonesAllocations
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -2379,7 +2379,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsMilestonesAllocations
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -2437,7 +2437,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -2492,7 +2492,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -2549,7 +2549,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsMilestonesPartialUpda
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -2602,7 +2602,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsMilestonesRetrieve(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -2659,7 +2659,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsMilestonesUpdate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -2710,7 +2710,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -2764,7 +2764,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsPartialUpdate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -2822,7 +2822,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -2873,7 +2873,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsRetrieve(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -2923,7 +2923,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsSubledgerAccountsRetr
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -2981,7 +2981,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsSubscriptionsAllocati
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -3035,7 +3035,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsSubscriptionsAllocati
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -3093,7 +3093,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsSubscriptionsAllocati
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -3151,7 +3151,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -3206,7 +3206,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -3263,7 +3263,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsSubscriptionsPartialU
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -3317,7 +3317,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsSubscriptionsRetrieve
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -3374,7 +3374,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsSubscriptionsUpdate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -3429,7 +3429,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsTerminateCreate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -3485,7 +3485,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsTerminationSettlement
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -3539,7 +3539,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsTierPriceOverridesCre
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -3595,7 +3595,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsTierPriceOverridesLis
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -3649,7 +3649,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsUpdate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -3707,7 +3707,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsUsageAllocationsParti
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -3761,7 +3761,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsUsageAllocationsRetri
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -3819,7 +3819,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsUsageAllocationsUpdat
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -3874,7 +3874,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsUsageCreate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -3932,7 +3932,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -3987,7 +3987,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -4044,7 +4044,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsUsageList(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -4102,7 +4102,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsUsagePartialUpdate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -4156,7 +4156,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsUsageRetrieve(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -4214,7 +4214,7 @@ const { status, data } = await apiInstance.rrApiV1ContractsUsageUpdate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -4264,7 +4264,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -4327,7 +4327,7 @@ const { status, data } = await apiInstance.rrApiV1CustomersList(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -4381,7 +4381,7 @@ const { status, data } = await apiInstance.rrApiV1CustomersPartialUpdate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -4431,7 +4431,7 @@ const { status, data } = await apiInstance.rrApiV1CustomersRetrieve(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -4485,7 +4485,7 @@ const { status, data } = await apiInstance.rrApiV1CustomersUpdate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -4537,7 +4537,7 @@ const { status, data } = await apiInstance.rrApiV1ProductBulkSearchCreate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -4587,7 +4587,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -4641,7 +4641,7 @@ const { status, data } = await apiInstance.rrApiV1ProductBundlesPartialUpdate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -4691,7 +4691,7 @@ const { status, data } = await apiInstance.rrApiV1ProductBundlesRetrieve(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -4745,7 +4745,7 @@ const { status, data } = await apiInstance.rrApiV1ProductBundlesUpdate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -4803,7 +4803,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -4858,7 +4858,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -4912,7 +4912,7 @@ const { status, data } = await apiInstance.rrApiV1ProductPartialUpdate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -4962,7 +4962,7 @@ const { status, data } = await apiInstance.rrApiV1ProductRetrieve(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -5016,7 +5016,7 @@ const { status, data } = await apiInstance.rrApiV1ProductUpdate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -5071,7 +5071,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -5123,7 +5123,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -5177,7 +5177,7 @@ const { status, data } = await apiInstance.rrApiV1TransactionsPartialUpdate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -5227,7 +5227,7 @@ const { status, data } = await apiInstance.rrApiV1TransactionsRetrieve(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -5281,7 +5281,7 @@ const { status, data } = await apiInstance.rrApiV1TransactionsUpdate(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -5338,7 +5338,7 @@ const { status, data } = await apiInstance.updatePrepaidCommit(
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -5394,7 +5394,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 
@@ -5448,7 +5448,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[knoxApiToken](../README.md#knoxApiToken)
 
 ### HTTP request headers
 

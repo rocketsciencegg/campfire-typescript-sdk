@@ -8705,6 +8705,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -8734,6 +8737,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -8762,6 +8768,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -8794,6 +8803,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -8829,6 +8841,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -8867,6 +8882,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -8903,6 +8921,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -8935,6 +8956,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -8970,6 +8994,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -9007,6 +9034,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -9049,6 +9079,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -9089,6 +9122,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -9124,6 +9160,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (cursor !== undefined) {
                 localVarQueryParameter['cursor'] = cursor;
@@ -9187,6 +9226,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -9230,6 +9272,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (currency !== undefined) {
                 localVarQueryParameter['currency'] = currency;
@@ -9320,6 +9365,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -9349,6 +9397,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -9383,6 +9434,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -9419,6 +9473,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -9459,6 +9516,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -9494,6 +9554,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -9528,6 +9591,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -9566,6 +9632,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -9602,6 +9671,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -9632,6 +9704,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -9678,6 +9753,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -9709,6 +9787,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -9743,6 +9824,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -9785,6 +9869,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -9825,6 +9912,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -9857,6 +9947,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -9891,6 +9984,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -9928,6 +10024,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -9968,6 +10067,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -10002,6 +10104,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -10039,6 +10144,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -10067,6 +10175,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -10101,6 +10212,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -10132,6 +10246,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -10176,6 +10293,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -10212,6 +10332,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -10240,6 +10363,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -10274,6 +10400,9 @@ export const AccountsPayableApiAxiosParamCreator = function (configuration?: Con
             const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -12307,6 +12436,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -12342,6 +12474,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -12376,6 +12511,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -12414,6 +12552,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -12449,6 +12590,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -12489,6 +12633,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (client) {
                 localVarQueryParameter['client'] = client;
@@ -12571,6 +12718,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -12602,6 +12752,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -12636,6 +12789,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -12678,6 +12834,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -12718,6 +12877,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -12750,6 +12912,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -12784,6 +12949,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -12821,6 +12989,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -12861,6 +13032,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -12896,6 +13070,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -12930,6 +13107,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -12968,6 +13148,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -13003,6 +13186,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -13037,6 +13223,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -13077,6 +13266,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -13114,6 +13306,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -13149,6 +13344,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -13200,6 +13398,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (client !== undefined) {
                 localVarQueryParameter['client'] = client;
@@ -13324,6 +13525,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -13360,6 +13564,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -13402,6 +13609,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -13442,6 +13652,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -13479,6 +13692,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (cursor !== undefined) {
                 localVarQueryParameter['cursor'] = cursor;
@@ -13550,6 +13766,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -13601,6 +13820,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (aggregationFields !== undefined) {
                 localVarQueryParameter['aggregation_fields'] = aggregationFields;
@@ -13722,6 +13944,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             if (aggregationFields !== undefined) {
                 localVarQueryParameter['aggregation_fields'] = aggregationFields;
             }
@@ -13828,6 +14053,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -13857,6 +14085,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -13895,6 +14126,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -13932,6 +14166,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -13966,6 +14203,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -14003,6 +14243,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -14035,6 +14278,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -14069,6 +14315,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (includeDeleted !== undefined) {
                 localVarQueryParameter['include_deleted'] = includeDeleted;
@@ -14123,6 +14372,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -14160,6 +14412,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (newProduct !== undefined) {
                 localVarQueryParameter['new_product'] = newProduct;
@@ -14202,6 +14457,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             if (newProduct !== undefined) {
                 localVarQueryParameter['new_product'] = newProduct;
             }
@@ -14240,6 +14498,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -14275,6 +14536,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -14313,6 +14577,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -14348,6 +14615,9 @@ export const AccountsReceivableApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -16983,6 +17253,9 @@ export const BankReconciliationApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -17016,6 +17289,9 @@ export const BankReconciliationApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -17053,6 +17329,9 @@ export const BankReconciliationApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -17089,6 +17368,9 @@ export const BankReconciliationApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (account !== undefined) {
                 localVarQueryParameter['account'] = account;
@@ -17157,6 +17439,9 @@ export const BankReconciliationApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -17192,6 +17477,9 @@ export const BankReconciliationApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -17241,6 +17529,9 @@ export const BankReconciliationApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (bank !== undefined) {
                 localVarQueryParameter['bank'] = bank;
@@ -17339,6 +17630,9 @@ export const BankReconciliationApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -17378,6 +17672,9 @@ export const BankReconciliationApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -17409,6 +17706,9 @@ export const BankReconciliationApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -18020,6 +18320,9 @@ export const CashManagementApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             if (includeDeleted !== undefined) {
                 localVarQueryParameter['include_deleted'] = includeDeleted;
             }
@@ -18059,6 +18362,9 @@ export const CashManagementApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (newAccount !== undefined) {
                 localVarQueryParameter['new_account'] = newAccount;
@@ -18101,6 +18407,9 @@ export const CashManagementApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             if (newAccount !== undefined) {
                 localVarQueryParameter['new_account'] = newAccount;
             }
@@ -18139,6 +18448,9 @@ export const CashManagementApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -18174,6 +18486,9 @@ export const CashManagementApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -18211,6 +18526,9 @@ export const CashManagementApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -18251,6 +18569,9 @@ export const CashManagementApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -18287,6 +18608,9 @@ export const CashManagementApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -18320,6 +18644,9 @@ export const CashManagementApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -18356,6 +18683,9 @@ export const CashManagementApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -18394,6 +18724,9 @@ export const CashManagementApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -18429,6 +18762,9 @@ export const CashManagementApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -18463,6 +18799,9 @@ export const CashManagementApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -18501,6 +18840,9 @@ export const CashManagementApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (chartOfAccountsAccount !== undefined) {
                 localVarQueryParameter['chart_of_accounts_account'] = chartOfAccountsAccount;
@@ -18559,6 +18901,9 @@ export const CashManagementApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (excludeDrafts !== undefined) {
                 localVarQueryParameter['exclude_drafts'] = excludeDrafts;
@@ -19347,6 +19692,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -19382,6 +19730,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -19419,6 +19770,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (app !== undefined) {
                 localVarQueryParameter['app'] = app;
@@ -19487,6 +19841,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -19522,6 +19879,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -19560,6 +19920,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -19594,6 +19957,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -19634,6 +20000,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (account !== undefined) {
                 localVarQueryParameter['account'] = account;
@@ -19700,6 +20069,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -19737,6 +20109,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (newAccount !== undefined) {
                 localVarQueryParameter['new_account'] = newAccount;
@@ -19779,6 +20154,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             if (newAccount !== undefined) {
                 localVarQueryParameter['new_account'] = newAccount;
             }
@@ -19815,6 +20193,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -19848,6 +20229,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -19888,6 +20272,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -19932,6 +20319,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -19967,6 +20357,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -20004,6 +20397,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -20044,6 +20440,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -20078,6 +20477,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -20115,6 +20517,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -20148,6 +20553,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (includeDeleted !== undefined) {
                 localVarQueryParameter['include_deleted'] = includeDeleted;
@@ -20204,6 +20612,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -20246,6 +20657,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (amount !== undefined) {
                 localVarQueryParameter['amount'] = amount;
@@ -20293,6 +20707,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -20329,6 +20746,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -20367,6 +20787,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -20414,6 +20837,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -20451,6 +20877,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -20485,6 +20914,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -20523,6 +20955,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (newDepartment !== undefined) {
                 localVarQueryParameter['new_department'] = newDepartment;
@@ -20565,6 +21000,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             if (newDepartment !== undefined) {
                 localVarQueryParameter['new_department'] = newDepartment;
             }
@@ -20605,6 +21043,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (includeDeleted !== undefined) {
                 localVarQueryParameter['include_deleted'] = includeDeleted;
@@ -20673,6 +21114,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -20708,6 +21152,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -20746,6 +21193,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -20780,6 +21230,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -20817,6 +21270,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -20850,6 +21306,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (includeDeleted !== undefined) {
                 localVarQueryParameter['include_deleted'] = includeDeleted;
@@ -20906,6 +21365,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -20941,6 +21403,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -20979,6 +21444,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -21013,6 +21481,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -21051,6 +21522,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (newTag !== undefined) {
                 localVarQueryParameter['new_tag'] = newTag;
@@ -21093,6 +21567,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             if (newTag !== undefined) {
                 localVarQueryParameter['new_tag'] = newTag;
             }
@@ -21128,6 +21605,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -21165,6 +21645,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -21199,6 +21682,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (lastModifiedAtGte !== undefined) {
                 localVarQueryParameter['last_modified_at__gte'] = lastModifiedAtGte;
@@ -21259,6 +21745,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -21294,6 +21783,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -21331,6 +21823,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -21375,6 +21870,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (excludeTags !== undefined) {
                 localVarQueryParameter['exclude_tags'] = excludeTags;
@@ -21459,6 +21957,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -21494,6 +21995,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -21532,6 +22036,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -21568,6 +22075,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -21600,6 +22110,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -21637,6 +22150,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -21671,6 +22187,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (lastModifiedAtGte !== undefined) {
                 localVarQueryParameter['last_modified_at__gte'] = lastModifiedAtGte;
@@ -21731,6 +22250,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -21766,6 +22288,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -21804,6 +22329,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -21838,6 +22366,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -21876,6 +22407,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (newVendor !== undefined) {
                 localVarQueryParameter['new_vendor'] = newVendor;
@@ -21918,6 +22452,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (newVendor !== undefined) {
                 localVarQueryParameter['new_vendor'] = newVendor;
@@ -21963,6 +22500,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (externalId !== undefined) {
                 localVarQueryParameter['external_id'] = externalId;
@@ -22043,6 +22583,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -22078,6 +22621,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -22116,6 +22662,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -22150,6 +22699,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -22187,6 +22739,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -22220,6 +22775,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -22249,6 +22807,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -22281,6 +22842,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -22325,6 +22889,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -22363,6 +22930,9 @@ export const CompanyObjectsApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -26075,6 +26645,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -26110,6 +26683,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -26151,6 +26727,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -26186,6 +26765,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (includeDeleted !== undefined) {
                 localVarQueryParameter['include_deleted'] = includeDeleted;
@@ -26238,6 +26820,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -26277,6 +26862,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -26319,6 +26907,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -26353,6 +26944,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -26389,6 +26983,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -26427,6 +27024,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (entity !== undefined) {
                 localVarQueryParameter['entity'] = entity;
@@ -26499,6 +27099,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -26534,6 +27137,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -26572,6 +27178,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -26606,6 +27215,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -26644,6 +27256,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -26677,6 +27292,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -26715,6 +27333,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -26751,6 +27372,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -26784,6 +27408,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (includeDeleted !== undefined) {
                 localVarQueryParameter['include_deleted'] = includeDeleted;
@@ -26840,6 +27467,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -26875,6 +27505,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -26913,6 +27546,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -26948,6 +27584,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -26981,6 +27620,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -27019,6 +27661,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -27055,6 +27700,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -27088,6 +27736,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (includeDeleted !== undefined) {
                 localVarQueryParameter['include_deleted'] = includeDeleted;
@@ -27144,6 +27795,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -27179,6 +27833,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -27217,6 +27874,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -27251,6 +27911,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -27289,6 +27952,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -27324,6 +27990,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -27361,6 +28030,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (account !== undefined) {
                 localVarQueryParameter['account'] = account;
@@ -27425,6 +28097,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -27460,6 +28135,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -27498,6 +28176,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -27532,6 +28213,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -27645,6 +28329,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (account !== undefined) {
                 localVarQueryParameter['account'] = account;
@@ -28011,6 +28698,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -28047,6 +28737,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -28082,6 +28775,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -28120,6 +28816,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -28154,6 +28853,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -28191,6 +28893,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -28224,6 +28929,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -28261,6 +28969,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -28297,6 +29008,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -28337,6 +29051,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -28374,6 +29091,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -28416,6 +29136,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -28452,6 +29175,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -28484,6 +29210,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -28518,6 +29247,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -28551,6 +29283,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -28583,6 +29318,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -28618,6 +29356,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -28651,6 +29392,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -28679,6 +29423,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -28709,6 +29456,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (fields !== undefined) {
                 localVarQueryParameter['fields'] = fields;
@@ -28748,6 +29498,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -28781,6 +29534,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -28816,6 +29572,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -28846,6 +29605,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -28875,6 +29637,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -28903,6 +29668,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -28935,6 +29703,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -28982,6 +29753,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
@@ -29028,6 +29802,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -29058,6 +29835,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -29100,6 +29880,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -29136,6 +29919,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -29174,6 +29960,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -29211,6 +30000,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -29243,6 +30035,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -29272,6 +30067,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -29305,6 +30103,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -29336,6 +30137,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -29370,6 +30174,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -29406,6 +30213,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -29434,6 +30244,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -29467,6 +30280,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -29503,6 +30319,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -29543,6 +30362,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -29582,6 +30404,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -29617,6 +30442,9 @@ export const CoreAccountingApiAxiosParamCreator = function (configuration?: Conf
             const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -33770,6 +34598,9 @@ export const CustomFieldsApiAxiosParamCreator = function (configuration?: Config
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -33879,6 +34710,9 @@ export const FinancialStatementsApiAxiosParamCreator = function (configuration?:
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             if (cadence !== undefined) {
                 localVarQueryParameter['cadence'] = cadence;
             }
@@ -33934,6 +34768,9 @@ export const FinancialStatementsApiAxiosParamCreator = function (configuration?:
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (allTime !== undefined) {
                 localVarQueryParameter['all_time'] = allTime;
@@ -34019,6 +34856,9 @@ export const FinancialStatementsApiAxiosParamCreator = function (configuration?:
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             if (allTime !== undefined) {
                 localVarQueryParameter['all_time'] = allTime;
             }
@@ -34098,6 +34938,9 @@ export const FinancialStatementsApiAxiosParamCreator = function (configuration?:
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             if (endDate !== undefined) {
                 localVarQueryParameter['end_date'] = (endDate as any instanceof Date) ?
                     (endDate as any).toISOString().substring(0,10) :
@@ -34169,6 +35012,9 @@ export const FinancialStatementsApiAxiosParamCreator = function (configuration?:
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (account !== undefined) {
                 localVarQueryParameter['account'] = account;
@@ -34311,6 +35157,9 @@ export const FinancialStatementsApiAxiosParamCreator = function (configuration?:
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             if (dataType !== undefined) {
                 localVarQueryParameter['data_type'] = dataType;
             }
@@ -34357,6 +35206,9 @@ export const FinancialStatementsApiAxiosParamCreator = function (configuration?:
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -34392,6 +35244,9 @@ export const FinancialStatementsApiAxiosParamCreator = function (configuration?:
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (cadence !== undefined) {
                 localVarQueryParameter['cadence'] = cadence;
@@ -34456,6 +35311,9 @@ export const FinancialStatementsApiAxiosParamCreator = function (configuration?:
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             if (cadence !== undefined) {
                 localVarQueryParameter['cadence'] = cadence;
             }
@@ -34515,6 +35373,9 @@ export const FinancialStatementsApiAxiosParamCreator = function (configuration?:
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (cadence !== undefined) {
                 localVarQueryParameter['cadence'] = cadence;
@@ -34579,6 +35440,9 @@ export const FinancialStatementsApiAxiosParamCreator = function (configuration?:
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             if (cadence !== undefined) {
                 localVarQueryParameter['cadence'] = cadence;
             }
@@ -34637,6 +35501,9 @@ export const FinancialStatementsApiAxiosParamCreator = function (configuration?:
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (cadence !== undefined) {
                 localVarQueryParameter['cadence'] = cadence;
@@ -34703,6 +35570,9 @@ export const FinancialStatementsApiAxiosParamCreator = function (configuration?:
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (basis !== undefined) {
                 localVarQueryParameter['basis'] = basis;
@@ -34774,6 +35644,9 @@ export const FinancialStatementsApiAxiosParamCreator = function (configuration?:
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             if (cadence !== undefined) {
                 localVarQueryParameter['cadence'] = cadence;
             }
@@ -34819,6 +35692,9 @@ export const FinancialStatementsApiAxiosParamCreator = function (configuration?:
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -36082,6 +36958,9 @@ export const IntegrationsApiAxiosParamCreator = function (configuration?: Config
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -36118,6 +36997,9 @@ export const IntegrationsApiAxiosParamCreator = function (configuration?: Config
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -36151,6 +37033,9 @@ export const IntegrationsApiAxiosParamCreator = function (configuration?: Config
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -36180,6 +37065,9 @@ export const IntegrationsApiAxiosParamCreator = function (configuration?: Config
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -36215,6 +37103,9 @@ export const IntegrationsApiAxiosParamCreator = function (configuration?: Config
             const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -36252,6 +37143,9 @@ export const IntegrationsApiAxiosParamCreator = function (configuration?: Config
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -36288,6 +37182,9 @@ export const IntegrationsApiAxiosParamCreator = function (configuration?: Config
             const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -36640,6 +37537,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -36678,6 +37578,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -36718,6 +37621,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -36757,6 +37663,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -36795,6 +37704,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -36839,6 +37751,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -36873,6 +37788,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -36909,6 +37827,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -36943,6 +37864,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -36985,6 +37909,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -37026,6 +37953,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -37063,6 +37993,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -37096,6 +38029,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -37134,6 +38070,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -37171,6 +38110,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -37206,6 +38148,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (includeDeleted !== undefined) {
                 localVarQueryParameter['include_deleted'] = includeDeleted;
@@ -37257,6 +38202,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (includeDeleted !== undefined) {
                 localVarQueryParameter['include_deleted'] = includeDeleted;
@@ -37315,6 +38263,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             if (includeDeleted !== undefined) {
                 localVarQueryParameter['include_deleted'] = includeDeleted;
             }
@@ -37361,6 +38312,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (includeDeleted !== undefined) {
                 localVarQueryParameter['include_deleted'] = includeDeleted;
@@ -37422,6 +38376,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
@@ -37470,6 +38427,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
@@ -37514,6 +38474,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
@@ -37556,6 +38519,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (includeDeleted !== undefined) {
                 localVarQueryParameter['include_deleted'] = includeDeleted;
@@ -37612,6 +38578,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             if (includeDeleted !== undefined) {
                 localVarQueryParameter['include_deleted'] = includeDeleted;
             }
@@ -37667,6 +38636,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             if (includeDeleted !== undefined) {
                 localVarQueryParameter['include_deleted'] = includeDeleted;
             }
@@ -37720,6 +38692,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -37751,6 +38726,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -37789,6 +38767,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -37830,6 +38811,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -37870,6 +38854,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -37904,6 +38891,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -37945,6 +38935,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -37982,6 +38975,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -38022,6 +39018,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -38064,6 +39063,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -38101,6 +39103,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -38137,6 +39142,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -38169,6 +39177,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -38209,6 +39220,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -38248,6 +39262,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -38290,6 +39307,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -38331,6 +39351,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -38371,6 +39394,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -38408,6 +39434,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -38448,6 +39477,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -38490,6 +39522,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -38526,6 +39561,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -38559,6 +39597,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -38601,6 +39642,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -38636,6 +39680,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -38669,6 +39716,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -38709,6 +39759,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -38748,6 +39801,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -38790,6 +39846,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -38831,6 +39890,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -38871,6 +39933,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -38908,6 +39973,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -38948,6 +40016,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -38990,6 +40061,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -39028,6 +40102,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -39068,6 +40145,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (creditUnusedRevenue !== undefined) {
                 localVarQueryParameter['credit_unused_revenue'] = creditUnusedRevenue;
@@ -39116,6 +40196,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -39153,6 +40236,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -39199,6 +40285,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -39240,6 +40329,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -39279,6 +40371,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -39321,6 +40416,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -39359,6 +40457,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -39401,6 +40502,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -39441,6 +40545,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -39475,6 +40582,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -39523,6 +40633,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -39562,6 +40675,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -39604,6 +40720,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -39640,6 +40759,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -39673,6 +40795,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (includeDeleted !== undefined) {
                 localVarQueryParameter['include_deleted'] = includeDeleted;
@@ -39729,6 +40854,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -39764,6 +40892,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -39802,6 +40933,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -39836,6 +40970,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -39873,6 +41010,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -39906,6 +41046,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -39942,6 +41085,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -39980,6 +41126,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -40017,6 +41166,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (newProduct !== undefined) {
                 localVarQueryParameter['new_product'] = newProduct;
@@ -40059,6 +41211,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             if (newProduct !== undefined) {
                 localVarQueryParameter['new_product'] = newProduct;
             }
@@ -40097,6 +41252,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -40132,6 +41290,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -40170,6 +41331,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -40207,6 +41371,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -40243,6 +41410,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -40276,6 +41446,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -40313,6 +41486,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -40349,6 +41525,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -40392,6 +41571,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -40437,6 +41619,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -40473,6 +41658,9 @@ export const RevenueRecognitionApiAxiosParamCreator = function (configuration?: 
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -45068,6 +46256,9 @@ export const SettingsApiAxiosParamCreator = function (configuration?: Configurat
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -45101,6 +46292,9 @@ export const SettingsApiAxiosParamCreator = function (configuration?: Configurat
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (includeDeleted !== undefined) {
                 localVarQueryParameter['include_deleted'] = includeDeleted;
@@ -45157,6 +46351,9 @@ export const SettingsApiAxiosParamCreator = function (configuration?: Configurat
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -45192,6 +46389,9 @@ export const SettingsApiAxiosParamCreator = function (configuration?: Configurat
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -45230,6 +46430,9 @@ export const SettingsApiAxiosParamCreator = function (configuration?: Configurat
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -45262,6 +46465,9 @@ export const SettingsApiAxiosParamCreator = function (configuration?: Configurat
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -45293,6 +46499,9 @@ export const SettingsApiAxiosParamCreator = function (configuration?: Configurat
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -45330,6 +46539,9 @@ export const SettingsApiAxiosParamCreator = function (configuration?: Configurat
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -45363,6 +46575,9 @@ export const SettingsApiAxiosParamCreator = function (configuration?: Configurat
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (includeDeleted !== undefined) {
                 localVarQueryParameter['include_deleted'] = includeDeleted;
@@ -45419,6 +46634,9 @@ export const SettingsApiAxiosParamCreator = function (configuration?: Configurat
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -45450,6 +46668,9 @@ export const SettingsApiAxiosParamCreator = function (configuration?: Configurat
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -45483,6 +46704,9 @@ export const SettingsApiAxiosParamCreator = function (configuration?: Configurat
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -45521,6 +46745,9 @@ export const SettingsApiAxiosParamCreator = function (configuration?: Configurat
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -45552,6 +46779,9 @@ export const SettingsApiAxiosParamCreator = function (configuration?: Configurat
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -45594,6 +46824,9 @@ export const SettingsApiAxiosParamCreator = function (configuration?: Configurat
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (actionType) {
                 localVarQueryParameter['action_type'] = actionType;
@@ -45681,6 +46914,9 @@ export const SettingsApiAxiosParamCreator = function (configuration?: Configurat
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -45715,6 +46951,9 @@ export const SettingsApiAxiosParamCreator = function (configuration?: Configurat
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -45746,6 +46985,9 @@ export const SettingsApiAxiosParamCreator = function (configuration?: Configurat
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -45783,6 +47025,9 @@ export const SettingsApiAxiosParamCreator = function (configuration?: Configurat
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -45811,6 +47056,9 @@ export const SettingsApiAxiosParamCreator = function (configuration?: Configurat
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -45843,6 +47091,9 @@ export const SettingsApiAxiosParamCreator = function (configuration?: Configurat
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             if (excludeAdjusting !== undefined) {
                 localVarQueryParameter['exclude_adjusting'] = excludeAdjusting;
@@ -45886,6 +47137,9 @@ export const SettingsApiAxiosParamCreator = function (configuration?: Configurat
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -45919,6 +47173,9 @@ export const SettingsApiAxiosParamCreator = function (configuration?: Configurat
             const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -45955,6 +47212,9 @@ export const SettingsApiAxiosParamCreator = function (configuration?: Configurat
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -45993,6 +47253,9 @@ export const SettingsApiAxiosParamCreator = function (configuration?: Configurat
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -46029,6 +47292,9 @@ export const SettingsApiAxiosParamCreator = function (configuration?: Configurat
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -46058,6 +47324,9 @@ export const SettingsApiAxiosParamCreator = function (configuration?: Configurat
             const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -46091,6 +47360,9 @@ export const SettingsApiAxiosParamCreator = function (configuration?: Configurat
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
+
             localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -46123,6 +47395,9 @@ export const SettingsApiAxiosParamCreator = function (configuration?: Configurat
             const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication knoxApiToken required
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarHeaderParameter['Accept'] = 'application/json';

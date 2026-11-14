@@ -54619,6 +54619,14 @@
                     "name"
                 ]
             }
+        },
+        "securitySchemes": {
+            "knoxApiToken": {
+                "type": "apiKey",
+                "in": "header",
+                "name": "Authorization",
+                "description": "Token-based authentication with required prefix \"Token\""
+            }
         }
     },
     "servers": [
@@ -54671,6 +54679,11 @@
         {
             "name": "Integrations",
             "description": "Operations related to third-party integrations and webhooks."
+        }
+    ],
+    "security": [
+        {
+            "knoxApiToken": []
         }
     ]
 }

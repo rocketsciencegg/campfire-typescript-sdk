@@ -6,6 +6,8 @@ From Rocket Science, 2026-11-14.
 
 Our last package used your spec of 2026-10-21. This package uses your spec of 2026-11-14.
 
+**Most important: your spec no longer says how to authenticate (new Fix 1).** Since your spec of 2026-10-15, it has no `securitySchemes` and no `security` block. Before, every operation required `knoxApiToken`. Code generators add the `Authorization` header only where the spec asks for it, so every client generated from your spec since then sends no credentials, and every call returns 401. Our SDK shipped this way in four releases before we found it. We missed it in our earlier packages, because we compared each spec only with the one before it. Our patch now restores the scheme.
+
 - **New operations.** Your spec has 22 new operations (395 → 417). You removed none and renamed no operationId.
   - A `POST …/{id}/delete` endpoint for accounts, bills, invoices, credit and debit memos, journal entries, intercompany journal entries, fixed assets, vendors, and revenue-recognition contracts, milestones, subscriptions, usage, prepaid commits and transactions. The matching `DELETE` endpoints are now `deprecated`.
   - Audit log (list and get), bank-account totals, transaction allocation, contract subledger accounts, and the invoice CSV revenue preview.
@@ -16,7 +18,7 @@ Our last package used your spec of 2026-10-21. This package uses your spec of 20
   - `POST /rr/api/v1/product/{id}/delete` now has a summary and a description.
   - No description is a leaked Python docstring any more, so we removed the old Fix 5.
 - **The rate limit did not change.** It is still 10 requests per second.
-- **Counts that grew with the spec.** Fix 1 now covers 302 responses (was 296). Fix 7 covers 81 places (was 79). The patch has 1,323 changed lines.
+- **Counts that grew with the spec.** Fix 2 now covers 302 responses (was 296). Fix 8 covers 81 places (was 79). The patch has 1,336 changed lines.
 
 **Read-only fields in request bodies (repeated from our last package).** 1,214 properties in your spec are both `readOnly` and `required` (was 1,177). This release made `tag_ids` and `tag_group_ids` read-only and required on `Department`, `Product` and `AccountingInvoiceLine`, so our generated request types now ask callers to send them. drf-spectacular's `COMPONENT_SPLIT_REQUEST = True` makes separate request schemas without them. We did not put this in the patch, because it changes the shape of the spec.
 
@@ -26,7 +28,7 @@ We generate our TypeScript SDK from your published spec (`https://api.meetcampfi
 
 | File | What it is |
 | --- | --- |
-| `campfire.patch` | Unified diff: your published spec → our fixed spec. Only real changes (1,323 changed lines), no formatting noise |
+| `campfire.patch` | Unified diff: your published spec → our fixed spec. Only real changes (1,336 changed lines), no formatting noise |
 | `campfire.published.json` | Your spec exactly as served on 2026-11-14 (SHA-256 `fa138d2e57b4a9797270637e73e1aa2ad39f35b2d931d2881187db4155b03000`). The patch applies to this file |
 | `campfire.json` | The fixed spec that we generate our SDK from |
 | `fix_spec.py` | The script that makes `campfire.json` from your spec. Each fix is a named step with its reason |
@@ -45,17 +47,18 @@ The patch keeps your file's formatting (`json.dumps(indent=4, ensure_ascii=False
 
 | # | Problem | Places | Our fix | Likely source change (drf-spectacular) |
 | --- | --- | --- | --- | --- |
-| 1 | Response `description` is empty. OpenAPI 3.0 requires it | 302 responses | HTTP reason phrase (`OK`, `Created`, `No Content`, `Bad Request`, ...) | Give each response a description, for example with `OpenApiResponse(description=...)` |
-| 2 | Response text is in `schema.description`, and the schema has no type. So the response has no description and no body shape | 7 responses (list below) | Move the text to the response `description`. The schema becomes `{"type": "object"}` | Pass the text as `OpenApiResponse(description=...)`, not as the schema |
-| 3 | Operations use tags that have no global definition: `Bank Reconciliation`, `Company Objects`, `Custom Fields`, `Integrations` | 93 operations | Add the 4 tag definitions | Add them to `SPECTACULAR_SETTINGS['TAGS']` |
-| 4 | Stray `coa` tag. Every related operation uses a real tag | 1 operation | `POST /coa/api/entity/{entity_id}/attachment` → `Settings` | `tags=[...]` in `extend_schema` on that view |
-| 5 | No `summary` | 1 operation | "Preview Contract Minimum Commit" | Summary on `GET /rr/api/v1/contracts/{id}/minimum-commit-preview` |
-| 6 | The request body has required fields, but the spec marks it optional | 21 operations (list below) | `requestBody.required: true` | Mark these bodies required |
-| 7 | Nullable choice fields written as `oneOf: [XEnum, BlankEnum, NullEnum]` | 81 places | `allOf: [XEnum]` + `nullable: true` | `ENUM_ADD_EXPLICIT_BLANK_NULL_CHOICE = False` should give the same result |
+| 1 | **The spec declares no authentication.** It has no `components.securitySchemes` and no `security`, on any operation. Until 2026-10-15 it declared `knoxApiToken` on all of them | Every operation (417) | Add `knoxApiToken` (`apiKey` in the `Authorization` header, prefix `Token`) and require it globally | Restore the Knox authentication extension or `SPECTACULAR_SETTINGS['SECURITY']`, so the authentication classes the views use appear in the spec |
+| 2 | Response `description` is empty. OpenAPI 3.0 requires it | 302 responses | HTTP reason phrase (`OK`, `Created`, `No Content`, `Bad Request`, ...) | Give each response a description, for example with `OpenApiResponse(description=...)` |
+| 3 | Response text is in `schema.description`, and the schema has no type. So the response has no description and no body shape | 7 responses (list below) | Move the text to the response `description`. The schema becomes `{"type": "object"}` | Pass the text as `OpenApiResponse(description=...)`, not as the schema |
+| 4 | Operations use tags that have no global definition: `Bank Reconciliation`, `Company Objects`, `Custom Fields`, `Integrations` | 93 operations | Add the 4 tag definitions | Add them to `SPECTACULAR_SETTINGS['TAGS']` |
+| 5 | Stray `coa` tag. Every related operation uses a real tag | 1 operation | `POST /coa/api/entity/{entity_id}/attachment` → `Settings` | `tags=[...]` in `extend_schema` on that view |
+| 6 | No `summary` | 1 operation | "Preview Contract Minimum Commit" | Summary on `GET /rr/api/v1/contracts/{id}/minimum-commit-preview` |
+| 7 | The request body has required fields, but the spec marks it optional | 21 operations (list below) | `requestBody.required: true` | Mark these bodies required |
+| 8 | Nullable choice fields written as `oneOf: [XEnum, BlankEnum, NullEnum]` | 81 places | `allOf: [XEnum]` + `nullable: true` | `ENUM_ADD_EXPLICIT_BLANK_NULL_CHOICE = False` should give the same result |
 
-Fix 7 is optional. With the `oneOf` form, Speakeasy cannot check a `default` value. For example, `vendor_type` defaults to `"vendor"` and gets a warning. Generators also turn the form into three-way union types. Our change removes `""` as an allowed value, so you decide if it fits your API.
+Fix 8 is optional. With the `oneOf` form, Speakeasy cannot check a `default` value. For example, `vendor_type` defaults to `"vendor"` and gets a warning. Generators also turn the form into three-way union types. Our change removes `""` as an allowed value, so you decide if it fits your API.
 
-**Fix 2, the 7 responses:**
+**Fix 3, the 7 responses:**
 
 - `DELETE /coa/api/journal_entry/{id}`: 400 and 409
 - `GET /coa/api/transaction/merge`: 400
@@ -64,7 +67,7 @@ Fix 7 is optional. With the `oneOf` form, Speakeasy cannot check a `default` val
 - `POST /coa/api/v1/credit-memo/{credit_memo_id}/mark-used`: 200
 - `POST /coa/api/v1/debit-memo/{debit_memo_id}/mark-used`: 200
 
-**Fix 6, the 21 request bodies:**
+**Fix 7, the 21 request bodies:**
 
 - `POST` and `PUT` on each of these paths (the collection and `{id}`):
   - `/ca/api/user_currency`
