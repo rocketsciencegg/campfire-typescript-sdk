@@ -78,6 +78,8 @@ Name | Type | Description | Notes
 **badDebtAccount** | **number** |  | [optional] [default to undefined]
 **disputeExpenseAccount** | **number** | Account for dispute withdrawals (debit) and dispute reinstatement reversals (credit). Falls back to bad_debt_account if not set. | [optional] [default to undefined]
 **disputeReinstatementAccount** | **number** | Account credited when a dispute is reinstated (won). Falls back to dispute_expense_account if not set. | [optional] [default to undefined]
+**disputedReceivableAccount** | **number** | Asset account holding withdrawn funds while a dispute is pending: debited on the withdrawal, credited when the dispute resolves (won, or written off on loss). | [optional] [default to undefined]
+**disputeFeeAccount** | **number** | Expense account for the Stripe dispute fee, booked when a dispute opens. Non-refundable win or lose, and kept separate from Stripe processing fees. Falls back to the processing-fees account if not set. | [optional] [default to undefined]
 **retainedEarnings** | **number** | Equity account that holds a migrated opening Retained Earnings balance. When folding is enabled, its directly posted balances combine with the calculated retained earnings into a single line on reports. | [optional] [default to undefined]
 
 ## Example
@@ -159,6 +161,8 @@ const instance: PatchedChartAccountSettings = {
     badDebtAccount,
     disputeExpenseAccount,
     disputeReinstatementAccount,
+    disputedReceivableAccount,
+    disputeFeeAccount,
     retainedEarnings,
 };
 ```

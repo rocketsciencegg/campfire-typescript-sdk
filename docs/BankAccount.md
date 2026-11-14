@@ -17,6 +17,9 @@ Name | Type | Description | Notes
 **typeName** | **string** |  | [readonly] [default to undefined]
 **subtypeName** | **string** |  | [readonly] [default to undefined]
 **cashflowClassificationName** | **string** |  | [readonly] [default to undefined]
+**isDisconnected** | **boolean** |  | [readonly] [default to false]
+**inCashTotal** | **boolean** |  | [readonly] [default to false]
+**checkFieldOffsetsMm** | **any** |  | [optional] [default to undefined]
 **accountId** | **string** |  | [readonly] [default to undefined]
 **currency** | **string** |  | [optional] [default to undefined]
 **externalAccountId** | **string** |  | [optional] [default to undefined]
@@ -37,6 +40,7 @@ Name | Type | Description | Notes
 **checkPrintPayeeAddress** | **boolean** |  | [optional] [default to undefined]
 **checkPrintCompanyBlock** | **boolean** |  | [optional] [default to undefined]
 **checkStockPrenumbered** | **boolean** |  | [optional] [default to undefined]
+**checkPrintCurrencySymbol** | **boolean** |  | [optional] [default to undefined]
 **createdAt** | **string** |  | [readonly] [default to undefined]
 **lastModifiedAt** | **string** |  | [readonly] [default to undefined]
 **tagIds** | **Array&lt;number&gt;** |  | [optional] [default to undefined]
@@ -65,6 +69,9 @@ const instance: BankAccount = {
     typeName,
     subtypeName,
     cashflowClassificationName,
+    isDisconnected,
+    inCashTotal,
+    checkFieldOffsetsMm,
     accountId,
     currency,
     externalAccountId,
@@ -85,6 +92,7 @@ const instance: BankAccount = {
     checkPrintPayeeAddress,
     checkPrintCompanyBlock,
     checkStockPrenumbered,
+    checkPrintCurrencySymbol,
     createdAt,
     lastModifiedAt,
     tagIds,

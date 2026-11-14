@@ -27,6 +27,8 @@ Name | Type | Description | Notes
 **entityName** | **string** |  | [readonly] [default to undefined]
 **entityCurrency** | **string** |  | [readonly] [default to undefined]
 **entityInvoiceMessage** | **string** |  | [readonly] [default to undefined]
+**entityQuantityMaxDecimalPlaces** | **number** |  | [readonly] [default to undefined]
+**entityRateMaxDecimalPlaces** | **number** |  | [readonly] [default to undefined]
 **totalAmount** | **number** |  | [readonly] [default to undefined]
 **amountPaid** | **number** |  | [readonly] [default to undefined]
 **amountDue** | **number** |  | [readonly] [default to undefined]
@@ -86,6 +88,7 @@ Name | Type | Description | Notes
 **locationOfSale** | **string** |  | [optional] [default to undefined]
 **messageOnInvoice** | **string** |  | [optional] [default to undefined]
 **itaAllocationNumber** | **string** |  | [optional] [default to undefined]
+**postsOpeningBalanceOffset** | **boolean** |  | [readonly] [default to undefined]
 **paymentStatus** | [**PaymentStatusCdcEnum**](PaymentStatusCdcEnum.md) |  | [optional] [default to undefined]
 **anrokTransactionId** | **string** | ID of the transaction in Anrok (set when transaction is created) | [optional] [default to undefined]
 **excludeFromTaxConnection** | **boolean** | When true, no tax is calculated through, and no transaction is created in, the entity\&#39;s tax connection for this invoice. Set at creation; cannot be changed. | [optional] [default to undefined]
@@ -106,7 +109,7 @@ Name | Type | Description | Notes
 **useStripeAutoBill** | **boolean** |  | [optional] [default to undefined]
 **stripePaymentLinkId** | **string** |  | [optional] [default to undefined]
 **stripePaymentIntentId** | **string** |  | [optional] [default to undefined]
-**stripeInvoiceId** | **string** |  | [readonly] [default to undefined]
+**stripeInvoiceId** | **string** |  | [optional] [default to undefined]
 **stripePdfUrl** | **string** |  | [optional] [default to undefined]
 **stripePaymentLink** | **string** |  | [readonly] [default to undefined]
 **source** | **string** |  | [optional] [default to undefined]
@@ -124,6 +127,7 @@ Name | Type | Description | Notes
 **journalEntry** | **number** |  | [readonly] [default to undefined]
 **arAccount** | **number** | Accounts Receivable account for this invoice. Populated for single-AR and migrated invoices. NULL for multi-AR invoices (aging uses ChartTransactions instead). | [readonly] [default to undefined]
 **voidedJournalEntry** | **number** |  | [readonly] [default to undefined]
+**openingBalanceOffsetJournalEntry** | **number** |  | [readonly] [default to undefined]
 **entityTransferJournalEntry** | **number** |  | [readonly] [default to undefined]
 **contract** | **number** |  | [optional] [default to undefined]
 **avalaraConnection** | **number** |  | [optional] [default to undefined]
@@ -160,6 +164,8 @@ const instance: AccountingInvoice = {
     entityName,
     entityCurrency,
     entityInvoiceMessage,
+    entityQuantityMaxDecimalPlaces,
+    entityRateMaxDecimalPlaces,
     totalAmount,
     amountPaid,
     amountDue,
@@ -219,6 +225,7 @@ const instance: AccountingInvoice = {
     locationOfSale,
     messageOnInvoice,
     itaAllocationNumber,
+    postsOpeningBalanceOffset,
     paymentStatus,
     anrokTransactionId,
     excludeFromTaxConnection,
@@ -257,6 +264,7 @@ const instance: AccountingInvoice = {
     journalEntry,
     arAccount,
     voidedJournalEntry,
+    openingBalanceOffsetJournalEntry,
     entityTransferJournalEntry,
     contract,
     avalaraConnection,

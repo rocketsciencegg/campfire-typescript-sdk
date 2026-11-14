@@ -13,7 +13,7 @@ All URIs are relative to *https://api.meetcampfire.com*
 |[**createProduct**](#createproduct) | **POST** /rr/api/v1/product | Create Contract Product|
 |[**createProductBundle**](#createproductbundle) | **POST** /rr/api/v1/product-bundles | Create Product Bundle|
 |[**createRevenueTransaction**](#createrevenuetransaction) | **POST** /rr/api/v1/transactions | Create Revenue Transaction|
-|[**deletePrepaidCommit**](#deleteprepaidcommit) | **DELETE** /rr/api/v1/contracts/{contract_id}/prepaid-commits/{id} | Delete Prepaid Commit|
+|[**deletePrepaidCommit**](#deleteprepaidcommit) | **DELETE** /rr/api/v1/contracts/{contract_id}/prepaid-commits/{id} | Delete Prepaid Commit (deprecated)|
 |[**deletePrepaidCommitConsumption**](#deleteprepaidcommitconsumption) | **DELETE** /rr/api/v1/contracts/{contract_id}/prepaid-commits/{commit_id}/consumption/{id} | Delete Prepaid Commit Consumption|
 |[**getPrepaidCommit**](#getprepaidcommit) | **GET** /rr/api/v1/contracts/{contract_id}/prepaid-commits/{id} | Retrieve Prepaid Commit|
 |[**getPrepaidCommitSummary**](#getprepaidcommitsummary) | **GET** /rr/api/v1/contracts/{contract_id}/prepaid-commit-summary | Get Prepaid Commit Summary|
@@ -39,22 +39,27 @@ All URIs are relative to *https://api.meetcampfire.com*
 |[**rrApiV1ContractsBundlesPartialUpdate**](#rrapiv1contractsbundlespartialupdate) | **PATCH** /rr/api/v1/contracts/{contract_id}/bundles/{id} | Partial Update Contract Bundle|
 |[**rrApiV1ContractsBundlesRetrieve**](#rrapiv1contractsbundlesretrieve) | **GET** /rr/api/v1/contracts/{contract_id}/bundles/{id} | Retrieve Contract Bundle|
 |[**rrApiV1ContractsBundlesUpdate**](#rrapiv1contractsbundlesupdate) | **PUT** /rr/api/v1/contracts/{contract_id}/bundles/{id} | Update Contract Bundle|
-|[**rrApiV1ContractsDestroy**](#rrapiv1contractsdestroy) | **DELETE** /rr/api/v1/contracts/{id} | Delete Contract|
+|[**rrApiV1ContractsDeleteCreate**](#rrapiv1contractsdeletecreate) | **POST** /rr/api/v1/contracts/{id}/delete | Delete Contract|
+|[**rrApiV1ContractsDestroy**](#rrapiv1contractsdestroy) | **DELETE** /rr/api/v1/contracts/{id} | Delete Contract (deprecated)|
 |[**rrApiV1ContractsDuplicateCreate**](#rrapiv1contractsduplicatecreate) | **POST** /rr/api/v1/contracts/{id}/duplicate | Duplicate Contract|
 |[**rrApiV1ContractsMilestonesAllocationsPartialUpdate**](#rrapiv1contractsmilestonesallocationspartialupdate) | **PATCH** /rr/api/v1/contracts/{contract_id}/milestones/{milestone_id}/allocations | Partial Update Bundle Allocations|
 |[**rrApiV1ContractsMilestonesAllocationsRetrieve**](#rrapiv1contractsmilestonesallocationsretrieve) | **GET** /rr/api/v1/contracts/{contract_id}/milestones/{milestone_id}/allocations | Get Bundle Allocations|
 |[**rrApiV1ContractsMilestonesAllocationsUpdate**](#rrapiv1contractsmilestonesallocationsupdate) | **PUT** /rr/api/v1/contracts/{contract_id}/milestones/{milestone_id}/allocations | Update Bundle Allocations|
-|[**rrApiV1ContractsMilestonesDestroy**](#rrapiv1contractsmilestonesdestroy) | **DELETE** /rr/api/v1/contracts/{contract_id}/milestones/{id} | Delete Contract Milestone|
+|[**rrApiV1ContractsMilestonesDeleteCreate**](#rrapiv1contractsmilestonesdeletecreate) | **POST** /rr/api/v1/contracts/{contract_id}/milestones/{id}/delete | Delete Contract Milestone|
+|[**rrApiV1ContractsMilestonesDestroy**](#rrapiv1contractsmilestonesdestroy) | **DELETE** /rr/api/v1/contracts/{contract_id}/milestones/{id} | Delete Contract Milestone (deprecated)|
 |[**rrApiV1ContractsMilestonesPartialUpdate**](#rrapiv1contractsmilestonespartialupdate) | **PATCH** /rr/api/v1/contracts/{contract_id}/milestones/{id} | Partial Update Contract Milestone|
 |[**rrApiV1ContractsMilestonesRetrieve**](#rrapiv1contractsmilestonesretrieve) | **GET** /rr/api/v1/contracts/{contract_id}/milestones/{id} | Retrieve Contract Milestone|
 |[**rrApiV1ContractsMilestonesUpdate**](#rrapiv1contractsmilestonesupdate) | **PUT** /rr/api/v1/contracts/{contract_id}/milestones/{id} | Update Contract Milestone|
 |[**rrApiV1ContractsMinimumCommitPreviewRetrieve**](#rrapiv1contractsminimumcommitpreviewretrieve) | **GET** /rr/api/v1/contracts/{id}/minimum-commit-preview | Preview Contract Minimum Commit|
 |[**rrApiV1ContractsPartialUpdate**](#rrapiv1contractspartialupdate) | **PATCH** /rr/api/v1/contracts/{id} | Partial Update Contract|
+|[**rrApiV1ContractsPrepaidCommitsDeleteCreate**](#rrapiv1contractsprepaidcommitsdeletecreate) | **POST** /rr/api/v1/contracts/{contract_id}/prepaid-commits/{id}/delete | Delete Prepaid Commit|
 |[**rrApiV1ContractsRetrieve**](#rrapiv1contractsretrieve) | **GET** /rr/api/v1/contracts/{id} | Retrieve Contract|
+|[**rrApiV1ContractsSubledgerAccountsRetrieve**](#rrapiv1contractssubledgeraccountsretrieve) | **GET** /rr/api/v1/contracts/{id}/subledger-accounts | List the accounts a contract\&#39;s revenue subledger posts to|
 |[**rrApiV1ContractsSubscriptionsAllocationsPartialUpdate**](#rrapiv1contractssubscriptionsallocationspartialupdate) | **PATCH** /rr/api/v1/contracts/{contract_id}/subscriptions/{subscription_id}/allocations | Partial Update Bundle Allocations|
 |[**rrApiV1ContractsSubscriptionsAllocationsRetrieve**](#rrapiv1contractssubscriptionsallocationsretrieve) | **GET** /rr/api/v1/contracts/{contract_id}/subscriptions/{subscription_id}/allocations | Get Bundle Allocations|
 |[**rrApiV1ContractsSubscriptionsAllocationsUpdate**](#rrapiv1contractssubscriptionsallocationsupdate) | **PUT** /rr/api/v1/contracts/{contract_id}/subscriptions/{subscription_id}/allocations | Update Bundle Allocations|
-|[**rrApiV1ContractsSubscriptionsDestroy**](#rrapiv1contractssubscriptionsdestroy) | **DELETE** /rr/api/v1/contracts/{contract_id}/subscriptions/{id} | Delete Contract Subscription|
+|[**rrApiV1ContractsSubscriptionsDeleteCreate**](#rrapiv1contractssubscriptionsdeletecreate) | **POST** /rr/api/v1/contracts/{contract_id}/subscriptions/{id}/delete | Delete Contract Subscription|
+|[**rrApiV1ContractsSubscriptionsDestroy**](#rrapiv1contractssubscriptionsdestroy) | **DELETE** /rr/api/v1/contracts/{contract_id}/subscriptions/{id} | Delete Contract Subscription (deprecated)|
 |[**rrApiV1ContractsSubscriptionsPartialUpdate**](#rrapiv1contractssubscriptionspartialupdate) | **PATCH** /rr/api/v1/contracts/{contract_id}/subscriptions/{id} | Partial Update Contract Subscription|
 |[**rrApiV1ContractsSubscriptionsRetrieve**](#rrapiv1contractssubscriptionsretrieve) | **GET** /rr/api/v1/contracts/{contract_id}/subscriptions/{id} | Retrieve Contract Subscription|
 |[**rrApiV1ContractsSubscriptionsUpdate**](#rrapiv1contractssubscriptionsupdate) | **PUT** /rr/api/v1/contracts/{contract_id}/subscriptions/{id} | Update Contract Subscription|
@@ -67,7 +72,8 @@ All URIs are relative to *https://api.meetcampfire.com*
 |[**rrApiV1ContractsUsageAllocationsRetrieve**](#rrapiv1contractsusageallocationsretrieve) | **GET** /rr/api/v1/contracts/{contract_id}/usage/{usage_id}/allocations | Get Bundle Allocations|
 |[**rrApiV1ContractsUsageAllocationsUpdate**](#rrapiv1contractsusageallocationsupdate) | **PUT** /rr/api/v1/contracts/{contract_id}/usage/{usage_id}/allocations | Update Bundle Allocations|
 |[**rrApiV1ContractsUsageCreate**](#rrapiv1contractsusagecreate) | **POST** /rr/api/v1/contracts/{contract_id}/usage | Create Contract Usage Revenue|
-|[**rrApiV1ContractsUsageDestroy**](#rrapiv1contractsusagedestroy) | **DELETE** /rr/api/v1/contracts/{contract_id}/usage/{id} | Delete Contract Usage Revenue|
+|[**rrApiV1ContractsUsageDeleteCreate**](#rrapiv1contractsusagedeletecreate) | **POST** /rr/api/v1/contracts/{contract_id}/usage/{id}/delete | Delete Contract Usage Revenue|
+|[**rrApiV1ContractsUsageDestroy**](#rrapiv1contractsusagedestroy) | **DELETE** /rr/api/v1/contracts/{contract_id}/usage/{id} | Delete Contract Usage Revenue (deprecated)|
 |[**rrApiV1ContractsUsageList**](#rrapiv1contractsusagelist) | **GET** /rr/api/v1/contracts/{contract_id}/usage | List Contract Usage Revenue|
 |[**rrApiV1ContractsUsagePartialUpdate**](#rrapiv1contractsusagepartialupdate) | **PATCH** /rr/api/v1/contracts/{contract_id}/usage/{id} | Partially Update Contract Usage Revenue|
 |[**rrApiV1ContractsUsageRetrieve**](#rrapiv1contractsusageretrieve) | **GET** /rr/api/v1/contracts/{contract_id}/usage/{id} | Retrieve Contract Usage Revenue|
@@ -87,7 +93,8 @@ All URIs are relative to *https://api.meetcampfire.com*
 |[**rrApiV1ProductPartialUpdate**](#rrapiv1productpartialupdate) | **PATCH** /rr/api/v1/product/{id} | Partial Update Product|
 |[**rrApiV1ProductRetrieve**](#rrapiv1productretrieve) | **GET** /rr/api/v1/product/{id} | Retrieve Product|
 |[**rrApiV1ProductUpdate**](#rrapiv1productupdate) | **PUT** /rr/api/v1/product/{id} | Update Product|
-|[**rrApiV1TransactionsDestroy**](#rrapiv1transactionsdestroy) | **DELETE** /rr/api/v1/transactions/{id} | Delete Revenue Transaction|
+|[**rrApiV1TransactionsDeleteCreate**](#rrapiv1transactionsdeletecreate) | **POST** /rr/api/v1/transactions/{id}/delete | Delete Revenue Transaction|
+|[**rrApiV1TransactionsDestroy**](#rrapiv1transactionsdestroy) | **DELETE** /rr/api/v1/transactions/{id} | Delete Revenue Transaction (deprecated)|
 |[**rrApiV1TransactionsPartialUpdate**](#rrapiv1transactionspartialupdate) | **PATCH** /rr/api/v1/transactions/{id} | Partial Update Revenue Transaction|
 |[**rrApiV1TransactionsRetrieve**](#rrapiv1transactionsretrieve) | **GET** /rr/api/v1/transactions/{id} | Retrieve Revenue Transaction|
 |[**rrApiV1TransactionsUpdate**](#rrapiv1transactionsupdate) | **PUT** /rr/api/v1/transactions/{id} | Update Revenue Transaction|
@@ -199,6 +206,8 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**201** | Created |  -  |
+|**202** | Draft Queue record submitted for approval; the bundle has not been created. |  -  |
+|**403** | Contract permission or approval requirements are not met. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -582,6 +591,7 @@ No authorization required
 # **deletePrepaidCommit**
 > deletePrepaidCommit()
 
+Deprecated: use `POST /rr/api/v1/contracts/{contract_id}/prepaid-commits/{id}/delete`, which also takes an optional reason for the audit log.
 
 ### Example
 
@@ -1784,7 +1794,7 @@ No authorization required
 # **rrApiV1ContractsBulkSearchCreate**
 > Array<Contract> rrApiV1ContractsBulkSearchCreate(bulkContractSearch)
 
-Search for contracts by deal_name in a single request.
+Search for contracts by deal_name, Campfire contract id, or CRM deal id in a single request.
 
 ### Example
 
@@ -1940,6 +1950,8 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**200** | OK |  -  |
+|**202** | Draft Queue record submitted for approval; the bundle has not been updated. |  -  |
+|**403** | Contract permission or approval requirements are not met. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2050,12 +2062,71 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**200** | OK |  -  |
+|**202** | Draft Queue record submitted for approval; the bundle has not been updated. |  -  |
+|**403** | Contract permission or approval requirements are not met. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rrApiV1ContractsDeleteCreate**
+> rrApiV1ContractsDeleteCreate()
+
+Delete the record. The body can carry a reason, which is saved to the audit log.
+
+### Example
+
+```typescript
+import {
+    RevenueRecognitionApi,
+    Configuration,
+    DeleteRequest
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new RevenueRecognitionApi(configuration);
+
+let id: number; // (default to undefined)
+let deleteRequest: DeleteRequest; // (optional)
+
+const { status, data } = await apiInstance.rrApiV1ContractsDeleteCreate(
+    id,
+    deleteRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **deleteRequest** | **DeleteRequest**|  | |
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**204** | Deleted. |  -  |
+|**202** | Sent for approval; the record is deleted once a reviewer approves. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **rrApiV1ContractsDestroy**
 > rrApiV1ContractsDestroy()
 
+Deprecated: use `POST /rr/api/v1/contracts/{id}/delete`, which also takes an optional reason for the audit log.
 
 ### Example
 
@@ -2323,9 +2394,69 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **rrApiV1ContractsMilestonesDeleteCreate**
+> rrApiV1ContractsMilestonesDeleteCreate()
+
+Delete the record. The body can carry a reason, which is saved to the audit log.
+
+### Example
+
+```typescript
+import {
+    RevenueRecognitionApi,
+    Configuration,
+    DeleteRequest
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new RevenueRecognitionApi(configuration);
+
+let contractId: number; // (default to undefined)
+let id: number; // (default to undefined)
+let deleteRequest: DeleteRequest; // (optional)
+
+const { status, data } = await apiInstance.rrApiV1ContractsMilestonesDeleteCreate(
+    contractId,
+    id,
+    deleteRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **deleteRequest** | **DeleteRequest**|  | |
+| **contractId** | [**number**] |  | defaults to undefined|
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**204** | Deleted. |  -  |
+|**202** | Sent for approval; the record is deleted once a reviewer approves. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **rrApiV1ContractsMilestonesDestroy**
 > rrApiV1ContractsMilestonesDestroy()
 
+Deprecated: use `POST /rr/api/v1/contracts/{contract_id}/milestones/{id}/delete`, which also takes an optional reason for the audit log.
 
 ### Example
 
@@ -2648,6 +2779,65 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **rrApiV1ContractsPrepaidCommitsDeleteCreate**
+> rrApiV1ContractsPrepaidCommitsDeleteCreate()
+
+Delete the record. The body can carry a reason, which is saved to the audit log.
+
+### Example
+
+```typescript
+import {
+    RevenueRecognitionApi,
+    Configuration,
+    DeleteRequest
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new RevenueRecognitionApi(configuration);
+
+let contractId: number; // (default to undefined)
+let id: number; // (default to undefined)
+let deleteRequest: DeleteRequest; // (optional)
+
+const { status, data } = await apiInstance.rrApiV1ContractsPrepaidCommitsDeleteCreate(
+    contractId,
+    id,
+    deleteRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **deleteRequest** | **DeleteRequest**|  | |
+| **contractId** | [**number**] |  | defaults to undefined|
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**204** | Deleted. |  -  |
+|**202** | Sent for approval; the record is deleted once a reviewer approves. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **rrApiV1ContractsRetrieve**
 > Contract rrApiV1ContractsRetrieve()
 
@@ -2680,6 +2870,56 @@ const { status, data } = await apiInstance.rrApiV1ContractsRetrieve(
 ### Return type
 
 **Contract**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **rrApiV1ContractsSubledgerAccountsRetrieve**
+> ContractSubledgerAccounts rrApiV1ContractsSubledgerAccountsRetrieve()
+
+
+### Example
+
+```typescript
+import {
+    RevenueRecognitionApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new RevenueRecognitionApi(configuration);
+
+let id: number; // (default to undefined)
+
+const { status, data } = await apiInstance.rrApiV1ContractsSubledgerAccountsRetrieve(
+    id
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+**ContractSubledgerAccounts**
 
 ### Authorization
 
@@ -2868,9 +3108,69 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **rrApiV1ContractsSubscriptionsDeleteCreate**
+> rrApiV1ContractsSubscriptionsDeleteCreate()
+
+Delete the record. The body can carry a reason, which is saved to the audit log.
+
+### Example
+
+```typescript
+import {
+    RevenueRecognitionApi,
+    Configuration,
+    DeleteRequest
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new RevenueRecognitionApi(configuration);
+
+let contractId: number; // (default to undefined)
+let id: number; // (default to undefined)
+let deleteRequest: DeleteRequest; // (optional)
+
+const { status, data } = await apiInstance.rrApiV1ContractsSubscriptionsDeleteCreate(
+    contractId,
+    id,
+    deleteRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **deleteRequest** | **DeleteRequest**|  | |
+| **contractId** | [**number**] |  | defaults to undefined|
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**204** | Deleted. |  -  |
+|**202** | Sent for approval; the record is deleted once a reviewer approves. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **rrApiV1ContractsSubscriptionsDestroy**
 > rrApiV1ContractsSubscriptionsDestroy()
 
+Deprecated: use `POST /rr/api/v1/contracts/{contract_id}/subscriptions/{id}/delete`, which also takes an optional reason for the audit log.
 
 ### Example
 
@@ -3589,10 +3889,69 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **rrApiV1ContractsUsageDeleteCreate**
+> rrApiV1ContractsUsageDeleteCreate()
+
+Delete the record. The body can carry a reason, which is saved to the audit log.
+
+### Example
+
+```typescript
+import {
+    RevenueRecognitionApi,
+    Configuration,
+    DeleteRequest
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new RevenueRecognitionApi(configuration);
+
+let contractId: number; // (default to undefined)
+let id: number; // (default to undefined)
+let deleteRequest: DeleteRequest; // (optional)
+
+const { status, data } = await apiInstance.rrApiV1ContractsUsageDeleteCreate(
+    contractId,
+    id,
+    deleteRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **deleteRequest** | **DeleteRequest**|  | |
+| **contractId** | [**number**] |  | defaults to undefined|
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**204** | Deleted. |  -  |
+|**202** | Sent for approval; the record is deleted once a reviewer approves. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **rrApiV1ContractsUsageDestroy**
 > rrApiV1ContractsUsageDestroy()
 
-Retrieve, update, and delete contract usage revenue records
+Deprecated: use `POST /rr/api/v1/contracts/{contract_id}/usage/{id}/delete`, which also takes an optional reason for the audit log.  Retrieve, update, and delete contract usage revenue records
 
 ### Example
 
@@ -4404,7 +4763,7 @@ No authorization required
 # **rrApiV1ProductDeleteCreate**
 > rrApiV1ProductDeleteCreate()
 
-Delete a product.
+Delete the record. The body can carry a reason, which is saved to the audit log.
 
 ### Example
 
@@ -4419,10 +4778,12 @@ const configuration = new Configuration();
 const apiInstance = new RevenueRecognitionApi(configuration);
 
 let id: number; // (default to undefined)
+let newProduct: number; //ID of the product to reassign the deleted product\'s records to before deletion (optional) (default to undefined)
 let deleteRequest: DeleteRequest; // (optional)
 
 const { status, data } = await apiInstance.rrApiV1ProductDeleteCreate(
     id,
+    newProduct,
     deleteRequest
 );
 ```
@@ -4433,6 +4794,7 @@ const { status, data } = await apiInstance.rrApiV1ProductDeleteCreate(
 |------------- | ------------- | ------------- | -------------|
 | **deleteRequest** | **DeleteRequest**|  | |
 | **id** | [**number**] |  | defaults to undefined|
+| **newProduct** | [**number**] | ID of the product to reassign the deleted product\&#39;s records to before deletion | (optional) defaults to undefined|
 
 
 ### Return type
@@ -4474,9 +4836,11 @@ const configuration = new Configuration();
 const apiInstance = new RevenueRecognitionApi(configuration);
 
 let id: number; // (default to undefined)
+let newProduct: number; //ID of the product to reassign the deleted product\'s records to before deletion (optional) (default to undefined)
 
 const { status, data } = await apiInstance.rrApiV1ProductDestroy(
-    id
+    id,
+    newProduct
 );
 ```
 
@@ -4485,6 +4849,7 @@ const { status, data } = await apiInstance.rrApiV1ProductDestroy(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **id** | [**number**] |  | defaults to undefined|
+| **newProduct** | [**number**] | ID of the product to reassign the deleted product\&#39;s records to before deletion | (optional) defaults to undefined|
 
 
 ### Return type
@@ -4504,8 +4869,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**204** | Deleted. |  -  |
-|**202** | Sent for approval; the record is deleted once a reviewer approves. |  -  |
+|**204** | No response body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4667,9 +5031,66 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **rrApiV1TransactionsDeleteCreate**
+> rrApiV1TransactionsDeleteCreate()
+
+Delete the record. The body can carry a reason, which is saved to the audit log.
+
+### Example
+
+```typescript
+import {
+    RevenueRecognitionApi,
+    Configuration,
+    DeleteRequest
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new RevenueRecognitionApi(configuration);
+
+let id: number; // (default to undefined)
+let deleteRequest: DeleteRequest; // (optional)
+
+const { status, data } = await apiInstance.rrApiV1TransactionsDeleteCreate(
+    id,
+    deleteRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **deleteRequest** | **DeleteRequest**|  | |
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**204** | Deleted. |  -  |
+|**202** | Sent for approval; the record is deleted once a reviewer approves. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **rrApiV1TransactionsDestroy**
 > rrApiV1TransactionsDestroy()
 
+Deprecated: use `POST /rr/api/v1/transactions/{id}/delete`, which also takes an optional reason for the audit log.
 
 ### Example
 

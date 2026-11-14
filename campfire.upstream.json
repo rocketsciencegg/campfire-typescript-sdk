@@ -250,7 +250,7 @@
             },
             "delete": {
                 "operationId": "ca_api_account_destroy",
-                "summary": "Delete Bank Account",
+                "summary": "Delete Bank Account (deprecated)",
                 "parameters": [
                     {
                         "in": "path",
@@ -275,6 +275,96 @@
                 "responses": {
                     "204": {
                         "description": "No response body"
+                    }
+                },
+                "deprecated": true,
+                "description": "Deprecated: use `POST /ca/api/account/{id}/delete`, which also takes an optional reason for the audit log."
+            }
+        },
+        "/ca/api/account/{id}/delete": {
+            "post": {
+                "operationId": "ca_api_account_delete_create",
+                "description": "Delete the record. The body can carry a reason, which is saved to the audit log.",
+                "summary": "Delete Bank Account",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "required": true
+                    },
+                    {
+                        "in": "query",
+                        "name": "new_account",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "description": "ID of the bank account to reassign transactions to before deletion"
+                    }
+                ],
+                "tags": [
+                    "Cash Management"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        },
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Deleted."
+                    },
+                    "202": {
+                        "description": "Sent for approval; the record is deleted once a reviewer approves."
+                    }
+                }
+            }
+        },
+        "/ca/api/account/totals": {
+            "get": {
+                "operationId": "bank_account_totals_retrieve",
+                "description": "Current balance per currency of the accounts in the cash total: everything except credit cards, loans, liability accounts and disconnected Plaid accounts.",
+                "summary": "Bank Account Totals",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "include_deleted",
+                        "schema": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "description": "When set to 'true', returns ONLY deleted records instead of active records. Deleted records contain minimal data: 'id', 'is_deleted=true', 'deleted_at' timestamp, and 'last_modified_at'. When 'false' or omitted, returns ONLY active records. This provides clean separation between active and deleted data."
+                    }
+                ],
+                "tags": [
+                    "Cash Management"
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BankAccountTotals"
+                                }
+                            }
+                        },
+                        "description": ""
                     }
                 }
             }
@@ -2857,6 +2947,186 @@
                 }
             }
         },
+        "/ca/api/v1/audit-log": {
+            "get": {
+                "operationId": "ca_api_v1_audit_log_list",
+                "description": "\n        Retrieve approved audit log entries: each change to a record, with who made it, who approved it,\n        and the record's payload before and after. Entries are ordered newest first by (created_at, id).\n\n        **Access:** customer admins, or users with the \"View audit logs\" permission. OAuth apps also need\n        the `audit_logs:read` scope. Users restricted to some entities see only entries whose every entity\n        they can access.\n\n        **Filtering:**\n        - `created_at__gte` (inclusive) and `created_at__lt` (exclusive) take an ISO 8601 date, read as\n          00:00 UTC, or a datetime with a UTC offset. URL-encode the `+` in an offset as `%2B`.\n        - `model` (as `app_label.model`) returns that object type; with `object_id` it returns that\n          object's entries and the entries of records under it, such as a bill's payments.\n        - Unknown parameters are rejected with a 400.\n\n        **Paging:**\n        - For a complete export, pass an empty cursor (`cursor=`) on the first request and follow the\n          `next` URL until it is null. Entries written while you page don't shift later pages.\n        - Pass `skip_count=true` when you don't need the total; `count` stops at 10,000.\n\n        **Notes:**\n        - The entry's `approved_by` is who gave final approval. Inside `approvers`, `approved_by` is the\n          step's approver type and `approved_by_user` is who approved that step; it can be empty for\n          steps approved before step approvers were recorded.\n        - Entries recorded when data was first imported can appear later with historical `created_at` dates.\n        - Payload fields that hold secrets are stored hashed.\n        ",
+                "summary": "List audit log entries",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "action_type",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "description": "created, updated or deleted. Repeat or comma-separate."
+                    },
+                    {
+                        "in": "query",
+                        "name": "approved_by",
+                        "schema": {
+                            "type": "integer",
+                            "minimum": 1
+                        },
+                        "description": "User who gave final approval."
+                    },
+                    {
+                        "in": "query",
+                        "name": "created_at__gte",
+                        "schema": {
+                            "type": "string",
+                            "minLength": 1
+                        },
+                        "description": "Start, inclusive. Use an ISO 8601 date or a datetime with a UTC offset, such as 2026-03-10T11:00:00-04:00."
+                    },
+                    {
+                        "in": "query",
+                        "name": "created_at__lt",
+                        "schema": {
+                            "type": "string",
+                            "minLength": 1
+                        },
+                        "description": "End, exclusive. Use an ISO 8601 date or a datetime with a UTC offset, such as 2026-03-10T11:00:00-04:00."
+                    },
+                    {
+                        "in": "query",
+                        "name": "created_by",
+                        "schema": {
+                            "type": "integer",
+                            "minimum": 1
+                        },
+                        "description": "User who made the change."
+                    },
+                    {
+                        "in": "query",
+                        "name": "cursor",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Opts into cursor pagination. Pass an empty value (cursor=) on the first request, then follow the next URL until it is null. Recommended for complete exports: rows written while paging don't shift pages, so none are skipped or repeated."
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "schema": {
+                            "type": "integer",
+                            "maximum": 10000,
+                            "minimum": 1
+                        },
+                        "description": "Page size. Default 100, maximum 10000."
+                    },
+                    {
+                        "in": "query",
+                        "name": "model",
+                        "schema": {
+                            "type": "string",
+                            "minLength": 1
+                        },
+                        "description": "Object type as app_label.model. Open set."
+                    },
+                    {
+                        "in": "query",
+                        "name": "object_id",
+                        "schema": {
+                            "type": "integer",
+                            "minimum": 1
+                        },
+                        "description": "Rows for this object, or whose parent is this object. Needs model."
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "schema": {
+                            "type": "integer",
+                            "minimum": 0
+                        },
+                        "description": "Number of records to skip. Use with limit to paginate."
+                    },
+                    {
+                        "in": "query",
+                        "name": "operation",
+                        "schema": {
+                            "type": "string",
+                            "minLength": 1
+                        },
+                        "description": "Raw operation, such as add or delete. Open set."
+                    },
+                    {
+                        "in": "query",
+                        "name": "parent_draft_queue",
+                        "schema": {
+                            "type": "integer",
+                            "minimum": 1
+                        },
+                        "description": "Rows written as part of this audit entry."
+                    },
+                    {
+                        "in": "query",
+                        "name": "skip_count",
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "description": "When true, skips the total count. Recommended for large exports."
+                    }
+                ],
+                "tags": [
+                    "Settings"
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PaginatedAuditLogEntrySchemaList"
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "400": {
+                        "description": "An unknown parameter or an invalid filter value."
+                    }
+                }
+            }
+        },
+        "/ca/api/v1/audit-log/{id}": {
+            "get": {
+                "operationId": "ca_api_v1_audit_log_retrieve",
+                "description": "\n        Retrieve one approved audit log entry by id, with its payloads expanded into readable values.\n        Access is the same as for the list: an entry the list hides is a 404 here.\n        ",
+                "summary": "Get one audit log entry, with readable payloads",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "required": true
+                    }
+                ],
+                "tags": [
+                    "Settings"
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AuditLogEntrySchema"
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "404": {
+                        "description": "No approved entry with this id that you can access."
+                    }
+                }
+            }
+        },
         "/ca/api/v1/custom-fields": {
             "get": {
                 "operationId": "ca_api_v1_custom_fields_list",
@@ -3382,6 +3652,41 @@
             },
             "delete": {
                 "operationId": "coa_api_account_destroy",
+                "summary": "Delete Chart Account (deprecated)",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "required": true
+                    },
+                    {
+                        "in": "query",
+                        "name": "new_account",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "description": "ID of the account to move the deleted account's transactions to before deletion"
+                    }
+                ],
+                "tags": [
+                    "Company Objects"
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No response body"
+                    }
+                },
+                "deprecated": true,
+                "description": "Deprecated: use `POST /coa/api/account/{id}/delete`, which also takes an optional reason for the audit log."
+            }
+        },
+        "/coa/api/account/{id}/delete": {
+            "post": {
+                "operationId": "coa_api_account_delete_create",
+                "description": "Delete the record. The body can carry a reason, which is saved to the audit log.",
                 "summary": "Delete Chart Account",
                 "parameters": [
                     {
@@ -3391,14 +3696,44 @@
                             "type": "integer"
                         },
                         "required": true
+                    },
+                    {
+                        "in": "query",
+                        "name": "new_account",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "description": "ID of the account to move the deleted account's transactions to before deletion"
                     }
                 ],
                 "tags": [
                     "Company Objects"
                 ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        },
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "204": {
-                        "description": "No response body"
+                        "description": "Deleted."
+                    },
+                    "202": {
+                        "description": "Sent for approval; the record is deleted once a reviewer approves."
                     }
                 }
             }
@@ -5116,13 +5451,9 @@
                 ],
                 "responses": {
                     "204": {
-                        "description": "Deleted."
-                    },
-                    "202": {
-                        "description": "Sent for approval; the record is deleted once a reviewer approves."
+                        "description": "No response body"
                     }
                 },
-                "x-replaces-delete": true,
                 "deprecated": true
             }
         },
@@ -5518,7 +5849,7 @@
         "/coa/api/entity/for-intercompany": {
             "get": {
                 "operationId": "coa_api_entity_for_intercompany_list",
-                "description": "Returns ALL entities for intercompany journal entry creation.\n\nThis endpoint bypasses entity-scoped filtering because users need to\nselect entities they don't normally have access to when creating\nintercompany journal entries (per the entity-scoped-user-access spec).\n\nUses minimal serializer to only expose id, name, and currency - preventing\ndata leakage of sensitive entity details to users who may not have full\naccess to all entities.",
+                "description": "Returns every operating entity for intercompany journal entry creation.\nAdjusting entities are left out: they are never an intercompany leg or counterparty.\n\nThis endpoint bypasses entity-scoped filtering because users need to\nselect entities they don't normally have access to when creating\nintercompany journal entries (per the entity-scoped-user-access spec).\n\nUses minimal serializer to only expose id, name, and currency - preventing\ndata leakage of sensitive entity details to users who may not have full\naccess to all entities.",
                 "summary": "List All Entities for Intercompany JE",
                 "tags": [
                     "Settings"
@@ -6036,7 +6367,7 @@
         "/coa/api/fixed-asset-automation/{id}/delete": {
             "post": {
                 "operationId": "coa_api_fixed_asset_automation_delete_create",
-                "description": "The type of the None singleton.",
+                "description": "Delete the record. The body can carry a reason, which is saved to the audit log.",
                 "parameters": [
                     {
                         "in": "path",
@@ -6048,7 +6379,7 @@
                     }
                 ],
                 "tags": [
-                    "coa"
+                    "Core Accounting"
                 ],
                 "requestBody": {
                     "content": {
@@ -6076,7 +6407,8 @@
                     "202": {
                         "description": "Sent for approval; the record is deleted once a reviewer approves."
                     }
-                }
+                },
+                "summary": "Delete Fixed Asset Automation"
             }
         },
         "/coa/api/fixed-asset-automation/accounts": {
@@ -6561,7 +6893,7 @@
             },
             "delete": {
                 "operationId": "coa_api_fixed_asset_destroy",
-                "summary": "Delete Fixed Asset",
+                "summary": "Delete Fixed Asset (deprecated)",
                 "parameters": [
                     {
                         "in": "path",
@@ -6578,6 +6910,55 @@
                 "responses": {
                     "204": {
                         "description": "No response body"
+                    }
+                },
+                "deprecated": true,
+                "description": "Deprecated: use `POST /coa/api/fixed-asset/{id}/delete`, which also takes an optional reason for the audit log."
+            }
+        },
+        "/coa/api/fixed-asset/{id}/delete": {
+            "post": {
+                "operationId": "coa_api_fixed_asset_delete_create",
+                "description": "Delete the record. The body can carry a reason, which is saved to the audit log.",
+                "summary": "Delete Fixed Asset",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "required": true
+                    }
+                ],
+                "tags": [
+                    "Core Accounting"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        },
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Deleted."
+                    },
+                    "202": {
+                        "description": "Sent for approval; the record is deleted once a reviewer approves."
                     }
                 }
             }
@@ -8521,8 +8902,8 @@
             },
             "delete": {
                 "operationId": "coa_api_intercompany_journal_entry_destroy",
-                "description": "\n        Permanently deletes an intercompany journal entry and all related transactions.\n\n        This endpoint performs a comprehensive cleanup when deleting an intercompany journal entry:\n        - Validates that the entry can be deleted (not in closed period)\n        - Removes all associated journal entries across entities\n        - Updates summary tables and account balances\n        - Handles cascade deletion of related transactions\n        - Ensures data integrity across the accounting system\n\n        Deletion restrictions:\n        - Cannot delete entries in closed accounting periods\n\n        Error conditions:\n        - 400 Bad Request: Entry date is in a closed period\n        - 409 Conflict: Entry has protected relationships (e.g., close checklist tasks)\n        - 404 Not Found: Entry does not exist or user lacks access\n\n        On successful deletion, all related journal entries are removed and accounting summaries are recalculated.\n        ",
-                "summary": "Delete Intercompany Journal Entry",
+                "description": "Deprecated: use `POST /coa/api/intercompany-journal-entry/{id}/delete`, which also takes an optional reason for the audit log.\n\n\n        Permanently deletes an intercompany journal entry and all related transactions.\n\n        This endpoint performs a comprehensive cleanup when deleting an intercompany journal entry:\n        - Validates that the entry can be deleted (not in closed period)\n        - Removes all associated journal entries across entities\n        - Updates summary tables and account balances\n        - Handles cascade deletion of related transactions\n        - Ensures data integrity across the accounting system\n\n        Deletion restrictions:\n        - Cannot delete entries in closed accounting periods\n\n        Error conditions:\n        - 400 Bad Request: Entry date is in a closed period\n        - 409 Conflict: Entry has protected relationships (e.g., close checklist tasks)\n        - 404 Not Found: Entry does not exist or user lacks access\n\n        On successful deletion, all related journal entries are removed and accounting summaries are recalculated.\n        ",
+                "summary": "Delete Intercompany Journal Entry (deprecated)",
                 "parameters": [
                     {
                         "in": "path",
@@ -8539,6 +8920,54 @@
                 "responses": {
                     "204": {
                         "description": "No response body"
+                    }
+                },
+                "deprecated": true
+            }
+        },
+        "/coa/api/intercompany-journal-entry/{id}/delete": {
+            "post": {
+                "operationId": "coa_api_intercompany_journal_entry_delete_create",
+                "description": "\n        Permanently deletes an intercompany journal entry and all related transactions.\n\n        This endpoint performs a comprehensive cleanup when deleting an intercompany journal entry:\n        - Validates that the entry can be deleted (not in closed period)\n        - Removes all associated journal entries across entities\n        - Updates summary tables and account balances\n        - Handles cascade deletion of related transactions\n        - Ensures data integrity across the accounting system\n\n        Deletion restrictions:\n        - Cannot delete entries in closed accounting periods\n\n        Error conditions:\n        - 400 Bad Request: Entry date is in a closed period\n        - 409 Conflict: Entry has protected relationships (e.g., close checklist tasks)\n        - 404 Not Found: Entry does not exist or user lacks access\n\n        On successful deletion, all related journal entries are removed and accounting summaries are recalculated.\n        \n\nA customer can require a reason for this delete in its approval settings. When it does, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.",
+                "summary": "Delete Intercompany Journal Entry",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "required": true
+                    }
+                ],
+                "tags": [
+                    "Core Accounting"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        },
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Deleted."
+                    },
+                    "202": {
+                        "description": "Sent for approval; the record is deleted once a reviewer approves."
                     }
                 }
             }
@@ -9608,8 +10037,8 @@
             },
             "delete": {
                 "operationId": "coa_api_journal_entry_destroy",
-                "description": "\n        Delete a journal entry and all its associated transactions.\n\n        **Restrictions:**\n        - Cannot delete entries before closed book dates\n\n        **Response Codes:**\n        - 204: Successfully deleted\n        - 400: Cannot delete (books closed for this date)\n        - 409: Cannot delete (associated with other objects)\n        ",
-                "summary": "Delete Journal Entry",
+                "description": "Deprecated: use `POST /coa/api/journal_entry/{id}/delete`, which also takes an optional reason for the audit log.\n\n\n        Delete a journal entry and all its associated transactions.\n\n        **Restrictions:**\n        - Cannot delete entries before closed book dates\n\n        **Response Codes:**\n        - 204: Successfully deleted\n        - 400: Cannot delete (books closed for this date)\n        - 409: Cannot delete (associated with other objects)\n        ",
+                "summary": "Delete Journal Entry (deprecated)",
                 "parameters": [
                     {
                         "in": "path",
@@ -9646,6 +10075,54 @@
                             }
                         },
                         "description": ""
+                    }
+                },
+                "deprecated": true
+            }
+        },
+        "/coa/api/journal_entry/{id}/delete": {
+            "post": {
+                "operationId": "coa_api_journal_entry_delete_create",
+                "description": "\n        Delete a journal entry and all its associated transactions.\n\n        **Restrictions:**\n        - Cannot delete entries before closed book dates\n\n        **Response Codes:**\n        - 204: Successfully deleted\n        - 400: Cannot delete (books closed for this date)\n        - 409: Cannot delete (associated with other objects)\n        \n\nA customer can require a reason for this delete in its approval settings. When it does, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.",
+                "summary": "Delete Journal Entry",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "required": true
+                    }
+                ],
+                "tags": [
+                    "Core Accounting"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        },
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Deleted."
+                    },
+                    "202": {
+                        "description": "Sent for approval; the record is deleted once a reviewer approves."
                     }
                 }
             }
@@ -10241,13 +10718,9 @@
                 ],
                 "responses": {
                     "204": {
-                        "description": "Deleted."
-                    },
-                    "202": {
-                        "description": "Sent for approval; the record is deleted once a reviewer approves."
+                        "description": "No response body"
                     }
                 },
-                "x-replaces-delete": true,
                 "deprecated": true
             }
         },
@@ -11772,6 +12245,39 @@
                 "responses": {
                     "204": {
                         "description": "No response body"
+                    }
+                }
+            }
+        },
+        "/coa/api/transaction/{id}/allocation": {
+            "get": {
+                "operationId": "coa_api_transaction_allocation_retrieve",
+                "description": "How a dynamic allocation split one ledger line. Writes nothing.",
+                "summary": "Explain Transaction Allocation",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "required": true
+                    }
+                ],
+                "tags": [
+                    "Company Objects"
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "additionalProperties": {}
+                                }
+                            }
+                        },
+                        "description": ""
                     }
                 }
             }
@@ -13705,8 +14211,8 @@
             },
             "delete": {
                 "operationId": "coa_api_v1_bill_destroy",
-                "description": "\n        Permanently deletes an accounting bill and its associated journal entry.\n\n        This endpoint performs a complete deletion of the bill including:\n        - Removal of all bill line items and associated data\n        - Deletion of the corresponding accounts payable journal entry\n        - Cleanup of any tax calculations and allocations\n        - Removal of vendor payment allocations if applicable\n\n        **Important Notes:**\n        - This operation is irreversible and permanently removes the bill from the system\n        - The associated journal entry will be automatically deleted to maintain accounting integrity\n        - All double-entry bookkeeping records related to this bill will be removed\n        - Any payments allocated to this bill should be handled separately before deletion\n        - Deletion may affect financial reports and account balances\n\n        **Restrictions:**\n        - Bills with allocated payments may require payment reallocation first\n        - Consider the impact on historical financial reporting\n        - Bills cannot be deleted in a closed period\n        ",
-                "summary": "Delete Accounting Bill",
+                "description": "Deprecated: use `POST /coa/api/v1/bill/{id}/delete`, which also takes an optional reason for the audit log.\n\n\n        Permanently deletes an accounting bill and its associated journal entry.\n\n        This endpoint performs a complete deletion of the bill including:\n        - Removal of all bill line items and associated data\n        - Deletion of the corresponding accounts payable journal entry\n        - Cleanup of any tax calculations and allocations\n        - Removal of vendor payment allocations if applicable\n\n        **Important Notes:**\n        - This operation is irreversible and permanently removes the bill from the system\n        - The associated journal entry will be automatically deleted to maintain accounting integrity\n        - All double-entry bookkeeping records related to this bill will be removed\n        - Any payments allocated to this bill should be handled separately before deletion\n        - Deletion may affect financial reports and account balances\n\n        **Restrictions:**\n        - Bills with allocated payments may require payment reallocation first\n        - Consider the impact on historical financial reporting\n        - Bills cannot be deleted in a closed period\n        ",
+                "summary": "Delete Accounting Bill (deprecated)",
                 "parameters": [
                     {
                         "in": "path",
@@ -13723,6 +14229,54 @@
                 "responses": {
                     "204": {
                         "description": "No response body"
+                    }
+                },
+                "deprecated": true
+            }
+        },
+        "/coa/api/v1/bill/{id}/delete": {
+            "post": {
+                "operationId": "coa_api_v1_bill_delete_create",
+                "description": "\n        Permanently deletes an accounting bill and its associated journal entry.\n\n        This endpoint performs a complete deletion of the bill including:\n        - Removal of all bill line items and associated data\n        - Deletion of the corresponding accounts payable journal entry\n        - Cleanup of any tax calculations and allocations\n        - Removal of vendor payment allocations if applicable\n\n        **Important Notes:**\n        - This operation is irreversible and permanently removes the bill from the system\n        - The associated journal entry will be automatically deleted to maintain accounting integrity\n        - All double-entry bookkeeping records related to this bill will be removed\n        - Any payments allocated to this bill should be handled separately before deletion\n        - Deletion may affect financial reports and account balances\n\n        **Restrictions:**\n        - Bills with allocated payments may require payment reallocation first\n        - Consider the impact on historical financial reporting\n        - Bills cannot be deleted in a closed period\n        \n\nA customer can require a reason for this delete in its approval settings. When it does, and this record has a journal entry or a voided journal entry, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.",
+                "summary": "Delete Accounting Bill",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "required": true
+                    }
+                ],
+                "tags": [
+                    "Accounts Payable"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        },
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Deleted."
+                    },
+                    "202": {
+                        "description": "Sent for approval; the record is deleted once a reviewer approves."
                     }
                 }
             }
@@ -13909,6 +14463,14 @@
                             "type": "string"
                         },
                         "description": "Search credit memo numbers, messages, and client names"
+                    },
+                    {
+                        "in": "query",
+                        "name": "revenue_linkable_for",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "description": "Revenue contract ID. Only credit memos that can be linked to that contract."
                     },
                     {
                         "in": "query",
@@ -14243,7 +14805,7 @@
         "/coa/api/v1/credit-memo/{credit_memo_id}/payment/{payment_id}/void": {
             "post": {
                 "operationId": "coa_api_v1_credit_memo_payment_void_create",
-                "description": "Void a credit memo 'mark used' payment by creating a reversing journal entry.\n\n        This creates a reversing JE that credits the A/R account and debits Uncategorized,\n        then marks the payment as voided.",
+                "description": "Void a credit memo 'mark used' payment by creating a reversing journal entry.\n\n        An application to an invoice is voided on both the credit memo and the invoice, as voiding\n        it from the invoice does. Any other application gets a reversing JE that credits the A/R\n        account and debits Uncategorized, then the payment is marked as voided.",
                 "summary": "Void Credit Memo Used Payment",
                 "parameters": [
                     {
@@ -14302,7 +14864,7 @@
             },
             "delete": {
                 "operationId": "coa_api_v1_credit_memo_payment_void_destroy",
-                "description": "Remove a credit memo 'mark used' payment application.\n\n        This recategorizes the transaction back to Uncategorized and deletes the payment record.",
+                "description": "Remove a credit memo 'mark used' payment application.\n\n        An application to an invoice is removed from both the credit memo and the invoice, along with\n        its journal entry, as removing it from the invoice does. Any other application recategorizes\n        the transaction back to Uncategorized and deletes the payment record.",
                 "summary": "Delete Credit Memo Used Payment",
                 "parameters": [
                     {
@@ -14872,8 +15434,8 @@
             },
             "delete": {
                 "operationId": "coa_api_v1_credit_memo_destroy",
-                "description": "\n        Permanently deletes an accounting credit memo and all associated data from the system.\n\n        This endpoint performs a complete removal of the credit memo including:\n        - Complete credit memo record deletion with all line items\n        - Automatic journal entry removal and accounting transaction cleanup\n\n        **Accounting Impact:**\n        - Associated journal entries are automatically deleted to maintain accounting integrity\n        - Exchange rate records and multi-currency data are cleaned up\n\n        **Restrictions:**\n        - Credit memos that have been applied to invoices cannot be deleted\n        - Credit memos in closed accounting periods may have deletion restrictions\n        - Consider the impact on historical financial reporting\n        ",
-                "summary": "Delete Credit Memo",
+                "description": "Deprecated: use `POST /coa/api/v1/credit-memo/{id}/delete`, which also takes an optional reason for the audit log.\n\n\n        Permanently deletes an accounting credit memo and all associated data from the system.\n\n        This endpoint performs a complete removal of the credit memo including:\n        - Complete credit memo record deletion with all line items\n        - Automatic journal entry removal and accounting transaction cleanup\n\n        **Accounting Impact:**\n        - Associated journal entries are automatically deleted to maintain accounting integrity\n        - Exchange rate records and multi-currency data are cleaned up\n\n        **Restrictions:**\n        - Credit memos that have been applied to invoices cannot be deleted\n        - Credit memos in closed accounting periods may have deletion restrictions\n        - Consider the impact on historical financial reporting\n        ",
+                "summary": "Delete Credit Memo (deprecated)",
                 "parameters": [
                     {
                         "in": "path",
@@ -14890,6 +15452,54 @@
                 "responses": {
                     "204": {
                         "description": "No response body"
+                    }
+                },
+                "deprecated": true
+            }
+        },
+        "/coa/api/v1/credit-memo/{id}/delete": {
+            "post": {
+                "operationId": "coa_api_v1_credit_memo_delete_create",
+                "description": "\n        Permanently deletes an accounting credit memo and all associated data from the system.\n\n        This endpoint performs a complete removal of the credit memo including:\n        - Complete credit memo record deletion with all line items\n        - Automatic journal entry removal and accounting transaction cleanup\n\n        **Accounting Impact:**\n        - Associated journal entries are automatically deleted to maintain accounting integrity\n        - Exchange rate records and multi-currency data are cleaned up\n\n        **Restrictions:**\n        - Credit memos that have been applied to invoices cannot be deleted\n        - Credit memos in closed accounting periods may have deletion restrictions\n        - Consider the impact on historical financial reporting\n        \n\nA customer can require a reason for this delete in its approval settings. When it does, and this record has a journal entry or a voided journal entry, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.",
+                "summary": "Delete Credit Memo",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "required": true
+                    }
+                ],
+                "tags": [
+                    "Accounts Receivable"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        },
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Deleted."
+                    },
+                    "202": {
+                        "description": "Sent for approval; the record is deleted once a reviewer approves."
                     }
                 }
             }
@@ -15751,7 +16361,7 @@
             },
             "delete": {
                 "operationId": "coa_api_v1_debit_memo_destroy",
-                "summary": "Delete Debit Memo",
+                "summary": "Delete Debit Memo (deprecated)",
                 "parameters": [
                     {
                         "in": "path",
@@ -15768,6 +16378,55 @@
                 "responses": {
                     "204": {
                         "description": "No response body"
+                    }
+                },
+                "deprecated": true,
+                "description": "Deprecated: use `POST /coa/api/v1/debit-memo/{id}/delete`, which also takes an optional reason for the audit log."
+            }
+        },
+        "/coa/api/v1/debit-memo/{id}/delete": {
+            "post": {
+                "operationId": "coa_api_v1_debit_memo_delete_create",
+                "description": "Delete the record. The body can carry a reason, which is saved to the audit log.\n\nA customer can require a reason for this delete in its approval settings. When it does, and this record has a journal entry or a voided journal entry, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.",
+                "summary": "Delete Debit Memo",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "required": true
+                    }
+                ],
+                "tags": [
+                    "Accounts Payable"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        },
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Deleted."
+                    },
+                    "202": {
+                        "description": "Sent for approval; the record is deleted once a reviewer approves."
                     }
                 }
             }
@@ -15891,6 +16550,14 @@
                     },
                     {
                         "in": "query",
+                        "name": "expense_billing_attachable",
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "description": "Only invoices project expenses can still be billed onto: draft or open, never sent, unpaid"
+                    },
+                    {
+                        "in": "query",
                         "name": "invoice_number",
                         "schema": {
                             "type": "string"
@@ -15970,6 +16637,14 @@
                             "type": "string"
                         },
                         "description": "Filter by exact ref number"
+                    },
+                    {
+                        "in": "query",
+                        "name": "revenue_linkable_for",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "description": "Revenue contract ID. Only invoices that can be linked to that contract."
                     },
                     {
                         "in": "query",
@@ -16982,8 +17657,8 @@
             },
             "delete": {
                 "operationId": "coa_api_v1_invoice_destroy",
-                "description": "\n        Permanently deletes an accounting invoice and its associated journal entry and related data.\n\n        This endpoint performs a complete deletion of the invoice including:\n        - Removal of all invoice line items and associated product data\n        - Deletion of the corresponding accounts receivable journal entry\n        - Removal of payment records and journal entries\n\n        **Important Notes:**\n        - This operation is irreversible and permanently removes the invoice from the system\n        - The associated journal entry will be automatically deleted to maintain accounting integrity\n\n        **Restrictions:**\n        - Invoices in closed accounting periods cannot be deleted\n        - Consider the impact on historical financial reporting\n        ",
-                "summary": "Delete Invoice",
+                "description": "Deprecated: use `POST /coa/api/v1/invoice/{id}/delete`, which also takes an optional reason for the audit log.\n\n\n        Permanently deletes an accounting invoice and its associated journal entry and related data.\n\n        This endpoint performs a complete deletion of the invoice including:\n        - Removal of all invoice line items and associated product data\n        - Deletion of the corresponding accounts receivable journal entry\n        - Removal of payment records and journal entries\n\n        **Important Notes:**\n        - This operation is irreversible and permanently removes the invoice from the system\n        - The associated journal entry will be automatically deleted to maintain accounting integrity\n\n        **Restrictions:**\n        - Invoices in closed accounting periods cannot be deleted\n        - Consider the impact on historical financial reporting\n        ",
+                "summary": "Delete Invoice (deprecated)",
                 "parameters": [
                     {
                         "in": "path",
@@ -17000,6 +17675,54 @@
                 "responses": {
                     "204": {
                         "description": "No response body"
+                    }
+                },
+                "deprecated": true
+            }
+        },
+        "/coa/api/v1/invoice/{id}/delete": {
+            "post": {
+                "operationId": "coa_api_v1_invoice_delete_create",
+                "description": "\n        Permanently deletes an accounting invoice and its associated journal entry and related data.\n\n        This endpoint performs a complete deletion of the invoice including:\n        - Removal of all invoice line items and associated product data\n        - Deletion of the corresponding accounts receivable journal entry\n        - Removal of payment records and journal entries\n\n        **Important Notes:**\n        - This operation is irreversible and permanently removes the invoice from the system\n        - The associated journal entry will be automatically deleted to maintain accounting integrity\n\n        **Restrictions:**\n        - Invoices in closed accounting periods cannot be deleted\n        - Consider the impact on historical financial reporting\n        \n\nA customer can require a reason for this delete in its approval settings. When it does, and this record has a journal entry or a voided journal entry, a request with no reason, or a blank one, is refused with a 400. Approving a pending delete (`draft_queue_id`) needs none.",
+                "summary": "Delete Invoice",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "required": true
+                    }
+                ],
+                "tags": [
+                    "Accounts Receivable"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        },
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Deleted."
+                    },
+                    "202": {
+                        "description": "Sent for approval; the record is deleted once a reviewer approves."
                     }
                 }
             }
@@ -17205,6 +17928,48 @@
                                     "type": "object",
                                     "additionalProperties": {},
                                     "description": "Unspecified response body"
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/coa/api/v1/invoice/csv-revenue-preview": {
+            "post": {
+                "operationId": "coa_api_v1_invoice_csv_revenue_preview_create",
+                "description": "Dry run of the invoice upload's revenue linking, in the order given (the order the upload posts them). Nothing is saved.",
+                "summary": "Preview Invoice Upload Revenue Links",
+                "tags": [
+                    "Accounts Receivable"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UploadRevenuePreviewRequest"
+                            }
+                        },
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UploadRevenuePreviewRequest"
+                            }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UploadRevenuePreviewRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UploadRevenuePreview"
                                 }
                             }
                         },
@@ -18930,8 +19695,8 @@
             },
             "delete": {
                 "operationId": "coa_api_vendor_destroy",
-                "description": "Delete a vendor and optionally reassign all related records to another vendor. Returns 202 Accepted as deletion is processed asynchronously.",
-                "summary": "Delete Vendor",
+                "description": "Deprecated: use `POST /coa/api/vendor/{id}/delete`, which also takes an optional reason for the audit log.\n\nDelete a vendor and optionally reassign all related records to another vendor. Returns 202 Accepted as deletion is processed asynchronously.",
+                "summary": "Delete Vendor (deprecated)",
                 "parameters": [
                     {
                         "in": "path",
@@ -18954,10 +19719,21 @@
                     "Company Objects"
                 ],
                 "responses": {
-                    "204": {
-                        "description": "No response body"
+                    "202": {
+                        "description": "Deletion queued; the vendor is deleted in the background."
+                    },
+                    "409": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        },
+                        "description": "Records that cannot be deleted or reassigned still reference the vendor."
                     }
-                }
+                },
+                "deprecated": true
             }
         },
         "/coa/api/vendor/{id}/contacts": {
@@ -19055,6 +19831,68 @@
                             }
                         },
                         "description": ""
+                    }
+                }
+            }
+        },
+        "/coa/api/vendor/{id}/delete": {
+            "post": {
+                "operationId": "coa_api_vendor_delete_create",
+                "description": "Delete a vendor and optionally reassign all related records to another vendor. Returns 202 Accepted as deletion is processed asynchronously.",
+                "summary": "Delete Vendor",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "required": true
+                    },
+                    {
+                        "in": "query",
+                        "name": "new_vendor",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Identifier of the vendor to reassign all related records to before deletion. Accepts a Campfire ID (e.g. VEN-0000001) or the legacy internal integer id."
+                    }
+                ],
+                "tags": [
+                    "Company Objects"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        },
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "202": {
+                        "description": "Deletion queued; the vendor is deleted in the background."
+                    },
+                    "409": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        },
+                        "description": "Records that cannot be deleted or reassigned still reference the vendor."
                     }
                 }
             }
@@ -19913,6 +20751,28 @@
                             }
                         },
                         "description": ""
+                    },
+                    "202": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "additionalProperties": {}
+                                }
+                            }
+                        },
+                        "description": "Draft Queue record submitted for approval; the bundle has not been created."
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "additionalProperties": {}
+                                }
+                            }
+                        },
+                        "description": "Contract permission or approval requirements are not met."
                     }
                 }
             }
@@ -20009,6 +20869,28 @@
                             }
                         },
                         "description": ""
+                    },
+                    "202": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "additionalProperties": {}
+                                }
+                            }
+                        },
+                        "description": "Draft Queue record submitted for approval; the bundle has not been updated."
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "additionalProperties": {}
+                                }
+                            }
+                        },
+                        "description": "Contract permission or approval requirements are not met."
                     }
                 }
             },
@@ -20065,6 +20947,28 @@
                             }
                         },
                         "description": ""
+                    },
+                    "202": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "additionalProperties": {}
+                                }
+                            }
+                        },
+                        "description": "Draft Queue record submitted for approval; the bundle has not been updated."
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "additionalProperties": {}
+                                }
+                            }
+                        },
+                        "description": "Contract permission or approval requirements are not met."
                     }
                 }
             },
@@ -20532,7 +21436,7 @@
             },
             "delete": {
                 "operationId": "rr_api_v1_contracts_milestones_destroy",
-                "summary": "Delete Contract Milestone",
+                "summary": "Delete Contract Milestone (deprecated)",
                 "parameters": [
                     {
                         "in": "path",
@@ -20557,6 +21461,63 @@
                 "responses": {
                     "204": {
                         "description": "No response body"
+                    }
+                },
+                "deprecated": true,
+                "description": "Deprecated: use `POST /rr/api/v1/contracts/{contract_id}/milestones/{id}/delete`, which also takes an optional reason for the audit log."
+            }
+        },
+        "/rr/api/v1/contracts/{contract_id}/milestones/{id}/delete": {
+            "post": {
+                "operationId": "rr_api_v1_contracts_milestones_delete_create",
+                "description": "Delete the record. The body can carry a reason, which is saved to the audit log.",
+                "summary": "Delete Contract Milestone",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "contract_id",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "required": true
+                    }
+                ],
+                "tags": [
+                    "Revenue Recognition"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        },
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Deleted."
+                    },
+                    "202": {
+                        "description": "Sent for approval; the record is deleted once a reviewer approves."
                     }
                 }
             }
@@ -21217,7 +22178,7 @@
             },
             "delete": {
                 "operationId": "delete_prepaid_commit",
-                "summary": "Delete Prepaid Commit",
+                "summary": "Delete Prepaid Commit (deprecated)",
                 "parameters": [
                     {
                         "in": "path",
@@ -21243,7 +22204,64 @@
                     "204": {
                         "description": "No response body"
                     }
-                }
+                },
+                "deprecated": true,
+                "description": "Deprecated: use `POST /rr/api/v1/contracts/{contract_id}/prepaid-commits/{id}/delete`, which also takes an optional reason for the audit log."
+            }
+        },
+        "/rr/api/v1/contracts/{contract_id}/prepaid-commits/{id}/delete": {
+            "post": {
+                "operationId": "rr_api_v1_contracts_prepaid_commits_delete_create",
+                "description": "Delete the record. The body can carry a reason, which is saved to the audit log.",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "contract_id",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "required": true
+                    }
+                ],
+                "tags": [
+                    "Revenue Recognition"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        },
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Deleted."
+                    },
+                    "202": {
+                        "description": "Sent for approval; the record is deleted once a reviewer approves."
+                    }
+                },
+                "summary": "Delete Prepaid Commit"
             }
         },
         "/rr/api/v1/contracts/{contract_id}/subscriptions": {
@@ -21553,7 +22571,7 @@
             },
             "delete": {
                 "operationId": "rr_api_v1_contracts_subscriptions_destroy",
-                "summary": "Delete Contract Subscription",
+                "summary": "Delete Contract Subscription (deprecated)",
                 "parameters": [
                     {
                         "in": "path",
@@ -21578,6 +22596,63 @@
                 "responses": {
                     "204": {
                         "description": "No response body"
+                    }
+                },
+                "deprecated": true,
+                "description": "Deprecated: use `POST /rr/api/v1/contracts/{contract_id}/subscriptions/{id}/delete`, which also takes an optional reason for the audit log."
+            }
+        },
+        "/rr/api/v1/contracts/{contract_id}/subscriptions/{id}/delete": {
+            "post": {
+                "operationId": "rr_api_v1_contracts_subscriptions_delete_create",
+                "description": "Delete the record. The body can carry a reason, which is saved to the audit log.",
+                "summary": "Delete Contract Subscription",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "contract_id",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "required": true
+                    }
+                ],
+                "tags": [
+                    "Revenue Recognition"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        },
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Deleted."
+                    },
+                    "202": {
+                        "description": "Sent for approval; the record is deleted once a reviewer approves."
                     }
                 }
             }
@@ -22205,8 +23280,8 @@
             },
             "delete": {
                 "operationId": "rr_api_v1_contracts_usage_destroy",
-                "description": "Retrieve, update, and delete contract usage revenue records",
-                "summary": "Delete Contract Usage Revenue",
+                "description": "Deprecated: use `POST /rr/api/v1/contracts/{contract_id}/usage/{id}/delete`, which also takes an optional reason for the audit log.\n\nRetrieve, update, and delete contract usage revenue records",
+                "summary": "Delete Contract Usage Revenue (deprecated)",
                 "parameters": [
                     {
                         "in": "path",
@@ -22231,6 +23306,62 @@
                 "responses": {
                     "204": {
                         "description": "No response body"
+                    }
+                },
+                "deprecated": true
+            }
+        },
+        "/rr/api/v1/contracts/{contract_id}/usage/{id}/delete": {
+            "post": {
+                "operationId": "rr_api_v1_contracts_usage_delete_create",
+                "description": "Delete the record. The body can carry a reason, which is saved to the audit log.",
+                "summary": "Delete Contract Usage Revenue",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "contract_id",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "required": true
+                    }
+                ],
+                "tags": [
+                    "Revenue Recognition"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        },
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Deleted."
+                    },
+                    "202": {
+                        "description": "Sent for approval; the record is deleted once a reviewer approves."
                     }
                 }
             }
@@ -22518,7 +23649,7 @@
             },
             "delete": {
                 "operationId": "rr_api_v1_contracts_destroy",
-                "summary": "Delete Contract",
+                "summary": "Delete Contract (deprecated)",
                 "parameters": [
                     {
                         "in": "path",
@@ -22535,6 +23666,55 @@
                 "responses": {
                     "204": {
                         "description": "No response body"
+                    }
+                },
+                "deprecated": true,
+                "description": "Deprecated: use `POST /rr/api/v1/contracts/{id}/delete`, which also takes an optional reason for the audit log."
+            }
+        },
+        "/rr/api/v1/contracts/{id}/delete": {
+            "post": {
+                "operationId": "rr_api_v1_contracts_delete_create",
+                "description": "Delete the record. The body can carry a reason, which is saved to the audit log.",
+                "summary": "Delete Contract",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "required": true
+                    }
+                ],
+                "tags": [
+                    "Revenue Recognition"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        },
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Deleted."
+                    },
+                    "202": {
+                        "description": "Sent for approval; the record is deleted once a reviewer approves."
                     }
                 }
             }
@@ -22590,6 +23770,37 @@
                 "responses": {
                     "200": {
                         "description": "No response body"
+                    }
+                }
+            }
+        },
+        "/rr/api/v1/contracts/{id}/subledger-accounts": {
+            "get": {
+                "operationId": "rr_api_v1_contracts_subledger_accounts_retrieve",
+                "summary": "List the accounts a contract's revenue subledger posts to",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "required": true
+                    }
+                ],
+                "tags": [
+                    "Revenue Recognition"
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ContractSubledgerAccounts"
+                                }
+                            }
+                        },
+                        "description": ""
                     }
                 }
             }
@@ -22697,7 +23908,7 @@
         "/rr/api/v1/contracts/bulk-search": {
             "post": {
                 "operationId": "rr_api_v1_contracts_bulk_search_create",
-                "description": "Search for contracts by deal_name in a single request.",
+                "description": "Search for contracts by deal_name, Campfire contract id, or CRM deal id in a single request.",
                 "summary": "Bulk Search Contracts",
                 "tags": [
                     "Revenue Recognition"
@@ -23521,6 +24732,14 @@
                             "type": "integer"
                         },
                         "required": true
+                    },
+                    {
+                        "in": "query",
+                        "name": "new_product",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "description": "ID of the product to reassign the deleted product's records to before deletion"
                     }
                 ],
                 "tags": [
@@ -23529,13 +24748,9 @@
                 ],
                 "responses": {
                     "204": {
-                        "description": "Deleted."
-                    },
-                    "202": {
-                        "description": "Sent for approval; the record is deleted once a reviewer approves."
+                        "description": "No response body"
                     }
                 },
-                "x-replaces-delete": true,
                 "deprecated": true,
                 "description": "Deprecated: use `POST /rr/api/v1/product/{id}/delete`, which also takes an optional reason for the audit log."
             }
@@ -23543,7 +24758,7 @@
         "/rr/api/v1/product/{id}/delete": {
             "post": {
                 "operationId": "rr_api_v1_product_delete_create",
-                "description": "The type of the None singleton.",
+                "description": "Delete the record. The body can carry a reason, which is saved to the audit log.",
                 "summary": "Delete Product",
                 "parameters": [
                     {
@@ -23553,6 +24768,14 @@
                             "type": "integer"
                         },
                         "required": true
+                    },
+                    {
+                        "in": "query",
+                        "name": "new_product",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "description": "ID of the product to reassign the deleted product's records to before deletion"
                     }
                 ],
                 "tags": [
@@ -23865,7 +25088,7 @@
             },
             "delete": {
                 "operationId": "rr_api_v1_transactions_destroy",
-                "summary": "Delete Revenue Transaction",
+                "summary": "Delete Revenue Transaction (deprecated)",
                 "parameters": [
                     {
                         "in": "path",
@@ -23882,6 +25105,55 @@
                 "responses": {
                     "204": {
                         "description": "No response body"
+                    }
+                },
+                "deprecated": true,
+                "description": "Deprecated: use `POST /rr/api/v1/transactions/{id}/delete`, which also takes an optional reason for the audit log."
+            }
+        },
+        "/rr/api/v1/transactions/{id}/delete": {
+            "post": {
+                "operationId": "rr_api_v1_transactions_delete_create",
+                "description": "Delete the record. The body can carry a reason, which is saved to the audit log.",
+                "summary": "Delete Revenue Transaction",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "required": true
+                    }
+                ],
+                "tags": [
+                    "Revenue Recognition"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        },
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Deleted."
+                    },
+                    "202": {
+                        "description": "Sent for approval; the record is deleted once a reviewer approves."
                     }
                 }
             }
@@ -24288,6 +25560,10 @@
                     "bill_type": {
                         "$ref": "#/components/schemas/BillTypeEnum"
                     },
+                    "posts_opening_balance_offset": {
+                        "type": "boolean",
+                        "readOnly": true
+                    },
                     "chat_id": {
                         "type": "integer",
                         "maximum": 2147483647,
@@ -24330,6 +25606,11 @@
                     "voided_journal_entry": {
                         "type": "integer",
                         "nullable": true
+                    },
+                    "opening_balance_offset_journal_entry": {
+                        "type": "integer",
+                        "readOnly": true,
+                        "nullable": true
                     }
                 },
                 "required": [
@@ -24352,10 +25633,12 @@
                     "last_modified_at",
                     "lines",
                     "navan_region",
+                    "opening_balance_offset_journal_entry",
                     "past_due_days",
                     "payment_journal_entries",
                     "payment_term_name",
                     "payments",
+                    "posts_opening_balance_offset",
                     "ramp_use_sandbox",
                     "search_text",
                     "search_vector",
@@ -24596,6 +25879,16 @@
                         "type": "string",
                         "nullable": true
                     },
+                    "source_reference": {
+                        "type": "string",
+                        "readOnly": true,
+                        "nullable": true
+                    },
+                    "source_reported_date": {
+                        "type": "string",
+                        "format": "date",
+                        "nullable": true
+                    },
                     "created_at": {
                         "type": "string",
                         "format": "date-time",
@@ -24644,6 +25937,7 @@
                     "payment_journal_entry",
                     "payment_journal_entry_order",
                     "payment_transaction_bank_description",
+                    "source_reference",
                     "voided_journal_entry_order",
                     "withheld_amount"
                 ]
@@ -24878,6 +26172,29 @@
                         "type": "string",
                         "nullable": true,
                         "maxLength": 250
+                    },
+                    "billing_addressee": {
+                        "type": "string",
+                        "nullable": true,
+                        "maxLength": 255
+                    },
+                    "billing_address": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "shipping_addressee": {
+                        "type": "string",
+                        "nullable": true,
+                        "maxLength": 255
+                    },
+                    "shipping_address": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "purchase_order_number": {
+                        "type": "string",
+                        "nullable": true,
+                        "maxLength": 120
                     },
                     "total_amount": {
                         "type": "number",
@@ -25801,6 +27118,14 @@
                         "nullable": true,
                         "readOnly": true
                     },
+                    "entity_quantity_max_decimal_places": {
+                        "type": "integer",
+                        "readOnly": true
+                    },
+                    "entity_rate_max_decimal_places": {
+                        "type": "integer",
+                        "readOnly": true
+                    },
                     "total_amount": {
                         "type": "number",
                         "format": "double",
@@ -25884,7 +27209,8 @@
                     },
                     "tax_rate_name": {
                         "type": "string",
-                        "readOnly": true
+                        "readOnly": true,
+                        "nullable": true
                     },
                     "tax_rate_value": {
                         "type": "number",
@@ -25893,7 +27219,8 @@
                         "minimum": -1000000,
                         "exclusiveMaximum": true,
                         "exclusiveMinimum": true,
-                        "readOnly": true
+                        "readOnly": true,
+                        "nullable": true
                     },
                     "payment_term_name": {
                         "type": "string",
@@ -26130,6 +27457,10 @@
                         "pattern": "^\\d{9}$",
                         "maxLength": 9
                     },
+                    "posts_opening_balance_offset": {
+                        "type": "boolean",
+                        "readOnly": true
+                    },
                     "payment_status": {
                         "nullable": true,
                         "oneOf": [
@@ -26252,8 +27583,8 @@
                     },
                     "stripe_invoice_id": {
                         "type": "string",
-                        "readOnly": true,
-                        "nullable": true
+                        "nullable": true,
+                        "maxLength": 500
                     },
                     "stripe_pdf_url": {
                         "type": "string",
@@ -26333,6 +27664,11 @@
                         "readOnly": true,
                         "nullable": true
                     },
+                    "opening_balance_offset_journal_entry": {
+                        "type": "integer",
+                        "readOnly": true,
+                        "nullable": true
+                    },
                     "entity_transfer_journal_entry": {
                         "type": "integer",
                         "readOnly": true,
@@ -26395,6 +27731,8 @@
                     "entity_currency",
                     "entity_invoice_message",
                     "entity_name",
+                    "entity_quantity_max_decimal_places",
+                    "entity_rate_max_decimal_places",
                     "entity_transfer_journal_entry",
                     "id",
                     "invoice_date",
@@ -26404,11 +27742,13 @@
                     "last_modified_at",
                     "last_sent_at",
                     "lines",
+                    "opening_balance_offset_journal_entry",
                     "overage_amount",
                     "past_due_days",
                     "payment_journal_entries",
                     "payment_term_name",
                     "payments",
+                    "posts_opening_balance_offset",
                     "public_invoice_payment_url",
                     "related_journal_entries",
                     "revenue_contract",
@@ -26419,7 +27759,6 @@
                     "stripe_connection_billing_portal_enabled",
                     "stripe_connection_entity",
                     "stripe_connection_name",
-                    "stripe_invoice_id",
                     "stripe_payment_link",
                     "tax_rate_name",
                     "tax_rate_value",
@@ -26548,6 +27887,21 @@
                         "type": "string",
                         "readOnly": true
                     },
+                    "tax_rate_name": {
+                        "type": "string",
+                        "readOnly": true,
+                        "nullable": true
+                    },
+                    "tax_rate_value": {
+                        "type": "number",
+                        "format": "double",
+                        "maximum": 10000,
+                        "minimum": -10000,
+                        "exclusiveMaximum": true,
+                        "exclusiveMinimum": true,
+                        "readOnly": true,
+                        "nullable": true
+                    },
                     "withholding_tax_rate_name": {
                         "type": "string",
                         "readOnly": true
@@ -26558,6 +27912,12 @@
                         "nullable": true,
                         "description": "Sum of the selected withholding rate's component rates, for line-level preview.",
                         "readOnly": true
+                    },
+                    "billed_expense_ids": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
                     },
                     "description": {
                         "type": "string",
@@ -26659,7 +28019,8 @@
                             "maximum": 9223372036854775807,
                             "minimum": -9223372036854775808,
                             "format": "int64"
-                        }
+                        },
+                        "readOnly": true
                     },
                     "tag_group_ids": {
                         "type": "array",
@@ -26668,7 +28029,8 @@
                             "maximum": 9223372036854775807,
                             "minimum": -9223372036854775808,
                             "format": "int64"
-                        }
+                        },
+                        "readOnly": true
                     },
                     "created_at": {
                         "type": "string",
@@ -26689,6 +28051,10 @@
                         "nullable": true
                     },
                     "product_bundle": {
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "tax_rate": {
                         "type": "integer",
                         "nullable": true
                     },
@@ -26715,7 +28081,11 @@
                     "product_name",
                     "sphere_item_id",
                     "stripe_product_id",
+                    "tag_group_ids",
+                    "tag_ids",
                     "tags",
+                    "tax_rate_name",
+                    "tax_rate_value",
                     "withholding_tax_rate_name",
                     "withholding_tax_rate_value"
                 ]
@@ -26880,7 +28250,8 @@
                     },
                     "tax_rate_name": {
                         "type": "string",
-                        "readOnly": true
+                        "readOnly": true,
+                        "nullable": true
                     },
                     "tax_rate_value": {
                         "type": "number",
@@ -26889,7 +28260,8 @@
                         "minimum": -1000000,
                         "exclusiveMaximum": true,
                         "exclusiveMinimum": true,
-                        "readOnly": true
+                        "readOnly": true,
+                        "nullable": true
                     },
                     "payment_term_name": {
                         "type": "string",
@@ -27046,6 +28418,9 @@
                         "nullable": true,
                         "pattern": "^\\d{9}$",
                         "maxLength": 9
+                    },
+                    "posts_opening_balance_offset": {
+                        "type": "boolean"
                     },
                     "payment_status": {
                         "nullable": true,
@@ -27243,6 +28618,10 @@
                         "description": "Accounts Receivable account for this invoice. Populated for single-AR and migrated invoices. NULL for multi-AR invoices (aging uses ChartTransactions instead)."
                     },
                     "voided_journal_entry": {
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "opening_balance_offset_journal_entry": {
                         "type": "integer",
                         "nullable": true
                     },
@@ -27875,6 +29254,114 @@
                 "type": "string",
                 "description": "* `PENDING` - Pending\n* `PROCESSING` - Processing\n* `COMPLETED` - Completed\n* `FAILED` - Failed\n* `CANCELLED` - Cancelled"
             },
+            "AuditLogEntrySchema": {
+                "type": "object",
+                "description": "The published shape of an audit entry, for the API docs; AuditLogEntrySerializer produces it.",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "operation": {
+                        "type": "string",
+                        "nullable": true,
+                        "description": "Raw operation, such as add, change or delete. Open set."
+                    },
+                    "model": {
+                        "type": "string",
+                        "description": "Object type as app_label.model. Open set."
+                    },
+                    "object_id": {
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "parent_model": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "parent_object_id": {
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "parent_draft_queue": {
+                        "type": "integer",
+                        "nullable": true,
+                        "description": "The audit entry this row was written as part of."
+                    },
+                    "created_by": {
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "created_by_name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "approved_by": {
+                        "type": "integer",
+                        "nullable": true,
+                        "description": "User who gave final approval."
+                    },
+                    "approved_by_name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "approved_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "notes": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "reason": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "old_payload": {
+                        "nullable": true
+                    },
+                    "new_payload": {
+                        "nullable": true
+                    },
+                    "workflow_name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "approvers": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": {}
+                        },
+                        "description": "Each workflow step; [] when the row had no workflow."
+                    }
+                },
+                "required": [
+                    "approved_at",
+                    "approved_by",
+                    "approved_by_name",
+                    "approvers",
+                    "created_at",
+                    "created_by",
+                    "created_by_name",
+                    "id",
+                    "model",
+                    "new_payload",
+                    "notes",
+                    "object_id",
+                    "old_payload",
+                    "operation",
+                    "parent_draft_queue",
+                    "parent_model",
+                    "parent_object_id",
+                    "reason",
+                    "workflow_name"
+                ]
+            },
             "BankAccount": {
                 "type": "object",
                 "properties": {
@@ -27929,6 +29416,17 @@
                         "type": "string",
                         "readOnly": true
                     },
+                    "is_disconnected": {
+                        "type": "boolean",
+                        "readOnly": true,
+                        "default": false
+                    },
+                    "in_cash_total": {
+                        "type": "boolean",
+                        "readOnly": true,
+                        "default": false
+                    },
+                    "check_field_offsets_mm": {},
                     "account_id": {
                         "type": "string",
                         "format": "uuid",
@@ -28043,6 +29541,9 @@
                     "check_stock_prenumbered": {
                         "type": "boolean"
                     },
+                    "check_print_currency_symbol": {
+                        "type": "boolean"
+                    },
                     "created_at": {
                         "type": "string",
                         "format": "date-time",
@@ -28108,11 +29609,47 @@
                     "entity",
                     "entity_name",
                     "id",
+                    "in_cash_total",
                     "is_deleted",
+                    "is_disconnected",
                     "last_modified_at",
                     "subtype_name",
                     "tags",
                     "type_name"
+                ]
+            },
+            "BankAccountCurrencyTotal": {
+                "type": "object",
+                "properties": {
+                    "currency": {
+                        "type": "string"
+                    },
+                    "current_balance": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "account_count": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "account_count",
+                    "currency",
+                    "current_balance"
+                ]
+            },
+            "BankAccountTotals": {
+                "type": "object",
+                "properties": {
+                    "cash_totals": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/BankAccountCurrencyTotal"
+                        }
+                    }
+                },
+                "required": [
+                    "cash_totals"
                 ]
             },
             "BankAccountTypeEnum": {
@@ -29164,6 +30701,10 @@
                     "deal_name": {
                         "type": "string",
                         "nullable": true
+                    },
+                    "contract_ref": {
+                        "type": "string",
+                        "nullable": true
                     }
                 }
             },
@@ -29737,6 +31278,10 @@
                         "type": "boolean",
                         "description": "Allow manual journal entries to post to this AR/AP account, bypassing subledger validation"
                     },
+                    "include_in_ap_lock": {
+                        "type": "boolean",
+                        "description": "Follow the AP subledger lock: manual entries to this account or its child accounts dated in a locked period are blocked, and synced plain journal entries (not bills, invoices, memos, payments or recurring entries) post on the next open day"
+                    },
                     "external_id": {
                         "type": "string",
                         "readOnly": true,
@@ -30136,6 +31681,16 @@
                         "type": "integer",
                         "nullable": true,
                         "description": "Account credited when a dispute is reinstated (won). Falls back to dispute_expense_account if not set."
+                    },
+                    "disputed_receivable_account": {
+                        "type": "integer",
+                        "nullable": true,
+                        "description": "Asset account holding withdrawn funds while a dispute is pending: debited on the withdrawal, credited when the dispute resolves (won, or written off on loss)."
+                    },
+                    "dispute_fee_account": {
+                        "type": "integer",
+                        "nullable": true,
+                        "description": "Expense account for the Stripe dispute fee, booked when a dispute opens. Non-refundable win or lose, and kept separate from Stripe processing fees. Falls back to the processing-fees account if not set."
                     },
                     "retained_earnings": {
                         "type": "integer",
@@ -31172,6 +32727,57 @@
                 "type": "string",
                 "description": "* `check_top` - Voucher: check on top, two stubs below\n* `check_middle` - Voucher: check in the middle\n* `check_bottom` - Voucher: check on bottom, two stubs above\n* `three_per_page` - Three checks per page, no stubs"
             },
+            "CommitUsagePricing": {
+                "type": "object",
+                "properties": {
+                    "usage_product": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "price_source": {
+                        "$ref": "#/components/schemas/CommitUsagePricingPriceSourceEnum"
+                    },
+                    "expected_rate": {
+                        "type": "number",
+                        "format": "double",
+                        "maximum": 1000000000000000,
+                        "minimum": 1e-09,
+                        "exclusiveMaximum": true
+                    },
+                    "expected_unit": {
+                        "type": "string",
+                        "maxLength": 50
+                    },
+                    "expected_currency": {
+                        "type": "string",
+                        "maxLength": 3
+                    },
+                    "confirm_price": {
+                        "type": "boolean"
+                    },
+                    "confirm_historical_price": {
+                        "type": "boolean",
+                        "default": false
+                    }
+                },
+                "required": [
+                    "confirm_price",
+                    "expected_currency",
+                    "expected_rate",
+                    "expected_unit",
+                    "price_source",
+                    "usage_product"
+                ]
+            },
+            "CommitUsagePricingPriceSourceEnum": {
+                "enum": [
+                    "product_default",
+                    "contract_override",
+                    "existing"
+                ],
+                "type": "string",
+                "description": "* `product_default` - product_default\n* `contract_override` - contract_override\n* `existing` - existing"
+            },
             "ComponentTypeEnum": {
                 "enum": [
                     "SUBSCRIPTION",
@@ -31485,7 +33091,7 @@
                         "$ref": "#/components/schemas/ContractStatusEnum"
                     },
                     "source": {
-                        "$ref": "#/components/schemas/SourceFc1Enum"
+                        "$ref": "#/components/schemas/ContractSourceEnum"
                     },
                     "source_deal_data": {
                         "nullable": true
@@ -31657,6 +33263,10 @@
                     "id": {
                         "type": "integer",
                         "readOnly": true
+                    },
+                    "rebalance": {
+                        "type": "boolean",
+                        "writeOnly": true
                     },
                     "is_deleted": {
                         "type": "boolean",
@@ -32572,6 +34182,33 @@
                         "type": "integer",
                         "readOnly": true
                     },
+                    "client": {
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "create_funding_transactions": {
+                        "type": "boolean",
+                        "description": "Create native funding revenue transactions for this commit. Off when another system funds it."
+                    },
+                    "project_usage_revenue": {
+                        "type": "boolean",
+                        "description": "Project native usage revenue for this commit. Off when another system recognizes it."
+                    },
+                    "external_invoice_id": {
+                        "type": "string",
+                        "nullable": true,
+                        "maxLength": 255
+                    },
+                    "external_invoice_line_id": {
+                        "type": "string",
+                        "nullable": true,
+                        "maxLength": 255
+                    },
+                    "invoice_reference_stripe_connection": {
+                        "type": "integer",
+                        "nullable": true,
+                        "description": "Stripe account whose namespace the external invoice references belong to."
+                    },
                     "invoice_basis": {
                         "$ref": "#/components/schemas/InvoiceBasisEnum"
                     },
@@ -32626,6 +34263,30 @@
                         "nullable": true
                     },
                     "product_name": {
+                        "type": "string",
+                        "readOnly": true,
+                        "nullable": true
+                    },
+                    "eligible_usage_products": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    },
+                    "eligible_usage_product_details": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": {}
+                        },
+                        "readOnly": true
+                    },
+                    "eligibility_locked": {
+                        "type": "boolean",
+                        "readOnly": true
+                    },
+                    "eligibility_lock_reason": {
                         "type": "string",
                         "readOnly": true,
                         "nullable": true
@@ -32711,6 +34372,25 @@
                         "format": "uuid",
                         "nullable": true
                     },
+                    "valuation_pool": {
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "usage_pricing": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/CommitUsagePricing"
+                            }
+                        ],
+                        "writeOnly": true
+                    },
+                    "usage_pricing_terms": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/LifetimePriceEntry"
+                        },
+                        "writeOnly": true
+                    },
                     "start_date": {
                         "type": "string",
                         "format": "date"
@@ -32795,6 +34475,9 @@
                     "contract",
                     "created_at",
                     "department_name",
+                    "eligibility_lock_reason",
+                    "eligibility_locked",
+                    "eligible_usage_product_details",
                     "entity_name",
                     "id",
                     "invoice",
@@ -33236,6 +34919,17 @@
                     "lines"
                 ]
             },
+            "ContractSourceEnum": {
+                "enum": [
+                    "SALESFORCE",
+                    "HUBSPOT",
+                    "STRIPE",
+                    "METRONOME",
+                    "MANUAL"
+                ],
+                "type": "string",
+                "description": "* `SALESFORCE` - Salesforce\n* `HUBSPOT` - Hubspot\n* `STRIPE` - Stripe\n* `METRONOME` - Metronome\n* `MANUAL` - Manual"
+            },
             "ContractStatusEnum": {
                 "enum": [
                     "ACTIVE",
@@ -33245,6 +34939,45 @@
                 ],
                 "type": "string",
                 "description": "* `ACTIVE` - Active\n* `PENDING` - Pending\n* `COMPLETED` - Completed\n* `DELETED` - Deleted"
+            },
+            "ContractSubledgerAccounts": {
+                "type": "object",
+                "properties": {
+                    "entity": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/_SubledgerEntity"
+                            }
+                        ],
+                        "readOnly": true
+                    },
+                    "currency": {
+                        "type": "string",
+                        "readOnly": true
+                    },
+                    "client": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/_SubledgerClient"
+                            }
+                        ],
+                        "readOnly": true,
+                        "nullable": true
+                    },
+                    "accounts": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/_SubledgerAccount"
+                        },
+                        "readOnly": true
+                    }
+                },
+                "required": [
+                    "accounts",
+                    "client",
+                    "currency",
+                    "entity"
+                ]
             },
             "ContractSubscription": {
                 "type": "object",
@@ -34721,7 +36454,8 @@
                             "maximum": 9223372036854775807,
                             "minimum": -9223372036854775808,
                             "format": "int64"
-                        }
+                        },
+                        "readOnly": true
                     },
                     "tag_group_ids": {
                         "type": "array",
@@ -34730,7 +36464,8 @@
                             "maximum": 9223372036854775807,
                             "minimum": -9223372036854775808,
                             "format": "int64"
-                        }
+                        },
+                        "readOnly": true
                     },
                     "created_at": {
                         "type": "string",
@@ -34756,7 +36491,24 @@
                     "name",
                     "parent_name",
                     "source",
+                    "tag_group_ids",
+                    "tag_ids",
                     "tags"
+                ]
+            },
+            "DisputeInvoiceReference": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "invoice_number": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "invoice_number"
                 ]
             },
             "DrawdownBasisEnum": {
@@ -34790,6 +36542,11 @@
                         "minimum": 0.0,
                         "exclusiveMaximum": true,
                         "nullable": true
+                    },
+                    "account_id": {
+                        "type": "integer",
+                        "nullable": true,
+                        "description": "Clearing account to validate"
                     }
                 },
                 "required": [
@@ -36094,6 +37851,29 @@
                     },
                     "total_pages": {
                         "type": "integer"
+                    },
+                    "basis": {
+                        "type": "object",
+                        "additionalProperties": {}
+                    },
+                    "activity_basis": {
+                        "type": "string"
+                    },
+                    "translation_note": {
+                        "type": "string"
+                    },
+                    "translation_warnings": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "translation_unresolved": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": {}
+                        }
                     }
                 },
                 "required": [
@@ -36324,6 +38104,13 @@
                     "opposing_account_number": {
                         "type": "string",
                         "nullable": true
+                    },
+                    "row_type": {
+                        "type": "string",
+                        "description": "`transaction`, or `translation_adjustment` on the translated basis"
+                    },
+                    "translation_unresolved": {
+                        "type": "boolean"
                     }
                 },
                 "required": [
@@ -36514,7 +38301,7 @@
                         "nullable": true
                     },
                     "type": {
-                        "$ref": "#/components/schemas/Type4aaEnum"
+                        "$ref": "#/components/schemas/TypeB9aEnum"
                     },
                     "journal_id": {
                         "type": "string",
@@ -36993,6 +38780,13 @@
                         "description": "Documents this journal is posted from; deleting it deletes them too.",
                         "readOnly": true
                     },
+                    "dispute_invoices": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/DisputeInvoiceReference"
+                        },
+                        "readOnly": true
+                    },
                     "csv_upload_run_id": {
                         "type": "integer",
                         "writeOnly": true,
@@ -37018,7 +38812,7 @@
                         "nullable": true
                     },
                     "type": {
-                        "$ref": "#/components/schemas/Type4aaEnum"
+                        "$ref": "#/components/schemas/TypeB9aEnum"
                     },
                     "journal_id": {
                         "type": "string",
@@ -37132,6 +38926,7 @@
                     "customer",
                     "debit_memos",
                     "deleted_at",
+                    "dispute_invoices",
                     "entity_currency",
                     "entity_name",
                     "float_bill_id",
@@ -37452,6 +39247,13 @@
                         "description": "Documents this journal is posted from; deleting it deletes them too.",
                         "readOnly": true
                     },
+                    "dispute_invoices": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/DisputeInvoiceReference"
+                        },
+                        "readOnly": true
+                    },
                     "csv_upload_run_id": {
                         "type": "integer",
                         "writeOnly": true,
@@ -37477,7 +39279,7 @@
                         "nullable": true
                     },
                     "type": {
-                        "$ref": "#/components/schemas/Type4aaEnum"
+                        "$ref": "#/components/schemas/TypeB9aEnum"
                     },
                     "journal_id": {
                         "type": "string",
@@ -37591,6 +39393,7 @@
                     "customer",
                     "debit_memos",
                     "deleted_at",
+                    "dispute_invoices",
                     "entity_currency",
                     "entity_name",
                     "float_bill_id",
@@ -37615,6 +39418,63 @@
                 ],
                 "type": "string",
                 "description": "* `prepaid_commit` - prepaid_commit"
+            },
+            "LifetimePriceEntry": {
+                "type": "object",
+                "properties": {
+                    "usage_product": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "price_source": {
+                        "$ref": "#/components/schemas/LifetimePriceEntryPriceSourceEnum"
+                    },
+                    "rate_card": {
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "schedule": {
+                        "type": "object",
+                        "additionalProperties": {},
+                        "nullable": true
+                    },
+                    "contract_usage_term": {
+                        "type": "string",
+                        "format": "uuid",
+                        "nullable": true
+                    },
+                    "preview_digest": {
+                        "type": "string",
+                        "maxLength": 64
+                    },
+                    "preview_token": {
+                        "type": "string",
+                        "maxLength": 100000
+                    },
+                    "confirm_price": {
+                        "type": "boolean"
+                    },
+                    "confirm_historical_price": {
+                        "type": "boolean",
+                        "default": false
+                    }
+                },
+                "required": [
+                    "confirm_price",
+                    "preview_digest",
+                    "preview_token",
+                    "price_source",
+                    "usage_product"
+                ]
+            },
+            "LifetimePriceEntryPriceSourceEnum": {
+                "enum": [
+                    "rate_card",
+                    "contract_override",
+                    "existing"
+                ],
+                "type": "string",
+                "description": "* `rate_card` - rate_card\n* `contract_override` - contract_override\n* `existing` - existing"
             },
             "MarkCreditMemoUsed": {
                 "type": "object",
@@ -38054,6 +39914,41 @@
             "NestedContractPrepaidCommit": {
                 "type": "object",
                 "properties": {
+                    "eligible_usage_products": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    },
+                    "usage_pricing": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/CommitUsagePricing"
+                            }
+                        ],
+                        "writeOnly": true
+                    },
+                    "usage_pricing_terms": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/LifetimePriceEntry"
+                        },
+                        "writeOnly": true
+                    },
+                    "contract_usage_term": {
+                        "type": "string",
+                        "format": "uuid",
+                        "nullable": true
+                    },
+                    "drawdown_basis": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/DrawdownBasisEnum"
+                            }
+                        ],
+                        "default": "monetary"
+                    },
                     "entity": {
                         "type": "integer",
                         "nullable": true
@@ -38353,6 +40248,37 @@
                         "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/AllocationSyncRun"
+                        }
+                    }
+                }
+            },
+            "PaginatedAuditLogEntrySchemaList": {
+                "type": "object",
+                "required": [
+                    "count",
+                    "results"
+                ],
+                "properties": {
+                    "count": {
+                        "type": "integer",
+                        "example": 123
+                    },
+                    "next": {
+                        "type": "string",
+                        "nullable": true,
+                        "format": "uri",
+                        "example": "http://api.example.org/accounts/?offset=400&limit=100"
+                    },
+                    "previous": {
+                        "type": "string",
+                        "nullable": true,
+                        "format": "uri",
+                        "example": "http://api.example.org/accounts/?offset=200&limit=100"
+                    },
+                    "results": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/AuditLogEntrySchema"
                         }
                     }
                 }
@@ -39936,6 +41862,10 @@
                     "bill_type": {
                         "$ref": "#/components/schemas/BillTypeEnum"
                     },
+                    "posts_opening_balance_offset": {
+                        "type": "boolean",
+                        "readOnly": true
+                    },
                     "chat_id": {
                         "type": "integer",
                         "maximum": 2147483647,
@@ -39977,6 +41907,11 @@
                     },
                     "voided_journal_entry": {
                         "type": "integer",
+                        "nullable": true
+                    },
+                    "opening_balance_offset_journal_entry": {
+                        "type": "integer",
+                        "readOnly": true,
                         "nullable": true
                     }
                 }
@@ -40199,6 +42134,29 @@
                         "type": "string",
                         "nullable": true,
                         "maxLength": 250
+                    },
+                    "billing_addressee": {
+                        "type": "string",
+                        "nullable": true,
+                        "maxLength": 255
+                    },
+                    "billing_address": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "shipping_addressee": {
+                        "type": "string",
+                        "nullable": true,
+                        "maxLength": 255
+                    },
+                    "shipping_address": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "purchase_order_number": {
+                        "type": "string",
+                        "nullable": true,
+                        "maxLength": 120
                     },
                     "total_amount": {
                         "type": "number",
@@ -40620,6 +42578,14 @@
                         "nullable": true,
                         "readOnly": true
                     },
+                    "entity_quantity_max_decimal_places": {
+                        "type": "integer",
+                        "readOnly": true
+                    },
+                    "entity_rate_max_decimal_places": {
+                        "type": "integer",
+                        "readOnly": true
+                    },
                     "total_amount": {
                         "type": "number",
                         "format": "double",
@@ -40703,7 +42669,8 @@
                     },
                     "tax_rate_name": {
                         "type": "string",
-                        "readOnly": true
+                        "readOnly": true,
+                        "nullable": true
                     },
                     "tax_rate_value": {
                         "type": "number",
@@ -40712,7 +42679,8 @@
                         "minimum": -1000000,
                         "exclusiveMaximum": true,
                         "exclusiveMinimum": true,
-                        "readOnly": true
+                        "readOnly": true,
+                        "nullable": true
                     },
                     "payment_term_name": {
                         "type": "string",
@@ -40949,6 +42917,10 @@
                         "pattern": "^\\d{9}$",
                         "maxLength": 9
                     },
+                    "posts_opening_balance_offset": {
+                        "type": "boolean",
+                        "readOnly": true
+                    },
                     "payment_status": {
                         "nullable": true,
                         "oneOf": [
@@ -41071,8 +43043,8 @@
                     },
                     "stripe_invoice_id": {
                         "type": "string",
-                        "readOnly": true,
-                        "nullable": true
+                        "nullable": true,
+                        "maxLength": 500
                     },
                     "stripe_pdf_url": {
                         "type": "string",
@@ -41148,6 +43120,11 @@
                         "description": "Accounts Receivable account for this invoice. Populated for single-AR and migrated invoices. NULL for multi-AR invoices (aging uses ChartTransactions instead)."
                     },
                     "voided_journal_entry": {
+                        "type": "integer",
+                        "readOnly": true,
+                        "nullable": true
+                    },
+                    "opening_balance_offset_journal_entry": {
                         "type": "integer",
                         "readOnly": true,
                         "nullable": true
@@ -41241,6 +43218,17 @@
                         "type": "string",
                         "readOnly": true
                     },
+                    "is_disconnected": {
+                        "type": "boolean",
+                        "readOnly": true,
+                        "default": false
+                    },
+                    "in_cash_total": {
+                        "type": "boolean",
+                        "readOnly": true,
+                        "default": false
+                    },
+                    "check_field_offsets_mm": {},
                     "account_id": {
                         "type": "string",
                         "format": "uuid",
@@ -41353,6 +43341,9 @@
                         "type": "boolean"
                     },
                     "check_stock_prenumbered": {
+                        "type": "boolean"
+                    },
+                    "check_print_currency_symbol": {
                         "type": "boolean"
                     },
                     "created_at": {
@@ -41925,6 +43916,10 @@
                         "type": "boolean",
                         "description": "Allow manual journal entries to post to this AR/AP account, bypassing subledger validation"
                     },
+                    "include_in_ap_lock": {
+                        "type": "boolean",
+                        "description": "Follow the AP subledger lock: manual entries to this account or its child accounts dated in a locked period are blocked, and synced plain journal entries (not bills, invoices, memos, payments or recurring entries) post on the next open day"
+                    },
                     "external_id": {
                         "type": "string",
                         "readOnly": true,
@@ -42305,6 +44300,16 @@
                         "type": "integer",
                         "nullable": true,
                         "description": "Account credited when a dispute is reinstated (won). Falls back to dispute_expense_account if not set."
+                    },
+                    "disputed_receivable_account": {
+                        "type": "integer",
+                        "nullable": true,
+                        "description": "Asset account holding withdrawn funds while a dispute is pending: debited on the withdrawal, credited when the dispute resolves (won, or written off on loss)."
+                    },
+                    "dispute_fee_account": {
+                        "type": "integer",
+                        "nullable": true,
+                        "description": "Expense account for the Stripe dispute fee, booked when a dispute opens. Non-refundable win or lose, and kept separate from Stripe processing fees. Falls back to the processing-fees account if not set."
                     },
                     "retained_earnings": {
                         "type": "integer",
@@ -43455,7 +45460,7 @@
                         "$ref": "#/components/schemas/ContractStatusEnum"
                     },
                     "source": {
-                        "$ref": "#/components/schemas/SourceFc1Enum"
+                        "$ref": "#/components/schemas/ContractSourceEnum"
                     },
                     "source_deal_data": {
                         "nullable": true
@@ -43596,6 +45601,10 @@
                     "id": {
                         "type": "integer",
                         "readOnly": true
+                    },
+                    "rebalance": {
+                        "type": "boolean",
+                        "writeOnly": true
                     },
                     "is_deleted": {
                         "type": "boolean",
@@ -44368,6 +46377,33 @@
                         "type": "integer",
                         "readOnly": true
                     },
+                    "client": {
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "create_funding_transactions": {
+                        "type": "boolean",
+                        "description": "Create native funding revenue transactions for this commit. Off when another system funds it."
+                    },
+                    "project_usage_revenue": {
+                        "type": "boolean",
+                        "description": "Project native usage revenue for this commit. Off when another system recognizes it."
+                    },
+                    "external_invoice_id": {
+                        "type": "string",
+                        "nullable": true,
+                        "maxLength": 255
+                    },
+                    "external_invoice_line_id": {
+                        "type": "string",
+                        "nullable": true,
+                        "maxLength": 255
+                    },
+                    "invoice_reference_stripe_connection": {
+                        "type": "integer",
+                        "nullable": true,
+                        "description": "Stripe account whose namespace the external invoice references belong to."
+                    },
                     "invoice_basis": {
                         "$ref": "#/components/schemas/InvoiceBasisEnum"
                     },
@@ -44422,6 +46458,30 @@
                         "nullable": true
                     },
                     "product_name": {
+                        "type": "string",
+                        "readOnly": true,
+                        "nullable": true
+                    },
+                    "eligible_usage_products": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    },
+                    "eligible_usage_product_details": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": {}
+                        },
+                        "readOnly": true
+                    },
+                    "eligibility_locked": {
+                        "type": "boolean",
+                        "readOnly": true
+                    },
+                    "eligibility_lock_reason": {
                         "type": "string",
                         "readOnly": true,
                         "nullable": true
@@ -44506,6 +46566,25 @@
                         "type": "string",
                         "format": "uuid",
                         "nullable": true
+                    },
+                    "valuation_pool": {
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "usage_pricing": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/CommitUsagePricing"
+                            }
+                        ],
+                        "writeOnly": true
+                    },
+                    "usage_pricing_terms": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/LifetimePriceEntry"
+                        },
+                        "writeOnly": true
                     },
                     "start_date": {
                         "type": "string",
@@ -45183,7 +47262,8 @@
                             "maximum": 9223372036854775807,
                             "minimum": -9223372036854775808,
                             "format": "int64"
-                        }
+                        },
+                        "readOnly": true
                     },
                     "tag_group_ids": {
                         "type": "array",
@@ -45192,7 +47272,8 @@
                             "maximum": 9223372036854775807,
                             "minimum": -9223372036854775808,
                             "format": "int64"
-                        }
+                        },
+                        "readOnly": true
                     },
                     "created_at": {
                         "type": "string",
@@ -45957,7 +48038,7 @@
                         "nullable": true
                     },
                     "type": {
-                        "$ref": "#/components/schemas/Type4aaEnum"
+                        "$ref": "#/components/schemas/TypeB9aEnum"
                     },
                     "journal_id": {
                         "type": "string",
@@ -46183,6 +48264,13 @@
                         "description": "Documents this journal is posted from; deleting it deletes them too.",
                         "readOnly": true
                     },
+                    "dispute_invoices": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/DisputeInvoiceReference"
+                        },
+                        "readOnly": true
+                    },
                     "csv_upload_run_id": {
                         "type": "integer",
                         "writeOnly": true,
@@ -46208,7 +48296,7 @@
                         "nullable": true
                     },
                     "type": {
-                        "$ref": "#/components/schemas/Type4aaEnum"
+                        "$ref": "#/components/schemas/TypeB9aEnum"
                     },
                     "journal_id": {
                         "type": "string",
@@ -46417,7 +48505,8 @@
                             "maximum": 9223372036854775807,
                             "minimum": -9223372036854775808,
                             "format": "int64"
-                        }
+                        },
+                        "readOnly": true
                     },
                     "tag_group_ids": {
                         "type": "array",
@@ -46426,7 +48515,8 @@
                             "maximum": 9223372036854775807,
                             "minimum": -9223372036854775808,
                             "format": "int64"
-                        }
+                        },
+                        "readOnly": true
                     },
                     "currency": {
                         "type": "string",
@@ -46467,6 +48557,21 @@
                     "recognize_revenue": {
                         "type": "boolean",
                         "description": "If False, contract-sync skips the revenue-recognition waterfall for this product (no ContractSubscription / RevenueTransaction rows)."
+                    },
+                    "default_revenue_recognition_method": {
+                        "nullable": true,
+                        "description": "Recognition method for integrations to use. Unset preserves existing behavior.\n\n* `ratable` - Ratable\n* `as_consumed` - As consumed",
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/ProductRevenueRecognitionMethodEnum"
+                            },
+                            {
+                                "$ref": "#/components/schemas/BlankEnum"
+                            },
+                            {
+                                "$ref": "#/components/schemas/NullEnum"
+                            }
+                        ]
                     },
                     "bundled_usage_revenue_recognition_type": {
                         "allOf": [
@@ -47517,6 +49622,11 @@
                         "type": "integer",
                         "nullable": true
                     },
+                    "bank_transaction": {
+                        "type": "integer",
+                        "readOnly": true,
+                        "nullable": true
+                    },
                     "content_type": {
                         "type": "integer"
                     },
@@ -47727,7 +49837,6 @@
                     },
                     "vendor_type": {
                         "nullable": true,
-                        "default": "vendor",
                         "title": "Payee Type",
                         "oneOf": [
                             {
@@ -48345,6 +50454,254 @@
                     "prepaid_commit"
                 ]
             },
+            "PreviewAllocation": {
+                "type": "object",
+                "properties": {
+                    "revenue_line_id": {
+                        "type": "integer"
+                    },
+                    "amount_before": {
+                        "type": "number",
+                        "format": "double",
+                        "maximum": 1000000000000000000,
+                        "minimum": -1000000000000000000,
+                        "exclusiveMaximum": true,
+                        "exclusiveMinimum": true
+                    },
+                    "allocated_amount": {
+                        "type": "number",
+                        "format": "double",
+                        "maximum": 1000000000000000000,
+                        "minimum": -1000000000000000000,
+                        "exclusiveMaximum": true,
+                        "exclusiveMinimum": true
+                    },
+                    "split": {
+                        "type": "boolean"
+                    },
+                    "outside_period": {
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "allocated_amount",
+                    "amount_before",
+                    "outside_period",
+                    "revenue_line_id",
+                    "split"
+                ]
+            },
+            "PreviewContract": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "deal_name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "deal_id": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "currency": {
+                        "type": "string"
+                    },
+                    "revenue_lines": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/PreviewRevenueLine"
+                        }
+                    }
+                },
+                "required": [
+                    "currency",
+                    "deal_id",
+                    "deal_name",
+                    "id",
+                    "revenue_lines"
+                ]
+            },
+            "PreviewInvoice": {
+                "type": "object",
+                "description": "The invoice the upload will post, plus the row reference the page shows it under.",
+                "properties": {
+                    "reference": {
+                        "type": "string"
+                    },
+                    "invoice_number": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "invoice_date": {
+                        "type": "string",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "period_start": {
+                        "type": "string",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "period_end": {
+                        "type": "string",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "currency": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "entity": {
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "client": {
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "contract": {
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "lines": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/PreviewLine"
+                        }
+                    }
+                },
+                "required": [
+                    "lines",
+                    "reference"
+                ]
+            },
+            "PreviewInvoiceResult": {
+                "type": "object",
+                "properties": {
+                    "reference": {
+                        "type": "string"
+                    },
+                    "invoice_number": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "contract_id": {
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "reason": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "review_flags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "allocations": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/PreviewAllocation"
+                        }
+                    }
+                },
+                "required": [
+                    "allocations",
+                    "contract_id",
+                    "invoice_number",
+                    "reason",
+                    "reference",
+                    "review_flags",
+                    "status"
+                ]
+            },
+            "PreviewLine": {
+                "type": "object",
+                "properties": {
+                    "product": {
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "amount": {
+                        "type": "number",
+                        "format": "double",
+                        "maximum": 1000000000000000000,
+                        "minimum": -1000000000000000000,
+                        "exclusiveMaximum": true,
+                        "exclusiveMinimum": true
+                    },
+                    "discount": {
+                        "type": "number",
+                        "format": "double",
+                        "maximum": 1000000000000000000,
+                        "minimum": -1000000000000000000,
+                        "exclusiveMaximum": true,
+                        "exclusiveMinimum": true,
+                        "nullable": true
+                    },
+                    "service_date": {
+                        "type": "string",
+                        "format": "date",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "amount"
+                ]
+            },
+            "PreviewRevenueLine": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "transaction_date": {
+                        "type": "string",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "transaction_end_date": {
+                        "type": "string",
+                        "format": "date",
+                        "nullable": true
+                    },
+                    "product_name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "amount": {
+                        "type": "number",
+                        "format": "double",
+                        "maximum": 1000000000000000000,
+                        "minimum": -1000000000000000000,
+                        "exclusiveMaximum": true,
+                        "exclusiveMinimum": true
+                    },
+                    "invoice_id": {
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "invoice_number": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "amount",
+                    "id",
+                    "invoice_id",
+                    "invoice_number",
+                    "product_name",
+                    "transaction_date",
+                    "transaction_end_date"
+                ]
+            },
             "PricingModelEnum": {
                 "enum": [
                     "unit_based",
@@ -48463,7 +50820,8 @@
                             "maximum": 9223372036854775807,
                             "minimum": -9223372036854775808,
                             "format": "int64"
-                        }
+                        },
+                        "readOnly": true
                     },
                     "tag_group_ids": {
                         "type": "array",
@@ -48472,7 +50830,8 @@
                             "maximum": 9223372036854775807,
                             "minimum": -9223372036854775808,
                             "format": "int64"
-                        }
+                        },
+                        "readOnly": true
                     },
                     "currency": {
                         "type": "string",
@@ -48513,6 +50872,21 @@
                     "recognize_revenue": {
                         "type": "boolean",
                         "description": "If False, contract-sync skips the revenue-recognition waterfall for this product (no ContractSubscription / RevenueTransaction rows)."
+                    },
+                    "default_revenue_recognition_method": {
+                        "nullable": true,
+                        "description": "Recognition method for integrations to use. Unset preserves existing behavior.\n\n* `ratable` - Ratable\n* `as_consumed` - As consumed",
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/ProductRevenueRecognitionMethodEnum"
+                            },
+                            {
+                                "$ref": "#/components/schemas/BlankEnum"
+                            },
+                            {
+                                "$ref": "#/components/schemas/NullEnum"
+                            }
+                        ]
                     },
                     "bundled_usage_revenue_recognition_type": {
                         "allOf": [
@@ -48616,6 +50990,8 @@
                     "last_modified_at",
                     "product_uuid",
                     "revenue_account_name",
+                    "tag_group_ids",
+                    "tag_ids",
                     "tags",
                     "tax_account_name",
                     "usage_group_count",
@@ -48734,6 +51110,14 @@
                     "product_id_str",
                     "product_name"
                 ]
+            },
+            "ProductRevenueRecognitionMethodEnum": {
+                "enum": [
+                    "ratable",
+                    "as_consumed"
+                ],
+                "type": "string",
+                "description": "* `ratable` - Ratable\n* `as_consumed` - As consumed"
             },
             "ProductSearchResult": {
                 "type": "object",
@@ -49756,6 +52140,16 @@
                 ],
                 "type": "string",
                 "description": "* `FOLLOW_CONTRACT` - Follow Contract\n* `FIXED_END` - Fixed End Date"
+            },
+            "RevenueRecognitionMethodEnum": {
+                "enum": [
+                    "as_consumed",
+                    "period_incurred",
+                    "ratable",
+                    "proportional_to_commit"
+                ],
+                "type": "string",
+                "description": "* `as_consumed` - As consumed\n* `period_incurred` - Period incurred\n* `ratable` - Ratable\n* `proportional_to_commit` - Proportional to commit"
             },
             "RevenueRecognitionTypeEnum": {
                 "enum": [
@@ -50955,14 +53349,16 @@
                         "readOnly": true
                     },
                     "price": {
-                        "type": "number",
-                        "format": "double",
-                        "maximum": 100000000000000,
-                        "minimum": -100000000000000,
-                        "exclusiveMaximum": true,
-                        "exclusiveMinimum": true,
-                        "nullable": true,
-                        "description": "Override price per unit for this contract+tier"
+                        "oneOf": [
+                            {
+                                "type": "number"
+                            },
+                            {
+                                "type": "string",
+                                "format": "decimal"
+                            }
+                        ],
+                        "nullable": true
                     },
                     "percentage": {
                         "type": "number",
@@ -51133,6 +53529,11 @@
                         "type": "integer",
                         "nullable": true
                     },
+                    "bank_transaction": {
+                        "type": "integer",
+                        "readOnly": true,
+                        "nullable": true
+                    },
                     "content_type": {
                         "type": "integer"
                     },
@@ -51148,6 +53549,7 @@
                 },
                 "required": [
                     "app_label",
+                    "bank_transaction",
                     "content_type",
                     "created_at",
                     "customer",
@@ -51502,7 +53904,7 @@
                 "type": "string",
                 "description": "* `balance_post` - Balance Post\n* `source_change` - Source Change\n* `manual` - Manual\n* `catch_up` - Catch Up"
             },
-            "Type4aaEnum": {
+            "TypeB9aEnum": {
                 "enum": [
                     "bill",
                     "bill_payment",
@@ -51540,10 +53942,46 @@
                     "asset_reclassification",
                     "statistical_allocation",
                     "allocation_true_up",
-                    "asset_impairment"
+                    "asset_impairment",
+                    "migration_offset"
                 ],
                 "type": "string",
-                "description": "* `bill` - Bill\n* `bill_payment` - Bill Payment\n* `bill_prepayment` - Bill Prepayment\n* `check` - Check\n* `check_cleared` - Check Cleared\n* `credit_card` - Credit Card\n* `credit_memo` - Credit Memo\n* `credit_memo_payment` - Credit Memo Payment\n* `debit_memo` - Debit Memo\n* `debit_memo_payment` - Debit Memo Payment\n* `deposit` - Deposit\n* `expense` - Expense\n* `invoice` - Invoice\n* `intercompany_journal` - Intercompany Journal\n* `invoice_payment` - Invoice Payment\n* `journal_entry` - Journal Entry\n* `lease` - Lease\n* `payment` - Payment\n* `receive_payment` - Receive Payment\n* `refund` - Refund\n* `revenue_recognition` - Revenue Recognition\n* `sales_receipt` - Sales Receipt\n* `transfer` - Transfer\n* `vendor_credit` - Vendor Credit\n* `void_bill` - Void Bill\n* `void_bill_payment` - Void Bill Payment\n* `void_invoice_payment` - Void Invoice Payment\n* `void_credit_memo` - Void Credit Memo\n* `void_credit_memo_payment` - Void Credit Memo Payment\n* `void_debit_memo_payment` - Void Debit Memo Payment\n* `void_invoice` - Void Invoice\n* `elimination` - Elimination\n* `revaluation` - Revaluation\n* `asset_reclassification` - Asset Reclassification\n* `statistical_allocation` - Statistical Allocation\n* `allocation_true_up` - Allocation True-Up\n* `asset_impairment` - Asset Impairment"
+                "description": "* `bill` - Bill\n* `bill_payment` - Bill Payment\n* `bill_prepayment` - Bill Prepayment\n* `check` - Check\n* `check_cleared` - Check Cleared\n* `credit_card` - Credit Card\n* `credit_memo` - Credit Memo\n* `credit_memo_payment` - Credit Memo Payment\n* `debit_memo` - Debit Memo\n* `debit_memo_payment` - Debit Memo Payment\n* `deposit` - Deposit\n* `expense` - Expense\n* `invoice` - Invoice\n* `intercompany_journal` - Intercompany Journal\n* `invoice_payment` - Invoice Payment\n* `journal_entry` - Journal Entry\n* `lease` - Lease\n* `payment` - Payment\n* `receive_payment` - Receive Payment\n* `refund` - Refund\n* `revenue_recognition` - Revenue Recognition\n* `sales_receipt` - Sales Receipt\n* `transfer` - Transfer\n* `vendor_credit` - Vendor Credit\n* `void_bill` - Void Bill\n* `void_bill_payment` - Void Bill Payment\n* `void_invoice_payment` - Void Invoice Payment\n* `void_credit_memo` - Void Credit Memo\n* `void_credit_memo_payment` - Void Credit Memo Payment\n* `void_debit_memo_payment` - Void Debit Memo Payment\n* `void_invoice` - Void Invoice\n* `elimination` - Elimination\n* `revaluation` - Revaluation\n* `asset_reclassification` - Asset Reclassification\n* `statistical_allocation` - Statistical Allocation\n* `allocation_true_up` - Allocation True-Up\n* `asset_impairment` - Asset Impairment\n* `migration_offset` - Migration Offset"
+            },
+            "UploadRevenuePreview": {
+                "type": "object",
+                "properties": {
+                    "invoices": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/PreviewInvoiceResult"
+                        }
+                    },
+                    "contracts": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/PreviewContract"
+                        }
+                    }
+                },
+                "required": [
+                    "contracts",
+                    "invoices"
+                ]
+            },
+            "UploadRevenuePreviewRequest": {
+                "type": "object",
+                "properties": {
+                    "invoices": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/PreviewInvoice"
+                        }
+                    }
+                },
+                "required": [
+                    "invoices"
+                ]
             },
             "Vendor": {
                 "type": "object",
@@ -51628,7 +54066,6 @@
                     },
                     "vendor_type": {
                         "nullable": true,
-                        "default": "vendor",
                         "title": "Payee Type",
                         "oneOf": [
                             {
@@ -52157,6 +54594,11 @@
                         "nullable": true,
                         "maxLength": 250
                     },
+                    "stripe_customer_id": {
+                        "type": "string",
+                        "nullable": true,
+                        "maxLength": 250
+                    },
                     "total_spend": {
                         "type": "number",
                         "format": "double",
@@ -52368,6 +54810,11 @@
                         "type": "string",
                         "format": "date",
                         "nullable": true
+                    },
+                    "reversal_account_id": {
+                        "type": "integer",
+                        "nullable": true,
+                        "description": "Account to post the reversal to instead of Uncategorized."
                     }
                 }
             },
@@ -52510,6 +54957,87 @@
                     }
                 },
                 "required": [
+                    "id",
+                    "name"
+                ]
+            },
+            "_SubledgerAccount": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "readOnly": true
+                    },
+                    "name_and_number": {
+                        "type": "string",
+                        "readOnly": true
+                    },
+                    "account_type": {
+                        "type": "string",
+                        "readOnly": true
+                    },
+                    "account_subtype": {
+                        "type": "string",
+                        "readOnly": true,
+                        "nullable": true
+                    },
+                    "roles": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "readOnly": true
+                    },
+                    "manual_entry_blocked_reason": {
+                        "type": "string",
+                        "readOnly": true,
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "account_subtype",
+                    "account_type",
+                    "id",
+                    "manual_entry_blocked_reason",
+                    "name_and_number",
+                    "roles"
+                ]
+            },
+            "_SubledgerClient": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "readOnly": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "readOnly": true
+                    }
+                },
+                "required": [
+                    "id",
+                    "name"
+                ]
+            },
+            "_SubledgerEntity": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "readOnly": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "readOnly": true
+                    },
+                    "currency": {
+                        "type": "string",
+                        "readOnly": true
+                    }
+                },
+                "required": [
+                    "currency",
                     "id",
                     "name"
                 ]

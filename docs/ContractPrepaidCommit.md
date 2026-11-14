@@ -7,6 +7,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **number** |  | [readonly] [default to undefined]
 **contract** | **number** |  | [readonly] [default to undefined]
+**client** | **number** |  | [optional] [default to undefined]
+**createFundingTransactions** | **boolean** | Create native funding revenue transactions for this commit. Off when another system funds it. | [optional] [default to undefined]
+**projectUsageRevenue** | **boolean** | Project native usage revenue for this commit. Off when another system recognizes it. | [optional] [default to undefined]
+**externalInvoiceId** | **string** |  | [optional] [default to undefined]
+**externalInvoiceLineId** | **string** |  | [optional] [default to undefined]
+**invoiceReferenceStripeConnection** | **number** | Stripe account whose namespace the external invoice references belong to. | [optional] [default to undefined]
 **invoiceBasis** | [**InvoiceBasisEnum**](InvoiceBasisEnum.md) |  | [optional] [default to undefined]
 **billingCadence** | [**BillingCadence450Enum**](BillingCadence450Enum.md) |  | [optional] [default to undefined]
 **billingTiming** | [**BillingTimingEnum**](BillingTimingEnum.md) |  | [optional] [default to undefined]
@@ -16,6 +22,10 @@ Name | Type | Description | Notes
 **entityName** | **string** |  | [readonly] [default to undefined]
 **product** | **number** |  | [optional] [default to undefined]
 **productName** | **string** |  | [readonly] [default to undefined]
+**eligibleUsageProducts** | **Array&lt;string&gt;** |  | [optional] [default to undefined]
+**eligibleUsageProductDetails** | **Array&lt;{ [key: string]: any; }&gt;** |  | [readonly] [default to undefined]
+**eligibilityLocked** | **boolean** |  | [readonly] [default to undefined]
+**eligibilityLockReason** | **string** |  | [readonly] [default to undefined]
 **name** | **string** |  | [default to undefined]
 **description** | **string** |  | [optional] [default to undefined]
 **currency** | **string** |  | [optional] [default to undefined]
@@ -29,6 +39,9 @@ Name | Type | Description | Notes
 **unit** | **string** |  | [optional] [default to undefined]
 **drawdownBasis** | [**DrawdownBasisEnum**](DrawdownBasisEnum.md) |  | [optional] [default to undefined]
 **contractUsageTerm** | **string** |  | [optional] [default to undefined]
+**valuationPool** | **number** |  | [optional] [default to undefined]
+**usagePricing** | [**CommitUsagePricing**](CommitUsagePricing.md) |  | [optional] [default to undefined]
+**usagePricingTerms** | [**Array&lt;LifetimePriceEntry&gt;**](LifetimePriceEntry.md) |  | [optional] [default to undefined]
 **startDate** | **string** |  | [default to undefined]
 **expirationDate** | **string** |  | [optional] [default to undefined]
 **status** | [**ContractPrepaidCommitStatusEnum**](ContractPrepaidCommitStatusEnum.md) |  | [readonly] [default to undefined]
@@ -53,6 +66,12 @@ import { ContractPrepaidCommit } from 'campfire-typescript-sdk';
 const instance: ContractPrepaidCommit = {
     id,
     contract,
+    client,
+    createFundingTransactions,
+    projectUsageRevenue,
+    externalInvoiceId,
+    externalInvoiceLineId,
+    invoiceReferenceStripeConnection,
     invoiceBasis,
     billingCadence,
     billingTiming,
@@ -62,6 +81,10 @@ const instance: ContractPrepaidCommit = {
     entityName,
     product,
     productName,
+    eligibleUsageProducts,
+    eligibleUsageProductDetails,
+    eligibilityLocked,
+    eligibilityLockReason,
     name,
     description,
     currency,
@@ -75,6 +98,9 @@ const instance: ContractPrepaidCommit = {
     unit,
     drawdownBasis,
     contractUsageTerm,
+    valuationPool,
+    usagePricing,
+    usagePricingTerms,
     startDate,
     expirationDate,
     status,

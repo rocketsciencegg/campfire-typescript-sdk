@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **dealName** | **string** |  | [readonly] [default to undefined]
 **usageGroupId** | **number** |  | [readonly] [default to undefined]
 **usageGroupName** | **string** |  | [readonly] [default to undefined]
-**price** | **number** | Override price per unit for this contract+tier | [optional] [default to undefined]
+**price** | [**TierPriceOverridePrice**](TierPriceOverridePrice.md) |  | [optional] [default to undefined]
 **percentage** | **number** | Override percentage for this contract+tier (percentage-based pricing) | [optional] [default to undefined]
 **source** | [**TierPriceOverrideSourceEnum**](TierPriceOverrideSourceEnum.md) |  | [optional] [default to undefined]
 **integrationName** | **string** |  | [optional] [default to undefined]

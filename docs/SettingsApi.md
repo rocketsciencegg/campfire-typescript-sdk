@@ -18,6 +18,8 @@ All URIs are relative to *https://api.meetcampfire.com*
 |[**caApiUserCurrencyRetrieve**](#caapiusercurrencyretrieve) | **GET** /ca/api/user_currency/{id} | Retrieve Customer Currencies|
 |[**caApiUserCurrencyUpdate**](#caapiusercurrencyupdate) | **PUT** /ca/api/user_currency/{id} | Update Customer Currencies|
 |[**caApiUserCurrencyWithRateRetrieve**](#caapiusercurrencywithrateretrieve) | **GET** /ca/api/user_currency/with_rate | Get Currencies Exchange Rates for Currency|
+|[**caApiV1AuditLogList**](#caapiv1auditloglist) | **GET** /ca/api/v1/audit-log | List audit log entries|
+|[**caApiV1AuditLogRetrieve**](#caapiv1auditlogretrieve) | **GET** /ca/api/v1/audit-log/{id} | Get one audit log entry, with readable payloads|
 |[**coaApiEntityAttachmentCreate**](#coaapientityattachmentcreate) | **POST** /coa/api/entity/{entity_id}/attachment | Upload Entity Invoice Email Attachment|
 |[**coaApiEntityCreate**](#coaapientitycreate) | **POST** /coa/api/entity | Create Chart Entity|
 |[**coaApiEntityDestroy**](#coaapientitydestroy) | **DELETE** /coa/api/entity/{id} | Delete Chart Entity|
@@ -756,6 +758,146 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **caApiV1AuditLogList**
+> PaginatedAuditLogEntrySchemaList caApiV1AuditLogList()
+
+         Retrieve approved audit log entries: each change to a record, with who made it, who approved it,         and the record\'s payload before and after. Entries are ordered newest first by (created_at, id).          **Access:** customer admins, or users with the \"View audit logs\" permission. OAuth apps also need         the `audit_logs:read` scope. Users restricted to some entities see only entries whose every entity         they can access.          **Filtering:**         - `created_at__gte` (inclusive) and `created_at__lt` (exclusive) take an ISO 8601 date, read as           00:00 UTC, or a datetime with a UTC offset. URL-encode the `+` in an offset as `%2B`.         - `model` (as `app_label.model`) returns that object type; with `object_id` it returns that           object\'s entries and the entries of records under it, such as a bill\'s payments.         - Unknown parameters are rejected with a 400.          **Paging:**         - For a complete export, pass an empty cursor (`cursor=`) on the first request and follow the           `next` URL until it is null. Entries written while you page don\'t shift later pages.         - Pass `skip_count=true` when you don\'t need the total; `count` stops at 10,000.          **Notes:**         - The entry\'s `approved_by` is who gave final approval. Inside `approvers`, `approved_by` is the           step\'s approver type and `approved_by_user` is who approved that step; it can be empty for           steps approved before step approvers were recorded.         - Entries recorded when data was first imported can appear later with historical `created_at` dates.         - Payload fields that hold secrets are stored hashed.         
+
+### Example
+
+```typescript
+import {
+    SettingsApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new SettingsApi(configuration);
+
+let actionType: Array<string>; //created, updated or deleted. Repeat or comma-separate. (optional) (default to undefined)
+let approvedBy: number; //User who gave final approval. (optional) (default to undefined)
+let createdAtGte: string; //Start, inclusive. Use an ISO 8601 date or a datetime with a UTC offset, such as 2026-03-10T11:00:00-04:00. (optional) (default to undefined)
+let createdAtLt: string; //End, exclusive. Use an ISO 8601 date or a datetime with a UTC offset, such as 2026-03-10T11:00:00-04:00. (optional) (default to undefined)
+let createdBy: number; //User who made the change. (optional) (default to undefined)
+let cursor: string; //Opts into cursor pagination. Pass an empty value (cursor=) on the first request, then follow the next URL until it is null. Recommended for complete exports: rows written while paging don\'t shift pages, so none are skipped or repeated. (optional) (default to undefined)
+let limit: number; //Page size. Default 100, maximum 10000. (optional) (default to undefined)
+let model: string; //Object type as app_label.model. Open set. (optional) (default to undefined)
+let objectId: number; //Rows for this object, or whose parent is this object. Needs model. (optional) (default to undefined)
+let offset: number; //Number of records to skip. Use with limit to paginate. (optional) (default to undefined)
+let operation: string; //Raw operation, such as add or delete. Open set. (optional) (default to undefined)
+let parentDraftQueue: number; //Rows written as part of this audit entry. (optional) (default to undefined)
+let skipCount: boolean; //When true, skips the total count. Recommended for large exports. (optional) (default to undefined)
+
+const { status, data } = await apiInstance.caApiV1AuditLogList(
+    actionType,
+    approvedBy,
+    createdAtGte,
+    createdAtLt,
+    createdBy,
+    cursor,
+    limit,
+    model,
+    objectId,
+    offset,
+    operation,
+    parentDraftQueue,
+    skipCount
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **actionType** | **Array&lt;string&gt;** | created, updated or deleted. Repeat or comma-separate. | (optional) defaults to undefined|
+| **approvedBy** | [**number**] | User who gave final approval. | (optional) defaults to undefined|
+| **createdAtGte** | [**string**] | Start, inclusive. Use an ISO 8601 date or a datetime with a UTC offset, such as 2026-03-10T11:00:00-04:00. | (optional) defaults to undefined|
+| **createdAtLt** | [**string**] | End, exclusive. Use an ISO 8601 date or a datetime with a UTC offset, such as 2026-03-10T11:00:00-04:00. | (optional) defaults to undefined|
+| **createdBy** | [**number**] | User who made the change. | (optional) defaults to undefined|
+| **cursor** | [**string**] | Opts into cursor pagination. Pass an empty value (cursor&#x3D;) on the first request, then follow the next URL until it is null. Recommended for complete exports: rows written while paging don\&#39;t shift pages, so none are skipped or repeated. | (optional) defaults to undefined|
+| **limit** | [**number**] | Page size. Default 100, maximum 10000. | (optional) defaults to undefined|
+| **model** | [**string**] | Object type as app_label.model. Open set. | (optional) defaults to undefined|
+| **objectId** | [**number**] | Rows for this object, or whose parent is this object. Needs model. | (optional) defaults to undefined|
+| **offset** | [**number**] | Number of records to skip. Use with limit to paginate. | (optional) defaults to undefined|
+| **operation** | [**string**] | Raw operation, such as add or delete. Open set. | (optional) defaults to undefined|
+| **parentDraftQueue** | [**number**] | Rows written as part of this audit entry. | (optional) defaults to undefined|
+| **skipCount** | [**boolean**] | When true, skips the total count. Recommended for large exports. | (optional) defaults to undefined|
+
+
+### Return type
+
+**PaginatedAuditLogEntrySchemaList**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+|**400** | An unknown parameter or an invalid filter value. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **caApiV1AuditLogRetrieve**
+> AuditLogEntrySchema caApiV1AuditLogRetrieve()
+
+         Retrieve one approved audit log entry by id, with its payloads expanded into readable values.         Access is the same as for the list: an entry the list hides is a 404 here.         
+
+### Example
+
+```typescript
+import {
+    SettingsApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new SettingsApi(configuration);
+
+let id: number; // (default to undefined)
+
+const { status, data } = await apiInstance.caApiV1AuditLogRetrieve(
+    id
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+**AuditLogEntrySchema**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+|**404** | No approved entry with this id that you can access. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **coaApiEntityAttachmentCreate**
 > coaApiEntityAttachmentCreate()
 
@@ -912,7 +1054,7 @@ No authorization required
 # **coaApiEntityForIntercompanyList**
 > Array<ChartEntityMinimal> coaApiEntityForIntercompanyList()
 
-Returns ALL entities for intercompany journal entry creation.  This endpoint bypasses entity-scoped filtering because users need to select entities they don\'t normally have access to when creating intercompany journal entries (per the entity-scoped-user-access spec).  Uses minimal serializer to only expose id, name, and currency - preventing data leakage of sensitive entity details to users who may not have full access to all entities.
+Returns every operating entity for intercompany journal entry creation. Adjusting entities are left out: they are never an intercompany leg or counterparty.  This endpoint bypasses entity-scoped filtering because users need to select entities they don\'t normally have access to when creating intercompany journal entries (per the entity-scoped-user-access spec).  Uses minimal serializer to only expose id, name, and currency - preventing data leakage of sensitive entity details to users who may not have full access to all entities.
 
 ### Example
 

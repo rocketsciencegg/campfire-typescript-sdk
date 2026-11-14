@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **amount** | **number** |  | [default to undefined]
 **paymentDate** | **string** | Payment date for term discount calculation | [default to undefined]
 **withholdingAmount** | **number** |  | [optional] [default to undefined]
+**accountId** | **number** | Clearing account to validate | [optional] [default to undefined]
 
 ## Example
 
@@ -18,6 +19,7 @@ const instance: EmptyTransactionInput = {
     amount,
     paymentDate,
     withholdingAmount,
+    accountId,
 };
 ```
 

@@ -47,6 +47,11 @@ Name | Type | Description | Notes
 **integrationId** | **string** |  | [optional] [default to undefined]
 **integrationContext** | **any** |  | [optional] [default to undefined]
 **vatNumber** | **string** |  | [optional] [default to undefined]
+**billingAddressee** | **string** |  | [optional] [default to undefined]
+**billingAddress** | **string** |  | [optional] [default to undefined]
+**shippingAddressee** | **string** |  | [optional] [default to undefined]
+**shippingAddress** | **string** |  | [optional] [default to undefined]
+**purchaseOrderNumber** | **string** |  | [optional] [default to undefined]
 **totalAmount** | **number** | Sum of all line item amounts | [optional] [default to undefined]
 **amountUsed** | **number** | Sum of all non-voided payment amounts | [optional] [default to undefined]
 **chatId** | **number** |  | [optional] [default to undefined]
@@ -109,6 +114,11 @@ const instance: PatchedAccountingCreditMemo = {
     integrationId,
     integrationContext,
     vatNumber,
+    billingAddressee,
+    billingAddress,
+    shippingAddressee,
+    shippingAddress,
+    purchaseOrderNumber,
     totalAmount,
     amountUsed,
     chatId,

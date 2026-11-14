@@ -5,6 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**eligibleUsageProducts** | **Array&lt;string&gt;** |  | [optional] [default to undefined]
+**usagePricing** | [**CommitUsagePricing**](CommitUsagePricing.md) |  | [optional] [default to undefined]
+**usagePricingTerms** | [**Array&lt;LifetimePriceEntry&gt;**](LifetimePriceEntry.md) |  | [optional] [default to undefined]
+**contractUsageTerm** | **string** |  | [optional] [default to undefined]
+**drawdownBasis** | [**DrawdownBasisEnum**](DrawdownBasisEnum.md) |  | [optional] [default to undefined]
 **entity** | **number** |  | [optional] [default to undefined]
 **product** | **number** |  | [optional] [default to undefined]
 **invoiceBasis** | [**InvoiceBasisEnum**](InvoiceBasisEnum.md) |  | [optional] [default to undefined]
@@ -38,6 +43,11 @@ Name | Type | Description | Notes
 import { NestedContractPrepaidCommit } from 'campfire-typescript-sdk';
 
 const instance: NestedContractPrepaidCommit = {
+    eligibleUsageProducts,
+    usagePricing,
+    usagePricingTerms,
+    contractUsageTerm,
+    drawdownBasis,
     entity,
     product,
     invoiceBasis,

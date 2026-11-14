@@ -13,7 +13,8 @@ All URIs are relative to *https://api.meetcampfire.com*
 |[**coaApiAccountBalanceSheetCreate**](#coaapiaccountbalancesheetcreate) | **POST** /coa/api/account/balance-sheet | Create Chart Account|
 |[**coaApiAccountBalanceSheetList**](#coaapiaccountbalancesheetlist) | **GET** /coa/api/account/balance-sheet | List Chart Accounts|
 |[**coaApiAccountCreate**](#coaapiaccountcreate) | **POST** /coa/api/account | Create Chart Account|
-|[**coaApiAccountDestroy**](#coaapiaccountdestroy) | **DELETE** /coa/api/account/{id} | Delete Chart Account|
+|[**coaApiAccountDeleteCreate**](#coaapiaccountdeletecreate) | **POST** /coa/api/account/{id}/delete | Delete Chart Account|
+|[**coaApiAccountDestroy**](#coaapiaccountdestroy) | **DELETE** /coa/api/account/{id} | Delete Chart Account (deprecated)|
 |[**coaApiAccountIncomeStatementCreate**](#coaapiaccountincomestatementcreate) | **POST** /coa/api/account/income-statement | Create Chart Account|
 |[**coaApiAccountIncomeStatementList**](#coaapiaccountincomestatementlist) | **GET** /coa/api/account/income-statement | List Chart of Accounts|
 |[**coaApiAccountList**](#coaapiaccountlist) | **GET** /coa/api/account | List Chart of Accounts|
@@ -57,6 +58,7 @@ All URIs are relative to *https://api.meetcampfire.com*
 |[**coaApiTagPartialUpdate**](#coaapitagpartialupdate) | **PATCH** /coa/api/tag/{id} | Partial Update Custom Dimension|
 |[**coaApiTagRetrieve**](#coaapitagretrieve) | **GET** /coa/api/tag/{id} | Retrieve Custom Dimension|
 |[**coaApiTagUpdate**](#coaapitagupdate) | **PUT** /coa/api/tag/{id} | Update Custom Dimension|
+|[**coaApiTransactionAllocationRetrieve**](#coaapitransactionallocationretrieve) | **GET** /coa/api/transaction/{id}/allocation | Explain Transaction Allocation|
 |[**coaApiVendorContactTitleCreate**](#coaapivendorcontacttitlecreate) | **POST** /coa/api/vendor-contact-title | Create Vendor Contact Title|
 |[**coaApiVendorContactTitleDestroy**](#coaapivendorcontacttitledestroy) | **DELETE** /coa/api/vendor-contact-title/{id} | Delete Vendor Contact Title|
 |[**coaApiVendorContactTitleList**](#coaapivendorcontacttitlelist) | **GET** /coa/api/vendor-contact-title | List Vendor Contact Titles|
@@ -64,7 +66,8 @@ All URIs are relative to *https://api.meetcampfire.com*
 |[**coaApiVendorContactTitleRetrieve**](#coaapivendorcontacttitleretrieve) | **GET** /coa/api/vendor-contact-title/{id} | Retrieve Vendor Contact Title|
 |[**coaApiVendorContactTitleUpdate**](#coaapivendorcontacttitleupdate) | **PUT** /coa/api/vendor-contact-title/{id} | Update Vendor Contact Title|
 |[**coaApiVendorCreate**](#coaapivendorcreate) | **POST** /coa/api/vendor | Create Vendor|
-|[**coaApiVendorDestroy**](#coaapivendordestroy) | **DELETE** /coa/api/vendor/{id} | Delete Vendor|
+|[**coaApiVendorDeleteCreate**](#coaapivendordeletecreate) | **POST** /coa/api/vendor/{id}/delete | Delete Vendor|
+|[**coaApiVendorDestroy**](#coaapivendordestroy) | **DELETE** /coa/api/vendor/{id} | Delete Vendor (deprecated)|
 |[**coaApiVendorList**](#coaapivendorlist) | **GET** /coa/api/vendor | List Vendors|
 |[**coaApiVendorPartialUpdate**](#coaapivendorpartialupdate) | **PATCH** /coa/api/vendor/{id} | Partial Update Vendor|
 |[**coaApiVendorRetrieve**](#coaapivendorretrieve) | **GET** /coa/api/vendor/{id} | Retrieve Vendor|
@@ -585,9 +588,69 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **coaApiAccountDeleteCreate**
+> coaApiAccountDeleteCreate()
+
+Delete the record. The body can carry a reason, which is saved to the audit log.
+
+### Example
+
+```typescript
+import {
+    CompanyObjectsApi,
+    Configuration,
+    DeleteRequest
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new CompanyObjectsApi(configuration);
+
+let id: number; // (default to undefined)
+let newAccount: number; //ID of the account to move the deleted account\'s transactions to before deletion (optional) (default to undefined)
+let deleteRequest: DeleteRequest; // (optional)
+
+const { status, data } = await apiInstance.coaApiAccountDeleteCreate(
+    id,
+    newAccount,
+    deleteRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **deleteRequest** | **DeleteRequest**|  | |
+| **id** | [**number**] |  | defaults to undefined|
+| **newAccount** | [**number**] | ID of the account to move the deleted account\&#39;s transactions to before deletion | (optional) defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**204** | Deleted. |  -  |
+|**202** | Sent for approval; the record is deleted once a reviewer approves. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **coaApiAccountDestroy**
 > coaApiAccountDestroy()
 
+Deprecated: use `POST /coa/api/account/{id}/delete`, which also takes an optional reason for the audit log.
 
 ### Example
 
@@ -601,9 +664,11 @@ const configuration = new Configuration();
 const apiInstance = new CompanyObjectsApi(configuration);
 
 let id: number; // (default to undefined)
+let newAccount: number; //ID of the account to move the deleted account\'s transactions to before deletion (optional) (default to undefined)
 
 const { status, data } = await apiInstance.coaApiAccountDestroy(
-    id
+    id,
+    newAccount
 );
 ```
 
@@ -612,6 +677,7 @@ const { status, data } = await apiInstance.coaApiAccountDestroy(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **id** | [**number**] |  | defaults to undefined|
+| **newAccount** | [**number**] | ID of the account to move the deleted account\&#39;s transactions to before deletion | (optional) defaults to undefined|
 
 
 ### Return type
@@ -1716,8 +1782,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**204** | Deleted. |  -  |
-|**202** | Sent for approval; the record is deleted once a reviewer approves. |  -  |
+|**204** | No response body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2435,8 +2500,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**204** | Deleted. |  -  |
-|**202** | Sent for approval; the record is deleted once a reviewer approves. |  -  |
+|**204** | No response body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3008,6 +3072,57 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **coaApiTransactionAllocationRetrieve**
+> { [key: string]: any; } coaApiTransactionAllocationRetrieve()
+
+How a dynamic allocation split one ledger line. Writes nothing.
+
+### Example
+
+```typescript
+import {
+    CompanyObjectsApi,
+    Configuration
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new CompanyObjectsApi(configuration);
+
+let id: number; // (default to undefined)
+
+const { status, data } = await apiInstance.coaApiTransactionAllocationRetrieve(
+    id
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+**{ [key: string]: any; }**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **coaApiVendorContactTitleCreate**
 > VendorContactTitle coaApiVendorContactTitleCreate(vendorContactTitle)
 
@@ -3386,10 +3501,69 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **coaApiVendorDeleteCreate**
+> coaApiVendorDeleteCreate()
+
+Delete a vendor and optionally reassign all related records to another vendor. Returns 202 Accepted as deletion is processed asynchronously.
+
+### Example
+
+```typescript
+import {
+    CompanyObjectsApi,
+    Configuration,
+    DeleteRequest
+} from 'campfire-typescript-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new CompanyObjectsApi(configuration);
+
+let id: number; // (default to undefined)
+let newVendor: string; //Identifier of the vendor to reassign all related records to before deletion. Accepts a Campfire ID (e.g. VEN-0000001) or the legacy internal integer id. (optional) (default to undefined)
+let deleteRequest: DeleteRequest; // (optional)
+
+const { status, data } = await apiInstance.coaApiVendorDeleteCreate(
+    id,
+    newVendor,
+    deleteRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **deleteRequest** | **DeleteRequest**|  | |
+| **id** | [**number**] |  | defaults to undefined|
+| **newVendor** | [**string**] | Identifier of the vendor to reassign all related records to before deletion. Accepts a Campfire ID (e.g. VEN-0000001) or the legacy internal integer id. | (optional) defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**202** | Deletion queued; the vendor is deleted in the background. |  -  |
+|**409** | Records that cannot be deleted or reassigned still reference the vendor. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **coaApiVendorDestroy**
 > coaApiVendorDestroy()
 
-Delete a vendor and optionally reassign all related records to another vendor. Returns 202 Accepted as deletion is processed asynchronously.
+Deprecated: use `POST /coa/api/vendor/{id}/delete`, which also takes an optional reason for the audit log.  Delete a vendor and optionally reassign all related records to another vendor. Returns 202 Accepted as deletion is processed asynchronously.
 
 ### Example
 
@@ -3430,13 +3604,14 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**204** | No response body |  -  |
+|**202** | Deletion queued; the vendor is deleted in the background. |  -  |
+|**409** | Records that cannot be deleted or reassigned still reference the vendor. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

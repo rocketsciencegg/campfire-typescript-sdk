@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **includeInRevaluations** | **boolean** |  | [optional] [default to undefined]
 **_protected** | **boolean** |  | [optional] [default to undefined]
 **skipSubledgerValidation** | **boolean** | Allow manual journal entries to post to this AR/AP account, bypassing subledger validation | [optional] [default to undefined]
+**includeInApLock** | **boolean** | Follow the AP subledger lock: manual entries to this account or its child accounts dated in a locked period are blocked, and synced plain journal entries (not bills, invoices, memos, payments or recurring entries) post on the next open day | [optional] [default to undefined]
 **externalId** | **string** |  | [readonly] [default to undefined]
 **source** | **string** |  | [readonly] [default to undefined]
 **createdAt** | **string** |  | [readonly] [default to undefined]
@@ -75,6 +76,7 @@ const instance: ChartAccount = {
     includeInRevaluations,
     _protected,
     skipSubledgerValidation,
+    includeInApLock,
     externalId,
     source,
     createdAt,

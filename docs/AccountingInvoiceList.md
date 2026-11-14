@@ -68,6 +68,7 @@ Name | Type | Description | Notes
 **locationOfSale** | **string** |  | [optional] [default to undefined]
 **messageOnInvoice** | **string** |  | [optional] [default to undefined]
 **itaAllocationNumber** | **string** |  | [optional] [default to undefined]
+**postsOpeningBalanceOffset** | **boolean** |  | [optional] [default to undefined]
 **paymentStatus** | [**PaymentStatusCdcEnum**](PaymentStatusCdcEnum.md) |  | [optional] [default to undefined]
 **anrokTransactionId** | **string** | ID of the transaction in Anrok (set when transaction is created) | [readonly] [default to undefined]
 **excludeFromTaxConnection** | **boolean** | When true, no tax is calculated through, and no transaction is created in, the entity\&#39;s tax connection for this invoice. Set at creation; cannot be changed. | [optional] [default to undefined]
@@ -106,6 +107,7 @@ Name | Type | Description | Notes
 **journalEntry** | **number** |  | [optional] [default to undefined]
 **arAccount** | **number** | Accounts Receivable account for this invoice. Populated for single-AR and migrated invoices. NULL for multi-AR invoices (aging uses ChartTransactions instead). | [optional] [default to undefined]
 **voidedJournalEntry** | **number** |  | [optional] [default to undefined]
+**openingBalanceOffsetJournalEntry** | **number** |  | [optional] [default to undefined]
 **entityTransferJournalEntry** | **number** |  | [optional] [default to undefined]
 **contract** | **number** |  | [optional] [default to undefined]
 **avalaraConnection** | **number** |  | [optional] [default to undefined]
@@ -183,6 +185,7 @@ const instance: AccountingInvoiceList = {
     locationOfSale,
     messageOnInvoice,
     itaAllocationNumber,
+    postsOpeningBalanceOffset,
     paymentStatus,
     anrokTransactionId,
     excludeFromTaxConnection,
@@ -221,6 +224,7 @@ const instance: AccountingInvoiceList = {
     journalEntry,
     arAccount,
     voidedJournalEntry,
+    openingBalanceOffsetJournalEntry,
     entityTransferJournalEntry,
     contract,
     avalaraConnection,

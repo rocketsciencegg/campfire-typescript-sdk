@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **number** |  | [optional] [readonly] [default to undefined]
+**rebalance** | **boolean** |  | [optional] [default to undefined]
 **isDeleted** | **boolean** |  | [optional] [readonly] [default to false]
 **deletedAt** | **string** |  | [optional] [readonly] [default to undefined]
 **endDate** | **string** | Bundle end date. Required for standard contracts. For evergreen contracts this may be null to follow the contract timeline, or set to a billing-period end date. | [optional] [default to undefined]
@@ -30,6 +31,7 @@ import { PatchedContractBundle } from 'campfire-typescript-sdk';
 
 const instance: PatchedContractBundle = {
     id,
+    rebalance,
     isDeleted,
     deletedAt,
     endDate,

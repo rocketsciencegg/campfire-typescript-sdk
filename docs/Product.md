@@ -24,8 +24,8 @@ Name | Type | Description | Notes
 **productId** | **string** |  | [optional] [default to undefined]
 **productName** | **string** |  | [optional] [default to undefined]
 **productDescription** | **string** |  | [optional] [default to undefined]
-**tagIds** | **Array&lt;number&gt;** |  | [optional] [default to undefined]
-**tagGroupIds** | **Array&lt;number&gt;** |  | [optional] [default to undefined]
+**tagIds** | **Array&lt;number&gt;** |  | [readonly] [default to undefined]
+**tagGroupIds** | **Array&lt;number&gt;** |  | [readonly] [default to undefined]
 **currency** | **string** |  | [optional] [default to undefined]
 **price** | **number** |  | [optional] [default to undefined]
 **usagePriceUnit** | **string** |  | [optional] [default to undefined]
@@ -34,6 +34,7 @@ Name | Type | Description | Notes
 **isTaxable** | **boolean** |  | [optional] [default to undefined]
 **isRenewable** | **boolean** |  | [optional] [default to undefined]
 **recognizeRevenue** | **boolean** | If False, contract-sync skips the revenue-recognition waterfall for this product (no ContractSubscription / RevenueTransaction rows). | [optional] [default to undefined]
+**defaultRevenueRecognitionMethod** | [**ProductRevenueRecognitionMethodEnum**](ProductRevenueRecognitionMethodEnum.md) | Recognition method for integrations to use. Unset preserves existing behavior.  * &#x60;ratable&#x60; - Ratable * &#x60;as_consumed&#x60; - As consumed | [optional] [default to undefined]
 **bundledUsageRevenueRecognitionType** | [**BundledUsageRevenueRecognitionTypeEnum**](BundledUsageRevenueRecognitionTypeEnum.md) | Default subscription revenue recognition when this customer-scoped product is created on a contract with a prepaid usage commitment.  * &#x60;RATABLE&#x60; - Ratable * &#x60;RELATIVE_TO_PREPAID_COMMIT&#x60; - Relative to prepaid commit | [optional] [default to undefined]
 **isImmediateRecognition** | **boolean** | When true, revenue for this product is recognized in full on the invoice finalization date instead of being amortized over the service period.  Used by the Stripe accrual JE waterfall. | [optional] [default to undefined]
 **createdAt** | **string** |  | [readonly] [default to undefined]
@@ -88,6 +89,7 @@ const instance: Product = {
     isTaxable,
     isRenewable,
     recognizeRevenue,
+    defaultRevenueRecognitionMethod,
     bundledUsageRevenueRecognitionType,
     isImmediateRecognition,
     createdAt,

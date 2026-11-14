@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **statementTransactionId** | **number** |  | [optional] [default to undefined]
 **isDeleted** | **boolean** |  | [readonly] [default to false]
 **deletedAt** | **string** |  | [readonly] [default to undefined]
-**type** | [**Type4aaEnum**](Type4aaEnum.md) |  | [optional] [default to undefined]
+**type** | [**TypeB9aEnum**](TypeB9aEnum.md) |  | [optional] [default to undefined]
 **journalId** | **string** |  | [optional] [default to undefined]
 **memo** | **string** |  | [optional] [default to undefined]
 **currency** | **string** |  | [optional] [default to undefined]

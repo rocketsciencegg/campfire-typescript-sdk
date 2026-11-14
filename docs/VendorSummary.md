@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **campfireId** | **string** |  | [readonly] [default to undefined]
 **name** | **string** |  | [optional] [default to undefined]
 **dba** | **string** |  | [optional] [default to undefined]
+**stripeCustomerId** | **string** |  | [optional] [default to undefined]
 **totalSpend** | **number** |  | [optional] [default to 0.0]
 **totalBillSpend** | **number** |  | [optional] [default to 0.0]
 **totalCardSpend** | **number** |  | [optional] [default to 0.0]
@@ -36,6 +37,7 @@ const instance: VendorSummary = {
     campfireId,
     name,
     dba,
+    stripeCustomerId,
     totalSpend,
     totalBillSpend,
     totalCardSpend,

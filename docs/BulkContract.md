@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **dealName** | **string** |  | [optional] [default to undefined]
+**contractRef** | **string** |  | [optional] [default to undefined]
 
 ## Example
 
@@ -14,6 +15,7 @@ import { BulkContract } from 'campfire-typescript-sdk';
 
 const instance: BulkContract = {
     dealName,
+    contractRef,
 };
 ```
 
