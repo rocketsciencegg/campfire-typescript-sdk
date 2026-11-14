@@ -1,2 +1,8 @@
 # Versions published less than 7 days ago (10080 minutes) are ignored.
 minimumReleaseAge: 10080
+
+# axios 1.21.0 allows follow-redirects ^1.16.0, so a fresh resolve can stay on
+# vulnerable 1.16.1 (GHSA-mrwp-f3q8-3g9p). 1.16.2 is the first patched release
+# and is older than the release-age window. 1.16.3 is not.
+overrides:
+  "follow-redirects@^1.16.0": "1.16.2"
