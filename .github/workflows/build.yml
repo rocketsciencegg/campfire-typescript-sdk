@@ -16,9 +16,16 @@ cache-mode: read
 
 jobs:
   build:
+    # pull_request, including forks of this public repo. contents: read only.
+    # Do not reference secrets in this job: the logs are public.
+    permissions:
+      contents: read
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # No git push in this job. Don't leave the token in the git credential store.
+          persist-credentials: false
       - uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 # v6.1.1
         with:
           version: 12.20.0
@@ -62,6 +69,8 @@ jobs:
     cache-mode: write
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
       - uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 # v6.1.1
         with:
           version: 12.20.0
