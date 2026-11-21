@@ -5,19 +5,45 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: read
+
+# Restores caches and cannot save them. `install` overrides this with `write`
+# and runs only on a push to main, so a pull request cannot replace the
+# default-branch pnpm store.
+# https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#cache-mode
+cache-mode: read
+
 jobs:
   build:
+    # pull_request, including forks of this public repo. contents: read only.
+    # Do not reference secrets in this job: the logs are public.
+    permissions:
+      contents: read
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # No git push in this job. Don't leave the token in the git credential store.
+          persist-credentials: false
       - uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 # v6.1.1
         with:
           version: 12.20.0
-          cache: true
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version-file: .node-version
-          cache: 'pnpm'
+          # Auto-cache only turns on for npm today. Keep it off so this job's
+          # only cache is the exact pnpm-store key below.
+          package-manager-cache: false
+      - name: pnpm store path
+        id: pnpm-store
+        run: echo "path=$(pnpm store path --silent)" >> "$GITHUB_OUTPUT"
+      # Exact key, pnpm store only, no restore-keys. This action does not save.
+      # `install` writes the same key.
+      - uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ${{ steps.pnpm-store.outputs.path }}
+          key: pnpm-store-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('pnpm-lock.yaml') }}
       - run: pnpm install --frozen-lockfile
       - run: pnpm exec tsc
 
@@ -34,3 +60,31 @@ jobs:
       # header without any build failing. This fails the build when any request goes out unauthenticated.
       - name: every request sends the Authorization header
         run: node scripts/check-auth.mjs
+
+  # Writes the pnpm store. Push to main only; the build job stays read-only even
+  # on that push, so a later step there cannot replace the entry.
+  install:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    cache-mode: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 # v6.1.1
+        with:
+          version: 12.20.0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .node-version
+          package-manager-cache: false
+      - name: pnpm store path
+        id: pnpm-store
+        run: echo "path=$(pnpm store path --silent)" >> "$GITHUB_OUTPUT"
+      # Same key as the build job. Saves on an exact-key miss only, and only
+      # when install succeeds (actions/cache post-if is success()). No restore-keys.
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ${{ steps.pnpm-store.outputs.path }}
+          key: pnpm-store-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('pnpm-lock.yaml') }}
+      - run: pnpm install --frozen-lockfile --ignore-scripts
