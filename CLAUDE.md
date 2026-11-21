@@ -15,7 +15,7 @@ just refresh           # Download Campfire's spec, apply scripts/fix_spec.py, wr
 just build             # Full regeneration: generate SDK from campfire.json OpenAPI spec + compile
 just lint-spec         # Speakeasy lint of campfire.json
 just compile           # Compile TypeScript only (no regeneration)
-just install           # Install system dependencies (openjdk via Homebrew)
+just install-jdk       # Install OpenJDK via Homebrew (macOS). Not `install`: app repos use that name for pnpm install.
 just clean             # Remove dist/ directory
 ```
 

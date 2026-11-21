@@ -5,11 +5,13 @@ upstream_file := "campfire.upstream.json"
 spec_url := "https://api.meetcampfire.com/api/schema/?format=json"
 
 # Show available commands
+[group('ops')]
 help:
     @just --list
 
-# Install system dependencies (macOS)
-install:
+# Install OpenJDK via Homebrew (macOS)
+[group('ops')]
+install-jdk:
     brew install openjdk
 
 # Remove build output
@@ -21,18 +23,22 @@ fetch-spec:
     curl -fsSL -o {{ upstream_file }} "{{ spec_url }}"
 
 # Apply our fixes (scripts/fix_spec.py) to the upstream spec, writing campfire.json
+[private]
 fix-spec:
     python3 scripts/fix_spec.py {{ upstream_file }} {{ spec_file }}
 
 # Write campfire.patch: every change we make to Campfire's spec, as a patch they can apply
+[private]
 spec-diff:
     diff -u --label campfire.upstream.json --label campfire.json {{ upstream_file }} {{ spec_file }} > campfire.patch || [ $? -eq 1 ]
 
 # Lint campfire.json with Speakeasy (brew install speakeasy-api/homebrew-tap/speakeasy)
+[group('spec')]
 lint-spec:
     speakeasy lint openapi --non-interactive --max-validation-warnings 0 --max-validation-errors 0 -s {{ spec_file }}
 
 # Build the feedback zip we send Campfire (default: ~/Desktop)
+[group('spec')]
 feedback-package out_dir="":
     scripts/feedback_package.sh {{ out_dir }}
 
@@ -44,6 +50,7 @@ check-auth:
     node scripts/check-auth.mjs
 
 # Live, read-only, before a release: needs CAMPFIRE_API_KEY (the bare key).
+[group('ops')]
 smoke-live:
     node scripts/smoke-live.mjs
 

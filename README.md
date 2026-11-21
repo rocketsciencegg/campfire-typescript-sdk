@@ -76,7 +76,7 @@ pnpm run build
 Generated from `campfire.json` using [OpenAPI Generator](https://openapi-generator.tech/) v7.19.0 (`typescript-axios`).
 
 ```bash
-just install     # System deps (Java)
+just install-jdk # OpenJDK via Homebrew (macOS). Not `install`: app repos use that name for pnpm install.
 just refresh     # Download Campfire's spec, apply our fixes, regenerate + compile
 just build       # Regenerate + compile from campfire.json
 just lint-spec   # Lint campfire.json with Speakeasy
