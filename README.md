@@ -64,7 +64,7 @@ See the [generated docs](docs/) for all available methods and models, or the [Ca
 
 ## Contributing
 
-This repo uses pnpm 12.20.0 (`packageManager`). Install dependencies from the lockfile, then compile:
+This repo uses pnpm 12.22.0 (`packageManager`). Install dependencies from the lockfile, then compile:
 
 ```bash
 pnpm install --frozen-lockfile
